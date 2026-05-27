@@ -1,3 +1,4 @@
+import SmartImage from "@/components/shared/SmartImage";
 import Link from "next/link";
 import type { Project } from "@/data/projects";
 
@@ -8,13 +9,12 @@ type ProjectCardProps = {
 const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
     <article className="group overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-      <div className="relative h-56 overflow-hidden">
-        <img
-          src={String(project.image)}
+      <div className="relative h-56 w-full overflow-hidden">
+        <SmartImage
+          src={project.image}
           alt={project.imageAlt}
-          loading="lazy"
-          decoding="async"
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="h-full w-full"
+          imageClassName="transition-transform duration-500 group-hover:scale-105"
         />
 
         <span className="absolute left-4 top-4 rounded-full bg-white px-4 py-1 text-sm font-semibold text-slate-900 shadow">
@@ -57,7 +57,3 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 };
 
 export default ProjectCard;
-
-
-
-

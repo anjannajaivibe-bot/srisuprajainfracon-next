@@ -1,3 +1,4 @@
+import SmartImage from "@/components/shared/SmartImage";
 import type { Project } from "@/data/projects";
 
 type Props = {
@@ -45,13 +46,10 @@ const ProjectHero = ({ project }: Props) => {
           <div className="absolute inset-0 scale-95 rounded-[44px] bg-gradient-to-br from-amber-300/35 via-white to-blue-300/35 blur-3xl" />
 
           <div className="relative rotate-[-2.5deg] transform-gpu transition duration-700 hover:rotate-0 hover:scale-[1.02]">
-            <img
-              src={String(project.image)}
+            <SmartImage
+              src={project.image}
               alt={project.imageAlt}
               className="h-[360px] w-full rounded-[34px] object-cover shadow-[0_35px_90px_rgba(15,23,42,0.30)] md:h-[500px]"
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
             />
 
             <div className="absolute left-5 top-5 rounded-2xl bg-white/90 px-5 py-3 shadow-xl backdrop-blur-md">
@@ -79,6 +77,3 @@ const ProjectHero = ({ project }: Props) => {
 };
 
 export default ProjectHero;
-
-
-

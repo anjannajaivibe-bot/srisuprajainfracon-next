@@ -93,15 +93,12 @@ const ProjectOverview = ({ project }: Props) => {
               </div>
             </div>
 
-            {/* Desktop PDF Embed */}
             <iframe
               src={`${brochureUrl}#toolbar=0&navpanes=0&scrollbar=1`}
               title={`${project.title} Brochure`}
               className="hidden h-[900px] w-full md:block"
-              loading="lazy"
             />
 
-            {/* Mobile PDF Fallback */}
             <div className="block bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 px-6 py-10 text-white md:hidden">
               <div className="mx-auto max-w-md rounded-[28px] border border-white/10 bg-white/10 p-6 text-center shadow-2xl backdrop-blur">
                 <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-amber-300">
@@ -113,9 +110,8 @@ const ProjectOverview = ({ project }: Props) => {
                 </h4>
 
                 <p className="mb-6 text-sm leading-relaxed text-slate-200">
-                  Mobile browsers may not display embedded PDFs correctly.
-                  Open the brochure in a new tab for the best reading
-                  experience.
+                  Mobile browsers may not display embedded PDFs correctly. Open
+                  the brochure in a new tab for the best reading experience.
                 </p>
 
                 <div className="flex flex-col gap-3">
@@ -157,5 +153,3 @@ const ProjectOverview = ({ project }: Props) => {
 };
 
 export default ProjectOverview;
-
-

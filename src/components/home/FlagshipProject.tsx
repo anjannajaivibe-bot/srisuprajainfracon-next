@@ -1,6 +1,5 @@
 "use client";
-
-
+import SmartImage from "@/components/shared/SmartImage";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import projectIris from "@/assets/project-iris.webp";
@@ -93,13 +92,12 @@ const FlagshipProject = () => {
           transition={{ duration: 0.6, delay: 0.15 }}
           className="relative mb-12 overflow-hidden rounded-3xl shadow-2xl"
         >
-          <img
-            src={typeof projectIris === "string" ? projectIris : projectIris.src}
-            alt="Supraja IRIS Resort Plots near Woxsen University and NH-65 growth corridor"
-            className="h-72 w-full object-cover sm:h-[430px]"
-            loading="lazy"
-            decoding="async"
-          />
+          <SmartImage
+  src={projectIris}
+  alt="Supraja IRIS Resort Plots at Kamkole near Woxsen University with Lemon Tree Resort construction"
+  className="h-[360px] w-full rounded-[32px] shadow-2xl md:h-[500px]"
+  priority
+/>
           <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/20 to-transparent" />
 
           <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">

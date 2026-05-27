@@ -1,6 +1,8 @@
 "use client";
 
+import SmartImage from "@/components/shared/SmartImage";
 import { motion } from "framer-motion";
+
 import Link from "next/link";
 import {
   Award,
@@ -133,13 +135,11 @@ const About = () => {
         <div className="mx-auto max-w-6xl">
           <div className="mb-14 rounded-[32px] bg-white p-6 text-slate-950 shadow-2xl md:p-8">
             <div className="grid gap-8 md:grid-cols-[0.8fr_1.2fr] md:items-center">
-              <img
-                src={typeof ownerPhoto === "string" ? ownerPhoto : ownerPhoto.src}
-                alt="Mr Tudi Praveen Chairman and Managing Director of Sri Supraja Infracon"
-                className="h-[340px] w-full rounded-[24px] object-cover object-top shadow-xl"
-                loading="eager"
-                decoding="async"
-              />
+              <SmartImage
+  src={ownerPhoto}
+  alt="Mr Tudi Praveen Chairman and Managing Director of Sri Supraja Infracon"
+  className="h-[340px] w-full rounded-[24px] object-cover object-top shadow..."
+/>
 
               <div>
                 <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-amber-600">

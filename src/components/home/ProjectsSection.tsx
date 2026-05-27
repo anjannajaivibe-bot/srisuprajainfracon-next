@@ -1,5 +1,4 @@
-
-
+import SmartImage from "@/components/shared/SmartImage";
 import { projects } from "@/data/projects";
 
 const ProjectsSection = () => {
@@ -29,14 +28,17 @@ const ProjectsSection = () => {
               key={project.id}
               className="group overflow-hidden rounded-[32px] border border-slate-100 bg-white shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
             >
-              <div className="relative overflow-hidden">
-                <a href={project.link} aria-label={`View ${project.title}`}>
-                  <img
-                    src={String(project.image)}
+              <div className="relative h-[300px] w-full overflow-hidden">
+                <a
+                  href={project.link}
+                  aria-label={`View ${project.title}`}
+                  className="block h-full w-full"
+                >
+                  <SmartImage
+                    src={project.image}
                     alt={project.imageAlt}
-                    className="h-[300px] w-full object-cover transition duration-700 group-hover:scale-105"
-                    loading="lazy"
-                    decoding="async"
+                    className="h-full w-full"
+                    imageClassName="transition-transform duration-700 group-hover:scale-105"
                   />
                 </a>
 
@@ -57,7 +59,10 @@ const ProjectsSection = () => {
                 </p>
 
                 <h3 className="mb-4 text-2xl font-extrabold text-slate-950">
-                  <a href={project.link} className="transition hover:text-amber-600">
+                  <a
+                    href={project.link}
+                    className="transition hover:text-amber-600"
+                  >
                     {project.title}
                   </a>
                 </h3>
@@ -135,8 +140,3 @@ const ProjectsSection = () => {
 };
 
 export default ProjectsSection;
-
-
-
-
-

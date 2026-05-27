@@ -1,3 +1,5 @@
+import SmartImage from "@/components/shared/SmartImage";
+
 import type { Project } from "@/data/projects";
 import resortImage from "@/assets/project-iris.webp";
 
@@ -57,13 +59,11 @@ const ProjectResort = ({ project }: Props) => {
         </div>
 
         <div className="mb-16 overflow-hidden rounded-[36px] bg-white shadow-2xl">
-          <img
+          <SmartImage
             src={typeof resortImage === "string" ? resortImage : resortImage.src}
             alt="Supraja IRIS Resort Plots upcoming resort ecosystem with Lemon Tree Resort and planned attractions"
             className="h-full w-full object-cover"
-            loading="lazy"
-            decoding="async"
-          />
+/>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">

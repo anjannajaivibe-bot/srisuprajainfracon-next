@@ -1,3 +1,4 @@
+import SmartImage from "@/components/shared/SmartImage";
 import type { Project } from "@/data/projects";
 import { projectContent } from "@/data/projectContent";
 
@@ -34,11 +35,9 @@ const ProjectGallery = ({ project }: Props) => {
               key={image}
               className="group overflow-hidden rounded-[30px] bg-slate-100 shadow-lg"
             >
-              <img
-                src={String(image)}
+              <SmartImage
+                src={image}
                 alt={`${project.title} project gallery image ${index + 1}`}
-                loading="lazy"
-                decoding="async"
                 className="h-[320px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
