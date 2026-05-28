@@ -1,4 +1,15 @@
+import Link from "next/link";
 
+const checklist = [
+  "Current plot availability",
+  "Latest price details",
+  "Project approval documents",
+  "Bank loan eligibility",
+  "Site visit schedule",
+  "Nearby growth drivers",
+  "Registration process",
+  "Development progress",
+];
 
 const ContactSection = () => {
   return (
@@ -14,9 +25,9 @@ const ContactSection = () => {
           </h2>
 
           <p className="mb-7 text-lg leading-relaxed text-slate-600">
-            Speak with our team to review current sales availability, location
-            advantages, project approvals, bank loan support and upcoming price
-            revision details for selected plotted communities.
+            Speak with our team to review current plot availability, location
+            advantages, project approvals, bank loan support, registration
+            process and site visit options for selected plotted communities.
           </p>
 
           <div className="space-y-4 text-slate-700">
@@ -25,28 +36,35 @@ const ContactSection = () => {
               IRIS Resort Plots, Bridge County, Sindhu Sarovar and Subash
               Meadows
             </p>
+
             <p>
               <strong className="text-slate-950">Focus Locations:</strong>{" "}
               Kamkole, Sangareddy, Mominpet and Indrakaran
             </p>
+
             <p>
               <strong className="text-slate-950">Buyer Search Intent:</strong>{" "}
               DTCP approved plots, RERA approved plots, villa plots, resort
-              plots and high ROI open plots near Hyderabad
+              plots and premium open plots near Hyderabad
             </p>
           </div>
 
           <div className="mt-7 flex flex-wrap gap-4 text-sm font-bold">
-            <a href="/projects" className="text-blue-700 underline">
+            <Link href="/projects" className="text-blue-700 underline">
               Browse project details
-            </a>
+            </Link>
+
+            <Link href="/contact" className="text-blue-700 underline">
+              Contact sales team
+            </Link>
+
             <a
-              href="https://www.nicdc.in/"
+              href="https://wa.me/919640753929?text=Hi%2C%20I%20would%20like%20to%20know%20current%20plot%20availability%20and%20site%20visit%20details."
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-700 underline"
             >
-              Learn about industrial corridor development
+              WhatsApp enquiry
             </a>
           </div>
         </div>
@@ -57,16 +75,7 @@ const ContactSection = () => {
           </h3>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              "Current plot availability",
-              "Latest price and revision date",
-              "Project approval details",
-              "Bank loan eligibility",
-              "Site visit schedule",
-              "Nearby growth drivers",
-              "Registration process",
-              "Development progress",
-            ].map((item) => (
+            {checklist.map((item) => (
               <div
                 key={item}
                 className="rounded-2xl border border-slate-100 bg-slate-50 p-4 font-semibold text-slate-700"
@@ -77,8 +86,8 @@ const ContactSection = () => {
           </div>
 
           <p className="mt-6 text-sm leading-relaxed text-slate-500">
-            Call and WhatsApp enquiry buttons are available in the website
-            header and floating action area for faster response.
+            Availability, pricing, loan support and approvals may vary by
+            project. Buyers should verify project-wise details before booking.
           </p>
         </div>
       </div>
@@ -87,7 +96,3 @@ const ContactSection = () => {
 };
 
 export default ContactSection;
-
-
-
-

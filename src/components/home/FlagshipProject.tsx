@@ -1,45 +1,47 @@
 "use client";
+
 import SmartImage from "@/components/shared/SmartImage";
 import { motion, useInView } from "framer-motion";
+import Link from "next/link";
 import { useRef } from "react";
 import projectIris from "@/assets/project-iris.webp";
 
 const stats = [
   { value: "350", label: "Acres Master Planned Development" },
   { value: "4000+", label: "Plotted Units Planned" },
-  { value: "Sales", label: "Open Now for Selected Inventory" },
+  { value: "Sales", label: "Open for Selected Inventory" },
 ];
 
 const attractions = [
   {
     icon: "🏨",
     title: "Lemon Tree Resort Under Construction",
-    desc: "A hospitality anchor planned within the wider resort ecosystem.",
+    desc: "A hospitality anchor under construction within the wider Supraja IRIS resort ecosystem.",
   },
   {
     icon: "🌊",
     title: "Planned Water Villas",
-    desc: "Premium leisure concept designed to improve lifestyle value.",
+    desc: "A premium leisure concept planned as part of the future lifestyle environment.",
   },
   {
     icon: "💒",
     title: "Destination Wedding Convention",
-    desc: "A planned event venue concept for family celebrations and gatherings.",
+    desc: "A planned event venue concept for celebrations, gatherings and destination experiences.",
   },
   {
     icon: "🎢",
     title: "Water Theme Park and Amusement Zone",
-    desc: "Future recreation attractions planned to improve destination value.",
+    desc: "Future recreation attractions planned to support family leisure and destination appeal.",
   },
   {
     icon: "🏁",
     title: "Go-Karting Attraction",
-    desc: "Planned entertainment feature to support weekend footfall.",
+    desc: "A planned entertainment feature designed to enhance weekend recreation value.",
   },
   {
     icon: "📍",
     title: "Near Woxsen University and NH-65",
-    desc: "Strategic location advantage for open plot buyers near Hyderabad.",
+    desc: "A strategic Kamkole location with access to education, highway and growth corridor advantages.",
   },
 ];
 
@@ -61,20 +63,23 @@ const FlagshipProject = () => {
           </span>
 
           <h2 className="text-3xl font-display font-bold text-foreground sm:text-4xl lg:text-5xl">
-            Supraja IRIS Resort Plots Adjacent to Woxsen University
+            Supraja IRIS Resort Plots in Kamkole Near Woxsen University
           </h2>
 
           <p className="mx-auto mt-5 max-w-3xl text-muted-foreground">
-            Supraja IRIS at Kamkole is designed for buyers searching for{" "}
-            <strong>DTCP & RERA approved resort plots near Hyderabad</strong>,
-            with sales open now and strong high ROI potential from the NH-65,
-            RRR influence and NIMZ Zaheerabad growth corridor.
+            Supraja IRIS is a DTCP & RERA approved resort plot development at
+            Kamkole, positioned near Woxsen University, NH-65, Regional Ring
+            Road influence zones and the NIMZ Zaheerabad growth corridor.
           </p>
 
           <div className="mt-5 flex flex-wrap justify-center gap-4 text-sm font-semibold">
-            <a href="/projects/supraja-iris-resort-plots" className="text-blue-700 underline">
+            <Link
+              href="/projects/supraja-iris-resort-plots"
+              className="text-blue-700 underline"
+            >
               View Supraja IRIS project details
-            </a>
+            </Link>
+
             <a
               href="https://www.woxsen.edu.in/"
               target="_blank"
@@ -93,23 +98,24 @@ const FlagshipProject = () => {
           className="relative mb-12 overflow-hidden rounded-3xl shadow-2xl"
         >
           <SmartImage
-  src={projectIris}
-  alt="Supraja IRIS Resort Plots at Kamkole near Woxsen University with Lemon Tree Resort construction"
-  className="h-[360px] w-full rounded-[32px] shadow-2xl md:h-[500px]"
-  priority
-/>
+            src={projectIris}
+            alt="Supraja IRIS resort plots at Kamkole near Woxsen University"
+            className="h-[360px] w-full rounded-[32px] shadow-2xl md:h-[500px]"
+            priority
+          />
+
           <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/20 to-transparent" />
 
           <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
             <div className="flex flex-wrap gap-3">
               <span className="rounded-full border border-success/30 bg-success/20 px-3 py-1 text-sm font-medium text-success">
-                ✓ Sales Open Now
+                ✓ Sales Open for Selected Inventory
               </span>
               <span className="rounded-full border border-gold/30 bg-gold/20 px-3 py-1 text-sm font-medium text-gold">
                 DTCP & RERA Approved
               </span>
               <span className="rounded-full border border-hero-foreground/30 bg-hero-foreground/20 px-3 py-1 text-sm font-medium text-hero-foreground">
-                Up to 70% Bank Loan Available
+                Bank Loan Support Available*
               </span>
             </div>
           </div>
@@ -135,7 +141,7 @@ const FlagshipProject = () => {
         </div>
 
         <h3 className="mb-8 text-center text-2xl font-display font-bold text-foreground">
-          Top Attractions Planned Around Supraja IRIS Resort Plots
+          Planned Lifestyle Attractions Around Supraja IRIS
         </h3>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -157,14 +163,14 @@ const FlagshipProject = () => {
             </motion.div>
           ))}
         </div>
+
+        <p className="mt-6 text-center text-xs leading-relaxed text-muted-foreground">
+          *Loan support and project availability are subject to project status,
+          buyer eligibility and lender terms.
+        </p>
       </div>
     </section>
   );
 };
 
 export default FlagshipProject;
-
-
-
-
-

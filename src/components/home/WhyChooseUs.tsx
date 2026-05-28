@@ -1,29 +1,29 @@
-
+import Link from "next/link";
 
 const reasons = [
   {
-    title: "Focused on Approved Open Plot Projects",
-    desc: "Sri Supraja Infracon focuses on planned open plot developments with buyer-friendly documentation, layout clarity and transparent project communication.",
+    title: "Approved Plotted Development Focus",
+    desc: "Sri Supraja Infracon focuses on planned open plot communities with clear documentation, layout visibility and buyer-focused project communication.",
   },
   {
-    title: "Projects in Hyderabad Growth Corridors",
-    desc: "Our plotted communities are positioned around locations such as Kamkole, Mominpet and Indrakaran with access to NH-65, ORR, institutional zones and industrial growth corridors.",
+    title: "Strategic Hyderabad Growth Corridors",
+    desc: "Our projects are positioned around Kamkole, Mominpet and Indrakaran with access to NH-65, ORR, institutional zones and industrial development corridors.",
   },
   {
-    title: "High ROI Location Planning",
-    desc: "Every project is selected with growth potential, connectivity, infrastructure movement and future residential demand in mind.",
+    title: "Location-Led Investment Planning",
+    desc: "Project locations are evaluated based on connectivity, infrastructure movement, residential demand and long-term growth potential.",
   },
   {
     title: "Resort and Lifestyle Positioning",
-    desc: "Supraja IRIS adds a strong lifestyle advantage with Lemon Tree Resort under construction and planned family recreation attractions.",
+    desc: "Supraja IRIS adds a differentiated lifestyle advantage with Lemon Tree Resort under construction and planned family recreation attractions.",
   },
   {
-    title: "Buyer Confidence and Site Visit Support",
+    title: "Site Visit and Booking Support",
     desc: "Our team supports buyers with project walkthroughs, availability details, approval information, loan guidance and registration coordination.",
   },
   {
-    title: "Strong Local Real Estate Understanding",
-    desc: "The company understands Telangana land demand, investor psychology, plotted development planning and location-based value creation.",
+    title: "Local Real Estate Understanding",
+    desc: "The company understands Telangana plotted development demand, buyer expectations and location-based value creation.",
   },
 ];
 
@@ -41,9 +41,9 @@ const WhyChooseUs = () => {
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-600">
-            We help buyers evaluate approved open plots, villa plots and
-            investment plots with stronger location logic, clearer project
-            positioning and practical site visit support.
+            We help buyers evaluate approved open plots, villa plots and resort
+            plot communities with practical location insights, transparent
+            project details and site visit support.
           </p>
         </div>
 
@@ -70,20 +70,21 @@ const WhyChooseUs = () => {
           <p className="text-lg leading-relaxed text-slate-700">
             Buyers searching for{" "}
             <strong className="text-slate-950">
-              DTCP approved open plots near Hyderabad, RERA approved villa plots
-              in Telangana and resort plots near Woxsen University
+              DTCP approved open plots near Hyderabad, RERA approved plotted
+              communities in Telangana and resort plots near Woxsen University
             </strong>{" "}
-            can compare our projects based on approvals, location advantages,
-            development progress and current sales availability.
+            can compare Sri Supraja Infracon projects based on approvals,
+            location advantages, development progress and current availability.
           </p>
 
           <div className="mt-5 flex flex-wrap gap-4 text-sm font-bold">
-            <a href="/projects" className="text-blue-700 underline">
-              Compare all Sri Supraja Infracon projects
-            </a>
-            <a href="/contact" className="text-blue-700 underline">
-              Request project availability details
-            </a>
+            <Link href="/projects" className="text-blue-700 underline">
+              Compare all projects
+            </Link>
+
+            <Link href="/contact" className="text-blue-700 underline">
+              Request availability details
+            </Link>
           </div>
         </div>
       </div>
@@ -92,7 +93,3 @@ const WhyChooseUs = () => {
 };
 
 export default WhyChooseUs;
-
-
-
-

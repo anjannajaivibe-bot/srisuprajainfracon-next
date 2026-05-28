@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SmartImage from "@/components/shared/SmartImage";
 import { projects } from "@/data/projects";
 
@@ -11,14 +12,13 @@ const ProjectsSection = () => {
           </p>
 
           <h2 className="mx-auto max-w-4xl text-3xl font-extrabold leading-tight text-slate-950 md:text-5xl">
-            DTCP & RERA Approved Open Plots Near Hyderabad Growth Corridors
+            Open Plot Projects Near Hyderabad Growth Corridors
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-600">
-            Explore Sri Supraja Infracon open plot projects in Kamkole,
-            Mominpet and Indrakaran, planned for buyers searching for premium
-            villa plots, resort plots and high ROI plotted investments near
-            Hyderabad.
+            Compare Sri Supraja Infracon plotted communities in Kamkole,
+            Mominpet and Indrakaran, including premium villa plots, resort plots
+            and approved open plot developments near key infrastructure zones.
           </p>
         </div>
 
@@ -29,9 +29,9 @@ const ProjectsSection = () => {
               className="group overflow-hidden rounded-[32px] border border-slate-100 bg-white shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
             >
               <div className="relative h-[300px] w-full overflow-hidden">
-                <a
+                <Link
                   href={project.link}
-                  aria-label={`View ${project.title}`}
+                  aria-label={`View ${project.title} project details`}
                   className="block h-full w-full"
                 >
                   <SmartImage
@@ -40,7 +40,7 @@ const ProjectsSection = () => {
                     className="h-full w-full"
                     imageClassName="transition-transform duration-700 group-hover:scale-105"
                   />
-                </a>
+                </Link>
 
                 <div className="absolute left-5 top-5 rounded-full bg-amber-500 px-4 py-2 text-sm font-bold text-slate-950 shadow-lg">
                   Sales Open
@@ -59,12 +59,12 @@ const ProjectsSection = () => {
                 </p>
 
                 <h3 className="mb-4 text-2xl font-extrabold text-slate-950">
-                  <a
+                  <Link
                     href={project.link}
                     className="transition hover:text-amber-600"
                   >
                     {project.title}
-                  </a>
+                  </Link>
                 </h3>
 
                 <p className="mb-6 leading-relaxed text-slate-600">
@@ -83,12 +83,12 @@ const ProjectsSection = () => {
                 </div>
 
                 <div className="flex flex-wrap gap-3">
-                  <a
+                  <Link
                     href={project.link}
                     className="inline-flex rounded-full bg-slate-950 px-5 py-2.5 text-sm font-bold text-white shadow-md transition hover:-translate-y-1 hover:bg-amber-500 hover:text-slate-950"
                   >
                     View Project Details
-                  </a>
+                  </Link>
 
                   {project.availabilityMapUrl && (
                     <a
@@ -119,19 +119,19 @@ const ProjectsSection = () => {
 
         <div className="mt-12 rounded-[28px] border border-amber-100 bg-amber-50/60 p-7 text-center">
           <p className="mx-auto max-w-4xl text-lg leading-relaxed text-slate-700">
-            Compare current open plot availability, project brochures, location
-            advantages and approval details before selecting the right Sri
-            Supraja Infracon project near Hyderabad growth corridors.
+            Review current plot availability, brochures, approval details,
+            connectivity advantages and site visit options before selecting a
+            Sri Supraja Infracon plotted community near Hyderabad.
           </p>
 
           <div className="mt-5 flex flex-wrap justify-center gap-4 text-sm font-bold">
-            <a href="/projects" className="text-blue-700 underline">
+            <Link href="/projects" className="text-blue-700 underline">
               View all plotted communities
-            </a>
+            </Link>
 
-            <a href="/contact" className="text-blue-700 underline">
+            <Link href="/contact" className="text-blue-700 underline">
               Request project guidance
-            </a>
+            </Link>
           </div>
         </div>
       </div>
