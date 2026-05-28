@@ -109,13 +109,13 @@ const ProjectDetail = ({ slug }: { slug: string }) => {
         )}
 
         {/* Gallery */}
-        <ProjectGallery project={project} content={content} />
+        <ProjectGallery project={project} />
 
         {/* Location */}
-        <ProjectLocation project={project} content={content} />
+        <ProjectLocation project={project} />
 
         {/* FAQ */}
-        <ProjectFAQ project={project} content={content} />
+        <ProjectFAQ project={project} />
 
         {/* CTA */}
         <ProjectCTA project={project} />
