@@ -13,27 +13,32 @@ const navLinks = [
 ];
 
 const projectLinks = [
-  { label: "Supraja IRIS Resort Plots", href: "/projects/supraja-iris-resort-plots" },
+  {
+    label: "Supraja IRIS Resort Plots",
+    href: "/projects/supraja-iris-resort-plots",
+  },
   { label: "Bridge County", href: "/projects/bridge-county" },
   { label: "Sindhu Sarovar", href: "/projects/sindhu-sarovar" },
   { label: "Subash Meadows", href: "/projects/subash-meadows" },
 ];
 
-const phoneNumber = "+919052996161";
+const phoneNumber = "+919640753929";
 const whatsappUrl =
-  "https://wa.me/919052996161?text=Hi%20I%20would%20like%20to%20know%20more%20about%20your%20projects";
+  "https://wa.me/919640753929?text=Hi%20I%20would%20like%20to%20know%20more%20about%20Sri%20Supraja%20Infracon%20projects";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileProjectsOpen, setMobileProjectsOpen] = useState(false);
-  const pathname = usePathname() || "/";
+  const [projectsOpen, setProjectsOpen] = useState(false);
 
-const isProjectsActive = pathname.startsWith("/projects");
+  const pathname = usePathname() || "/";
+  const isProjectsActive = pathname.startsWith("/projects");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     onScroll();
+
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -67,7 +72,10 @@ const isProjectsActive = pathname.startsWith("/projects");
           <span className={`font-display text-xl font-bold ${brandClass}`}>
             Sri Supraja Infracon
           </span>
-          <span className={`text-xs uppercase tracking-[0.2em] ${brandSubClass}`}>
+
+          <span
+            className={`text-xs uppercase tracking-[0.2em] ${brandSubClass}`}
+          >
             Builders & Developers
           </span>
         </Link>
@@ -81,39 +89,55 @@ const isProjectsActive = pathname.startsWith("/projects");
             About
           </Link>
 
-          <div className="group relative">
+          <div
+            className="relative"
+            onMouseEnter={() => setProjectsOpen(true)}
+            onMouseLeave={() => setProjectsOpen(false)}
+          >
             <Link
               href="/projects"
               className={`flex items-center gap-1 text-sm font-semibold transition-colors ${
                 isProjectsActive ? activeClass : navTextClass
               }`}
+              aria-expanded={projectsOpen}
+              aria-haspopup="true"
             >
               Projects
               <ChevronDown
                 size={15}
-                className="transition-transform duration-300 group-hover:rotate-180"
+                className={`transition-transform duration-300 ${
+                  projectsOpen ? "rotate-180" : ""
+                }`}
               />
             </Link>
 
-            <div className="invisible absolute left-1/2 top-full z-50 mt-4 w-72 -translate-x-1/2 rounded-2xl border border-slate-100 bg-white p-3 opacity-0 shadow-2xl transition-all duration-300 group-hover:visible group-hover:mt-3 group-hover:opacity-100">
-              <Link
-                href="/projects"
-                className="block rounded-xl px-4 py-3 text-sm font-bold text-slate-900 hover:bg-amber-50 hover:text-amber-700"
+            <div className="absolute left-1/2 top-full z-50 w-80 -translate-x-1/2 pt-4">
+              <div
+                className={`rounded-2xl border border-slate-100 bg-white p-3 shadow-2xl transition-all duration-200 ${
+                  projectsOpen
+                    ? "visible translate-y-0 opacity-100"
+                    : "invisible -translate-y-2 opacity-0"
+                }`}
               >
-                View All Projects
-              </Link>
-
-              <div className="my-2 h-px bg-slate-100" />
-
-              {projectLinks.map((item) => (
                 <Link
-                  key={item.href}
-                  href={item.href}
-                  className="block rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-amber-50 hover:text-amber-700"
+                  href="/projects"
+                  className="block rounded-xl px-4 py-3 text-sm font-bold text-slate-900 hover:bg-amber-50 hover:text-amber-700"
                 >
-                  {item.label}
+                  View All Projects
                 </Link>
-              ))}
+
+                <div className="my-2 h-px bg-slate-100" />
+
+                {projectLinks.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-amber-50 hover:text-amber-700"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
 
