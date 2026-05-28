@@ -1,0 +1,246 @@
+"use client";
+
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  MessageCircle,
+} from "lucide-react";
+
+import heroBg from "@/assets/hero-bg.webp";
+
+const enquiryPoints = [
+  "Current plot availability",
+  "Latest pricing details",
+  "DTCP & RERA approval guidance",
+  "Site visit scheduling",
+  "Loan support information",
+  "Registration process assistance",
+  "Location connectivity details",
+  "Project brochure requests",
+];
+
+export default function ContactPageClient() {
+  return (
+    <div className="min-h-screen bg-[#F8F6F1]">
+      <Navbar />
+
+      <section className="relative overflow-hidden pb-20 pt-32">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroBg.src})` }}
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-br from-[#081225]/95 via-[#102348]/90 to-[#0B1633]/95" />
+
+        <div className="container-max relative px-4 text-center sm:px-6 lg:px-8">
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-[#E8D7A5]"
+          >
+            Contact Sri Supraja Infracon
+          </motion.p>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mx-auto max-w-5xl text-4xl font-display font-bold leading-tight text-white sm:text-5xl lg:text-7xl"
+          >
+            Open Plot Enquiry & Site Visit Assistance
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mx-auto mt-6 max-w-4xl text-lg leading-relaxed text-slate-200"
+          >
+            Connect with Sri Supraja Infracon for DTCP and RERA approved open
+            plots, resort plots and plotted communities near Hyderabad growth
+            corridors including Kamkole, Mominpet, Sangareddy and Indrakaran.
+          </motion.p>
+        </div>
+      </section>
+
+      <section className="bg-[#F8F6F1] px-6 py-24">
+        <div className="container-max grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+          <div>
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
+              Contact Information
+            </p>
+
+            <h2 className="mb-6 text-3xl font-display font-bold text-[#111827] sm:text-4xl">
+              Speak With Our Team
+            </h2>
+
+            <p className="mb-8 leading-relaxed text-[#4B5563]">
+              Our team can help you compare project locations, approvals,
+              availability, site visit schedules and plotted development options
+              across Sri Supraja Infracon communities.
+            </p>
+
+            <div className="space-y-5">
+              <div className="flex items-start gap-4 rounded-2xl border border-[#EFE7D3] bg-white p-5 shadow-sm">
+                <Phone className="mt-1 text-[#C9A227]" size={22} />
+
+                <div>
+                  <p className="font-bold text-[#111827]">Phone</p>
+
+                  <a
+                    href="tel:+919640753929"
+                    className="text-[#4B5563] hover:text-[#0B1633]"
+                  >
+                    +91 96407 53929
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 rounded-2xl border border-[#EFE7D3] bg-white p-5 shadow-sm">
+                <Mail className="mt-1 text-[#C9A227]" size={22} />
+
+                <div>
+                  <p className="font-bold text-[#111827]">Email</p>
+
+                  <a
+                    href="mailto:info@srisuprajainfracon.com"
+                    className="text-[#4B5563] hover:text-[#0B1633]"
+                  >
+                    info@srisuprajainfracon.com
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 rounded-2xl border border-[#EFE7D3] bg-white p-5 shadow-sm">
+                <MapPin className="mt-1 text-[#C9A227]" size={22} />
+
+                <div>
+                  <p className="font-bold text-[#111827]">Office Location</p>
+
+                  <p className="text-[#4B5563]">
+                    Hyderabad, Telangana, India
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 rounded-2xl border border-[#EFE7D3] bg-white p-5 shadow-sm">
+                <Clock className="mt-1 text-[#C9A227]" size={22} />
+
+                <div>
+                  <p className="font-bold text-[#111827]">Sales Assistance</p>
+
+                  <p className="text-[#4B5563]">
+                    Site visits and project enquiries available throughout the
+                    week.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href="https://wa.me/919640753929?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20Sri%20Supraja%20Infracon%20projects."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 font-bold text-white transition hover:scale-105"
+              >
+                <MessageCircle size={18} />
+                WhatsApp Enquiry
+              </a>
+
+              <Link
+                href="/projects"
+                className="rounded-full border border-[#C9A227] px-6 py-3 font-bold text-[#0B1633] transition hover:bg-[#C9A227]"
+              >
+                View Projects
+              </Link>
+            </div>
+          </div>
+
+          <div className="rounded-[32px] border border-[#EFE7D3] bg-white p-8 shadow-[0_15px_40px_rgba(11,22,51,0.08)]">
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
+              Before Booking
+            </p>
+
+            <h3 className="mb-6 text-3xl font-display font-bold text-[#111827]">
+              Important Buyer Checklist
+            </h3>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {enquiryPoints.map((item) => (
+                <div
+                  key={item}
+                  className="rounded-2xl border border-[#EFE7D3] bg-[#FCFBF8] p-4"
+                >
+                  <p className="font-semibold text-[#111827]">✓ {item}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 rounded-2xl border border-[#E8D7A5] bg-[#FFF9E8] p-5">
+              <p className="text-sm leading-relaxed text-[#4B5563]">
+                Buyers are encouraged to verify project-wise DTCP, HMDA and
+                RERA approval details, availability and registration procedures
+                before booking.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white px-6 py-24">
+        <div className="container-max text-center">
+          <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
+            Explore Projects
+          </p>
+
+          <h2 className="text-3xl font-display font-bold text-[#111827] sm:text-4xl">
+            Compare Sri Supraja Infracon Communities
+          </h2>
+
+          <p className="mx-auto mt-5 max-w-3xl text-[#4B5563]">
+            Explore Supraja IRIS, Bridge County, Sindhu Sarovar and Subash
+            Meadows across Telangana growth corridors before planning your site
+            visit.
+          </p>
+
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Link
+              href="/projects/supraja-iris-resort-plots"
+              className="rounded-full bg-[#0B1633] px-5 py-3 font-bold text-white transition hover:bg-[#C9A227] hover:text-[#0B1633]"
+            >
+              Supraja IRIS
+            </Link>
+
+            <Link
+              href="/projects/bridge-county"
+              className="rounded-full bg-[#0B1633] px-5 py-3 font-bold text-white transition hover:bg-[#C9A227] hover:text-[#0B1633]"
+            >
+              Bridge County
+            </Link>
+
+            <Link
+              href="/projects/sindhu-sarovar"
+              className="rounded-full bg-[#0B1633] px-5 py-3 font-bold text-white transition hover:bg-[#C9A227] hover:text-[#0B1633]"
+            >
+              Sindhu Sarovar
+            </Link>
+
+            <Link
+              href="/projects/subash-meadows"
+              className="rounded-full bg-[#0B1633] px-5 py-3 font-bold text-white transition hover:bg-[#C9A227] hover:text-[#0B1633]"
+            >
+              Subash Meadows
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+}
