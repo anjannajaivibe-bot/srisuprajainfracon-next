@@ -1,75 +1,168 @@
-import SmartImage from "@/components/shared/SmartImage";
-import type { Project } from "@/data/projects";
+"use client";
 
-type Props = {
-  project: Project;
+import Link from "next/link";
+import { motion } from "framer-motion";
+
+import SmartImage from "@/components/shared/SmartImage";
+
+type ProjectHeroProps = {
+  project: any;
 };
 
-const ProjectHero = ({ project }: Props) => {
+const ProjectHero = ({ project }: ProjectHeroProps) => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#fffaf0] via-white to-[#eef4ff] px-6 py-24 md:py-28">
-      <div className="absolute left-0 top-0 h-80 w-80 rounded-full bg-amber-300/25 blur-3xl" />
-      <div className="absolute bottom-0 right-0 h-[420px] w-[420px] rounded-full bg-blue-200/45 blur-3xl" />
+    <section className="relative overflow-hidden bg-[#081225] pt-28">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <SmartImage
+          src={project.heroImage}
+          alt={project.title}
+          priority
+          sizes="100vw"
+          wrapperClassName="h-full w-full"
+          imageClassName="object-cover opacity-35"
+        />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1fr_0.95fr]">
-        <div>
-          <p className="mb-5 inline-flex rounded-full border border-amber-200 bg-white/90 px-5 py-2 text-sm font-bold text-amber-700 shadow-sm">
-            Sales Open Now
-          </p>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#081225]/96 via-[#0B1633]/90 to-[#1D355E]/82" />
 
-          <h1 className="mb-6 max-w-4xl text-4xl font-extrabold leading-tight text-slate-950 md:text-6xl">
-            {project.title}
-          </h1>
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#081225] to-transparent" />
+      </div>
 
-          <p className="mb-8 max-w-2xl text-lg leading-relaxed text-slate-600">
-            {project.shortDescription}
-          </p>
+      {/* Main Content */}
+      <div className="container-max relative z-10 px-4 pb-20 pt-8 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          
+          {/* Breadcrumb */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35 }}
+            className="mb-6 flex flex-wrap items-center gap-2 text-sm text-slate-300"
+          >
+            <Link
+              href="/"
+              className="transition hover:text-[#C9A227]"
+            >
+              Home
+            </Link>
 
-          <div className="grid max-w-2xl gap-3 sm:grid-cols-2">
-            <a
+            <span>/</span>
+
+            <Link
               href="/projects"
-              className="rounded-2xl border border-amber-200 bg-white/90 px-5 py-4 text-sm font-bold text-slate-900 shadow-sm transition hover:-translate-y-1 hover:bg-amber-50"
+              className="transition hover:text-[#C9A227]"
             >
-              Explore Sri Supraja Infracon Projects
-            </a>
+              Projects
+            </Link>
 
-            <a
+            <span>/</span>
+
+            <span className="text-[#E8D7A5]">
+              {project.title}
+            </span>
+          </motion.div>
+
+          {/* Status Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#C9A227]/30 bg-[#C9A227]/10 px-5 py-2"
+          >
+            <span className="h-2 w-2 rounded-full bg-[#C9A227]" />
+
+            <span className="text-sm font-semibold text-[#E8D7A5]">
+              {project.status || "Premium Plotted Development"}
+            </span>
+          </motion.div>
+
+          {/* Heading */}
+          <motion.h1
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45 }}
+            className="max-w-5xl text-4xl font-display font-bold leading-[1.05] text-white sm:text-5xl lg:text-7xl"
+          >
+            {project.title}
+          </motion.h1>
+
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.08 }}
+            className="mt-7 max-w-4xl text-base leading-relaxed text-slate-200 sm:text-lg"
+          >
+            {project.description}
+          </motion.p>
+
+          {/* Key Highlights */}
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.15 }}
+            className="mt-8 flex flex-wrap gap-3"
+          >
+            {project.highlights?.slice(0, 4).map((item: string) => (
+              <div
+                key={item}
+                className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-medium text-white sm:text-sm"
+              >
+                {item}
+              </div>
+            ))}
+          </motion.div>
+
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.22 }}
+            className="mt-10 flex flex-wrap gap-4"
+          >
+            <Link
               href="/contact"
-              className="rounded-2xl border border-blue-100 bg-white/90 px-5 py-4 text-sm font-bold text-slate-900 shadow-sm transition hover:-translate-y-1 hover:bg-blue-50"
+              className="rounded-full bg-[#C9A227] px-7 py-4 text-sm font-bold text-[#0B1633] shadow-lg transition hover:bg-white"
             >
-              Check Plot Availability and Location Details
-            </a>
-          </div>
-        </div>
+              Schedule Site Visit
+            </Link>
 
-        <div className="relative [perspective:1800px]">
-          <div className="absolute inset-0 scale-95 rounded-[44px] bg-gradient-to-br from-amber-300/35 via-white to-blue-300/35 blur-3xl" />
+            {project.brochure && (
+              <a
+                href={project.brochure}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-white/15 bg-white/10 px-7 py-4 text-sm font-bold text-white transition hover:bg-white hover:text-[#0B1633]"
+              >
+                Download Brochure
+              </a>
+            )}
+          </motion.div>
 
-          <div className="relative rotate-[-2.5deg] transform-gpu transition duration-700 hover:rotate-0 hover:scale-[1.02]">
-            <SmartImage
-              src={project.image}
-              alt={project.imageAlt}
-              className="h-[360px] w-full rounded-[34px] object-cover shadow-[0_35px_90px_rgba(15,23,42,0.30)] md:h-[500px]"
-            />
+          {/* Stats */}
+          {project.stats && (
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 0.28 }}
+              className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+            >
+              {project.stats.map((stat: any) => (
+                <div
+                  key={stat.label}
+                  className="rounded-2xl border border-white/10 bg-white/8 p-5 backdrop-blur-sm"
+                >
+                  <p className="text-2xl font-bold text-[#C9A227]">
+                    {stat.value}
+                  </p>
 
-            <div className="absolute left-5 top-5 rounded-2xl bg-white/90 px-5 py-3 shadow-xl backdrop-blur-md">
-              <p className="text-xs font-bold uppercase tracking-wide text-amber-700">
-                High ROI Growth Corridor
-              </p>
-              <p className="text-sm font-bold text-slate-950">
-                {project.location}
-              </p>
-            </div>
-          </div>
-
-          <div className="absolute -bottom-8 left-8 rounded-2xl border border-white/70 bg-white/95 px-6 py-4 shadow-2xl backdrop-blur-xl">
-            <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">
-              Location
-            </p>
-            <p className="text-xl font-bold text-slate-950">
-              {project.location}
-            </p>
-          </div>
+                  <p className="mt-1 text-sm text-slate-200">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </motion.div>
+          )}
         </div>
       </div>
     </section>
