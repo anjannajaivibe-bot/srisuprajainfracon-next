@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import AboutClient from "./AboutClient";
+import AboutClient from "./about-client";
 
 export const metadata: Metadata = {
   title:
@@ -9,17 +9,14 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.suprajainfracon.com/about/",
   },
-
   openGraph: {
-    title:
-      "About Sri Supraja Infracon | Open Plot Developers Near Hyderabad",
+    title: "About Sri Supraja Infracon | Open Plot Developers Near Hyderabad",
     description:
       "Sri Supraja Infracon develops approved open plot communities across Hyderabad growth corridors including Kamkole, Mominpet, Sangareddy and Indrakaran.",
     url: "https://www.suprajainfracon.com/about/",
     siteName: "Sri Supraja Infracon",
     type: "website",
   },
-
   twitter: {
     card: "summary_large_image",
     title:
