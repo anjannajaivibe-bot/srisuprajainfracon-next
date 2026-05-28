@@ -13,43 +13,79 @@ const navLinks = [
 ];
 
 const projectLinks = [
-  { label: "Supraja IRIS Resort Plots", href: "/projects/supraja-iris-resort-plots" },
-  { label: "Bridge County", href: "/projects/bridge-county" },
-  { label: "Sindhu Sarovar", href: "/projects/sindhu-sarovar" },
-  { label: "Subash Meadows", href: "/projects/subash-meadows" },
+  {
+    label: "Supraja IRIS Resort Plots",
+    href: "/projects/supraja-iris-resort-plots",
+  },
+  {
+    label: "Bridge County",
+    href: "/projects/bridge-county",
+  },
+  {
+    label: "Sindhu Sarovar",
+    href: "/projects/sindhu-sarovar",
+  },
+  {
+    label: "Subash Meadows",
+    href: "/projects/subash-meadows",
+  },
 ];
 
 const phoneNumber = "+919052996161";
+
 const whatsappUrl =
   "https://wa.me/919052996161?text=Hi%20I%20would%20like%20to%20know%20more%20about%20your%20projects";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileProjectsOpen, setMobileProjectsOpen] = useState(false);
+
+  const [mobileProjectsOpen, setMobileProjectsOpen] =
+    useState(false);
+
   const pathname = usePathname() || "/";
 
-const isProjectsActive = pathname.startsWith("/projects");
+  const isProjectsActive =
+    pathname.startsWith("/projects");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () =>
+      setScrolled(window.scrollY > 50);
+
     onScroll();
+
     window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+
+    return () =>
+      window.removeEventListener("scroll", onScroll);
   }, []);
 
   const navTextClass = scrolled
     ? "text-white/85 hover:text-amber-300"
     : "text-slate-900/80 hover:text-amber-600";
 
-  const activeClass = scrolled ? "text-amber-300" : "text-amber-700";
-  const brandClass = scrolled ? "text-white" : "text-slate-950";
-  const brandSubClass = scrolled ? "text-amber-300" : "text-amber-700";
-  const menuIconClass = scrolled ? "text-white" : "text-slate-950";
+  const activeClass = scrolled
+    ? "text-amber-300"
+    : "text-amber-700";
+
+  const brandClass = scrolled
+    ? "text-white"
+    : "text-slate-950";
+
+  const brandSubClass = scrolled
+    ? "text-amber-300"
+    : "text-amber-700";
+
+  const menuIconClass = scrolled
+    ? "text-white"
+    : "text-slate-950";
 
   const getNavClass = (href: string) =>
     `text-sm font-semibold transition-colors ${
-      pathname === href ? activeClass : navTextClass
+      pathname === href
+        ? activeClass
+        : navTextClass
     }`;
 
   return (
@@ -63,64 +99,85 @@ const isProjectsActive = pathname.startsWith("/projects");
       }`}
     >
       <div className="container-max flex items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        {/* LOGO */}
         <Link href="/" className="flex flex-col">
-          <span className={`font-display text-xl font-bold ${brandClass}`}>
+          <span
+            className={`font-display text-xl font-bold ${brandClass}`}
+          >
             Sri Supraja Infracon
           </span>
-          <span className={`text-xs uppercase tracking-[0.2em] ${brandSubClass}`}>
+
+          <span
+            className={`text-xs uppercase tracking-[0.2em] ${brandSubClass}`}
+          >
             Builders & Developers
           </span>
         </Link>
 
+        {/* DESKTOP NAV */}
         <div className="hidden items-center gap-8 md:flex">
           <Link href="/" className={getNavClass("/")}>
             Home
           </Link>
 
-          <Link href="/about" className={getNavClass("/about")}>
+          <Link
+            href="/about"
+            className={getNavClass("/about")}
+          >
             About
           </Link>
 
+          {/* PROJECTS DROPDOWN */}
           <div className="group relative">
             <Link
               href="/projects"
               className={`flex items-center gap-1 text-sm font-semibold transition-colors ${
-                isProjectsActive ? activeClass : navTextClass
+                isProjectsActive
+                  ? activeClass
+                  : navTextClass
               }`}
             >
               Projects
+
               <ChevronDown
                 size={15}
                 className="transition-transform duration-300 group-hover:rotate-180"
               />
             </Link>
 
-            <div className="invisible absolute left-1/2 top-full z-50 mt-4 w-72 -translate-x-1/2 rounded-2xl border border-slate-100 bg-white p-3 opacity-0 shadow-2xl transition-all duration-300 group-hover:visible group-hover:mt-3 group-hover:opacity-100">
-              <Link
-                href="/projects"
-                className="block rounded-xl px-4 py-3 text-sm font-bold text-slate-900 hover:bg-amber-50 hover:text-amber-700"
-              >
-                View All Projects
-              </Link>
-
-              <div className="my-2 h-px bg-slate-100" />
-
-              {projectLinks.map((item) => (
+            {/* FIXED HOVER AREA */}
+            <div className="absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-3">
+              <div className="invisible rounded-2xl border border-slate-100 bg-white p-3 opacity-0 shadow-2xl transition-all duration-300 group-hover:visible group-hover:opacity-100">
                 <Link
-                  key={item.href}
-                  href={item.href}
-                  className="block rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-amber-50 hover:text-amber-700"
+                  href="/projects"
+                  className="block rounded-xl px-4 py-3 text-sm font-bold text-slate-900 hover:bg-amber-50 hover:text-amber-700"
                 >
-                  {item.label}
+                  View All Projects
                 </Link>
-              ))}
+
+                <div className="my-2 h-px bg-slate-100" />
+
+                {projectLinks.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-amber-50 hover:text-amber-700"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
 
-          <Link href="/contact" className={getNavClass("/contact")}>
+          <Link
+            href="/contact"
+            className={getNavClass("/contact")}
+          >
             Contact
           </Link>
 
+          {/* CTA BUTTONS */}
           <div className="flex items-center gap-3">
             <a
               href={whatsappUrl}
@@ -142,22 +199,39 @@ const isProjectsActive = pathname.startsWith("/projects");
           </div>
         </div>
 
+        {/* MOBILE MENU BUTTON */}
         <button
-          onClick={() => setMobileOpen((current) => !current)}
+          onClick={() =>
+            setMobileOpen((current) => !current)
+          }
           className={`md:hidden ${menuIconClass}`}
           aria-label="Toggle navigation menu"
           type="button"
         >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileOpen ? (
+            <X size={24} />
+          ) : (
+            <Menu size={24} />
+          )}
         </button>
       </div>
 
+      {/* MOBILE MENU */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
+            initial={{
+              height: 0,
+              opacity: 0,
+            }}
+            animate={{
+              height: "auto",
+              opacity: 1,
+            }}
+            exit={{
+              height: 0,
+              opacity: 0,
+            }}
             className="overflow-hidden bg-slate-950/95 backdrop-blur-md md:hidden"
           >
             <div className="flex flex-col gap-2 px-6 py-4">
@@ -165,23 +239,33 @@ const isProjectsActive = pathname.startsWith("/projects");
                 <Link
                   key={link.href}
                   href={link.href}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={() =>
+                    setMobileOpen(false)
+                  }
                   className="rounded-xl px-3 py-3 text-white/85 transition-colors hover:bg-white/10 hover:text-amber-300"
                 >
                   {link.label}
                 </Link>
               ))}
 
+              {/* MOBILE PROJECTS */}
               <button
                 type="button"
-                onClick={() => setMobileProjectsOpen((current) => !current)}
+                onClick={() =>
+                  setMobileProjectsOpen(
+                    (current) => !current
+                  )
+                }
                 className="flex items-center justify-between rounded-xl px-3 py-3 text-left text-white/85 transition-colors hover:bg-white/10 hover:text-amber-300"
               >
                 <span>Projects</span>
+
                 <ChevronDown
                   size={16}
                   className={`transition-transform ${
-                    mobileProjectsOpen ? "rotate-180" : ""
+                    mobileProjectsOpen
+                      ? "rotate-180"
+                      : ""
                   }`}
                 />
               </button>
@@ -189,14 +273,25 @@ const isProjectsActive = pathname.startsWith("/projects");
               <AnimatePresence>
                 {mobileProjectsOpen && (
                   <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
+                    initial={{
+                      height: 0,
+                      opacity: 0,
+                    }}
+                    animate={{
+                      height: "auto",
+                      opacity: 1,
+                    }}
+                    exit={{
+                      height: 0,
+                      opacity: 0,
+                    }}
                     className="overflow-hidden rounded-2xl bg-white/5"
                   >
                     <Link
                       href="/projects"
-                      onClick={() => setMobileOpen(false)}
+                      onClick={() =>
+                        setMobileOpen(false)
+                      }
                       className="block px-5 py-3 text-sm font-semibold text-amber-300"
                     >
                       View All Projects
@@ -206,7 +301,9 @@ const isProjectsActive = pathname.startsWith("/projects");
                       <Link
                         key={item.href}
                         href={item.href}
-                        onClick={() => setMobileOpen(false)}
+                        onClick={() =>
+                          setMobileOpen(false)
+                        }
                         className="block px-5 py-3 text-sm text-white/80 hover:bg-white/10 hover:text-amber-300"
                       >
                         {item.label}
@@ -216,6 +313,7 @@ const isProjectsActive = pathname.startsWith("/projects");
                 )}
               </AnimatePresence>
 
+              {/* MOBILE CTA */}
               <div className="flex flex-col gap-3 pt-3">
                 <a
                   href={whatsappUrl}
