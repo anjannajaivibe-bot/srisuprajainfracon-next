@@ -7,13 +7,12 @@ const tags = [
   "DTCP & RERA Approved Plotted Communities",
   "Premium Open Plots Near Hyderabad",
   "Resort Plots Near Woxsen University",
-  "Sales Open for Selected Inventory",
   "Strategic Growth Corridor Locations",
 ];
 
 const projectLinks = [
   {
-    name: "Supraja IRIS Resort Plots",
+    name: "Supraja IRIS",
     href: "/projects/supraja-iris-resort-plots",
   },
   {
@@ -32,7 +31,9 @@ const projectLinks = [
 
 const HeroSection = () => {
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
+    <section className="relative flex min-h-[92vh] items-center justify-center overflow-hidden bg-[#07111f]">
+      
+      {/* Background Video */}
       <div className="absolute inset-0">
         <video
           className="h-full w-full object-cover"
@@ -46,39 +47,50 @@ const HeroSection = () => {
           <source src="/videos/heroBg.mp4" type="video/mp4" />
         </video>
 
-        <div className="absolute inset-0 bg-[#061225]/78" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#08172d]/85 via-[#0b1d35]/72 to-[#07111f]/92" />
-        <div className="absolute inset-0 backdrop-blur-[1.5px]" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#07111f] to-transparent" />
+        {/* Overlays */}
+        <div className="absolute inset-0 bg-[#061225]/72" />
+
+        <div className="absolute inset-0 bg-gradient-to-b from-[#08172d]/70 via-[#0b1d35]/55 to-[#07111f]/88" />
+
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#07111f] to-transparent" />
       </div>
 
+      {/* Content */}
       <div className="container-max relative z-10 px-4 pb-16 pt-28 text-center sm:px-6 lg:px-8">
+        
+        {/* Top Badge */}
         <motion.div
-          initial={{ opacity: 0, y: 18 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.15 }}
-          className="mb-8 inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-5 py-2 backdrop-blur-md"
+          transition={{ duration: 0.45 }}
+          className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#C9A227]/35 bg-[#C9A227]/10 px-5 py-2"
         >
-          <span className="h-2 w-2 animate-pulse rounded-full bg-gold" />
-          <span className="text-sm font-semibold text-gold">
+          <span className="h-2 w-2 rounded-full bg-[#C9A227]" />
+
+          <span className="text-sm font-semibold text-[#E8D7A5]">
             Sri Supraja Infracon Builders & Developers
           </span>
         </motion.div>
 
+        {/* Main Heading */}
         <motion.h1
-          initial={{ opacity: 0, y: 28 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="mx-auto mb-6 max-w-6xl text-4xl font-display font-bold leading-[0.98] text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.45)] sm:text-5xl lg:text-7xl"
-        >
-          DTCP & RERA Approved Open Plots Near Hyderabad Growth Corridors
-        </motion.h1>
-
-        <motion.p
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.45 }}
-          className="mx-auto mb-10 max-w-4xl text-lg font-medium leading-relaxed text-white opacity-95 drop-shadow-[0_3px_18px_rgba(0,0,0,0.55)]"
+          transition={{ duration: 0.55 }}
+          className="mx-auto mb-6 max-w-6xl text-4xl font-display font-bold leading-[1.02] text-white sm:text-5xl lg:text-7xl"
+        >
+          DTCP & RERA Approved{" "}
+          <span className="text-[#C9A227]">
+            Open Plots Near Hyderabad
+          </span>
+        </motion.h1>
+
+        {/* Description */}
+        <motion.p
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.08 }}
+          className="mx-auto mb-10 max-w-4xl text-base leading-relaxed text-white/90 sm:text-lg"
         >
           Explore premium open plots, villa plots and resort plots across
           Kamkole, Sangareddy, Mominpet and Indrakaran. Sri Supraja Infracon
@@ -86,49 +98,51 @@ const HeroSection = () => {
           Ring Road influence zones and the NIMZ Zaheerabad growth corridor.
         </motion.p>
 
+        {/* Keyword Tags */}
         <motion.div
-          initial={{ opacity: 0, y: 18 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="mb-12 flex flex-wrap justify-center gap-3"
+          transition={{ duration: 0.55, delay: 0.15 }}
+          className="mb-10 flex flex-wrap justify-center gap-3"
         >
           {tags.map((tag) => (
-            <span
+            <div
               key={tag}
-              className="flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-white shadow-lg backdrop-blur-md"
+              className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-medium text-white backdrop-blur-sm sm:text-sm"
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-gold" />
               {tag}
-            </span>
+            </div>
           ))}
         </motion.div>
 
+        {/* Project Quick Links */}
         <motion.div
-          initial={{ opacity: 0, y: 26 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.75 }}
-          className="mb-10 flex flex-wrap justify-center gap-4"
+          transition={{ duration: 0.55, delay: 0.22 }}
+          className="mb-10 flex flex-wrap justify-center gap-3"
         >
           {projectLinks.map((project) => (
             <Link
               key={project.name}
               href={project.href}
-              className="rounded-full border border-gold/40 bg-gold px-6 py-3 text-sm font-semibold text-slate-900 transition-all duration-300 hover:scale-105 hover:bg-white"
+              className="rounded-full border border-[#C9A227]/40 bg-[#C9A227] px-5 py-3 text-sm font-semibold text-[#0B1633] transition hover:bg-white"
             >
               {project.name}
             </Link>
           ))}
         </motion.div>
 
+        {/* Main CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9 }}
+          transition={{ duration: 0.55, delay: 0.28 }}
           className="flex flex-wrap justify-center gap-4"
         >
           <Link
             href="/projects"
-            className="rounded-full bg-white px-8 py-4 text-sm font-bold text-slate-900 transition-all duration-300 hover:scale-105 hover:bg-gold"
+            className="rounded-full bg-white px-7 py-4 text-sm font-bold text-[#0B1633] transition hover:bg-[#C9A227]"
           >
             Explore Projects
           </Link>
@@ -137,7 +151,7 @@ const HeroSection = () => {
             href="https://wa.me/919640753929?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20Sri%20Supraja%20Infracon%20open%20plot%20projects."
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full border border-white/20 bg-white/10 px-8 py-4 text-sm font-bold text-white backdrop-blur-md transition-all duration-300 hover:scale-105 hover:bg-white hover:text-slate-900"
+            className="rounded-full border border-white/20 bg-white/10 px-7 py-4 text-sm font-bold text-white transition hover:bg-white hover:text-[#0B1633]"
           >
             WhatsApp Enquiry
           </a>
