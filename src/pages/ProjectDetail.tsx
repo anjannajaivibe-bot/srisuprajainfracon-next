@@ -95,7 +95,7 @@ const ProjectDetail = ({ slug }: { slug: string }) => {
         <ProjectHero project={project} />
 
         {/* Overview */}
-        <ProjectOverview project={project} content={content} />
+        <ProjectOverview project={project} />
 
         {/* Highlights */}
         <ProjectHighlights project={project} content={content} />
