@@ -35,16 +35,21 @@ const ProjectOverview = ({ project }: Props) => {
 
           <div>
             <p className="mb-6 text-lg leading-relaxed text-slate-600">
-              {project.shortDescription}
+              {project.shortDescription} This plotted development by Sri Supraja
+              Infracon is strategically positioned near emerging Hyderabad
+              growth corridors with strong infrastructure connectivity,
+              future-ready planning and buyer-focused project development
+              standards.
             </p>
 
             <p className="text-lg leading-relaxed text-slate-600">
-              This project is positioned for buyers searching for{" "}
+              This project is designed for buyers searching for{" "}
               <strong className="text-slate-950">
-                premium open plots near Hyderabad growth corridors
+                DTCP and RERA approved open plots near Hyderabad
               </strong>
-              , with strong location connectivity, lifestyle-driven planning and
-              future-ready infrastructure advantages.
+              , with strategic access to NH-65, Regional Ring Road influence
+              zones, educational hubs, industrial corridors and long-term
+              infrastructure-driven growth locations across Telangana.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-4 text-sm font-bold">
@@ -68,8 +73,9 @@ const ProjectOverview = ({ project }: Props) => {
                 </h3>
 
                 <p className="mt-1 text-sm text-slate-500">
-                  Explore layout, approvals, amenities and location highlights
-                  for this project.
+                  Explore project layout, plotted development highlights,
+                  approvals, location connectivity and brochure details for this
+                  Sri Supraja Infracon community.
                 </p>
               </div>
 
@@ -110,8 +116,9 @@ const ProjectOverview = ({ project }: Props) => {
                 </h4>
 
                 <p className="mb-6 text-sm leading-relaxed text-slate-200">
-                  Mobile browsers may not display embedded PDFs correctly. Open
-                  the brochure in a new tab for the best reading experience.
+                  Open the brochure in a new tab to explore project highlights,
+                  plotted development details, location advantages and
+                  infrastructure planning information.
                 </p>
 
                 <div className="flex flex-col gap-3">
