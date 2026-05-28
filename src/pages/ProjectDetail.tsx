@@ -98,10 +98,10 @@ const ProjectDetail = ({ slug }: { slug: string }) => {
         <ProjectOverview project={project} />
 
         {/* Highlights */}
-        <ProjectHighlights project={project} content={content} />
+        <ProjectHighlights project={project} />
 
         {/* Amenities */}
-        <ProjectAmenities project={project} content={content} />
+        <ProjectAmenities project={project} />
 
         {/* Resort Section */}
         {project.slug === "supraja-iris-resort-plots" && (
