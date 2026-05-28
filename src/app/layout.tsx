@@ -39,6 +39,14 @@ export const metadata: Metadata = {
     siteName: "Sri Supraja Infracon",
     locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Sri Supraja Infracon approved open plots near Hyderabad",
+      },
+    ],
   },
 
   twitter: {
@@ -47,11 +55,24 @@ export const metadata: Metadata = {
       "Sri Supraja Infracon | DTCP & RERA Approved Open Plots Near Hyderabad",
     description:
       "Explore premium open plots and plotted communities near Hyderabad.",
+    images: ["/og-image.jpg"],
   },
 
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 };
 
@@ -66,6 +87,9 @@ export default function RootLayout({
     name: "Sri Supraja Infracon",
     url: "https://www.suprajainfracon.com",
     logo: "https://www.suprajainfracon.com/logo.png",
+    image: "https://www.suprajainfracon.com/og-image.jpg",
+    description:
+      "Sri Supraja Infracon develops DTCP and RERA approved open plot communities, villa plots and resort plots near Hyderabad growth corridors.",
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+91 96407 53929",
@@ -73,6 +97,14 @@ export default function RootLayout({
       areaServed: "IN",
       availableLanguage: ["English", "Telugu", "Hindi"],
     },
+    areaServed: [
+      "Hyderabad",
+      "Kamkole",
+      "Sangareddy",
+      "Mominpet",
+      "Indrakaran",
+      "Telangana",
+    ],
   };
 
   return (
