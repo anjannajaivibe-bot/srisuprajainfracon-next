@@ -2,20 +2,15 @@
 
 import SmartImage from "@/components/shared/SmartImage";
 import { motion } from "framer-motion";
-
 import Link from "next/link";
 import {
   Award,
-  Building2,
   CheckCircle2,
   Eye,
-  HeartHandshake,
   Landmark,
   MapPinned,
   ShieldCheck,
-  Sparkles,
   Target,
-  Timeline,
   Users,
 } from "lucide-react";
 
@@ -58,10 +53,10 @@ const socialWelfare = [
 
 const whyChoose = [
   "DTCP and RERA approved plotted communities",
-  "High ROI locations near Hyderabad growth corridors",
+  "Strategic locations near Hyderabad growth corridors",
   "Transparent project communication",
   "Strong focus on roads, parks, utilities and layout planning",
-  "Buyer support for availability, visit, loan and registration",
+  "Buyer support for availability, site visit, loan and registration",
   "Premium projects such as Supraja IRIS and Bridge County",
 ];
 
@@ -95,15 +90,15 @@ const milestones = [
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#F8F6F1]">
       <Navbar />
 
-      <section className="relative overflow-hidden pt-32 pb-20">
+      <section className="relative overflow-hidden pb-20 pt-32">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroBg})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950/95 via-slate-900/88 to-blue-950/90" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#081225]/95 via-[#102348]/90 to-[#0B1633]/95" />
 
         <div className="container-max relative px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -112,13 +107,13 @@ const About = () => {
             transition={{ duration: 0.7 }}
             className="mx-auto max-w-5xl text-center"
           >
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-gold-light">
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-[#E8D7A5]">
               About Sri Supraja Infracon
             </p>
 
             <h1 className="text-4xl font-display font-bold leading-tight text-white sm:text-5xl lg:text-7xl">
               Building Dreams,{" "}
-              <span className="text-gold-gradient">Serving Communities</span>
+              <span className="text-[#C9A227]">Serving Communities</span>
             </h1>
 
             <p className="mx-auto mt-6 max-w-4xl text-lg leading-relaxed text-slate-200">
@@ -131,37 +126,38 @@ const About = () => {
         </div>
       </section>
 
-      <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 px-6 py-20 text-white">
+      <section className="bg-[#F8F6F1] px-6 py-20">
         <div className="mx-auto max-w-6xl">
-          <div className="mb-14 rounded-[32px] bg-white p-6 text-slate-950 shadow-2xl md:p-8">
+          <div className="mb-14 rounded-[32px] border border-[#EFE7D3] bg-white p-6 text-slate-950 shadow-[0_18px_50px_rgba(11,22,51,0.08)] md:p-8">
             <div className="grid gap-8 md:grid-cols-[0.8fr_1.2fr] md:items-center">
               <SmartImage
-  src={ownerPhoto}
-  alt="Mr Tudi Praveen Chairman and Managing Director of Sri Supraja Infracon"
-  className="h-[340px] w-full rounded-[24px] object-cover object-top shadow..."
-/>
+                src={ownerPhoto}
+                alt="Mr Tudi Praveen Chairman and Managing Director of Sri Supraja Infracon"
+                className="h-[340px] w-full rounded-[24px] shadow-lg"
+                imageClassName="object-cover object-top"
+              />
 
               <div>
-                <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-amber-600">
+                <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
                   Owner Message
                 </p>
 
-                <h2 className="mb-2 text-3xl font-display font-bold">
+                <h2 className="mb-2 text-3xl font-display font-bold text-[#111827]">
                   Mr. Tudi Praveen
                 </h2>
 
-                <p className="mb-5 font-bold text-amber-600">
+                <p className="mb-5 font-bold text-[#C9A227]">
                   Chairman & Managing Director
                 </p>
 
-                <p className="mb-4 leading-relaxed text-slate-700">
+                <p className="mb-4 leading-relaxed text-[#4B5563]">
                   “Our vision is to make open plot ownership simple,
                   transparent and valuable for families and investors. Every
                   Supraja project is planned with a long-term responsibility
                   toward customers, community and location growth.”
                 </p>
 
-                <p className="leading-relaxed text-slate-700">
+                <p className="leading-relaxed text-[#4B5563]">
                   Sri Supraja Infracon believes in approved layouts, clear
                   documentation, practical infrastructure and honest guidance.
                   Our goal is not just to sell plots, but to create trusted
@@ -172,15 +168,15 @@ const About = () => {
           </div>
 
           <div className="text-center">
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-gold-light">
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-[#C9A227]">
               Social Welfare
             </p>
 
-            <h2 className="text-3xl font-display font-bold">
+            <h2 className="text-3xl font-display font-bold text-[#111827]">
               Community Responsibility Beyond Real Estate
             </h2>
 
-            <p className="mx-auto mt-4 max-w-3xl text-slate-300">
+            <p className="mx-auto mt-4 max-w-3xl text-[#4B5563]">
               The company believes growth should support people, families and
               local communities through education, welfare and meaningful social
               contribution.
@@ -191,34 +187,34 @@ const About = () => {
             {socialWelfare.map((item) => (
               <div
                 key={item}
-                className="rounded-2xl border border-white/10 bg-white/10 p-5 shadow-lg backdrop-blur"
+                className="rounded-2xl border border-[#EFE7D3] bg-white p-5 shadow-[0_8px_30px_rgba(0,0,0,0.05)]"
               >
-                <CheckCircle2 className="mb-3 text-amber-400" size={24} />
-                <p className="font-semibold text-white">{item}</p>
+                <CheckCircle2 className="mb-3 text-[#C9A227]" size={24} />
+                <p className="font-semibold text-[#111827]">{item}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section-padding">
+      <section className="bg-white px-6 py-24">
         <div className="container-max grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <motion.div
             initial={{ opacity: 0, x: -28 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="glass-card p-8"
+            className="rounded-[28px] border border-[#EFE7D3] bg-[#FCFBF8] p-8 shadow-[0_12px_35px_rgba(11,22,51,0.06)]"
           >
-            <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-amber-600">
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
               Our Story
             </p>
 
-            <h2 className="mb-6 text-3xl font-display font-bold text-foreground sm:text-4xl">
+            <h2 className="mb-6 text-3xl font-display font-bold text-[#111827] sm:text-4xl">
               A Trusted Real Estate Journey Built on Approvals and Service
             </h2>
 
-            <div className="space-y-4 leading-relaxed text-muted-foreground">
+            <div className="space-y-4 leading-relaxed text-[#4B5563]">
               <p>
                 Sri Supraja Infracon has grown with a simple belief: land
                 ownership must be transparent, secure and useful for the buyer.
@@ -229,9 +225,8 @@ const About = () => {
               <p>
                 Our projects are positioned across important growth locations
                 such as Kamkole, Mominpet and Indrakaran, with strong relevance
-                to buyers searching for DTCP approved plots near Hyderabad, RERA
-                approved plots near Hyderabad and high ROI open plots in
-                Telangana.
+                to buyers searching for DTCP approved plots near Hyderabad and
+                RERA approved plotted communities in Telangana.
               </p>
 
               <p>
@@ -242,11 +237,11 @@ const About = () => {
             </div>
 
             <div className="mt-7 flex flex-wrap gap-4 text-sm font-bold">
-              <Link href="/projects" className="text-blue-700 underline">
+              <Link href="/projects" className="text-[#0B4F9F] underline">
                 View Sri Supraja Infracon projects
               </Link>
 
-              <Link href="/contact" className="text-blue-700 underline">
+              <Link href="/contact" className="text-[#0B4F9F] underline">
                 Request project guidance
               </Link>
             </div>
@@ -267,23 +262,24 @@ const About = () => {
               { num: "DTCP", label: "Approved Layout Focus" },
               { num: "RERA", label: "Registered Project Focus" },
             ].map((s) => (
-              <div key={s.label} className="glass-card p-6 text-center hover-lift">
-                <div className="text-3xl font-display font-bold text-gold-gradient">
+              <div
+                key={s.label}
+                className="rounded-[24px] border-t-4 border-[#C9A227] bg-white p-6 text-center shadow-[0_10px_35px_rgba(11,22,51,0.08)]"
+              >
+                <div className="text-3xl font-display font-bold text-[#C9A227]">
                   {s.num}
                 </div>
-                <div className="mt-2 text-sm text-muted-foreground">
-                  {s.label}
-                </div>
+                <div className="mt-2 text-sm text-[#4B5563]">{s.label}</div>
               </div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      <section className="section-padding bg-section-alt">
+      <section className="bg-[#F8F6F1] px-6 py-24">
         <div className="container-max">
           <div className="mb-12 text-center">
-            <h2 className="text-3xl font-display font-bold text-foreground sm:text-4xl">
+            <h2 className="text-3xl font-display font-bold text-[#111827] sm:text-4xl">
               Our Vision & Mission
             </h2>
           </div>
@@ -307,35 +303,36 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.12 }}
-                className="glass-card p-8 hover-lift"
+                className="rounded-[28px] border border-[#EFE7D3] bg-white p-8 shadow-[0_10px_35px_rgba(11,22,51,0.06)]"
               >
-                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full gold-gradient">
-                  <item.icon className="text-navy" size={26} />
+                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-[#E8D7A5]">
+                  <item.icon className="text-[#0B1633]" size={26} />
                 </div>
 
-                <h3 className="mb-3 text-2xl font-display font-bold text-foreground">
+                <h3 className="mb-3 text-2xl font-display font-bold text-[#111827]">
                   {item.title}
                 </h3>
 
-                <p className="leading-relaxed text-muted-foreground">
-                  {item.desc}
-                </p>
+                <p className="leading-relaxed text-[#4B5563]">{item.desc}</p>
               </motion.div>
             ))}
           </div>
 
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((v) => (
-              <div key={v.title} className="glass-card p-6 hover-lift">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl gold-gradient">
-                  <v.icon className="text-navy" size={22} />
+              <div
+                key={v.title}
+                className="rounded-[24px] border border-[#EFE7D3] bg-white p-6 shadow-[0_8px_30px_rgba(11,22,51,0.05)]"
+              >
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#E8D7A5]">
+                  <v.icon className="text-[#0B1633]" size={22} />
                 </div>
 
-                <h3 className="mb-2 font-display font-bold text-foreground">
+                <h3 className="mb-2 font-display font-bold text-[#111827]">
                   {v.title}
                 </h3>
 
-                <p className="text-sm leading-relaxed text-muted-foreground">
+                <p className="text-sm leading-relaxed text-[#4B5563]">
                   {v.desc}
                 </p>
               </div>
@@ -344,26 +341,29 @@ const About = () => {
         </div>
       </section>
 
-      <section className="section-padding">
+      <section className="bg-[#0B1633] px-6 py-24 text-white">
         <div className="container-max">
           <div className="mb-12 text-center">
-            <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-amber-600">
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-[#E8D7A5]">
               Why Choose Us
             </p>
 
-            <h2 className="text-3xl font-display font-bold text-foreground sm:text-4xl">
+            <h2 className="text-3xl font-display font-bold sm:text-4xl">
               Why Buyers Trust Sri Supraja Infracon
             </h2>
           </div>
 
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {whyChoose.map((item, index) => (
-              <div key={item} className="glass-card p-6 hover-lift">
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-emerald-500 text-sm font-bold text-white">
+              <div
+                key={item}
+                className="rounded-[24px] border border-white/10 bg-white/10 p-6 shadow-lg backdrop-blur"
+              >
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#C9A227] text-sm font-bold text-[#0B1633]">
                   {index + 1}
                 </div>
 
-                <p className="font-semibold leading-relaxed text-foreground">
+                <p className="font-semibold leading-relaxed text-white">
                   {item}
                 </p>
               </div>
@@ -372,20 +372,20 @@ const About = () => {
         </div>
       </section>
 
-      <section className="section-padding bg-section-alt">
+      <section className="bg-[#F8F6F1] px-6 py-24">
         <div className="container-max">
           <div className="mb-14 text-center">
-            <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-amber-600">
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
               Timeline
             </p>
 
-            <h2 className="text-3xl font-display font-bold text-foreground sm:text-4xl">
+            <h2 className="text-3xl font-display font-bold text-[#111827] sm:text-4xl">
               Our Journey
             </h2>
           </div>
 
           <div className="relative mx-auto max-w-4xl">
-            <div className="absolute bottom-0 left-4 top-0 w-px bg-gold/40 md:left-1/2" />
+            <div className="absolute bottom-0 left-4 top-0 w-px bg-gradient-to-b from-[#C9A227] to-[#E8D7A5] md:left-1/2" />
 
             {milestones.map((m, i) => (
               <motion.div
@@ -399,40 +399,40 @@ const About = () => {
                 }`}
               >
                 <div className="pl-12 md:w-1/2 md:px-8">
-                  <div className="glass-card p-6 hover-lift">
-                    <div className="mb-2 text-xl font-display font-bold text-gold-gradient">
+                  <div className="rounded-[24px] border border-[#EFE7D3] bg-white p-6 shadow-[0_10px_35px_rgba(11,22,51,0.06)]">
+                    <div className="mb-2 text-xl font-display font-bold text-[#C9A227]">
                       {m.year}
                     </div>
 
-                    <h3 className="mb-2 font-bold text-foreground">
+                    <h3 className="mb-2 font-bold text-[#111827]">
                       {m.title}
                     </h3>
 
-                    <p className="text-sm leading-relaxed text-muted-foreground">
+                    <p className="text-sm leading-relaxed text-[#4B5563]">
                       {m.desc}
                     </p>
                   </div>
                 </div>
 
-                <div className="absolute left-4 h-4 w-4 -translate-x-1/2 rounded-full gold-gradient ring-4 ring-background md:left-1/2" />
+                <div className="absolute left-4 h-4 w-4 -translate-x-1/2 rounded-full bg-[#C9A227] ring-4 ring-[#F8F6F1] md:left-1/2" />
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section-padding">
+      <section className="bg-white px-6 py-24">
         <div className="container-max">
-          <div className="glass-card p-10 text-center md:p-14">
-            <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-amber-600">
+          <div className="rounded-[32px] border border-[#EFE7D3] bg-[#FCFBF8] p-10 text-center shadow-[0_12px_40px_rgba(11,22,51,0.06)] md:p-14">
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
               Certifications & Approvals
             </p>
 
-            <h2 className="text-3xl font-display font-bold text-foreground sm:text-4xl">
+            <h2 className="text-3xl font-display font-bold text-[#111827] sm:text-4xl">
               Approval-Focused Real Estate Development
             </h2>
 
-            <p className="mx-auto mt-4 max-w-3xl text-muted-foreground">
+            <p className="mx-auto mt-4 max-w-3xl text-[#4B5563]">
               Buyers are encouraged to verify project-wise DTCP, HMDA and RERA
               details before booking. Sri Supraja Infracon focuses on clear
               approvals, transparent communication and buyer confidence.
@@ -446,10 +446,10 @@ const About = () => {
               ].map((item) => (
                 <div
                   key={item}
-                  className="rounded-2xl border border-gold/20 bg-white p-6 shadow-sm"
+                  className="rounded-2xl border border-[#E8D7A5] bg-white p-6 shadow-sm"
                 >
-                  <Award className="mx-auto mb-3 text-amber-500" size={32} />
-                  <p className="font-bold text-slate-950">{item}</p>
+                  <Award className="mx-auto mb-3 text-[#C9A227]" size={32} />
+                  <p className="font-bold text-[#111827]">{item}</p>
                 </div>
               ))}
             </div>
@@ -457,7 +457,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="section-padding bg-gradient-to-r from-slate-950 via-blue-950 to-slate-950 text-white">
+      <section className="bg-gradient-to-br from-[#081225] via-[#102348] to-[#0B1633] px-6 py-24 text-white">
         <div className="container-max text-center">
           <h2 className="text-3xl font-display font-bold sm:text-4xl">
             Ready to Explore Open Plots Near Hyderabad?
@@ -466,20 +466,20 @@ const About = () => {
           <p className="mx-auto mt-4 max-w-3xl text-slate-300">
             Compare Supraja IRIS, Bridge County, Sindhu Sarovar and Subash
             Meadows before choosing the right project for your budget, location
-            preference and high ROI growth expectation.
+            preference and long-term growth potential.
           </p>
 
           <div className="mt-7 flex flex-wrap justify-center gap-4">
             <Link
               href="/projects"
-              className="rounded-full gold-gradient px-6 py-3 font-bold text-navy transition hover:opacity-90"
+              className="rounded-full bg-[#C9A227] px-6 py-3 font-bold text-[#0B1633] transition hover:bg-white"
             >
               View Projects
             </Link>
 
             <Link
               href="/contact"
-              className="rounded-full border border-gold px-6 py-3 font-bold text-gold transition hover:bg-gold hover:text-navy"
+              className="rounded-full border border-[#C9A227] px-6 py-3 font-bold text-[#E8D7A5] transition hover:bg-[#C9A227] hover:text-[#0B1633]"
             >
               Contact Team
             </Link>
@@ -493,7 +493,3 @@ const About = () => {
 };
 
 export default About;
-
-
-
-
