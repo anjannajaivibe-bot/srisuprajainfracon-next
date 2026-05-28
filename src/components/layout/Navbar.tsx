@@ -8,18 +8,18 @@ import { ChevronDown, Menu, MessageCircle, Phone, X } from "lucide-react";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "About", href: "/about/" },
+  { label: "Contact", href: "/contact/" },
 ];
 
 const projectLinks = [
   {
     label: "Supraja IRIS Resort Plots",
-    href: "/projects/supraja-iris-resort-plots",
+    href: "/projects/supraja-iris-resort-plots/",
   },
-  { label: "Bridge County", href: "/projects/bridge-county" },
-  { label: "Sindhu Sarovar", href: "/projects/sindhu-sarovar" },
-  { label: "Subash Meadows", href: "/projects/subash-meadows" },
+  { label: "Bridge County", href: "/projects/bridge-county/" },
+  { label: "Sindhu Sarovar", href: "/projects/sindhu-sarovar/" },
+  { label: "Subash Meadows", href: "/projects/subash-meadows/" },
 ];
 
 const phoneNumber = "+919640753929";
@@ -52,9 +52,14 @@ export default function Navbar() {
   const brandSubClass = scrolled ? "text-amber-300" : "text-amber-700";
   const menuIconClass = scrolled ? "text-white" : "text-slate-950";
 
+  const normalizePath = (path: string) =>
+    path !== "/" && path.endsWith("/") ? path.slice(0, -1) : path;
+
   const getNavClass = (href: string) =>
     `text-sm font-semibold transition-colors ${
-      pathname === href ? activeClass : navTextClass
+      normalizePath(pathname) === normalizePath(href)
+        ? activeClass
+        : navTextClass
     }`;
 
   return (
@@ -85,7 +90,7 @@ export default function Navbar() {
             Home
           </Link>
 
-          <Link href="/about" className={getNavClass("/about")}>
+          <Link href="/about/" className={getNavClass("/about/")}>
             About
           </Link>
 
@@ -95,7 +100,7 @@ export default function Navbar() {
             onMouseLeave={() => setProjectsOpen(false)}
           >
             <Link
-              href="/projects"
+              href="/projects/"
               className={`flex items-center gap-1 text-sm font-semibold transition-colors ${
                 isProjectsActive ? activeClass : navTextClass
               }`}
@@ -120,7 +125,7 @@ export default function Navbar() {
                 }`}
               >
                 <Link
-                  href="/projects"
+                  href="/projects/"
                   className="block rounded-xl px-4 py-3 text-sm font-bold text-slate-900 hover:bg-amber-50 hover:text-amber-700"
                 >
                   View All Projects
@@ -141,7 +146,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          <Link href="/contact" className={getNavClass("/contact")}>
+          <Link href="/contact/" className={getNavClass("/contact/")}>
             Contact
           </Link>
 
@@ -219,7 +224,7 @@ export default function Navbar() {
                     className="overflow-hidden rounded-2xl bg-white/5"
                   >
                     <Link
-                      href="/projects"
+                      href="/projects/"
                       onClick={() => setMobileOpen(false)}
                       className="block px-5 py-3 text-sm font-semibold text-amber-300"
                     >
