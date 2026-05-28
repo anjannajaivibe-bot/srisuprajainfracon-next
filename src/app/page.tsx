@@ -1,48 +1,57 @@
-import { lazy, Suspense } from "react";
+import type { Metadata } from "next";
+import HomeClient from "./home-client";
 
-import Navbar from "@/components/layout/Navbar";
-import HeroSection from "@/components/home/HeroSection";
-import FlagshipProject from "@/components/home/FlagshipProject";
-import ProjectsSection from "@/components/home/ProjectsSection";
-import Footer from "@/components/layout/Footer";
-
-const WhyChooseUs = lazy(() => import("@/components/home/WhyChooseUs"));
-const CTASection = lazy(() => import("@/components/home/CTASection"));
-const FAQSection = lazy(() => import("@/components/home/FAQSection"));
-const ContactSection = lazy(() => import("@/components/home/ContactSection"));
-
-const Index = () => {
-  return (
-    <div className="min-h-screen">
-      <Navbar />
-
-      <main>
-        <HeroSection />
-        <FlagshipProject />
-        <ProjectsSection />
-
-        <Suspense fallback={null}>
-          <WhyChooseUs />
-        </Suspense>
-
-        <Suspense fallback={null}>
-          <CTASection />
-        </Suspense>
-
-        <Suspense fallback={null}>
-          <FAQSection />
-        </Suspense>
-
-        <Suspense fallback={null}>
-          <ContactSection />
-        </Suspense>
-      </main>
-
-      <Footer />
-    </div>
-  );
+export const metadata: Metadata = {
+  title:
+    "DTCP & RERA Approved Open Plots Near Hyderabad | Sri Supraja Infracon",
+  description:
+    "Explore DTCP and RERA approved open plots, villa plots and resort plots near Hyderabad across Kamkole, Sangareddy, Mominpet and Indrakaran by Sri Supraja Infracon.",
+  alternates: {
+    canonical: "https://www.suprajainfracon.com/",
+  },
+  openGraph: {
+    title:
+      "DTCP & RERA Approved Open Plots Near Hyderabad | Sri Supraja Infracon",
+    description:
+      "Premium open plots, resort plots and plotted communities near Hyderabad growth corridors including Kamkole, Sangareddy, Mominpet and Indrakaran.",
+    url: "https://www.suprajainfracon.com/",
+    siteName: "Sri Supraja Infracon",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "DTCP & RERA Approved Open Plots Near Hyderabad | Sri Supraja Infracon",
+    description:
+      "Explore approved open plot projects near Hyderabad growth corridors by Sri Supraja Infracon.",
+  },
 };
 
-export default Index;
+export default function HomePage() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    name: "Sri Supraja Infracon",
+    url: "https://www.suprajainfracon.com/",
+    description:
+      "Sri Supraja Infracon develops DTCP and RERA approved open plot communities, villa plots and resort plots near Hyderabad growth corridors.",
+    areaServed: [
+      "Hyderabad",
+      "Kamkole",
+      "Sangareddy",
+      "Mominpet",
+      "Indrakaran",
+      "Telangana",
+    ],
+  };
 
-
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <HomeClient />
+    </>
+  );
+}
