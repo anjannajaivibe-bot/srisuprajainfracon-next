@@ -4,13 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-  ChevronDown,
-  Menu,
-  MessageCircle,
-  Phone,
-  X,
-} from "lucide-react";
+import { ChevronDown, Menu, MessageCircle, Phone, X } from "lucide-react";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -23,109 +17,88 @@ const projectLinks = [
     label: "Supraja IRIS Resort Plots",
     href: "/projects/supraja-iris-resort-plots",
   },
-
   {
     label: "Bridge County",
     href: "/projects/bridge-county",
   },
-
   {
     label: "Sindhu Sarovar",
     href: "/projects/sindhu-sarovar",
   },
-
   {
     label: "Subash Meadows",
     href: "/projects/subash-meadows",
   },
 ];
 
-const phoneNumber = "+919640753929";
+const phoneNumber = "+919052996161";
 
 const whatsappUrl =
-  "https://wa.me/919640753929?text=Hi%20I%20would%20like%20to%20know%20more%20about%20Sri%20Supraja%20Infracon%20projects";
+  "https://wa.me/919052996161?text=Hi%20I%20would%20like%20to%20know%20more%20about%20your%20projects";
 
 export default function Navbar() {
-  const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
 
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const [mobileProjectsOpen, setMobileProjectsOpen] =
     useState(false);
 
-  const [projectsOpen, setProjectsOpen] = useState(false);
-
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
-    };
-
-    handleScroll();
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () =>
-      window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const normalizePath = (path: string) => {
-    if (!path) return "/";
-
-    return path.endsWith("/") && path !== "/"
-      ? path.slice(0, -1)
-      : path;
-  };
-
-  const currentPath = normalizePath(pathname || "/");
+  const pathname = usePathname() || "/";
 
   const isProjectsActive =
-    currentPath === "/projects" ||
-    currentPath.startsWith("/projects/");
+    pathname.startsWith("/projects");
+
+  useEffect(() => {
+    const onScroll = () =>
+      setScrolled(window.scrollY > 50);
+
+    onScroll();
+
+    window.addEventListener("scroll", onScroll);
+
+    return () =>
+      window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const navTextClass = scrolled
-    ? "text-white/85 hover:text-[#D4AF37]"
-    : "text-[#374151] hover:text-[#C9A227]";
+    ? "text-white/85 hover:text-amber-300"
+    : "text-slate-900/80 hover:text-amber-600";
 
   const activeClass = scrolled
-    ? "text-[#D4AF37]"
-    : "text-[#B88917]";
+    ? "text-amber-300"
+    : "text-amber-700";
 
   const brandClass = scrolled
     ? "text-white"
-    : "text-[#111827]";
+    : "text-slate-950";
 
   const brandSubClass = scrolled
-    ? "text-[#D4AF37]"
-    : "text-[#B88917]";
+    ? "text-amber-300"
+    : "text-amber-700";
 
   const menuIconClass = scrolled
     ? "text-white"
-    : "text-[#111827]";
+    : "text-slate-950";
 
-  const getNavClass = (href: string) => {
-    const normalizedHref = normalizePath(href);
-
-    return `text-sm font-semibold transition-colors ${
-      currentPath === normalizedHref
+  const getNavClass = (href: string) =>
+    `text-sm font-semibold transition-colors ${
+      pathname === href
         ? activeClass
         : navTextClass
     }`;
-  };
 
   return (
-    <motion.header
+    <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#081225]/95 shadow-2xl backdrop-blur-md"
-          : "bg-white/95 shadow-sm backdrop-blur-md"
+          ? "bg-slate-950/95 shadow-xl backdrop-blur-md"
+          : "bg-white/90 shadow-sm backdrop-blur-md"
       }`}
     >
       <div className="container-max flex items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        {/* LOGO */}
         <Link href="/" className="flex flex-col">
           <span
             className={`font-display text-xl font-bold ${brandClass}`}
@@ -134,13 +107,13 @@ export default function Navbar() {
           </span>
 
           <span
-            className={`text-[11px] uppercase tracking-[0.25em] ${brandSubClass}`}
+            className={`text-xs uppercase tracking-[0.2em] ${brandSubClass}`}
           >
             Builders & Developers
           </span>
         </Link>
 
-        {/* DESKTOP NAV */}
+        {/* DESKTOP */}
         <div className="hidden items-center gap-8 md:flex">
           <Link href="/" className={getNavClass("/")}>
             Home
@@ -154,11 +127,7 @@ export default function Navbar() {
           </Link>
 
           {/* PROJECTS DROPDOWN */}
-          <div
-            className="relative"
-            onMouseEnter={() => setProjectsOpen(true)}
-            onMouseLeave={() => setProjectsOpen(false)}
-          >
+          <div className="group relative">
             <Link
               href="/projects"
               className={`flex items-center gap-1 text-sm font-semibold transition-colors ${
@@ -171,35 +140,27 @@ export default function Navbar() {
 
               <ChevronDown
                 size={15}
-                className={`transition-transform duration-300 ${
-                  projectsOpen ? "rotate-180" : ""
-                }`}
+                className="transition-transform duration-300 group-hover:rotate-180"
               />
             </Link>
 
-            {/* DROPDOWN */}
-            <div className="absolute left-1/2 top-full z-50 w-80 -translate-x-1/2 pt-4">
-              <div
-                className={`rounded-[28px] border border-[#EFE7D3] bg-white p-3 shadow-[0_20px_60px_rgba(0,0,0,0.15)] transition-all duration-200 ${
-                  projectsOpen
-                    ? "visible translate-y-0 opacity-100"
-                    : "invisible -translate-y-2 opacity-0"
-                }`}
-              >
+            {/* FIXED HOVER BRIDGE */}
+            <div className="absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-4">
+              <div className="invisible rounded-2xl border border-slate-100 bg-white p-3 opacity-0 shadow-2xl transition-all duration-300 group-hover:visible group-hover:opacity-100">
                 <Link
                   href="/projects"
-                  className="block rounded-2xl px-5 py-4 text-sm font-bold text-[#111827] transition hover:bg-[#FFF4C7] hover:text-[#B88917]"
+                  className="block rounded-xl px-4 py-3 text-sm font-bold text-slate-900 hover:bg-amber-50 hover:text-amber-700"
                 >
                   View All Projects
                 </Link>
 
-                <div className="my-2 h-px bg-[#EFE7D3]" />
+                <div className="my-2 h-px bg-slate-100" />
 
                 {projectLinks.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="block rounded-2xl px-5 py-4 text-sm font-semibold text-[#374151] transition hover:bg-[#FFF4C7] hover:text-[#B88917]"
+                    className="block rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-amber-50 hover:text-amber-700"
                   >
                     {item.label}
                   </Link>
@@ -215,36 +176,42 @@ export default function Navbar() {
             Contact
           </Link>
 
-          {/* CTA BUTTONS */}
+          {/* CTA */}
           <div className="flex items-center gap-3">
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full bg-[#22C55E] px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#16A34A]"
+              className="flex items-center gap-2 rounded-full bg-green-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-green-600"
             >
-              <MessageCircle size={15} />
+              <MessageCircle size={14} />
               WhatsApp
             </a>
 
             <a
               href={`tel:${phoneNumber}`}
-              className="flex items-center gap-2 rounded-full bg-[#F4A300] px-5 py-2.5 text-sm font-bold text-[#111827] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#E5A000]"
+              className="flex items-center gap-2 rounded-full bg-amber-500 px-5 py-2.5 text-sm font-bold text-slate-950 transition-all hover:bg-amber-400"
             >
-              <Phone size={14} />
+              <Phone size={12} />
               Call Now
             </a>
           </div>
         </div>
 
-        {/* MOBILE MENU BUTTON */}
+        {/* MOBILE BUTTON */}
         <button
-          onClick={() => setMobileOpen((prev) => !prev)}
+          onClick={() =>
+            setMobileOpen((current) => !current)
+          }
           className={`md:hidden ${menuIconClass}`}
           aria-label="Toggle navigation menu"
           type="button"
         >
-          {mobileOpen ? <X size={26} /> : <Menu size={26} />}
+          {mobileOpen ? (
+            <X size={24} />
+          ) : (
+            <Menu size={24} />
+          )}
         </button>
       </div>
 
@@ -252,18 +219,29 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="overflow-hidden bg-[#081225]/98 backdrop-blur-md md:hidden"
+            initial={{
+              height: 0,
+              opacity: 0,
+            }}
+            animate={{
+              height: "auto",
+              opacity: 1,
+            }}
+            exit={{
+              height: 0,
+              opacity: 0,
+            }}
+            className="overflow-hidden bg-slate-950/95 backdrop-blur-md md:hidden"
           >
-            <div className="flex flex-col gap-2 px-6 py-5">
+            <div className="flex flex-col gap-2 px-6 py-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="rounded-2xl px-4 py-3 text-white/90 transition hover:bg-white/10 hover:text-[#D4AF37]"
+                  onClick={() =>
+                    setMobileOpen(false)
+                  }
+                  className="rounded-xl px-3 py-3 text-white/85 transition-colors hover:bg-white/10 hover:text-amber-300"
                 >
                   {link.label}
                 </Link>
@@ -273,16 +251,20 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() =>
-                  setMobileProjectsOpen((prev) => !prev)
+                  setMobileProjectsOpen(
+                    (current) => !current
+                  )
                 }
-                className="flex items-center justify-between rounded-2xl px-4 py-3 text-left text-white/90 transition hover:bg-white/10 hover:text-[#D4AF37]"
+                className="flex items-center justify-between rounded-xl px-3 py-3 text-left text-white/85 transition-colors hover:bg-white/10 hover:text-amber-300"
               >
                 <span>Projects</span>
 
                 <ChevronDown
                   size={16}
-                  className={`transition-transform duration-300 ${
-                    mobileProjectsOpen ? "rotate-180" : ""
+                  className={`transition-transform ${
+                    mobileProjectsOpen
+                      ? "rotate-180"
+                      : ""
                   }`}
                 />
               </button>
@@ -290,18 +272,26 @@ export default function Navbar() {
               <AnimatePresence>
                 {mobileProjectsOpen && (
                   <motion.div
-                    initial={{ height: 0, opacity: 0 }}
+                    initial={{
+                      height: 0,
+                      opacity: 0,
+                    }}
                     animate={{
                       height: "auto",
                       opacity: 1,
                     }}
-                    exit={{ height: 0, opacity: 0 }}
+                    exit={{
+                      height: 0,
+                      opacity: 0,
+                    }}
                     className="overflow-hidden rounded-2xl bg-white/5"
                   >
                     <Link
                       href="/projects"
-                      onClick={() => setMobileOpen(false)}
-                      className="block px-5 py-3 text-sm font-bold text-[#D4AF37]"
+                      onClick={() =>
+                        setMobileOpen(false)
+                      }
+                      className="block px-5 py-3 text-sm font-semibold text-amber-300"
                     >
                       View All Projects
                     </Link>
@@ -310,8 +300,10 @@ export default function Navbar() {
                       <Link
                         key={item.href}
                         href={item.href}
-                        onClick={() => setMobileOpen(false)}
-                        className="block px-5 py-3 text-sm text-white/80 transition hover:bg-white/10 hover:text-[#D4AF37]"
+                        onClick={() =>
+                          setMobileOpen(false)
+                        }
+                        className="block px-5 py-3 text-sm text-white/80 hover:bg-white/10 hover:text-amber-300"
                       >
                         {item.label}
                       </Link>
@@ -321,12 +313,12 @@ export default function Navbar() {
               </AnimatePresence>
 
               {/* MOBILE CTA */}
-              <div className="mt-3 flex flex-col gap-3">
+              <div className="flex flex-col gap-3 pt-3">
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 rounded-full bg-[#22C55E] px-5 py-3 font-semibold text-white"
+                  className="flex items-center justify-center gap-2 rounded-full bg-green-500 px-5 py-3 font-semibold text-white transition-all duration-300 hover:bg-green-600"
                 >
                   <MessageCircle size={16} />
                   WhatsApp
@@ -334,7 +326,7 @@ export default function Navbar() {
 
                 <a
                   href={`tel:${phoneNumber}`}
-                  className="flex items-center justify-center gap-2 rounded-full bg-[#F4A300] px-5 py-3 font-bold text-[#111827]"
+                  className="flex items-center justify-center gap-2 rounded-full bg-amber-500 px-5 py-3 font-bold text-slate-950"
                 >
                   <Phone size={14} />
                   Call Now
@@ -344,6 +336,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </motion.nav>
   );
 }
