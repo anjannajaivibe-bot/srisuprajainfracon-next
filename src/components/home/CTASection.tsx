@@ -29,7 +29,7 @@ const CTASection = () => {
           </Link>
 
           <a
-            href="https://wa.me/919640753929?text=Hi%2C%20I%20would%20like%20to%20schedule%20a%20site%20visit%20for%20Sri%20Supraja%20Infracon%20projects."
+            href="https://wa.me/919052996161?text=Hi%2C%20I%20would%20like%20to%20schedule%20a%20site%20visit%20for%20Sri%20Supraja%20Infracon%20projects."
             target="_blank"
             rel="noopener noreferrer"
             className="text-amber-300 underline"

@@ -59,7 +59,7 @@ const ContactSection = () => {
             </Link>
 
             <a
-              href="https://wa.me/919640753929?text=Hi%2C%20I%20would%20like%20to%20know%20current%20plot%20availability%20and%20site%20visit%20details."
+              href="https://wa.me/919052996161?text=Hi%2C%20I%20would%20like%20to%20know%20current%20plot%20availability%20and%20site%20visit%20details."
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-700 underline"

@@ -88,7 +88,7 @@ export default function ContactPageClient() {
                   <p className="font-bold text-[#111827]">Phone</p>
 
                   <a
-                    href="tel:+919640753929"
+                    href="tel:+919052996161"
                     className="text-[#4B5563] hover:text-[#0B1633]"
                   >
                     +91 96407 53929
@@ -140,7 +140,7 @@ export default function ContactPageClient() {
             {/* CTA Buttons */}
             <div className="mt-8 flex flex-wrap gap-4">
               <a
-                href="https://wa.me/919640753929?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20Sri%20Supraja%20Infracon%20projects."
+                href="https://wa.me/919052996161?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20Sri%20Supraja%20Infracon%20projects."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 font-bold text-white transition hover:scale-105"
