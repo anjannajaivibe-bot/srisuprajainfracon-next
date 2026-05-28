@@ -1,150 +1,152 @@
-"use client";
-
-import Link from "next/link";
-import { motion } from "framer-motion";
+import type { Project } from "@/data/projects";
 
 type Props = {
-  project: any;
+  project: Project;
 };
 
 const ProjectOverview = ({ project }: Props) => {
+  const brochureUrl = project.brochure;
+  const availabilityMapUrl = project.availabilityMapUrl;
+
   return (
-    <section className="bg-[#F8F6F1] py-24">
-      <div className="container-max px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[1fr_420px] lg:items-start">
-          
-          {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.55 }}
-          >
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
-              Project Overview
+    <section className="bg-white px-6 py-20">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <p className="mb-3 text-sm font-bold uppercase tracking-wide text-amber-600">
+              {project.location}
             </p>
 
-            <h2 className="max-w-4xl text-3xl font-display font-bold leading-tight text-[#111827] sm:text-4xl lg:text-5xl">
-              Premium Open Plot Development by Sri Supraja Infracon
+            <h2 className="mb-5 text-3xl font-extrabold leading-tight text-slate-950 md:text-5xl">
+              {project.title} Overview
             </h2>
 
-            <div className="mt-8 space-y-6 text-base leading-relaxed text-[#4B5563]">
-              <p>
-                {project.description}
-              </p>
-
-              <p>
-                This plotted development by Sri Supraja Infracon is strategically
-                positioned near emerging Hyderabad growth corridors with strong
-                infrastructure connectivity, long-term development potential and
-                buyer-focused planning standards.
-              </p>
-
-              <p>
-                The project is designed for buyers seeking DTCP and RERA approved
-                open plots, villa plots and premium plotted communities near
-                Hyderabad with access to NH-65, Regional Ring Road influence
-                zones, Woxsen University surroundings and major industrial
-                growth corridors.
-              </p>
-
-              <p>
-                Sri Supraja Infracon focuses on planned plotted developments,
-                transparent documentation support, strategic location selection
-                and long-term infrastructure-oriented real estate growth zones
-                across Telangana.
-              </p>
-            </div>
-
-            {/* Internal Links */}
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Link
-                href="/projects"
-                className="rounded-full bg-[#0B1633] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#C9A227] hover:text-[#0B1633]"
+            {availabilityMapUrl && (
+              <a
+                href={availabilityMapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex rounded-full bg-slate-950 px-7 py-3.5 text-sm font-bold text-white shadow-lg transition hover:-translate-y-1 hover:bg-amber-500 hover:text-slate-950"
               >
-                Explore All Projects
-              </Link>
+                View Live Plot Availability
+              </a>
+            )}
+          </div>
 
-              <Link
-                href="/contact"
-                className="rounded-full border border-[#C9A227] bg-white px-6 py-3 text-sm font-bold text-[#0B1633] transition hover:bg-[#C9A227]"
-              >
-                Contact Sales Team
-              </Link>
-            </div>
-          </motion.div>
-
-          {/* Right Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 28 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.55 }}
-            className="rounded-[32px] border border-[#EFE7D3] bg-white p-8 shadow-[0_18px_55px_rgba(11,22,51,0.08)]"
-          >
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
-              Key Advantages
+          <div>
+            <p className="mb-6 text-lg leading-relaxed text-slate-600">
+              {project.shortDescription}
             </p>
 
-            <h3 className="text-2xl font-display font-bold text-[#111827]">
-              Why Buyers Prefer This Project
-            </h3>
+            <p className="text-lg leading-relaxed text-slate-600">
+              This project is positioned for buyers searching for{" "}
+              <strong className="text-slate-950">
+                premium open plots near Hyderabad growth corridors
+              </strong>
+              , with strong location connectivity, lifestyle-driven planning and
+              future-ready infrastructure advantages.
+            </p>
 
-            <div className="mt-8 space-y-5">
-              <div className="rounded-2xl border border-[#EFE7D3] bg-[#FCFBF8] p-5">
-                <p className="font-semibold text-[#111827]">
-                  Strategic Growth Corridor Access
-                </p>
+            <div className="mt-7 flex flex-wrap gap-4 text-sm font-bold">
+              <a href="/projects" className="text-blue-700 underline">
+                View all plotted development projects
+              </a>
 
-                <p className="mt-2 text-sm leading-relaxed text-[#6B7280]">
-                  Located near key infrastructure and emerging Telangana
-                  development zones.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-[#EFE7D3] bg-[#FCFBF8] p-5">
-                <p className="font-semibold text-[#111827]">
-                  DTCP & RERA Focus
-                </p>
-
-                <p className="mt-2 text-sm leading-relaxed text-[#6B7280]">
-                  Planned plotted development with documentation-oriented
-                  project positioning.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-[#EFE7D3] bg-[#FCFBF8] p-5">
-                <p className="font-semibold text-[#111827]">
-                  Long-Term Development Potential
-                </p>
-
-                <p className="mt-2 text-sm leading-relaxed text-[#6B7280]">
-                  Positioned near future-ready infrastructure and regional
-                  connectivity corridors.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-[#EFE7D3] bg-[#FCFBF8] p-5">
-                <p className="font-semibold text-[#111827]">
-                  Buyer Assistance Support
-                </p>
-
-                <p className="mt-2 text-sm leading-relaxed text-[#6B7280]">
-                  Site visits, project guidance and brochure support from the
-                  Sri Supraja Infracon team.
-                </p>
-              </div>
+              <a href="/contact" className="text-blue-700 underline">
+                Request project availability details
+              </a>
             </div>
-
-            <div className="mt-8 rounded-2xl border border-[#E8D7A5] bg-[#FFF9E8] p-5">
-              <p className="text-sm leading-relaxed text-[#4B5563]">
-                Buyers are encouraged to verify project-wise approvals,
-                availability, documentation and registration procedures before
-                booking.
-              </p>
-            </div>
-          </motion.div>
+          </div>
         </div>
+
+        {brochureUrl && (
+          <div className="overflow-hidden rounded-[32px] border border-slate-200 bg-white shadow-2xl">
+            <div className="flex flex-col gap-4 border-b border-slate-200 bg-slate-50 px-6 py-5 md:flex-row md:items-center md:justify-between">
+              <div>
+                <h3 className="text-xl font-extrabold text-slate-950">
+                  {project.title} Brochure
+                </h3>
+
+                <p className="mt-1 text-sm text-slate-500">
+                  Explore layout, approvals, amenities and location highlights
+                  for this project.
+                </p>
+              </div>
+
+              <div className="hidden flex-wrap gap-3 md:flex">
+                <a
+                  href={brochureUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex rounded-full bg-amber-500 px-5 py-2.5 text-xs font-bold text-slate-950 shadow-md transition hover:bg-amber-400"
+                >
+                  Open PDF
+                </a>
+
+                <a
+                  href={brochureUrl}
+                  download
+                  className="inline-flex rounded-full border border-slate-300 bg-white px-5 py-2.5 text-xs font-bold text-slate-900 shadow-sm transition hover:border-amber-500 hover:bg-amber-50"
+                >
+                  Download
+                </a>
+              </div>
+            </div>
+
+            <iframe
+              src={`${brochureUrl}#toolbar=0&navpanes=0&scrollbar=1`}
+              title={`${project.title} Brochure`}
+              className="hidden h-[900px] w-full md:block"
+            />
+
+            <div className="block bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 px-6 py-10 text-white md:hidden">
+              <div className="mx-auto max-w-md rounded-[28px] border border-white/10 bg-white/10 p-6 text-center shadow-2xl backdrop-blur">
+                <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-amber-300">
+                  Brochure Preview
+                </p>
+
+                <h4 className="mb-4 text-2xl font-extrabold">
+                  View {project.title} PDF Brochure
+                </h4>
+
+                <p className="mb-6 text-sm leading-relaxed text-slate-200">
+                  Mobile browsers may not display embedded PDFs correctly. Open
+                  the brochure in a new tab for the best reading experience.
+                </p>
+
+                <div className="flex flex-col gap-3">
+                  <a
+                    href={brochureUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-amber-500 px-5 py-3 text-sm font-bold text-slate-950 shadow-md"
+                  >
+                    Open Brochure PDF
+                  </a>
+
+                  <a
+                    href={brochureUrl}
+                    download
+                    className="rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-bold text-white"
+                  >
+                    Download Brochure
+                  </a>
+
+                  {availabilityMapUrl && (
+                    <a
+                      href={availabilityMapUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-full border border-amber-300/40 bg-transparent px-5 py-3 text-sm font-bold text-amber-300"
+                    >
+                      View Live Plot Availability
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
