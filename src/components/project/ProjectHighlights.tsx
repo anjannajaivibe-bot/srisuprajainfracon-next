@@ -5,69 +5,94 @@ type Props = {
   project: Project;
 };
 
-const ProjectHighlights = ({ project }: Props) => {
-  return (
-    <section className="relative overflow-hidden bg-[#0B1633] px-6 py-24 text-white">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(201,162,39,0.22),transparent_35%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.08),transparent_35%)]" />
+const getExtraHighlights = (slug: string) => {
+  if (slug === "supraja-iris-resort-plots") {
+    return [
+      "Lemon Tree Resort under construction",
+      "Water villas planned",
+      "Water theme park planned",
+      "Amusement park planned",
+      "Go-karting attraction planned",
+      "Near Woxsen University and NH-65",
+    ];
+  }
 
-      <div className="relative mx-auto max-w-7xl">
-        <div className="mb-12 max-w-4xl">
-          <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-[#E8D7A5]">
+  return [];
+};
+
+const ProjectHighlights = ({ project }: Props) => {
+  const extraHighlights = getExtraHighlights(project.slug);
+  const allHighlights = [...project.highlights, ...extraHighlights];
+
+  return (
+    <section className="bg-[#F8F6F1] px-6 py-24">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 text-center">
+          <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
             Project Highlights
           </p>
 
-          <h2 className="mb-5 text-3xl font-extrabold leading-tight md:text-5xl">
-            Why Buyers Prefer {project.title}
+          <h2 className="mx-auto max-w-4xl text-3xl font-extrabold leading-tight text-[#111827] md:text-5xl">
+            Key Advantages of {project.title}
           </h2>
 
-          <p className="text-lg leading-relaxed text-slate-200">
-            Explore the key advantages of this Sri Supraja Infracon plotted
-            development, including location connectivity, approval-led planning,
-            lifestyle potential and buyer support for site visits and project
-            documentation.
+          <p className="mx-auto mt-6 max-w-4xl text-lg leading-relaxed text-[#4B5563]">
+            {project.title} brings together location advantage, approval-focused
+            planning, plotted development infrastructure and buyer support from
+            Sri Supraja Infracon.
+            {project.slug === "supraja-iris-resort-plots" &&
+              " Supraja IRIS also includes a resort ecosystem positioning with Lemon Tree Resort under construction and planned lifestyle attractions such as water villas, water theme park, amusement park and go-karting."}
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {project.highlights.map((item, index) => (
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {allHighlights.map((item, index) => (
             <div
-              key={item}
-              className="group rounded-[28px] border border-white/10 bg-white/10 p-6 shadow-xl backdrop-blur transition duration-300 hover:-translate-y-2 hover:border-[#C9A227]/60 hover:bg-white/15"
+              key={`${item}-${index}`}
+              className="group rounded-[28px] border border-[#EFE7D3] bg-white p-6 shadow-[0_10px_35px_rgba(11,22,51,0.06)] transition duration-300 hover:-translate-y-2 hover:border-[#C9A227] hover:shadow-[0_20px_55px_rgba(11,22,51,0.12)]"
             >
-              <span className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#C9A227] text-lg font-extrabold text-[#0B1633] transition group-hover:scale-110">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-[#FFF4C7] text-sm font-extrabold text-[#0B1633] ring-1 ring-[#E8D7A5] transition group-hover:bg-[#C9A227]">
                 {index + 1}
-              </span>
+              </div>
 
-              <p className="font-semibold leading-relaxed text-white">
+              <h3 className="text-lg font-extrabold leading-snug text-[#111827]">
                 {item}
-              </p>
+              </h3>
             </div>
           ))}
         </div>
 
-        <div className="mt-12 grid gap-5 rounded-[28px] border border-white/10 bg-white/10 p-6 backdrop-blur md:grid-cols-3">
-          <Link
-            href="/projects"
-            className="rounded-2xl bg-white px-5 py-4 text-center text-sm font-bold text-[#0B1633] transition hover:bg-[#C9A227]"
-          >
-            Compare All Projects
-          </Link>
+        <div className="mt-12 rounded-[32px] border border-[#EFE7D3] bg-white p-7 shadow-[0_12px_40px_rgba(11,22,51,0.06)]">
+          <div className="grid gap-5 md:grid-cols-3">
+            <Link
+              href="/projects"
+              className="rounded-2xl bg-[#0B1633] px-5 py-4 text-center text-sm font-bold text-white transition hover:bg-[#C9A227] hover:text-[#0B1633]"
+            >
+              Compare All Projects
+            </Link>
 
-          <Link
-            href="/contact"
-            className="rounded-2xl border border-[#C9A227]/50 px-5 py-4 text-center text-sm font-bold text-[#E8D7A5] transition hover:bg-[#C9A227] hover:text-[#0B1633]"
-          >
-            Request Availability
-          </Link>
+            <Link
+              href="/contact"
+              className="rounded-2xl border border-[#C9A227] bg-[#FFF9E8] px-5 py-4 text-center text-sm font-bold text-[#0B1633] transition hover:bg-[#C9A227]"
+            >
+              Request Availability
+            </Link>
 
-          <a
-            href="https://www.rera.telangana.gov.in/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-2xl border border-white/15 px-5 py-4 text-center text-sm font-bold text-white transition hover:bg-white hover:text-[#0B1633]"
-          >
-            Verify RERA Details
-          </a>
+            <a
+              href="https://www.rera.telangana.gov.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-2xl border border-[#E5E7EB] bg-white px-5 py-4 text-center text-sm font-bold text-[#0B1633] transition hover:border-[#C9A227] hover:bg-[#FFF9E8]"
+            >
+              Verify RERA Details
+            </a>
+          </div>
+
+          <p className="mt-5 text-center text-sm leading-relaxed text-[#6B7280]">
+            Buyers should verify project-wise approval details, current
+            availability, development status and registration process before
+            booking.
+          </p>
         </div>
       </div>
     </section>
