@@ -1,37 +1,36 @@
-import Image, { type StaticImageData } from "next/image";
-import { cn } from "@/lib/utils";
+import Image, { type ImageProps } from "next/image";
+import clsx from "clsx";
 
-type SmartImageProps = {
-  src: string | StaticImageData;
-  alt: string;
-  className?: string;
+type SmartImageProps = ImageProps & {
+  wrapperClassName?: string;
   imageClassName?: string;
-  priority?: boolean;
-  sizes?: string;
 };
 
 export default function SmartImage({
-  src,
+  wrapperClassName,
+  imageClassName,
+  className,
   alt,
-  className = "",
-  imageClassName = "",
   priority = false,
   sizes = "(max-width: 768px) 100vw, 50vw",
+  fill = true,
+  ...props
 }: SmartImageProps) {
   return (
     <div
-      className={cn(
-        "relative h-full w-full overflow-hidden",
+      className={clsx(
+        "relative overflow-hidden",
+        wrapperClassName,
         className
       )}
     >
       <Image
-        src={src}
+        {...props}
+        fill={fill}
         alt={alt}
-        fill
         priority={priority}
         sizes={sizes}
-        className={cn("object-cover", imageClassName)}
+        className={clsx("object-cover", imageClassName)}
       />
     </div>
   );

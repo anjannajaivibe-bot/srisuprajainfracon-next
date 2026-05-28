@@ -2,6 +2,19 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import FloatingCTA from "@/components/layout/FloatingCTA";
+import { DM_Sans, Playfair_Display } from "next/font/google";
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-body",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-display",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.suprajainfracon.com"),
@@ -109,7 +122,7 @@ export default function RootLayout({
 
   return (
     <html lang="en-IN">
-      <body>
+      <body className={`${dmSans.variable} ${playfair.variable}`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
