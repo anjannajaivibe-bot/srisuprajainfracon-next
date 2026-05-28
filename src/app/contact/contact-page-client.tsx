@@ -1,10 +1,12 @@
 "use client";
 
+import ContactForm from "./ContactForm";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import ContactForm from "./ContactForm";
+
 import { motion } from "framer-motion";
 import Link from "next/link";
+
 import {
   Phone,
   Mail,
@@ -15,22 +17,12 @@ import {
 
 import heroBg from "@/assets/hero-bg.webp";
 
-const enquiryPoints = [
-  "Current plot availability",
-  "Latest pricing details",
-  "DTCP & RERA approval guidance",
-  "Site visit scheduling",
-  "Loan support information",
-  "Registration process assistance",
-  "Location connectivity details",
-  "Project brochure requests",
-];
-
 export default function ContactPageClient() {
   return (
     <div className="min-h-screen bg-[#F8F6F1]">
       <Navbar />
 
+      {/* Hero Section */}
       <section className="relative overflow-hidden pb-20 pt-32">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -68,8 +60,11 @@ export default function ContactPageClient() {
         </div>
       </section>
 
+      {/* Contact Section */}
       <section className="bg-[#F8F6F1] px-6 py-24">
         <div className="container-max grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+          
+          {/* Left Side */}
           <div>
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
               Contact Information
@@ -142,6 +137,7 @@ export default function ContactPageClient() {
               </div>
             </div>
 
+            {/* CTA Buttons */}
             <div className="mt-8 flex flex-wrap gap-4">
               <a
                 href="https://wa.me/919640753929?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20Sri%20Supraja%20Infracon%20projects."
@@ -162,37 +158,12 @@ export default function ContactPageClient() {
             </div>
           </div>
 
-          <div className="rounded-[32px] border border-[#EFE7D3] bg-white p-8 shadow-[0_15px_40px_rgba(11,22,51,0.08)]">
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
-              Before Booking
-            </p>
-
-            <h3 className="mb-6 text-3xl font-display font-bold text-[#111827]">
-              Important Buyer Checklist
-            </h3>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              {enquiryPoints.map((item) => (
-                <div
-                  key={item}
-                  className="rounded-2xl border border-[#EFE7D3] bg-[#FCFBF8] p-4"
-                >
-                  <p className="font-semibold text-[#111827]">✓ {item}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8 rounded-2xl border border-[#E8D7A5] bg-[#FFF9E8] p-5">
-              <p className="text-sm leading-relaxed text-[#4B5563]">
-                Buyers are encouraged to verify project-wise DTCP, HMDA and
-                RERA approval details, availability and registration procedures
-                before booking.
-              </p>
-            </div>
-          </div>
+          {/* Right Side Form */}
+          <ContactForm />
         </div>
       </section>
 
+      {/* Projects CTA */}
       <section className="bg-white px-6 py-24">
         <div className="container-max text-center">
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
