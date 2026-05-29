@@ -94,6 +94,9 @@ const ProjectDetail = ({ slug }: { slug: string }) => {
 
         {/* Overview */}
         <ProjectOverview project={project} />
+        
+        {/* Location */}
+        <ProjectLocation project={project} />
 
         {/* Highlights */}
         <ProjectHighlights project={project} />
@@ -108,9 +111,6 @@ const ProjectDetail = ({ slug }: { slug: string }) => {
 
         {/* Gallery */}
         <ProjectGallery project={project} />
-
-        {/* Location */}
-        <ProjectLocation project={project} />
 
         {/* Testimonials */}
         <ProjectTestimonials projectSlug={project.slug} />
