@@ -62,7 +62,7 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="container-max relative z-10 px-4 pb-16 pt-28 text-center sm:px-6 lg:px-8">
-        {/* Badge */}
+        {/* Top Badge */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
@@ -138,23 +138,29 @@ const HeroSection = () => {
         </motion.div>
 
         {/* Legacy Marquee */}
-<div className="legacy-marquee">
-  <div className="legacy-marquee-track">
-    <div className="legacy-marquee-group">
-      <span className="legacy-title">Our Legacy Completed Projects:</span>
-      {legacyProjects.map((item) => (
-        <span key={item}>{item}</span>
-      ))}
-    </div>
+        <div className="legacy-marquee">
+          <div className="legacy-marquee-track animate-[legacy-marquee-scroll_38s_linear_infinite]">
+            <div className="legacy-marquee-group">
+              <span className="legacy-title">
+                Our Legacy Completed Projects:
+              </span>
 
-    <div className="legacy-marquee-group" aria-hidden="true">
-      <span className="legacy-title">Our Legacy Completed Projects:</span>
-      {legacyProjects.map((item) => (
-        <span key={`duplicate-${item}`}>{item}</span>
-      ))}
-    </div>
-  </div>
-</div>
+              {legacyProjects.map((item) => (
+                <span key={item}>{item}</span>
+              ))}
+            </div>
+
+            <div className="legacy-marquee-group" aria-hidden="true">
+              <span className="legacy-title">
+                Our Legacy Completed Projects:
+              </span>
+
+              {legacyProjects.map((item) => (
+                <span key={`duplicate-${item}`}>{item}</span>
+              ))}
+            </div>
+          </div>
+        </div>
 
         {/* CTA */}
         <motion.div
