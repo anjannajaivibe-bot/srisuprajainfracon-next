@@ -41,6 +41,7 @@ const legacyProjects = [
 const HeroSection = () => {
   return (
     <section className="relative flex min-h-[88vh] items-center justify-center overflow-hidden bg-[#0B1633]">
+      {/* Background */}
       <div className="absolute inset-0">
         <video
           className="h-full w-full object-cover opacity-35"
@@ -55,10 +56,13 @@ const HeroSection = () => {
         </video>
 
         <div className="absolute inset-0 bg-gradient-to-br from-[#081225]/95 via-[#0B1633]/88 to-[#1A2F5A]/82" />
+
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0B1633] to-transparent" />
       </div>
 
+      {/* Content */}
       <div className="container-max relative z-10 px-4 pb-16 pt-28 text-center sm:px-6 lg:px-8">
+        {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
@@ -66,11 +70,13 @@ const HeroSection = () => {
           className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#C9A227]/35 bg-[#C9A227]/10 px-5 py-2"
         >
           <span className="h-2 w-2 rounded-full bg-[#C9A227]" />
+
           <span className="text-sm font-semibold text-[#E8D7A5]">
             Sri Supraja Infracon Builders & Developers
           </span>
         </motion.div>
 
+        {/* Heading */}
         <motion.h1
           initial={{ opacity: 0, y: 22 }}
           animate={{ opacity: 1, y: 0 }}
@@ -79,9 +85,11 @@ const HeroSection = () => {
         >
           DTCP & RERA Approved{" "}
           <span className="text-[#C9A227]">Open Plots</span>
-          <br className="hidden md:block" /> Near Hyderabad
+          <br className="hidden md:block" />
+          Near Hyderabad
         </motion.h1>
 
+        {/* Description */}
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -94,6 +102,7 @@ const HeroSection = () => {
           Zaheerabad growth corridor.
         </motion.p>
 
+        {/* Trust Pills */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
@@ -110,6 +119,7 @@ const HeroSection = () => {
           ))}
         </motion.div>
 
+        {/* Ongoing Projects */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
@@ -127,26 +137,33 @@ const HeroSection = () => {
           ))}
         </motion.div>
 
+        {/* Legacy Marquee */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.26 }}
-          className="mx-auto mb-9 max-w-6xl overflow-hidden rounded-full border border-white/15 bg-white/10 py-3 backdrop-blur-md"
+          className="relative left-1/2 right-1/2 mb-9 mt-8 w-screen -translate-x-1/2 overflow-hidden border-y border-white/15 bg-white/10 py-3 backdrop-blur-md"
         >
-          <div className="animate-legacy-marquee flex w-max whitespace-nowrap text-sm font-semibold text-white/90">
-            {[...legacyProjects, ...legacyProjects].map((item, index) => (
-              <span key={`${item}-${index}`} className="mx-6">
-                {index === 0 && (
-                  <span className="text-[#E8D7A5]">
-                    Our Legacy Completed Projects:
-                  </span>
-                )}{" "}
-                {item}
-              </span>
-            ))}
+          <div className="legacy-marquee-track flex w-max whitespace-nowrap">
+            {[...legacyProjects, ...legacyProjects, ...legacyProjects].map(
+              (item, index) => (
+                <span
+                  key={`${item}-${index}`}
+                  className="mx-8 text-sm font-semibold text-white/90"
+                >
+                  {index % legacyProjects.length === 0 && (
+                    <span className="text-[#E8D7A5]">
+                      Our Legacy Completed Projects:
+                    </span>
+                  )}{" "}
+                  {item}
+                </span>
+              )
+            )}
           </div>
         </motion.div>
 
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}

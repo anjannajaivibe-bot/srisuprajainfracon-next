@@ -165,6 +165,27 @@
   }
 }
 
+/* Legacy Marquee Animation */
+
+@keyframes legacy-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-33.3333%);
+  }
+}
+
+.legacy-marquee-track {
+  animation: legacy-marquee-scroll 45s linear infinite;
+  will-change: transform;
+}
+
+.legacy-marquee-track:hover {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -173,21 +194,4 @@
     transition: none !important;
     scroll-behavior: auto !important;
   }
-  @keyframes legacy-marquee {
-  0% {
-    transform: translateX(0%);
-  }
-
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-legacy-marquee {
-  animation: legacy-marquee 42s linear infinite;
-}
-
-.animate-legacy-marquee:hover {
-  animation-play-state: paused;
-}
 }
