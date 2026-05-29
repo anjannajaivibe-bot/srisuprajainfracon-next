@@ -138,30 +138,23 @@ const HeroSection = () => {
         </motion.div>
 
         {/* Legacy Marquee */}
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.26 }}
-          className="relative left-1/2 right-1/2 mb-9 mt-8 w-screen -translate-x-1/2 overflow-hidden border-y border-white/15 bg-white/10 py-3 backdrop-blur-md"
-        >
-          <div className="legacy-marquee-track flex w-max whitespace-nowrap">
-            {[...legacyProjects, ...legacyProjects, ...legacyProjects].map(
-              (item, index) => (
-                <span
-                  key={`${item}-${index}`}
-                  className="mx-8 text-sm font-semibold text-white/90"
-                >
-                  {index % legacyProjects.length === 0 && (
-                    <span className="text-[#E8D7A5]">
-                      Our Legacy Completed Projects:
-                    </span>
-                  )}{" "}
-                  {item}
-                </span>
-              )
-            )}
-          </div>
-        </motion.div>
+<div className="legacy-marquee">
+  <div className="legacy-marquee-track">
+    <div className="legacy-marquee-group">
+      <span className="legacy-title">Our Legacy Completed Projects:</span>
+      {legacyProjects.map((item) => (
+        <span key={item}>{item}</span>
+      ))}
+    </div>
+
+    <div className="legacy-marquee-group" aria-hidden="true">
+      <span className="legacy-title">Our Legacy Completed Projects:</span>
+      {legacyProjects.map((item) => (
+        <span key={`duplicate-${item}`}>{item}</span>
+      ))}
+    </div>
+  </div>
+</div>
 
         {/* CTA */}
         <motion.div
