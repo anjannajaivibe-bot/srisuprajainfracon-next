@@ -2,13 +2,13 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#081225] text-white">
+    <footer className="border-t border-slate-200 bg-[#F8FAFC] text-slate-800">
       {/* Main Footer */}
       <div className="container-max px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold text-white">
+            <h3 className="text-2xl font-bold text-slate-900">
               Sri Supraja Infracon
             </h3>
 
@@ -16,7 +16,7 @@ export default function Footer() {
               Builders & Developers
             </p>
 
-            <p className="mt-6 leading-7 text-slate-300">
+            <p className="mt-6 leading-7 text-slate-600">
               Sri Supraja Infracon develops DTCP & RERA approved open plots,
               villa plots and premium plotted developments near Hyderabad growth
               corridors including Kamkole, Sangareddy, Mominpet and Indrakaran.
@@ -25,11 +25,11 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="mb-5 text-lg font-semibold text-white">
+            <h4 className="mb-5 text-lg font-semibold text-slate-900">
               Quick Links
             </h4>
 
-            <ul className="space-y-3 text-slate-300">
+            <ul className="space-y-3 text-slate-600">
               <li>
                 <Link
                   href="/"
@@ -79,11 +79,11 @@ export default function Footer() {
 
           {/* Projects */}
           <div>
-            <h4 className="mb-5 text-lg font-semibold text-white">
+            <h4 className="mb-5 text-lg font-semibold text-slate-900">
               Our Projects
             </h4>
 
-            <ul className="space-y-3 text-slate-300">
+            <ul className="space-y-3 text-slate-600">
               <li>
                 <Link
                   href="/projects/supraja-iris-resort-plots"
@@ -124,7 +124,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="mb-5 text-lg font-semibold text-white">
+            <h4 className="mb-5 text-lg font-semibold text-slate-900">
               Contact Information
             </h4>
 
@@ -135,7 +135,7 @@ export default function Footer() {
 
                 <a
                   href="tel:+919640753929"
-                  className="text-slate-200 transition hover:text-[#C9A227]"
+                  className="text-slate-600 transition hover:text-[#C9A227]"
                 >
                   +91 9640753929
                 </a>
@@ -147,7 +147,7 @@ export default function Footer() {
 
                 <a
                   href="mailto:support@srisuprajainfracon.com"
-                  className="text-slate-200 transition hover:text-[#C9A227]"
+                  className="text-slate-600 transition hover:text-[#C9A227]"
                 >
                   support@srisuprajainfracon.com
                 </a>
@@ -157,7 +157,7 @@ export default function Footer() {
               <div className="flex items-start gap-3">
                 <span className="mt-1 text-[#C9A227]">📍</span>
 
-                <p className="leading-7 text-slate-200">
+                <p className="leading-7 text-slate-600">
                   H.No. 4-91, Above Parampara Mithai,
                   <br />
                   Chandanagar, Hyderabad – 500050
@@ -168,7 +168,7 @@ export default function Footer() {
         </div>
 
         {/* Office Map */}
-        <div className="mt-14 overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
+        <div className="mt-14 overflow-hidden rounded-3xl border border-slate-200 shadow-lg">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d511.8898517700488!2d78.3263364719618!3d17.494642678754836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9291f73c9b8d%3A0x500bd3bbe095ab6d!2sSri%20Supraja%20Infracon%20-%20Premium%20Plots%20%26%20Resorts!5e1!3m2!1sen!2sin!4v1780045764967!5m2!1sen!2sin"
             width="100%"
@@ -184,8 +184,8 @@ export default function Footer() {
       </div>
 
       {/* Bottom Footer */}
-      <div className="border-t border-white/10">
-        <div className="container-max flex flex-col items-center justify-between gap-4 px-4 py-6 text-sm text-slate-400 sm:flex-row sm:px-6 lg:px-8">
+      <div className="border-t border-slate-200 bg-white">
+        <div className="container-max flex flex-col items-center justify-between gap-4 px-4 py-6 text-sm text-slate-500 sm:flex-row sm:px-6 lg:px-8">
           <p>
             © {new Date().getFullYear()} Sri Supraja Infracon. All Rights
             Reserved.
