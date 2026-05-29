@@ -46,13 +46,13 @@ const ProjectResort = ({ project }: Props) => {
           </p>
 
           <h2 className="mx-auto mb-6 max-w-4xl text-4xl font-extrabold leading-tight text-slate-950 md:text-5xl">
-            Upcoming Attractions Around{" "}
+            Upcoming Attractions Within the{" "}
             <span className="text-amber-600">{project.title}</span>
           </h2>
 
           <p className="mx-auto max-w-3xl text-lg leading-relaxed text-slate-600">
             Supraja IRIS is positioned as a resort-style plotted development
-            near Hyderabad, supported by planned hospitality, leisure and family
+            near Sangareddy, RRR and NIMZ, supported by planned hospitality, leisure and family
             recreation attractions that improve visibility and high ROI growth
             potential.
           </p>
@@ -89,7 +89,7 @@ const ProjectResort = ({ project }: Props) => {
           <p className="text-lg leading-relaxed text-slate-700">
             Buyers searching for{" "}
             <strong className="text-slate-950">
-              resort plots near Hyderabad, open plots near Woxsen University and
+              resort plots near Sangareddy, open plots near Woxsen University and
               high ROI plots near NH-65
             </strong>{" "}
             can evaluate this project for its combination of land ownership,
@@ -107,7 +107,7 @@ const ProjectResort = ({ project }: Props) => {
               rel="noopener noreferrer"
               className="text-blue-700 underline"
             >
-              View nearby Woxsen University
+              View adjacent to Woxsen University
             </a>
           </div>
         </div>
