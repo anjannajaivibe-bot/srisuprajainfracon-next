@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title:
       "Contact Sri Supraja Infracon | Open Plot Enquiry & Site Visit",
     description:
-      "Enquire about Supraja IRIS, Bridge County, Sindhu Sarovar and Subash Meadows.",
+      "Enquire about Supraja IRIS, Bridge County, Sindhu Sarovar and Subhash Meadows.",
   },
 };
 

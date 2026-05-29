@@ -4,7 +4,7 @@ import ProjectsClient from "./projects-client";
 export const metadata: Metadata = {
   title: "Open Plot Projects Near Hyderabad | Sri Supraja Infracon",
   description:
-    "Explore Sri Supraja Infracon open plot projects including Supraja IRIS, Bridge County, Sindhu Sarovar and Subash Meadows across Hyderabad growth corridors.",
+    "Explore Sri Supraja Infracon open plot projects including Supraja IRIS, Bridge County, Sindhu Sarovar and Subhash Meadows across Hyderabad growth corridors.",
   alternates: {
     canonical: "https://www.suprajainfracon.com/projects/",
   },
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Open Plot Projects Near Hyderabad | Sri Supraja Infracon",
     description:
-      "Explore Supraja IRIS, Bridge County, Sindhu Sarovar and Subash Meadows by Sri Supraja Infracon.",
+      "Explore Supraja IRIS, Bridge County, Sindhu Sarovar and Subhash Meadows by Sri Supraja Infracon.",
   },
 };
 

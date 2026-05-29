@@ -39,7 +39,7 @@ export const meta: Record<string, PageMeta> = {
   projects: {
     title: "Sri Supraja Infracon Projects | Open Plots and Resort Plots",
     description:
-      "Explore Sri Supraja Infracon projects including Supraja IRIS, Bridge County, Sindhu Sarovar and Subash Meadows.",
+      "Explore Sri Supraja Infracon projects including Supraja IRIS, Bridge County, Sindhu Sarovar and Subhash Meadows.",
     canonical: `${siteMeta.domain}/projects`,
     ogTitle: "Sri Supraja Infracon Projects",
     ogDescription:

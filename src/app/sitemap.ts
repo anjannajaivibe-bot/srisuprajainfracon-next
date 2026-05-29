@@ -98,7 +98,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
 
     {
-      url: `${baseUrl}/projects/subash-meadows/`,
+      url: `${baseUrl}/projects/Subhash-meadows/`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.92,

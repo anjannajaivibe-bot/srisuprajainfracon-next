@@ -4,7 +4,7 @@ const faqs = [
   {
     question: "Which Sri Supraja Infracon projects are currently open for sales?",
     answer:
-      "Sales are open for selected inventory across Sri Supraja Infracon plotted development projects, including Supraja IRIS Resort Plots, Bridge County, Sindhu Sarovar and Subash Meadows, subject to current availability.",
+      "Sales are open for selected inventory across Sri Supraja Infracon plotted development projects, including Supraja IRIS Resort Plots, Bridge County, Sindhu Sarovar and Subhash Meadows, subject to current availability.",
   },
   {
     question: "Does Sri Supraja Infracon offer DTCP and RERA approved open plots?",

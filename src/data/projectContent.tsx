@@ -195,9 +195,9 @@ export const projectContent = {
     ],
   },
 
-  "subash-meadows": {
+  "Subhash-meadows": {
     overview:
-      "Subash Meadows is an affordable open plot community at Indrakaran by Sri Supraja Infracon offering planned infrastructure, Vastu-compliant layouts and strong connectivity toward ORR, IIT Hyderabad, ICRISAT, BHEL and Sangareddy growth zones. Sales are open for buyers looking for budget-friendly open plots near Hyderabad.",
+      "Subhash Meadows is an affordable open plot community at Indrakaran by Sri Supraja Infracon offering planned infrastructure, Vastu-compliant layouts and strong connectivity toward ORR, IIT Hyderabad, ICRISAT, BHEL and Sangareddy growth zones. Sales are open for buyers looking for budget-friendly open plots near Hyderabad.",
 
     amenities: [
       "Affordable open plots at Indrakaran",
@@ -226,29 +226,29 @@ export const projectContent = {
     ],
 
     gallery: [
-      "/images/subash-1.webp",
-      "/images/subash-2.webp",
-      "/images/subash-3.webp",
+      "/images/Subhash-1.webp",
+      "/images/Subhash-2.webp",
+      "/images/Subhash-3.webp",
     ],
 
     faq: [
       {
-        question: "Where is Subash Meadows located?",
+        question: "Where is Subhash Meadows located?",
         answer:
-          "Subash Meadows is located at Indrakaran with excellent access to ORR, IIT Hyderabad, ICRISAT and BHEL.",
+          "Subhash Meadows is located at Indrakaran with excellent access to ORR, IIT Hyderabad, ICRISAT and BHEL.",
       },
       {
-        question: "What road sizes are available in Subash Meadows?",
+        question: "What road sizes are available in Subhash Meadows?",
         answer:
           "The project includes 40, 33 and 30 feet black top roads.",
       },
       {
-        question: "Is the Subash Meadows layout Vastu compliant?",
+        question: "Is the Subhash Meadows layout Vastu compliant?",
         answer:
           "Yes. The plotted layout is planned as per Vastu principles.",
       },
       {
-        question: "Are Subash Meadows plots available for sale?",
+        question: "Are Subhash Meadows plots available for sale?",
         answer:
           "Yes. Affordable open plots are currently available for booking.",
       },

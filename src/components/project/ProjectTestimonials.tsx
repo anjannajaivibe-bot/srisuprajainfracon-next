@@ -42,13 +42,13 @@ const testimonials = [
     text: `Sindhu Sarovar gives a calm and premium atmosphere with excellent planning and greenery. We liked the peaceful environment, clear documentation, and long-term value offered by Sri Supraja Infracon.`,
   },
   {
-    slug: "subash-meadows",
-    project: "Subash Meadows",
+    slug: "Subhash-meadows",
+    project: "Subhash Meadows",
     name: "Verified Buyer",
-    role: "Subash Meadows Customer",
+    role: "Subhash Meadows Customer",
     image: "/testimonials/default-investor.webp",
-    alt: "Subash Meadows customer testimonial",
-    text: `Subash Meadows is a strong option for buyers looking for affordable plots with good connectivity and future growth potential near Hyderabad. The planned roads, layout, and location advantages impressed us.`,
+    alt: "Subhash Meadows customer testimonial",
+    text: `Subhash Meadows is a strong option for buyers looking for affordable plots with good connectivity and future growth potential near Hyderabad. The planned roads, layout, and location advantages impressed us.`,
   },
 ];
 

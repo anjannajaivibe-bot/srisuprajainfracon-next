@@ -6,7 +6,7 @@ type ProjectSlug =
   | "supraja-iris-resort-plots"
   | "bridge-county"
   | "sindhu-sarovar"
-  | "subash-meadows";
+  | "Subhash-meadows";
 
 type ProjectPageProps = {
   params: Promise<{
@@ -70,15 +70,15 @@ const projectSeo: Record<
     ],
   },
 
-  "subash-meadows": {
+  "Subhash-meadows": {
     title:
-      "Subash Meadows Indrakaran | Open Plots Near ORR & IIT Hyderabad",
+      "Subhash Meadows Indrakaran | Open Plots Near ORR & IIT Hyderabad",
     description:
-      "Explore Subash Meadows open plots in Indrakaran near ORR, IIT Hyderabad, Patancheru, BHEL and Sangareddy growth locations.",
-    h1: "Subash Meadows Open Plots in Indrakaran",
+      "Explore Subhash Meadows open plots in Indrakaran near ORR, IIT Hyderabad, Patancheru, BHEL and Sangareddy growth locations.",
+    h1: "Subhash Meadows Open Plots in Indrakaran",
     location: "Indrakaran, Telangana",
     keywords: [
-      "Subash Meadows Indrakaran",
+      "Subhash Meadows Indrakaran",
       "open plots near ORR",
       "plots near IIT Hyderabad",
       "plots near Patancheru",

@@ -2,7 +2,7 @@ import type { StaticImageData } from "next/image";
 import irisImage from "@/assets/project-iris.webp";
 import bridgeImage from "@/assets/project-bridge.webp";
 import sindhuImage from "@/assets/project-sindhu.webp";
-import subashImage from "@/assets/project-meadows.webp";
+import SubhashImage from "@/assets/project-meadows.webp";
 
 export type ProjectStatus =
   | "Ongoing"
@@ -136,9 +136,9 @@ export const projects: Project[] = [
   },
 
   {
-    id: "subash-meadows",
-    slug: "subash-meadows",
-    title: "Subash Meadows",
+    id: "Subhash-meadows",
+    slug: "Subhash-meadows",
+    title: "Subhash Meadows",
     location: "Indrakaran",
     status: "Sales Open",
     approvalType: "Open Plots with Planned Layout Infrastructure",
@@ -146,10 +146,10 @@ export const projects: Project[] = [
     shortDescription:
       "Affordable open plots at Indrakaran with planned black top roads, drainage, parks, avenue plantation and quick connectivity to ORR, IIT Hyderabad, ICRISAT and BHEL.",
 
-    image: subashImage,
+    image: SubhashImage,
 
     imageAlt:
-      "Subash Meadows affordable open plots at Indrakaran near ORR and IIT Hyderabad",
+      "Subhash Meadows affordable open plots at Indrakaran near ORR and IIT Hyderabad",
 
     highlights: [
       "Affordable open plots at Indrakaran",
@@ -160,7 +160,7 @@ export const projects: Project[] = [
       "15 minutes to IIT Hyderabad",
     ],
 
-    link: "/projects/subash-meadows",
+    link: "/projects/Subhash-meadows",
 
     brochure: "/brochures/subhash-meadows-brochure.pdf",
 

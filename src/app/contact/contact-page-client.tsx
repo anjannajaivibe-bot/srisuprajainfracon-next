@@ -175,7 +175,7 @@ export default function ContactPageClient() {
           </h2>
 
           <p className="mx-auto mt-5 max-w-3xl text-[#4B5563]">
-            Explore Supraja IRIS, Bridge County, Sindhu Sarovar and Subash
+            Explore Supraja IRIS, Bridge County, Sindhu Sarovar and Subhash
             Meadows across Telangana growth corridors before planning your site
             visit.
           </p>
@@ -203,10 +203,10 @@ export default function ContactPageClient() {
             </Link>
 
             <Link
-              href="/projects/subash-meadows"
+              href="/projects/Subhash-meadows"
               className="rounded-full bg-[#0B1633] px-5 py-3 font-bold text-white transition hover:bg-[#C9A227] hover:text-[#0B1633]"
             >
-              Subash Meadows
+              Subhash Meadows
             </Link>
           </div>
         </div>

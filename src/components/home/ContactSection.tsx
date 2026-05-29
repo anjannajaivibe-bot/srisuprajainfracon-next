@@ -33,7 +33,7 @@ const ContactSection = () => {
           <div className="space-y-4 text-slate-700">
             <p>
               <strong className="text-slate-950">Projects:</strong> Supraja
-              IRIS Resort Plots, Bridge County, Sindhu Sarovar and Subash
+              IRIS Resort Plots, Bridge County, Sindhu Sarovar and Subhash
               Meadows
             </p>
 

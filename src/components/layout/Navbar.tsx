@@ -26,8 +26,8 @@ const projectLinks = [
     href: "/projects/sindhu-sarovar",
   },
   {
-    label: "Subash Meadows",
-    href: "/projects/subash-meadows",
+    label: "Subhash Meadows",
+    href: "/projects/Subhash-meadows",
   },
 ];
 

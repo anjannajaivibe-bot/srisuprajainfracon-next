@@ -93,7 +93,7 @@ const milestones = [
   {
     year: "2026",
     title: "Sales Open Across Projects",
-    desc: "Supraja IRIS, Bridge County, Sindhu Sarovar and Subash Meadows continue to serve buyers looking for open plots near Hyderabad.",
+    desc: "Supraja IRIS, Bridge County, Sindhu Sarovar and Subhash Meadows continue to serve buyers looking for open plots near Hyderabad.",
   },
 ];
 
@@ -471,7 +471,7 @@ export default function AboutClient() {
             </h2>
 
             <p className="mx-auto mt-4 max-w-3xl text-slate-300">
-              Compare Supraja IRIS, Bridge County, Sindhu Sarovar and Subash
+              Compare Supraja IRIS, Bridge County, Sindhu Sarovar and Subhash
               Meadows before choosing the right project for your budget, location
               preference and long-term growth potential.
             </p>
