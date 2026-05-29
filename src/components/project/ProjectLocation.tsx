@@ -19,7 +19,7 @@ const mapEmbeds: Record<string, string> = {
   "sindhu-sarovar":
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d511.8695815160396!2d77.8786709080152!3d17.50183945649242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc957dabf153fa9%3A0x794f231ecb9cce5e!2sSupraja%20Sindhuja%20Sarovar!5e1!3m2!1sen!2sin!4v1780043266570!5m2!1sen!2sin",
 
-  "subash-meadows":
+  "subhash-meadows":
     "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d511.8047095687335!2d78.16270280975331!3d17.524852435391264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sin!4v1780043343336!5m2!1sen!2sin",
 };
 
