@@ -218,4 +218,13 @@
 .legacy-marquee:hover .legacy-marquee-track {
   animation-play-state: paused;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }
