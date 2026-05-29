@@ -105,7 +105,7 @@ export default function RootLayout({
       "Sri Supraja Infracon develops DTCP and RERA approved open plot communities, villa plots and resort plots near Hyderabad growth corridors.",
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+91 96407 53929",
+      telephone: "+91 90529 96161",
       contactType: "sales",
       areaServed: "IN",
       availableLanguage: ["English", "Telugu", "Hindi"],

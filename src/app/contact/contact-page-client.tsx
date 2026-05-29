@@ -91,7 +91,7 @@ export default function ContactPageClient() {
                     href="tel:+919052996161"
                     className="text-[#4B5563] hover:text-[#0B1633]"
                   >
-                    +91 96407 53929
+                    +91 90529 96161
                   </a>
                 </div>
               </div>

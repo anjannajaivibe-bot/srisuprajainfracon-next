@@ -33,7 +33,7 @@ export default function ContactPage() {
     "@type": "RealEstateAgent",
     name: "Sri Supraja Infracon",
     url: "https://www.suprajainfracon.com",
-    telephone: "+91 96407 53929",
+    telephone: "+91 90529 96161",
     email: "info@srisuprajainfracon.com",
     areaServed: [
       "Hyderabad",
