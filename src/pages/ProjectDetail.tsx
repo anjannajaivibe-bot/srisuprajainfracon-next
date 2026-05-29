@@ -113,7 +113,7 @@ const ProjectDetail = ({ slug }: { slug: string }) => {
         <ProjectLocation project={project} />
 
         {/* Testimonials */}
-        <ProjectTestimonials />
+        <ProjectTestimonials projectSlug={project.slug} />
 
         {/* FAQ */}
         <ProjectFAQ project={project} />
