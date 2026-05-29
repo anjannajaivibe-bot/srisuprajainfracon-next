@@ -15,6 +15,15 @@ const testimonials = [
     text: `I purchased Plot No. 120 measuring 645 Sq. Yards in Supraja IRIS, and I am extremely satisfied with my investment decision. The project impressed me with its well-planned layout, premium infrastructure, DTCP & RERA approvals, and future growth potential near Kamkole. What gave me the most confidence was the transparent approach of the Sri Supraja Infracon team and the overall vision of developing a premium resort ecosystem.`,
   },
   {
+    slug: "supraja-iris-resort-plots",
+    project: "Supraja IRIS",
+    name: "Raju Kodipelly",
+    role: "Plot No. 160 • 160 Sq. Yards",
+    image: "/testimonials/raju-kodipally-supraja-iris-investor.webp",
+    alt: "Raju Kodipelly investor testimonial at Supraja IRIS Kamkole",
+    text: `I purchased Plot No. 160 measuring 160 Sq. Yards in Supraja IRIS, and I am extremely satisfied with my investment decision. The project impressed me with its well-planned layout, premium infrastructure, DTCP & RERA approvals, and future growth potential near Kamkole. What gave me the most confidence was the transparent approach of the Sri Supraja Infracon team and the overall vision of developing a premium resort ecosystem.`,
+  },
+  {
     slug: "bridge-county",
     project: "Bridge County",
     name: "Verified Investor",
