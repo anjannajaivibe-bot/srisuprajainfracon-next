@@ -21,7 +21,7 @@ const testimonials = [
     role: "Plot No. 160 • 160 Sq. Yards",
     image: "/testimonials/raju-kodiipally-supraja-iris-investor.webp",
     alt: "Raju Kodipelly investor testimonial at Supraja IRIS Kamkole",
-    text: `I purchased Plot No. 160 measuring 160 Sq. Yards in Supraja IRIS, and I am extremely satisfied with my investment decision. The project impressed me with its well-planned layout, premium infrastructure, DTCP & RERA approvals, and future growth potential near Kamkole. What gave me the most confidence was the transparent approach of the Sri Supraja Infracon team and the overall vision of developing a premium resort ecosystem.`,
+    text:`I invested in Plot No. 160 measuring 160 Sq. Yards at Supraja IRIS after carefully evaluating multiple projects near Hyderabad. The excellent location near Kamkole, planned infrastructure, DTCP & RERA approvals, and future growth potential convinced me to choose this project. I especially appreciated the professional guidance and transparent support provided by the Sri Supraja Infracon team throughout the process.`,
   },
   {
     slug: "bridge-county",
