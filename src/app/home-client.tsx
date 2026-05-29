@@ -8,6 +8,7 @@ import WhyChooseUs from "@/components/home/WhyChooseUs";
 import FAQSection from "@/components/home/FAQSection";
 import CTASection from "@/components/home/CTASection";
 import ContactSection from "@/components/home/ContactSection";
+import ProjectTestimonials from "@/components/project/ProjectTestimonials";
 
 export default function HomeClient() {
   return (
@@ -17,6 +18,7 @@ export default function HomeClient() {
       <ProjectsSection />
       <FlagshipProject />
       <WhyChooseUs />
+      <ProjectTestimonials />
       <FAQSection />
       <CTASection />
       <ContactSection />

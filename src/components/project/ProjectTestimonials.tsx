@@ -1,7 +1,12 @@
 import Image from "next/image";
 
+type ProjectTestimonialsProps = {
+  projectSlug?: string;
+};
+
 const testimonials = [
   {
+    slug: "supraja-iris-resort-plots",
     project: "Supraja IRIS",
     name: "Anjanna Margam",
     role: "Plot No. 120 • 645 Sq. Yards",
@@ -10,6 +15,7 @@ const testimonials = [
     text: `I purchased Plot No. 120 measuring 645 Sq. Yards in Supraja IRIS, and I am extremely satisfied with my investment decision. The project impressed me with its well-planned layout, premium infrastructure, DTCP & RERA approvals, and future growth potential near Kamkole. What gave me the most confidence was the transparent approach of the Sri Supraja Infracon team and the overall vision of developing a premium resort ecosystem.`,
   },
   {
+    slug: "bridge-county",
     project: "Bridge County",
     name: "Verified Investor",
     role: "Bridge County Customer",
@@ -18,6 +24,7 @@ const testimonials = [
     text: `Bridge County offers the perfect balance between peaceful surroundings and investment potential. The layout planning, premium feel, and professional guidance from the team made our investment decision confident and smooth.`,
   },
   {
+    slug: "sindhu-sarovar",
     project: "Sindhu Sarovar",
     name: "Verified Customer",
     role: "Sindhu Sarovar Customer",
@@ -26,6 +33,7 @@ const testimonials = [
     text: `Sindhu Sarovar gives a calm and premium atmosphere with excellent planning and greenery. We liked the peaceful environment, clear documentation, and long-term value offered by Sri Supraja Infracon.`,
   },
   {
+    slug: "subash-meadows",
     project: "Subash Meadows",
     name: "Verified Buyer",
     role: "Subash Meadows Customer",
@@ -35,7 +43,17 @@ const testimonials = [
   },
 ];
 
-export default function ProjectTestimonials() {
+export default function ProjectTestimonials({
+  projectSlug,
+}: ProjectTestimonialsProps) {
+  const visibleTestimonials = projectSlug
+    ? testimonials.filter((item) => item.slug === projectSlug)
+    : testimonials;
+
+  if (visibleTestimonials.length === 0) {
+    return null;
+  }
+
   return (
     <section className="py-16 bg-[#f8f8f8]">
       <div className="max-w-7xl mx-auto px-4">
@@ -54,10 +72,16 @@ export default function ProjectTestimonials() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {testimonials.map((item) => (
+        <div
+          className={
+            visibleTestimonials.length === 1
+              ? "max-w-4xl mx-auto"
+              : "grid md:grid-cols-2 gap-8"
+          }
+        >
+          {visibleTestimonials.map((item) => (
             <article
-              key={item.project}
+              key={item.slug}
               className="bg-white rounded-3xl shadow-lg border border-gray-100 p-7 md:p-8"
             >
               <div className="flex items-start gap-5">
