@@ -42,7 +42,7 @@ export const projectContent = {
       "/projects/supraja-iris/gallery/supraja-iris-gallery-3.webp",
       "/projects/supraja-iris/gallery/supraja-iris-gallery-4.webp",
       "/projects/supraja-iris/gallery/supraja-iris-gallery-5.webp",
-      "/projects/supraja-iris/gallery/resort-under-construction-1.webp",
+      "/projects/supraja-iris/gallery/supraja-iris-gallery-6.webp",
     ],
 
     faq: [
