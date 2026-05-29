@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { useRef } from "react";
 import projectIris from "@/assets/project-iris.webp";
+import ProjectTestimonials from "@/components/project/ProjectTestimonials";
 
 const stats = [
   { value: "350", label: "Acres Master Planned Development" },

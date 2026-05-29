@@ -1,4 +1,5 @@
 import type { Project } from "@/data/projects";
+import ProjectTestimonials from "@/components/project/ProjectTestimonials";
 
 type Props = {
   project: Project;
