@@ -134,10 +134,10 @@ export default function Footer() {
                 <span className="mt-1 text-[#C9A227]">📞</span>
 
                 <a
-                  href="tel:+919640753929"
+                  href="tel:+919052996161"
                   className="text-slate-600 transition hover:text-[#C9A227]"
                 >
-                  +91 9640753929
+                  +91 90529 96161
                 </a>
               </div>
 
