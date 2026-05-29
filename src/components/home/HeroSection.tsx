@@ -28,6 +28,16 @@ const projectLinks = [
   },
 ];
 
+const legacyProjects = [
+  "Sai Sreenivasam Apartments - Nallagandla",
+  "Sreenivasa Anandam Apartments - Huda Trade Centre, Nallagandla",
+  "Supraja Harmony Gated Community Villas - Ameenpur",
+  "Supraja Harivillu Open Plot Venture - Beeramguda",
+  "Supraja Marvel Open Plot Venture - Isnapur",
+  "Supraja IIT Technopark Open Plot Venture - IIT Kandi, Sangareddy",
+  "and more...",
+];
+
 const HeroSection = () => {
   return (
     <section className="relative flex min-h-[88vh] items-center justify-center overflow-hidden bg-[#0B1633]">
@@ -65,7 +75,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 22 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55 }}
-          className="mx-auto mb-6 max-w-6xl text-4xl font-display font-bold leading-[1.03] tracking-tight text-white sm:text-5xl lg:text-7xl"
+          className="mx-auto mb-6 max-w-6xl font-display text-4xl font-bold leading-[1.03] tracking-tight text-white sm:text-5xl lg:text-7xl"
         >
           DTCP & RERA Approved{" "}
           <span className="text-[#C9A227]">Open Plots</span>
@@ -88,12 +98,12 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.15 }}
-          className="mb-9 flex flex-wrap justify-center gap-3"
+          className="mb-8 flex flex-wrap justify-center gap-3"
         >
           {trustBadges.map((badge) => (
             <span
               key={badge}
-              className="rounded-full border border-white/10 bg-white/8 px-4 py-2 text-xs font-semibold text-slate-100 sm:text-sm"
+              className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold text-slate-100 sm:text-sm"
             >
               {badge}
             </span>
@@ -104,13 +114,13 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.22 }}
-          className="mb-10 flex flex-wrap justify-center gap-3"
+          className="mb-8 flex flex-wrap items-center justify-center gap-4"
         >
           {projectLinks.map((project) => (
             <Link
               key={project.name}
               href={project.href}
-              className="rounded-full bg-[#C9A227] px-5 py-3 text-sm font-bold text-[#0B1633] shadow-md transition hover:-translate-y-0.5 hover:bg-white"
+              className="min-w-[155px] rounded-full bg-[#C9A227] px-6 py-3 text-center text-sm font-bold text-[#0B1633] shadow-md transition hover:-translate-y-0.5 hover:bg-white"
             >
               {project.name}
             </Link>
@@ -120,7 +130,27 @@ const HeroSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.28 }}
+          transition={{ duration: 0.55, delay: 0.26 }}
+          className="mx-auto mb-9 max-w-6xl overflow-hidden rounded-full border border-white/15 bg-white/10 py-3 backdrop-blur-md"
+        >
+          <div className="animate-legacy-marquee flex w-max whitespace-nowrap text-sm font-semibold text-white/90">
+            {[...legacyProjects, ...legacyProjects].map((item, index) => (
+              <span key={`${item}-${index}`} className="mx-6">
+                {index === 0 && (
+                  <span className="text-[#E8D7A5]">
+                    Our Legacy Completed Projects:
+                  </span>
+                )}{" "}
+                {item}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.3 }}
           className="flex justify-center"
         >
           <Link

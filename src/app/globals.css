@@ -173,4 +173,21 @@
     transition: none !important;
     scroll-behavior: auto !important;
   }
+  @keyframes legacy-marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-legacy-marquee {
+  animation: legacy-marquee 42s linear infinite;
+}
+
+.animate-legacy-marquee:hover {
+  animation-play-state: paused;
+}
 }
