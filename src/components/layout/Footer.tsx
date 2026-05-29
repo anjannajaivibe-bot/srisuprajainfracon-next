@@ -1,173 +1,201 @@
-import {
-  MapPin,
-  Phone,
-  Mail,
-  ArrowUpRight,
-  MessageCircle,
-} from "lucide-react";
-
 import Link from "next/link";
 
-const projectLinks = [
-  {
-    label: "Supraja IRIS Resort Plots",
-    to: "/projects/supraja-iris-resort-plots",
-  },
-  {
-    label: "Bridge County",
-    to: "/projects/bridge-county",
-  },
-  {
-    label: "Sindhu Sarovar",
-    to: "/projects/sindhu-sarovar",
-  },
-  {
-    label: "Subhash Meadows",
-    to: "/projects/Subhash-meadows",
-  },
-];
-
-const Footer = () => {
+export default function Footer() {
   return (
-    <footer className="border-t border-slate-200 bg-white">
+    <footer className="bg-[#081225] text-white">
+      {/* Main Footer */}
       <div className="container-max px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr_1fr]">
+        <div className="grid gap-12 lg:grid-cols-4">
+          {/* Brand */}
           <div>
-            <h3 className="mb-2 text-2xl font-bold text-slate-950">
+            <h3 className="text-2xl font-bold text-white">
               Sri Supraja Infracon
             </h3>
 
-            <p className="mb-5 text-xs uppercase tracking-[0.25em] text-amber-700">
+            <p className="mt-2 text-sm uppercase tracking-[0.3em] text-[#C9A227]">
               Builders & Developers
             </p>
 
-            <p className="max-w-md leading-relaxed text-slate-600">
-              Premium plotted developments designed around growth,
-              infrastructure and lifestyle experiences across Hyderabad’s
-              expanding investment corridors.
+            <p className="mt-6 leading-7 text-slate-300">
+              Sri Supraja Infracon develops DTCP & RERA approved open plots,
+              villa plots and premium plotted developments near Hyderabad growth
+              corridors including Kamkole, Sangareddy, Mominpet and Indrakaran.
             </p>
-
-            <div className="mt-7 flex flex-wrap gap-4">
-              <a
-                href="https://wa.me/919052996161?text=Hi%20I%20would%20like%20to%20know%20more%20about%20your%20projects"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-full bg-green-500 px-5 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-green-600"
-              >
-                <MessageCircle size={15} />
-                WhatsApp
-              </a>
-
-              <a
-                href="tel:+919052996161"
-                className="rounded-full bg-amber-500 px-5 py-3 text-sm font-bold text-slate-950 transition hover:bg-amber-400"
-              >
-                Call Now
-              </a>
-            </div>
           </div>
 
+          {/* Quick Links */}
           <div>
-            <h4 className="mb-5 text-lg font-bold text-slate-950">
-              Our Projects
+            <h4 className="mb-5 text-lg font-semibold text-white">
+              Quick Links
             </h4>
 
-            <ul className="space-y-3">
-              {projectLinks.map((item) => (
-                <li key={item.to}>
-                  <Link
-                    href={item.to}
-                    className="group inline-flex items-center gap-2 text-slate-600 transition hover:text-amber-700"
-                  >
-                    <span>{item.label}</span>
+            <ul className="space-y-3 text-slate-300">
+              <li>
+                <Link
+                  href="/"
+                  className="transition hover:text-[#C9A227]"
+                >
+                  Home
+                </Link>
+              </li>
 
-                    <ArrowUpRight
-                      size={15}
-                      className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                    />
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link
+                  href="/about"
+                  className="transition hover:text-[#C9A227]"
+                >
+                  About Us
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/projects"
+                  className="transition hover:text-[#C9A227]"
+                >
+                  Projects
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/contact-us"
+                  className="transition hover:text-[#C9A227]"
+                >
+                  Contact Us
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/blog"
+                  className="transition hover:text-[#C9A227]"
+                >
+                  Blog
+                </Link>
+              </li>
             </ul>
           </div>
 
+          {/* Projects */}
           <div>
-            <h4 className="mb-5 text-lg font-bold text-slate-950">
+            <h4 className="mb-5 text-lg font-semibold text-white">
+              Our Projects
+            </h4>
+
+            <ul className="space-y-3 text-slate-300">
+              <li>
+                <Link
+                  href="/projects/supraja-iris-resort-plots"
+                  className="transition hover:text-[#C9A227]"
+                >
+                  Supraja IRIS
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/projects/bridge-county"
+                  className="transition hover:text-[#C9A227]"
+                >
+                  Bridge County
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/projects/sindhu-sarovar"
+                  className="transition hover:text-[#C9A227]"
+                >
+                  Sindhu Sarovar
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/projects/Subhash-meadows"
+                  className="transition hover:text-[#C9A227]"
+                >
+                  Subhash Meadows
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="mb-5 text-lg font-semibold text-white">
               Contact Information
             </h4>
 
-            <div className="space-y-5 text-sm text-slate-600">
+            <div className="space-y-5">
+              {/* Phone */}
               <div className="flex items-start gap-3">
-                <Phone
-                  size={18}
-                  className="mt-0.5 flex-shrink-0 text-amber-600"
-                />
+                <span className="mt-1 text-[#C9A227]">📞</span>
 
-                <div>
-                  <p className="mb-1 font-semibold text-slate-900">
-                    Phone Number
-                  </p>
-
-                  <a
-                    href="tel:+919052996161"
-                    className="transition hover:text-amber-700"
-                  >
-                    +91 90529 96161
-                  </a>
-                </div>
+                <a
+                  href="tel:+919640753929"
+                  className="text-slate-200 transition hover:text-[#C9A227]"
+                >
+                  +91 9640753929
+                </a>
               </div>
 
+              {/* Email */}
               <div className="flex items-start gap-3">
-                <Mail
-                  size={18}
-                  className="mt-0.5 flex-shrink-0 text-amber-600"
-                />
+                <span className="mt-1 text-[#C9A227]">✉</span>
 
-                <div>
-                  <p className="mb-1 font-semibold text-slate-900">
-                    Email Address
-                  </p>
-
-                  <a
-                    href="mailto:info@srisuprajainfracon.com"
-                    className="transition hover:text-amber-700"
-                  >
-                    info@srisuprajainfracon.com
-                  </a>
-                </div>
+                <a
+                  href="mailto:support@srisuprajainfracon.com"
+                  className="text-slate-200 transition hover:text-[#C9A227]"
+                >
+                  support@srisuprajainfracon.com
+                </a>
               </div>
 
+              {/* Address */}
               <div className="flex items-start gap-3">
-                <MapPin
-                  size={18}
-                  className="mt-0.5 flex-shrink-0 text-amber-600"
-                />
+                <span className="mt-1 text-[#C9A227]">📍</span>
 
-                <div>
-                  <p className="mb-1 font-semibold text-slate-900">
-                    Office Location
-                  </p>
-
-                  <p>Hyderabad, Telangana, India</p>
-                </div>
+                <p className="leading-7 text-slate-200">
+                  H.No. 4-91, Above Parampara Mithai,
+                  <br />
+                  Chandanagar, Hyderabad – 500050
+                </p>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-14 border-t border-slate-200 pt-6 text-center text-sm text-slate-500">
-          © {new Date().getFullYear()} Sri Supraja Infracon. All rights
-          reserved.
+        {/* Office Map */}
+        <div className="mt-14 overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d511.8898517700488!2d78.3263364719618!3d17.494642678754836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9291f73c9b8d%3A0x500bd3bbe095ab6d!2sSri%20Supraja%20Infracon%20-%20Premium%20Plots%20%26%20Resorts!5e1!3m2!1sen!2sin!4v1780045764967!5m2!1sen!2sin"
+            width="100%"
+            height="350"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Sri Supraja Infracon Office Location"
+            className="w-full"
+          />
+        </div>
+      </div>
+
+      {/* Bottom Footer */}
+      <div className="border-t border-white/10">
+        <div className="container-max flex flex-col items-center justify-between gap-4 px-4 py-6 text-sm text-slate-400 sm:flex-row sm:px-6 lg:px-8">
+          <p>
+            © {new Date().getFullYear()} Sri Supraja Infracon. All Rights
+            Reserved.
+          </p>
+
+          <p>
+            DTCP & RERA Approved Open Plots Near Hyderabad
+          </p>
         </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
-
-
-
-
-
-
+}
