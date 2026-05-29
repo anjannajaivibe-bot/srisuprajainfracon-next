@@ -37,9 +37,12 @@ export const projectContent = {
     ],
 
     gallery: [
-      "/images/iris-1.webp",
-      "/images/iris-2.webp",
-      "/images/iris-3.webp",
+      "/projects/supraja-iris/gallery/supraja-iris-gallery-1.webp",
+      "/projects/supraja-iris/gallery/supraja-iris-gallery-2.webp",
+      "/projects/supraja-iris/gallery/supraja-iris-gallery-3.webp",
+      "/projects/supraja-iris/gallery/supraja-iris-gallery-4.webp",
+      "/projects/supraja-iris/gallery/supraja-iris-gallery-5.webp",
+      "/projects/supraja-iris/gallery/resort-under-construction-1.webp",
     ],
 
     faq: [
@@ -104,9 +107,9 @@ export const projectContent = {
     ],
 
     gallery: [
-      "/images/bridge-1.webp",
-      "/images/bridge-2.webp",
-      "/images/bridge-3.webp",
+      "/projects/bridge-county/gallery/bridge-county-gallery-1.webp",
+      "/projects/bridge-county/gallery/bridge-county-gallery-2.webp",
+      "/projects/bridge-county/gallery/bridge-county-gallery-3.webp",
     ],
 
     faq: [
@@ -166,9 +169,9 @@ export const projectContent = {
     ],
 
     gallery: [
-      "/images/sindhu-1.webp",
-      "/images/sindhu-2.webp",
-      "/images/sindhu-3.webp",
+      "/projects/sindhu-sarovar/gallery/sindhu-sarovar-gallery-1.webp",
+      "/projects/sindhu-sarovar/gallery/sindhu-sarovar-gallery-2.webp",
+      "/projects/sindhu-sarovar/gallery/sindhu-sarovar-gallery-3.webp",
     ],
 
     faq: [
@@ -226,9 +229,9 @@ export const projectContent = {
     ],
 
     gallery: [
-      "/images/Subhash-1.webp",
-      "/images/Subhash-2.webp",
-      "/images/Subhash-3.webp",
+      "/projects/subhash-meadows/gallery/subhash-meadows-gallery-1.webp",
+      "/projects/subhash-meadows/gallery/subhash-meadows-gallery-2.webp",
+      "/projects/subhash-meadows/gallery/subhash-meadows-gallery-3.webp",
     ],
 
     faq: [
@@ -257,5 +260,3 @@ export const projectContent = {
 };
 
 export type ProjectContentKey = keyof typeof projectContent;
-
-
