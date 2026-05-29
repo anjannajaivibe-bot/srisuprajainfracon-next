@@ -10,6 +10,7 @@ import ProjectHighlights from "@/components/project/ProjectHighlights";
 import ProjectAmenities from "@/components/project/ProjectAmenities";
 import ProjectLocation from "@/components/project/ProjectLocation";
 import ProjectCTA from "@/components/project/ProjectCTA";
+import ProjectTestimonials from "@/components/project/ProjectTestimonials";
 
 import { projects } from "@/data/projects";
 
@@ -30,16 +31,13 @@ const ProjectGallery = dynamic(
   }
 );
 
-const ProjectFAQ = dynamic(
-  () => import("@/components/project/ProjectFAQ"),
-  {
-    loading: () => (
-      <div className="py-24 text-center text-slate-500">
-        Loading FAQs...
-      </div>
-    ),
-  }
-);
+const ProjectFAQ = dynamic(() => import("@/components/project/ProjectFAQ"), {
+  loading: () => (
+    <div className="py-24 text-center text-slate-500">
+      Loading FAQs...
+    </div>
+  ),
+});
 
 const ProjectResort = dynamic(
   () => import("@/components/project/ProjectResort"),
@@ -113,6 +111,9 @@ const ProjectDetail = ({ slug }: { slug: string }) => {
 
         {/* Location */}
         <ProjectLocation project={project} />
+
+        {/* Testimonials */}
+        <ProjectTestimonials />
 
         {/* FAQ */}
         <ProjectFAQ project={project} />
