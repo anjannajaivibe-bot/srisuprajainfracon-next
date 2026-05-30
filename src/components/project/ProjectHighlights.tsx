@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Project } from "@/data/projects";
+import { getProjectSeo } from "@/data/projectSeo";
 
 type Props = {
   project: Project;
@@ -9,10 +10,10 @@ const getExtraHighlights = (slug: string) => {
   if (slug === "supraja-iris-resort-plots") {
     return [
       "Lemon Tree Resort under construction",
-      "Water villas planned",
-      "Water theme park planned",
-      "Amusement park planned",
-      "Go-karting attraction planned",
+      "Planned water villas",
+      "Planned water theme park",
+      "Planned amusement park",
+      "Planned go-karting attraction",
       "Near Woxsen University and NH-65",
     ];
   }
@@ -21,8 +22,8 @@ const getExtraHighlights = (slug: string) => {
 };
 
 const ProjectHighlights = ({ project }: Props) => {
-  const extraHighlights = getExtraHighlights(project.slug);
-  const allHighlights = [...project.highlights, ...extraHighlights];
+  const seo = getProjectSeo(project.slug);
+  const allHighlights = [...project.highlights, ...getExtraHighlights(project.slug)];
 
   return (
     <section className="bg-[#F8F6F1] px-6 py-24">
@@ -33,15 +34,14 @@ const ProjectHighlights = ({ project }: Props) => {
           </p>
 
           <h2 className="mx-auto max-w-4xl text-3xl font-extrabold leading-tight text-[#111827] md:text-5xl">
-            Key Advantages of {project.title}
+            {seo.focusKeyword} Highlights
           </h2>
 
           <p className="mx-auto mt-6 max-w-4xl text-lg leading-relaxed text-[#4B5563]">
-            {project.title} brings together location advantage, approval-focused
-            planning, plotted development infrastructure and buyer support from
-            Sri Supraja Infracon.
-            {project.slug === "supraja-iris-resort-plots" &&
-              " Supraja IRIS also includes a resort ecosystem positioning with Lemon Tree Resort under construction and planned lifestyle attractions such as water villas, water theme park, amusement park and go-karting."}
+            {project.title} brings together <strong>{seo.synonyms[0]}</strong>,{" "}
+            <strong>{seo.synonyms[1]}</strong>, approval-focused planning,
+            plotted development infrastructure and buyer support from Sri Supraja
+            Infracon.
           </p>
         </div>
 
@@ -63,7 +63,15 @@ const ProjectHighlights = ({ project }: Props) => {
         </div>
 
         <div className="mt-12 rounded-[32px] border border-[#EFE7D3] bg-white p-7 shadow-[0_12px_40px_rgba(11,22,51,0.06)]">
-          <div className="grid gap-5 md:grid-cols-3">
+          <p className="text-center text-base leading-relaxed text-[#6B7280]">
+            Buyers comparing <strong>{seo.synonyms[2]}</strong>,{" "}
+            <strong>{seo.synonyms[3]}</strong> and{" "}
+            <strong>{seo.synonyms[4]}</strong> should verify project-wise
+            approval details, current availability and development status before
+            booking.
+          </p>
+
+          <div className="mt-6 grid gap-5 md:grid-cols-3">
             <Link
               href="/projects"
               className="rounded-2xl bg-[#0B1633] px-5 py-4 text-center text-sm font-bold text-white transition hover:bg-[#C9A227] hover:text-[#0B1633]"
@@ -72,7 +80,7 @@ const ProjectHighlights = ({ project }: Props) => {
             </Link>
 
             <Link
-              href="/contact"
+              href="/contact-us"
               className="rounded-2xl border border-[#C9A227] bg-[#FFF9E8] px-5 py-4 text-center text-sm font-bold text-[#0B1633] transition hover:bg-[#C9A227]"
             >
               Request Availability
@@ -87,12 +95,6 @@ const ProjectHighlights = ({ project }: Props) => {
               Verify RERA Details
             </a>
           </div>
-
-          <p className="mt-5 text-center text-sm leading-relaxed text-[#6B7280]">
-            Buyers should verify project-wise approval details, current
-            availability, development status and registration process before
-            booking.
-          </p>
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
+import Link from "next/link";
 import SmartImage from "@/components/shared/SmartImage";
-
 import type { Project } from "@/data/projects";
+import { getProjectSeo } from "@/data/projectSeo";
 import resortImage from "@/assets/project-iris.webp";
 
 type Props = {
@@ -37,6 +38,8 @@ const resortFeatures = [
 const ProjectResort = ({ project }: Props) => {
   if (project.slug !== "supraja-iris-resort-plots") return null;
 
+  const seo = getProjectSeo(project.slug);
+
   return (
     <section className="bg-[#f8fafc] px-6 py-24">
       <div className="mx-auto max-w-7xl">
@@ -46,24 +49,23 @@ const ProjectResort = ({ project }: Props) => {
           </p>
 
           <h2 className="mx-auto mb-6 max-w-4xl text-4xl font-extrabold leading-tight text-slate-950 md:text-5xl">
-            Upcoming Attractions Within the{" "}
-            <span className="text-amber-600">{project.title}</span>
+            {seo.focusKeyword} with Resort Ecosystem
           </h2>
 
           <p className="mx-auto max-w-3xl text-lg leading-relaxed text-slate-600">
-            Supraja IRIS is positioned as a resort-style plotted development
-            near Sangareddy, RRR and NIMZ, supported by planned hospitality, leisure and family
-            recreation attractions that improve visibility and high ROI growth
-            potential.
+            Supraja IRIS is positioned as a{" "}
+            <strong>resort-style plotted development</strong> near Kamkole with
+            Lemon Tree Resort under construction and planned leisure attractions
+            such as water villas, water theme park and go-karting.
           </p>
         </div>
 
         <div className="mb-16 overflow-hidden rounded-[36px] bg-white shadow-2xl">
           <SmartImage
             src={typeof resortImage === "string" ? resortImage : resortImage.src}
-            alt="Supraja IRIS Resort Plots upcoming resort ecosystem with Lemon Tree Resort and planned attractions"
+            alt={seo.imageAlt}
             className="h-full w-full object-cover"
-/>
+          />
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -87,19 +89,17 @@ const ProjectResort = ({ project }: Props) => {
 
         <div className="mt-12 rounded-3xl border border-amber-100 bg-white p-7 shadow-sm">
           <p className="text-lg leading-relaxed text-slate-700">
-            Buyers searching for{" "}
-            <strong className="text-slate-950">
-              resort plots near Sangareddy, open plots near Woxsen University and
-              high ROI plots near NH-65
-            </strong>{" "}
-            can evaluate this project for its combination of land ownership,
-            planned leisure infrastructure and strategic corridor advantage.
+            Buyers searching for <strong>{seo.synonyms[0]}</strong>,{" "}
+            <strong>{seo.synonyms[2]}</strong> and{" "}
+            <strong>{seo.synonyms[3]}</strong> can evaluate Supraja IRIS for its
+            combination of land ownership, planned leisure infrastructure and
+            strategic corridor advantage.
           </p>
 
           <div className="mt-5 flex flex-wrap gap-4 text-sm font-bold">
-            <a href="/projects" className="text-blue-700 underline">
+            <Link href="/projects" className="text-blue-700 underline">
               Explore more Sri Supraja Infracon projects
-            </a>
+            </Link>
 
             <a
               href="https://www.woxsen.edu.in/"
@@ -107,7 +107,7 @@ const ProjectResort = ({ project }: Props) => {
               rel="noopener noreferrer"
               className="text-blue-700 underline"
             >
-              View adjacent to Woxsen University
+              View Woxsen University
             </a>
           </div>
         </div>
@@ -117,6 +117,3 @@ const ProjectResort = ({ project }: Props) => {
 };
 
 export default ProjectResort;
-
-
-

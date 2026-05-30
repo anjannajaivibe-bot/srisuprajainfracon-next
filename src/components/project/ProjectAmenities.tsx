@@ -1,5 +1,7 @@
+import Link from "next/link";
 import type { Project } from "@/data/projects";
 import { projectContent } from "@/data/projectContent";
+import { getProjectSeo } from "@/data/projectSeo";
 
 type Props = {
   project: Project;
@@ -22,36 +24,32 @@ const getExtraAmenities = (slug: string) => {
 
 const ProjectAmenities = ({ project }: Props) => {
   const content = projectContent[project.slug as keyof typeof projectContent];
+  const seo = getProjectSeo(project.slug);
 
   if (!content?.amenities?.length) return null;
 
-  const amenities = [
-    ...content.amenities,
-    ...getExtraAmenities(project.slug),
-  ];
+  const amenities = [...content.amenities, ...getExtraAmenities(project.slug)];
 
   return (
     <section className="bg-[#F8F6F1] px-6 py-24">
       <div className="mx-auto max-w-7xl">
-        {/* Heading */}
         <div className="mb-14 max-w-4xl">
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
             Lifestyle Amenities
           </p>
 
           <h2 className="text-3xl font-extrabold leading-tight text-[#111827] md:text-5xl">
-            Amenities Planned for Better Living and Long-Term Value
+            Amenities for {seo.focusKeyword}
           </h2>
 
           <p className="mt-6 text-lg leading-relaxed text-[#4B5563]">
-            Sri Supraja Infracon projects are designed with planned
-            infrastructure, landscaped environments and lifestyle-focused
-            amenities that support buyer convenience, plotted development
-            appeal and future-ready community planning.
+            {project.title} is planned with infrastructure and amenities that
+            support <strong>{seo.synonyms[0]}</strong>,{" "}
+            <strong>{seo.synonyms[1]}</strong> and future-ready community
+            living near Hyderabad.
           </p>
         </div>
 
-        {/* Amenities Grid */}
         <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
           {amenities.map((item, index) => (
             <div
@@ -75,36 +73,36 @@ const ProjectAmenities = ({ project }: Props) => {
           ))}
         </div>
 
-        {/* Bottom SEO / CTA */}
         <div className="mt-14 rounded-[32px] border border-[#EFE7D3] bg-white p-8 shadow-[0_12px_40px_rgba(11,22,51,0.05)]">
           <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
               <h3 className="text-2xl font-extrabold text-[#111827]">
-                Explore Premium Open Plot Communities Near Hyderabad
+                {seo.h3}
               </h3>
 
               <p className="mt-3 max-w-3xl text-base leading-relaxed text-[#6B7280]">
-                Discover DTCP and RERA focused plotted developments near
-                Hyderabad growth corridors including Kamkole, Sangareddy,
-                Mominpet and Indrakaran with planned infrastructure and
-                strategic connectivity advantages.
+                Buyers evaluating <strong>{seo.synonyms[2]}</strong>,{" "}
+                <strong>{seo.synonyms[3]}</strong> and{" "}
+                <strong>{seo.synonyms[4]}</strong> can review amenities,
+                approvals, location and current availability before planning a
+                site visit.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <a
+              <Link
                 href="/projects"
                 className="rounded-full bg-[#0B1633] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#C9A227] hover:text-[#0B1633]"
               >
                 Explore Projects
-              </a>
+              </Link>
 
-              <a
-                href="/contact"
+              <Link
+                href="/contact-us"
                 className="rounded-full border border-[#C9A227] bg-[#FFF9E8] px-6 py-3 text-sm font-bold text-[#0B1633] transition hover:bg-[#C9A227]"
               >
                 Schedule Site Visit
-              </a>
+              </Link>
             </div>
           </div>
         </div>

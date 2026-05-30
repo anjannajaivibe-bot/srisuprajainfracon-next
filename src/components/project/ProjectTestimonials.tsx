@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getProjectSeo } from "@/data/projectSeo";
 
 type ProjectTestimonialsProps = {
   projectSlug?: string;
@@ -21,7 +22,7 @@ const testimonials = [
     role: "Plot No. 160 • 160 Sq. Yards",
     image: "/testimonials/raju-kodiipally-supraja-iris-investor.webp",
     alt: "Raju Kodipelly investor testimonial at Supraja IRIS Kamkole",
-    text:`I invested in Plot No. 160 measuring 160 Sq. Yards at Supraja IRIS after carefully evaluating multiple projects near Hyderabad. The excellent location near Kamkole, planned infrastructure, DTCP & RERA approvals, and future growth potential convinced me to choose this project. I especially appreciated the professional guidance and transparent support provided by the Sri Supraja Infracon team throughout the process.`,
+    text: `I invested in Plot No. 160 measuring 160 Sq. Yards at Supraja IRIS after carefully evaluating multiple projects near Hyderabad. The excellent location near Kamkole, planned infrastructure, DTCP & RERA approvals, and future growth potential convinced me to choose this project. I especially appreciated the professional guidance and transparent support provided by the Sri Supraja Infracon team throughout the process.`,
   },
   {
     slug: "bridge-county",
@@ -59,23 +60,25 @@ export default function ProjectTestimonials({
     ? testimonials.filter((item) => item.slug === projectSlug)
     : testimonials;
 
-  if (visibleTestimonials.length === 0) {
-    return null;
-  }
+  if (visibleTestimonials.length === 0) return null;
+
+  const seo = projectSlug ? getProjectSeo(projectSlug) : null;
 
   return (
-    <section className="py-16 bg-[#f8f8f8]">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <p className="text-sm font-semibold tracking-wide text-green-700 uppercase">
+    <section className="bg-[#f8f8f8] py-16">
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="mb-12 text-center">
+          <p className="text-sm font-semibold uppercase tracking-wide text-green-700">
             Customer Testimonials
           </p>
 
-          <h2 className="mt-3 text-3xl md:text-4xl font-bold text-gray-900">
-            Trusted by Investors Across Hyderabad
+          <h2 className="mt-3 text-3xl font-bold text-gray-900 md:text-4xl">
+            {seo
+              ? `Customer Experiences for ${seo.focusKeyword}`
+              : "Trusted by Investors Across Hyderabad"}
           </h2>
 
-          <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="mx-auto mt-4 max-w-3xl text-lg text-gray-600">
             Real experiences from customers who invested in Sri Supraja Infracon
             plotted developments.
           </p>
@@ -84,20 +87,20 @@ export default function ProjectTestimonials({
         <div
           className={
             visibleTestimonials.length === 1
-              ? "max-w-4xl mx-auto"
-              : "grid md:grid-cols-2 gap-8"
+              ? "mx-auto max-w-4xl"
+              : "grid gap-8 md:grid-cols-2"
           }
         >
-          {visibleTestimonials.map((item) => (
+          {visibleTestimonials.map((item, index) => (
             <article
-              key={item.slug}
-              className="bg-white rounded-3xl shadow-lg border border-gray-100 p-7 md:p-8"
+              key={`${item.slug}-${item.name}-${index}`}
+              className="rounded-3xl border border-gray-100 bg-white p-7 shadow-lg md:p-8"
             >
               <div className="flex items-start gap-5">
-                <div className="relative w-[86px] h-[86px] rounded-full overflow-hidden flex-shrink-0 shadow-md bg-gray-100">
+                <div className="relative h-[86px] w-[86px] flex-shrink-0 overflow-hidden rounded-full bg-gray-100 shadow-md">
                   <Image
                     src={item.image}
-                    alt={item.alt}
+                    alt={seo ? `${seo.focusKeyword} testimonial by ${item.name}` : item.alt}
                     fill
                     sizes="86px"
                     className="object-cover"
@@ -109,7 +112,7 @@ export default function ProjectTestimonials({
                     {item.project}
                   </p>
 
-                  <h3 className="text-xl font-bold text-gray-900 mt-1">
+                  <h3 className="mt-1 text-xl font-bold text-gray-900">
                     {item.name}
                   </h3>
 
@@ -117,7 +120,7 @@ export default function ProjectTestimonials({
                 </div>
               </div>
 
-              <p className="mt-6 text-gray-700 leading-8 text-[17px]">
+              <p className="mt-6 text-[17px] leading-8 text-gray-700">
                 “{item.text}”
               </p>
             </article>

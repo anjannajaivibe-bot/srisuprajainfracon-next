@@ -19,69 +19,166 @@ const SITE_URL = "https://www.suprajainfracon.com";
 const projectSeo: Record<
   ProjectSlug,
   {
+    focusKeyword: string;
     title: string;
     description: string;
-    h1: string;
+    ogImage: string;
     location: string;
+    projectName: string;
+    approval: string;
     keywords: string[];
+    faqs: {
+      question: string;
+      answer: string;
+    }[];
   }
 > = {
   "supraja-iris-resort-plots": {
+    focusKeyword: "DTCP & RERA Approved Resort Plots Near Hyderabad",
     title:
-      "Supraja IRIS Resort Plots in Kamkole | DTCP & RERA Approved Open Plots",
+      "DTCP & RERA Approved Resort Plots Near Hyderabad | Supraja IRIS",
     description:
-      "Explore Supraja IRIS resort plots in Kamkole near Woxsen University, NH-65, RRR influence zone and NIMZ Zaheerabad growth corridor by Sri Supraja Infracon.",
-    h1: "Supraja IRIS Resort Plots in Kamkole",
+      "Explore DTCP & RERA Approved Resort Plots Near Hyderabad at Supraja IRIS Kamkole with Lemon Tree Resort under construction, planned water villas and NH-65 growth corridor access.",
+    ogImage: `${SITE_URL}/projects/supraja-iris/og-image.jpg`,
     location: "Kamkole, Telangana",
+    projectName: "Supraja IRIS",
+    approval: "DTCP & RERA Approved",
     keywords: [
-      "resort plots in Kamkole",
-      "DTCP approved plots in Kamkole",
+      "premium resort plots near Hyderabad",
+      "Kamkole open plots",
       "RERA approved plots near Woxsen University",
-      "open plots near NH65",
+      "villa plots near NH-65",
+      "gated community plots near Hyderabad",
+      "resort-style plotted development",
+    ],
+    faqs: [
+      {
+        question:
+          "Is Supraja IRIS a DTCP & RERA approved resort plot project?",
+        answer:
+          "Yes. Supraja IRIS is positioned as a DTCP & RERA approved resort-style plotted development at Kamkole near Hyderabad.",
+      },
+      {
+        question: "Where is Supraja IRIS located?",
+        answer:
+          "Supraja IRIS is located at Kamkole near Hyderabad with access to NH-65, Woxsen University and the NIMZ Zaheerabad growth corridor.",
+      },
+      {
+        question: "Is Lemon Tree Resort operational at Supraja IRIS?",
+        answer:
+          "Lemon Tree Resort is under construction within the Supraja IRIS ecosystem. Planned attractions should be treated as upcoming development concepts.",
+      },
     ],
   },
 
   "bridge-county": {
-    title: "Bridge County Kamkole | DTCP Approved Luxury Plots Near Hyderabad",
+    focusKeyword: "DTCP & RERA Approved Luxury Plots at Kamkole",
+    title:
+      "DTCP & RERA Approved Luxury Plots at Kamkole | Bridge County",
     description:
-      "Explore Bridge County, DTCP approved luxury plots in Kamkole by Sri Supraja Infracon with strategic access to Hyderabad growth corridors.",
-    h1: "Bridge County DTCP Approved Luxury Plots in Kamkole",
+      "Explore DTCP & RERA Approved Luxury Plots at Kamkole in Bridge County by Sri Supraja Infracon near Woxsen University, NH-65 and Hyderabad growth corridors.",
+    ogImage: `${SITE_URL}/projects/bridge-county/og-image.jpg`,
     location: "Kamkole, Telangana",
+    projectName: "Bridge County",
+    approval: "DTCP & RERA Approved",
     keywords: [
-      "Bridge County Kamkole",
-      "DTCP approved plots in Kamkole",
-      "luxury plots near Hyderabad",
-      "open plots in Sangareddy corridor",
+      "luxury open plots near Woxsen University",
+      "Kamkole luxury plots",
+      "premium plotted development near Hyderabad",
+      "RERA approved open plots",
+      "DTCP approved plots at Kamkole",
+      "plots near NH-65",
+    ],
+    faqs: [
+      {
+        question: "Is Bridge County DTCP approved?",
+        answer:
+          "Yes. Bridge County is a DTCP approved luxury plotted development at Kamkole.",
+      },
+      {
+        question: "Is Bridge County RERA approved?",
+        answer:
+          "Yes. Bridge County is positioned with RERA registration details for buyer confidence.",
+      },
+      {
+        question: "Where is Bridge County located?",
+        answer:
+          "Bridge County is located at Kamkole near Woxsen University with connectivity toward NH-65 and Hyderabad growth corridors.",
+      },
     ],
   },
 
   "sindhu-sarovar": {
+    focusKeyword: "DTCP & RERA Approved Open Plots in Mominpet",
     title:
-      "Sindhu Sarovar Mominpet | DTCP & RERA Approved Plots Near Hyderabad",
+      "DTCP & RERA Approved Open Plots in Mominpet | Sindhu Sarovar",
     description:
-      "Explore Sindhu Sarovar, a plotted development by Sri Supraja Infracon in Mominpet with DTCP and RERA approval focus near Hyderabad growth corridors.",
-    h1: "Sindhu Sarovar Plots in Mominpet",
+      "Explore DTCP & RERA Approved Open Plots in Mominpet at Sindhu Sarovar by Sri Supraja Infracon with gated community infrastructure and plotted development planning.",
+    ogImage: `${SITE_URL}/projects/sindhu-sarovar/og-image.jpg`,
     location: "Mominpet, Telangana",
+    projectName: "Sindhu Sarovar",
+    approval: "DTCP & RERA Approved",
     keywords: [
-      "Sindhu Sarovar Mominpet",
-      "plots in Mominpet",
-      "DTCP approved plots near Hyderabad",
-      "RERA approved plotted community",
+      "Mominpet open plots",
+      "premium plots near Hyderabad",
+      "RERA approved plots in Mominpet",
+      "gated community plots near Hyderabad",
+      "DTCP approved plotted development",
+      "open plots near Mominpet",
+    ],
+    faqs: [
+      {
+        question: "Is Sindhu Sarovar DTCP approved?",
+        answer:
+          "Yes. Sindhu Sarovar is a DTCP approved plotted development in Mominpet.",
+      },
+      {
+        question: "Is Sindhu Sarovar RERA approved?",
+        answer:
+          "Yes. Sindhu Sarovar is positioned as a RERA approved plotted development for buyers evaluating open plots in Mominpet.",
+      },
+      {
+        question: "Where is Sindhu Sarovar located?",
+        answer:
+          "Sindhu Sarovar is located in Mominpet, a developing growth corridor near Hyderabad.",
+      },
     ],
   },
 
   "Subhash-meadows": {
+    focusKeyword: "Affordable Open Plots Near ORR Hyderabad",
     title:
-      "Subhash Meadows Indrakaran | Open Plots Near ORR & IIT Hyderabad",
+      "Affordable Open Plots Near ORR Hyderabad | Subhash Meadows",
     description:
-      "Explore Subhash Meadows open plots in Indrakaran near ORR, IIT Hyderabad, Patancheru, BHEL and Sangareddy growth locations.",
-    h1: "Subhash Meadows Open Plots in Indrakaran",
+      "Explore Affordable Open Plots Near ORR Hyderabad at Subhash Meadows Indrakaran with planned roads, Vastu layout, drainage, avenue plantation and access to IIT Hyderabad, BHEL and Sangareddy.",
+    ogImage: `${SITE_URL}/projects/subhash-meadows/og-image.jpg`,
     location: "Indrakaran, Telangana",
+    projectName: "Subhash Meadows",
+    approval: "Planned Open Plot Development",
     keywords: [
-      "Subhash Meadows Indrakaran",
-      "open plots near ORR",
+      "Indrakaran open plots",
+      "budget-friendly plots near Hyderabad",
       "plots near IIT Hyderabad",
-      "plots near Patancheru",
+      "open plots near BHEL",
+      "plots near Sangareddy",
+      "affordable plotted development",
+    ],
+    faqs: [
+      {
+        question: "Where is Subhash Meadows located?",
+        answer:
+          "Subhash Meadows is located at Indrakaran with connectivity to ORR, IIT Hyderabad, ICRISAT, BHEL and Sangareddy.",
+      },
+      {
+        question: "Is Subhash Meadows suitable for affordable plot buyers?",
+        answer:
+          "Yes. Subhash Meadows is positioned for buyers looking at affordable open plots near ORR Hyderabad and nearby growth locations.",
+      },
+      {
+        question: "What infrastructure is planned at Subhash Meadows?",
+        answer:
+          "The project includes planned black top roads, Vastu layout, underground drainage, avenue plantation, parks, gated entrance and security room provision.",
+      },
     ],
   },
 };
@@ -113,7 +210,7 @@ export async function generateMetadata({
   return {
     title: project.title,
     description: project.description,
-    keywords: project.keywords,
+    keywords: [project.focusKeyword, ...project.keywords],
     alternates: {
       canonical,
     },
@@ -122,12 +219,21 @@ export async function generateMetadata({
       description: project.description,
       url: canonical,
       siteName: "Sri Supraja Infracon",
+      images: [
+        {
+          url: project.ogImage,
+          width: 1200,
+          height: 630,
+          alt: `${project.focusKeyword} - ${project.projectName}`,
+        },
+      ],
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
       title: project.title,
       description: project.description,
+      images: [project.ogImage],
     },
   };
 }
@@ -142,44 +248,87 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const project = projectSeo[slug];
   const canonical = `${SITE_URL}/projects/${slug}/`;
 
-  const breadcrumbSchema = {
+  const schema = {
     "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
+    "@graph": [
       {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: SITE_URL,
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: SITE_URL,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Projects",
+            item: `${SITE_URL}/projects/`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: project.projectName,
+            item: canonical,
+          },
+        ],
       },
       {
-        "@type": "ListItem",
-        position: 2,
-        name: "Projects",
-        item: `${SITE_URL}/projects/`,
+        "@type": "WebPage",
+        "@id": `${canonical}#webpage`,
+        url: canonical,
+        name: project.title,
+        description: project.description,
+        primaryImageOfPage: {
+          "@type": "ImageObject",
+          url: project.ogImage,
+          caption: `${project.focusKeyword} - ${project.projectName}`,
+        },
+        about: {
+          "@type": "Product",
+          name: project.projectName,
+        },
       },
       {
-        "@type": "ListItem",
-        position: 3,
-        name: project.h1,
-        item: canonical,
+        "@type": "Product",
+        "@id": `${canonical}#project`,
+        name: project.projectName,
+        description: project.description,
+        image: project.ogImage,
+        brand: {
+          "@type": "Organization",
+          name: "Sri Supraja Infracon",
+          url: SITE_URL,
+        },
+        category: "Real Estate Plotted Development",
+        areaServed: project.location,
+        additionalProperty: [
+          {
+            "@type": "PropertyValue",
+            name: "Approval Type",
+            value: project.approval,
+          },
+          {
+            "@type": "PropertyValue",
+            name: "Focus Keyword",
+            value: project.focusKeyword,
+          },
+        ],
+        url: canonical,
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: project.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
       },
     ],
-  };
-
-  const projectSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: project.h1,
-    description: project.description,
-    brand: {
-      "@type": "Organization",
-      name: "Sri Supraja Infracon",
-      url: SITE_URL,
-    },
-    category: "Real Estate Plotted Development",
-    areaServed: project.location,
-    url: canonical,
   };
 
   return (
@@ -187,14 +336,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema),
-        }}
-      />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(projectSchema),
+          __html: JSON.stringify(schema),
         }}
       />
 
