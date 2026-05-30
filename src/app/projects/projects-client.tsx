@@ -13,12 +13,30 @@ import CTASection from "@/components/home/CTASection";
 import heroBg from "@/assets/hero-bg.webp";
 
 const locationLinks = [
-  { label: "Kamkole Open Plots", href: "/projects/supraja-iris-resort-plots" },
-  { label: "Mominpet Plots", href: "/projects/sindhu-sarovar" },
-  { label: "Sangareddy Projects", href: "/projects" },
-  { label: "Indrakaran Open Plots", href: "/projects/Subhash-meadows" },
-  { label: "Plots Near NH-65", href: "/open-plots-in-west-hyderabad-mumbai-highway" },
-  { label: "Resort Plots Near Hyderabad", href: "/resort-plots-in-hyderabad" },
+  {
+    label: "Kamkole Open Plots",
+    href: "/projects/supraja-iris-resort-plots",
+  },
+  {
+    label: "Mominpet Plots",
+    href: "/projects/sindhu-sarovar",
+  },
+  {
+    label: "Sangareddy Projects",
+    href: "/projects",
+  },
+  {
+    label: "Indrakaran Open Plots",
+    href: "/projects/Subhash-meadows",
+  },
+  {
+    label: "Plots Near NH-65",
+    href: "/open-plots-in-west-hyderabad-mumbai-highway",
+  },
+  {
+    label: "Resort Plot Guide",
+    href: "/resort-plots-in-hyderabad",
+  },
 ];
 
 export default function ProjectsClient() {
@@ -31,6 +49,8 @@ export default function ProjectsClient() {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-25"
           style={{ backgroundImage: `url(${heroBg.src})` }}
+          role="img"
+          aria-label="DTCP & RERA Approved Open Plots Near Hyderabad by Sri Supraja Infracon"
         />
 
         <div className="absolute inset-0 bg-gradient-to-br from-[#081225]/98 via-[#0B1633]/92 to-[#18345F]/80" />
@@ -54,7 +74,9 @@ export default function ProjectsClient() {
               className="font-display text-4xl font-bold leading-[1.03] tracking-tight text-white sm:text-5xl lg:text-7xl"
             >
               DTCP & RERA Approved{" "}
-              <span className="text-[#C9A227]">Open Plots Near Hyderabad</span>
+              <span className="text-[#C9A227]">
+                Open Plots Near Hyderabad
+              </span>
             </motion.h1>
 
             <motion.p
@@ -63,11 +85,15 @@ export default function ProjectsClient() {
               transition={{ duration: 0.55, delay: 0.08 }}
               className="mx-auto mt-7 max-w-4xl text-lg leading-relaxed text-slate-200"
             >
-              Explore <strong>premium plotted developments</strong>,{" "}
-              <strong>resort plots</strong> and <strong>villa plots</strong>{" "}
-              across <strong>Kamkole</strong>, <strong>Mominpet</strong>,{" "}
-              <strong>Sangareddy</strong> and <strong>Indrakaran</strong>{" "}
-              growth corridors by <strong>Sri Supraja Infracon</strong>.
+              Explore{" "}
+              <strong>DTCP & RERA Approved Open Plots Near Hyderabad</strong>,
+              including <strong>premium plotted developments</strong>,{" "}
+              <strong>resort plots near Hyderabad growth corridors</strong>,{" "}
+              <strong>villa plots near Hyderabad</strong>,{" "}
+              <strong>gated community plots</strong> and{" "}
+              <strong>affordable open plots near ORR Hyderabad</strong> across
+              Kamkole, Mominpet, Sangareddy and Indrakaran by{" "}
+              <strong>Sri Supraja Infracon</strong>.
             </motion.p>
 
             <motion.div
@@ -107,6 +133,26 @@ export default function ProjectsClient() {
                 View All Projects
               </Link>
             </motion.div>
+
+            <div className="mt-7 flex flex-wrap justify-center gap-4 text-sm">
+              <a
+                href="https://www.rera.telangana.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-[#E8D7A5] underline"
+              >
+                Telangana RERA
+              </a>
+
+              <a
+                href="https://dtcp.telangana.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-[#E8D7A5] underline"
+              >
+                Telangana DTCP
+              </a>
+            </div>
 
             <motion.div
               initial={{ opacity: 0, y: 18 }}
@@ -152,17 +198,20 @@ export default function ProjectsClient() {
           </p>
 
           <h2 className="mx-auto max-w-4xl text-3xl font-extrabold leading-tight text-[#111827] md:text-5xl">
-            Open Plot Investment Corridors Near Hyderabad
+            DTCP & RERA Approved Open Plots Near Hyderabad in Strategic Growth
+            Corridors
           </h2>
 
           <p className="mx-auto mt-6 max-w-4xl text-lg leading-relaxed text-[#4B5563]">
             Sri Supraja Infracon projects are positioned across{" "}
             <strong>Kamkole open plots</strong>,{" "}
             <strong>Mominpet plotted developments</strong>,{" "}
-            <strong>Sangareddy growth corridors</strong> and{" "}
-            <strong>Indrakaran affordable open plots</strong> with connectivity
-            to <strong>NH-65</strong>, <strong>Woxsen University</strong> and
-            upcoming infrastructure corridors.
+            <strong>Sangareddy growth corridors</strong>,{" "}
+            <strong>Indrakaran affordable open plots</strong> and{" "}
+            <strong>premium plotted developments near Hyderabad</strong> with
+            connectivity to <strong>NH-65</strong>,{" "}
+            <strong>Woxsen University</strong>, ORR influence zones and upcoming
+            infrastructure corridors.
           </p>
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
@@ -184,8 +233,61 @@ export default function ProjectsClient() {
               href="/resort-plots-in-hyderabad"
               className="rounded-full border border-[#E5E7EB] bg-white px-6 py-3 text-sm font-bold text-[#081225] transition hover:border-[#C9A227]"
             >
-              Resort Plots Near Hyderabad
+              Resort Plot Guide
             </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#F8F6F1] px-6 py-20">
+        <div className="mx-auto max-w-6xl">
+          <div className="rounded-[32px] border border-[#E8D7A5] bg-white p-8 shadow-lg md:p-10">
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
+              Buyer Guidance
+            </p>
+
+            <h3 className="text-2xl font-extrabold leading-tight text-[#111827] md:text-4xl">
+              How to Compare DTCP & RERA Approved Open Plots Near Hyderabad
+            </h3>
+
+            <p className="mt-6 text-lg leading-relaxed text-[#4B5563]">
+              Before choosing a project, review the project approval status,
+              location connectivity, road access, current development progress,
+              brochure details, plot availability and site visit options. For
+              buyers evaluating <strong>open plots near NH-65</strong>,{" "}
+              <strong>plots near Woxsen University</strong>,{" "}
+              <strong>resort-style plotted developments near Hyderabad</strong>{" "}
+              and <strong>villa plot investment options in Telangana</strong>,
+              Sri Supraja Infracon provides project-wise guidance and location
+              clarity.
+            </p>
+
+            <div className="mt-7 flex flex-wrap gap-4 text-sm font-bold">
+              <Link href="/projects" className="text-blue-700 underline">
+                Compare project options
+              </Link>
+
+              <Link href="/contact-us" className="text-blue-700 underline">
+                Request site visit support
+              </Link>
+
+              <a
+                href="https://www.woxsen.edu.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-700 underline"
+              >
+                Woxsen University
+              </a>
+            </div>
+
+            <p className="mt-7 text-base leading-relaxed text-[#4B5563]">
+              Sri Supraja Infracon continues to develop{" "}
+              <strong>DTCP & RERA Approved Open Plots Near Hyderabad</strong>{" "}
+              with a focus on transparent project communication, premium
+              infrastructure, location-led planning and buyer confidence across
+              Hyderabad growth corridors.
+            </p>
           </div>
         </div>
       </section>
