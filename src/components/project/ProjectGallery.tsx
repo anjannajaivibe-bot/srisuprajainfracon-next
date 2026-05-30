@@ -1,6 +1,7 @@
 import SmartImage from "@/components/shared/SmartImage";
 import type { Project } from "@/data/projects";
 import { projectContent } from "@/data/projectContent";
+import { getProjectSeo } from "@/data/projectSeo";
 
 type Props = {
   project: Project;
@@ -8,6 +9,7 @@ type Props = {
 
 const ProjectGallery = ({ project }: Props) => {
   const content = projectContent[project.slug as keyof typeof projectContent];
+  const seo = getProjectSeo(project.slug);
 
   if (!content?.gallery?.length) return null;
 
@@ -20,12 +22,13 @@ const ProjectGallery = ({ project }: Props) => {
           </p>
 
           <h2 className="mx-auto max-w-4xl text-4xl font-extrabold leading-tight text-slate-950 md:text-5xl">
-            Visual Progress and Layout Highlights of {project.title}
+            {seo.focusKeyword} Gallery
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-600">
             Explore project visuals, layout views, entrance concepts,
-            development progress and planned lifestyle infrastructure.
+            development progress and infrastructure highlights for{" "}
+            <strong>{seo.synonyms[0]}</strong>.
           </p>
         </div>
 
@@ -37,7 +40,7 @@ const ProjectGallery = ({ project }: Props) => {
             >
               <SmartImage
                 src={image}
-                alt={`${project.title} project gallery image ${index + 1}`}
+                alt={`${seo.focusKeyword} gallery image ${index + 1}`}
                 className="h-[320px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
@@ -49,6 +52,3 @@ const ProjectGallery = ({ project }: Props) => {
 };
 
 export default ProjectGallery;
-
-
-

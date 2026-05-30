@@ -1,11 +1,13 @@
+import Link from "next/link";
 import type { Project } from "@/data/projects";
-import ProjectTestimonials from "@/components/project/ProjectTestimonials";
+import { getProjectSeo } from "@/data/projectSeo";
 
 type Props = {
   project: Project;
 };
 
 const ProjectOverview = ({ project }: Props) => {
+  const seo = getProjectSeo(project.slug);
   const brochureUrl = project.brochure;
   const availabilityMapUrl = project.availabilityMapUrl;
 
@@ -19,7 +21,7 @@ const ProjectOverview = ({ project }: Props) => {
             </p>
 
             <h2 className="mb-5 text-3xl font-extrabold leading-tight text-slate-950 md:text-5xl">
-              {project.title} Overview
+              {seo.h2}
             </h2>
 
             {availabilityMapUrl && (
@@ -36,30 +38,37 @@ const ProjectOverview = ({ project }: Props) => {
 
           <div>
             <p className="mb-6 text-lg leading-relaxed text-slate-600">
-              {project.shortDescription} This plotted development by Sri Supraja
-              Infracon is strategically positioned near emerging Hyderabad
-              growth corridors with strong infrastructure connectivity,
-              future-ready planning and buyer-focused project development
-              standards.
+              {seo.description}
             </p>
 
             <p className="text-lg leading-relaxed text-slate-600">
-              This project is designed for buyers searching for{" "}
-              <strong className="text-slate-950">
-                DTCP and RERA approved open plots near Hyderabad
-              </strong>
-              , with strategic access to NH-65, Regional Ring Road influence
-              zones, educational hubs, industrial corridors and long-term
-              infrastructure-driven growth locations across Telangana.
+              Buyers also compare this project with{" "}
+              <strong className="text-slate-950">{seo.synonyms[0]}</strong>,{" "}
+              <strong className="text-slate-950">{seo.synonyms[1]}</strong>,{" "}
+              <strong className="text-slate-950">{seo.synonyms[2]}</strong>,{" "}
+              <strong className="text-slate-950">{seo.synonyms[3]}</strong>{" "}
+              and <strong className="text-slate-950">{seo.synonyms[4]}</strong>{" "}
+              before shortlisting a Sri Supraja Infracon plotted community.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-4 text-sm font-bold">
-              <a href="/projects" className="text-blue-700 underline">
-                View all plotted development projects
-              </a>
+              {seo.internalLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-blue-700 underline"
+                >
+                  {link.label}
+                </Link>
+              ))}
 
-              <a href="/contact" className="text-blue-700 underline">
-                Request project availability details
+              <a
+                href="https://www.google.com/maps"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-700 underline"
+              >
+                Check route planning
               </a>
             </div>
           </div>
@@ -70,13 +79,13 @@ const ProjectOverview = ({ project }: Props) => {
             <div className="flex flex-col gap-4 border-b border-slate-200 bg-slate-50 px-6 py-5 md:flex-row md:items-center md:justify-between">
               <div>
                 <h3 className="text-xl font-extrabold text-slate-950">
-                  {project.title} Brochure
+                  {seo.h3}
                 </h3>
 
                 <p className="mt-1 text-sm text-slate-500">
-                  Explore project layout, plotted development highlights,
-                  approvals, location connectivity and brochure details for this
-                  Sri Supraja Infracon community.
+                  Explore brochure details, project layout, approvals, location
+                  connectivity and plotted development highlights for{" "}
+                  {project.title}.
                 </p>
               </div>
 
@@ -117,9 +126,9 @@ const ProjectOverview = ({ project }: Props) => {
                 </h4>
 
                 <p className="mb-6 text-sm leading-relaxed text-slate-200">
-                  Open the brochure in a new tab to explore project highlights,
-                  plotted development details, location advantages and
-                  infrastructure planning information.
+                  Open the brochure to review project highlights, plotted
+                  development details, location advantages and infrastructure
+                  planning information.
                 </p>
 
                 <div className="flex flex-col gap-3">
@@ -155,6 +164,10 @@ const ProjectOverview = ({ project }: Props) => {
             </div>
           </div>
         )}
+
+        <p className="mt-10 text-lg leading-relaxed text-slate-600">
+          {seo.lastParagraph}
+        </p>
       </div>
     </section>
   );
