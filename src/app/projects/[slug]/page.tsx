@@ -14,7 +14,7 @@ type ProjectPageProps = {
   }>;
 };
 
-const SITE_URL = "https://www.suprajainfracon.com";
+const SITE_URL = "https://srisuprajainfracon-next.vercel.app";
 
 const projectSeo: Record<
   ProjectSlug,
