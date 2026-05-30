@@ -11,6 +11,7 @@ type ProjectHeroProps = {
 
 const ProjectHero = ({ project }: ProjectHeroProps) => {
   const seo = getProjectSeo(project.slug);
+  const isSuprajaIris = project.slug === "supraja-iris-resort-plots";
 
   return (
     <section className="relative overflow-hidden bg-[#F8F6F1] pt-28">
@@ -144,14 +145,33 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
           >
             <div className="absolute -inset-3 rounded-[36px] bg-gradient-to-br from-[#C9A227]/45 via-white/20 to-[#0B1633]/25 blur-xl" />
 
-            <SmartImage
-              src={project.heroImage || project.image}
-              alt={seo.imageAlt}
-              priority
-              sizes="(max-width: 1024px) 100vw, 55vw"
-              wrapperClassName="relative h-[320px] w-full rounded-[32px] border border-white/60 shadow-[0_22px_70px_rgba(11,22,51,0.18)] sm:h-[420px] lg:h-full lg:min-h-[460px]"
-              imageClassName="object-cover"
-            />
+            {isSuprajaIris ? (
+              <div className="relative h-[320px] w-full overflow-hidden rounded-[32px] border border-white/60 shadow-[0_22px_70px_rgba(11,22,51,0.18)] sm:h-[420px] lg:h-full lg:min-h-[460px]">
+                <video
+                  className="h-full w-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  poster="/projects/supraja-iris/gallery/supraja-iris-gallery-1.webp"
+                  aria-label={seo.imageAlt}
+                >
+                  <source src="/videos/supraja-iris-hero.mp4" type="video/mp4" />
+                </video>
+
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1633]/35 via-transparent to-transparent" />
+              </div>
+            ) : (
+              <SmartImage
+                src={project.heroImage || project.image}
+                alt={seo.imageAlt}
+                priority
+                sizes="(max-width: 1024px) 100vw, 55vw"
+                wrapperClassName="relative h-[320px] w-full rounded-[32px] border border-white/60 shadow-[0_22px_70px_rgba(11,22,51,0.18)] sm:h-[420px] lg:h-full lg:min-h-[460px]"
+                imageClassName="object-cover"
+              />
+            )}
           </motion.div>
         </div>
       </div>
