@@ -2,34 +2,29 @@ import Link from "next/link";
 
 const faqs = [
   {
-    question: "Which Sri Supraja Infracon projects are currently open for sales?",
+    question: "Which are the best DTCP & RERA approved open plots near Hyderabad?",
     answer:
-      "Sales are open for selected inventory across Sri Supraja Infracon plotted development projects, including Supraja IRIS Resort Plots, Bridge County, Sindhu Sarovar and Subhash Meadows, subject to current availability.",
+      "Sri Supraja Infracon offers plotted development options such as Supraja IRIS, Bridge County, Sindhu Sarovar and Subhash Meadows, subject to project-wise approvals and current availability.",
   },
   {
-    question: "Does Sri Supraja Infracon offer DTCP and RERA approved open plots?",
+    question: "Are resort plots near Hyderabad a good option for buyers?",
     answer:
-      "Yes. Sri Supraja Infracon offers approved plotted communities in selected locations. Buyers should verify project-wise DTCP, RERA and layout approval details before booking.",
+      "Resort-style plotted developments can be attractive for buyers who want lifestyle positioning, weekend-use potential and long-term growth corridor advantages. Buyers should review approvals, access roads and development status before booking.",
   },
   {
-    question: "Why are Kamkole open plots gaining buyer interest?",
+    question: "Which plotted developments are near Woxsen University?",
     answer:
-      "Kamkole is gaining attention due to Woxsen University, NH-65 connectivity, Regional Ring Road influence, NIMZ Zaheerabad corridor development and demand for plotted communities near Hyderabad.",
+      "Supraja IRIS and Bridge County are positioned at Kamkole with location advantages connected to Woxsen University, NH-65 and surrounding growth corridors.",
+  },
+  {
+    question: "What should buyers check before choosing DTCP & RERA approved open plots near Hyderabad?",
+    answer:
+      "Buyers should review approval documents, RERA details where applicable, location connectivity, current development status, road access, nearby growth drivers, pricing, availability and registration process.",
   },
   {
     question: "Is Lemon Tree Resort operational at Supraja IRIS?",
     answer:
       "No. Lemon Tree Resort is under construction within the Supraja IRIS ecosystem. Planned attractions such as water villas, water theme park, amusement zone and go-karting should be understood as planned or upcoming features.",
-  },
-  {
-    question: "Are bank loans available for Sri Supraja Infracon projects?",
-    answer:
-      "Bank loan support may be available for selected projects, depending on project approval status, buyer eligibility and lender policy.",
-  },
-  {
-    question: "How should buyers evaluate open plots before booking?",
-    answer:
-      "Buyers should review approval documents, location connectivity, development status, road access, nearby growth drivers, current availability, price details and registration process before booking.",
   },
 ];
 
@@ -43,13 +38,13 @@ const FAQSection = () => {
           </p>
 
           <h2 className="text-3xl font-extrabold leading-tight text-slate-950 md:text-5xl">
-            FAQs About Approved Open Plots Near Hyderabad
+            FAQs About DTCP & RERA Approved Open Plots Near Hyderabad
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-600">
-            These answers help buyers understand project approvals, sales
-            status, location advantages, resort ecosystem progress and site
-            visit planning.
+            These answers help buyers understand approvals, sales status,
+            location advantages, resort ecosystem progress and site visit
+            planning for <strong>approved plotted developments</strong>.
           </p>
         </div>
 
@@ -71,6 +66,10 @@ const FAQSection = () => {
         <div className="mt-10 flex flex-wrap justify-center gap-4 text-sm font-bold">
           <Link href="/projects" className="text-blue-700 underline">
             View available plotted communities
+          </Link>
+
+          <Link href="/open-plots-and-resorts-in-hyderabad" className="text-blue-700 underline">
+            Read open plot buyer guide
           </Link>
 
           <a

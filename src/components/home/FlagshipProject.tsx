@@ -5,7 +5,6 @@ import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { useRef } from "react";
 import projectIris from "@/assets/project-iris.webp";
-import ProjectTestimonials from "@/components/project/ProjectTestimonials";
 
 const stats = [
   { value: "350", label: "Acres Master Planned Development" },
@@ -64,19 +63,20 @@ const FlagshipProject = () => {
           </span>
 
           <h2 className="text-3xl font-display font-bold text-foreground sm:text-4xl lg:text-5xl">
-            Supraja IRIS Resort Plots in Kamkole Near Woxsen University
+            Supraja IRIS – DTCP & RERA Approved Open Plots Near Hyderabad
           </h2>
 
           <p className="mx-auto mt-5 max-w-3xl text-muted-foreground">
-            Supraja IRIS is a DTCP & RERA approved resort plot development at
-            Kamkole, positioned near Woxsen University, NH-65, Regional Ring
-            Road influence zones and the NIMZ Zaheerabad growth corridor.
+            Supraja IRIS is a <strong>resort-style plotted development</strong>{" "}
+            at Kamkole near Hyderabad, positioned close to Woxsen University,
+            NH-65, Regional Ring Road influence zones and the NIMZ Zaheerabad
+            growth corridor.
           </p>
 
           <div className="mt-5 flex flex-wrap justify-center gap-4 text-sm font-semibold">
             <Link
               href="/projects/supraja-iris-resort-plots"
-              className="text-blue-700 underline"
+              className="font-bold text-blue-700 underline"
             >
               View Supraja IRIS project details
             </Link>
@@ -85,7 +85,7 @@ const FlagshipProject = () => {
               href="https://www.woxsen.edu.in/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-700 underline"
+              className="font-bold text-blue-700 underline"
             >
               Nearby Woxsen University
             </a>
@@ -100,7 +100,7 @@ const FlagshipProject = () => {
         >
           <SmartImage
             src={projectIris}
-            alt="Supraja IRIS resort plots at Kamkole near Woxsen University"
+            alt="DTCP & RERA approved open plots near Hyderabad"
             className="h-[360px] w-full rounded-[32px] shadow-2xl md:h-[500px]"
             priority
           />
@@ -142,7 +142,7 @@ const FlagshipProject = () => {
         </div>
 
         <h3 className="mb-8 text-center text-2xl font-display font-bold text-foreground">
-          Planned Lifestyle Attractions Around Supraja IRIS
+          Lifestyle Attractions Around DTCP & RERA Approved Open Plots Near Hyderabad
         </h3>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

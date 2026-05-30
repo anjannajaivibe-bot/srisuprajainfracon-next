@@ -10,22 +10,10 @@ const trustBadges = [
 ];
 
 const projectLinks = [
-  {
-    name: "Supraja IRIS",
-    href: "/projects/supraja-iris-resort-plots",
-  },
-  {
-    name: "Bridge County",
-    href: "/projects/bridge-county",
-  },
-  {
-    name: "Sindhu Sarovar",
-    href: "/projects/sindhu-sarovar",
-  },
-  {
-    name: "Subhash Meadows",
-    href: "/projects/Subhash-meadows",
-  },
+  { name: "Supraja IRIS", href: "/projects/supraja-iris-resort-plots" },
+  { name: "Bridge County", href: "/projects/bridge-county" },
+  { name: "Sindhu Sarovar", href: "/projects/sindhu-sarovar" },
+  { name: "Subhash Meadows", href: "/projects/Subhash-meadows" },
 ];
 
 const legacyProjects = [
@@ -41,7 +29,6 @@ const legacyProjects = [
 const HeroSection = () => {
   return (
     <section className="relative flex min-h-[88vh] items-center justify-center overflow-hidden bg-[#0B1633]">
-      {/* Background */}
       <div className="absolute inset-0">
         <video
           className="h-full w-full object-cover opacity-35"
@@ -56,13 +43,10 @@ const HeroSection = () => {
         </video>
 
         <div className="absolute inset-0 bg-gradient-to-br from-[#081225]/95 via-[#0B1633]/88 to-[#1A2F5A]/82" />
-
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0B1633] to-transparent" />
       </div>
 
-      {/* Content */}
       <div className="container-max relative z-10 px-4 pb-16 pt-28 text-center sm:px-6 lg:px-8">
-        {/* Top Badge */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
@@ -70,13 +54,11 @@ const HeroSection = () => {
           className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#C9A227]/35 bg-[#C9A227]/10 px-5 py-2"
         >
           <span className="h-2 w-2 rounded-full bg-[#C9A227]" />
-
           <span className="text-sm font-semibold text-[#E8D7A5]">
             Sri Supraja Infracon Builders & Developers
           </span>
         </motion.div>
 
-        {/* Heading */}
         <motion.h1
           initial={{ opacity: 0, y: 22 }}
           animate={{ opacity: 1, y: 0 }}
@@ -85,24 +67,22 @@ const HeroSection = () => {
         >
           DTCP & RERA Approved{" "}
           <span className="text-[#C9A227]">Open Plots</span>
-          <br className="hidden md:block" />
-          Near Hyderabad
+          <br className="hidden md:block" /> Near Hyderabad
         </motion.h1>
 
-        {/* Description */}
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.08 }}
           className="mx-auto mb-9 max-w-4xl text-base leading-relaxed text-slate-200 sm:text-lg"
         >
-          Explore premium open plots, villa plots and resort plots across
-          Kamkole, Sangareddy, Mominpet and Indrakaran, positioned near NH-65,
-          Woxsen University, Regional Ring Road influence zones and the NIMZ
-          Zaheerabad growth corridor.
+          Explore <strong>DTCP & RERA approved open plots near Hyderabad</strong>,
+          including <strong>premium plotted developments</strong>,{" "}
+          <strong>resort plots</strong>, <strong>villa plots</strong> and{" "}
+          <strong>gated community plots</strong> across Kamkole, Sangareddy,
+          Mominpet and Indrakaran growth corridors.
         </motion.p>
 
-        {/* Trust Pills */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
@@ -119,7 +99,6 @@ const HeroSection = () => {
           ))}
         </motion.div>
 
-        {/* Ongoing Projects */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
@@ -137,24 +116,17 @@ const HeroSection = () => {
           ))}
         </motion.div>
 
-        {/* Legacy Marquee */}
         <div className="legacy-marquee">
           <div className="legacy-marquee-track animate-[legacy-marquee-scroll_38s_linear_infinite]">
             <div className="legacy-marquee-group">
-              <span className="legacy-title">
-                Our Legacy Completed Projects:
-              </span>
-
+              <span className="legacy-title">Our Legacy Completed Projects:</span>
               {legacyProjects.map((item) => (
                 <span key={item}>{item}</span>
               ))}
             </div>
 
             <div className="legacy-marquee-group" aria-hidden="true">
-              <span className="legacy-title">
-                Our Legacy Completed Projects:
-              </span>
-
+              <span className="legacy-title">Our Legacy Completed Projects:</span>
               {legacyProjects.map((item) => (
                 <span key={`duplicate-${item}`}>{item}</span>
               ))}
@@ -162,12 +134,11 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.3 }}
-          className="flex justify-center"
+          className="flex flex-wrap justify-center gap-4"
         >
           <Link
             href="/projects"
@@ -175,7 +146,29 @@ const HeroSection = () => {
           >
             Explore All Projects
           </Link>
+
+          <Link
+            href="/contact-us"
+            className="rounded-full border border-white/20 bg-white/10 px-8 py-4 text-sm font-bold text-white backdrop-blur-sm transition hover:bg-white hover:text-[#0B1633]"
+          >
+            Schedule Site Visit
+          </Link>
         </motion.div>
+
+        <div className="mt-7 flex flex-wrap justify-center gap-4 text-sm">
+          <Link href="/resort-plots-in-hyderabad" className="font-bold text-[#E8D7A5] underline">
+            Resort Plots Guide
+          </Link>
+          <Link href="/gated-community-plots-in-hyderabad" className="font-bold text-[#E8D7A5] underline">
+            Gated Community Plots
+          </Link>
+          <a href="https://www.rera.telangana.gov.in/" target="_blank" rel="noopener noreferrer" className="font-bold text-[#E8D7A5] underline">
+            Telangana RERA
+          </a>
+          <a href="https://dtcp.telangana.gov.in/" target="_blank" rel="noopener noreferrer" className="font-bold text-[#E8D7A5] underline">
+            Telangana DTCP
+          </a>
+        </div>
       </div>
     </section>
   );

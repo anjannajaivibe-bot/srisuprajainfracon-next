@@ -3,11 +3,11 @@ import Link from "next/link";
 const reasons = [
   {
     title: "Approved Plotted Development Focus",
-    desc: "Sri Supraja Infracon focuses on planned open plot communities with clear documentation, layout visibility and buyer-focused project communication.",
+    desc: "Sri Supraja Infracon focuses on planned open plot communities with clear documentation, layout visibility and buyer-focused communication.",
   },
   {
     title: "Strategic Hyderabad Growth Corridors",
-    desc: "Our projects are positioned around Kamkole, Mominpet and Indrakaran with access to NH-65, ORR, institutional zones and industrial development corridors.",
+    desc: "Projects are positioned around Kamkole, Mominpet and Indrakaran with access to NH-65, ORR, institutional zones and industrial development corridors.",
   },
   {
     title: "Location-Led Investment Planning",
@@ -37,13 +37,15 @@ const WhyChooseUs = () => {
           </p>
 
           <h2 className="mx-auto max-w-4xl text-3xl font-extrabold leading-tight text-slate-950 md:text-5xl">
-            Why Buyers Choose Sri Supraja Infracon for Open Plots Near Hyderabad
+            Why Choose Sri Supraja Infracon for Open Plot Investment Near Hyderabad
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-600">
-            We help buyers evaluate approved open plots, villa plots and resort
-            plot communities with practical location insights, transparent
-            project details and site visit support.
+            Buyers can evaluate <strong>RERA approved plots near Hyderabad</strong>,{" "}
+            <strong>premium villa plots</strong>,{" "}
+            <strong>resort plot communities</strong> and{" "}
+            <strong>gated community plots</strong> with practical location
+            insights and site visit support.
           </p>
         </div>
 
@@ -70,8 +72,9 @@ const WhyChooseUs = () => {
           <p className="text-lg leading-relaxed text-slate-700">
             Buyers searching for{" "}
             <strong className="text-slate-950">
-              DTCP approved open plots near Hyderabad, RERA approved plotted
-              communities in Telangana and resort plots near Woxsen University
+              DTCP approved plots near Hyderabad, RERA approved plotted communities
+              in Telangana, resort plots near Woxsen University, villa plots near
+              NH-65 and premium open plots in Hyderabad growth corridors
             </strong>{" "}
             can compare Sri Supraja Infracon projects based on approvals,
             location advantages, development progress and current availability.
@@ -82,7 +85,7 @@ const WhyChooseUs = () => {
               Compare all projects
             </Link>
 
-            <Link href="/contact" className="text-blue-700 underline">
+            <Link href="/contact-us" className="text-blue-700 underline">
               Request availability details
             </Link>
           </div>

@@ -21,7 +21,7 @@ const ContactSection = () => {
           </p>
 
           <h2 className="mb-5 text-3xl font-extrabold leading-tight text-slate-950 md:text-5xl">
-            Plan a Site Visit for Open Plots Near Hyderabad
+            Contact Sri Supraja Infracon for Open Plot Site Visits
           </h2>
 
           <p className="mb-7 text-lg leading-relaxed text-slate-600">
@@ -44,8 +44,10 @@ const ContactSection = () => {
 
             <p>
               <strong className="text-slate-950">Buyer Search Intent:</strong>{" "}
-              DTCP approved plots, RERA approved plots, villa plots, resort
-              plots and premium open plots near Hyderabad
+              <strong>DTCP approved plots</strong>,{" "}
+              <strong>RERA approved plots</strong>,{" "}
+              <strong>villa plots</strong>, <strong>resort plots</strong> and{" "}
+              <strong>premium open plots near Hyderabad</strong>
             </p>
           </div>
 
@@ -54,24 +56,24 @@ const ContactSection = () => {
               Browse project details
             </Link>
 
-            <Link href="/contact" className="text-blue-700 underline">
+            <Link href="/contact-us" className="text-blue-700 underline">
               Contact sales team
             </Link>
 
             <a
-              href="https://wa.me/919052996161?text=Hi%2C%20I%20would%20like%20to%20know%20current%20plot%20availability%20and%20site%20visit%20details."
+              href="https://www.google.com/maps/search/?api=1&query=Sri%20Supraja%20Infracon%20Chandanagar"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-700 underline"
             >
-              WhatsApp enquiry
+              View office location
             </a>
           </div>
         </div>
 
         <div className="rounded-[32px] bg-white p-7 shadow-xl">
           <h3 className="mb-5 text-2xl font-extrabold text-slate-950">
-            What to Ask Before Booking
+            Checklist for DTCP & RERA Approved Open Plots Near Hyderabad
           </h3>
 
           <div className="grid gap-4 sm:grid-cols-2">
@@ -87,7 +89,10 @@ const ContactSection = () => {
 
           <p className="mt-6 text-sm leading-relaxed text-slate-500">
             Availability, pricing, loan support and approvals may vary by
-            project. Buyers should verify project-wise details before booking.
+            project. Sri Supraja Infracon continues developing{" "}
+            <strong>DTCP & RERA approved open plots near Hyderabad</strong>{" "}
+            with a focus on premium infrastructure, strategic growth corridors
+            and long-term buyer confidence.
           </p>
         </div>
       </div>

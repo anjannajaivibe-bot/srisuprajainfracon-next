@@ -12,13 +12,14 @@ const ProjectsSection = () => {
           </p>
 
           <h2 className="mx-auto max-w-4xl text-3xl font-extrabold leading-tight text-slate-950 md:text-5xl">
-            Open Plot Projects Near Hyderabad Growth Corridors
+            DTCP & RERA Approved Open Plots Near Hyderabad
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-600">
-            Compare Sri Supraja Infracon plotted communities in Kamkole,
-            Mominpet and Indrakaran, including premium villa plots, resort plots
-            and approved open plot developments near key infrastructure zones.
+            Compare <strong>premium plotted developments</strong>,{" "}
+            <strong>villa plots near Hyderabad</strong>,{" "}
+            <strong>resort plots near Hyderabad</strong> and approved open plot
+            communities across Kamkole, Mominpet, Sangareddy and Indrakaran.
           </p>
         </div>
 
@@ -36,7 +37,10 @@ const ProjectsSection = () => {
                 >
                   <SmartImage
                     src={project.image}
-                    alt={project.imageAlt}
+                    alt={
+                      project.imageAlt ||
+                      "DTCP & RERA approved open plots near Hyderabad"
+                    }
                     className="h-full w-full"
                     imageClassName="transition-transform duration-700 group-hover:scale-105"
                   />
@@ -61,7 +65,7 @@ const ProjectsSection = () => {
                 <h3 className="mb-4 text-2xl font-extrabold text-slate-950">
                   <Link
                     href={project.link}
-                    className="transition hover:text-amber-600"
+                    className="font-bold transition hover:text-amber-600"
                   >
                     {project.title}
                   </Link>
@@ -75,7 +79,7 @@ const ProjectsSection = () => {
                   {project.highlights.slice(0, 3).map((item) => (
                     <span
                       key={item}
-                      className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700"
+                      className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-700"
                     >
                       {item}
                     </span>
@@ -119,9 +123,9 @@ const ProjectsSection = () => {
 
         <div className="mt-12 rounded-[28px] border border-amber-100 bg-amber-50/60 p-7 text-center">
           <p className="mx-auto max-w-4xl text-lg leading-relaxed text-slate-700">
-            Review current plot availability, brochures, approval details,
-            connectivity advantages and site visit options before selecting a
-            Sri Supraja Infracon plotted community near Hyderabad.
+            Review availability, brochures, approval details and site visit
+            options before selecting a Sri Supraja Infracon plotted community
+            near Hyderabad.
           </p>
 
           <div className="mt-5 flex flex-wrap justify-center gap-4 text-sm font-bold">
@@ -129,7 +133,7 @@ const ProjectsSection = () => {
               View all plotted communities
             </Link>
 
-            <Link href="/contact" className="text-blue-700 underline">
+            <Link href="/contact-us" className="text-blue-700 underline">
               Request project guidance
             </Link>
           </div>
