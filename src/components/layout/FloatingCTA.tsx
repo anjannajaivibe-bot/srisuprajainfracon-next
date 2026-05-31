@@ -1,42 +1,30 @@
-"use client";
-import { Phone, MessageCircle } from "lucide-react";
-import { motion } from "framer-motion";
+import { MessageCircle, Phone } from "lucide-react";
 
 const phoneNumber = "+919052996161";
 
 const whatsappUrl =
   "https://wa.me/919052996161?text=Hi%20I%20would%20like%20to%20know%20more%20about%20your%20projects";
 
-const FloatingCTA = () => {
+export default function FloatingCTA() {
   return (
     <div className="fixed bottom-5 right-5 z-[9999] flex flex-col gap-4">
-      {/* WhatsApp Button */}
-      <motion.a
+      <a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        whileHover={{ scale: 1.08 }}
-        whileTap={{ scale: 0.95 }}
-        className="flex items-center justify-center w-14 h-14 rounded-full bg-green-500 text-white shadow-2xl hover:bg-green-600 transition-all duration-300"
+        className="flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-white shadow-xl transition-transform duration-200 hover:scale-105 hover:bg-green-600 active:scale-95"
         aria-label="Chat on WhatsApp"
       >
         <MessageCircle size={28} />
-      </motion.a>
+      </a>
 
-      {/* Call Button */}
-      <motion.a
+      <a
         href={`tel:${phoneNumber}`}
-        whileHover={{ scale: 1.08 }}
-        whileTap={{ scale: 0.95 }}
-        className="flex items-center justify-center w-14 h-14 rounded-full gold-gradient text-navy shadow-2xl transition-all duration-300"
+        className="gold-gradient flex h-14 w-14 items-center justify-center rounded-full text-navy shadow-xl transition-transform duration-200 hover:scale-105 active:scale-95"
         aria-label="Call Now"
       >
         <Phone size={26} />
-      </motion.a>
+      </a>
     </div>
   );
-};
-
-export default FloatingCTA;
-
-
+}
