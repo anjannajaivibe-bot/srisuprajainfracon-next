@@ -73,7 +73,7 @@ export default function BlogPage() {
           </p>
 
           <h1 className="mt-4 text-4xl font-semibold md:text-6xl">
-            Real Estate Blogs
+            Hyderabad Real Estate Insights
           </h1>
 
           <p className="mx-auto mt-5 max-w-3xl text-lg text-white/80">
