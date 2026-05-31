@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+import Navbar from "@/components/layout/Navbar";
 import FloatingCTA from "@/components/layout/FloatingCTA";
 import { DM_Sans, Playfair_Display } from "next/font/google";
 
@@ -27,17 +28,6 @@ export const metadata: Metadata = {
 
   description:
     "Explore DTCP and RERA approved open plots, villa plots and resort plots near Hyderabad growth corridors including Kamkole, Sangareddy, Mominpet and Indrakaran.",
-
-  keywords: [
-    "DTCP approved open plots in Hyderabad",
-    "RERA approved plots near Hyderabad",
-    "villa plots in Hyderabad",
-    "resort plots near Hyderabad",
-    "open plots in Kamkole",
-    "plots near Woxsen University",
-    "plots near NH65",
-    "gated community plots in Hyderabad",
-  ],
 
   alternates: {
     canonical: "https://www.suprajainfracon.com/",
@@ -130,8 +120,8 @@ export default function RootLayout({
           }}
         />
 
+        <Navbar />
         {children}
-
         <FloatingCTA />
       </body>
     </html>
