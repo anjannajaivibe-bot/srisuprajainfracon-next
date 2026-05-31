@@ -92,12 +92,13 @@ export default function BlogPage() {
             <div className="relative min-h-[320px] overflow-hidden bg-gray-100">
               {featuredPost.featuredImage && (
                 <Image
-                  src={featuredPost.featuredImage}
-                  alt={stripHtml(featuredPost.title)}
-                  fill
-                  priority
-                  className="object-cover transition duration-500 group-hover:scale-105"
-                />
+  src={featuredPost.featuredImage}
+  alt={stripHtml(featuredPost.title)}
+  fill
+  priority
+  sizes="(max-width: 1024px) 100vw, 50vw"
+  className="object-cover transition duration-500 group-hover:scale-105"
+/>
               )}
             </div>
 

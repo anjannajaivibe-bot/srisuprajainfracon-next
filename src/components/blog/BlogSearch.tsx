@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useDeferredValue } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -12,27 +12,26 @@ type BlogPost = {
   date: string;
 };
 
-export default function BlogSearch({
-  posts,
-}: {
-  posts: BlogPost[];
-}) {
+export default function BlogSearch({ posts }: { posts: BlogPost[] }) {
   const [query, setQuery] = useState("");
+  const deferredQuery = useDeferredValue(query);
 
   const filteredPosts = useMemo(() => {
-    return posts.filter((post) => {
-      const text =
-        `${post.title} ${post.excerpt || ""}`.toLowerCase();
+    const search = deferredQuery.trim().toLowerCase();
 
-      return text.includes(query.toLowerCase());
+    if (!search) return posts;
+
+    return posts.filter((post) => {
+      const text = `${post.title} ${post.excerpt || ""}`.toLowerCase();
+      return text.includes(search);
     });
-  }, [query, posts]);
+  }, [deferredQuery, posts]);
 
   return (
     <>
       <div className="mb-12">
         <input
-          type="text"
+          type="search"
           placeholder="Search blogs..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
@@ -51,8 +50,10 @@ export default function BlogSearch({
                 {post.featuredImage && (
                   <Image
                     src={post.featuredImage}
-                    alt={post.title}
+                    alt={post.title.replace(/<[^>]*>/g, "")}
                     fill
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover transition duration-500 group-hover:scale-105"
                   />
                 )}

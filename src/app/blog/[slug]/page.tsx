@@ -293,12 +293,13 @@ export default async function BlogDetailPage({
             {post.featuredImage && (
               <div className="relative mt-10 h-[260px] md:h-[460px] rounded-3xl overflow-hidden bg-gray-100">
                 <Image
-                  src={post.featuredImage}
-                  alt={title}
-                  fill
-                  priority
-                  className="object-cover"
-                />
+  src={post.featuredImage}
+  alt={title}
+  fill
+  priority
+  sizes="(max-width: 768px) 100vw, 900px"
+  className="object-cover"
+/>
               </div>
             )}
 
