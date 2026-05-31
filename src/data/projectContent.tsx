@@ -198,7 +198,7 @@ export const projectContent = {
     ],
   },
 
-  "Subhash-meadows": {
+  "subhash-meadows": {
     overview:
       "Subhash Meadows is an affordable open plot community at Indrakaran by Sri Supraja Infracon offering planned infrastructure, Vastu-compliant layouts and strong connectivity toward ORR, IIT Hyderabad, ICRISAT, BHEL and Sangareddy growth zones. Sales are open for buyers looking for budget-friendly open plots near Hyderabad.",
 

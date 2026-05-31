@@ -136,8 +136,8 @@ export const projects: Project[] = [
   },
 
   {
-    id: "Subhash-meadows",
-    slug: "Subhash-meadows",
+    id: "subhash-meadows",
+    slug: "subhash-meadows",
     title: "Subhash Meadows",
     location: "Indrakaran",
     status: "Sales Open",
@@ -160,7 +160,7 @@ export const projects: Project[] = [
       "15 minutes to IIT Hyderabad",
     ],
 
-    link: "/projects/Subhash-meadows",
+    link: "/projects/subhash-meadows",
 
     brochure: "/brochures/subhash-meadows-brochure.pdf",
 

@@ -6,7 +6,7 @@ type ProjectSlug =
   | "supraja-iris-resort-plots"
   | "bridge-county"
   | "sindhu-sarovar"
-  | "Subhash-meadows";
+  | "subhash-meadows";
 
 type ProjectPageProps = {
   params: Promise<{
@@ -184,7 +184,7 @@ const projectSeo: Record<
     ],
   },
 
-  "Subhash-meadows": {
+  "subhash-meadows": {
     focusKeyword: "Affordable Open Plots Near ORR Hyderabad",
 
     title:

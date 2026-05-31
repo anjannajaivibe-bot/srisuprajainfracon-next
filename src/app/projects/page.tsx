@@ -75,7 +75,7 @@ export default function ProjectsPage() {
           {
             "@type": "Product",
             name: "Subhash Meadows",
-            url: "https://www.suprajainfracon.com/projects/Subhash-meadows",
+            url: "https://www.suprajainfracon.com/projects/subhash-meadows",
           },
         ],
       },

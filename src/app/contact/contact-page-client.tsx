@@ -203,7 +203,7 @@ export default function ContactPageClient() {
             </Link>
 
             <Link
-              href="/projects/Subhash-meadows"
+              href="/projects/subhash-meadows"
               className="rounded-full bg-[#0B1633] px-5 py-3 font-bold text-white transition hover:bg-[#C9A227] hover:text-[#0B1633]"
             >
               Subhash Meadows

@@ -27,7 +27,7 @@ const locationLinks = [
   },
   {
     label: "Indrakaran Open Plots",
-    href: "/projects/Subhash-meadows",
+    href: "/projects/subhash-meadows",
   },
   {
     label: "Plots Near NH-65",

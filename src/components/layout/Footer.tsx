@@ -113,7 +113,7 @@ export default function Footer() {
 
               <li>
                 <Link
-                  href="/projects/Subhash-meadows"
+                  href="/projects/subhash-meadows"
                   className="transition hover:text-[#C9A227]"
                 >
                   Subhash Meadows

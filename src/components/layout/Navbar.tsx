@@ -28,7 +28,7 @@ const projectLinks = [
   },
   {
     label: "Subhash Meadows",
-    href: "/projects/Subhash-meadows",
+    href: "/projects/subhash-meadows",
   },
 ];
 

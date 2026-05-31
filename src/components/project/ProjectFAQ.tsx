@@ -71,7 +71,7 @@ const getExtraFaqs = (slug: string) => {
     ];
   }
 
-  if (slug === "Subhash-meadows") {
+  if (slug === "subhash-meadows") {
     return [
       {
         question: "Where is Subhash Meadows located?",

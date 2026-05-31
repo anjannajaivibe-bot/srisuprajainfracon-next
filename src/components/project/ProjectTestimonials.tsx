@@ -43,7 +43,7 @@ const testimonials = [
     text: `Sindhu Sarovar gives a calm and premium atmosphere with excellent planning and greenery. We liked the peaceful environment, clear documentation, and long-term value offered by Sri Supraja Infracon.`,
   },
   {
-    slug: "Subhash-meadows",
+    slug: "subhash-meadows",
     project: "Subhash Meadows",
     name: "Verified Buyer",
     role: "Subhash Meadows Customer",

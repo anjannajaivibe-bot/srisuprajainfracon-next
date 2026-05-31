@@ -83,7 +83,7 @@ export const projectSeo = {
     ],
   },
 
-  "Subhash-meadows": {
+  "subhash-meadows": {
     focusKeyword: "Affordable Open Plots Near ORR Hyderabad",
     h1: "Affordable Open Plots Near ORR Hyderabad",
     h2: "Subhash Meadows Open Plots at Indrakaran",

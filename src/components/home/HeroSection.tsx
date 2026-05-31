@@ -13,7 +13,7 @@ const projectLinks = [
   { name: "Supraja IRIS", href: "/projects/supraja-iris-resort-plots" },
   { name: "Bridge County", href: "/projects/bridge-county" },
   { name: "Sindhu Sarovar", href: "/projects/sindhu-sarovar" },
-  { name: "Subhash Meadows", href: "/projects/Subhash-meadows" },
+  { name: "Subhash Meadows", href: "/projects/subhash-meadows" },
 ];
 
 const legacyProjects = [
