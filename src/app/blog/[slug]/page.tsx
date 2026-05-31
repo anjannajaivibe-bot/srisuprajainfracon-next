@@ -5,6 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import ReadingProgress from "@/components/blog/ReadingProgress";
+import { extractFaqSchema } from "@/lib/blog-schema";
 
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
 const SITE_URL = "https://srisuprajainfracon.com";
@@ -192,7 +193,12 @@ export default async function BlogDetailPage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${SITE_URL}/`,
+      },
       {
         "@type": "ListItem",
         position: 2,
@@ -208,8 +214,12 @@ export default async function BlogDetailPage({
     ],
   };
 
+  const faqSchema = extractFaqSchema(content);
+
   return (
     <main className="bg-[#f8f6f1] min-h-screen">
+      <ReadingProgress />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
@@ -219,6 +229,13 @@ export default async function BlogDetailPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
 
       <section className="max-w-7xl mx-auto px-6 py-16">
         <nav className="mb-8 text-sm text-gray-600">
