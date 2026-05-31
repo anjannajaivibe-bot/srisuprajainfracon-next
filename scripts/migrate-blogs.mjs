@@ -38,23 +38,80 @@ async function fetchJson(url) {
 function downloadFile(url, filepath) {
   return new Promise((resolve, reject) => {
     const file = fs.createWriteStream(filepath);
-    https.get(url, (response) => {
-      if (response.statusCode !== 200) {
-        file.close();
-        fs.unlinkSync(filepath);
-        reject(new Error(`Image failed: ${url}`));
-        return;
-      }
-      response.pipe(file);
-      file.on("finish", () => file.close(resolve));
-    }).on("error", reject);
+
+    https
+      .get(url, (response) => {
+        if (response.statusCode !== 200) {
+          file.close();
+          fs.unlink(filepath, () => {});
+          reject(new Error(`Failed ${response.statusCode}: ${url}`));
+          return;
+        }
+
+        response.pipe(file);
+        file.on("finish", () => file.close(resolve));
+      })
+      .on("error", reject);
   });
 }
 
-function cleanHtml(html = "") {
-  return html
-    .replace(/https:\/\/srisuprajainfracon\.com\//g, "/")
-    .replace(/src="https:\/\/srisuprajainfracon\.com\/wp-content\/uploads\//g, 'src="/uploads/blog/');
+function getSafeFileName(url, slug) {
+  const ext = path.extname(new URL(url).pathname) || ".jpg";
+  const shortId = Math.random().toString(36).substring(2, 10);
+  return `${slug}-${shortId}${ext}`;
+}
+
+async function downloadAndReplaceImages(html, slug) {
+  let updatedHtml = html || "";
+
+  const imageUrls = [
+    ...updatedHtml.matchAll(
+      /https:\/\/srisuprajainfracon\.com\/wp-content\/uploads\/[^"')\s]+/g
+    ),
+  ].map((match) => match[0]);
+
+  const uniqueUrls = [...new Set(imageUrls)];
+
+  for (const imageUrl of uniqueUrls) {
+    const fileName = getSafeFileName(imageUrl, slug);
+    const localPath = path.join(IMG_DIR, fileName);
+    const localUrl = `/uploads/blog/${fileName}`;
+
+    try {
+      if (!fs.existsSync(localPath)) {
+        console.log(`Downloading inline image: ${fileName}`);
+        await downloadFile(imageUrl, localPath);
+      }
+
+      updatedHtml = updatedHtml.replaceAll(imageUrl, localUrl);
+    } catch {
+      console.log(`Skipped inline image: ${imageUrl}`);
+    }
+  }
+
+  return updatedHtml;
+}
+
+async function downloadFeaturedImage(post, slug) {
+  const media = post._embedded?.["wp:featuredmedia"]?.[0];
+
+  if (!media?.source_url) return "";
+
+  const ext = path.extname(new URL(media.source_url).pathname) || ".jpg";
+  const fileName = `${slug}-featured${ext}`;
+  const filePath = path.join(IMG_DIR, fileName);
+
+  try {
+    if (!fs.existsSync(filePath)) {
+      console.log(`Downloading featured image: ${fileName}`);
+      await downloadFile(media.source_url, filePath);
+    }
+
+    return `/uploads/blog/${fileName}`;
+  } catch {
+    console.log(`Featured image failed: ${media.source_url}`);
+    return media.source_url;
+  }
 }
 
 for (const slug of BLOG_URLS) {
@@ -68,23 +125,10 @@ for (const slug of BLOG_URLS) {
     continue;
   }
 
-  let featuredImage = "";
-  const media = post._embedded?.["wp:featuredmedia"]?.[0];
-
-  if (media?.source_url) {
-    const ext = path.extname(new URL(media.source_url).pathname) || ".jpg";
-    const fileName = `${slug}${ext}`;
-    const filePath = path.join(IMG_DIR, fileName);
-
-    try {
-      await downloadFile(media.source_url, filePath);
-      featuredImage = `/uploads/blog/${fileName}`;
-    } catch {
-      featuredImage = media.source_url;
-    }
-  }
-
   const yoast = post.yoast_head_json || {};
+  const featuredImage = await downloadFeaturedImage(post, slug);
+  const content = await downloadAndReplaceImages(post.content.rendered, slug);
+  const excerpt = await downloadAndReplaceImages(post.excerpt.rendered, slug);
 
   const blogData = {
     id: post.id,
@@ -96,8 +140,8 @@ for (const slug of BLOG_URLS) {
     date: post.date,
     modified: post.modified,
     featuredImage,
-    excerpt: post.excerpt.rendered,
-    content: cleanHtml(post.content.rendered)
+    excerpt,
+    content,
   };
 
   fs.writeFileSync(
@@ -106,4 +150,4 @@ for (const slug of BLOG_URLS) {
   );
 }
 
-console.log("Blog migration completed.");
+console.log("Blog migration completed with featured and inline images.");
