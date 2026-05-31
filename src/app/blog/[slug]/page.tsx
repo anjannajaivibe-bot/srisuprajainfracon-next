@@ -193,12 +193,7 @@ export default async function BlogDetailPage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: `${SITE_URL}/`,
-      },
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
       {
         "@type": "ListItem",
         position: 2,
@@ -217,7 +212,7 @@ export default async function BlogDetailPage({
   const faqSchema = extractFaqSchema(content);
 
   return (
-    <main className="bg-[#f8f6f1] min-h-screen">
+    <main className="min-h-screen bg-[#f8f6f1]">
       <ReadingProgress />
 
       <script
@@ -237,7 +232,7 @@ export default async function BlogDetailPage({
         />
       )}
 
-      <section className="max-w-7xl mx-auto px-6 py-16">
+      <section className="mx-auto max-w-7xl px-6 py-12 md:py-16">
         <nav className="mb-8 text-sm text-gray-600">
           <Link href="/" className="hover:text-[#b08a3c]">
             Home
@@ -249,11 +244,11 @@ export default async function BlogDetailPage({
           / <span className="text-[#12251d]">{title}</span>
         </nav>
 
-        <div className="grid gap-12 lg:grid-cols-[260px_1fr]">
+        <div className="grid gap-12 lg:grid-cols-[280px_1fr]">
           {toc.length > 0 && (
             <aside className="hidden lg:block">
               <div className="sticky top-28 rounded-3xl bg-white p-6 shadow-sm">
-                <p className="text-sm font-semibold uppercase tracking-widest text-[#b08a3c]">
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#b08a3c]">
                   Table of Contents
                 </p>
 
@@ -262,10 +257,10 @@ export default async function BlogDetailPage({
                     <a
                       key={item.id}
                       href={`#${item.id}`}
-                      className={`block text-sm leading-snug hover:text-[#b08a3c] ${
+                      className={`block text-sm leading-snug transition hover:text-[#b08a3c] ${
                         item.level === 3
                           ? "ml-4 text-gray-500"
-                          : "text-[#12251d]"
+                          : "font-medium text-[#12251d]"
                       }`}
                     >
                       {item.text}
@@ -276,8 +271,8 @@ export default async function BlogDetailPage({
             </aside>
           )}
 
-          <article className="max-w-4xl">
-            <p className="text-sm text-[#b08a3c] font-medium">
+          <article className="max-w-5xl">
+            <p className="text-sm font-medium text-[#b08a3c]">
               {new Date(post.date).toLocaleDateString("en-IN", {
                 day: "numeric",
                 month: "long",
@@ -286,26 +281,26 @@ export default async function BlogDetailPage({
             </p>
 
             <h1
-              className="mt-4 text-4xl md:text-5xl font-semibold text-[#12251d] leading-tight"
+              className="mt-4 max-w-4xl font-display text-4xl font-semibold leading-[1.08] tracking-tight text-[#12251d] md:text-5xl"
               dangerouslySetInnerHTML={{ __html: post.title }}
             />
 
             {post.featuredImage && (
-              <div className="relative mt-10 h-[260px] md:h-[460px] rounded-3xl overflow-hidden bg-gray-100">
+              <div className="relative mt-10 h-[260px] overflow-hidden rounded-3xl bg-gray-100 shadow-sm md:h-[460px]">
                 <Image
-  src={post.featuredImage}
-  alt={title}
-  fill
-  priority
-  sizes="(max-width: 768px) 100vw, 900px"
-  className="object-cover"
-/>
+                  src={post.featuredImage}
+                  alt={title}
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 900px"
+                  className="object-cover"
+                />
               </div>
             )}
 
             {toc.length > 0 && (
               <div className="mt-10 rounded-3xl bg-white p-6 shadow-sm lg:hidden">
-                <p className="text-sm font-semibold uppercase tracking-widest text-[#b08a3c]">
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#b08a3c]">
                   Table of Contents
                 </p>
 
@@ -314,7 +309,7 @@ export default async function BlogDetailPage({
                     <a
                       key={item.id}
                       href={`#${item.id}`}
-                      className="block text-sm text-[#12251d] hover:text-[#b08a3c]"
+                      className="block text-sm font-medium text-[#12251d] hover:text-[#b08a3c]"
                     >
                       {item.text}
                     </a>
@@ -324,12 +319,67 @@ export default async function BlogDetailPage({
             )}
 
             <div
-              className="prose prose-lg max-w-none mt-10 scroll-smooth prose-headings:scroll-mt-28 prose-headings:text-[#12251d] prose-p:text-gray-700 prose-li:text-gray-700 prose-strong:text-[#12251d] prose-a:text-[#b08a3c] prose-img:rounded-2xl prose-img:shadow-lg"
+              className="
+                prose prose-lg md:prose-xl
+                mt-12 max-w-none scroll-smooth
+
+                prose-headings:scroll-mt-28
+                prose-headings:font-display
+                prose-headings:tracking-tight
+                prose-headings:text-[#12251d]
+
+                prose-h2:mt-16
+                prose-h2:mb-6
+                prose-h2:border-b
+                prose-h2:border-[#d6c7a3]
+                prose-h2:pb-3
+                prose-h2:text-3xl
+                md:prose-h2:text-4xl
+
+                prose-h3:mt-12
+                prose-h3:mb-4
+                prose-h3:text-2xl
+                md:prose-h3:text-3xl
+
+                prose-p:mb-7
+                prose-p:leading-9
+                prose-p:text-[#3d463f]
+
+                prose-strong:text-[#12251d]
+
+                prose-a:font-semibold
+                prose-a:text-[#b08a3c]
+                prose-a:no-underline
+                hover:prose-a:text-[#8f6f2e]
+
+                prose-ul:my-8
+                prose-ol:my-8
+                prose-li:mb-2
+                prose-li:leading-8
+                prose-li:text-[#3d463f]
+
+                prose-img:my-10
+                prose-img:rounded-3xl
+                prose-img:shadow-lg
+
+                prose-blockquote:rounded-r-2xl
+                prose-blockquote:border-l-[#b08a3c]
+                prose-blockquote:bg-[#f5efe2]
+                prose-blockquote:px-6
+                prose-blockquote:py-4
+
+                prose-table:border
+                prose-table:border-collapse
+                prose-th:bg-[#12251d]
+                prose-th:p-4
+                prose-th:text-white
+                prose-td:p-4
+              "
               dangerouslySetInnerHTML={{ __html: content }}
             />
 
             <section className="mt-16 border-t border-gray-200 pt-10">
-              <h2 className="text-2xl font-semibold text-[#12251d]">
+              <h2 className="font-display text-2xl font-semibold text-[#12251d]">
                 Explore Premium Projects
               </h2>
 
@@ -343,21 +393,21 @@ export default async function BlogDetailPage({
 
                 <Link
                   href="/projects/bridge-county"
-                  className="rounded-full bg-white px-5 py-3 text-[#12251d] border hover:border-[#b08a3c]"
+                  className="rounded-full border bg-white px-5 py-3 text-[#12251d] hover:border-[#b08a3c]"
                 >
                   Bridge County
                 </Link>
 
                 <Link
                   href="/projects/sindhu-sarovar"
-                  className="rounded-full bg-white px-5 py-3 text-[#12251d] border hover:border-[#b08a3c]"
+                  className="rounded-full border bg-white px-5 py-3 text-[#12251d] hover:border-[#b08a3c]"
                 >
                   Sindhu Sarovar
                 </Link>
 
                 <Link
                   href="/projects/"
-                  className="rounded-full bg-white px-5 py-3 text-[#12251d] border hover:border-[#b08a3c]"
+                  className="rounded-full border bg-white px-5 py-3 text-[#12251d] hover:border-[#b08a3c]"
                 >
                   View All Projects
                 </Link>
@@ -366,7 +416,7 @@ export default async function BlogDetailPage({
 
             {relatedPosts.length > 0 && (
               <section className="mt-16 border-t border-gray-200 pt-10">
-                <h2 className="text-2xl font-semibold text-[#12251d]">
+                <h2 className="font-display text-2xl font-semibold text-[#12251d]">
                   Related Blogs
                 </h2>
 
@@ -375,13 +425,13 @@ export default async function BlogDetailPage({
                     <Link
                       key={item.slug}
                       href={`/blog/${item.slug}/`}
-                      className="rounded-2xl bg-white p-5 shadow-sm hover:shadow-lg transition"
+                      className="rounded-2xl bg-white p-5 shadow-sm transition hover:shadow-lg"
                     >
                       <h3
-                        className="text-lg font-semibold text-[#12251d] leading-snug"
+                        className="text-lg font-semibold leading-snug text-[#12251d]"
                         dangerouslySetInnerHTML={{ __html: item.title }}
                       />
-                      <p className="mt-3 text-sm text-gray-600 line-clamp-3">
+                      <p className="mt-3 line-clamp-3 text-sm text-gray-600">
                         {stripHtml(item.excerpt || item.metaDescription || "")}
                       </p>
                     </Link>
@@ -391,7 +441,7 @@ export default async function BlogDetailPage({
             )}
 
             <section className="mt-16 rounded-3xl bg-[#12251d] p-8 text-white">
-              <h2 className="text-2xl font-semibold">
+              <h2 className="font-display text-2xl font-semibold">
                 Looking for DTCP & RERA Approved Plots?
               </h2>
               <p className="mt-3 text-white/80">
