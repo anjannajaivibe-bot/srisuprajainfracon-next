@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import FloatingCTA from "@/components/layout/FloatingCTA";
 import { DM_Sans, Playfair_Display } from "next/font/google";
+import ContactFormPopup from "@/components/forms/ContactFormPopup";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -123,6 +124,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <FloatingCTA />
+        <ContactFormPopup />
       </body>
     </html>
   );
