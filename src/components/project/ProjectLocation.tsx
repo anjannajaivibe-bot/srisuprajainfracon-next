@@ -80,7 +80,7 @@ const ProjectLocation = ({ project }: Props) => {
               </Link>
 
               <Link
-                href="/contact-us"
+                href="/contact"
                 className="rounded-full border border-[#C9A227] bg-white px-6 py-3 text-sm font-bold text-[#0B1633] transition hover:bg-[#FFF4C7]"
               >
                 Schedule Site Visit

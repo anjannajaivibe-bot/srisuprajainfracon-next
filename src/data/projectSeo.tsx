@@ -51,7 +51,7 @@ export const projectSeo = {
       "DTCP & RERA Approved Luxury Plots at Kamkole Bridge County",
     internalLinks: [
       { label: "Compare open plot projects", href: "/projects" },
-      { label: "Contact for Bridge County availability", href: "/contact-us" },
+      { label: "Contact for Bridge County availability", href: "/contact" },
     ],
   },
 
@@ -79,7 +79,7 @@ export const projectSeo = {
       "DTCP & RERA Approved Open Plots in Mominpet Sindhu Sarovar",
     internalLinks: [
       { label: "View all plotted communities", href: "/projects" },
-      { label: "Request Sindhu Sarovar details", href: "/contact-us" },
+      { label: "Request Sindhu Sarovar details", href: "/contact" },
     ],
   },
 
@@ -107,7 +107,7 @@ export const projectSeo = {
       "Affordable Open Plots Near ORR Hyderabad Subhash Meadows Indrakaran",
     internalLinks: [
       { label: "Explore all affordable projects", href: "/projects" },
-      { label: "Book a Subhash Meadows site visit", href: "/contact-us" },
+      { label: "Book a Subhash Meadows site visit", href: "/contact" },
     ],
   },
 } as const;

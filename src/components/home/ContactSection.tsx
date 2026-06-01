@@ -56,7 +56,7 @@ const ContactSection = () => {
               Browse project details
             </Link>
 
-            <Link href="/contact-us" className="text-blue-700 underline">
+            <Link href="/contact" className="text-blue-700 underline">
               Contact sales team
             </Link>
 

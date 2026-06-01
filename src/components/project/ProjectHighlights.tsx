@@ -80,7 +80,7 @@ const ProjectHighlights = ({ project }: Props) => {
             </Link>
 
             <Link
-              href="/contact-us"
+              href="/contact"
               className="rounded-2xl border border-[#C9A227] bg-[#FFF9E8] px-5 py-4 text-center text-sm font-bold text-[#0B1633] transition hover:bg-[#C9A227]"
             >
               Request Availability

@@ -85,7 +85,7 @@ const WhyChooseUs = () => {
               Compare all projects
             </Link>
 
-            <Link href="/contact-us" className="text-blue-700 underline">
+            <Link href="/contact" className="text-blue-700 underline">
               Request availability details
             </Link>
           </div>

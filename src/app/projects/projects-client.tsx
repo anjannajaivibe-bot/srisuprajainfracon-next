@@ -120,7 +120,7 @@ export default function ProjectsClient() {
               className="mt-10 flex flex-wrap justify-center gap-4"
             >
               <Link
-                href="/contact-us"
+                href="/contact"
                 className="rounded-full bg-[#C9A227] px-8 py-4 text-sm font-bold text-[#081225] shadow-lg transition hover:-translate-y-0.5 hover:bg-white"
               >
                 Schedule Site Visit
@@ -267,7 +267,7 @@ export default function ProjectsClient() {
                 Compare project options
               </Link>
 
-              <Link href="/contact-us" className="text-blue-700 underline">
+              <Link href="/contact" className="text-blue-700 underline">
                 Request site visit support
               </Link>
 
