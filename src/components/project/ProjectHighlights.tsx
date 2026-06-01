@@ -22,7 +22,7 @@ const getExtraHighlights = (slug: string) => {
 };
 
 const getCorrectedSindhuHighlights = () => [
-  "DTCP approved plotted development",
+  "DTCP & RERA Approved plotted development",
   "Abutting 100 feet road",
   "Gated community with compound wall and security room",
   "50 feet road with central plantation median",
@@ -56,7 +56,7 @@ const ProjectHighlights = ({ project }: Props) => {
   const intro =
     project.slug === "sindhu-sarovar" ? (
       <>
-        {project.title} brings together <strong>DTCP approved open plots</strong>,{" "}
+        {project.title} brings together <strong>DTCP & RERA Approved open plots</strong>,{" "}
         <strong>gated community planning</strong>, 100-feet road connectivity,
         landscaped parks, vastu-compliant layouts, and infrastructure-led plotted
         development.
@@ -107,7 +107,7 @@ const ProjectHighlights = ({ project }: Props) => {
           <p className="text-center text-base leading-relaxed text-[#6B7280]">
             {project.slug === "sindhu-sarovar" ? (
               <>
-                Buyers considering <strong>DTCP approved open plots</strong>,{" "}
+                Buyers considering <strong>DTCP & RERA Approved open plots</strong>,{" "}
                 <strong>gated community plots</strong>, and{" "}
                 <strong>vastu-compliant plotted developments</strong> should
                 verify approval details, current availability, layout details,

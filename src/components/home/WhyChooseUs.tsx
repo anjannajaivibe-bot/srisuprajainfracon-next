@@ -72,7 +72,7 @@ const WhyChooseUs = () => {
           <p className="text-lg leading-relaxed text-slate-700">
             Buyers searching for{" "}
             <strong className="text-slate-950">
-              DTCP approved plots near Hyderabad, RERA approved plotted communities
+              DTCP & RERA Approved plots near Hyderabad, RERA approved plotted communities
               in Telangana, resort plots near Woxsen University, villa plots near
               NH-65 and premium open plots in Hyderabad growth corridors
             </strong>{" "}

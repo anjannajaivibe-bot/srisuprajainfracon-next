@@ -15,14 +15,14 @@ const getCorrectedSeo = (project: Project) => {
 
   return {
     ...seo,
-    h2: "DTCP Approved Gated Community Open Plots at Supraja Sindhu Sarovar",
+    h2: "DTCP & RERA Approved Gated Community Open Plots at Supraja Sindhu Sarovar",
     h3: "Supraja Sindhu Sarovar Brochure, Layout and Project Details",
     description:
-      "Supraja Sindhu Sarovar is a DTCP approved plotted development planned with gated community infrastructure, 100-feet road connectivity, wide internal roads, landscaped parks, avenue plantation, pedestrian walkways, street lighting, rainwater harvesting pits, and clear-title vastu-compliant plots.",
+      "Supraja Sindhu Sarovar is a DTCP & RERA Approved plotted development planned with gated community infrastructure, 100-feet road connectivity, wide internal roads, landscaped parks, avenue plantation, pedestrian walkways, street lighting, rainwater harvesting pits, and clear-title vastu-compliant plots.",
     lastParagraph:
-      "Supraja Sindhu Sarovar is suitable for buyers looking for DTCP approved open plots with gated community planning, strong road connectivity, landscaped open spaces, and infrastructure-focused plotted development. Project details, availability, approvals, and specifications should be verified before booking.",
+      "Supraja Sindhu Sarovar is suitable for buyers looking for DTCP & RERA Approved open plots with gated community planning, strong road connectivity, landscaped open spaces, and infrastructure-focused plotted development. Project details, availability, approvals, and specifications should be verified before booking.",
     synonyms: [
-      "DTCP approved open plots",
+      "DTCP & RERA Approved open plots",
       "gated community plots",
       "100 feet road connectivity",
       "vastu-compliant plots",
@@ -40,7 +40,7 @@ const ProjectOverview = ({ project }: Props) => {
     project.slug === "sindhu-sarovar" ? (
       <>
         Buyers also compare this project with{" "}
-        <strong className="text-slate-950">DTCP approved open plots</strong>,{" "}
+        <strong className="text-slate-950">DTCP & RERA Approved open plots</strong>,{" "}
         <strong className="text-slate-950">gated community plots</strong>,{" "}
         <strong className="text-slate-950">100 feet road connectivity</strong>,{" "}
         <strong className="text-slate-950">vastu-compliant layouts</strong> and{" "}

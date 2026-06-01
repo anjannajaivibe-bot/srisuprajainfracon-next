@@ -22,7 +22,7 @@ type BlogPost = {
 export const metadata: Metadata = {
   title: "Blog | Sri Supraja Infracon",
   description:
-    "Read expert insights on DTCP approved plots, RERA approved plots, gated community plots, resort plots, and real estate investment in Hyderabad.",
+    "Read expert insights on DTCP & RERA Approved plots, RERA approved plots, gated community plots, resort plots, and real estate investment in Hyderabad.",
   alternates: {
     canonical: `${SITE_URL}/blog/`,
   },

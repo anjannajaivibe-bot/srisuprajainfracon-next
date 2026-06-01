@@ -44,7 +44,7 @@ const ContactSection = () => {
 
             <p>
               <strong className="text-slate-950">Buyer Search Intent:</strong>{" "}
-              <strong>DTCP approved plots</strong>,{" "}
+              <strong>DTCP & RERA Approved plots</strong>,{" "}
               <strong>RERA approved plots</strong>,{" "}
               <strong>villa plots</strong>, <strong>resort plots</strong> and{" "}
               <strong>premium open plots near Hyderabad</strong>

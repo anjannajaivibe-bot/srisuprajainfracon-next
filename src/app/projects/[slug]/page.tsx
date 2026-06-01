@@ -106,16 +106,16 @@ const projectSeo: Record<
       "Kamkole luxury plots",
       "premium plotted development near Hyderabad",
       "RERA approved open plots",
-      "DTCP approved plots at Kamkole",
+      "DTCP & RERA Approved plots at Kamkole",
       "plots near NH-65",
     ],
 
     faqs: [
       {
-        question: "Is Bridge County DTCP approved?",
+        question: "Is Bridge County DTCP & RERA Approved?",
 
         answer:
-          "Yes. Bridge County is a DTCP approved luxury plotted development at Kamkole.",
+          "Yes. Bridge County is a DTCP & RERA Approved luxury plotted development at Kamkole.",
       },
 
       {
@@ -156,16 +156,16 @@ const projectSeo: Record<
       "premium plots near Hyderabad",
       "RERA approved plots in Mominpet",
       "gated community plots near Hyderabad",
-      "DTCP approved plotted development",
+      "DTCP & RERA Approved plotted development",
       "open plots near Mominpet",
     ],
 
     faqs: [
       {
-        question: "Is Sindhu Sarovar DTCP approved?",
+        question: "Is Sindhu Sarovar DTCP & RERA Approved?",
 
         answer:
-          "Yes. Sindhu Sarovar is a DTCP approved plotted development in Mominpet.",
+          "Yes. Sindhu Sarovar is a DTCP & RERA Approved plotted development in Mominpet.",
       },
 
       {

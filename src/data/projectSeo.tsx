@@ -44,7 +44,7 @@ export const projectSeo = {
       "Kamkole luxury plots",
       "premium plotted development near Hyderabad",
       "RERA approved open plots",
-      "DTCP approved plots at Kamkole",
+      "DTCP & RERA Approved plots at Kamkole",
       "plots near NH-65",
     ],
     imageAlt:
@@ -72,7 +72,7 @@ export const projectSeo = {
       "premium plots near Hyderabad",
       "RERA approved plots in Mominpet",
       "gated community plots near Hyderabad",
-      "DTCP approved plotted development",
+      "DTCP & RERA Approved plotted development",
       "open plots near Mominpet",
     ],
     imageAlt:

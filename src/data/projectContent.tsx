@@ -114,9 +114,9 @@ export const projectContent = {
 
     faq: [
       {
-        question: "Is Bridge County DTCP approved?",
+        question: "Is Bridge County DTCP & RERA Approved?",
         answer:
-          "Yes. Bridge County is a DTCP approved plotted development with TLP No. 160/2024/H.",
+          "Yes. Bridge County is a DTCP & RERA Approved plotted development with TLP No. 160/2024/H.",
       },
       {
         question: "Is Bridge County RERA approved?",
@@ -176,7 +176,7 @@ export const projectContent = {
 
     faq: [
       {
-        question: "Is Sindhu Sarovar DTCP approved?",
+        question: "Is Sindhu Sarovar DTCP & RERA Approved?",
         answer:
           "Yes. Sindhu Sarovar is approved under TLP No. 154/2021/H and 233/2021/H.",
       },

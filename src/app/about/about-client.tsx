@@ -261,7 +261,7 @@ export default function AboutClient() {
                 <p>
                   Our projects are positioned across important growth locations
                   such as Kamkole, Mominpet and Indrakaran, with strong
-                  relevance to buyers searching for DTCP approved plots near
+                  relevance to buyers searching for DTCP & RERA Approved plots near
                   Hyderabad and RERA approved plotted communities in Telangana.
                 </p>
 
@@ -447,7 +447,7 @@ export default function AboutClient() {
 
               <div className="mt-8 grid gap-5 md:grid-cols-3">
                 {[
-                  "DTCP Approved Layout Focus",
+                  "DTCP & RERA Approved Layout Focus",
                   "RERA Registered Project Focus",
                   "Clear Documentation Support",
                 ].map((item) => (

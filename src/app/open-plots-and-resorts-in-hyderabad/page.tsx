@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   keywords: [
     "open plots and resorts in Hyderabad",
     "resort plots near Hyderabad",
-    "DTCP approved open plots",
+    "DTCP & RERA Approved open plots",
     "RERA approved plots near Hyderabad",
     "villa plots in Hyderabad",
     "plots near Woxsen University",

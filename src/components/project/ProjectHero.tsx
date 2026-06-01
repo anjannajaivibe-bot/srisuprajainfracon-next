@@ -18,17 +18,17 @@ const getCorrectedSeo = (project: any) => {
 
   return {
     ...seo,
-    h1: "Supraja Sindhu Sarovar DTCP Approved Open Plots",
+    h1: "Supraja Sindhu Sarovar DTCP & RERA Approved Open Plots",
     subtitle:
       "A thoughtfully planned gated community with 100-feet road connectivity, vastu-compliant layouts, black top roads, landscaped parks, and clear-title plotted development.",
     firstParagraph:
-      "Supraja Sindhu Sarovar is a DTCP approved plotted development designed with gated community planning, wide internal roads, landscaped parks, plantation-focused open spaces, and essential infrastructure for residential plot buyers.",
+      "Supraja Sindhu Sarovar is a DTCP & RERA Approved plotted development designed with gated community planning, wide internal roads, landscaped parks, plantation-focused open spaces, and essential infrastructure for residential plot buyers.",
     description:
       "The project features abutting 100-feet road access, compound wall planning, 50-feet roads with central plantation median, black top roads, electricity with street lighting, overhead water tank, rainwater harvesting pits, and well-designed parks.",
     imageAlt:
-      "Supraja Sindhu Sarovar DTCP approved gated community open plots with entrance arch and internal roads",
+      "Supraja Sindhu Sarovar DTCP & RERA Approved gated community open plots with entrance arch and internal roads",
     synonyms: [
-      "DTCP Approved Open Plots",
+      "DTCP & RERA Approved Open Plots",
       "Gated Community Plots",
       "100 Ft Road Connectivity",
       "Black Top Roads",
