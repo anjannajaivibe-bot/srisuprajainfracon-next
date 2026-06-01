@@ -1,8 +1,8 @@
 import type { StaticImageData } from "next/image";
 import irisImage from "@/assets/project-iris.webp";
 import bridgeImage from "@/assets/project-bridge.webp";
-import sindhuImage from "@/assets/project-sindhu.jpg";
-import SubhashImage from "@/assets/project-meadows.jpg";
+import sindhuImage from "@/assets/project-sindhu.webp";
+import SubhashImage from "@/assets/project-meadows.webp";
 
 export type ProjectStatus =
   | "Ongoing"
@@ -168,6 +168,8 @@ export const projects: Project[] = [
       "https://suprajagroup.tranquilcrmp.in/mobileapp/newmaps/7",
   },
 ];
+
+
 
 
 

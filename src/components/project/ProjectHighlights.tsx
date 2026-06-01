@@ -103,3 +103,5 @@ const ProjectHighlights = ({ project }: Props) => {
 
 export default ProjectHighlights;
 
+
+

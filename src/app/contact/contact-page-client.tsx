@@ -15,7 +15,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/hero-bg.webp";
 
 export default function ContactPageClient() {
   return (
@@ -216,4 +216,6 @@ export default function ContactPageClient() {
     </div>
   );
 }
+
+
 
