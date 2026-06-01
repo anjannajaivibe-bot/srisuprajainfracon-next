@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import heroBgVideo from "@/assets/heroBg.mp4";
 
 const trustBadges = [
   "DTCP & RERA Approved Projects",
@@ -40,7 +39,7 @@ const HeroSection = () => {
           preload="metadata"
           aria-hidden="true"
         >
-          <source src={heroBgVideo} type="video/mp4" />
+          <source src="/videos/heroBg.mp4" type="video/mp4" />
         </video>
 
         <div className="absolute inset-0 bg-gradient-to-br from-[#081225]/95 via-[#0B1633]/88 to-[#1A2F5A]/82" />
