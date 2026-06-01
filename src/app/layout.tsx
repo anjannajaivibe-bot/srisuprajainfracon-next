@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 import FloatingCTA from "@/components/layout/FloatingCTA";
-import { DM_Sans, Playfair_Display } from "next/font/google";
 import ContactFormPopup from "@/components/forms/ContactFormPopup";
+
+import { DM_Sans, Playfair_Display } from "next/font/google";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -63,11 +65,11 @@ export const metadata: Metadata = {
   },
 
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
     googleBot: {
-      index: false,
-      follow: false,
+      index: true,
+      follow: true,
       "max-image-preview": "large",
       "max-snippet": -1,
       "max-video-preview": -1,
@@ -122,13 +124,16 @@ export default function RootLayout({
         />
 
         <Navbar />
-        {children}
+
+        <div className="min-h-screen pt-24">
+          {children}
+        </div>
+
+        <Footer />
+
         <FloatingCTA />
         <ContactFormPopup />
       </body>
     </html>
   );
 }
-
-
-
