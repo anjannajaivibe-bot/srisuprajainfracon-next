@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import heroBgVideo from "@/assets/heroBg.mp4";
 
 const trustBadges = [
   "DTCP & RERA Approved Projects",
@@ -39,7 +40,7 @@ const HeroSection = () => {
           preload="metadata"
           aria-hidden="true"
         >
-          <source src="/videos/heroBg.mp4" type="video/mp4" />
+          <source src={heroBgVideo} type="video/mp4" />
         </video>
 
         <div className="absolute inset-0 bg-gradient-to-br from-[#081225]/95 via-[#0B1633]/88 to-[#1A2F5A]/82" />
@@ -76,7 +77,8 @@ const HeroSection = () => {
           transition={{ duration: 0.55, delay: 0.08 }}
           className="mx-auto mb-9 max-w-4xl text-base leading-relaxed text-slate-200 sm:text-lg"
         >
-          Explore <strong>DTCP & RERA approved open plots near Hyderabad</strong>,
+          Explore{" "}
+          <strong>DTCP & RERA approved open plots near Hyderabad</strong>,
           including <strong>premium plotted developments</strong>,{" "}
           <strong>resort plots</strong>, <strong>villa plots</strong> and{" "}
           <strong>gated community plots</strong> across Kamkole, Sangareddy,
@@ -119,14 +121,18 @@ const HeroSection = () => {
         <div className="legacy-marquee">
           <div className="legacy-marquee-track animate-[legacy-marquee-scroll_38s_linear_infinite]">
             <div className="legacy-marquee-group">
-              <span className="legacy-title">Our Legacy Completed Projects:</span>
+              <span className="legacy-title">
+                Our Legacy Completed Projects:
+              </span>
               {legacyProjects.map((item) => (
                 <span key={item}>{item}</span>
               ))}
             </div>
 
             <div className="legacy-marquee-group" aria-hidden="true">
-              <span className="legacy-title">Our Legacy Completed Projects:</span>
+              <span className="legacy-title">
+                Our Legacy Completed Projects:
+              </span>
               {legacyProjects.map((item) => (
                 <span key={`duplicate-${item}`}>{item}</span>
               ))}
@@ -156,16 +162,35 @@ const HeroSection = () => {
         </motion.div>
 
         <div className="mt-7 flex flex-wrap justify-center gap-4 text-sm">
-          <Link href="/resort-plots-in-hyderabad" className="font-bold text-[#E8D7A5] underline">
+          <Link
+            href="/resort-plots-in-hyderabad"
+            className="font-bold text-[#E8D7A5] underline"
+          >
             Resort Plots Guide
           </Link>
-          <Link href="/gated-community-plots-in-hyderabad" className="font-bold text-[#E8D7A5] underline">
+
+          <Link
+            href="/gated-community-plots-in-hyderabad"
+            className="font-bold text-[#E8D7A5] underline"
+          >
             Gated Community Plots
           </Link>
-          <a href="https://www.rera.telangana.gov.in/" target="_blank" rel="noopener noreferrer" className="font-bold text-[#E8D7A5] underline">
+
+          <a
+            href="https://www.rera.telangana.gov.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-bold text-[#E8D7A5] underline"
+          >
             Telangana RERA
           </a>
-          <a href="https://dtcp.telangana.gov.in/" target="_blank" rel="noopener noreferrer" className="font-bold text-[#E8D7A5] underline">
+
+          <a
+            href="https://dtcp.telangana.gov.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-bold text-[#E8D7A5] underline"
+          >
             Telangana DTCP
           </a>
         </div>
@@ -175,6 +200,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
-
-
