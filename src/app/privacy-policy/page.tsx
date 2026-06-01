@@ -1,4 +1,43 @@
 import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | Sri Supraja Infracon",
+  description:
+    "Read the Privacy Policy of Sri Supraja Infracon, including how we collect, use, protect, and process enquiry information.",
+  alternates: { canonical: "/privacy-policy/" },
+  robots: { index: true, follow: true },
+};
+
+export default function PrivacyPolicyPage() {
+  return (
+    <main className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+      <article className="prose prose-slate max-w-none">
+        <h1>Privacy Policy</h1>
+        <p><strong>Effective Date:</strong> June 1, 2026</p>
+
+        <p>
+          Sri Supraja Infracon respects your privacy and is committed to
+          protecting personal information shared through our website, enquiry
+          forms, phone calls, WhatsApp interactions, brochure requests,
+          advertisements, and other communication channels.
+        </p>
+
+        <h2>1. Information We Collect</h2>
+        <ul>
+          <li>Name</li>
+          <li>Phone number</li>
+          <li>Email address</li>
+          <li>Location or city</li>
+          <li>Property preferences</li>
+          <li>Project enquiry details</li>
+          <li>Site visit requests</li>
+          <li>Device, browser, IP address, and website usage information</li>
+        </ul>
+
+        <h2>2. How We Use Your Information</h2>
+        <ul>
+          <li>Respond to enquiries</li>
+          <li>Share project details and availability</li>
           <li>Schedule site visits</li>
           <li>Send brochures or project updates</li>
           <li>Improve website performance and user experience</li>
@@ -9,60 +48,35 @@ import type { Metadata } from "next";
 
         <h2>3. Consent</h2>
         <p>
-          By submitting your information on our website, contacting us through WhatsApp or phone, downloading brochures, or interacting with our advertisements, you consent to Sri Supraja Infracon contacting you regarding projects, offers, site visits, and related real estate services.
+          By submitting your information, you consent to Sri Supraja Infracon
+          contacting you regarding projects, offers, site visits, and related
+          real estate services.
         </p>
 
-        <h2>4. Cookies and Tracking Technologies</h2>
+        <h2>4. Cookies and Tracking</h2>
         <p>
-          Our website may use cookies, analytics tags, advertising pixels, and similar technologies to understand user behaviour, measure campaign performance, improve website functionality, and deliver relevant advertisements.
-        </p>
-        <p>
-          These may include tools such as Google Analytics, Google Ads tracking, Meta Pixel, or similar marketing and analytics platforms.
+          Our website may use cookies, analytics tags, advertising pixels, and
+          similar technologies to improve functionality, measure campaign
+          performance, and provide relevant communication.
         </p>
 
         <h2>5. Sharing of Information</h2>
-        <p>We do not sell your personal information. However, we may share information with:</p>
-        <ul>
-          <li>Authorized sales and customer support teams</li>
-          <li>CRM and lead management platforms</li>
-          <li>Marketing and advertising service providers</li>
-          <li>Website hosting and technology partners</li>
-          <li>Legal, government, or regulatory authorities where required</li>
-        </ul>
+        <p>
+          We do not sell personal information. Information may be shared with
+          authorized teams, CRM providers, marketing partners, hosting providers,
+          or regulatory authorities where required.
+        </p>
 
         <h2>6. Data Security</h2>
         <p>
-          We follow reasonable security practices to protect personal information from unauthorized access, misuse, alteration, or disclosure. However, no digital transmission or storage system can be guaranteed to be completely secure.
+          We follow reasonable security practices to protect personal information.
+          However, no digital system can be guaranteed completely secure.
         </p>
 
-        <h2>7. Data Retention</h2>
+        <h2>7. Contact</h2>
         <p>
-          We may retain enquiry and communication data for as long as necessary for business, customer service, legal, regulatory, marketing, or record-keeping purposes.
-        </p>
-
-        <h2>8. Your Rights</h2>
-        <p>
-          You may request access, correction, update, or withdrawal of consent for your personal information, subject to applicable law and legitimate business requirements.
-        </p>
-
-        <h2>9. Third-Party Links</h2>
-        <p>
-          Our website may contain links to third-party websites, maps, social media platforms, or external services. We are not responsible for the privacy practices or content of such third-party platforms.
-        </p>
-
-        <h2>10. Children’s Privacy</h2>
-        <p>
-          Our website and services are intended for adults. We do not knowingly collect personal information from individuals below 18 years of age.
-        </p>
-
-        <h2>11. Updates to This Policy</h2>
-        <p>
-          We may update this Privacy Policy from time to time. The revised policy will be posted on this page with the updated effective date.
-        </p>
-
-        <h2>12. Contact Us</h2>
-        <p>
-          For privacy-related requests or questions, please contact Sri Supraja Infracon through the contact details provided on our website.
+          For privacy-related requests, please contact Sri Supraja Infracon
+          through the contact details available on our website.
         </p>
       </article>
     </main>
