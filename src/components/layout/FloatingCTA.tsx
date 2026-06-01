@@ -3,7 +3,7 @@ import { MessageCircle, Phone } from "lucide-react";
 const phoneNumber = "+919052996161";
 
 const whatsappUrl =
-  "https://wa.me/919052996161?text=Hi%20I%20would%20like%20to%20know%20more%20about%20your%20projects";
+  "https://wa.me/919052996161?text=Hi%2C%20May%20I%20Know%20More%20Details%20about%20the%20project%3F";
 
 export default function FloatingCTA() {
   return (
@@ -28,6 +28,3 @@ export default function FloatingCTA() {
     </div>
   );
 }
-
-
-
