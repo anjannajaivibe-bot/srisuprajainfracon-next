@@ -10,7 +10,7 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 const projectLinks = [
@@ -35,12 +35,13 @@ const projectLinks = [
 const phoneNumber = "+919052996161";
 
 const whatsappUrl =
-  "https://wa.me/919052996161?text=Hi%20I%20would%20like%20to%20know%20more%20about%20your%20projects";
+  "https://wa.me/919052996161?text=Hi%2C%20May%20I%20Know%20More%20Details%20about%20the%20project%3F";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileProjectsOpen, setMobileProjectsOpen] = useState(false);
+  const [projectsOpen, setProjectsOpen] = useState(false);
 
   const pathname = usePathname() || "/";
   const isProjectsActive = pathname.startsWith("/projects");
@@ -59,11 +60,8 @@ export default function Navbar() {
     : "text-slate-900/80 hover:text-amber-600";
 
   const activeClass = scrolled ? "text-amber-300" : "text-amber-700";
-
   const brandClass = scrolled ? "text-white" : "text-slate-950";
-
   const brandSubClass = scrolled ? "text-amber-300" : "text-amber-700";
-
   const menuIconClass = scrolled ? "text-white" : "text-slate-950";
 
   const getNavClass = (href: string) =>
@@ -105,7 +103,11 @@ export default function Navbar() {
             About
           </Link>
 
-          <div className="group relative">
+          <div
+            className="relative"
+            onMouseEnter={() => setProjectsOpen(true)}
+            onMouseLeave={() => setProjectsOpen(false)}
+          >
             <Link
               href="/projects"
               className={`flex items-center gap-1 text-sm font-semibold transition-colors ${
@@ -115,32 +117,46 @@ export default function Navbar() {
               Projects
               <ChevronDown
                 size={15}
-                className="transition-transform duration-300 group-hover:rotate-180"
+                className={`transition-transform duration-300 ${
+                  projectsOpen ? "rotate-180" : ""
+                }`}
               />
             </Link>
 
-            <div className="absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-3">
-              <div className="invisible rounded-2xl border border-slate-100 bg-white p-3 opacity-0 shadow-2xl transition-all duration-300 group-hover:visible group-hover:opacity-100">
-                <Link
-                  href="/projects"
-                  className="block rounded-xl px-4 py-3 text-sm font-bold text-slate-900 hover:bg-amber-50 hover:text-amber-700"
+            <AnimatePresence>
+              {projectsOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 8 }}
+                  transition={{ duration: 0.18 }}
+                  className="absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-3"
                 >
-                  View All Projects
-                </Link>
+                  <div className="rounded-2xl border border-slate-100 bg-white p-3 shadow-2xl">
+                    <Link
+                      href="/projects"
+                      onClick={() => setProjectsOpen(false)}
+                      className="block rounded-xl px-4 py-3 text-sm font-bold text-slate-900 hover:bg-amber-50 hover:text-amber-700"
+                    >
+                      View All Projects
+                    </Link>
 
-                <div className="my-2 h-px bg-slate-100" />
+                    <div className="my-2 h-px bg-slate-100" />
 
-                {projectLinks.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="block rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-amber-50 hover:text-amber-700"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
+                    {projectLinks.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setProjectsOpen(false)}
+                        className="block rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-amber-50 hover:text-amber-700"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
           <Link href="/blog" className={getNavClass("/blog")}>
@@ -148,7 +164,7 @@ export default function Navbar() {
           </Link>
 
           <Link href="/contact" className={getNavClass("/contact")}>
-            Contact
+            Contact Us
           </Link>
 
           <div className="flex items-center gap-3">
@@ -204,9 +220,7 @@ export default function Navbar() {
 
               <button
                 type="button"
-                onClick={() =>
-                  setMobileProjectsOpen((current) => !current)
-                }
+                onClick={() => setMobileProjectsOpen((current) => !current)}
                 className="flex items-center justify-between rounded-xl px-3 py-3 text-left text-white/85 transition-colors hover:bg-white/10 hover:text-amber-300"
               >
                 <span>Projects</span>
@@ -275,6 +289,3 @@ export default function Navbar() {
     </motion.nav>
   );
 }
-
-
-
