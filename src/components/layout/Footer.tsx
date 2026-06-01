@@ -1,10 +1,4 @@
 import Link from "next/link";
-import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  Youtube,
-} from "lucide-react";
 
 export default function Footer() {
   return (
@@ -30,45 +24,39 @@ export default function Footer() {
 
             {/* Social Icons */}
             <div className="mt-8 flex items-center gap-4">
-              <a
-                href="https://www.facebook.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-[#C9A227] hover:text-[#C9A227]"
-              >
-                <Facebook size={18} />
-              </a>
-
-              <a
-                href="https://www.instagram.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-[#C9A227] hover:text-[#C9A227]"
-              >
-                <Instagram size={18} />
-              </a>
-
-              <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-[#C9A227] hover:text-[#C9A227]"
-              >
-                <Linkedin size={18} />
-              </a>
-
-              <a
-                href="https://www.youtube.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="YouTube"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-[#C9A227] hover:text-[#C9A227]"
-              >
-                <Youtube size={18} />
-              </a>
+              {[
+                {
+                  label: "Facebook",
+                  href: "https://www.facebook.com/",
+                  icon: "f",
+                },
+                {
+                  label: "Instagram",
+                  href: "https://www.instagram.com/",
+                  icon: "◎",
+                },
+                {
+                  label: "LinkedIn",
+                  href: "https://www.linkedin.com/",
+                  icon: "in",
+                },
+                {
+                  label: "YouTube",
+                  href: "https://www.youtube.com/",
+                  icon: "▶",
+                },
+              ].map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-sm font-bold text-slate-700 shadow-sm transition hover:border-[#C9A227] hover:text-[#C9A227]"
+                >
+                  {social.icon}
+                </a>
+              ))}
             </div>
           </div>
 
