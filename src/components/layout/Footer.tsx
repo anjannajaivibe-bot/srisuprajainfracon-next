@@ -68,19 +68,13 @@ export default function Footer() {
 
             <ul className="space-y-3 text-slate-600">
               <li>
-                <Link
-                  href="/"
-                  className="transition hover:text-[#C9A227]"
-                >
+                <Link href="/" className="transition hover:text-[#C9A227]">
                   Home
                 </Link>
               </li>
 
               <li>
-                <Link
-                  href="/about"
-                  className="transition hover:text-[#C9A227]"
-                >
+                <Link href="/about" className="transition hover:text-[#C9A227]">
                   About Us
                 </Link>
               </li>
@@ -104,10 +98,7 @@ export default function Footer() {
               </li>
 
               <li>
-                <Link
-                  href="/blog"
-                  className="transition hover:text-[#C9A227]"
-                >
+                <Link href="/blog" className="transition hover:text-[#C9A227]">
                   Blog
                 </Link>
               </li>
@@ -166,7 +157,6 @@ export default function Footer() {
             </h4>
 
             <div className="space-y-5">
-              {/* Phone */}
               <div className="flex items-start gap-3">
                 <span className="mt-1 text-[#C9A227]">📞</span>
 
@@ -178,7 +168,6 @@ export default function Footer() {
                 </a>
               </div>
 
-              {/* Email */}
               <div className="flex items-start gap-3">
                 <span className="mt-1 text-[#C9A227]">✉</span>
 
@@ -190,7 +179,6 @@ export default function Footer() {
                 </a>
               </div>
 
-              {/* Address */}
               <div className="flex items-start gap-3">
                 <span className="mt-1 text-[#C9A227]">📍</span>
 
@@ -222,20 +210,37 @@ export default function Footer() {
 
       {/* Bottom Footer */}
       <div className="border-t border-slate-200 bg-white">
-        <div className="container-max flex flex-col items-center justify-between gap-4 px-4 py-6 text-sm text-slate-500 sm:flex-row sm:px-6 lg:px-8">
+        <div className="container-max flex flex-col items-center justify-between gap-4 px-4 py-6 text-center text-sm text-slate-500 sm:flex-row sm:px-6 sm:text-left lg:px-8">
           <p>
             © {new Date().getFullYear()} Sri Supraja Infracon. All Rights
             Reserved.
           </p>
 
-          <p>
-            DTCP & RERA Approved Open Plots Near Hyderabad
-          </p>
+          <nav
+            aria-label="Legal links"
+            className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2"
+          >
+            <Link href="/privacy-policy/" className="transition hover:text-[#C9A227]">
+              Privacy Policy
+            </Link>
+
+            <Link
+              href="/terms-and-conditions/"
+              className="transition hover:text-[#C9A227]"
+            >
+              Terms & Conditions
+            </Link>
+
+            <Link href="/disclaimer/" className="transition hover:text-[#C9A227]">
+              Disclaimer
+            </Link>
+
+            <Link href="/cookie-policy/" className="transition hover:text-[#C9A227]">
+              Cookie Policy
+            </Link>
+          </nav>
         </div>
       </div>
     </footer>
   );
 }
-
-
-
