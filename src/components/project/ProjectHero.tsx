@@ -9,8 +9,36 @@ type ProjectHeroProps = {
   project: any;
 };
 
-const ProjectHero = ({ project }: ProjectHeroProps) => {
+const getCorrectedSeo = (project: any) => {
   const seo = getProjectSeo(project.slug);
+
+  if (project.slug !== "sindhu-sarovar") {
+    return seo;
+  }
+
+  return {
+    ...seo,
+    h1: "Supraja Sindhu Sarovar DTCP Approved Open Plots",
+    subtitle:
+      "A thoughtfully planned gated community with 100-feet road connectivity, vastu-compliant layouts, black top roads, landscaped parks, and clear-title plotted development.",
+    firstParagraph:
+      "Supraja Sindhu Sarovar is a DTCP approved plotted development designed with gated community planning, wide internal roads, landscaped parks, plantation-focused open spaces, and essential infrastructure for residential plot buyers.",
+    description:
+      "The project features abutting 100-feet road access, compound wall planning, 50-feet roads with central plantation median, black top roads, electricity with street lighting, overhead water tank, rainwater harvesting pits, and well-designed parks.",
+    imageAlt:
+      "Supraja Sindhu Sarovar DTCP approved gated community open plots with entrance arch and internal roads",
+    synonyms: [
+      "DTCP Approved Open Plots",
+      "Gated Community Plots",
+      "100 Ft Road Connectivity",
+      "Black Top Roads",
+      "Vastu Compliant Layout",
+    ],
+  };
+};
+
+const ProjectHero = ({ project }: ProjectHeroProps) => {
+  const seo = getCorrectedSeo(project);
   const isSuprajaIris = project.slug === "supraja-iris-resort-plots";
 
   return (
@@ -76,7 +104,7 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">
-              {seo.synonyms.slice(0, 5).map((item) => (
+              {seo.synonyms.slice(0, 5).map((item: string) => (
                 <span
                   key={item}
                   className="rounded-full border border-[#E8D7A5] bg-[#FFF9E8] px-4 py-2 text-xs font-bold text-[#0B1633] sm:text-sm"
@@ -107,7 +135,7 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
             </div>
 
             <div className="mt-6 flex flex-wrap gap-4 text-sm font-bold">
-              {seo.internalLinks.map((link) => (
+              {seo.internalLinks.map((link: any) => (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -180,6 +208,3 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
 };
 
 export default ProjectHero;
-
-
-

@@ -21,9 +21,53 @@ const getExtraHighlights = (slug: string) => {
   return [];
 };
 
+const getCorrectedSindhuHighlights = () => [
+  "DTCP approved plotted development",
+  "Abutting 100 feet road",
+  "Gated community with compound wall and security room",
+  "50 feet road with central plantation median",
+  "Butterfly streetlights along 50 feet road",
+  "100% vastu and clear title",
+  "Black top internal roads",
+  "Well developed sewage infrastructure",
+  "Electricity with transformer and ambient street lighting",
+  "Children parks with gazebo",
+  "Barrier-free pedestrian walkways",
+  "Overhead water tank",
+  "Paved paths around the park for walks",
+  "Specified bench locations",
+  "Rainwater harvesting pits",
+  "Surrounded by residential and commercial zone",
+];
+
 const ProjectHighlights = ({ project }: Props) => {
   const seo = getProjectSeo(project.slug);
-  const allHighlights = [...project.highlights, ...getExtraHighlights(project.slug)];
+
+  const allHighlights =
+    project.slug === "sindhu-sarovar"
+      ? getCorrectedSindhuHighlights()
+      : [...project.highlights, ...getExtraHighlights(project.slug)];
+
+  const heading =
+    project.slug === "sindhu-sarovar"
+      ? "Supraja Sindhu Sarovar Project Highlights"
+      : `${seo.focusKeyword} Highlights`;
+
+  const intro =
+    project.slug === "sindhu-sarovar" ? (
+      <>
+        {project.title} brings together <strong>DTCP approved open plots</strong>,{" "}
+        <strong>gated community planning</strong>, 100-feet road connectivity,
+        landscaped parks, vastu-compliant layouts, and infrastructure-led plotted
+        development.
+      </>
+    ) : (
+      <>
+        {project.title} brings together <strong>{seo.synonyms[0]}</strong>,{" "}
+        <strong>{seo.synonyms[1]}</strong>, approval-focused planning, plotted
+        development infrastructure and buyer support from Sri Supraja Infracon.
+      </>
+    );
 
   return (
     <section className="bg-[#F8F6F1] px-6 py-24">
@@ -34,14 +78,11 @@ const ProjectHighlights = ({ project }: Props) => {
           </p>
 
           <h2 className="mx-auto max-w-4xl text-3xl font-extrabold leading-tight text-[#111827] md:text-5xl">
-            {seo.focusKeyword} Highlights
+            {heading}
           </h2>
 
           <p className="mx-auto mt-6 max-w-4xl text-lg leading-relaxed text-[#4B5563]">
-            {project.title} brings together <strong>{seo.synonyms[0]}</strong>,{" "}
-            <strong>{seo.synonyms[1]}</strong>, approval-focused planning,
-            plotted development infrastructure and buyer support from Sri Supraja
-            Infracon.
+            {intro}
           </p>
         </div>
 
@@ -64,11 +105,23 @@ const ProjectHighlights = ({ project }: Props) => {
 
         <div className="mt-12 rounded-[32px] border border-[#EFE7D3] bg-white p-7 shadow-[0_12px_40px_rgba(11,22,51,0.06)]">
           <p className="text-center text-base leading-relaxed text-[#6B7280]">
-            Buyers comparing <strong>{seo.synonyms[2]}</strong>,{" "}
-            <strong>{seo.synonyms[3]}</strong> and{" "}
-            <strong>{seo.synonyms[4]}</strong> should verify project-wise
-            approval details, current availability and development status before
-            booking.
+            {project.slug === "sindhu-sarovar" ? (
+              <>
+                Buyers considering <strong>DTCP approved open plots</strong>,{" "}
+                <strong>gated community plots</strong>, and{" "}
+                <strong>vastu-compliant plotted developments</strong> should
+                verify approval details, current availability, layout details,
+                and development status before booking.
+              </>
+            ) : (
+              <>
+                Buyers comparing <strong>{seo.synonyms[2]}</strong>,{" "}
+                <strong>{seo.synonyms[3]}</strong> and{" "}
+                <strong>{seo.synonyms[4]}</strong> should verify project-wise
+                approval details, current availability and development status
+                before booking.
+              </>
+            )}
           </p>
 
           <div className="mt-6 grid gap-5 md:grid-cols-3">
@@ -102,6 +155,3 @@ const ProjectHighlights = ({ project }: Props) => {
 };
 
 export default ProjectHighlights;
-
-
-

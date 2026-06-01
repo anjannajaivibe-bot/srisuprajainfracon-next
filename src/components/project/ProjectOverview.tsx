@@ -6,10 +6,58 @@ type Props = {
   project: Project;
 };
 
-const ProjectOverview = ({ project }: Props) => {
+const getCorrectedSeo = (project: Project) => {
   const seo = getProjectSeo(project.slug);
+
+  if (project.slug !== "sindhu-sarovar") {
+    return seo;
+  }
+
+  return {
+    ...seo,
+    h2: "DTCP Approved Gated Community Open Plots at Supraja Sindhu Sarovar",
+    h3: "Supraja Sindhu Sarovar Brochure, Layout and Project Details",
+    description:
+      "Supraja Sindhu Sarovar is a DTCP approved plotted development planned with gated community infrastructure, 100-feet road connectivity, wide internal roads, landscaped parks, avenue plantation, pedestrian walkways, street lighting, rainwater harvesting pits, and clear-title vastu-compliant plots.",
+    lastParagraph:
+      "Supraja Sindhu Sarovar is suitable for buyers looking for DTCP approved open plots with gated community planning, strong road connectivity, landscaped open spaces, and infrastructure-focused plotted development. Project details, availability, approvals, and specifications should be verified before booking.",
+    synonyms: [
+      "DTCP approved open plots",
+      "gated community plots",
+      "100 feet road connectivity",
+      "vastu-compliant plots",
+      "black top roads",
+    ],
+  };
+};
+
+const ProjectOverview = ({ project }: Props) => {
+  const seo = getCorrectedSeo(project);
   const brochureUrl = project.brochure;
   const availabilityMapUrl = project.availabilityMapUrl;
+
+  const comparisonText =
+    project.slug === "sindhu-sarovar" ? (
+      <>
+        Buyers also compare this project with{" "}
+        <strong className="text-slate-950">DTCP approved open plots</strong>,{" "}
+        <strong className="text-slate-950">gated community plots</strong>,{" "}
+        <strong className="text-slate-950">100 feet road connectivity</strong>,{" "}
+        <strong className="text-slate-950">vastu-compliant layouts</strong> and{" "}
+        <strong className="text-slate-950">black top road infrastructure</strong>{" "}
+        before shortlisting a plotted community.
+      </>
+    ) : (
+      <>
+        Buyers also compare this project with{" "}
+        <strong className="text-slate-950">{seo.synonyms[0]}</strong>,{" "}
+        <strong className="text-slate-950">{seo.synonyms[1]}</strong>,{" "}
+        <strong className="text-slate-950">{seo.synonyms[2]}</strong>,{" "}
+        <strong className="text-slate-950">{seo.synonyms[3]}</strong> and{" "}
+        <strong className="text-slate-950">{seo.synonyms[4]}</strong> before
+        shortlisting a Sri Supraja Infracon plotted community.
+      </>
+    );
 
   return (
     <section className="bg-white px-6 py-20">
@@ -42,17 +90,11 @@ const ProjectOverview = ({ project }: Props) => {
             </p>
 
             <p className="text-lg leading-relaxed text-slate-600">
-              Buyers also compare this project with{" "}
-              <strong className="text-slate-950">{seo.synonyms[0]}</strong>,{" "}
-              <strong className="text-slate-950">{seo.synonyms[1]}</strong>,{" "}
-              <strong className="text-slate-950">{seo.synonyms[2]}</strong>,{" "}
-              <strong className="text-slate-950">{seo.synonyms[3]}</strong>{" "}
-              and <strong className="text-slate-950">{seo.synonyms[4]}</strong>{" "}
-              before shortlisting a Sri Supraja Infracon plotted community.
+              {comparisonText}
             </p>
 
             <div className="mt-7 flex flex-wrap gap-4 text-sm font-bold">
-              {seo.internalLinks.map((link) => (
+              {seo.internalLinks.map((link: any) => (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -83,9 +125,9 @@ const ProjectOverview = ({ project }: Props) => {
                 </h3>
 
                 <p className="mt-1 text-sm text-slate-500">
-                  Explore brochure details, project layout, approvals, location
-                  connectivity and plotted development highlights for{" "}
-                  {project.title}.
+                  Explore brochure details, master plan layout, approvals,
+                  connectivity, plotted development highlights and infrastructure
+                  planning information for {project.title}.
                 </p>
               </div>
 
@@ -126,8 +168,8 @@ const ProjectOverview = ({ project }: Props) => {
                 </h4>
 
                 <p className="mb-6 text-sm leading-relaxed text-slate-200">
-                  Open the brochure to review project highlights, plotted
-                  development details, location advantages and infrastructure
+                  Open the brochure to review project layout, approvals,
+                  connectivity, plotted development details and infrastructure
                   planning information.
                 </p>
 
@@ -174,6 +216,3 @@ const ProjectOverview = ({ project }: Props) => {
 };
 
 export default ProjectOverview;
-
-
-
