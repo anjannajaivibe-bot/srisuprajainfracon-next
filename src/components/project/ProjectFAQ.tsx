@@ -253,3 +253,4 @@ const ProjectFAQ = ({ project }: Props) => {
 };
 
 export default ProjectFAQ;
+

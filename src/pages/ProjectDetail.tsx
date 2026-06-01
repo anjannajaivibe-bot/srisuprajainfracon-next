@@ -128,3 +128,4 @@ const ProjectDetail = ({ slug }: { slug: string }) => {
 };
 
 export default ProjectDetail;
+

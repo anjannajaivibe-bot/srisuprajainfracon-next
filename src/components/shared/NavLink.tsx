@@ -9,3 +9,4 @@ type NavLinkProps = ComponentProps<typeof Link> & {
 export function NavLink({ className, ...props }: NavLinkProps) {
   return <Link className={cn(className)} {...props} />;
 }
+

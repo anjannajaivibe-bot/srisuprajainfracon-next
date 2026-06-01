@@ -16,8 +16,8 @@ import {
   Users,
 } from "lucide-react";
 
-import heroBg from "@/assets/hero-bg.webp";
-import ownerPhoto from "@/assets/tudi-praveen.webp";
+import heroBg from "@/assets/hero-bg.jpg";
+import ownerPhoto from "@/assets/tudi-praveen.jpg";
 
 const socialWelfare = [
   "Education support for students",
@@ -499,3 +499,4 @@ export default function AboutClient() {
     </>
   );
 }
+

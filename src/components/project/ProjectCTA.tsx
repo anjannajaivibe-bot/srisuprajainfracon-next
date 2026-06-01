@@ -51,3 +51,4 @@ const ProjectCTA = ({ project }: Props) => {
 };
 
 export default ProjectCTA;
+

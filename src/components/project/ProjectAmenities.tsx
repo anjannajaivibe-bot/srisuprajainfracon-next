@@ -112,3 +112,4 @@ const ProjectAmenities = ({ project }: Props) => {
 };
 
 export default ProjectAmenities;
+

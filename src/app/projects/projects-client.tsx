@@ -10,7 +10,7 @@ import FlagshipProject from "@/components/home/FlagshipProject";
 import ProjectsSection from "@/components/home/ProjectsSection";
 import CTASection from "@/components/home/CTASection";
 
-import heroBg from "@/assets/hero-bg.webp";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const locationLinks = [
   {
@@ -298,3 +298,4 @@ export default function ProjectsClient() {
     </div>
   );
 }
+

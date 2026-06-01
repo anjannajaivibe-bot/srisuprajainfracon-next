@@ -37,3 +37,4 @@ export function extractFaqSchema(content: string) {
     mainEntity: faqs,
   };
 }
+

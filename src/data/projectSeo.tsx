@@ -116,3 +116,4 @@ export type ProjectSeoKey = keyof typeof projectSeo;
 
 export const getProjectSeo = (slug: string) =>
   projectSeo[slug as ProjectSeoKey] || projectSeo["supraja-iris-resort-plots"];
+

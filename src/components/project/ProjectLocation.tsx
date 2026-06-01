@@ -162,3 +162,4 @@ const ProjectLocation = ({ project }: Props) => {
 };
 
 export default ProjectLocation;
+

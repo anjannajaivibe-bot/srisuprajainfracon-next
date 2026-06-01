@@ -52,3 +52,4 @@ const ProjectGallery = ({ project }: Props) => {
 };
 
 export default ProjectGallery;
+

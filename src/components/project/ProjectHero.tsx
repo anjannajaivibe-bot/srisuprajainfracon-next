@@ -180,3 +180,4 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
 };
 
 export default ProjectHero;
+
