@@ -66,6 +66,6 @@ export default function CookiePolicyPage() {
           Infracon through the contact details available on our website.
         </p>
       </article>
-    </main>
+    </section>
   );
 }

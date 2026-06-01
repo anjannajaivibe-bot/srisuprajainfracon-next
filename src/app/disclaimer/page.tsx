@@ -62,6 +62,6 @@ export default function DisclaimerPage() {
           privacy practices.
         </p>
       </article>
-    </main>
+    </section>
   );
 }

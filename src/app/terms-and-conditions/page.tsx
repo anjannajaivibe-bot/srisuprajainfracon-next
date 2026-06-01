@@ -68,6 +68,6 @@ export default function TermsAndConditionsPage() {
           Telangana.
         </p>
       </article>
-    </main>
+    </section>
   );
 }
