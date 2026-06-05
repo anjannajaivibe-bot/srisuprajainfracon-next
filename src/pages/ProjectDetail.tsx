@@ -2,7 +2,6 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 
 import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 
 import ProjectHero from "@/components/project/ProjectHero";
 import ProjectOverview from "@/components/project/ProjectOverview";
