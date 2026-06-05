@@ -210,11 +210,10 @@ export default function ContactPageClient() {
           </div>
         </div>
       </section>
-
-      <Footer />
-    </div>
+</div>
   );
 }
+
 
 
 

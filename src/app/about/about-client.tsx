@@ -492,8 +492,6 @@ export default function AboutClient() {
             </div>
           </div>
         </section>
-
-        <Footer />
       </div>
     </>
   );

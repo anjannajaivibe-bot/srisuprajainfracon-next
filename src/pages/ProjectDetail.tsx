@@ -73,9 +73,7 @@ const ProjectDetail = ({ slug }: { slug: string }) => {
             View All Projects
           </Link>
         </main>
-
-        <Footer />
-      </div>
+</div>
     );
   }
 
@@ -120,13 +118,12 @@ const ProjectDetail = ({ slug }: { slug: string }) => {
         {/* CTA */}
         <ProjectCTA project={project} />
       </main>
-
-      <Footer />
-    </div>
+</div>
   );
 };
 
 export default ProjectDetail;
+
 
 
 

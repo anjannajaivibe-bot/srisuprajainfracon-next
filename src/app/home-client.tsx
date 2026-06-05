@@ -21,10 +21,10 @@ export default function HomeClient() {
       <FAQSection />
       <CTASection />
       <ContactSection />
-      <Footer />
-    </main>
+</main>
   );
 }
+
 
 
 

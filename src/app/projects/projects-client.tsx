@@ -292,11 +292,10 @@ export default function ProjectsClient() {
       </section>
 
       <CTASection />
-
-      <Footer />
-    </div>
+</div>
   );
 }
+
 
 
 

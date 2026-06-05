@@ -112,11 +112,10 @@ export default function OpenPlotsResortsClient() {
       </section>
 
       <CTASection />
-
-      <Footer />
-    </div>
+</div>
   );
 }
+
 
 
 
