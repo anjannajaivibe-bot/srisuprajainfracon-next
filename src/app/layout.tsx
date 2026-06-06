@@ -23,6 +23,10 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.srisuprajainfracon.com"),
 
+  verification: {
+    google: "J7iY42U0p5XNyLeDxGzG6jWswMXJWxoffFN1x3WILAU",
+  },
+
   title: {
     default:
       "Sri Supraja Infracon | DTCP & RERA Approved Open Plots Near Hyderabad",
