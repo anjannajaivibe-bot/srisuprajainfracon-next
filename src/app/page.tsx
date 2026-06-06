@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "Explore DTCP & RERA Approved Open Plots Near Hyderabad, villa plots, resort plots and premium plotted developments across Kamkole, Sangareddy, Mominpet and Indrakaran by Sri Supraja Infracon.",
 
   alternates: {
-    canonical: "https://srisuprajainfracon-next.vercel.app/",
+    canonical: "https://www.srisuprajainfracon.com/",
   },
 
   openGraph: {
@@ -21,13 +21,13 @@ export const metadata: Metadata = {
     description:
       "Premium plotted developments, resort plots and villa plots near Hyderabad growth corridors including Kamkole, Sangareddy, Mominpet and Indrakaran.",
 
-    url: "https://srisuprajainfracon-next.vercel.app/",
+    url: "https://www.srisuprajainfracon.com/",
 
     siteName: "Sri Supraja Infracon",
 
     images: [
       {
-        url: "https://srisuprajainfracon-next.vercel.app/og/home-og.webp",
+        url: "https://www.srisuprajainfracon.com/og/home-og.webp",
         width: 1200,
         height: 630,
         alt: "DTCP & RERA Approved Open Plots Near Hyderabad",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
       "Explore approved open plot projects near Hyderabad growth corridors by Sri Supraja Infracon.",
 
     images: [
-      "https://srisuprajainfracon-next.vercel.app/og/home-og.webp",
+      "https://www.srisuprajainfracon.com/og/home-og.webp",
     ],
   },
 };
@@ -62,15 +62,15 @@ export default function HomePage() {
       {
         "@type": "RealEstateAgent",
 
-        "@id": "https://srisuprajainfracon-next.vercel.app/#realestateagent",
+        "@id": "https://www.srisuprajainfracon.com/#realestateagent",
 
         name: "Sri Supraja Infracon",
 
-        url: "https://srisuprajainfracon-next.vercel.app/",
+        url: "https://www.srisuprajainfracon.com/",
 
-        image: "https://srisuprajainfracon-next.vercel.app/og/home-og.webp",
+        image: "https://www.srisuprajainfracon.com/og/home-og.webp",
 
-        logo: "https://srisuprajainfracon-next.vercel.app/logo.png",
+        logo: "https://www.srisuprajainfracon.com/logo.png",
 
         email: "support@srisuprajainfracon.com",
 
@@ -123,23 +123,23 @@ export default function HomePage() {
       {
         "@type": "WebSite",
 
-        "@id": "https://srisuprajainfracon-next.vercel.app/#website",
+        "@id": "https://www.srisuprajainfracon.com/#website",
 
-        url: "https://srisuprajainfracon-next.vercel.app/",
+        url: "https://www.srisuprajainfracon.com/",
 
         name: "Sri Supraja Infracon",
 
         publisher: {
-          "@id": "https://srisuprajainfracon-next.vercel.app/#realestateagent",
+          "@id": "https://www.srisuprajainfracon.com/#realestateagent",
         },
       },
 
       {
         "@type": "WebPage",
 
-        "@id": "https://srisuprajainfracon-next.vercel.app/#webpage",
+        "@id": "https://www.srisuprajainfracon.com/#webpage",
 
-        url: "https://srisuprajainfracon-next.vercel.app/",
+        url: "https://www.srisuprajainfracon.com/",
 
         name:
           "DTCP & RERA Approved Open Plots Near Hyderabad | Sri Supraja Infracon",
@@ -148,17 +148,17 @@ export default function HomePage() {
           "Explore DTCP & RERA Approved Open Plots Near Hyderabad, villa plots, resort plots and premium plotted developments across Hyderabad growth corridors.",
 
         isPartOf: {
-          "@id": "https://srisuprajainfracon-next.vercel.app/#website",
+          "@id": "https://www.srisuprajainfracon.com/#website",
         },
 
         about: {
-          "@id": "https://srisuprajainfracon-next.vercel.app/#realestateagent",
+          "@id": "https://www.srisuprajainfracon.com/#realestateagent",
         },
 
         primaryImageOfPage: {
           "@type": "ImageObject",
 
-          url: "https://srisuprajainfracon-next.vercel.app/og/home-og.webp",
+          url: "https://www.srisuprajainfracon.com/og/home-og.webp",
 
           width: 1200,
 
