@@ -23,6 +23,7 @@ const blogSlugs = [
 const nextConfig: NextConfig = {
   async redirects() {
     return [
+      // Contact page redirects
       {
         source: "/contact",
         destination: "/contact-us/",
@@ -33,11 +34,20 @@ const nextConfig: NextConfig = {
         destination: "/contact-us/",
         permanent: true,
       },
-      ...blogSlugs.map((slug) => ({
-        source: `/${slug}`,
-        destination: `/blog/${slug}`,
-        permanent: true,
-      })),
+
+      // Blog redirects
+      ...blogSlugs.flatMap((slug) => [
+        {
+          source: `/${slug}`,
+          destination: `/blog/${slug}/`,
+          permanent: true,
+        },
+        {
+          source: `/${slug}/`,
+          destination: `/blog/${slug}/`,
+          permanent: true,
+        },
+      ]),
     ];
   },
 };
