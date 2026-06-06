@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
   alternates: {
     canonical:
-      "https://www.suprajainfracon.com/open-plots-and-resorts-in-hyderabad/",
+      "https://www.srisuprajainfracon.com/open-plots-and-resorts-in-hyderabad/",
   },
 
   openGraph: {
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
       "Explore premium plotted developments and resort plot communities near Hyderabad growth corridors.",
 
     url:
-      "https://www.suprajainfracon.com/open-plots-and-resorts-in-hyderabad/",
+      "https://www.srisuprajainfracon.com/open-plots-and-resorts-in-hyderabad/",
 
     siteName: "Sri Supraja Infracon",
 
@@ -70,6 +70,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return <OpenPlotsResortsClient />;
 }
+
 
 
 

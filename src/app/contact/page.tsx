@@ -7,14 +7,14 @@ export const metadata: Metadata = {
   description:
     "Contact Sri Supraja Infracon for DTCP and RERA approved open plots, villa plots and resort plots near Hyderabad. Schedule site visits and project enquiries.",
   alternates: {
-    canonical: "https://www.suprajainfracon.com/contact/",
+    canonical: "https://www.srisuprajainfracon.com/contact/",
   },
   openGraph: {
     title:
       "Contact Sri Supraja Infracon | Open Plot Enquiry & Site Visit",
     description:
       "Connect with Sri Supraja Infracon for project details, site visits, availability and plotted community enquiries near Hyderabad.",
-    url: "https://www.suprajainfracon.com/contact/",
+    url: "https://www.srisuprajainfracon.com/contact/",
     siteName: "Sri Supraja Infracon",
     type: "website",
   },
@@ -32,7 +32,7 @@ export default function ContactPage() {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
     name: "Sri Supraja Infracon",
-    url: "https://www.suprajainfracon.com",
+    url: "https://www.srisuprajainfracon.com",
     telephone: "+91 90529 96161",
     email: "info@srisuprajainfracon.com",
     areaServed: [
@@ -63,6 +63,7 @@ export default function ContactPage() {
     </>
   );
 }
+
 
 
 

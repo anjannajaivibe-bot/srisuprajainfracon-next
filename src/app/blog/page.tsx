@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 import BlogSearch from "@/components/blog/BlogSearch";
 
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
-const SITE_URL = "https://srisuprajainfracon.com";
+const SITE_URL = "https://www.srisuprajainfracon.com";
 
 type BlogPost = {
   slug: string;
@@ -147,6 +147,7 @@ export default function BlogPage() {
     </main>
   );
 }
+
 
 
 

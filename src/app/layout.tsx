@@ -21,7 +21,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.suprajainfracon.com"),
+  metadataBase: new URL("https://www.srisuprajainfracon.com"),
 
   title: {
     default:
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     "Explore DTCP and RERA approved open plots, villa plots and resort plots near Hyderabad growth corridors including Kamkole, Sangareddy, Mominpet and Indrakaran.",
 
   alternates: {
-    canonical: "https://www.suprajainfracon.com/",
+    canonical: "https://www.srisuprajainfracon.com/",
   },
 
   openGraph: {
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
       "Sri Supraja Infracon | DTCP & RERA Approved Open Plots Near Hyderabad",
     description:
       "Premium plotted developments and resort plots near Hyderabad growth corridors.",
-    url: "https://www.suprajainfracon.com/",
+    url: "https://www.srisuprajainfracon.com/",
     siteName: "Sri Supraja Infracon",
     locale: "en_IN",
     type: "website",
@@ -91,9 +91,9 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Sri Supraja Infracon",
-    url: "https://www.suprajainfracon.com",
-    logo: "https://www.suprajainfracon.com/logo.png",
-    image: "https://www.suprajainfracon.com/og-image.jpg",
+    url: "https://www.srisuprajainfracon.com",
+    logo: "https://www.srisuprajainfracon.com/logo.png",
+    image: "https://www.srisuprajainfracon.com/og-image.jpg",
     description:
       "Sri Supraja Infracon develops DTCP and RERA approved open plot communities, villa plots and resort plots near Hyderabad growth corridors.",
     contactPoint: {

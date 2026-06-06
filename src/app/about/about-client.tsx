@@ -100,8 +100,8 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Sri Supraja Infracon",
-  url: "https://www.suprajainfracon.com",
-  logo: "https://www.suprajainfracon.com/logo.png",
+  url: "https://www.srisuprajainfracon.com",
+  logo: "https://www.srisuprajainfracon.com/logo.png",
   description:
     "Sri Supraja Infracon develops DTCP and RERA approved open plot communities near Hyderabad growth corridors.",
   address: {
@@ -496,6 +496,7 @@ export default function AboutClient() {
     </>
   );
 }
+
 
 
 

@@ -9,7 +9,7 @@ export type PageMeta = {
 
 export const siteMeta = {
   siteName: "Sri Supraja Infracon",
-  domain: "https://srisuprajainfracon.com",
+  domain: "https://www.srisuprajainfracon.com",
   defaultImage: "/og/sri-supraja-infracon-og.jpg",
 };
 
@@ -58,6 +58,7 @@ export const meta: Record<string, PageMeta> = {
     ogImage: siteMeta.defaultImage,
   },
 };
+
 
 
 

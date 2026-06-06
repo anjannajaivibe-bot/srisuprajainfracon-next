@@ -3,7 +3,7 @@ import path from "path";
 import type { MetadataRoute } from "next";
 
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
-const baseUrl = "https://www.suprajainfracon.com";
+const baseUrl = "https://www.srisuprajainfracon.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [

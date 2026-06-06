@@ -7,13 +7,13 @@ export const metadata: Metadata = {
   description:
     "Learn about Sri Supraja Infracon, a trusted real estate developer focused on DTCP and RERA approved open plots, resort plots and plotted communities near Hyderabad growth corridors.",
   alternates: {
-    canonical: "https://www.suprajainfracon.com/about/",
+    canonical: "https://www.srisuprajainfracon.com/about/",
   },
   openGraph: {
     title: "About Sri Supraja Infracon | Open Plot Developers Near Hyderabad",
     description:
       "Sri Supraja Infracon develops approved open plot communities across Hyderabad growth corridors including Kamkole, Mominpet, Sangareddy and Indrakaran.",
-    url: "https://www.suprajainfracon.com/about/",
+    url: "https://www.srisuprajainfracon.com/about/",
     siteName: "Sri Supraja Infracon",
     type: "website",
   },
@@ -29,6 +29,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return <AboutClient />;
 }
+
 
 
 

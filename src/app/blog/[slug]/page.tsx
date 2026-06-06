@@ -8,7 +8,7 @@ import ReadingProgress from "@/components/blog/ReadingProgress";
 import { extractFaqSchema } from "@/lib/blog-schema";
 
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
-const SITE_URL = "https://srisuprajainfracon.com";
+const SITE_URL = "https://www.srisuprajainfracon.com";
 
 type BlogPost = {
   slug: string;

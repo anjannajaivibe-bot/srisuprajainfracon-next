@@ -7,9 +7,10 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
     },
 
-    sitemap: "https://www.suprajainfracon.com/sitemap.xml",
+    sitemap: "https://www.srisuprajainfracon.com/sitemap.xml",
   };
 }
+
 
 
 
