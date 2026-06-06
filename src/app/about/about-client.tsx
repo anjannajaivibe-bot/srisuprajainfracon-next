@@ -70,12 +70,12 @@ const whyChoose = [
 
 const milestones = [
   {
-    year: "2001",
+    year: "2003",
     title: "Company Foundation",
     desc: "Sri Supraja Infracon began its journey with a vision to create reliable real estate opportunities with trust, documentation and customer confidence.",
   },
   {
-    year: "2016",
+    year: "2010",
     title: "First Major Delivery",
     desc: "The company expanded its plotted development presence and strengthened its reputation for planned layouts and buyer-focused service.",
   },
