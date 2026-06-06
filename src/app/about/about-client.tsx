@@ -276,7 +276,7 @@ export default function AboutClient() {
                 <Link href="/projects" className="text-[#0B4F9F] underline">
                   View Sri Supraja Infracon projects
                 </Link>
-                <Link href="/contact" className="text-[#0B4F9F] underline">
+                <Link href="/contact-us/" className="text-[#0B4F9F] underline">
                   Request project guidance
                 </Link>
               </div>
@@ -484,7 +484,7 @@ export default function AboutClient() {
               </Link>
 
               <Link
-                href="/contact"
+                href="/contact-us/"
                 className="rounded-full border border-[#C9A227] px-6 py-3 font-bold text-[#E8D7A5] transition hover:bg-[#C9A227] hover:text-[#0B1633]"
               >
                 Contact Team

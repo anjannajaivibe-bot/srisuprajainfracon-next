@@ -133,7 +133,7 @@ const ProjectsSection = () => {
               View all plotted communities
             </Link>
 
-            <Link href="/contact" className="text-blue-700 underline">
+            <Link href="/contact-us/" className="text-blue-700 underline">
               Request project guidance
             </Link>
           </div>

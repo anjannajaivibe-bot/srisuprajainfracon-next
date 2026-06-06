@@ -457,7 +457,7 @@ export default async function BlogDetailPage({
                   Explore Projects
                 </Link>
                 <Link
-                  href="/contact"
+                  href="/contact-us/"
                   className="rounded-full border border-white/30 px-6 py-3 font-semibold text-white"
                 >
                   Schedule Site Visit

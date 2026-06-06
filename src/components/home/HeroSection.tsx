@@ -153,7 +153,7 @@ const HeroSection = () => {
           </Link>
 
           <Link
-            href="/contact"
+            href="/contact-us/"
             className="rounded-full border border-white/20 bg-white/10 px-8 py-4 text-sm font-bold text-white backdrop-blur-sm transition hover:bg-white hover:text-[#0B1633]"
           >
             Schedule Site Visit

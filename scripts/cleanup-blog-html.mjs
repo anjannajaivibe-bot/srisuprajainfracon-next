@@ -13,7 +13,7 @@ function cleanHtml(html = "") {
     // Convert internal absolute links to relative links
     .replaceAll(`${NEW_DOMAIN}/blog/`, "/blog/")
     .replaceAll(`${NEW_DOMAIN}/projects/`, "/projects/")
-    .replaceAll(`${NEW_DOMAIN}/contact/`, "/contact/")
+    .replaceAll(`${NEW_DOMAIN}/contact-us//`, "/contact-us//")
     .replaceAll(`${NEW_DOMAIN}/about/`, "/about/")
 
     // Remove WordPress block comments

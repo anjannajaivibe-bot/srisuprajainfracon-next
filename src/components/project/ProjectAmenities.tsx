@@ -98,7 +98,7 @@ const ProjectAmenities = ({ project }: Props) => {
               </Link>
 
               <Link
-                href="/contact"
+                href="/contact-us/"
                 className="rounded-full border border-[#C9A227] bg-[#FFF9E8] px-6 py-3 text-sm font-bold text-[#0B1633] transition hover:bg-[#C9A227]"
               >
                 Schedule Site Visit

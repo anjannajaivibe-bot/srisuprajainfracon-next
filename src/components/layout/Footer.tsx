@@ -90,7 +90,7 @@ export default function Footer() {
 
               <li>
                 <Link
-                  href="/contact"
+                  href="/contact-us/"
                   className="transition hover:text-[#C9A227]"
                 >
                   Contact Us

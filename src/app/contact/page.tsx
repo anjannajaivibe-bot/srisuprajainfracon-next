@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ContactPageClient from "./contact-page-client";
+import ContactPageClient from "./contact-us/-page-client";
 
 export const metadata: Metadata = {
   title:
@@ -7,14 +7,14 @@ export const metadata: Metadata = {
   description:
     "Contact Sri Supraja Infracon for DTCP and RERA approved open plots, villa plots and resort plots near Hyderabad. Schedule site visits and project enquiries.",
   alternates: {
-    canonical: "https://www.srisuprajainfracon.com/contact/",
+    canonical: "https://www.srisuprajainfracon.com/contact-us//",
   },
   openGraph: {
     title:
       "Contact Sri Supraja Infracon | Open Plot Enquiry & Site Visit",
     description:
       "Connect with Sri Supraja Infracon for project details, site visits, availability and plotted community enquiries near Hyderabad.",
-    url: "https://www.srisuprajainfracon.com/contact/",
+    url: "https://www.srisuprajainfracon.com/contact-us//",
     siteName: "Sri Supraja Infracon",
     type: "website",
   },

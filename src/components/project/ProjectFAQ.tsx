@@ -149,7 +149,7 @@ const ProjectFAQ = ({ project }: Props) => {
 
             <div className="mt-7 flex flex-col gap-3">
               <Link
-                href="/contact"
+                href="/contact-us/"
                 className="rounded-full bg-[#0B1633] px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-[#C9A227] hover:text-[#0B1633]"
               >
                 Ask Project Questions
@@ -230,7 +230,7 @@ const ProjectFAQ = ({ project }: Props) => {
 
             <div className="flex flex-wrap gap-4">
               <Link
-                href="/contact"
+                href="/contact-us/"
                 className="rounded-full bg-[#0B1633] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#C9A227] hover:text-[#0B1633]"
               >
                 Contact Sales Team

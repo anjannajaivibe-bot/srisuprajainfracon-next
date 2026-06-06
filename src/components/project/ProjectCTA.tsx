@@ -32,7 +32,7 @@ const ProjectCTA = ({ project }: Props) => {
             Explore all Sri Supraja Infracon projects
           </Link>
 
-          <Link href="/contact" className="text-amber-300 underline">
+          <Link href="/contact-us/" className="text-amber-300 underline">
             Visit contact page for enquiry details
           </Link>
 

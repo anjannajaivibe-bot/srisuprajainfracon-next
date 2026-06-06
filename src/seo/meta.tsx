@@ -51,7 +51,7 @@ export const meta: Record<string, PageMeta> = {
     title: "Contact Sri Supraja Infracon | Book Site Visit",
     description:
       "Contact Sri Supraja Infracon to know more about open plots, project details, availability and site visits.",
-    canonical: `${siteMeta.domain}/contact`,
+    canonical: `${siteMeta.domain}/contact-us/`,
     ogTitle: "Contact Sri Supraja Infracon",
     ogDescription:
       "Get project details, book a site visit or speak with the Sri Supraja Infracon team.",

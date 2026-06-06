@@ -24,7 +24,7 @@ const CTASection = () => {
             Explore open plot projects
           </Link>
 
-          <Link href="/contact" className="text-amber-300 underline">
+          <Link href="/contact-us/" className="text-amber-300 underline">
             View contact and enquiry details
           </Link>
 

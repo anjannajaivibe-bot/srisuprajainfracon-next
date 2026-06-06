@@ -39,7 +39,7 @@ export default function OpenPlotsResortsClient() {
             </Link>
 
             <Link
-              href="/contact"
+              href="/contact-us/"
               className="rounded-full border border-white/20 bg-white/10 px-7 py-4 text-sm font-bold text-white backdrop-blur transition hover:bg-white hover:text-[#081225]"
             >
               Schedule Site Visit

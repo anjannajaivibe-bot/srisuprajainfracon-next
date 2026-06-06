@@ -116,7 +116,7 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
 
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
-                href="/contact"
+                href="/contact-us/"
                 className="rounded-full bg-[#0B1633] px-7 py-4 text-sm font-bold text-white shadow-md transition hover:-translate-y-0.5 hover:bg-[#C9A227] hover:text-[#0B1633]"
               >
                 Schedule Site Visit
