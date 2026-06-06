@@ -21,9 +21,26 @@ const blogSlugs = [
 ];
 
 const nextConfig: NextConfig = {
+  images: {
+    formats: ["image/avif", "image/webp"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
+  },
+
+  experimental: {
+    optimizePackageImports: ["lucide-react", "framer-motion"],
+  },
+
+  compress: true,
+  poweredByHeader: false,
+  reactStrictMode: true,
+
   async redirects() {
     return [
-      // Contact page redirects
       {
         source: "/contact",
         destination: "/contact-us/",
@@ -35,7 +52,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
-      // Blog redirects
       ...blogSlugs.flatMap((slug) => [
         {
           source: `/${slug}`,
