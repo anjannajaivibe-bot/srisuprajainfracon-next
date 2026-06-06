@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
-import ContactForm from "@/app/contact-us//contact-us/Form";
+import ContactForm from "@/app/contact/ContactForm";
 
 const SESSION_KEY = "supraja_contact_popup_shown";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import ContactForm from "./contact-us/Form";
+import ContactForm from "./ContactForm";
 import Navbar from "@/components/layout/Navbar";
 
 import { motion } from "framer-motion";

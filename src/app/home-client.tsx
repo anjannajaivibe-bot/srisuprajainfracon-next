@@ -6,7 +6,7 @@ import FlagshipProject from "@/components/home/FlagshipProject";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import FAQSection from "@/components/home/FAQSection";
 import CTASection from "@/components/home/CTASection";
-import ContactSection from "@/components/home/contact-us/Section";
+import ContactSection from "@/components/home/ContactSection";
 import ProjectTestimonials from "@/components/project/ProjectTestimonials";
 
 export default function HomeClient() {
