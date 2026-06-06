@@ -22,11 +22,23 @@ const blogSlugs = [
 
 const nextConfig: NextConfig = {
   async redirects() {
-    return blogSlugs.map((slug) => ({
-      source: `/${slug}`,
-      destination: `/blog/${slug}`,
-      permanent: true,
-    }));
+    return [
+      {
+        source: "/contact",
+        destination: "/contact-us/",
+        permanent: true,
+      },
+      {
+        source: "/contact/",
+        destination: "/contact-us/",
+        permanent: true,
+      },
+      ...blogSlugs.map((slug) => ({
+        source: `/${slug}`,
+        destination: `/blog/${slug}`,
+        permanent: true,
+      })),
+    ];
   },
 };
 
