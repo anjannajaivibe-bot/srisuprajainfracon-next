@@ -117,7 +117,7 @@ const FlagshipProject = () => {
   </span>
 
   <span className="rounded-full border border-white/70 bg-slate-950/85 px-4 py-1.5 text-sm font-semibold text-white shadow-md backdrop-blur-sm">
-    Bank Loan Support Available*
+    Upto 70% Bank Loan Support Available*
   </span>
 </div>
           </div>
