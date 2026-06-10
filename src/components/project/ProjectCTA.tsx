@@ -37,7 +37,7 @@ const ProjectCTA = ({ project }: Props) => {
           </Link>
 
           <a
-            href="https://wa.me/919640753929"
+            href="https://wa.me/9190529961661"
             target="_blank"
             rel="noopener noreferrer"
             className="text-amber-300 underline"

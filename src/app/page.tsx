@@ -74,7 +74,7 @@ export default function HomePage() {
 
         email: "support@srisuprajainfracon.com",
 
-        telephone: "+91-9640753929",
+        telephone: "+91-90529961661",
 
         description:
           "Sri Supraja Infracon develops DTCP & RERA approved open plots near Hyderabad including villa plots, resort plots and premium plotted developments across strategic growth corridors.",
