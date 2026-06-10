@@ -117,27 +117,42 @@ const HeroSection = () => {
           ))}
         </motion.div>
 
-        <div className="legacy-marquee">
-          <div className="legacy-marquee-track animate-[legacy-marquee-scroll_38s_linear_infinite]">
-            <div className="legacy-marquee-group">
-              <span className="legacy-title">
-                Our Legacy Completed Projects:
-              </span>
-              {legacyProjects.map((item) => (
-                <span key={item}>{item}</span>
-              ))}
-            </div>
+        <div className="legacy-marquee mt-10 flex items-center overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm">
+  <div className="shrink-0 border-r border-white/10 px-5 py-4">
+    <span className="text-sm font-bold uppercase tracking-wide text-[#E8D7A5]">
+      Our Legacy of Projects
+    </span>
+  </div>
 
-            <div className="legacy-marquee-group" aria-hidden="true">
-              <span className="legacy-title">
-                Our Legacy Completed Projects:
-              </span>
-              {legacyProjects.map((item) => (
-                <span key={`duplicate-${item}`}>{item}</span>
-              ))}
-            </div>
-          </div>
-        </div>
+  <div className="min-w-0 flex-1 overflow-hidden">
+    <div className="legacy-marquee-track animate-[legacy-marquee-scroll_38s_linear_infinite]">
+      <div className="legacy-marquee-group">
+        {legacyProjects.map((item) => (
+          <span
+            key={item}
+            className="mx-6 whitespace-nowrap text-sm font-medium text-slate-200"
+          >
+            {item}
+          </span>
+        ))}
+      </div>
+
+      <div
+        className="legacy-marquee-group"
+        aria-hidden="true"
+      >
+        {legacyProjects.map((item) => (
+          <span
+            key={`duplicate-${item}`}
+            className="mx-6 whitespace-nowrap text-sm font-medium text-slate-200"
+          >
+            {item}
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
 
         <motion.div
           initial={{ opacity: 0, y: 14 }}
