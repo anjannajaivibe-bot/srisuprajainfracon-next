@@ -153,7 +153,7 @@ export const projects: Project[] = [
 
     highlights: [
       "Affordable open plots at Indrakaran",
-      "Sales open with limited availability",
+      "GP LRS Paid",
       "40, 33 and 30 feet black top roads",
       "Layout planned as per Vastu",
       "5 minutes to Outer Ring Road",
