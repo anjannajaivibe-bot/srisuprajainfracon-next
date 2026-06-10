@@ -109,16 +109,17 @@ const FlagshipProject = () => {
 
           <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
             <div className="flex flex-wrap gap-3">
-              <span className="rounded-full border border-success/30 bg-success/20 px-3 py-1 text-sm font-medium text-success">
-                ✓ Sales Open for Selected Inventory
-              </span>
-              <span className="rounded-full border border-gold/30 bg-gold/20 px-3 py-1 text-sm font-medium text-gold">
-                DTCP & RERA Approved
-              </span>
-              <span className="rounded-full border border-hero-foreground/30 bg-hero-foreground/20 px-3 py-1 text-sm font-medium text-hero-foreground">
-                Bank Loan Support Available*
-              </span>
-            </div>
+  <span className="rounded-full border border-emerald-400/60 bg-emerald-900/80 px-4 py-1.5 text-sm font-semibold text-emerald-100 shadow-md backdrop-blur-sm">
+    ✓ Sales Open for Selected Inventory
+  </span>
+              <span className="rounded-full border border-yellow-300/70 bg-yellow-500/90 px-4 py-1.5 text-sm font-semibold text-slate-950 shadow-md backdrop-blur-sm">
+    DTCP & RERA Approved
+  </span>
+
+  <span className="rounded-full border border-white/70 bg-slate-950/85 px-4 py-1.5 text-sm font-semibold text-white shadow-md backdrop-blur-sm">
+    Bank Loan Support Available*
+  </span>
+</div>
           </div>
         </motion.div>
 
