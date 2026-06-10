@@ -142,7 +142,7 @@ export const projectContent = {
 
     amenities: [
       "DTCP & RERA approved open plots",
-      "Sales open for selected plot sizes",
+      "Sales Open Now",
       "Gated community with compound wall",
       "100 feet road connectivity",
       "50 feet roads with central plantation",

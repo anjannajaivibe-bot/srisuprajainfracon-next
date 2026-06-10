@@ -31,7 +31,7 @@ const stats = [
   { num: "24+", label: "Years of Legacy" },
   { num: "4", label: "Active Project Pages" },
   { num: "350", label: "Acres Master Plan at IRIS" },
-  { num: "4000+", label: "Plotted Units Planned at IRIS" },
+  { num: "4000", label: "Plotted Units Planned at IRIS" },
   { num: "DTCP", label: "Approved Layout Focus" },
   { num: "RERA", label: "Registered Project Focus" },
 ];

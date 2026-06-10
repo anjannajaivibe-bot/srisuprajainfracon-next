@@ -8,7 +8,7 @@ import projectIris from "@/assets/project-iris.webp";
 
 const stats = [
   { value: "350", label: "Acres Master Planned Development" },
-  { value: "4000+", label: "Plotted Units Planned" },
+  { value: "4000", label: "Plotted Units Planned" },
   { value: "Sales", label: "Open for Selected Inventory" },
 ];
 
@@ -68,7 +68,7 @@ const FlagshipProject = () => {
 
           <p className="mx-auto mt-5 max-w-3xl text-muted-foreground">
             Supraja IRIS is a <strong>resort-style plotted development</strong>{" "}
-            at Kamkole near Hyderabad, positioned close to Woxsen University,
+            at Kamkole near Hyderabad, positioned Adjacent to Woxsen University,
             NH-65, Regional Ring Road influence zones and the NIMZ Zaheerabad
             growth corridor.
           </p>
@@ -87,7 +87,7 @@ const FlagshipProject = () => {
               rel="noopener noreferrer"
               className="font-bold text-blue-700 underline"
             >
-              Nearby Woxsen University
+              Adjacent to Woxsen University
             </a>
           </div>
         </motion.div>

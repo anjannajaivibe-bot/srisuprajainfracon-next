@@ -120,7 +120,7 @@ export const projects: Project[] = [
 
     highlights: [
       "DTCP & RERA approved open plots",
-      "Sales open for selected plot sizes",
+      "Sales Open Now",
       "Plot sizes from 150 to 569 sq. yards",
       "Gated community with compound wall",
       "100 feet road connectivity",
