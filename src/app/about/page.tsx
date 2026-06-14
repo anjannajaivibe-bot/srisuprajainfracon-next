@@ -147,14 +147,14 @@ export default function AboutPage() {
             </div>
 
             <div className="relative h-[320px] overflow-hidden rounded-3xl">
-              <SmartImage
-                src="/images/homepage/hero.webp"
-                alt="Sri Supraja Infracon real estate developments in Hyderabad"
-                fill
-                isHero
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 45vw"
-              />
+              <Image
+  src="/images/homepage/hero.webp"
+  alt="Sri Supraja Infracon real estate developments in Hyderabad"
+  fill
+  priority
+  className="object-cover"
+  sizes="(max-width: 1024px) 100vw, 45vw"
+/>
             </div>
           </div>
         </section>
