@@ -1,41 +1,41 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import Image from "next/image";
+import SmartImage from "@/components/SmartImage";
 
-const siteUrl = "https://www.srisuprajainfracon.com";
+const siteUrl = "https://suprajahotels.com";
 
 export const metadata: Metadata = {
-  title: "About Sri Supraja Infracon | Real Estate Developers in Hyderabad",
+  title: "About Supraja Hotels | Hotels in Hyderabad",
   description:
-    "Learn about Sri Supraja Infracon, a trusted real estate development company creating open plots, villas, apartments and investment-focused communities near Hyderabad.",
+    "Learn about Supraja Hotels, a trusted hospitality brand offering clean, comfortable and convenient hotel stays in Madhapur, Hitech City and Chandanagar.",
   keywords: [
-    "Sri Supraja Infracon",
-    "Real Estate Developers in Hyderabad",
-    "Open Plots in Hyderabad",
-    "Villas in Hyderabad",
-    "Apartments in Hyderabad",
-    "Investment Plots Hyderabad",
-    "DTCP Approved Open Plots",
-    "Hyderabad Real Estate Investment",
-    "Supraja Iris",
-    "Supraja Bridge County",
+    "Hotels in Hyderabad",
+    "About Supraja Hotels",
+    "Hotel in Madhapur Hyderabad",
+    "Hotel in Chandanagar Hyderabad",
+    "Hotels near Hitech City",
+    "Direct hotel booking Hyderabad",
+    "Budget hotel in Chandanagar",
+    "Family hotel in Hyderabad",
+    "Business hotel in Hyderabad",
+    "Hyderabad accommodation",
   ],
   alternates: {
     canonical: `${siteUrl}/about`,
   },
   openGraph: {
-    title: "About Sri Supraja Infracon | Real Estate Developers in Hyderabad",
+    title: "About Supraja Hotels | Hotels in Hyderabad",
     description:
-      "Discover Sri Supraja Infracon, a trusted real estate brand focused on open plots, villas, apartments and long-term investor value.",
+      "Discover Supraja Hotels, a trusted hospitality brand offering clean rooms, comfortable stays, direct booking support and convenient locations across Hyderabad.",
     url: `${siteUrl}/about`,
-    siteName: "Sri Supraja Infracon",
+    siteName: "Supraja Hotels",
     images: [
       {
         url: `${siteUrl}/images/homepage/hero.webp`,
         width: 1200,
         height: 630,
-        alt: "Sri Supraja Infracon real estate developments in Hyderabad",
+        alt: "Hotels in Hyderabad by Supraja Hotels",
       },
     ],
     locale: "en_IN",
@@ -43,42 +43,42 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Sri Supraja Infracon | Real Estate Developers in Hyderabad",
+    title: "About Supraja Hotels | Hotels in Hyderabad",
     description:
-      "Sri Supraja Infracon creates open plots, villas, apartments and investment-focused real estate communities near Hyderabad.",
+      "Comfortable rooms, trusted hospitality and direct booking support across Hyderabad.",
     images: [`${siteUrl}/images/homepage/hero.webp`],
   },
 };
 
 const locations = [
-  "Hyderabad",
-  "Kamkole",
-  "Mumbai Highway",
-  "Sangareddy",
-  "Sadashivpet",
-  "Woxsen University",
-  "IIT Hyderabad",
-  "NIMZ",
-  "Zaheerabad",
-  "West Hyderabad Growth Corridor",
+  "Hitech City",
+  "Madhapur",
+  "Kondapur",
+  "Gachibowli",
+  "Chandanagar",
+  "Gangaram",
+  "BHEL",
+  "Serilingampally",
+  "Nallagandla",
+  "Miyapur",
 ];
 
 const promises = [
   {
-    title: "Investor-Focused Developments",
-    text: "Every Sri Supraja Infracon project is planned to support long-term value, strong location potential and confident real estate investment decisions.",
+    title: "Prime Hyderabad Locations",
+    text: "Our properties are positioned near key business hubs, residential areas and travel routes, making every stay convenient for work, family visits and city access.",
   },
   {
-    title: "Clear Documentation",
-    text: "We focus on approved layouts, transparent documentation and practical guidance so investors can move forward with clarity.",
+    title: "Clean, Comfortable Rooms",
+    text: "We focus on well-maintained rooms, practical amenities and a peaceful stay environment for short visits, business trips and family stays.",
   },
   {
-    title: "Planned Communities",
-    text: "Our developments are designed with roads, infrastructure, accessibility and future growth potential in mind.",
+    title: "Easy Direct Booking",
+    text: "Guests can contact Supraja Hotels directly through phone or WhatsApp for room availability, booking assistance and stay-related support.",
   },
   {
-    title: "Long-Term Value Creation",
-    text: "From open plots to villas and residential developments, our goal is to create real estate assets that stand the test of time.",
+    title: "Trusted Local Hospitality",
+    text: "Supraja Hotels is built on responsive service, clean stays and dependable guest support across our Hyderabad properties.",
   },
 ];
 
@@ -87,9 +87,9 @@ const aboutSchema = {
   "@type": "AboutPage",
   "@id": `${siteUrl}/about#aboutpage`,
   url: `${siteUrl}/about`,
-  name: "About Sri Supraja Infracon",
+  name: "About Supraja Hotels",
   description:
-    "Sri Supraja Infracon is a trusted real estate development company creating open plots, villas, apartments and investment-focused communities near Hyderabad.",
+    "Supraja Hotels offers comfortable hotel stays in Hyderabad with clean rooms, direct booking support and convenient locations in Madhapur, Hitech City and Chandanagar.",
   isPartOf: {
     "@id": `${siteUrl}#website`,
   },
@@ -113,48 +113,49 @@ export default function AboutPage() {
           <div className="container-custom grid gap-10 lg:grid-cols-[55%_45%] lg:items-center">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-400">
-                About Sri Supraja Infracon
+                About Supraja Hotels
               </p>
 
               <h1 className="mt-4 text-4xl font-semibold md:text-5xl">
-                Real Estate Developers in Hyderabad Creating Long-Term Value
+                Hotels in Hyderabad by Supraja Hotels
               </h1>
 
               <p className="mt-6 max-w-4xl text-lg leading-8 text-slate-300">
-                <strong>Sri Supraja Infracon</strong> is a trusted real estate
-                development company focused on creating open plot communities,
-                villas, apartments and future-ready developments for families,
-                homeowners and investors. Every project is planned with a clear
-                focus on location growth, transparent documentation, practical
-                infrastructure and long-term value creation.
+                <strong>Supraja Hotels</strong> is a trusted hospitality brand
+                offering comfortable stays across Hyderabad. With properties in{" "}
+                <strong>Madhapur</strong> and <strong>Chandanagar</strong>, we
+                provide clean rooms, convenient access to key business and
+                residential hubs, direct booking support and dependable
+                hospitality for business travellers, families and long-stay
+                guests.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
-                  href="/projects"
+                  href="/hotels"
                   className="rounded-full bg-blue-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-800"
                 >
-                  Explore Our Projects
+                  Explore Our Hotels
                 </Link>
 
                 <Link
                   href="/contact"
                   className="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-slate-950"
                 >
-                  Contact Investment Team
+                  Contact Booking Team
                 </Link>
               </div>
             </div>
 
             <div className="relative h-[320px] overflow-hidden rounded-3xl">
-              <Image
-  src="/images/homepage/hero.webp"
-  alt="Sri Supraja Infracon real estate developments in Hyderabad"
-  fill
-  priority
-  className="object-cover"
-  sizes="(max-width: 1024px) 100vw, 45vw"
-/>
+              <SmartImage
+                src="/images/homepage/hero.webp"
+                alt="Hotels in Hyderabad by Supraja Hotels"
+                fill
+                isHero
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 45vw"
+              />
             </div>
           </div>
         </section>
@@ -163,34 +164,31 @@ export default function AboutPage() {
           <div className="container-custom grid gap-12 lg:grid-cols-2">
             <div>
               <h2 className="text-3xl font-semibold text-slate-900">
-                Building Real Estate Destinations with Purpose
+                Supraja Hotels for Comfortable Stays in Hyderabad
               </h2>
 
               <p className="mt-6 leading-8 text-slate-600">
-                Sri Supraja Infracon was built with a clear vision: to create
-                real estate developments that deliver lifestyle value, investment
-                confidence and long-term growth. Our portfolio includes{" "}
-                <strong>open plot communities</strong>,{" "}
-                <strong>premium villas</strong>,{" "}
-                <strong>residential apartments</strong> and planned developments
-                designed for modern families and smart investors.
+                Supraja Hotels was established with a simple vision: to provide
+                comfortable, reliable and value-driven accommodation for guests
+                visiting Hyderabad. Whether travelling for business, family
+                commitments, medical visits or personal work, our hotels are
+                designed to deliver a practical and stress-free stay experience.
               </p>
 
               <p className="mt-5 leading-8 text-slate-600">
-                We understand that real estate is not just about land, homes or
-                buildings. It is about creating secure assets, strong
-                communities and meaningful opportunities for the future. Every
-                Supraja development is planned with careful attention to
-                accessibility, infrastructure, documentation, usability and
-                regional growth potential.
+                Our portfolio includes <strong>Hotel Supraja Cyber View</strong>{" "}
+                in Madhapur and <strong>Hotel Supraja Residency</strong> and{" "}
+                <strong>Hotel Supraja Lodge</strong> in Chandanagar. These
+                properties are located near major IT corridors, commercial
+                centres, hospitals, residential communities and transportation
+                routes, making them suitable for both short and extended stays.
               </p>
 
               <p className="mt-5 leading-8 text-slate-600">
-                Our projects are developed with a practical understanding of
-                investor expectations. From location selection to layout
-                planning, from project positioning to on-ground execution, our
-                approach is guided by transparency, responsibility and a
-                commitment to sustained value.
+                At Supraja Hotels, we focus on cleanliness, guest comfort,
+                responsive support and location convenience. Our commitment is to
+                ensure every guest enjoys a welcoming environment backed by
+                dependable service and a smooth booking experience.
               </p>
             </div>
 
@@ -200,31 +198,32 @@ export default function AboutPage() {
               </h2>
 
               <p className="mt-6 leading-8 text-slate-600">
-                Our mission is to create trusted real estate developments where
-                investors, homeowners and families can move forward with
-                confidence. We focus on delivering projects that combine
-                transparent documentation, thoughtful planning, practical
-                infrastructure and strong long-term growth potential.
+                Our mission is to provide dependable hospitality through clean
+                accommodation, convenient locations and attentive guest support.
+                We strive to create comfortable stay experiences that combine
+                affordability, accessibility and genuine hospitality for every
+                guest.
               </p>
 
               <ul className="mt-6 space-y-3 text-slate-700">
-                <li>Open plot communities with strong investment potential</li>
-                <li>Premium villas and residential developments</li>
-                <li>Clear documentation and investor-focused guidance</li>
-                <li>Planned layouts with practical infrastructure</li>
-                <li>Developments positioned around future growth corridors</li>
+                <li>Clean and well-maintained rooms for peaceful stays</li>
+                <li>Direct booking support through phone and WhatsApp</li>
+                <li>Convenient access to Madhapur, Hitech City and Kondapur</li>
+                <li>Comfortable stays in Chandanagar, Gangaram and BHEL areas</li>
+                <li>Practical amenities for business, family and long-stay guests</li>
               </ul>
 
               <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-6">
                 <h3 className="text-xl font-semibold text-slate-900">
-                  Supraja Investor Promise
+                  Supraja Hotels Guest Promise
                 </h3>
 
                 <p className="mt-4 leading-8 text-slate-600">
-                  We believe every investment decision should be supported by
-                  trust, clarity and long-term value. Our promise is to create
-                  developments that help investors feel confident today and
-                  proud tomorrow.
+                  We are committed to providing clean accommodation, courteous
+                  service and a comfortable environment where guests can relax,
+                  work and stay with confidence. Every interaction is guided by
+                  our dedication to guest satisfaction and hospitality
+                  excellence.
                 </p>
               </div>
             </div>
@@ -234,13 +233,13 @@ export default function AboutPage() {
         <section className="bg-slate-50 px-4 py-20">
           <div className="container-custom">
             <h2 className="text-center text-3xl font-semibold text-slate-900">
-              Why Investors Choose Sri Supraja Infracon
+              Why Guests Choose Supraja Hotels
             </h2>
 
             <p className="mx-auto mt-4 max-w-3xl text-center leading-8 text-slate-600">
-              Sri Supraja Infracon is trusted by investors and families looking
-              for real estate developments backed by transparency, planning,
-              location advantage and long-term growth potential.
+              Guests choose Supraja Hotels for convenient locations, reliable
+              accommodation, direct booking support and a hospitality experience
+              built on comfort, cleanliness and trust.
             </p>
 
             <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -258,66 +257,17 @@ export default function AboutPage() {
         </section>
 
         <section className="bg-white px-4 py-20">
-          <div className="container-custom grid gap-12 lg:grid-cols-[45%_55%] lg:items-start">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-600">
-                Owner Message
-              </p>
-
-              <h2 className="mt-4 text-3xl font-semibold text-slate-900">
-                Mr. Tudi Praveen
-              </h2>
-
-              <p className="mt-2 text-lg font-semibold text-amber-600">
-                Chairman & Managing Director
-              </p>
-            </div>
-
-            <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8">
-              <p className="text-xl leading-9 text-slate-800">
-                “Our vision is to create enduring value through thoughtfully
-                planned developments that enhance lifestyles, strengthen
-                communities and generate long-term wealth for families and
-                investors.”
-              </p>
-
-              <p className="mt-6 leading-8 text-slate-600">
-                At Sri Supraja Infracon, we believe real estate is more than
-                land, buildings or infrastructure. It is about creating
-                opportunities, building trust and shaping environments where
-                people can live, invest and prosper with confidence.
-              </p>
-
-              <p className="mt-5 leading-8 text-slate-600">
-                Over the years, we have developed open plot communities,
-                residential projects, villas and integrated developments designed
-                to meet the evolving aspirations of modern families and
-                investors. Every Supraja project is guided by transparency,
-                quality, responsible planning and a commitment to long-term
-                growth.
-              </p>
-
-              <p className="mt-5 leading-8 text-slate-600">
-                Our focus extends beyond project delivery. We strive to create
-                developments that contribute positively to surrounding
-                communities, support regional growth and provide lasting value
-                for generations.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-slate-50 px-4 py-20">
           <div className="container-custom">
             <h2 className="text-3xl font-semibold text-slate-900">
-              Growth Locations We Focus On
+              Locations We Serve in Hyderabad
             </h2>
 
             <p className="mt-5 max-w-4xl leading-8 text-slate-600">
-              Sri Supraja Infracon focuses on locations with strong connectivity,
-              expanding infrastructure, educational institutions, employment
-              drivers and future development potential. These factors help
-              investors evaluate projects with better clarity and confidence.
+              Our hotels are strategically positioned near Hyderabad's major
+              business districts, residential communities and transportation
+              corridors. This allows guests to enjoy easy access to work
+              locations, family destinations, hospitals, educational
+              institutions and key city attractions.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -331,44 +281,44 @@ export default function AboutPage() {
               ))}
             </div>
 
-            <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6">
+            <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6">
               <h3 className="text-xl font-semibold text-slate-900">
-                Useful Links for Investors
+                Useful Links for Guests
               </h3>
 
               <div className="mt-4 flex flex-wrap gap-4 text-sm">
-                <Link href="/projects" className="text-blue-700 hover:underline">
-                  Explore our projects
+                <Link href="/hotels" className="text-blue-700 hover:underline">
+                  Explore all Supraja Hotels
                 </Link>
 
-                <Link href="/supraja-iris" className="text-blue-700 hover:underline">
-                  View Supraja Iris
+                <Link href="/offers" className="text-blue-700 hover:underline">
+                  View current hotel offers
                 </Link>
 
                 <Link href="/gallery" className="text-blue-700 hover:underline">
-                  View project gallery
+                  View hotel gallery
                 </Link>
 
                 <Link href="/contact" className="text-blue-700 hover:underline">
-                  Contact investment team
+                  Contact our booking team
                 </Link>
 
                 <a
-                  href="https://rera.telangana.gov.in/"
+                  href="https://www.telanganatourism.gov.in/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-700 hover:underline"
                 >
-                  Telangana RERA
+                  Telangana Tourism
                 </a>
 
                 <a
-                  href="https://dtcp.telangana.gov.in/"
+                  href="https://tourism.gov.in/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-700 hover:underline"
                 >
-                  Telangana DTCP
+                  India Tourism
                 </a>
               </div>
             </div>
@@ -378,28 +328,30 @@ export default function AboutPage() {
         <section className="bg-slate-950 px-4 py-20 text-white">
           <div className="container-custom text-center">
             <h2 className="text-3xl font-semibold md:text-4xl">
-              Looking for a Trusted Real Estate Investment?
+              Looking for Hotels in Hyderabad?
             </h2>
 
             <p className="mx-auto mt-5 max-w-3xl leading-8 text-slate-300">
-              Sri Supraja Infracon creates open plots, villas, apartments and
-              investment-focused communities designed around transparency,
-              location potential and long-term value creation.
+              Experience comfortable stays, convenient locations and trusted
+              hospitality with Supraja Hotels. Whether you are travelling for
+              business, family visits or personal work, our hotels are ready to
+              welcome you with dependable service and a comfortable stay
+              experience.
             </p>
 
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Link
-                href="/projects"
+                href="/hotels"
                 className="rounded-full bg-white px-7 py-3 text-sm font-semibold text-slate-950 transition hover:bg-amber-100"
               >
-                View Projects
+                View Hotels
               </Link>
 
               <Link
                 href="/contact"
                 className="rounded-full border border-white/40 px-7 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-slate-950"
               >
-                Speak to Our Team
+                Book Directly
               </Link>
             </div>
           </div>
