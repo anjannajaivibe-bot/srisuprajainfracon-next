@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-
-import SmartImage from "@/components/SmartImage";
 
 const siteUrl = "https://suprajahotels.com";
 
@@ -148,11 +147,11 @@ export default function AboutPage() {
             </div>
 
             <div className="relative h-[320px] overflow-hidden rounded-3xl">
-              <SmartImage
+              <Image
                 src="/images/homepage/hero.webp"
                 alt="Hotels in Hyderabad by Supraja Hotels"
                 fill
-                isHero
+                priority
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 45vw"
               />
@@ -210,7 +209,9 @@ export default function AboutPage() {
                 <li>Direct booking support through phone and WhatsApp</li>
                 <li>Convenient access to Madhapur, Hitech City and Kondapur</li>
                 <li>Comfortable stays in Chandanagar, Gangaram and BHEL areas</li>
-                <li>Practical amenities for business, family and long-stay guests</li>
+                <li>
+                  Practical amenities for business, family and long-stay guests
+                </li>
               </ul>
 
               <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-6">
@@ -263,11 +264,11 @@ export default function AboutPage() {
             </h2>
 
             <p className="mt-5 max-w-4xl leading-8 text-slate-600">
-              Our hotels are strategically positioned near Hyderabad's major
+              Our hotels are strategically positioned near Hyderabad&apos;s major
               business districts, residential communities and transportation
               corridors. This allows guests to enjoy easy access to work
-              locations, family destinations, hospitals, educational
-              institutions and key city attractions.
+              locations, family destinations, hospitals, educational institutions
+              and key city attractions.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
