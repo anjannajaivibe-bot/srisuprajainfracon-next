@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import SmartImage from "@/components/SmartImage";
+import SmartImage from "@/components/shared/SmartImage";
 
 const siteUrl = "https://suprajahotels.com";
 
