@@ -148,13 +148,12 @@ export default function AboutPage() {
 
             <div className="relative h-[320px] overflow-hidden rounded-3xl">
               <SmartImage
-                src="/images/homepage/hero.webp"
-                alt="Hotels in Hyderabad by Supraja Hotels"
-                fill
-                isHero
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 45vw"
-              />
+  src="/images/homepage/hero.webp"
+  alt="Hotels in Hyderabad by Supraja Hotels"
+  fill
+  className="object-cover"
+  sizes="(max-width: 1024px) 100vw, 45vw"
+/>
             </div>
           </div>
         </section>
