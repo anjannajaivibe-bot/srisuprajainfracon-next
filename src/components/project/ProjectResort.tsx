@@ -30,7 +30,7 @@ const resortFeatures = [
     desc: "Adventure and entertainment attractions planned to improve footfall, recall value and lifestyle positioning.",
   },
   {
-    title: "High ROI Growth Corridor",
+    title: "High ROI (Return on Investment) Growth Corridor",
     desc: "Located near NH-65, Woxsen University, Regional Ring Road influence zone and the Zaheerabad NIMZ corridor.",
   },
 ];

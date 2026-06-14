@@ -41,7 +41,7 @@ export const projects: Project[] = [
     reraNo: "RERA Approved",
 
     shortDescription:
-      "DTCP & RERA approved open plots at Kamkole near Woxsen University with Lemon Tree Resort under construction, planned water villas, theme park attractions and strong high ROI growth potential.",
+      "DTCP & RERA approved open plots at Kamkole near Woxsen University with Lemon Tree Resort under construction, planned water villas, theme park attractions and strong high ROI (Return on Investment) Growth potential.",
 
     image: irisImage,
 
@@ -54,7 +54,7 @@ export const projects: Project[] = [
       "350-acre resort-style master plan",
       "Lemon Tree Resort under construction",
       "Near Woxsen University and NH-65",
-      "High ROI growth corridor near NIMZ Zaheerabad",
+      "High ROI (Return on Investment) Growth corridor near NIMZ Zaheerabad",
     ],
 
     link: "/projects/supraja-iris-resort-plots",
@@ -76,7 +76,7 @@ export const projects: Project[] = [
     reraNo: "P01100009141",
 
     shortDescription:
-      "DTCP & RERA approved luxury open plots at Kamkole near Woxsen University with clear title, planned infrastructure, bank loan support and strong high ROI growth potential.",
+      "DTCP & RERA approved luxury open plots at Kamkole near Woxsen University with clear title, planned infrastructure, bank loan support and strong high ROI (Return on Investment) Growth potential.",
 
     image: bridgeImage,
 
