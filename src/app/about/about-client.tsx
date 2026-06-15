@@ -166,7 +166,7 @@ export default function AboutClient() {
                 <SmartImage
                   src={ownerPhoto}
                   alt="Mr Tudi Praveen Chairman and Managing Director of Sri Supraja Infracon"
-                  className="h-[500px] lg:h-[650px] w-full rounded-[10px]"
+                  className="h-[500px] lg:h-[800px] w-full rounded-[10px]"
                   imageClassName="object-cover object-top"
                 />
 
