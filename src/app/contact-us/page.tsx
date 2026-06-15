@@ -2,28 +2,25 @@ import type { Metadata } from "next";
 import ContactPageClient from "./contact-page-client";
 
 export const metadata: Metadata = {
-  title:
-    "Contact Sri Supraja Infracon | Open Plot Enquiry & Site Visit",
+  title: "Contact Sri Supraja Infracon | Project Information & Site Visits",
   description:
-    "Contact Sri Supraja Infracon for DTCP and RERA approved open plots, villa plots and resort plots near Hyderabad. Schedule site visits and project enquiries.",
+    "Connect with Sri Supraja Infracon for project information, site visits, availability details, and customer assistance across our residential and plotted projects.",
   alternates: {
     canonical: "https://www.srisuprajainfracon.com/contact-us//",
   },
   openGraph: {
-    title:
-      "Contact Sri Supraja Infracon | Open Plot Enquiry & Site Visit",
+    title: "Contact Sri Supraja Infracon | Project Information & Site Visits",
     description:
-      "Connect with Sri Supraja Infracon for project details, site visits, availability and plotted community enquiries near Hyderabad.",
+      "Connect with Sri Supraja Infracon for project details, site visits, availability information, and customer assistance.",
     url: "https://www.srisuprajainfracon.com/contact-us//",
     siteName: "Sri Supraja Infracon",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Contact Sri Supraja Infracon | Open Plot Enquiry & Site Visit",
+    title: "Contact Sri Supraja Infracon | Project Information & Site Visits",
     description:
-      "Enquire about Supraja IRIS, Bridge County, Sindhu Sarovar and Subhash Meadows.",
+      "Request details for Supraja IRIS, Bridge County, Sindhu Sarovar, and Subhash Meadows.",
   },
 };
 
@@ -44,7 +41,9 @@ export default function ContactPage() {
     ],
     address: {
       "@type": "PostalAddress",
+      streetAddress: "D. No. 4-91, Above Parampara Sweets, Chandanagar",
       addressLocality: "Hyderabad",
+      postalCode: "500050",
       addressRegion: "Telangana",
       addressCountry: "India",
     },
@@ -63,7 +62,3 @@ export default function ContactPage() {
     </>
   );
 }
-
-
-
-

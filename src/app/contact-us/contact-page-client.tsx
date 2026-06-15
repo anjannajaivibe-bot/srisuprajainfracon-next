@@ -6,13 +6,7 @@ import Navbar from "@/components/layout/Navbar";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-import {
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-  MessageCircle,
-} from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 
 import heroBg from "@/assets/hero-bg.webp";
 
@@ -21,7 +15,6 @@ export default function ContactPageClient() {
     <div className="min-h-screen bg-[#F8F6F1]">
       <Navbar />
 
-      {/* Hero Section */}
       <section className="relative overflow-hidden pb-20 pt-32">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -36,15 +29,15 @@ export default function ContactPageClient() {
             animate={{ opacity: 1, y: 0 }}
             className="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-[#E8D7A5]"
           >
-            Contact Sri Supraja Infracon
+            Connect With Sri Supraja Infracon
           </motion.p>
 
           <motion.h1
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mx-auto max-w-5xl text-4xl font-display font-bold leading-tight text-white sm:text-5xl lg:text-7xl"
+            className="mx-auto max-w-5xl font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-7xl"
           >
-            Open Plot Enquiry & Site Visit Assistance
+            Let&apos;s Start the Conversation
           </motion.h1>
 
           <motion.p
@@ -52,31 +45,28 @@ export default function ContactPageClient() {
             animate={{ opacity: 1, y: 0 }}
             className="mx-auto mt-6 max-w-4xl text-lg leading-relaxed text-slate-200"
           >
-            Connect with Sri Supraja Infracon for DTCP and RERA approved open
-            plots, resort plots and plotted communities near Hyderabad growth
-            corridors including Kamkole, Mominpet, Sangareddy and Indrakaran.
+            Whether you&apos;re exploring project options, planning a site visit,
+            or seeking additional information, our team is here to assist you
+            with clear guidance and timely support.
           </motion.p>
         </div>
       </section>
 
-      {/* Contact Section */}
       <section className="bg-[#F8F6F1] px-6 py-24">
         <div className="container-max grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-          
-          {/* Left Side */}
           <div>
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
               Contact Information
             </p>
 
-            <h2 className="mb-6 text-3xl font-display font-bold text-[#111827] sm:text-4xl">
-              Speak With Our Team
+            <h2 className="mb-6 font-display text-3xl font-bold text-[#111827] sm:text-4xl">
+              Connect With Supraja Management
             </h2>
 
             <p className="mb-8 leading-relaxed text-[#4B5563]">
-              Our team can help you compare project locations, approvals,
-              availability, site visit schedules and plotted development options
-              across Sri Supraja Infracon communities.
+              Our team can assist with project information, site visits,
+              availability details, documentation queries, and general enquiries
+              across Sri Supraja Infracon projects.
             </p>
 
             <div className="space-y-5">
@@ -117,7 +107,9 @@ export default function ContactPageClient() {
                   <p className="font-bold text-[#111827]">Office Location</p>
 
                   <p className="text-[#4B5563]">
-                    Hyderabad, Telangana, India
+                    D. No. 4-91, Above Parampara Sweets,
+                    <br />
+                    Chandanagar, Hyderabad - 500050
                   </p>
                 </div>
               </div>
@@ -126,17 +118,16 @@ export default function ContactPageClient() {
                 <Clock className="mt-1 text-[#C9A227]" size={22} />
 
                 <div>
-                  <p className="font-bold text-[#111827]">Sales Assistance</p>
+                  <p className="font-bold text-[#111827]">Office Hours</p>
 
                   <p className="text-[#4B5563]">
-                    Site visits and project enquiries available throughout the
-                    week.
+                    Our team is available to assist with project information and
+                    site visit coordination.
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* CTA Buttons */}
             <div className="mt-8 flex flex-wrap gap-4">
               <a
                 href="https://wa.me/919052996161?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20Sri%20Supraja%20Infracon%20projects."
@@ -145,7 +136,7 @@ export default function ContactPageClient() {
                 className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 font-bold text-white transition hover:scale-105"
               >
                 <MessageCircle size={18} />
-                WhatsApp Enquiry
+                Chat on WhatsApp
               </a>
 
               <Link
@@ -157,26 +148,29 @@ export default function ContactPageClient() {
             </div>
           </div>
 
-          {/* Right Side Form */}
           <ContactForm />
         </div>
       </section>
 
-      {/* Projects CTA */}
       <section className="bg-white px-6 py-24">
         <div className="container-max text-center">
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
             Explore Projects
           </p>
 
-          <h2 className="text-3xl font-display font-bold text-[#111827] sm:text-4xl">
-            Compare Sri Supraja Infracon Communities
+          <h2 className="font-display text-3xl font-bold text-[#111827] sm:text-4xl">
+            Explore Our Projects
           </h2>
 
           <p className="mx-auto mt-5 max-w-3xl text-[#4B5563]">
-            Explore Supraja IRIS, Bridge County, Sindhu Sarovar and Subhash
-            Meadows across Telangana growth corridors before planning your site
-            visit.
+            Discover projects across Kamkole, Mominpet, Sangareddy, and
+            Indrakaran, each planned to serve different investment and future
+            ownership aspirations.
+          </p>
+
+          <p className="mx-auto mt-4 max-w-3xl text-[#4B5563]">
+            Explore project details, location advantages, site visuals, and
+            availability information before planning your visit.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -210,11 +204,6 @@ export default function ContactPageClient() {
           </div>
         </div>
       </section>
-</div>
+    </div>
   );
 }
-
-
-
-
-
