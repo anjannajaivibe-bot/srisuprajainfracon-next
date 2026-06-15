@@ -185,11 +185,11 @@ export default function AboutClient() {
 
               <div className="max-w-4xl">
                 <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-[#C9A227]">
-                  Chairman&apos;s Message
+                  FROM THE DESK OF&apos; OUR CHAIRMAN
                 </p>
 
                 <h2 className="mb-8 max-w-3xl text-3xl font-display font-bold leading-tight text-[#111827] sm:text-4xl">
-                  A Message Built on Trust, Transparency and Long-Term Value
+                  Leading with Integrity, Building for Generations
                 </h2>
 
                 <div className="space-y-5 text-[17px] leading-8 text-[#4B5563]">
