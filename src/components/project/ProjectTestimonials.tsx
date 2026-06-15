@@ -70,7 +70,7 @@ const sectionCopy: Record<
       "Real feedback from clients who reviewed the project, visited the site, and interacted with Supraja Management.",
   },
   "supraja-iris": {
-    title: "What Our Customers Say?",
+    title: "What Customers Say About Supraja IRIS",
     intro:
       "Real feedback from clients who reviewed the project, visited the site, and interacted with Supraja Management.",
   },
@@ -117,7 +117,7 @@ export default function ProjectTestimonials({
       <div className="mx-auto max-w-7xl px-4">
         <div className="mb-12 text-center">
           <p className="text-sm font-semibold uppercase tracking-wide text-green-700">
-            Customer Feedback
+            WORDS OF TRUST
           </p>
 
           <h2 className="mt-3 text-3xl font-bold text-gray-900 md:text-4xl">
