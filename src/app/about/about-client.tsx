@@ -185,7 +185,7 @@ export default function AboutClient() {
 
               <div className="max-w-4xl">
                 <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-[#C9A227]">
-                  FROM THE DESK OF&apos; OUR CHAIRMAN
+                  FROM THE DESK OF OUR CHAIRMAN
                 </p>
 
                 <h2 className="mb-8 max-w-3xl text-3xl font-display font-bold leading-tight text-[#111827] sm:text-4xl">
@@ -284,47 +284,66 @@ export default function AboutClient() {
           </div>
         </section>
 
-        <section className="bg-white px-6 py-20">
-          <div className="container-max">
-            <div className="mb-14 text-center">
-              <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
-                OUR LEGACY
+<section className="bg-white px-6 py-24">
+  <div className="container-max">
+    <div className="mx-auto mb-16 max-w-4xl text-center">
+      <p className="mb-3 text-sm font-bold uppercase tracking-[0.3em] text-[#C9A227]">
+        Our Legacy
+      </p>
+
+      <h2 className="text-3xl font-display font-bold leading-tight text-[#111827] sm:text-4xl lg:text-5xl">
+        24 Years of Building Trust, Communities and Lasting Value
+      </h2>
+
+      <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-[#4B5563]">
+        From humble beginnings to landmark developments, Sri Supraja Infracon&apos;s
+        journey reflects a steady commitment to approvals, transparency,
+        customer confidence and responsible real estate development.
+      </p>
+    </div>
+
+    <div className="relative mx-auto max-w-5xl">
+      <div className="absolute bottom-0 left-4 top-0 w-px bg-gradient-to-b from-[#C9A227] via-[#E8D7A5] to-[#C9A227] md:left-1/2" />
+
+      {milestones.map((m, i) => (
+        <div
+          key={m.year}
+          className={`relative mb-12 flex md:items-center ${
+            i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+          }`}
+        >
+          <div className="pl-12 md:w-1/2 md:px-8">
+            <div className="group rounded-[24px] border border-[#EFE7D3] bg-[#FCFBF8] p-7 shadow-[0_12px_35px_rgba(11,22,51,0.06)] transition duration-300 hover:-translate-y-1 hover:border-[#C9A227] hover:shadow-[0_18px_45px_rgba(11,22,51,0.10)]">
+              <div className="mb-4 inline-flex rounded-full bg-[#F3E8C5] px-4 py-1 text-sm font-bold tracking-[0.18em] text-[#9A7415]">
+                {m.year}
+              </div>
+
+              <h3 className="mb-3 text-xl font-display font-bold text-[#111827]">
+                {m.title}
+              </h3>
+
+              <p className="text-sm leading-relaxed text-[#4B5563]">
+                {m.desc}
               </p>
-              <h2 className="text-3xl font-display font-bold text-[#111827] sm:text-4xl">
-                Building Trust Since 2003
-              </h2>
-            </div>
-
-            <div className="relative mx-auto max-w-4xl">
-              <div className="absolute bottom-0 left-4 top-0 w-px bg-gradient-to-b from-[#C9A227] to-[#E8D7A5] md:left-1/2" />
-
-              {milestones.map((m, i) => (
-                <div
-                  key={m.year}
-                  className={`relative mb-10 flex md:items-center ${
-                    i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                  }`}
-                >
-                  <div className="pl-12 md:w-1/2 md:px-8">
-                    <div className="rounded-[24px] border border-[#EFE7D3] bg-white p-6 shadow-[0_10px_35px_rgba(11,22,51,0.06)]">
-                      <div className="mb-2 text-xl font-display font-bold text-[#C9A227]">
-                        {m.year}
-                      </div>
-                      <h3 className="mb-2 font-bold text-[#111827]">
-                        {m.title}
-                      </h3>
-                      <p className="text-sm leading-relaxed text-[#4B5563]">
-                        {m.desc}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="absolute left-4 h-4 w-4 -translate-x-1/2 rounded-full bg-[#C9A227] ring-4 ring-[#F8F6F1] md:left-1/2" />
-                </div>
-              ))}
             </div>
           </div>
-        </section>
+
+          <div className="absolute left-4 flex h-7 w-7 -translate-x-1/2 items-center justify-center rounded-full bg-white ring-4 ring-[#F8F6F1] md:left-1/2">
+            <div className="h-3 w-3 rounded-full bg-[#C9A227]" />
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div className="mx-auto mt-8 max-w-4xl rounded-[24px] border border-[#EFE7D3] bg-[#FCFBF8] p-8 text-center shadow-[0_10px_35px_rgba(11,22,51,0.06)]">
+      <p className="text-lg font-semibold leading-relaxed text-[#111827]">
+        Every milestone represents more than growth. It represents the trust of
+        customers, the strength of relationships and the responsibility to build
+        developments that serve generations.
+      </p>
+    </div>
+  </div>
+</section>
 
 <section className="bg-white px-6 py-24">
   <div className="container-max">
