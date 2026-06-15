@@ -172,9 +172,9 @@ export default function AboutClient() {
                   imageClassName="object-cover object-top"
                 />
 
-                <div>
+<div>
   <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
-    Owner Message
+    Chairman&apos;s Message
   </p>
 
   <h2 className="mb-2 text-3xl font-display font-bold text-[#111827]">
@@ -182,7 +182,7 @@ export default function AboutClient() {
   </h2>
 
   <p className="mb-5 font-bold text-[#C9A227]">
-    Chairman & Managing Director
+    Chairman &amp; Managing Director
   </p>
 
   <p className="mb-4 leading-relaxed text-[#4B5563]">
@@ -201,7 +201,7 @@ export default function AboutClient() {
     Every project we have undertaken reflects our commitment to transparency,
     legal compliance, infrastructure quality and customer satisfaction. We
     understand that purchasing a property is one of the most important decisions
-    in a family's life. That responsibility drives us to maintain the highest
+    in a family&apos;s life. That responsibility drives us to maintain the highest
     standards in planning, approvals and execution.
   </p>
 
@@ -242,7 +242,7 @@ export default function AboutClient() {
       </h3>
 
       <p className="font-semibold text-[#C9A227]">
-        Chairman & Managing Director
+        Chairman &amp; Managing Director
       </p>
 
       <p className="text-[#6B7280]">
