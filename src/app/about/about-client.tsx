@@ -326,41 +326,44 @@ export default function AboutClient() {
           </div>
         </section>
 
-        <section className="bg-white px-6 py-24">
-          <div className="container-max">
-            <div className="rounded-[12px] border border-[#EFE7D3] bg-[#FCFBF8] p-10 text-center shadow-[0_12px_40px_rgba(11,22,51,0.06)] md:p-14">
-              <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
-                Recognition &amp; Commitment
-              </p>
+<section className="bg-white px-6 py-24">
+  <div className="container-max">
+    <div className="mx-auto max-w-4xl text-center">
+      <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
+        Awards &amp; Recognitions
+      </p>
 
-              <h2 className="text-3xl font-display font-bold text-[#111827] sm:text-4xl">
-                Recognized for Excellence, Trusted for Integrity
-              </h2>
+      <h2 className="text-3xl font-display font-bold text-[#111827] sm:text-4xl">
+        Recognized for Excellence, Trusted for Integrity
+      </h2>
 
-              <p className="mx-auto mt-4 max-w-3xl text-[#4B5563]">
-                These recognitions reflect our unwavering commitment to quality, 
-                transparency, customer satisfaction and responsible real estate 
-                development over the years.
-              </p>
+      <p className="mx-auto mt-4 max-w-3xl text-[#4B5563]">
+        These recognitions reflect our commitment to quality, transparency,
+        customer satisfaction and responsible real estate development over the
+        years.
+      </p>
+    </div>
 
-              <div className="mt-8 grid gap-5 md:grid-cols-3">
-                {[
-                  "DTCP & RERA Approved Layout Focus",
-                  "RERA Registered Project Focus",
-                  "Clear Documentation Support",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-2xl border border-[#E8D7A5] bg-white p-6 shadow-sm"
-                  >
-                    <Award className="mx-auto mb-3 text-[#C9A227]" size={32} />
-                    <p className="font-bold text-[#111827]">{item}</p>
-                  </div>
-                ))}
-              </div>
+    <div className="mt-12 overflow-hidden">
+      <div className="flex gap-6 overflow-x-auto scroll-smooth pb-4">
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
+          <div
+            key={item}
+            className="min-w-[280px] rounded-[18px] border border-[#EFE7D3] bg-white p-4 shadow-[0_8px_30px_rgba(11,22,51,0.06)] md:min-w-[340px]"
+          >
+            <div className="flex h-[220px] items-center justify-center rounded-[14px] bg-[#F8F6F1]">
+              <Award className="text-[#C9A227]" size={42} />
             </div>
+
+            <p className="mt-4 text-center font-bold text-[#111827]">
+              Recognition {item}
+            </p>
           </div>
-        </section>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
 
         <section className="bg-gradient-to-br from-[#081225] via-[#102348] to-[#0B1633] px-6 py-24 text-white">
           <div className="container-max text-center">
