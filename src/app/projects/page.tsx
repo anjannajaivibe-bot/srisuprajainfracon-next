@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
 import ProjectsClient from "./projects-client";
 
-const focusKeyword = "DTCP & RERA Approved Open Plots Near Hyderabad";
+const pageTitle = "Sri Supraja Infracon Projects | Hyderabad Real Estate";
+const pageDescription =
+  "Explore Sri Supraja Infracon projects across Kamkole, Mominpet, Sangareddy and Indrakaran, including Supraja IRIS, Bridge County, Sindhu Sarovar and Subhash Meadows.";
 
 export const metadata: Metadata = {
-  title: `${focusKeyword} | Sri Supraja Projects`,
-  description:
-    "Explore DTCP & RERA Approved Open Plots Near Hyderabad, resort plots, villa plots and premium plotted developments across Kamkole, Mominpet, Sangareddy and Indrakaran by Sri Supraja Infracon.",
+  title: pageTitle,
+  description: pageDescription,
   alternates: {
     canonical: "https://www.srisuprajainfracon.com/projects/",
   },
   openGraph: {
-    title: `${focusKeyword} | Sri Supraja Projects`,
+    title: pageTitle,
     description:
-      "Compare premium plotted developments, resort plots, villa plots and gated community plots near Hyderabad growth corridors by Sri Supraja Infracon.",
+      "View project details, locations, brochures and site visit information for Sri Supraja Infracon projects near Hyderabad growth corridors.",
     url: "https://www.srisuprajainfracon.com/projects/",
     siteName: "Sri Supraja Infracon",
     images: [
@@ -21,16 +22,16 @@ export const metadata: Metadata = {
         url: "https://www.srisuprajainfracon.com/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: `${focusKeyword} by Sri Supraja Infracon`,
+        alt: "Sri Supraja Infracon projects near Hyderabad",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${focusKeyword} | Sri Supraja Projects`,
+    title: pageTitle,
     description:
-      "Explore Supraja IRIS, Bridge County, Sindhu Sarovar and Subhash Meadows near Hyderabad growth corridors.",
+      "Explore Supraja IRIS, Bridge County, Sindhu Sarovar and Subhash Meadows by Sri Supraja Infracon.",
     images: ["https://www.srisuprajainfracon.com/og-image.jpg"],
   },
 };
@@ -42,10 +43,9 @@ export default function ProjectsPage() {
       {
         "@type": "CollectionPage",
         "@id": "https://www.srisuprajainfracon.com/projects/#collectionpage",
-        name: focusKeyword,
+        name: "Sri Supraja Infracon Projects",
         url: "https://www.srisuprajainfracon.com/projects/",
-        description:
-          "Sri Supraja Infracon project listing page featuring DTCP and RERA approved open plots, resort plots, villa plots and premium plotted developments near Hyderabad growth corridors.",
+        description: pageDescription,
         publisher: {
           "@type": "RealEstateAgent",
           name: "Sri Supraja Infracon",
@@ -54,8 +54,14 @@ export default function ProjectsPage() {
         primaryImageOfPage: {
           "@type": "ImageObject",
           url: "https://www.srisuprajainfracon.com/og-image.jpg",
-          caption: `${focusKeyword} by Sri Supraja Infracon`,
+          caption: "Sri Supraja Infracon projects near Hyderabad",
         },
+        about: [
+          "Real estate projects near Hyderabad",
+          "Plotted projects in Telangana",
+          "Resort-inspired plots in Kamkole",
+          "Residential projects near Hyderabad growth corridors",
+        ],
         mainEntity: [
           {
             "@type": "Product",
@@ -105,11 +111,8 @@ export default function ProjectsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
+
       <ProjectsClient />
     </>
   );
 }
-
-
-
-
