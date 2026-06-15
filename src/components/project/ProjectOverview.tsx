@@ -6,58 +6,66 @@ type Props = {
   project: Project;
 };
 
-const getCorrectedSeo = (project: Project) => {
-  const seo = getProjectSeo(project.slug);
-
-  if (project.slug !== "sindhu-sarovar") {
-    return seo;
+const overviewCopy: Record<
+  string,
+  {
+    label: string;
+    title: string;
+    description: string;
+    closing: string;
   }
-
-  return {
-    ...seo,
-    h2: "DTCP & RERA Approved Gated Community Open Plots at Supraja Sindhu Sarovar",
-    h3: "Supraja Sindhu Sarovar Brochure, Layout and Project Details",
+> = {
+  "supraja-iris": {
+    label: "Resort-Inspired Project",
+    title: "More Than a Plot. A Destination in the Making.",
     description:
-      "Supraja Sindhu Sarovar is a DTCP & RERA Approved plotted development planned with gated community infrastructure, 100-feet road connectivity, wide internal roads, landscaped parks, avenue plantation, pedestrian walkways, street lighting, rainwater harvesting pits, and clear-title vastu-compliant plots.",
-    lastParagraph:
-      "Supraja Sindhu Sarovar is suitable for buyers looking for DTCP & RERA Approved open plots with gated community planning, strong road connectivity, landscaped open spaces, and infrastructure-focused plotted development. Project details, availability, approvals, and specifications should be verified before booking.",
-    synonyms: [
-      "DTCP & RERA Approved open plots",
-      "gated community plots",
-      "100 feet road connectivity",
-      "vastu-compliant plots",
-      "black top roads",
-    ],
-  };
+      "Supraja IRIS brings together plotted ownership, planned lifestyle attractions, and a growth-oriented location in Kamkole. Lemon Tree Resort, Water & Amusement Theme Park, Go-Karting, and Water Villas are envisioned as part of its larger lifestyle ecosystem.",
+    closing:
+      "Designed for investors, families, and future homeowners, Supraja IRIS offers a distinctive land ownership experience shaped by infrastructure, recreation, and long-term location value.",
+  },
+
+  "bridge-county": {
+    label: "15-Acre Enclave within Supraja IRIS",
+    title: "Connected to Something Bigger.",
+    description:
+      "Bridge County is a dedicated 15-acre plotted enclave within the larger Supraja IRIS project environment at Kamkole, offering a quieter setting while staying connected to a broader lifestyle destination.",
+    closing:
+      "With organized planning, peaceful surroundings, and access to the wider Kamkole growth corridor, Bridge County is designed for clients seeking both comfort and future potential.",
+  },
+
+  "sindhu-sarovar": {
+    label: "Planned Project",
+    title: "Built Around Planning and Potential.",
+    description:
+      "Sindhu Sarovar is a thoughtfully planned project focused on organized layouts, accessibility, and long-term location relevance within an evolving region.",
+    closing:
+      "Created for investors and families seeking clear planning standards and future growth prospects, the project reflects Sri Supraja Infracon’s commitment to dependable real estate delivery.",
+  },
+
+  "subhash-meadows": {
+    label: "Well-Connected Project",
+    title: "Well-Planned. Well-Connected.",
+    description:
+      "Subhash Meadows offers a practical land ownership opportunity near important education, employment, and transportation corridors.",
+    closing:
+      "With essential infrastructure, convenient access, and long-term location relevance, Subhash Meadows is suited for investors and future homeowners planning with clarity.",
+  },
+};
+
+const fallbackOverview = {
+  label: "Project Overview",
+  title: "Thoughtfully Planned for Long-Term Value.",
+  description:
+    "A well-planned project by Sri Supraja Infracon, shaped around accessibility, infrastructure, and future location potential.",
+  closing:
+    "The project is designed for investors, clients, and families seeking dependable planning and long-term ownership confidence.",
 };
 
 const ProjectOverview = ({ project }: Props) => {
-  const seo = getCorrectedSeo(project);
+  const seo = getProjectSeo(project.slug);
   const brochureUrl = project.brochure;
   const availabilityMapUrl = project.availabilityMapUrl;
-
-  const comparisonText =
-    project.slug === "sindhu-sarovar" ? (
-      <>
-        Buyers also compare this project with{" "}
-        <strong className="text-slate-950">DTCP & RERA Approved open plots</strong>,{" "}
-        <strong className="text-slate-950">gated community plots</strong>,{" "}
-        <strong className="text-slate-950">100 feet road connectivity</strong>,{" "}
-        <strong className="text-slate-950">vastu-compliant layouts</strong> and{" "}
-        <strong className="text-slate-950">black top road infrastructure</strong>{" "}
-        before shortlisting a plotted community.
-      </>
-    ) : (
-      <>
-        Buyers also compare this project with{" "}
-        <strong className="text-slate-950">{seo.synonyms[0]}</strong>,{" "}
-        <strong className="text-slate-950">{seo.synonyms[1]}</strong>,{" "}
-        <strong className="text-slate-950">{seo.synonyms[2]}</strong>,{" "}
-        <strong className="text-slate-950">{seo.synonyms[3]}</strong> and{" "}
-        <strong className="text-slate-950">{seo.synonyms[4]}</strong> before
-        shortlisting a Sri Supraja Infracon plotted community.
-      </>
-    );
+  const overview = overviewCopy[project.slug] ?? fallbackOverview;
 
   return (
     <section className="bg-white px-6 py-20">
@@ -65,11 +73,11 @@ const ProjectOverview = ({ project }: Props) => {
         <div className="mb-14 grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <p className="mb-3 text-sm font-bold uppercase tracking-wide text-amber-600">
-              {project.location}
+              {overview.label} · {project.location}
             </p>
 
             <h2 className="mb-5 text-3xl font-extrabold leading-tight text-slate-950 md:text-5xl">
-              {seo.h2}
+              {overview.title}
             </h2>
 
             {availabilityMapUrl && (
@@ -86,11 +94,11 @@ const ProjectOverview = ({ project }: Props) => {
 
           <div>
             <p className="mb-6 text-lg leading-relaxed text-slate-600">
-              {seo.description}
+              {overview.description}
             </p>
 
             <p className="text-lg leading-relaxed text-slate-600">
-              {comparisonText}
+              {overview.closing}
             </p>
 
             <div className="mt-7 flex flex-wrap gap-4 text-sm font-bold">
@@ -125,9 +133,9 @@ const ProjectOverview = ({ project }: Props) => {
                 </h3>
 
                 <p className="mt-1 text-sm text-slate-500">
-                  Explore brochure details, master plan layout, approvals,
-                  connectivity, plotted development highlights and infrastructure
-                  planning information for {project.title}.
+                  Explore project details, layout plans, connectivity
+                  information, key features, and brochure resources for{" "}
+                  {project.title}.
                 </p>
               </div>
 
@@ -168,9 +176,8 @@ const ProjectOverview = ({ project }: Props) => {
                 </h4>
 
                 <p className="mb-6 text-sm leading-relaxed text-slate-200">
-                  Open the brochure to review project layout, approvals,
-                  connectivity, plotted development details and infrastructure
-                  planning information.
+                  Open the brochure to explore project information, layout
+                  plans, location insights, and key features.
                 </p>
 
                 <div className="flex flex-col gap-3">
@@ -208,7 +215,7 @@ const ProjectOverview = ({ project }: Props) => {
         )}
 
         <p className="mt-10 text-lg leading-relaxed text-slate-600">
-          {seo.lastParagraph}
+          {overview.closing}
         </p>
       </div>
     </section>
