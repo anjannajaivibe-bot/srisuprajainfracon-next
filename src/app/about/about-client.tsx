@@ -368,13 +368,11 @@ export default function AboutClient() {
         <section className="bg-gradient-to-br from-[#081225] via-[#102348] to-[#0B1633] px-6 py-24 text-white">
           <div className="container-max text-center">
             <h2 className="text-3xl font-display font-bold sm:text-4xl">
-              Ready to Explore Open Plots Near Hyderabad?
+              Secure Your Place in Hyderabad's Growth Story
             </h2>
 
             <p className="mx-auto mt-4 max-w-3xl text-slate-300">
-              Compare Supraja IRIS, Bridge County, Sindhu Sarovar and Subhash
-              Meadows before choosing the right project for your budget,
-              location preference and long-term growth potential.
+              Discover thoughtfully planned communities backed by approvals, transparency and a legacy of trust built over 24 years.
             </p>
 
             <div className="mt-7 flex flex-wrap justify-center gap-4">
