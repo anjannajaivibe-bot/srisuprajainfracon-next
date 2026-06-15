@@ -328,7 +328,7 @@ export default function AboutClient() {
 
         <section className="bg-white px-6 py-24">
           <div className="container-max">
-            <div className="rounded-[32px] border border-[#EFE7D3] bg-[#FCFBF8] p-10 text-center shadow-[0_12px_40px_rgba(11,22,51,0.06)] md:p-14">
+            <div className="rounded-[12px] border border-[#EFE7D3] bg-[#FCFBF8] p-10 text-center shadow-[0_12px_40px_rgba(11,22,51,0.06)] md:p-14">
               <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
                 Recognition &amp; Commitment
               </p>
