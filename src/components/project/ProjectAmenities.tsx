@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Project } from "@/data/projects";
+import { projectContent } from "@/data/projectContent";
 
 type Props = {
   project: Project;
@@ -29,9 +30,7 @@ const extraAmenities: Record<string, string[]> = {
     "Access to Kamkole growth corridor",
   ],
 
-  "subhash-meadows": [
-    "LRS charges paid as per applicable regulations",
-  ],
+  "subhash-meadows": ["LRS charges paid as per applicable regulations"],
 };
 
 const sectionCopy: Record<
@@ -101,8 +100,10 @@ const fallbackCopy = {
 const ProjectAmenities = ({ project }: Props) => {
   const copy = sectionCopy[project.slug] ?? fallbackCopy;
 
+  const content = projectContent[project.slug as keyof typeof projectContent];
+
   const amenities = [
-    ...(project.amenities || []),
+    ...(content?.amenities || []),
     ...(extraAmenities[project.slug] || []),
   ];
 
