@@ -251,7 +251,7 @@ export default function AboutClient() {
           </div>
         </section>
 
-        <section className="bg-[#F8F6F1] px-6 py-20">
+        <section className="bg-white px-6 py-20">
           <div className="container-max">
             <div className="text-center">
               <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-[#C9A227]">
@@ -284,7 +284,7 @@ export default function AboutClient() {
           </div>
         </section>
 
-        <section className="bg-[#F8F6F1] px-6 py-24">
+        <section className="bg-white px-6 py-20">
           <div className="container-max">
             <div className="mb-14 text-center">
               <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
