@@ -172,85 +172,93 @@ export default function AboutClient() {
                   imageClassName="object-cover object-top"
                 />
 
-<div>
-  <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
-    Chairman&apos;s Message
-  </p>
+                <div>
+                  <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
+                    Chairman&apos;s Message
+                  </p>
 
-  <h2 className="mb-2 text-3xl font-display font-bold text-[#111827]">
-    Mr. Tudi Praveen
-  </h2>
+                  <h2 className="mb-2 text-3xl font-display font-bold text-[#111827]">
+                    Mr. Tudi Praveen
+                  </h2>
 
-  <p className="mb-5 font-bold text-[#C9A227]">
-    Chairman &amp; Managing Director
-  </p>
+                  <p className="mb-5 font-bold text-[#C9A227]">
+                    Chairman &amp; Managing Director
+                  </p>
 
-  <p className="mb-4 leading-relaxed text-[#4B5563]">
-    “Over the past 24 years, Sri Supraja Infracon has grown with a simple belief:
-    trust is the foundation of every successful development.”
-  </p>
+                  <p className="mb-4 leading-relaxed text-[#4B5563]">
+                    “Over the past 24 years, Sri Supraja Infracon has grown with
+                    a simple belief: trust is the foundation of every successful
+                    development.”
+                  </p>
 
-  <p className="mb-4 leading-relaxed text-[#4B5563]">
-    What began as a vision to create quality living spaces has evolved into a
-    journey of delivering apartments, villa communities, HMDA approved layouts,
-    DTCP approved projects and large-scale real estate developments across
-    Hyderabad and Telangana.
-  </p>
+                  <p className="mb-4 leading-relaxed text-[#4B5563]">
+                    What began as a vision to create quality living spaces has
+                    evolved into a journey of delivering apartments, villa
+                    communities, HMDA approved layouts, DTCP approved projects
+                    and large-scale real estate developments across Hyderabad
+                    and Telangana.
+                  </p>
 
-  <p className="mb-4 leading-relaxed text-[#4B5563]">
-    Every project we have undertaken reflects our commitment to transparency,
-    legal compliance, infrastructure quality and customer satisfaction. We
-    understand that purchasing a property is one of the most important decisions
-    in a family&apos;s life. That responsibility drives us to maintain the highest
-    standards in planning, approvals and execution.
-  </p>
+                  <p className="mb-4 leading-relaxed text-[#4B5563]">
+                    Every project we have undertaken reflects our commitment to
+                    transparency, legal compliance, infrastructure quality and
+                    customer satisfaction. We understand that purchasing a
+                    property is one of the most important decisions in a
+                    family&apos;s life. That responsibility drives us to maintain
+                    the highest standards in planning, approvals and execution.
+                  </p>
 
-  <p className="mb-4 leading-relaxed text-[#4B5563]">
-    Today, our developments span from completed residential communities to
-    landmark projects such as Supraja IRIS and Bridge County, representing the
-    next generation of integrated lifestyle and investment destinations. While
-    our projects continue to evolve, our values remain unchanged: integrity,
-    trust, quality and long-term value creation.
-  </p>
+                  <p className="mb-4 leading-relaxed text-[#4B5563]">
+                    Today, our developments span from completed residential
+                    communities to landmark projects such as Supraja IRIS and
+                    Bridge County, representing the next generation of integrated
+                    lifestyle and investment destinations. While our projects
+                    continue to evolve, our values remain unchanged: integrity,
+                    trust, quality and long-term value creation.
+                  </p>
 
-  <p className="mb-4 leading-relaxed text-[#4B5563]">
-    Our success over the last two decades has been made possible by the
-    confidence of thousands of customers, investors, channel partners and
-    well-wishers who have been part of our journey. Their trust inspires us to
-    continuously raise our standards and build developments that stand the test
-    of time.
-  </p>
+                  <p className="mb-4 leading-relaxed text-[#4B5563]">
+                    Our success over the last two decades has been made possible
+                    by the confidence of thousands of customers, investors,
+                    channel partners and well-wishers who have been part of our
+                    journey. Their trust inspires us to continuously raise our
+                    standards and build developments that stand the test of time.
+                  </p>
 
-  <p className="mb-4 leading-relaxed text-[#4B5563]">
-    As we look ahead, we remain committed to creating approved, well-planned and
-    future-ready communities that contribute positively to regional growth while
-    delivering lasting value for generations to come.
-  </p>
+                  <p className="mb-4 leading-relaxed text-[#4B5563]">
+                    As we look ahead, we remain committed to creating approved,
+                    well-planned and future-ready communities that contribute
+                    positively to regional growth while delivering lasting value
+                    for generations to come.
+                  </p>
 
-  <div className="mt-10 border-t border-[#E5E7EB] pt-8">
-    <p className="mb-8 leading-relaxed text-[#4B5563]">
-      Thank you for your trust and support.
-    </p>
+                  <div className="mt-10 border-t border-[#E5E7EB] pt-8">
+                    <p className="mb-8 leading-relaxed text-[#4B5563]">
+                      Thank you for your trust and support.
+                    </p>
 
-    <div className="space-y-1">
-      <p className="font-medium italic text-[#4B5563]">
-        Warm Regards,
-      </p>
+                    <div className="space-y-1">
+                      <p className="font-medium italic text-[#4B5563]">
+                        Warm Regards,
+                      </p>
 
-      <h3 className="text-xl font-display font-bold text-[#111827]">
-        Mr. Tudi Praveen
-      </h3>
+                      <h3 className="text-xl font-display font-bold text-[#111827]">
+                        Mr. Tudi Praveen
+                      </h3>
 
-      <p className="font-semibold text-[#C9A227]">
-        Chairman &amp; Managing Director
-      </p>
+                      <p className="font-semibold text-[#C9A227]">
+                        Chairman &amp; Managing Director
+                      </p>
 
-      <p className="text-[#6B7280]">
-        Sri Supraja Infracon
-      </p>
-    </div>
-  </div>
-</div>
+                      <p className="text-[#6B7280]">
+                        Sri Supraja Infracon
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="text-center">
               <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-[#C9A227]">
                 Social Welfare
@@ -309,8 +317,9 @@ export default function AboutClient() {
                 <p>
                   Our projects are positioned across important growth locations
                   such as Kamkole, Mominpet and Indrakaran, with strong
-                  relevance to buyers searching for DTCP & RERA Approved plots near
-                  Hyderabad and RERA approved plotted communities in Telangana.
+                  relevance to buyers searching for DTCP &amp; RERA Approved plots
+                  near Hyderabad and RERA approved plotted communities in
+                  Telangana.
                 </p>
 
                 <p>
@@ -351,7 +360,7 @@ export default function AboutClient() {
           <div className="container-max">
             <div className="mb-12 text-center">
               <h2 className="text-3xl font-display font-bold text-[#111827] sm:text-4xl">
-                Our Vision & Mission
+                Our Vision &amp; Mission
               </h2>
             </div>
 
@@ -480,7 +489,7 @@ export default function AboutClient() {
           <div className="container-max">
             <div className="rounded-[32px] border border-[#EFE7D3] bg-[#FCFBF8] p-10 text-center shadow-[0_12px_40px_rgba(11,22,51,0.06)] md:p-14">
               <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
-                Certifications & Approvals
+                Certifications &amp; Approvals
               </p>
 
               <h2 className="text-3xl font-display font-bold text-[#111827] sm:text-4xl">
@@ -520,8 +529,8 @@ export default function AboutClient() {
 
             <p className="mx-auto mt-4 max-w-3xl text-slate-300">
               Compare Supraja IRIS, Bridge County, Sindhu Sarovar and Subhash
-              Meadows before choosing the right project for your budget, location
-              preference and long-term growth potential.
+              Meadows before choosing the right project for your budget,
+              location preference and long-term growth potential.
             </p>
 
             <div className="mt-7 flex flex-wrap justify-center gap-4">
@@ -545,7 +554,3 @@ export default function AboutClient() {
     </>
   );
 }
-
-
-
-
