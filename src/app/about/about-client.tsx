@@ -259,13 +259,14 @@ export default function AboutClient() {
               </p>
 
               <h2 className="text-3xl font-display font-bold text-[#111827]">
-                Community Responsibility Beyond Real Estate
+                Social Responsibility Rooted in Community Growth
               </h2>
 
               <p className="mx-auto mt-4 max-w-3xl text-[#4B5563]">
-                The company believes growth should support people, families and
-                local communities through education, welfare and meaningful
-                social contribution.
+                At Sri Supraja Infracon, we believe growth carries a responsibility to give back. 
+                Through education, healthcare, community welfare and social support initiatives, 
+                we strive to make a positive difference in the lives of underprivileged individuals, 
+                families and communities.
               </p>
             </div>
 
