@@ -153,45 +153,55 @@ export default function AboutClient() {
               animate={{ opacity: 1, y: 0 }}
               className="mx-auto mt-6 max-w-4xl text-lg leading-relaxed text-slate-200"
             >
-              Sri Supraja Infracon Builders & Developers is focused on DTCP and
-              RERA approved open plot communities near Hyderabad growth
+              Sri Supraja Infracon Builders &amp; Developers is focused on DTCP
+              and RERA approved open plot communities near Hyderabad growth
               corridors, with a strong commitment to trust, clear documentation,
               planned infrastructure and customer-first service.
             </motion.p>
           </div>
         </section>
 
-        <section className="bg-[#F8F6F1] px-6 py-20">
-          <div className="mx-auto max-w-6xl">
-            <div className="mb-14 rounded-[32px] border border-[#EFE7D3] bg-white p-6 shadow-[0_18px_50px_rgba(11,22,51,0.08)] md:p-8">
-              <div className="grid gap-8 md:grid-cols-[0.8fr_1.2fr] md:items-center">
+        <section className="bg-white px-6 py-24">
+          <div className="container-max">
+            <div className="grid gap-12 lg:grid-cols-[380px_1fr] lg:items-start">
+              <div>
                 <SmartImage
                   src={ownerPhoto}
                   alt="Mr Tudi Praveen Chairman and Managing Director of Sri Supraja Infracon"
-                  className="h-[340px] w-full rounded-[24px] shadow-lg"
+                  className="h-[460px] w-full rounded-[20px]"
                   imageClassName="object-cover object-top"
                 />
 
-                <div>
-                  <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
-                    Chairman&apos;s Message
-                  </p>
-
-                  <h2 className="mb-2 text-3xl font-display font-bold text-[#111827]">
+                <div className="mt-6 border-l-4 border-[#C9A227] pl-5">
+                  <h2 className="text-3xl font-display font-bold text-[#111827]">
                     Mr. Tudi Praveen
                   </h2>
-
-                  <p className="mb-5 font-bold text-[#C9A227]">
+                  <p className="mt-2 font-bold text-[#C9A227]">
                     Chairman &amp; Managing Director
                   </p>
+                  <p className="mt-2 text-sm text-[#6B7280]">
+                    Sri Supraja Infracon
+                  </p>
+                </div>
+              </div>
 
-                  <p className="mb-4 leading-relaxed text-[#4B5563]">
+              <div className="max-w-4xl">
+                <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-[#C9A227]">
+                  Chairman&apos;s Message
+                </p>
+
+                <h2 className="mb-8 max-w-3xl text-3xl font-display font-bold leading-tight text-[#111827] sm:text-4xl">
+                  A Message Built on Trust, Transparency and Long-Term Value
+                </h2>
+
+                <div className="space-y-5 text-[17px] leading-8 text-[#4B5563]">
+                  <p>
                     “Over the past 24 years, Sri Supraja Infracon has grown with
                     a simple belief: trust is the foundation of every successful
                     development.”
                   </p>
 
-                  <p className="mb-4 leading-relaxed text-[#4B5563]">
+                  <p>
                     What began as a vision to create quality living spaces has
                     evolved into a journey of delivering apartments, villa
                     communities, HMDA approved layouts, DTCP approved projects
@@ -199,7 +209,7 @@ export default function AboutClient() {
                     and Telangana.
                   </p>
 
-                  <p className="mb-4 leading-relaxed text-[#4B5563]">
+                  <p>
                     Every project we have undertaken reflects our commitment to
                     transparency, legal compliance, infrastructure quality and
                     customer satisfaction. We understand that purchasing a
@@ -208,7 +218,7 @@ export default function AboutClient() {
                     the highest standards in planning, approvals and execution.
                   </p>
 
-                  <p className="mb-4 leading-relaxed text-[#4B5563]">
+                  <p>
                     Today, our developments span from completed residential
                     communities to landmark projects such as Supraja IRIS and
                     Bridge County, representing the next generation of integrated
@@ -217,7 +227,7 @@ export default function AboutClient() {
                     trust, quality and long-term value creation.
                   </p>
 
-                  <p className="mb-4 leading-relaxed text-[#4B5563]">
+                  <p>
                     Our success over the last two decades has been made possible
                     by the confidence of thousands of customers, investors,
                     channel partners and well-wishers who have been part of our
@@ -225,40 +235,26 @@ export default function AboutClient() {
                     standards and build developments that stand the test of time.
                   </p>
 
-                  <p className="mb-4 leading-relaxed text-[#4B5563]">
+                  <p>
                     As we look ahead, we remain committed to creating approved,
                     well-planned and future-ready communities that contribute
                     positively to regional growth while delivering lasting value
                     for generations to come.
                   </p>
 
-                  <div className="mt-10 border-t border-[#E5E7EB] pt-8">
-                    <p className="mb-8 leading-relaxed text-[#4B5563]">
-                      Thank you for your trust and support.
-                    </p>
+                  <p className="pt-4 font-medium text-[#111827]">
+                    Thank you for your trust and support.
+                  </p>
 
-                    <div className="space-y-1">
-                      <p className="font-medium italic text-[#4B5563]">
-                        Warm Regards,
-                      </p>
-
-                      <h3 className="text-xl font-display font-bold text-[#111827]">
-                        Mr. Tudi Praveen
-                      </h3>
-
-                      <p className="font-semibold text-[#C9A227]">
-                        Chairman &amp; Managing Director
-                      </p>
-
-                      <p className="text-[#6B7280]">
-                        Sri Supraja Infracon
-                      </p>
-                    </div>
-                  </div>
+                  <p className="italic text-[#6B7280]">Warm Regards,</p>
                 </div>
               </div>
             </div>
+          </div>
+        </section>
 
+        <section className="bg-[#F8F6F1] px-6 py-20">
+          <div className="container-max">
             <div className="text-center">
               <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-[#C9A227]">
                 Social Welfare
@@ -317,8 +313,8 @@ export default function AboutClient() {
                 <p>
                   Our projects are positioned across important growth locations
                   such as Kamkole, Mominpet and Indrakaran, with strong
-                  relevance to buyers searching for DTCP &amp; RERA Approved plots
-                  near Hyderabad and RERA approved plotted communities in
+                  relevance to buyers searching for DTCP &amp; RERA Approved
+                  plots near Hyderabad and RERA approved plotted communities in
                   Telangana.
                 </p>
 
