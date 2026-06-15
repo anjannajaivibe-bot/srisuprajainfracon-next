@@ -129,8 +129,8 @@ const faqCopy: Record<
   },
 
   "supraja-iris": {
-    eyebrow: "Project Questions",
-    title: "Supraja IRIS FAQs",
+    eyebrow: "FAQs",
+    title: "Let's Clear Things Up",
     intro:
       "Clear answers about project planning, lifestyle attractions, location value, and site visit essentials.",
     checklistTitle: "Before Visiting Supraja IRIS",
@@ -142,8 +142,8 @@ const faqCopy: Record<
   },
 
   "bridge-county": {
-    eyebrow: "Project Questions",
-    title: "Bridge County FAQs",
+    eyebrow: "FAQs",
+    title: "Let's Clear Things Up",
     intro:
       "Key details about this 15-acre enclave within Supraja IRIS, its location context, and planning value.",
     checklistTitle: "Before Visiting Bridge County",
@@ -155,8 +155,8 @@ const faqCopy: Record<
   },
 
   "sindhu-sarovar": {
-    eyebrow: "Project Questions",
-    title: "Sindhu Sarovar FAQs",
+    eyebrow: "FAQs",
+    title: "Let's Clear Things Up",
     intro:
       "Focused answers about planning quality, location relevance, documentation, and project suitability.",
     checklistTitle: "Before Visiting Sindhu Sarovar",
@@ -168,8 +168,8 @@ const faqCopy: Record<
   },
 
   "subhash-meadows": {
-    eyebrow: "Project Questions",
-    title: "Subhash Meadows FAQs",
+    eyebrow: "FAQs",
+    title: "Let's Clear Things Up",
     intro:
       "Important answers about location access, infrastructure, LRS wording, and project suitability.",
     checklistTitle: "Before Visiting Subhash Meadows",
