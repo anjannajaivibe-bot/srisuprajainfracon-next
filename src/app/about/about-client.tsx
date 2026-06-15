@@ -140,12 +140,12 @@ export default function AboutClient() {
             </motion.p>
 
             <motion.h1
-              initial={{ opacity: 0, y: 28 }}
+              initial={{ opacity: 0, y: 36 }}
               animate={{ opacity: 1, y: 0 }}
               className="mx-auto max-w-5xl text-4xl font-display font-bold leading-tight text-white sm:text-5xl lg:text-7xl"
             >
-              Building Dreams,{" "}
-              <span className="text-[#C9A227]">Serving Communities</span>
+              Over 24 Years of Building Trust,{" "}
+              <span className="text-[#C9A227]">Communities and Long-Term Value</span>
             </motion.h1>
 
             <motion.p
@@ -153,10 +153,8 @@ export default function AboutClient() {
               animate={{ opacity: 1, y: 0 }}
               className="mx-auto mt-6 max-w-4xl text-lg leading-relaxed text-slate-200"
             >
-              Sri Supraja Infracon Builders &amp; Developers is focused on DTCP
-              and RERA approved open plot communities near Hyderabad growth
-              corridors, with a strong commitment to trust, clear documentation,
-              planned infrastructure and customer-first service.
+              Sri Supraja Infracon is a trusted real estate development company focused on approved layouts, 
+              planned infrastructure and customer-first property development across Hyderabad and Telangana.
             </motion.p>
           </div>
         </section>
