@@ -1,7 +1,6 @@
 import Link from "next/link";
 import SmartImage from "@/components/shared/SmartImage";
 import type { Project } from "@/data/projects";
-import { getProjectSeo } from "@/data/projectSeo";
 import resortImage from "@/assets/project-iris.webp";
 
 type Props = {
@@ -10,60 +9,61 @@ type Props = {
 
 const resortFeatures = [
   {
-    title: "Lemon Tree Resort Under Construction",
-    desc: "A major hospitality anchor under development within the ecosystem, improving lifestyle appeal and buyer confidence.",
+    title: "Lemon Tree Resort",
+    desc: "Under construction within the Supraja IRIS project ecosystem.",
   },
   {
-    title: "Planned Water Villas",
-    desc: "Premium water villa concept planned to strengthen the resort-style experience around the plotted community.",
+    title: "Water & Amusement Theme Park",
+    desc: "Planned recreation space designed to add lifestyle value.",
   },
   {
-    title: "Destination Wedding Convention",
-    desc: "A planned venue concept for premium gatherings, events and family celebrations within the wider development vision.",
+    title: "Go-Karting",
+    desc: "Planned adventure attraction for leisure and weekend activity.",
   },
   {
-    title: "Water Theme Park Concept",
-    desc: "Planned recreation-focused infrastructure designed to create weekend destination value for families and visitors.",
+    title: "Water Villas",
+    desc: "Planned lifestyle feature within the larger resort-inspired vision.",
   },
   {
-    title: "Amusement Park and Go-Karting",
-    desc: "Adventure and entertainment attractions planned to improve footfall, recall value and lifestyle positioning.",
+    title: "Convention & Event Spaces",
+    desc: "Planned hospitality-focused spaces for gatherings and celebrations.",
   },
   {
-    title: "High ROI (Return on Investment) Growth Corridor",
-    desc: "Located near NH-65, Woxsen University, Regional Ring Road influence zone and the Zaheerabad NIMZ corridor.",
+    title: "Growth Corridor Advantage",
+    desc: "Near NH-65, Woxsen University, RRR influence zone, and NIMZ corridor.",
   },
 ];
 
 const ProjectResort = ({ project }: Props) => {
-  if (project.slug !== "supraja-iris-resort-plots") return null;
+  const isSuprajaIris =
+    project.slug === "supraja-iris-resort-plots" ||
+    project.slug === "supraja-iris";
 
-  const seo = getProjectSeo(project.slug);
+  if (!isSuprajaIris) return null;
 
   return (
     <section className="bg-[#f8fafc] px-6 py-24">
       <div className="mx-auto max-w-7xl">
         <div className="mb-14 text-center">
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-amber-600">
-            Resort Lifestyle Ecosystem
+            Lifestyle Attractions
           </p>
 
           <h2 className="mx-auto mb-6 max-w-4xl text-4xl font-extrabold leading-tight text-slate-950 md:text-5xl">
-            {seo.focusKeyword} with Resort Ecosystem
+            A Resort-Inspired Project Ecosystem
           </h2>
 
           <p className="mx-auto max-w-3xl text-lg leading-relaxed text-slate-600">
-            Supraja IRIS is positioned as a{" "}
-            <strong>resort-style plotted development</strong> near Kamkole with
-            Lemon Tree Resort under construction and planned leisure attractions
-            such as water villas, water theme park and go-karting.
+            Supraja IRIS brings plotted ownership together with planned
+            lifestyle attractions, hospitality spaces, and long-term location
+            value in Kamkole.
           </p>
         </div>
 
         <div className="mb-16 overflow-hidden rounded-[36px] bg-white shadow-2xl">
           <SmartImage
             src={typeof resortImage === "string" ? resortImage : resortImage.src}
-            alt={seo.imageAlt}
+            alt="Supraja IRIS resort-inspired project ecosystem with lifestyle attractions in Kamkole"
             className="h-full w-full object-cover"
           />
         </div>
@@ -89,16 +89,21 @@ const ProjectResort = ({ project }: Props) => {
 
         <div className="mt-12 rounded-3xl border border-amber-100 bg-white p-7 shadow-sm">
           <p className="text-lg leading-relaxed text-slate-700">
-            Buyers searching for <strong>{seo.synonyms[0]}</strong>,{" "}
-            <strong>{seo.synonyms[2]}</strong> and{" "}
-            <strong>{seo.synonyms[3]}</strong> can evaluate Supraja IRIS for its
-            combination of land ownership, planned leisure infrastructure and
-            strategic corridor advantage.
+            Designed for investors, clients, and families, Supraja IRIS combines
+            land ownership with a planned leisure ecosystem and access to key
+            regional growth drivers.
           </p>
 
           <div className="mt-5 flex flex-wrap gap-4 text-sm font-bold">
             <Link href="/projects" className="text-blue-700 underline">
               Explore more Sri Supraja Infracon projects
+            </Link>
+
+            <Link
+              href="/resort-plots-in-hyderabad"
+              className="text-blue-700 underline"
+            >
+              Read about resort plots in Hyderabad
             </Link>
 
             <a
@@ -117,7 +122,3 @@ const ProjectResort = ({ project }: Props) => {
 };
 
 export default ProjectResort;
-
-
-
-

@@ -1,15 +1,70 @@
 import SmartImage from "@/components/shared/SmartImage";
 import type { Project } from "@/data/projects";
 import { projectContent } from "@/data/projectContent";
-import { getProjectSeo } from "@/data/projectSeo";
 
 type Props = {
   project: Project;
 };
 
+const galleryCopy: Record<
+  string,
+  {
+    title: string;
+    intro: string;
+    altPrefix: string;
+  }
+> = {
+  "supraja-iris": {
+    title: "Supraja IRIS Gallery",
+    intro:
+      "Explore site visuals, project layouts, entrance features, lifestyle attractions, and key infrastructure elements.",
+    altPrefix:
+      "Supraja IRIS resort-inspired plots in Kamkole project gallery",
+  },
+
+  "supraja-iris-resort-plots": {
+    title: "Supraja IRIS Gallery",
+    intro:
+      "Explore site visuals, project layouts, entrance features, lifestyle attractions, and key infrastructure elements.",
+    altPrefix:
+      "Supraja IRIS resort-inspired plots in Kamkole project gallery",
+  },
+
+  "bridge-county": {
+    title: "Bridge County Gallery",
+    intro:
+      "View project visuals, layout references, entrance features, and site infrastructure from this 15-acre enclave within Supraja IRIS.",
+    altPrefix:
+      "Bridge County 15-acre plotted enclave within Supraja IRIS gallery",
+  },
+
+  "sindhu-sarovar": {
+    title: "Sindhu Sarovar Gallery",
+    intro:
+      "Explore project visuals, layout references, entrance features, and infrastructure elements.",
+    altPrefix:
+      "Supraja Sindhu Sarovar planned project gallery",
+  },
+
+  "subhash-meadows": {
+    title: "Subhash Meadows Gallery",
+    intro:
+      "View site visuals, layout references, entrance features, and key project infrastructure.",
+    altPrefix:
+      "Subhash Meadows well-connected plotted project gallery",
+  },
+};
+
+const fallbackGallery = {
+  title: "Project Gallery",
+  intro:
+    "Explore site visuals, layout references, entrance features, and project infrastructure.",
+  altPrefix: "Sri Supraja Infracon project gallery",
+};
+
 const ProjectGallery = ({ project }: Props) => {
   const content = projectContent[project.slug as keyof typeof projectContent];
-  const seo = getProjectSeo(project.slug);
+  const copy = galleryCopy[project.slug] ?? fallbackGallery;
 
   if (!content?.gallery?.length) return null;
 
@@ -22,13 +77,11 @@ const ProjectGallery = ({ project }: Props) => {
           </p>
 
           <h2 className="mx-auto max-w-4xl text-4xl font-extrabold leading-tight text-slate-950 md:text-5xl">
-            {seo.focusKeyword} Gallery
+            {copy.title}
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-600">
-            Explore project visuals, layout views, entrance concepts,
-            development progress and infrastructure highlights for{" "}
-            <strong>{seo.synonyms[0]}</strong>.
+            {copy.intro}
           </p>
         </div>
 
@@ -40,7 +93,7 @@ const ProjectGallery = ({ project }: Props) => {
             >
               <SmartImage
                 src={image}
-                alt={`${seo.focusKeyword} gallery image ${index + 1}`}
+                alt={`${copy.altPrefix} image ${index + 1}`}
                 className="h-[320px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
@@ -52,7 +105,3 @@ const ProjectGallery = ({ project }: Props) => {
 };
 
 export default ProjectGallery;
-
-
-
-

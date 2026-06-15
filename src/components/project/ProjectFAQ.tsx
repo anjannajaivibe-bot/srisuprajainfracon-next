@@ -4,29 +4,38 @@ import { useState } from "react";
 import Link from "next/link";
 import type { Project } from "@/data/projects";
 import { projectContent } from "@/data/projectContent";
-import { getProjectSeo } from "@/data/projectSeo";
 
 type Props = {
   project: Project;
 };
 
-const getExtraFaqs = (slug: string) => {
-  if (slug === "supraja-iris-resort-plots") {
+type FaqItem = {
+  question: string;
+  answer: string;
+};
+
+const getExtraFaqs = (slug: string): FaqItem[] => {
+  if (slug === "supraja-iris-resort-plots" || slug === "supraja-iris") {
     return [
       {
-        question: "Is Supraja IRIS approved by DTCP and RERA?",
+        question: "What makes Supraja IRIS different?",
         answer:
-          "Yes. Supraja IRIS is positioned as a DTCP & RERA approved resort-style plotted development at Kamkole near Hyderabad. Buyers should review the latest approval documents during the site visit or booking discussion.",
+          "Supraja IRIS combines plotted ownership with planned lifestyle attractions, including Lemon Tree Resort under construction, Water & Amusement Theme Park, Go-Karting, and Water Villas.",
       },
       {
-        question: "Is Lemon Tree Resort already operational inside Supraja IRIS?",
+        question: "Is Lemon Tree Resort operational?",
         answer:
-          "No. Lemon Tree Resort is currently under construction within the Supraja IRIS ecosystem. Other lifestyle features such as water villas, water theme park, amusement zone and go-karting are planned or upcoming concepts.",
+          "No. Lemon Tree Resort is currently under construction within the Supraja IRIS project ecosystem.",
       },
       {
-        question: "Why is Supraja IRIS considered a resort plot investment near Hyderabad?",
+        question: "Are the lifestyle attractions ready?",
         answer:
-          "Supraja IRIS combines plotted development ownership with a planned resort ecosystem, Kamkole location advantage, NH-65 connectivity, Woxsen University adjacency and the broader NIMZ Zaheerabad growth corridor influence.",
+          "The Water & Amusement Theme Park, Go-Karting, and Water Villas are planned features. Clients should confirm current development status during their site visit.",
+      },
+      {
+        question: "Why is Kamkole important for investors?",
+        answer:
+          "Kamkole benefits from NH-65 connectivity, nearby institutions such as Woxsen University, and access to the broader NIMZ and RRR growth corridor influence.",
       },
     ];
   }
@@ -34,19 +43,19 @@ const getExtraFaqs = (slug: string) => {
   if (slug === "bridge-county") {
     return [
       {
-        question: "Is Bridge County a DTCP and RERA approved project?",
+        question: "What is Bridge County?",
         answer:
-          "Yes. Bridge County is positioned as a DTCP & RERA approved luxury plotted development at Kamkole. Buyers should verify the latest approval and registration details before booking.",
+          "Bridge County is a dedicated 15-acre plotted enclave within the larger Supraja IRIS project environment at Kamkole.",
       },
       {
-        question: "Why is Bridge County suitable for buyers looking near Woxsen University?",
+        question: "How is Bridge County connected to Supraja IRIS?",
         answer:
-          "Bridge County is located at Kamkole with connectivity advantages toward Woxsen University, NH-65 and nearby growth corridors, making it suitable for buyers comparing premium open plots near Hyderabad.",
+          "It is planned as a quieter plotted area inside the broader Supraja IRIS ecosystem, giving clients a more focused project setting with access to the larger location vision.",
       },
       {
-        question: "What type of plots are available in Bridge County?",
+        question: "Who is Bridge County suitable for?",
         answer:
-          "Bridge County focuses on luxury open plots with planned infrastructure, internal roads, community features and Sri Supraja Infracon project support.",
+          "Bridge County is suitable for investors, clients, and families seeking a peaceful plotted environment within Kamkole’s emerging growth corridor.",
       },
     ];
   }
@@ -54,19 +63,19 @@ const getExtraFaqs = (slug: string) => {
   if (slug === "sindhu-sarovar") {
     return [
       {
-        question: "Is Sindhu Sarovar approved by DTCP and RERA?",
+        question: "What is Sindhu Sarovar focused on?",
         answer:
-          "Yes. Sindhu Sarovar is positioned as a DTCP & RERA approved plotted development in Mominpet. Buyers should review the latest project documents and availability before booking.",
+          "Sindhu Sarovar is focused on organized layouts, accessibility, practical infrastructure, and long-term location relevance.",
       },
       {
-        question: "Why choose Sindhu Sarovar for open plots in Mominpet?",
+        question: "Is Sindhu Sarovar a waterfront project?",
         answer:
-          "Sindhu Sarovar offers planned plotted development infrastructure, gated community features, wide roads and Mominpet location advantage for buyers looking near Hyderabad growth corridors.",
+          "No. Sindhu Sarovar should not be positioned as a waterfront project. Its communication should focus on planning quality, accessibility, and future potential.",
       },
       {
-        question: "Is Sindhu Sarovar suitable for long-term investment?",
+        question: "Who should consider Sindhu Sarovar?",
         answer:
-          "Sindhu Sarovar may suit buyers seeking premium plots near Hyderabad with location-led appreciation potential, planned infrastructure and approval-backed project confidence.",
+          "It is suitable for investors and families looking for a planned project with dependable infrastructure and evolving location advantages.",
       },
     ];
   }
@@ -76,17 +85,17 @@ const getExtraFaqs = (slug: string) => {
       {
         question: "Where is Subhash Meadows located?",
         answer:
-          "Subhash Meadows is located at Indrakaran with connectivity toward ORR, IIT Hyderabad, ICRISAT, BHEL and Sangareddy.",
+          "Subhash Meadows is located at Indrakaran, with access toward ORR, IIT Hyderabad, ICRISAT, BHEL, and Sangareddy.",
       },
       {
-        question: "Is Subhash Meadows suitable for affordable plot buyers?",
+        question: "What should be mentioned about LRS?",
         answer:
-          "Yes. Subhash Meadows is positioned for buyers looking for affordable open plots near ORR Hyderabad with practical connectivity and planned community infrastructure.",
+          "Use professional wording such as “LRS charges paid as per applicable regulations” instead of informal wording.",
       },
       {
-        question: "What infrastructure is planned at Subhash Meadows?",
+        question: "Who is Subhash Meadows suitable for?",
         answer:
-          "The project includes black-top roads, Vastu-based layout planning, underground drainage, avenue plantation, parks, gated entrance and security room provision.",
+          "It is suitable for investors and future homeowners seeking accessibility, essential infrastructure, and long-term location relevance.",
       },
     ];
   }
@@ -94,56 +103,151 @@ const getExtraFaqs = (slug: string) => {
   return [];
 };
 
+const faqCopy: Record<
+  string,
+  {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    checklistTitle: string;
+    checklistNote: string;
+    ctaTitle: string;
+    ctaText: string;
+  }
+> = {
+  "supraja-iris-resort-plots": {
+    eyebrow: "Project Questions",
+    title: "Supraja IRIS FAQs",
+    intro:
+      "Clear answers about project planning, lifestyle attractions, location value, and site visit essentials.",
+    checklistTitle: "Before Visiting Supraja IRIS",
+    checklistNote:
+      "Confirm current availability, development status, attraction timelines, and documentation with Supraja Management.",
+    ctaTitle: "Need Current IRIS Details?",
+    ctaText:
+      "Connect with Supraja Management for brochures, site visits, availability, and current project information.",
+  },
+
+  "supraja-iris": {
+    eyebrow: "Project Questions",
+    title: "Supraja IRIS FAQs",
+    intro:
+      "Clear answers about project planning, lifestyle attractions, location value, and site visit essentials.",
+    checklistTitle: "Before Visiting Supraja IRIS",
+    checklistNote:
+      "Confirm current availability, development status, attraction timelines, and documentation with Supraja Management.",
+    ctaTitle: "Need Current IRIS Details?",
+    ctaText:
+      "Connect with Supraja Management for brochures, site visits, availability, and current project information.",
+  },
+
+  "bridge-county": {
+    eyebrow: "Project Questions",
+    title: "Bridge County FAQs",
+    intro:
+      "Key details about this 15-acre enclave within Supraja IRIS, its location context, and planning value.",
+    checklistTitle: "Before Visiting Bridge County",
+    checklistNote:
+      "Confirm plot availability, enclave details, documentation, and site visit options with Supraja Management.",
+    ctaTitle: "Need Bridge County Details?",
+    ctaText:
+      "Speak with Supraja Management for current availability, brochure information, and visit planning.",
+  },
+
+  "sindhu-sarovar": {
+    eyebrow: "Project Questions",
+    title: "Sindhu Sarovar FAQs",
+    intro:
+      "Focused answers about planning quality, location relevance, documentation, and project suitability.",
+    checklistTitle: "Before Visiting Sindhu Sarovar",
+    checklistNote:
+      "Review layout details, availability, documentation, and current project information before booking.",
+    ctaTitle: "Need Sindhu Sarovar Details?",
+    ctaText:
+      "Connect with Supraja Management for updated information, site visit support, and availability.",
+  },
+
+  "subhash-meadows": {
+    eyebrow: "Project Questions",
+    title: "Subhash Meadows FAQs",
+    intro:
+      "Important answers about location access, infrastructure, LRS wording, and project suitability.",
+    checklistTitle: "Before Visiting Subhash Meadows",
+    checklistNote:
+      "Confirm LRS documentation, availability, project features, and location access before scheduling your visit.",
+    ctaTitle: "Need Subhash Meadows Details?",
+    ctaText:
+      "Speak with Supraja Management for documentation, availability, and site visit assistance.",
+  },
+};
+
+const fallbackCopy = {
+  eyebrow: "Project Questions",
+  title: "Project FAQs",
+  intro:
+    "Clear answers about project details, location, availability, and site visit planning.",
+  checklistTitle: "Before Visiting",
+  checklistNote:
+    "Confirm project information, documentation, and availability with Supraja Management.",
+  ctaTitle: "Need Updated Project Details?",
+  ctaText:
+    "Connect with Supraja Management for brochures, site visits, availability, and current information.",
+};
+
+const checklistItems = [
+  "Verify latest approval and documentation details",
+  "Review current plot availability",
+  "Check route access and nearby growth drivers",
+  "Understand current development progress",
+  "Confirm booking and registration process",
+];
+
 const ProjectFAQ = ({ project }: Props) => {
   const content = projectContent[project.slug as keyof typeof projectContent];
-  const seo = getProjectSeo(project.slug);
+  const copy = faqCopy[project.slug] ?? fallbackCopy;
 
   const faqs = [...getExtraFaqs(project.slug), ...(content?.faq || [])];
 
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
+
+  if (!faqs.length) return null;
 
   return (
     <section className="bg-[#F8F6F1] px-6 py-24">
       <div className="mx-auto max-w-6xl">
         <div className="mb-14 text-center">
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
-            Buyer Questions
+            {copy.eyebrow}
           </p>
 
           <h2 className="mx-auto max-w-4xl text-3xl font-extrabold leading-tight text-[#111827] md:text-5xl">
-            Frequently Asked Questions About {seo.focusKeyword}
+            {copy.title}
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-[#4B5563]">
-            Get clear answers about approvals, location advantages, plotted
-            development planning, current availability and site visit support
-            for <strong>{seo.synonyms[0]}</strong>.
+            {copy.intro}
           </p>
         </div>
 
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <aside className="rounded-[32px] border border-[#EFE7D3] bg-white p-7 shadow-[0_12px_40px_rgba(11,22,51,0.06)] lg:sticky lg:top-28 lg:self-start">
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-[#C9A227]">
-              Quick Buyer Checklist
+              Site Visit Checklist
             </p>
 
             <h3 className="text-2xl font-extrabold leading-tight text-[#111827]">
-              Before Booking {project.title}
+              {copy.checklistTitle}
             </h3>
 
             <ul className="mt-6 space-y-4 text-sm font-semibold leading-relaxed text-[#4B5563]">
-              <li>✓ Verify latest approval and registration details</li>
-              <li>✓ Review plot availability and preferred dimensions</li>
-              <li>✓ Check route access and nearby growth drivers</li>
-              <li>✓ Understand current development progress</li>
-              <li>✓ Confirm booking, registration and loan support process</li>
+              {checklistItems.map((item) => (
+                <li key={item}>✓ {item}</li>
+              ))}
             </ul>
 
             <div className="mt-7 rounded-2xl bg-[#FFF9E8] p-5">
               <p className="text-sm leading-relaxed text-[#4B5563]">
-                Buyers comparing <strong>{seo.synonyms[1]}</strong> and{" "}
-                <strong>{seo.synonyms[2]}</strong> should always request a site
-                visit and updated availability confirmation.
+                {copy.checklistNote}
               </p>
             </div>
 
@@ -159,7 +263,7 @@ const ProjectFAQ = ({ project }: Props) => {
                 href="/projects"
                 className="rounded-full border border-[#C9A227] bg-white px-5 py-3 text-center text-sm font-bold text-[#0B1633] transition hover:bg-[#FFF4C7]"
               >
-                Compare Other Projects
+                Explore Other Projects
               </Link>
             </div>
           </aside>
@@ -216,15 +320,11 @@ const ProjectFAQ = ({ project }: Props) => {
           <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
               <h3 className="text-2xl font-extrabold text-[#111827]">
-                Need Updated Availability or Approval Details?
+                {copy.ctaTitle}
               </h3>
 
               <p className="mt-3 max-w-3xl text-base leading-relaxed text-[#6B7280]">
-                Connect with the Sri Supraja Infracon team for brochures, site
-                visits, current plot availability, approval details and guidance
-                on <strong>{seo.focusKeyword}</strong>. This helps buyers make
-                informed decisions without relying on outdated project
-                information.
+                {copy.ctaText}
               </p>
             </div>
 
@@ -233,7 +333,7 @@ const ProjectFAQ = ({ project }: Props) => {
                 href="/contact-us/"
                 className="rounded-full bg-[#0B1633] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#C9A227] hover:text-[#0B1633]"
               >
-                Contact Sales Team
+                Contact Supraja Management
               </Link>
 
               <a
@@ -253,7 +353,3 @@ const ProjectFAQ = ({ project }: Props) => {
 };
 
 export default ProjectFAQ;
-
-
-
-

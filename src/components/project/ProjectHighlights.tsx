@@ -1,20 +1,27 @@
 import Link from "next/link";
 import type { Project } from "@/data/projects";
-import { getProjectSeo } from "@/data/projectSeo";
 
 type Props = {
   project: Project;
 };
 
 const getExtraHighlights = (slug: string) => {
-  if (slug === "supraja-iris-resort-plots") {
+  if (slug === "supraja-iris-resort-plots" || slug === "supraja-iris") {
     return [
       "Lemon Tree Resort under construction",
-      "Planned water villas",
-      "Planned water theme park",
-      "Planned amusement park",
-      "Planned go-karting attraction",
+      "Water & Amusement Theme Park planned",
+      "Go-Karting planned",
+      "Water Villas planned",
       "Near Woxsen University and NH-65",
+    ];
+  }
+
+  if (slug === "bridge-county") {
+    return [
+      "Dedicated 15-acre enclave",
+      "Within the larger Supraja IRIS project",
+      "Peaceful plotted environment",
+      "Connected to Kamkole growth corridor",
     ];
   }
 
@@ -22,52 +29,88 @@ const getExtraHighlights = (slug: string) => {
 };
 
 const getCorrectedSindhuHighlights = () => [
-  "DTCP & RERA Approved plotted development",
+  "Approved plotted project",
   "Abutting 100 feet road",
-  "Gated community with compound wall and security room",
+  "Compound wall with security room",
   "50 feet road with central plantation median",
   "Butterfly streetlights along 50 feet road",
-  "100% vastu and clear title",
+  "Vastu-aligned layout planning",
   "Black top internal roads",
-  "Well developed sewage infrastructure",
-  "Electricity with transformer and ambient street lighting",
+  "Developed sewage infrastructure",
+  "Electricity with transformer and street lighting",
   "Children parks with gazebo",
   "Barrier-free pedestrian walkways",
   "Overhead water tank",
-  "Paved paths around the park for walks",
-  "Specified bench locations",
+  "Paved park walking paths",
+  "Planned bench locations",
   "Rainwater harvesting pits",
-  "Surrounded by residential and commercial zone",
+  "Near residential and commercial zones",
 ];
 
-const ProjectHighlights = ({ project }: Props) => {
-  const seo = getProjectSeo(project.slug);
+const sectionCopy: Record<
+  string,
+  {
+    heading: string;
+    intro: string;
+    note: string;
+  }
+> = {
+  "supraja-iris-resort-plots": {
+    heading: "Supraja IRIS Project Highlights",
+    intro:
+      "Key features designed to support lifestyle value, accessibility, recreation, and long-term ownership confidence.",
+    note:
+      "Clients are encouraged to review current availability, approvals, layout details, and development status before planning their investment.",
+  },
 
+  "supraja-iris": {
+    heading: "Supraja IRIS Project Highlights",
+    intro:
+      "Key features designed to support lifestyle value, accessibility, recreation, and long-term ownership confidence.",
+    note:
+      "Clients are encouraged to review current availability, approvals, layout details, and development status before planning their investment.",
+  },
+
+  "bridge-county": {
+    heading: "Bridge County Project Highlights",
+    intro:
+      "A dedicated plotted enclave within Supraja IRIS, planned for calm surroundings, organized infrastructure, and future location value.",
+    note:
+      "Speak with Supraja Management to understand plot availability, project context, and site visit options.",
+  },
+
+  "sindhu-sarovar": {
+    heading: "Supraja Sindhu Sarovar Project Highlights",
+    intro:
+      "A planned project with practical infrastructure, organized layout features, and access-focused location advantages.",
+    note:
+      "Investors and families should verify approval details, layout information, availability, and current development status before booking.",
+  },
+
+  "subhash-meadows": {
+    heading: "Subhash Meadows Project Highlights",
+    intro:
+      "Project features focused on accessibility, everyday convenience, and long-term location relevance.",
+    note:
+      "LRS charges are paid as per applicable regulations. Please confirm current documentation and availability with Supraja Management.",
+  },
+};
+
+const fallbackCopy = {
+  heading: "Project Highlights",
+  intro:
+    "Essential project features designed around planning, accessibility, and long-term ownership confidence.",
+  note:
+    "Please verify current availability, approval details, and development status before booking.",
+};
+
+const ProjectHighlights = ({ project }: Props) => {
   const allHighlights =
     project.slug === "sindhu-sarovar"
       ? getCorrectedSindhuHighlights()
       : [...project.highlights, ...getExtraHighlights(project.slug)];
 
-  const heading =
-    project.slug === "sindhu-sarovar"
-      ? "Supraja Sindhu Sarovar Project Highlights"
-      : `${seo.focusKeyword} Highlights`;
-
-  const intro =
-    project.slug === "sindhu-sarovar" ? (
-      <>
-        {project.title} brings together <strong>DTCP & RERA Approved open plots</strong>,{" "}
-        <strong>gated community planning</strong>, 100-feet road connectivity,
-        landscaped parks, vastu-compliant layouts, and infrastructure-led plotted
-        development.
-      </>
-    ) : (
-      <>
-        {project.title} brings together <strong>{seo.synonyms[0]}</strong>,{" "}
-        <strong>{seo.synonyms[1]}</strong>, approval-focused planning, plotted
-        development infrastructure and buyer support from Sri Supraja Infracon.
-      </>
-    );
+  const copy = sectionCopy[project.slug] ?? fallbackCopy;
 
   return (
     <section className="bg-[#F8F6F1] px-6 py-24">
@@ -78,11 +121,11 @@ const ProjectHighlights = ({ project }: Props) => {
           </p>
 
           <h2 className="mx-auto max-w-4xl text-3xl font-extrabold leading-tight text-[#111827] md:text-5xl">
-            {heading}
+            {copy.heading}
           </h2>
 
-          <p className="mx-auto mt-6 max-w-4xl text-lg leading-relaxed text-[#4B5563]">
-            {intro}
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-[#4B5563]">
+            {copy.intro}
           </p>
         </div>
 
@@ -104,24 +147,8 @@ const ProjectHighlights = ({ project }: Props) => {
         </div>
 
         <div className="mt-12 rounded-[32px] border border-[#EFE7D3] bg-white p-7 shadow-[0_12px_40px_rgba(11,22,51,0.06)]">
-          <p className="text-center text-base leading-relaxed text-[#6B7280]">
-            {project.slug === "sindhu-sarovar" ? (
-              <>
-                Buyers considering <strong>DTCP & RERA Approved open plots</strong>,{" "}
-                <strong>gated community plots</strong>, and{" "}
-                <strong>vastu-compliant plotted developments</strong> should
-                verify approval details, current availability, layout details,
-                and development status before booking.
-              </>
-            ) : (
-              <>
-                Buyers comparing <strong>{seo.synonyms[2]}</strong>,{" "}
-                <strong>{seo.synonyms[3]}</strong> and{" "}
-                <strong>{seo.synonyms[4]}</strong> should verify project-wise
-                approval details, current availability and development status
-                before booking.
-              </>
-            )}
+          <p className="mx-auto max-w-4xl text-center text-base leading-relaxed text-[#6B7280]">
+            {copy.note}
           </p>
 
           <div className="mt-6 grid gap-5 md:grid-cols-3">
@@ -129,7 +156,7 @@ const ProjectHighlights = ({ project }: Props) => {
               href="/projects"
               className="rounded-2xl bg-[#0B1633] px-5 py-4 text-center text-sm font-bold text-white transition hover:bg-[#C9A227] hover:text-[#0B1633]"
             >
-              Compare All Projects
+              Explore All Projects
             </Link>
 
             <Link
@@ -145,7 +172,7 @@ const ProjectHighlights = ({ project }: Props) => {
               rel="noopener noreferrer"
               className="rounded-2xl border border-[#E5E7EB] bg-white px-5 py-4 text-center text-sm font-bold text-[#0B1633] transition hover:border-[#C9A227] hover:bg-[#FFF9E8]"
             >
-              Verify RERA Details
+              Verify Project Details
             </a>
           </div>
         </div>
