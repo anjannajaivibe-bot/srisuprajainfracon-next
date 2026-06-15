@@ -28,23 +28,21 @@ export const metadata: Metadata = {
   },
 
   title: {
-    default:
-      "Sri Supraja Infracon | DTCP & RERA Approved Open Plots Near Hyderabad",
+    default: "Sri Supraja Infracon | Real Estate Projects Near Hyderabad",
     template: "%s | Sri Supraja Infracon",
   },
 
   description:
-    "Explore DTCP and RERA approved open plots, villa plots and resort plots near Hyderabad growth corridors including Kamkole, Sangareddy, Mominpet and Indrakaran.",
+    "Sri Supraja Infracon develops residential, plotted, villa and resort-inspired projects across Hyderabad growth corridors including Kamkole, Sangareddy, Mominpet and Indrakaran.",
 
   alternates: {
     canonical: "https://www.srisuprajainfracon.com/",
   },
 
   openGraph: {
-    title:
-      "Sri Supraja Infracon | DTCP & RERA Approved Open Plots Near Hyderabad",
+    title: "Sri Supraja Infracon | Real Estate Projects Near Hyderabad",
     description:
-      "Premium plotted developments and resort plots near Hyderabad growth corridors.",
+      "Explore Sri Supraja Infracon projects across Hyderabad growth corridors, including plotted, residential, villa and resort-inspired projects.",
     url: "https://www.srisuprajainfracon.com/",
     siteName: "Sri Supraja Infracon",
     locale: "en_IN",
@@ -54,17 +52,16 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Sri Supraja Infracon approved open plots near Hyderabad",
+        alt: "Sri Supraja Infracon real estate projects near Hyderabad",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title:
-      "Sri Supraja Infracon | DTCP & RERA Approved Open Plots Near Hyderabad",
+    title: "Sri Supraja Infracon | Real Estate Projects Near Hyderabad",
     description:
-      "Explore premium open plots and plotted communities near Hyderabad.",
+      "Explore residential, plotted, villa and resort-inspired projects by Sri Supraja Infracon.",
     images: ["/og-image.jpg"],
   },
 
@@ -99,11 +96,11 @@ export default function RootLayout({
     logo: "https://www.srisuprajainfracon.com/logo.png",
     image: "https://www.srisuprajainfracon.com/og-image.jpg",
     description:
-      "Sri Supraja Infracon develops DTCP and RERA approved open plot communities, villa plots and resort plots near Hyderabad growth corridors.",
+      "Sri Supraja Infracon develops residential, plotted, villa and resort-inspired real estate projects across Hyderabad growth corridors.",
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+91 90529 96161",
-      contactType: "sales",
+      contactType: "customer support",
       areaServed: "IN",
       availableLanguage: ["English", "Telugu", "Hindi"],
     },
@@ -129,9 +126,7 @@ export default function RootLayout({
 
         <Navbar />
 
-        <div className="min-h-screen pt-24">
-          {children}
-        </div>
+        <div className="min-h-screen pt-24">{children}</div>
 
         <Footer />
 

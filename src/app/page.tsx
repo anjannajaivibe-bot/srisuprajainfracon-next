@@ -1,25 +1,26 @@
 import type { Metadata } from "next";
 import HomeClient from "./home-client";
 
-const focusKeyword = "DTCP & RERA Approved Open Plots Near Hyderabad";
+const pageTitle =
+  "Sri Supraja Infracon | Real Estate Projects Near Hyderabad";
+
+const pageDescription =
+  "Explore Sri Supraja Infracon projects across Hyderabad growth corridors, including plotted, villa, residential and resort-inspired projects in Kamkole, Sangareddy, Mominpet and Indrakaran.";
 
 export const metadata: Metadata = {
-  title:
-    "DTCP & RERA Approved Open Plots Near Hyderabad | Sri Supraja Infracon",
+  title: pageTitle,
 
-  description:
-    "Explore DTCP & RERA Approved Open Plots Near Hyderabad, villa plots, resort plots and premium plotted developments across Kamkole, Sangareddy, Mominpet and Indrakaran by Sri Supraja Infracon.",
+  description: pageDescription,
 
   alternates: {
     canonical: "https://www.srisuprajainfracon.com/",
   },
 
   openGraph: {
-    title:
-      "DTCP & RERA Approved Open Plots Near Hyderabad | Sri Supraja Infracon",
+    title: pageTitle,
 
     description:
-      "Premium plotted developments, resort plots and villa plots near Hyderabad growth corridors including Kamkole, Sangareddy, Mominpet and Indrakaran.",
+      "Discover Sri Supraja Infracon projects across key Hyderabad growth corridors, including Supraja IRIS, Bridge County, Sindhu Sarovar and Subhash Meadows.",
 
     url: "https://www.srisuprajainfracon.com/",
 
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
         url: "https://www.srisuprajainfracon.com/og/home-og.webp",
         width: 1200,
         height: 630,
-        alt: "DTCP & RERA Approved Open Plots Near Hyderabad",
+        alt: "Sri Supraja Infracon real estate projects near Hyderabad",
       },
     ],
 
@@ -42,15 +43,12 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
 
-    title:
-      "DTCP & RERA Approved Open Plots Near Hyderabad | Sri Supraja Infracon",
+    title: pageTitle,
 
     description:
-      "Explore approved open plot projects near Hyderabad growth corridors by Sri Supraja Infracon.",
+      "Explore plotted, villa, residential and resort-inspired projects by Sri Supraja Infracon.",
 
-    images: [
-      "https://www.srisuprajainfracon.com/og/home-og.webp",
-    ],
+    images: ["https://www.srisuprajainfracon.com/og/home-og.webp"],
   },
 };
 
@@ -72,19 +70,19 @@ export default function HomePage() {
 
         logo: "https://www.srisuprajainfracon.com/logo.png",
 
-        email: "support@srisuprajainfracon.com",
+        email: "info@srisuprajainfracon.com",
 
-        telephone: "+91-90529961661",
+        telephone: "+91 90529 96161",
 
         description:
-          "Sri Supraja Infracon develops DTCP & RERA approved open plots near Hyderabad including villa plots, resort plots and premium plotted developments across strategic growth corridors.",
+          "Sri Supraja Infracon develops residential, plotted, villa and resort-inspired real estate projects across Hyderabad growth corridors.",
 
         address: {
           "@type": "PostalAddress",
 
-          streetAddress: "H.No. 4-91, Above Parampara Mithai",
+          streetAddress: "D. No. 4-91, Above Parampara Sweets, Chandanagar",
 
-          addressLocality: "Chandanagar",
+          addressLocality: "Hyderabad",
 
           addressRegion: "Telangana",
 
@@ -141,11 +139,9 @@ export default function HomePage() {
 
         url: "https://www.srisuprajainfracon.com/",
 
-        name:
-          "DTCP & RERA Approved Open Plots Near Hyderabad | Sri Supraja Infracon",
+        name: pageTitle,
 
-        description:
-          "Explore DTCP & RERA Approved Open Plots Near Hyderabad, villa plots, resort plots and premium plotted developments across Hyderabad growth corridors.",
+        description: pageDescription,
 
         isPartOf: {
           "@id": "https://www.srisuprajainfracon.com/#website",
@@ -165,7 +161,7 @@ export default function HomePage() {
           height: 630,
 
           caption:
-            "DTCP & RERA Approved Open Plots Near Hyderabad by Sri Supraja Infracon",
+            "Sri Supraja Infracon real estate projects near Hyderabad",
         },
       },
     ],
@@ -184,7 +180,3 @@ export default function HomePage() {
     </>
   );
 }
-
-
-
-
