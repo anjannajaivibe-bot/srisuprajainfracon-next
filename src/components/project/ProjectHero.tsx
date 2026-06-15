@@ -9,37 +9,139 @@ type ProjectHeroProps = {
   project: any;
 };
 
-const getCorrectedSeo = (project: any) => {
-  const seo = getProjectSeo(project.slug);
-
-  if (project.slug !== "sindhu-sarovar") {
-    return seo;
+const heroCopy: Record<
+  string,
+  {
+    badge: string;
+    h1: string;
+    subtitle: string;
+    firstParagraph: string;
+    description: string;
+    tags: string[];
+    imageAlt: string;
   }
-
-  return {
-    ...seo,
-    h1: "Supraja Sindhu Sarovar DTCP & RERA Approved Open Plots",
+> = {
+  "supraja-iris-resort-plots": {
+    badge: "Resort-Inspired Project",
+    h1: "Resort-Inspired Plots in Kamkole",
     subtitle:
-      "A thoughtfully planned gated community with 100-feet road connectivity, vastu-compliant layouts, black top roads, landscaped parks, and clear-title plotted development.",
+      "A destination-led plotted project shaped around lifestyle attractions, future-ready infrastructure, and long-term location value.",
     firstParagraph:
-      "Supraja Sindhu Sarovar is a DTCP & RERA Approved plotted development designed with gated community planning, wide internal roads, landscaped parks, plantation-focused open spaces, and essential infrastructure for residential plot buyers.",
+      "Supraja IRIS brings together plotted ownership, planned lifestyle attractions, and a growth-oriented location in Kamkole.",
     description:
-      "The project features abutting 100-feet road access, compound wall planning, 50-feet roads with central plantation median, black top roads, electricity with street lighting, overhead water tank, rainwater harvesting pits, and well-designed parks.",
-    imageAlt:
-      "Supraja Sindhu Sarovar DTCP & RERA Approved gated community open plots with entrance arch and internal roads",
-    synonyms: [
-      "DTCP & RERA Approved Open Plots",
-      "Gated Community Plots",
-      "100 Ft Road Connectivity",
-      "Black Top Roads",
-      "Vastu Compliant Layout",
+      "Lemon Tree Resort is under construction, while Water & Amusement Theme Park, Go-Karting, and Water Villas are planned as part of the larger lifestyle ecosystem.",
+    tags: [
+      "Kamkole Growth Corridor",
+      "Lemon Tree Resort",
+      "Theme Park Planned",
+      "Go-Karting Planned",
+      "Water Villas Planned",
     ],
-  };
+    imageAlt:
+      "Supraja IRIS resort inspired plots in Kamkole with lifestyle attractions and project infrastructure",
+  },
+
+  "supraja-iris": {
+    badge: "Resort-Inspired Project",
+    h1: "Resort-Inspired Plots in Kamkole",
+    subtitle:
+      "A destination-led plotted project shaped around lifestyle attractions, future-ready infrastructure, and long-term location value.",
+    firstParagraph:
+      "Supraja IRIS brings together plotted ownership, planned lifestyle attractions, and a growth-oriented location in Kamkole.",
+    description:
+      "Lemon Tree Resort is under construction, while Water & Amusement Theme Park, Go-Karting, and Water Villas are planned as part of the larger lifestyle ecosystem.",
+    tags: [
+      "Kamkole Growth Corridor",
+      "Lemon Tree Resort",
+      "Theme Park Planned",
+      "Go-Karting Planned",
+      "Water Villas Planned",
+    ],
+    imageAlt:
+      "Supraja IRIS resort inspired plots in Kamkole with lifestyle attractions and project infrastructure",
+  },
+
+  "bridge-county": {
+    badge: "15-Acre Enclave within Supraja IRIS",
+    h1: "A Peaceful Plotted Enclave within Supraja IRIS",
+    subtitle:
+      "A dedicated 15-acre plotted area in Kamkole, connected to the larger Supraja IRIS project environment.",
+    firstParagraph:
+      "Bridge County offers a quieter plotted setting within the broader Supraja IRIS lifestyle ecosystem.",
+    description:
+      "Planned for clients seeking calm surroundings, organized infrastructure, and access to the long-term potential of the Kamkole growth corridor.",
+    tags: [
+      "15-Acre Enclave",
+      "Within Supraja IRIS",
+      "Kamkole Location",
+      "Peaceful Setting",
+      "Planned Infrastructure",
+    ],
+    imageAlt:
+      "Bridge County 15 acre plotted enclave within Supraja IRIS project at Kamkole",
+  },
+
+  "sindhu-sarovar": {
+    badge: "Planned Project",
+    h1: "A Project Designed Around Planning and Connectivity",
+    subtitle:
+      "A thoughtfully planned project focused on organized layouts, accessibility, and future location relevance.",
+    firstParagraph:
+      "Sindhu Sarovar is shaped around planning quality, practical infrastructure, and access to an evolving regional location.",
+    description:
+      "Designed for investors and families seeking clear planning standards, dependable project execution, and long-term ownership confidence.",
+    tags: [
+      "Planned Layout",
+      "Accessible Location",
+      "Future Potential",
+      "Organized Infrastructure",
+      "Clear Planning",
+    ],
+    imageAlt:
+      "Supraja Sindhu Sarovar planned project with organized layout and connectivity",
+  },
+
+  "subhash-meadows": {
+    badge: "Well-Connected Project",
+    h1: "Well-Connected Plots Near Key Growth Destinations",
+    subtitle:
+      "A practical land ownership opportunity near education, employment, and transportation corridors.",
+    firstParagraph:
+      "Subhash Meadows offers accessibility, essential infrastructure, and long-term location relevance.",
+    description:
+      "The project is suited for investors and future homeowners seeking a well-planned setting close to important regional destinations.",
+    tags: [
+      "Indrakaran Location",
+      "Near Key Hubs",
+      "Accessible Project",
+      "LRS Charges Paid",
+      "Future Planning",
+    ],
+    imageAlt:
+      "Subhash Meadows well connected plotted project near key growth destinations",
+  },
+};
+
+const fallbackHero = {
+  badge: "Sri Supraja Project",
+  h1: "A Thoughtfully Planned Real Estate Project",
+  subtitle:
+    "Designed around accessibility, infrastructure, and long-term ownership confidence.",
+  firstParagraph:
+    "This project reflects Sri Supraja Infracon’s focus on dependable planning and customer trust.",
+  description:
+    "Created for investors, clients, and families seeking a clear and future-ready real estate opportunity.",
+  tags: ["Planned Project", "Accessible Location", "Sri Supraja Infracon"],
+  imageAlt: "Sri Supraja Infracon real estate project",
 };
 
 const ProjectHero = ({ project }: ProjectHeroProps) => {
-  const seo = getCorrectedSeo(project);
-  const isSuprajaIris = project.slug === "supraja-iris-resort-plots";
+  const seo = getProjectSeo(project.slug);
+  const hero = heroCopy[project.slug] ?? fallbackHero;
+
+  const isSuprajaIris =
+    project.slug === "supraja-iris-resort-plots" ||
+    project.slug === "supraja-iris";
 
   return (
     <section className="relative overflow-hidden bg-[#F8F6F1] pt-28">
@@ -66,7 +168,7 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
         >
           <span className="h-2 w-2 rounded-full bg-[#C9A227]" />
           <span className="text-sm font-semibold text-[#E8D7A5]">
-            {project.status || "Premium Plotted Development"}
+            {hero.badge}
           </span>
         </motion.div>
 
@@ -76,7 +178,7 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
           transition={{ duration: 0.5 }}
           className="mb-4 max-w-6xl font-display text-4xl font-bold leading-[1.03] tracking-tight text-white sm:text-5xl lg:text-7xl"
         >
-          {seo.h1}
+          {hero.h1}
         </motion.h1>
 
         <motion.p
@@ -85,7 +187,7 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
           transition={{ duration: 0.5, delay: 0.05 }}
           className="mb-10 max-w-4xl text-lg font-semibold leading-relaxed text-[#E8D7A5] sm:text-xl"
         >
-          {seo.subtitle}
+          {hero.subtitle}
         </motion.p>
 
         <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-stretch">
@@ -96,15 +198,15 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
             className="rounded-[32px] border border-[#EFE7D3] bg-white p-7 shadow-[0_18px_55px_rgba(11,22,51,0.10)] sm:p-8"
           >
             <p className="text-lg leading-relaxed text-[#4B5563]">
-              {seo.firstParagraph}
+              {hero.firstParagraph}
             </p>
 
             <p className="mt-5 text-base leading-relaxed text-slate-600">
-              {seo.description}
+              {hero.description}
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">
-              {seo.synonyms.slice(0, 5).map((item: string) => (
+              {hero.tags.map((item) => (
                 <span
                   key={item}
                   className="rounded-full border border-[#E8D7A5] bg-[#FFF9E8] px-4 py-2 text-xs font-bold text-[#0B1633] sm:text-sm"
@@ -183,7 +285,7 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
                   playsInline
                   preload="metadata"
                   poster="/projects/supraja-iris/gallery/supraja-iris-gallery-1.webp"
-                  aria-label={seo.imageAlt}
+                  aria-label={hero.imageAlt}
                 >
                   <source src="/videos/supraja-iris-hero.mp4" type="video/mp4" />
                 </video>
@@ -193,7 +295,7 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
             ) : (
               <SmartImage
                 src={project.heroImage || project.image}
-                alt={seo.imageAlt}
+                alt={hero.imageAlt}
                 priority
                 sizes="(max-width: 1024px) 100vw, 55vw"
                 wrapperClassName="relative h-[320px] w-full rounded-[32px] border border-white/60 shadow-[0_22px_70px_rgba(11,22,51,0.18)] sm:h-[420px] lg:h-full lg:min-h-[460px]"
