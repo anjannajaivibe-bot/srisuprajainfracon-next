@@ -70,22 +70,22 @@ const sectionCopy: Record<
       "Real feedback from clients who reviewed the project, visited the site, and interacted with Supraja Management.",
   },
   "supraja-iris": {
-    title: "What Customers Say About Supraja IRIS",
+    title: "What Our Customers Say?",
     intro:
       "Real feedback from clients who reviewed the project, visited the site, and interacted with Supraja Management.",
   },
   "bridge-county": {
-    title: "What Customers Say About Bridge County",
+    title: "What Our Customers Say?",
     intro:
       "Feedback from clients who explored this dedicated enclave within the Supraja IRIS project.",
   },
   "sindhu-sarovar": {
-    title: "What Customers Say About Sindhu Sarovar",
+    title: "What Our Customers Say?",
     intro:
       "Customer feedback focused on project clarity, documentation, and overall experience.",
   },
   "subhash-meadows": {
-    title: "What Customers Say About Subhash Meadows",
+    title: "What Our Customers Say?",
     intro:
       "Customer feedback about location access, project information, and interaction with Supraja Management.",
   },
