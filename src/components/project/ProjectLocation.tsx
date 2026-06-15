@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { Project } from "@/data/projects";
 import { projectContent } from "@/data/projectContent";
-import { getProjectSeo } from "@/data/projectSeo";
 
 type Props = {
   project: Project;
@@ -9,6 +8,9 @@ type Props = {
 
 const mapEmbeds: Record<string, string> = {
   "supraja-iris-resort-plots":
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8183.9651954877745!2d77.78669037624174!3d17.633323871052095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc953e9e3ac09bb%3A0xfbf45f72331801f1!2sSupraja%20IRIS%20Resorts!5e1!3m2!1sen!2sin!4v1780043173712!5m2!1sen!2sin",
+
+  "supraja-iris":
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8183.9651954877745!2d77.78669037624174!3d17.633323871052095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc953e9e3ac09bb%3A0xfbf45f72331801f1!2sSupraja%20IRIS%20Resorts!5e1!3m2!1sen!2sin!4v1780043173712!5m2!1sen!2sin",
 
   "bridge-county":
@@ -21,37 +23,118 @@ const mapEmbeds: Record<string, string> = {
     "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d511.8047095687335!2d78.16270280975331!3d17.524852435391264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sin!4v1780043343336!5m2!1sen!2sin",
 };
 
+const locationCopy: Record<
+  string,
+  {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    cardTitle: string;
+    driverEyebrow: string;
+    driverTitle: string;
+    driverText: string;
+  }
+> = {
+  "supraja-iris-resort-plots": {
+    eyebrow: "Connected to Growth",
+    title: "Kamkole’s Emerging Lifestyle and Investment Corridor",
+    intro:
+      "Supraja IRIS is positioned near education, industry, infrastructure corridors, and planned lifestyle attractions that support long-term location value.",
+    cardTitle: "Key Location Advantages",
+    driverEyebrow: "Growth Drivers",
+    driverTitle: "What Strengthens This Location",
+    driverText:
+      "Regional connectivity, nearby institutions, and future infrastructure activity continue to shape Kamkole’s growth potential.",
+  },
+
+  "supraja-iris": {
+    eyebrow: "Connected to Growth",
+    title: "Kamkole’s Emerging Lifestyle and Investment Corridor",
+    intro:
+      "Supraja IRIS is positioned near education, industry, infrastructure corridors, and planned lifestyle attractions that support long-term location value.",
+    cardTitle: "Key Location Advantages",
+    driverEyebrow: "Growth Drivers",
+    driverTitle: "What Strengthens This Location",
+    driverText:
+      "Regional connectivity, nearby institutions, and future infrastructure activity continue to shape Kamkole’s growth potential.",
+  },
+
+  "bridge-county": {
+    eyebrow: "Within Supraja IRIS",
+    title: "A 15-Acre Enclave Connected to Kamkole’s Growth",
+    intro:
+      "Bridge County sits within the larger Supraja IRIS project environment, giving clients a quieter plotted setting with access to a broader lifestyle and growth corridor.",
+    cardTitle: "Location Advantages",
+    driverEyebrow: "Project Context",
+    driverTitle: "Connected to Something Bigger",
+    driverText:
+      "Its position within Supraja IRIS adds scale, context, and long-term relevance to this dedicated plotted enclave.",
+  },
+
+  "sindhu-sarovar": {
+    eyebrow: "Positioned for Future Growth",
+    title: "Planning, Access, and Long-Term Location Relevance",
+    intro:
+      "Sindhu Sarovar is located in a developing region supported by improving accessibility, organized planning, and future growth prospects.",
+    cardTitle: "Location Advantages",
+    driverEyebrow: "Growth Drivers",
+    driverTitle: "Why This Location Matters",
+    driverText:
+      "Better connectivity and surrounding development activity strengthen the project’s relevance for investors and families.",
+  },
+
+  "subhash-meadows": {
+    eyebrow: "Close to What Matters",
+    title: "Near Education, Employment, and Transport Corridors",
+    intro:
+      "Subhash Meadows offers convenient access to important destinations that continue to support regional movement, employment, and future planning.",
+    cardTitle: "Nearby Advantages",
+    driverEyebrow: "Location Drivers",
+    driverTitle: "Everyday Access with Future Potential",
+    driverText:
+      "Proximity to institutions, industrial zones, and transport networks adds practical value to the project location.",
+  },
+};
+
+const fallbackLocation = {
+  eyebrow: "Location Advantage",
+  title: "Connected to Future Growth",
+  intro:
+    "This project is positioned around accessibility, infrastructure, and long-term location potential.",
+  cardTitle: "Location Advantages",
+  driverEyebrow: "Growth Drivers",
+  driverTitle: "Why This Location Matters",
+  driverText:
+    "Connectivity, infrastructure, and regional activity support long-term real estate relevance.",
+};
+
 const ProjectLocation = ({ project }: Props) => {
   const content = projectContent[project.slug as keyof typeof projectContent];
-  const seo = getProjectSeo(project.slug);
   const mapSrc = mapEmbeds[project.slug];
   const locationAdvantages = content?.locationAdvantages || [];
+  const copy = locationCopy[project.slug] ?? fallbackLocation;
 
   return (
     <section className="bg-white px-6 py-24">
       <div className="mx-auto max-w-7xl">
         <div className="mb-14 max-w-4xl">
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
-            Strategic Location Advantage
+            {copy.eyebrow}
           </p>
 
           <h2 className="text-3xl font-extrabold leading-tight text-[#111827] md:text-5xl">
-            Location Advantage for {seo.focusKeyword}
+            {copy.title}
           </h2>
 
           <p className="mt-6 text-lg leading-relaxed text-[#4B5563]">
-            {project.title} is positioned for buyers evaluating{" "}
-            <strong>{seo.synonyms[0]}</strong>,{" "}
-            <strong>{seo.synonyms[1]}</strong> and{" "}
-            <strong>{seo.synonyms[2]}</strong> with practical access to
-            Hyderabad growth corridors.
+            {copy.intro}
           </p>
         </div>
 
         <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="rounded-[34px] border border-[#EFE7D3] bg-[#F8F6F1] p-8 shadow-[0_18px_55px_rgba(11,22,51,0.06)]">
             <h3 className="mb-7 text-2xl font-extrabold text-[#111827]">
-              {seo.h3}
+              {copy.cardTitle}
             </h3>
 
             <div className="grid gap-5 sm:grid-cols-2">
@@ -90,15 +173,15 @@ const ProjectLocation = ({ project }: Props) => {
 
           <div className="rounded-[34px] border border-[#EFE7D3] bg-white p-8 shadow-[0_18px_55px_rgba(11,22,51,0.06)]">
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
-              Nearby Growth Drivers
+              {copy.driverEyebrow}
             </p>
 
             <h3 className="text-2xl font-extrabold leading-tight text-[#111827]">
-              Growth Corridor Connectivity
+              {copy.driverTitle}
             </h3>
 
             <div className="mt-8 space-y-5">
-              {seo.synonyms.slice(0, 5).map((item) => (
+              {locationAdvantages.slice(0, 5).map((item) => (
                 <div
                   key={item}
                   className="flex items-start gap-4 rounded-2xl border border-[#EFE7D3] bg-[#FCFBF8] p-5 transition duration-300 hover:border-[#C9A227]"
@@ -111,8 +194,7 @@ const ProjectLocation = ({ project }: Props) => {
                     <p className="font-bold text-[#111827]">{item}</p>
 
                     <p className="mt-1 text-sm leading-relaxed text-[#6B7280]">
-                      Regional development positioning supporting long-term
-                      plotted development relevance.
+                      {copy.driverText}
                     </p>
                   </div>
                 </div>
@@ -125,15 +207,26 @@ const ProjectLocation = ({ project }: Props) => {
               </p>
 
               <div className="mt-5 flex flex-wrap gap-3">
-                <Link href="/open-plots-and-resorts-in-hyderabad" className="rounded-full bg-white px-4 py-2 text-sm font-bold text-[#0B1633] transition hover:bg-[#C9A227]">
+                <Link
+                  href="/open-plots-and-resorts-in-hyderabad"
+                  className="rounded-full bg-white px-4 py-2 text-sm font-bold text-[#0B1633] transition hover:bg-[#C9A227]"
+                >
                   Open Plots & Resorts
                 </Link>
 
-                <Link href="/resort-plots-in-hyderabad" className="rounded-full bg-white px-4 py-2 text-sm font-bold text-[#0B1633] transition hover:bg-[#C9A227]">
+                <Link
+                  href="/resort-plots-in-hyderabad"
+                  className="rounded-full bg-white px-4 py-2 text-sm font-bold text-[#0B1633] transition hover:bg-[#C9A227]"
+                >
                   Resort Plot Guide
                 </Link>
 
-                <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" className="rounded-full bg-white px-4 py-2 text-sm font-bold text-[#0B1633] transition hover:bg-[#C9A227]">
+                <a
+                  href="https://www.google.com/maps"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full bg-white px-4 py-2 text-sm font-bold text-[#0B1633] transition hover:bg-[#C9A227]"
+                >
                   Google Maps
                 </a>
               </div>
@@ -162,7 +255,3 @@ const ProjectLocation = ({ project }: Props) => {
 };
 
 export default ProjectLocation;
-
-
-
-
