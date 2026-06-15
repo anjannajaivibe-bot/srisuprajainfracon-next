@@ -255,7 +255,7 @@ export default function AboutClient() {
           <div className="container-max">
             <div className="text-center">
               <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-[#C9A227]">
-                Social Welfare
+                BEYOND REAL ESTATE
               </p>
 
               <h2 className="text-3xl font-display font-bold text-[#111827]">
