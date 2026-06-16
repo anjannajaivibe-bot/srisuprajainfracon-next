@@ -9,9 +9,9 @@ const getExtraHighlights = (slug: string) => {
   if (slug === "supraja-iris-resort-plots" || slug === "supraja-iris") {
     return [
       "Lemon Tree Resort under construction",
-      "Water & Amusement Theme Park planned",
+      "Water & Amusement Theme Park Under Development",
       "Go-Karting planned",
-      "Water Villas planned",
+      "Water Villas under construction",
       "Near Woxsen University and NH-65",
     ];
   }
