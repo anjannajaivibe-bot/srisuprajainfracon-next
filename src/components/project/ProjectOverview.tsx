@@ -67,6 +67,130 @@ const ProjectOverview = ({ project }: Props) => {
   const availabilityMapUrl = project.availabilityMapUrl;
   const overview = overviewCopy[project.slug] ?? fallbackOverview;
 
+  if (project.slug === "supraja-iris") {
+    if (!brochureUrl) return null;
+
+    return (
+      <section className="bg-white px-6 py-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="mx-auto mb-10 max-w-4xl text-center">
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-amber-600">
+              Project Brochure
+            </p>
+
+            <h2 className="text-3xl font-extrabold leading-tight text-slate-950 md:text-5xl">
+              Supraja IRIS Master Plan &amp; Project Brochure
+            </h2>
+
+            <p className="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-slate-600">
+              Explore the Supraja IRIS brochure with layout details,
+              connectivity highlights, project features and master plan
+              information.
+            </p>
+          </div>
+
+          <div className="overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-2xl">
+            <div className="flex flex-col gap-4 border-b border-slate-200 bg-slate-50 px-6 py-5 md:flex-row md:items-center md:justify-between">
+              <div>
+                <h3 className="text-xl font-extrabold text-slate-950">
+                  Supraja IRIS Project Brochure
+                </h3>
+
+                <p className="mt-1 text-sm text-slate-500">
+                  View or download the official project brochure for layout,
+                  location and feature details.
+                </p>
+              </div>
+
+              <div className="hidden flex-wrap gap-3 md:flex">
+                <a
+                  href={brochureUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex rounded-full bg-amber-500 px-5 py-2.5 text-xs font-bold text-slate-950 shadow-md transition hover:bg-amber-400"
+                >
+                  Open PDF
+                </a>
+
+                <a
+                  href={brochureUrl}
+                  download
+                  className="inline-flex rounded-full border border-slate-300 bg-white px-5 py-2.5 text-xs font-bold text-slate-900 shadow-sm transition hover:border-amber-500 hover:bg-amber-50"
+                >
+                  Download
+                </a>
+
+                {availabilityMapUrl && (
+                  <a
+                    href={availabilityMapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex rounded-full border border-slate-300 bg-white px-5 py-2.5 text-xs font-bold text-slate-900 shadow-sm transition hover:border-amber-500 hover:bg-amber-50"
+                  >
+                    View Availability
+                  </a>
+                )}
+              </div>
+            </div>
+
+            <iframe
+              src={`${brochureUrl}#toolbar=0&navpanes=0&scrollbar=1`}
+              title="Supraja IRIS Project Brochure"
+              className="hidden h-[900px] w-full md:block"
+            />
+
+            <div className="block bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 px-6 py-10 text-white md:hidden">
+              <div className="mx-auto max-w-md rounded-[28px] border border-white/10 bg-white/10 p-6 text-center shadow-2xl backdrop-blur">
+                <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-amber-300">
+                  Brochure Preview
+                </p>
+
+                <h4 className="mb-4 text-2xl font-extrabold">
+                  View Supraja IRIS PDF Brochure
+                </h4>
+
+                <p className="mb-6 text-sm leading-relaxed text-slate-200">
+                  Open the brochure to explore layout plans, location insights,
+                  project information and key features.
+                </p>
+
+                <div className="flex flex-col gap-3">
+                  <a
+                    href={brochureUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-amber-500 px-5 py-3 text-sm font-bold text-slate-950 shadow-md"
+                  >
+                    Open Brochure PDF
+                  </a>
+
+                  <a
+                    href={brochureUrl}
+                    download
+                    className="rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-bold text-white"
+                  >
+                    Download Brochure
+                  </a>
+
+                  {availabilityMapUrl && (
+                    <a
+                      href={availabilityMapUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-full border border-amber-300/40 bg-transparent px-5 py-3 text-sm font-bold text-amber-300"
+                    >
+                      View Live Plot Availability
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="bg-white px-6 py-20">
       <div className="mx-auto max-w-7xl">
