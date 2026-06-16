@@ -117,28 +117,28 @@ const faqCopy: Record<
 > = {
   "supraja-iris-resort-plots": {
     eyebrow: "FAQs",
-    title: "Supraja IRIS Questions, Answered Clearly",
+    title: "On Supraja IRIS",
     intro:
       "Simple answers about the project vision, lifestyle attractions, location, and current planning status.",
   },
 
   "supraja-iris": {
     eyebrow: "FAQs",
-    title: "Supraja IRIS Questions, Answered Clearly",
+    title: "On Supraja IRIS",
     intro:
       "Simple answers about the project vision, lifestyle attractions, location, and current planning status.",
   },
 
   "bridge-county": {
     eyebrow: "FAQs",
-    title: "Bridge County Questions, Answered Clearly",
+    title: "On Bridge County",
     intro:
       "Helpful details about this 15-acre enclave within Supraja IRIS and what customers should know before visiting.",
   },
 
   "sindhu-sarovar": {
     eyebrow: "FAQs",
-    title: "Sindhu Sarovar Questions, Answered Clearly",
+    title: "On Sindhu Sarovar",
     intro:
       "Straightforward answers about planning, accessibility, infrastructure, and project positioning.",
   },

@@ -51,7 +51,7 @@ const overviewCopy: Record<
 > = {
   "supraja-iris": {
     label: "Resort-Inspired Project",
-    title: "More Than a Plot. A Destination in the Making.",
+    title: "A Landmark Destination Taking Shape.",
     description:
       "",
     closing:
@@ -60,7 +60,7 @@ const overviewCopy: Record<
 
   "supraja-iris-resort-plots": {
     label: "Resort-Inspired Project",
-    title: "More Than a Plot. A Destination in the Making.",
+    title: "A Landmark Destination Taking Shape.",
     description:
       "",
     closing:
