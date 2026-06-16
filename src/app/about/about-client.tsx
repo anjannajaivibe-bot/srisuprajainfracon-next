@@ -168,7 +168,7 @@ export default function AboutClient() {
         <SmartImage
           src={ownerPhoto}
           alt="Mr Tudi Praveen Chairman and Managing Director of Sri Supraja Infracon"
-          className="h-[500px] w-full rounded-[10px] lg:h-[800px]"
+          className="h-[500px] w-full rounded-[10px] lg:h-[500px]"
           imageClassName="object-cover object-top"
         />
       </div>
@@ -216,18 +216,16 @@ export default function AboutClient() {
           </p>
 
           <div className="mt-6 border-l-4 border-[#C9A227] pl-5">
-            <h2 className="text-3xl font-display font-bold text-[#111827]">
-              Mr. Tudi Praveen
-            </h2>
-
-            <p className="mt-2 font-bold text-[#C9A227]">
-              Chairman &amp; Managing Director
-            </p>
-
-            <p className="mt-2 text-sm text-[#6B7280]">
-              Sri Supraja Infracon
-            </p>
-          </div>
+  <h2 className="text-3xl font-display font-bold text-[#111827]">
+    Mr. Tudi Praveen
+  </h2>
+  <p className="mt-2 font-bold text-[#C9A227]">
+    Chairman &amp; Managing Director
+  </p>
+  <p className="mt-2 text-sm text-[#6B7280]">
+    Sri Supraja Infracon
+  </p>
+</div>
         </div>
       </div>
 
@@ -269,7 +267,7 @@ export default function AboutClient() {
       </p>
 
       <h2 className="text-3xl font-display font-bold leading-tight text-[#111827] sm:text-4xl lg:text-5xl">
-        A Legacy Built on Trust, Integrity and Lasting Value
+        Bulding History
       </h2>
 
       <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-[#4B5563]">
