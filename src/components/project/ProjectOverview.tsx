@@ -25,16 +25,16 @@ const projectMaps: Record<string, string> = {
 
 const projectLocationCopy: Record<string, string> = {
   "supraja-iris":
-    "Supraja IRIS is positioned at Kamkole with access to the Mumbai Highway growth corridor, making it suitable for buyers looking at plotted investment, weekend lifestyle potential, and future connectivity advantages near Hyderabad.",
+    "Supraja IRIS is positioned at Kamkole with access to the Mumbai Highway growth corridor, making it suitable for investors looking at plotted investment, weekend lifestyle potential, and future connectivity advantages near Hyderabad.",
 
   "supraja-iris-resort-plots":
-    "Supraja IRIS is positioned at Kamkole with access to the Mumbai Highway growth corridor, making it suitable for buyers looking at plotted investment, weekend lifestyle potential, and future connectivity advantages near Hyderabad.",
+    "Supraja IRIS is positioned at Kamkole with access to the Mumbai Highway growth corridor, making it suitable for investors looking at plotted investment, weekend lifestyle potential, and future connectivity advantages near Hyderabad.",
 
   "bridge-county":
-    "Supraja Bridge County is located adjacent to Woxsen University within the larger Supraja IRIS project environment, giving buyers a calm plotted community setting with the advantage of nearby education, connectivity, and future development activity.",
+    "Supraja Bridge County is located adjacent to Woxsen University within the larger Supraja IRIS project environment, giving investorss a calm plotted community setting with the advantage of nearby education, connectivity, and future development activity.",
 
   "sindhu-sarovar":
-    "Supraja Sindhu Sarovar offers a planned project location with practical access and long-term land value potential, making it relevant for buyers who prefer organized layouts in a developing real estate corridor.",
+    "Supraja Sindhu Sarovar offers a planned project location with practical access and long-term land value potential, making it relevant for investors who prefer organized layouts in a developing real estate corridor.",
 
   "subhash-meadows":
     "Supraja Subhash Meadows is placed in a well-connected zone with access to nearby routes and surrounding development, making it a dependable option for families and investors evaluating future-ready land ownership.",
@@ -53,9 +53,9 @@ const overviewCopy: Record<
     label: "Resort-Inspired Project",
     title: "More Than a Plot. A Destination in the Making.",
     description:
-      "Supraja IRIS brings together plotted ownership, planned lifestyle attractions, and a growth-oriented location in Kamkole. Lemon Tree Resort, Water & Amusement Theme Park, Go-Karting, and Water Villas are envisioned as part of its larger lifestyle ecosystem.",
+      "Supraja IRIS is envisioned as a landmark plotted development where lifestyle aspirations, future infrastructure, and long-term investment potential come together in a single destination. Strategically located at Kamkole, the project is planned around a larger ecosystem that includes hospitality, recreation, leisure, and residential opportunities designed to enhance both present-day enjoyment and future value creation.",
     closing:
-      "Designed for investors, families, and future homeowners, Supraja IRIS offers a distinctive land ownership experience shaped by infrastructure, recreation, and long-term location value.",
+      "Beyond land ownership, Supraja IRIS represents participation in a growing destination shaped by connectivity, planned developments, and evolving regional demand. For investors, families, and future homeowners, it offers the confidence of investing in a location positioned for sustainable growth and enduring relevance.",
   },
 
   "supraja-iris-resort-plots": {
