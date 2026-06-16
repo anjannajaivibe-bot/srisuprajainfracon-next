@@ -239,12 +239,6 @@ export default function AboutClient() {
                     positively to regional growth while delivering lasting value
                     for generations to come.
                   </p>
-
-                  <p className="pt-4 font-medium text-[#111827]">
-                    Thank you for your trust and support.
-                  </p>
-
-                  <p className="italic text-[#6B7280]">Warm Regards,</p>
                 </div>
               </div>
             </div>
