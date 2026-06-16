@@ -15,7 +15,7 @@ const galleryCopy: Record<
   }
 > = {
   "supraja-iris": {
-    title: "Supraja IRIS Gallery",
+    title: "Supraja IRIS",
     intro:
       "Explore site visuals, project layouts, entrance features, lifestyle attractions, and key infrastructure elements.",
     altPrefix:
@@ -23,7 +23,7 @@ const galleryCopy: Record<
   },
 
   "supraja-iris-resort-plots": {
-    title: "Supraja IRIS Gallery",
+    title: "Supraja IRIS",
     intro:
       "Explore site visuals, project layouts, entrance features, lifestyle attractions, and key infrastructure elements.",
     altPrefix:

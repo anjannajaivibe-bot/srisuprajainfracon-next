@@ -46,7 +46,7 @@ export default function ContactForm() {
       className="rounded-[32px] border border-[#EFE7D3] bg-white p-8 shadow-[0_15px_40px_rgba(11,22,51,0.08)]"
     >
       <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
-        Project Enquiry Form
+        Enquiry Form
       </p>
 
       <h3 className="mb-6 text-3xl font-display font-bold text-[#111827]">
