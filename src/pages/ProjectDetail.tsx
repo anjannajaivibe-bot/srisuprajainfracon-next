@@ -6,7 +6,6 @@ import Navbar from "@/components/layout/Navbar";
 import ProjectHero from "@/components/project/ProjectHero";
 import ProjectOverview from "@/components/project/ProjectOverview";
 import ProjectHighlights from "@/components/project/ProjectHighlights";
-import ProjectAmenities from "@/components/project/ProjectAmenities";
 import ProjectCTA from "@/components/project/ProjectCTA";
 import ProjectTestimonials from "@/components/project/ProjectTestimonials";
 
@@ -82,9 +81,6 @@ const ProjectDetail = ({ slug }: { slug: string }) => {
 
         {/* Highlights */}
         <ProjectHighlights project={project} />
-
-        {/* Amenities */}
-        <ProjectAmenities project={project} />
 
         {/* Gallery */}
         <ProjectGallery project={project} />
