@@ -170,19 +170,6 @@ export default function AboutClient() {
                   imageClassName="object-cover object-top"
                 />
 
-                <div className="mt-6 border-l-4 border-[#C9A227] pl-5">
-                  <h2 className="text-3xl font-display font-bold text-[#111827]">
-                    Mr. Tudi Praveen
-                  </h2>
-                  <p className="mt-2 font-bold text-[#C9A227]">
-                    Chairman &amp; Managing Director
-                  </p>
-                  <p className="mt-2 text-sm text-[#6B7280]">
-                    Sri Supraja Infracon
-                  </p>
-                </div>
-              </div>
-
               <div className="max-w-4xl">
                 <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-[#C9A227]">
                   FROM THE DESK OF OUR CHAIRMAN
@@ -220,9 +207,21 @@ export default function AboutClient() {
                     As we look ahead, our commitment remains unwavering to uphold the highest standards of integrity, 
                     transparency, and customer trust while creating developments that stand the test of time. 
                     I extend my heartfelt gratitude to our customers, employees, partners, stakeholders, 
-                    and well-wishers for their continued faith and support.Together, 
+                    and well-wishers for their continued faith and support. Together, 
                     we are shaping tomorrow’s landmarks today.
                   </p>
+                   <div className="mt-6 border-l-4 border-[#C9A227] pl-5">
+                  <h2 className="text-3xl font-display font-bold text-[#111827]">
+                    Mr. Tudi Praveen
+                  </h2>
+                  <p className="mt-2 font-bold text-[#C9A227]">
+                    Chairman &amp; Managing Director
+                  </p>
+                  <p className="mt-2 text-sm text-[#6B7280]">
+                    Sri Supraja Infracon
+                  </p>
+                </div>
+              </div>
                 </div>
               </div>
             </div>
@@ -239,13 +238,6 @@ export default function AboutClient() {
               <h2 className="text-3xl font-display font-bold text-[#111827]">
                 Social Responsibility Rooted in Community Growth
               </h2>
-
-              <p className="mx-auto mt-4 max-w-3xl text-[#4B5563]">
-                At Sri Supraja Infracon, we believe growth carries a responsibility to give back. 
-                Through education, healthcare, community welfare and social support initiatives, 
-                we strive to make a positive difference in the lives of underprivileged individuals, 
-                families and communities.
-              </p>
             </div>
 
             <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -270,7 +262,7 @@ export default function AboutClient() {
       </p>
 
       <h2 className="text-3xl font-display font-bold leading-tight text-[#111827] sm:text-4xl lg:text-5xl">
-        24 Years of Building Trust, Communities and Lasting Value
+        A Legacy Built on Trust, Integrity and Lasting Value
       </h2>
 
       <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-[#4B5563]">
