@@ -8,14 +8,14 @@ type Props = {
 const getExtraHighlights = (slug: string) => {
   if (slug === "supraja-iris-resort-plots" || slug === "supraja-iris") {
     return [
+      "DTCP & RERA Approved Open Plots",
+      "Sales Open for Limited Plotted Inventory",
+      "350 Acres Resort Style Master Plan",
       "Lemon Tree Resort under construction",
       "Water & Amusement Theme Park Under Development",
       "Go-Karting planned",
       "Water Villas under construction",
       "Near Woxsen University and NH-65",
-      "DTCP & RERA Approved Open Plots",
-      "350 Acres Resort Style Master Plan",
-      "Sales Open for Limited Plotted Inventory",
     ];
   }
 
