@@ -60,14 +60,8 @@ export default function ContactPageClient() {
             </p>
 
             <h2 className="mb-6 font-display text-3xl font-bold text-[#111827] sm:text-4xl">
-              Connect With Supraja Management
+              Reach Us
             </h2>
-
-            <p className="mb-8 leading-relaxed text-[#4B5563]">
-              Our team can assist with project information, site visits,
-              availability details, documentation queries, and general enquiries
-              across Sri Supraja Infracon projects.
-            </p>
 
             <div className="space-y-5">
               <div className="flex items-start gap-4 rounded-2xl border border-[#EFE7D3] bg-white p-5 shadow-sm">
