@@ -188,56 +188,40 @@ export default function AboutClient() {
                   FROM THE DESK OF OUR CHAIRMAN
                 </p>
 
-                <h2 className="mb-8 max-w-3xl text-3xl font-display font-bold leading-tight text-[#111827] sm:text-4xl">
-                  Leading with Integrity, Building for Generations
-                </h2>
-
                 <div className="space-y-5 text-[17px] leading-8 text-[#4B5563]">
                   <p>
-                    “Over the past 24 years, Sri Supraja Infracon has grown with
-                    a simple belief: trust is the foundation of every successful
-                    development.”
+                    “Over the past 24 years, Sri Supraja Infracon has grown with a simple belief: 
+                    trust is the foundation of every successful development.”
                   </p>
 
                   <p>
-                    What began as a vision to create quality living spaces has
-                    evolved into a journey of delivering apartments, villa
-                    communities, HMDA approved layouts, DTCP approved projects
-                    and large-scale real estate developments across Hyderabad
-                    and Telangana.
+                    What began as a vision to create quality communities has evolved into a mission 
+                    to shape destinations that inspire growth, opportunity, and a better way of living. 
+                    Every project we undertake is built on trust, guided by quality, and driven by a 
+                    commitment to create lasting value for generations.
                   </p>
 
                   <p>
-                    Every project we have undertaken reflects our commitment to
-                    transparency, legal compliance, infrastructure quality and
-                    customer satisfaction. We understand that purchasing a
-                    property is one of the most important decisions in a
-                    family&apos;s life. That responsibility drives us to maintain
-                    the highest standards in planning, approvals and execution.
+                    we have had the privilege of contributing to the growth of Hyderabad and Telangana 
+                    through residential communities, approved layouts, plotted developments, 
+                    and large-scale real estate ventures. Our focus has always remained the same 
+                    combining strategic locations, strong infrastructure, and future-ready planning to 
+                    create places people are proud to own and call their own.
                   </p>
 
                   <p>
-                    Today, our developments span from completed residential
-                    communities to landmark projects such as Supraja IRIS and
-                    Bridge County, representing the next generation of integrated
-                    lifestyle and investment destinations. While our projects
-                    continue to evolve, our values remain unchanged: integrity,
-                    trust, quality and long-term value creation.
+                    Today, developments such as Supraja IRIS, Bridge County, Sindhu Sarovar, 
+                    and Subash Meadows represent the next chapter of our journey. 
+                    More than projects, they are emerging communities designed around connectivity, 
+                    lifestyle, and the aspirations of tomorrow.
                   </p>
 
                   <p>
-                    Our success over the last two decades has been made possible
-                    by the confidence of thousands of customers, investors,
-                    channel partners and well-wishers who have been part of our
-                    journey. Their trust inspires us to continuously raise our
-                    standards and build developments that stand the test of time.
-                  </p>
-
-                  <p>
-                    As we look ahead, we remain committed to creating approved,
-                    well-planned and future-ready communities that contribute
-                    positively to regional growth while delivering lasting value
-                    for generations to come.
+                    As we look ahead, our commitment remains unwavering to uphold the highest standards of integrity, 
+                    transparency, and customer trust while creating developments that stand the test of time. 
+                    I extend my heartfelt gratitude to our customers, employees, partners, stakeholders, 
+                    and well-wishers for their continued faith and support.Together, 
+                    we are shaping tomorrow’s landmarks today.
                   </p>
                 </div>
               </div>
