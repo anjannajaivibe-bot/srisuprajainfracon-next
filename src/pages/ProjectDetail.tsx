@@ -37,17 +37,6 @@ const ProjectFAQ = dynamic(() => import("@/components/project/ProjectFAQ"), {
   ),
 });
 
-const ProjectResort = dynamic(
-  () => import("@/components/project/ProjectResort"),
-  {
-    loading: () => (
-      <div className="py-24 text-center text-slate-500">
-        Loading resort details...
-      </div>
-    ),
-  }
-);
-
 const ProjectDetail = ({ slug }: { slug: string }) => {
   const project = projects.find((item) => item.slug === slug);
 
@@ -96,11 +85,6 @@ const ProjectDetail = ({ slug }: { slug: string }) => {
 
         {/* Amenities */}
         <ProjectAmenities project={project} />
-
-        {/* Resort Section */}
-        {project.slug === "supraja-iris-resort-plots" && (
-          <ProjectResort project={project} />
-        )}
 
         {/* Gallery */}
         <ProjectGallery project={project} />
