@@ -40,7 +40,7 @@ const values = [
   {
     icon: ShieldCheck,
     title: "Trust First",
-    desc: "Clear documentation, approval transparency and honest communication for every buyer.",
+    desc: "Clear documentation, approval transparency and honest communication for every investor.",
   },
   {
     icon: Landmark,
@@ -64,7 +64,7 @@ const whyChoose = [
   "Strategic locations near Hyderabad growth corridors",
   "Transparent project communication",
   "Strong focus on roads, parks, utilities and layout planning",
-  "Buyer support for availability, site visit, loan and registration",
+  "investor support for availability, site visit, loan and registration",
   "Premium projects such as Supraja IRIS and Bridge County",
 ];
 
@@ -77,10 +77,10 @@ const milestones = [
   {
     year: "2010",
     title: "First Major Delivery",
-    desc: "The company expanded its plotted development presence and strengthened its reputation for planned layouts and buyer-focused service.",
+    desc: "The company expanded its plotted development presence and strengthened its reputation for planned layouts and investor-focused service.",
   },
   {
-    year: "2020s",
+    year: "2020",
     title: "Expansion Phase",
     desc: "Sri Supraja Infracon expanded into multiple plotted communities across Telangana growth corridors with stronger infrastructure planning.",
   },
@@ -92,7 +92,7 @@ const milestones = [
   {
     year: "2026",
     title: "Sales Open Across Projects",
-    desc: "Supraja IRIS, Bridge County, Sindhu Sarovar and Subhash Meadows continue to serve buyers looking for open plots near Hyderabad.",
+    desc: "Supraja IRIS, Bridge County, Sindhu Sarovar and Subhash Meadows continue to serve investors looking for open plots near Hyderabad.",
   },
 ];
 
@@ -267,7 +267,7 @@ export default function AboutClient() {
       </p>
 
       <h2 className="text-3xl font-display font-bold leading-tight text-[#111827] sm:text-4xl lg:text-5xl">
-        Bulding History
+        Building History
       </h2>
 
       <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-[#4B5563]">
