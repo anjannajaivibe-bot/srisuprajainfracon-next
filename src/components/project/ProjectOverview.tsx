@@ -23,6 +23,23 @@ const projectMaps: Record<string, string> = {
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3442.9992101737885!2d78.16053747462993!3d17.524786798833457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcbf1004d95c521%3A0x78d4dfe9922ab864!2sSubhash%20Meadows!5e1!3m2!1sen!2sin!4v1781595112903!5m2!1sen!2sin",
 };
 
+const projectLocationCopy: Record<string, string> = {
+  "supraja-iris":
+    "Supraja IRIS is positioned at Kamkole with access to the Mumbai Highway growth corridor, making it suitable for buyers looking at plotted investment, weekend lifestyle potential, and future connectivity advantages near Hyderabad.",
+
+  "supraja-iris-resort-plots":
+    "Supraja IRIS is positioned at Kamkole with access to the Mumbai Highway growth corridor, making it suitable for buyers looking at plotted investment, weekend lifestyle potential, and future connectivity advantages near Hyderabad.",
+
+  "bridge-county":
+    "Supraja Bridge County is located adjacent to Woxsen University within the larger Supraja IRIS project environment, giving buyers a calm plotted community setting with the advantage of nearby education, connectivity, and future development activity.",
+
+  "sindhu-sarovar":
+    "Supraja Sindhu Sarovar offers a planned project location with practical access and long-term land value potential, making it relevant for buyers who prefer organized layouts in a developing real estate corridor.",
+
+  "subhash-meadows":
+    "Supraja Subhash Meadows is placed in a well-connected zone with access to nearby routes and surrounding development, making it a dependable option for families and investors evaluating future-ready land ownership.",
+};
+
 const overviewCopy: Record<
   string,
   {
@@ -92,8 +109,11 @@ const ProjectOverview = ({ project }: Props) => {
   const availabilityMapUrl = project.availabilityMapUrl;
   const overview = overviewCopy[project.slug] ?? fallbackOverview;
   const mapUrl = projectMaps[project.slug];
+  const locationText =
+    projectLocationCopy[project.slug] ??
+    `Explore the exact location of ${project.title} on Google Maps and understand its surrounding connectivity, nearby access points, and project approach before planning your visit.`;
 
-  if (project.slug === "supraja-iris" || project.slug === "supraja-iris-resort-plots") {
+  if (project.slug === "supraja-iris") {
     if (!brochureUrl) return null;
 
     return (
@@ -211,10 +231,7 @@ const ProjectOverview = ({ project }: Props) => {
                   Project Location
                 </h3>
 
-                <p className="mt-2 text-slate-600">
-                  Visit the exact location of {project.title} and explore nearby
-                  landmarks, connectivity and future developments.
-                </p>
+                <p className="mt-2 text-slate-600">{locationText}</p>
               </div>
 
               <iframe
@@ -388,10 +405,7 @@ const ProjectOverview = ({ project }: Props) => {
                 Project Location
               </h3>
 
-              <p className="mt-2 text-slate-600">
-                Visit the exact location of {project.title} and explore nearby
-                landmarks, connectivity and future developments.
-              </p>
+              <p className="mt-2 text-slate-600">{locationText}</p>
             </div>
 
             <iframe
