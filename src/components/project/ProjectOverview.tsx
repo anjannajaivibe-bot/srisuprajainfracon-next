@@ -58,7 +58,7 @@ const fallbackOverview = {
   description:
     "A well-planned project by Sri Supraja Infracon, shaped around accessibility, infrastructure, and future location potential.",
   closing:
-    "The project is designed for investors, clients, and families seeking dependable planning and long-term ownership confidence.",
+    "T",
 };
 
 const ProjectOverview = ({ project }: Props) => {
