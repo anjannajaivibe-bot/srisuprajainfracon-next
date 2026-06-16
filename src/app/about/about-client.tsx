@@ -160,73 +160,80 @@ export default function AboutClient() {
         </section>
 
         <section className="bg-white px-6 py-24">
-          <div className="container-max">
-            <div className="grid gap-12 lg:grid-cols-[380px_1fr] lg:items-start">
-              <div>
-                <SmartImage
-                  src={ownerPhoto}
-                  alt="Mr Tudi Praveen Chairman and Managing Director of Sri Supraja Infracon"
-                  className="h-[500px] lg:h-[800px] w-full rounded-[10px]"
-                  imageClassName="object-cover object-top"
-                />
+  <div className="container-max">
+    <div className="grid gap-12 lg:grid-cols-[380px_1fr] lg:items-start">
 
-              <div className="max-w-4xl">
-                <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-[#C9A227]">
-                  FROM THE DESK OF OUR CHAIRMAN
-                </p>
+      {/* Left Column */}
+      <div>
+        <SmartImage
+          src={ownerPhoto}
+          alt="Mr Tudi Praveen Chairman and Managing Director of Sri Supraja Infracon"
+          className="h-[500px] w-full rounded-[10px] lg:h-[800px]"
+          imageClassName="object-cover object-top"
+        />
+      </div>
 
-                <div className="space-y-5 text-[17px] leading-8 text-[#4B5563]">
-                  <p>
-                    “Over the past 24 years, Sri Supraja Infracon has grown with a simple belief: 
-                    trust is the foundation of every successful development.”
-                  </p>
+      {/* Right Column */}
+      <div className="max-w-4xl">
+        <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-[#C9A227]">
+          FROM THE DESK OF OUR CHAIRMAN
+        </p>
 
-                  <p>
-                    What began as a vision to create quality communities has evolved into a mission 
-                    to shape destinations that inspire growth, opportunity, and a better way of living. 
-                    Every project we undertake is built on trust, guided by quality, and driven by a 
-                    commitment to create lasting value for generations.
-                  </p>
+        <div className="space-y-5 text-[17px] leading-8 text-[#4B5563]">
+          <p>
+            “Over the past 24 years, Sri Supraja Infracon has grown with a simple belief:
+            trust is the foundation of every successful development.”
+          </p>
 
-                  <p>
-                    we have had the privilege of contributing to the growth of Hyderabad and Telangana 
-                    through residential communities, approved layouts, plotted developments, 
-                    and large-scale real estate ventures. Our focus has always remained the same 
-                    combining strategic locations, strong infrastructure, and future-ready planning to 
-                    create places people are proud to own and call their own.
-                  </p>
+          <p>
+            What began as a vision to create quality communities has evolved into a mission
+            to shape destinations that inspire growth, opportunity, and a better way of living.
+            Every project we undertake is built on trust, guided by quality, and driven by a
+            commitment to create lasting value for generations.
+          </p>
 
-                  <p>
-                    Today, developments such as Supraja IRIS, Bridge County, Sindhu Sarovar, 
-                    and Subash Meadows represent the next chapter of our journey. 
-                    More than projects, they are emerging communities designed around connectivity, 
-                    lifestyle, and the aspirations of tomorrow.
-                  </p>
+          <p>
+            We have had the privilege of contributing to the growth of Hyderabad and Telangana
+            through residential communities, approved layouts, plotted developments,
+            and large-scale real estate ventures. Our focus has always remained the same:
+            combining strategic locations, strong infrastructure, and future-ready planning to
+            create places people are proud to own and call their own.
+          </p>
 
-                  <p>
-                    As we look ahead, our commitment remains unwavering to uphold the highest standards of integrity, 
-                    transparency, and customer trust while creating developments that stand the test of time. 
-                    I extend my heartfelt gratitude to our customers, employees, partners, stakeholders, 
-                    and well-wishers for their continued faith and support. Together, 
-                    we are shaping tomorrow’s landmarks today.
-                  </p>
-                   <div className="mt-6 border-l-4 border-[#C9A227] pl-5">
-                  <h2 className="text-3xl font-display font-bold text-[#111827]">
-                    Mr. Tudi Praveen
-                  </h2>
-                  <p className="mt-2 font-bold text-[#C9A227]">
-                    Chairman &amp; Managing Director
-                  </p>
-                  <p className="mt-2 text-sm text-[#6B7280]">
-                    Sri Supraja Infracon
-                  </p>
-                </div>
-              </div>
-                </div>
-              </div>
-            </div>
+          <p>
+            Today, developments such as Supraja IRIS, Bridge County, Sindhu Sarovar,
+            and Subash Meadows represent the next chapter of our journey.
+            More than projects, they are emerging communities designed around connectivity,
+            lifestyle, and the aspirations of tomorrow.
+          </p>
+
+          <p>
+            As we look ahead, our commitment remains unwavering in upholding the highest standards of integrity,
+            transparency, and customer trust while creating developments that stand the test of time.
+            I extend my heartfelt gratitude to our customers, employees, partners, stakeholders,
+            and well-wishers for their continued faith and support. Together,
+            we are shaping tomorrow's landmarks today.
+          </p>
+
+          <div className="mt-6 border-l-4 border-[#C9A227] pl-5">
+            <h2 className="text-3xl font-display font-bold text-[#111827]">
+              Mr. Tudi Praveen
+            </h2>
+
+            <p className="mt-2 font-bold text-[#C9A227]">
+              Chairman &amp; Managing Director
+            </p>
+
+            <p className="mt-2 text-sm text-[#6B7280]">
+              Sri Supraja Infracon
+            </p>
           </div>
-        </section>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
         <section className="bg-white px-6 py-20">
           <div className="container-max">
