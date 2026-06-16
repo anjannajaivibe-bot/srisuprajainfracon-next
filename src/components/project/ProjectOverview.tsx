@@ -17,20 +17,16 @@ const overviewCopy: Record<
 > = {
   "supraja-iris": {
     label: "Resort-Inspired Project",
-    title: "A Landmark Destination Taking Shape.",
-    description:
-      "",
-    closing:
-      "",
+    title: "A Landmark Destination Taking Shape",
+    description: "",
+    closing: "",
   },
 
   "supraja-iris-resort-plots": {
     label: "Resort-Inspired Project",
-    title: "A Landmark Destination Taking Shape.",
-    description:
-      "",
-    closing:
-      "",
+    title: "A Landmark Destination Taking Shape",
+    description: "",
+    closing: "",
   },
 
   "bridge-county": {
@@ -70,11 +66,29 @@ const fallbackOverview = {
     "The project is designed for investors, clients, and families seeking dependable planning and long-term ownership confidence.",
 };
 
+const projectMaps: Record<string, string> = {
+  "supraja-iris":
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9919.84604372614!2d77.79124881460227!3d17.631095215457595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc953e9e3ac09bb%3A0xfbf45f72331801f1!2sSupraja%20IRIS%20Resorts!5e1!3m2!1sen!2sin!4v1781594940721!5m2!1sen!2sin",
+
+  "supraja-iris-resort-plots":
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9919.84604372614!2d77.79124881460227!3d17.631095215457595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc953e9e3ac09bb%3A0xfbf45f72331801f1!2sSupraja%20IRIS%20Resorts!5e1!3m2!1sen!2sin!4v1781594940721!5m2!1sen!2sin",
+
+  "bridge-county":
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3440.8484356747235!2d77.79436807688003!3d17.6377793524897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc95300175108ef%3A0x969626319a3e14f1!2sSupraja%20Bridge%20County!5e1!3m2!1sen!2sin!4v1781595045957!5m2!1sen!2sin",
+
+  "sindhu-sarovar":
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.4281846986564!2d77.87623247462946!3d17.50216579948956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc957dabf153fa9%3A0x794f231ecb9cce5e!2sSupraja%20Sindhuja%20Sarovar!5e1!3m2!1sen!2sin!4v1781595078987!5m2!1sen!2sin",
+
+  "subhash-meadows":
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3442.9992101737885!2d78.16053747462993!3d17.524786798833457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcbf1004d95c521%3A0x78d4dfe9922ab864!2sSubhash%20Meadows!5e1!3m2!1sen!2sin!4v1781595112903!5m2!1sen!2sin",
+};
+
 const ProjectOverview = ({ project }: Props) => {
   const seo = getProjectSeo(project.slug);
   const brochureUrl = project.brochure;
   const availabilityMapUrl = project.availabilityMapUrl;
   const overview = overviewCopy[project.slug] ?? fallbackOverview;
+  const mapUrl = projectMaps[project.slug];
 
   return (
     <section className="bg-white px-6 py-20">
@@ -102,13 +116,17 @@ const ProjectOverview = ({ project }: Props) => {
           )}
 
           <div className="max-w-5xl">
-            <p className="mb-6 text-lg leading-relaxed text-slate-600">
-              {overview.description}
-            </p>
+            {overview.description && (
+              <p className="mb-6 text-lg leading-relaxed text-slate-600">
+                {overview.description}
+              </p>
+            )}
 
-            <p className="text-lg leading-relaxed text-slate-600">
-              {overview.closing}
-            </p>
+            {overview.closing && (
+              <p className="text-lg leading-relaxed text-slate-600">
+                {overview.closing}
+              </p>
+            )}
 
             <div className="mt-7 flex flex-wrap gap-4 text-sm font-bold">
               {seo.internalLinks.map((link: any) => (
@@ -132,6 +150,37 @@ const ProjectOverview = ({ project }: Props) => {
             </div>
           </div>
         </div>
+
+        {mapUrl && (
+          <div className="mb-12 overflow-hidden rounded-[32px] border border-slate-200 bg-white shadow-xl">
+            <div className="border-b border-slate-200 bg-slate-50 px-6 py-5">
+              <p className="mb-1 text-sm font-bold uppercase tracking-wide text-amber-600">
+                Project Location
+              </p>
+
+              <h3 className="text-2xl font-extrabold text-slate-950">
+                Explore the Project Location
+              </h3>
+
+              <p className="mt-2 text-slate-600">
+                Review the project location, surrounding connectivity, and
+                access routes before planning your visit.
+              </p>
+            </div>
+
+            <iframe
+              src={mapUrl}
+              width="100%"
+              height="500"
+              style={{ border: 0 }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full"
+              allowFullScreen
+              title={`${project.title} Location Map`}
+            />
+          </div>
+        )}
 
         {brochureUrl && (
           <div className="overflow-hidden rounded-[32px] border border-slate-200 bg-white shadow-2xl">
