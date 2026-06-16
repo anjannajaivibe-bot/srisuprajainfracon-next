@@ -62,9 +62,9 @@ const overviewCopy: Record<
     label: "Resort-Inspired Project",
     title: "More Than a Plot. A Destination in the Making.",
     description:
-      "Supraja IRIS brings together plotted ownership, planned lifestyle attractions, and a growth-oriented location in Kamkole. Lemon Tree Resort, Water & Amusement Theme Park, Go-Karting, and Water Villas are envisioned as part of its larger lifestyle ecosystem.",
+      "Supraja IRIS is envisioned as a landmark plotted development where lifestyle aspirations, future infrastructure, and long-term investment potential come together in a single destination. Strategically located at Kamkole, the project is planned around a larger ecosystem that includes hospitality, recreation, leisure, and residential opportunities designed to enhance both present-day enjoyment and future value creation.",
     closing:
-      "Designed for investors, families, and future homeowners, Supraja IRIS offers a distinctive land ownership experience shaped by infrastructure, recreation, and long-term location value.",
+      "Beyond land ownership, Supraja IRIS represents participation in a growing destination shaped by connectivity, planned developments, and evolving regional demand. For investors, families, and future homeowners, it offers the confidence of investing in a location positioned for sustainable growth and enduring relevance.",
   },
 
   "bridge-county": {
