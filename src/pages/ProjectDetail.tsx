@@ -7,7 +7,6 @@ import ProjectHero from "@/components/project/ProjectHero";
 import ProjectOverview from "@/components/project/ProjectOverview";
 import ProjectHighlights from "@/components/project/ProjectHighlights";
 import ProjectAmenities from "@/components/project/ProjectAmenities";
-import ProjectLocation from "@/components/project/ProjectLocation";
 import ProjectCTA from "@/components/project/ProjectCTA";
 import ProjectTestimonials from "@/components/project/ProjectTestimonials";
 
@@ -73,7 +72,7 @@ const ProjectDetail = ({ slug }: { slug: string }) => {
             View All Projects
           </Link>
         </main>
-</div>
+      </div>
     );
   }
 
@@ -89,11 +88,8 @@ const ProjectDetail = ({ slug }: { slug: string }) => {
         {/* Hero */}
         <ProjectHero project={project} />
 
-        {/* Overview */}
+        {/* Overview / Brochure */}
         <ProjectOverview project={project} />
-        
-        {/* Location */}
-        <ProjectLocation project={project} />
 
         {/* Highlights */}
         <ProjectHighlights project={project} />
@@ -118,13 +114,8 @@ const ProjectDetail = ({ slug }: { slug: string }) => {
         {/* CTA */}
         <ProjectCTA project={project} />
       </main>
-</div>
+    </div>
   );
 };
 
 export default ProjectDetail;
-
-
-
-
-
