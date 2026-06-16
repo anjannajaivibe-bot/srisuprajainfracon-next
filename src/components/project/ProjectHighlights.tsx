@@ -13,6 +13,9 @@ const getExtraHighlights = (slug: string) => {
       "Go-Karting planned",
       "Water Villas under construction",
       "Near Woxsen University and NH-65",
+      "DTCP & RERA Approved Open Plots"
+      "350 Acres Resort Style Master Plan"
+      "Sales Open for Limited Plotted Inventory"
     ];
   }
 
