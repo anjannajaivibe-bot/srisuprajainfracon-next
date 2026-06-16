@@ -53,18 +53,18 @@ const overviewCopy: Record<
     label: "Resort-Inspired Project",
     title: "More Than a Plot. A Destination in the Making.",
     description:
-      "Supraja IRIS is envisioned as a landmark plotted development where lifestyle aspirations, future infrastructure, and long-term investment potential come together in a single destination. Strategically located at Kamkole, the project is planned around a larger ecosystem that includes hospitality, recreation, leisure, and residential opportunities designed to enhance both present-day enjoyment and future value creation.",
+      "",
     closing:
-      "Beyond land ownership, Supraja IRIS represents participation in a growing destination shaped by connectivity, planned developments, and evolving regional demand. For investors, families, and future homeowners, it offers the confidence of investing in a location positioned for sustainable growth and enduring relevance.",
+      "",
   },
 
   "supraja-iris-resort-plots": {
     label: "Resort-Inspired Project",
     title: "More Than a Plot. A Destination in the Making.",
     description:
-      "Supraja IRIS is envisioned as a landmark plotted development where lifestyle aspirations, future infrastructure, and long-term investment potential come together in a single destination. Strategically located at Kamkole, the project is planned around a larger ecosystem that includes hospitality, recreation, leisure, and residential opportunities designed to enhance both present-day enjoyment and future value creation.",
+      "",
     closing:
-      "Beyond land ownership, Supraja IRIS represents participation in a growing destination shaped by connectivity, planned developments, and evolving regional demand. For investors, families, and future homeowners, it offers the confidence of investing in a location positioned for sustainable growth and enduring relevance.",
+      "",
   },
 
   "bridge-county": {
