@@ -58,7 +58,7 @@ const fallbackOverview = {
   description:
     "A well-planned project by Sri Supraja Infracon, shaped around accessibility, infrastructure, and future location potential.",
   closing:
-    "T",
+    "",
 };
 
 const ProjectOverview = ({ project }: Props) => {
