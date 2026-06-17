@@ -257,7 +257,7 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
                   Premium Plots Starting from
                 </p>
                 <p className="mt-2 text-5xl font-extrabold tracking-tight text-[#D6B15C] sm:text-6xl">
-                  ₹18.22 <span className="text-2xl">Lakhs*</span>
+                  ₹22.3 <span className="text-2xl">Lakhs*</span>
                 </p>
               </div>
             )}

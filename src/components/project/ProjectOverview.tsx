@@ -44,7 +44,7 @@ const overviewCopy: Record<
     description:
       "An organized plotted community designed for confident ownership and long-term value.",
     closing:
-      "An organized plotted community designed for confident ownership and long-term value.",
+      "",
   },
 
   "subhash-meadows": {
