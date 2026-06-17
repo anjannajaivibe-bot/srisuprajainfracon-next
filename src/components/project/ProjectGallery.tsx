@@ -50,23 +50,23 @@ const galleryOverlayText: Record<string, string[]> = {
   ],
 
   "supraja-iris-resort-plots": [
-    "Grand Entrance",
-    "Lifestyle Attractions",
-    "Resort-Inspired Setting",
-    "Blacktop Roads",
-    "Open Green Spaces",
-    "Future-Ready Infrastructure",
-    "Premium Plotted Community",
+    "Lemon Tree Resort Under Construction",
+    "Lemon Tree Resort - After Completion",
+    "Water Villas Under Construction",
+    "Adjacent Woxen University",
+    "Destination Wedding Hall Planned",
+    "Water & Amusement Park Planned",
+    "Go-Karting Planned",
   ],
 
   "bridge-county": [
-    "Bridge County Entrance",
-    "15-Acre Premium Enclave",
-    "Within Supraja IRIS",
-    "Adjacent to Woxsen University",
-    "Serene Landscape",
-    "Planned Infrastructure",
-    "Premium Plot Community",
+   "Lemon Tree Resort Under Construction",
+    "Lemon Tree Resort - After Completion",
+    "Water Villas Under Construction",
+    "Adjacent Woxen University",
+    "Destination Wedding Hall Planned",
+    "Water & Amusement Park Planned",
+    "Go-Karting Planned",
   ],
 };
 
@@ -95,7 +95,7 @@ const galleryCopy: Record<
   },
 
   "bridge-county": {
-    title: "Bridge County Gallery",
+    title: "Bridge County Gallery - Nearby Attractions",
     intro:
       "View project visuals, layout references, entrance features, and site infrastructure from this 15-acre enclave within Supraja IRIS.",
     altPrefix:
