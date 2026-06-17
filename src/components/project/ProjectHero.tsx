@@ -69,15 +69,22 @@ const heroCopy: Record<
       "Supraja IRIS resort inspired plots in Kamkole with lifestyle attractions and project infrastructure",
   },
 
-  "bridge-county": {
+ "bridge-county": {
   badge: "A SERENE LANDSCAPE",
   h1: "Bridge County",
   subtitle:
-    "A premium plotted enclave within Supraja IRIS, thoughtfully planned for discerning investors seeking connectivity, long-term value, and a refined ownership experience.",
+    "A peaceful plotted enclave within Supraja IRIS, designed for calm living, strong connectivity, and long-term location value.",
   firstParagraph:
-    "Bridge County is a dedicated 15-acre plotted community within Supraja IRIS, offering an exclusive environment that combines planned infrastructure, peaceful surroundings, and strategic location advantages.",
+    "Bridge County offers a dedicated 15-acre plotted setting within the broader Supraja IRIS lifestyle ecosystem.",
   description:
-    "Positioned in the emerging Kamkole growth corridor, Bridge County presents a compelling opportunity for those looking to secure land in a location backed by infrastructure development, educational institutions, and future regional expansion.",
+    "Planned for investors seeking organized infrastructure, peaceful surroundings, and access to the future growth potential of Kamkole - Sangareddy.",
+  tags: [
+    "Starting from ₹18.22 Lakhs",
+    "15-Acre Enclave",
+    "211 Premium Plots",
+    "Adjacent to Woxsen University",
+    "NH 65 Connectivity",
+  ],
   imageAlt:
     "Bridge County premium plotted enclave within Supraja IRIS at Kamkole",
 },
