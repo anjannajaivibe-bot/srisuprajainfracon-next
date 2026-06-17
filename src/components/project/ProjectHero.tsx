@@ -39,11 +39,12 @@ const heroCopy: Record<
     description:
       "Lemon Tree Resort is under construction, while Water & Amusement Theme Park, Go-Karting, and Water Villas are planned as part of the larger lifestyle ecosystem.",
     tags: [
-      "Kamkole Growth Corridor",
+      "Lemon Tree Resort Under Construction",
       "Lemon Tree Resort",
-      "Theme Park Planned",
+      "Water & Amusement Park",
       "Go-Karting Planned",
-      "Water Villas Planned",
+      "Water Villas Under Construction",
+      "Destination Wedding Convention"
     ],
     imageAlt:
       "Supraja IRIS resort inspired plots in Kamkole with lifestyle attractions and project infrastructure",
