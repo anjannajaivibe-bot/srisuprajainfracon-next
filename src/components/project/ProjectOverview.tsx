@@ -155,15 +155,15 @@ const ProjectOverview = ({ project }: Props) => {
           <div className="mb-12 overflow-hidden rounded-[32px] border border-slate-200 bg-white shadow-xl">
             <div className="border-b border-slate-200 bg-slate-50 px-6 py-5">
               <p className="mb-1 text-sm font-bold uppercase tracking-wide text-amber-600">
-                Project Location
+                PROJECT LOCATION
               </p>
 
               <h3 className="text-2xl font-extrabold text-slate-950">
-                Explore the Project Location
+                Connected to Every Advantage
               </h3>
 
               <p className="mt-2 text-slate-600">
-                
+               A Destination with Strong Potential 
               </p>
             </div>
 
