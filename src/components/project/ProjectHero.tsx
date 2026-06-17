@@ -88,18 +88,18 @@ const heroCopy: Record<
 
   "sindhu-sarovar": {
     badge: "Your Space. Your Vision. Your Future.",
-    h1: "A Well-Planned Community Built for Future Growth",
+    h1: "A Community Built for Tomorrow",
     subtitle:
-      "A gated plotted development created for confident ownership, future appreciation, and a better living environment.",
+      "Secure ownership. Strong connectivity. Lasting value.",
     firstParagraph:
       "",
     description:
-      "An organized plotted community designed around connectivity, convenience, and future growth.",
+      "An organized plotted development designed for comfortable living and long-term growth.",
     tags: [
       "DTCP & RERA Approved",
-      "Gated Community",
-      "Wide Internal Roads",
-      "High Growth Corridor",
+      "Secure Gated Community",
+      "Wide Blacktop Roads",
+      "Future Growth Hub",
     ],
     imageAlt:
       "Supraja Sindhu Sarovar planned project with organized layout and connectivity",

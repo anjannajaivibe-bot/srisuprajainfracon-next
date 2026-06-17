@@ -19,7 +19,7 @@ const testimonials = [
     slug: "supraja-iris-resort-plots",
     project: "Supraja IRIS",
     name: "Raju Kodipelly",
-    role: "Plot No. 160 • 160 Sq. Yards",
+    role: "Plot No. 160 • 201.67 Sq. Yards",
     image: "/testimonials/raju-kodiipally-supraja-iris-investor.webp",
     alt: "Raju Kodipelly customer feedback for Supraja IRIS at Kamkole",
     text:

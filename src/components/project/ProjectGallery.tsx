@@ -95,9 +95,9 @@ const galleryCopy: Record<
   },
 
   "bridge-county": {
-    title: "Bridge County Gallery - Nearby Attractions",
+    title: "Bridge County Gallery & Future Growth Landmarks",
     intro:
-      "View project visuals, layout references, entrance features, and site infrastructure from this 15-acre enclave within Supraja IRIS.",
+      "Discover the landmarks and growth catalysts surrounding Bridge County, including hospitality destinations, educational institutions, recreation zones, and major connectivity corridors shaping the future of the region.",
     altPrefix:
       "Bridge County 15-acre plotted enclave within Supraja IRIS gallery",
   },
