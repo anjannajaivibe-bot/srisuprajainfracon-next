@@ -5,51 +5,6 @@ type Props = {
   project: Project;
 };
 
-const getExtraHighlights = (slug: string) => {
-  if (slug === "supraja-iris-resort-plots" || slug === "supraja-iris") {
-    return [
-      "DTCP & RERA Approved Open Plots",
-      "Sales Open for Limited Plotted Inventory",
-      "350 Acres Resort Style Master Plan",
-      "Lemon Tree Resort under construction",
-      "Water & Amusement Theme Park Under Development",
-      "Go-Karting planned",
-      "Water Villas under construction",
-      "Near Woxsen University and NH-65",
-    ];
-  }
-
-  if (slug === "bridge-county") {
-    return [
-      "Dedicated 15-acre enclave",
-      "Within the larger Supraja IRIS project",
-      "Peaceful plotted environment",
-      "Connected to Kamkole growth corridor",
-    ];
-  }
-
-  return [];
-};
-
-const getCorrectedSindhuHighlights = () => [
-  "Approved plotted project",
-  "Abutting 100 feet road",
-  "Compound wall with security room",
-  "50 feet road with central plantation median",
-  "Butterfly streetlights along 50 feet road",
-  "Vastu-aligned layout planning",
-  "Black top internal roads",
-  "Developed sewage infrastructure",
-  "Electricity with transformer and street lighting",
-  "Children parks with gazebo",
-  "Barrier-free pedestrian walkways",
-  "Overhead water tank",
-  "Paved park walking paths",
-  "Planned bench locations",
-  "Rainwater harvesting pits",
-  "Near residential and commercial zones",
-];
-
 const sectionCopy: Record<
   string,
   {
@@ -108,11 +63,7 @@ const fallbackCopy = {
 };
 
 const ProjectHighlights = ({ project }: Props) => {
-  const allHighlights =
-    project.slug === "sindhu-sarovar"
-      ? getCorrectedSindhuHighlights()
-      : [...project.highlights, ...getExtraHighlights(project.slug)];
-
+  const allHighlights = project.highlights;
   const copy = sectionCopy[project.slug] ?? fallbackCopy;
 
   return (
