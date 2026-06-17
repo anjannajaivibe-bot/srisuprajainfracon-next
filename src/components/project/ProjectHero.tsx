@@ -92,9 +92,9 @@ const heroCopy: Record<
     subtitle:
       "A gated plotted development created for confident ownership, future appreciation, and a better living environment.",
     firstParagraph:
-      "An organized plotted community designed around connectivity, convenience, and future growth.",
+      "",
     description:
-      "Designed for investors and families seeking clear planning standards, dependable project execution, and long-term ownership confidence.",
+      "An organized plotted community designed around connectivity, convenience, and future growth.",
     tags: [
       "DTCP & RERA Approved",
       "Gated Community",

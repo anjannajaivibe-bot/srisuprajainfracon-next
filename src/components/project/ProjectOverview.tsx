@@ -39,12 +39,12 @@ const overviewCopy: Record<
   },
 
   "sindhu-sarovar": {
-    label: "Planned Project",
-    title: "Built Around Planning and Potential.",
+    label: "DESIGNED FOR LASTING VALUE · MOMINPET",
+    title: "Thoughtfully Planned. Future Ready.",
     description:
       "Sindhu Sarovar is a thoughtfully planned project focused on organized layouts, accessibility, and long-term location relevance within an evolving region.",
     closing:
-      "Created for investors and families seeking clear planning standards and future growth prospects, the project reflects Sri Supraja Infracon’s commitment to dependable real estate delivery.",
+      "An organized plotted community designed for confident ownership and long-term value.",
   },
 
   "subhash-meadows": {
