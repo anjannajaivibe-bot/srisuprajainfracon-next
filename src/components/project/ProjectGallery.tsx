@@ -64,9 +64,9 @@ const galleryOverlayText: Record<string, string[]> = {
     "Lemon Tree Resort - After Completion",
     "Water Villas Under Construction",
     "Adjacent Woxen University",
-    "Destination Wedding Hall Planned",
-    "Water & Amusement Park Planned",
-    "Go-Karting Planned",
+    "Destination Wedding Hall Upcoming",
+    "Water & Amusement Park Upcoming",
+    "Go-Karting Upcoming",
   ],
 };
 
@@ -172,7 +172,7 @@ const ProjectGallery = ({ project }: Props) => {
 
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <p className="text-xs font-bold uppercase tracking-[0.22em] text-amber-300">
-                    Sri Supraja Infracon
+                    
                   </p>
 
                   <h3 className="mt-2 text-2xl font-extrabold leading-tight text-white">
