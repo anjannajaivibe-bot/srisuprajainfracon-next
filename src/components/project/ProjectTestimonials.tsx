@@ -65,27 +65,27 @@ const sectionCopy: Record<
   }
 > = {
   "supraja-iris-resort-plots": {
-    title: "What Customers Say About Supraja IRIS",
+    title: "Investor Experiences",
     intro:
       "Real feedback from clients who reviewed the project, visited the site, and interacted with Supraja Management.",
   },
   "supraja-iris": {
-    title: "What Customers Say About Supraja IRIS",
+    title: "Investor Experiences",
     intro:
       "Real feedback from clients who reviewed the project, visited the site, and interacted with Supraja Management.",
   },
   "bridge-county": {
-    title: "What Our Customers Say?",
+    title: "Investor Experiences",
     intro:
       "Feedback from clients who explored this dedicated enclave within the Supraja IRIS project.",
   },
   "sindhu-sarovar": {
-    title: "What Our Customers Say?",
+    title: "Investor Experiences",
     intro:
       "Customer feedback focused on project clarity, documentation, and overall experience.",
   },
   "subhash-meadows": {
-    title: "What Our Customers Say?",
+    title: "Investor Experiences",
     intro:
       "Customer feedback about location access, project information, and interaction with Supraja Management.",
   },

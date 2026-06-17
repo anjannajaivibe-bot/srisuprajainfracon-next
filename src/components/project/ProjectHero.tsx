@@ -73,14 +73,17 @@ const heroCopy: Record<
     badge: "A SERENE LANDSCAPE",
     h1: "Bridge County",
     subtitle:
-      "A peaceful plotted enclave within Supraja IRIS, designed for calm living, strong connectivity, and long-term location value.",
+      "A Premium Address Within the Supraja IRIS Ecosystem",
     firstParagraph:
       "Bridge County offers a dedicated 15-acre plotted setting within the broader Supraja IRIS lifestyle ecosystem.",
     description:
-      "Planned for investors seeking organized infrastructure, peaceful surroundings, and access to the future growth potential of Kamkole - Sangareddy.",
+      "DTCP Approved plots in a strategically positioned 15-acre enclave designed for connectivity, infrastructure, and long-term value creation.",
     tags: [
-      "Limited Time Offer @ 13,500 per yard",
-      "Premium Ploted Development",
+      "Starting at ₹13,500 per Sq. Yard",
+      "Flexible EMI Plans Available",
+      "Just 5% to Reserve Your Plot",
+      "2 Years Complimentary Membership*",
+      "Limited Period Offer",
     ],
     imageAlt:
       "Bridge County premium plotted enclave within Supraja IRIS at Kamkole",
