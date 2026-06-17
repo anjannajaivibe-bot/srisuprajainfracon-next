@@ -96,10 +96,9 @@ const heroCopy: Record<
     description:
       "An organized plotted development designed for comfortable living and long-term growth.",
     tags: [
-      "DTCP & RERA Approved",
-      "Secure Gated Community",
-      "Wide Blacktop Roads",
-      "Future Growth Hub",
+      "Strategic Location",
+      "Emerging Growth Zone",
+      "Future Ready Address",
     ],
     imageAlt:
       "Supraja Sindhu Sarovar planned project with organized layout and connectivity",
@@ -149,9 +148,9 @@ const premiumHeroStats: Record<string, any[]> = {
   ],
 
   "sindhu-sarovar": [
-    { icon: BadgeCheck, label: "DTCP", value: "Approved" },
-    { icon: Ruler, label: "Wide", value: "Internal Roads" },
-    { icon: Award, label: "Gated", value: "Community" },
+    { icon: BadgeCheck, label: "DTCP & RERA", value: "Approved" },
+    { icon: Ruler, label: "Wide", value: "Blacktop Roads" },
+    { icon: Award, label: "Secure Gated", value: "Community" },
     { icon: MapPinned, label: "100ft", value: "Road Access" },
     { icon: Route, label: "Future", value: "Connectivity" },
   ],
