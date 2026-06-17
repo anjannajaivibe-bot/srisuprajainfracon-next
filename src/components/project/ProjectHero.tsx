@@ -335,28 +335,6 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
               ))}
             </div>
 
-            <div className="mt-9 flex flex-wrap gap-4">
-              <Link
-                href="/contact-us/"
-                className="rounded-full bg-[#D6B15C] px-8 py-4 text-sm font-extrabold text-[#07111F] shadow-lg transition hover:-translate-y-0.5 hover:bg-white"
-              >
-                Explore More
-              </Link>
-
-              {project.brochure && (
-                <a
-                  href={project.brochure}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full border border-[#D6B15C]/70 bg-white/10 px-8 py-4 text-sm font-extrabold text-white backdrop-blur-md transition hover:-translate-y-0.5 hover:bg-white hover:text-[#07111F]"
-                >
-                  Download Brochure
-                </a>
-              )}
-            </div>
-          </motion.div>
-        </div>
-
         <div className="container-max relative z-20 -mt-20 px-4 pb-16 sm:px-6 lg:px-8">
           <div className="grid gap-0 overflow-hidden rounded-[28px] bg-white shadow-[0_24px_80px_rgba(7,17,31,0.18)] sm:grid-cols-2 lg:grid-cols-5">
             {stats.map((item, index) => {
