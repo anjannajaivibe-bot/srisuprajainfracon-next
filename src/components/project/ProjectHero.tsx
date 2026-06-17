@@ -78,13 +78,6 @@ const heroCopy: Record<
       "Bridge County offers a dedicated 15-acre plotted setting within the broader Supraja IRIS lifestyle ecosystem.",
     description:
       "Planned for investors seeking organized infrastructure, peaceful surroundings, and access to the future growth potential of Kamkole - Sangareddy.",
-    tags: [
-      "Starting from ₹18.22 Lakhs",
-      "15-Acre Enclave",
-      "211 Premium Plots",
-      "Adjacent to Woxsen University",
-      "NH 65 Connectivity",
-    ],
     imageAlt:
       "Bridge County premium plotted enclave within Supraja IRIS at Kamkole",
   },
@@ -162,7 +155,7 @@ const premiumHeroStats: Record<string, any[]> = {
     },
     {
       icon: GraduationCap,
-      label: "Adjacent to",
+      label: "Adjacent",
       value: "Woxsen University",
     },
     {
