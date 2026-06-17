@@ -42,7 +42,7 @@ const overviewCopy: Record<
     label: "DESIGNED FOR LASTING VALUE · MOMINPET",
     title: "Thoughtfully Planned. Future Ready.",
     description:
-      "Sindhu Sarovar is a thoughtfully planned project focused on organized layouts, accessibility, and long-term location relevance within an evolving region.",
+      "An organized plotted community designed for confident ownership and long-term value.",
     closing:
       "An organized plotted community designed for confident ownership and long-term value.",
   },
