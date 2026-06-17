@@ -29,9 +29,9 @@ const sectionCopy: Record<
   },
 
   "bridge-county": {
-    heading: "Bridge County Project Highlights",
+    heading: "Distinctive Features. Lasting Value.",
     intro:
-      "A dedicated plotted enclave within Supraja IRIS, planned for calm surroundings, organized infrastructure, and future location value.",
+      "Discover the planning, accessibility, and growth factors that make Bridge County a compelling investment destination.",
     note:
       "Speak with Supraja Management to understand plot availability, project context, and site visit options.",
   },
