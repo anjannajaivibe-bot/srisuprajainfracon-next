@@ -6,6 +6,38 @@ type Props = {
   project: Project;
 };
 
+const extraGalleryImages: Record<string, string[]> = {
+  "supraja-iris": [
+    "/projects/supraja-iris/gallery/supraja-iris-gallery-1.webp",
+    "/projects/supraja-iris/gallery/supraja-iris-gallery-2.webp",
+    "/projects/supraja-iris/gallery/supraja-iris-gallery-3.webp",
+    "/projects/supraja-iris/gallery/supraja-iris-gallery-4.webp",
+    "/projects/supraja-iris/gallery/supraja-iris-gallery-5.webp",
+    "/projects/supraja-iris/gallery/supraja-iris-gallery-6.webp",
+    "/projects/supraja-iris/gallery/supraja-iris-gallery-7.webp",
+  ],
+
+  "supraja-iris-resort-plots": [
+    "/projects/supraja-iris/gallery/supraja-iris-gallery-1.webp",
+    "/projects/supraja-iris/gallery/supraja-iris-gallery-2.webp",
+    "/projects/supraja-iris/gallery/supraja-iris-gallery-3.webp",
+    "/projects/supraja-iris/gallery/supraja-iris-gallery-4.webp",
+    "/projects/supraja-iris/gallery/supraja-iris-gallery-5.webp",
+    "/projects/supraja-iris/gallery/supraja-iris-gallery-6.webp",
+    "/projects/supraja-iris/gallery/supraja-iris-gallery-7.webp",
+  ],
+
+  "bridge-county": [
+    "/projects/supraja-bridge/gallery/supraja-iris-gallery-1.webp",
+    "/projects/supraja-bridge/gallery/supraja-iris-gallery-2.webp",
+    "/projects/supraja-bridge/gallery/supraja-iris-gallery-3.webp",
+    "/projects/supraja-bridge/gallery/supraja-iris-gallery-4.webp",
+    "/projects/supraja-bridge/gallery/supraja-iris-gallery-5.webp",
+    "/projects/supraja-bridge/gallery/supraja-iris-gallery-6.webp",
+    "/projects/supraja-bridge/gallery/supraja-iris-gallery-7.webp",
+  ],
+};
+
 const galleryCopy: Record<
   string,
   {
@@ -66,7 +98,10 @@ const ProjectGallery = ({ project }: Props) => {
   const content = projectContent[project.slug as keyof typeof projectContent];
   const copy = galleryCopy[project.slug] ?? fallbackGallery;
 
-  if (!content?.gallery?.length) return null;
+  const gallery =
+    extraGalleryImages[project.slug] ?? content?.gallery ?? [];
+
+  if (!gallery.length) return null;
 
   return (
     <section className="bg-white px-6 py-24">
@@ -86,7 +121,7 @@ const ProjectGallery = ({ project }: Props) => {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {content.gallery.map((image, index) => (
+          {gallery.map((image, index) => (
             <div
               key={image}
               className="group overflow-hidden rounded-[30px] bg-slate-100 shadow-lg"

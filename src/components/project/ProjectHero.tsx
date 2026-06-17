@@ -40,10 +40,9 @@ const heroCopy: Record<
       "Lemon Tree Resort is under construction, while Water & Amusement Theme Park, Go-Karting, and Water Villas are planned as part of the larger lifestyle ecosystem.",
     tags: [
       "Lemon Tree Resort Under Construction",
-      "Lemon Tree Resort",
+      "Water Villas Under Construction",
       "Water & Amusement Park",
       "Go-Karting Planned",
-      "Water Villas Under Construction",
       "Destination Wedding Convention"
     ],
     imageAlt:
