@@ -87,20 +87,19 @@ const heroCopy: Record<
   },
 
   "sindhu-sarovar": {
-    badge: "Planned Project",
-    h1: "A Project Designed Around Planning and Connectivity",
+    badge: "Your Space. Your Vision. Your Future.",
+    h1: "A Well-Planned Community Built for Future Growth",
     subtitle:
-      "A thoughtfully planned project focused on organized layouts, accessibility, and future location relevance.",
+      "A gated plotted development created for confident ownership, future appreciation, and a better living environment.",
     firstParagraph:
-      "Sindhu Sarovar is shaped around planning quality, practical infrastructure, and access to an evolving regional location.",
+      "An organized plotted community designed around connectivity, convenience, and future growth.",
     description:
       "Designed for investors and families seeking clear planning standards, dependable project execution, and long-term ownership confidence.",
     tags: [
-      "Planned Layout",
-      "Accessible Location",
-      "Future Potential",
-      "Organized Infrastructure",
-      "Clear Planning",
+      "DTCP & RERA Approved",
+      "Gated Community",
+      "Wide Internal Roads",
+      "High Growth Corridor",
     ],
     imageAlt:
       "Supraja Sindhu Sarovar planned project with organized layout and connectivity",

@@ -4,7 +4,7 @@ type Props = {
   project: Project;
 };
 
-const PHONE_NUMBER = "919640753929";
+const PHONE_NUMBER = "919052996161";
 
 const ctaCopy: Record<
   string,
