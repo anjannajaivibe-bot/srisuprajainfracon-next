@@ -69,22 +69,22 @@ const heroCopy: Record<
       "Supraja IRIS resort inspired plots in Kamkole with lifestyle attractions and project infrastructure",
   },
 
- "bridge-county": {
-  badge: "A SERENE LANDSCAPE",
-  h1: "Bridge County",
-  subtitle:
-    "A peaceful plotted enclave within Supraja IRIS, designed for calm living, strong connectivity, and long-term location value.",
-  firstParagraph:
-    "Bridge County offers a dedicated 15-acre plotted setting within the broader Supraja IRIS lifestyle ecosystem.",
-  description:
-    "Planned for investors seeking organized infrastructure, peaceful surroundings, and access to the future growth potential of Kamkole - Sangareddy.",
-  tags: [
-    "Limited Time Offer @ 13,500 per yard",
-    "Premium Ploted Development",
-  ],
-  imageAlt:
-    "Bridge County premium plotted enclave within Supraja IRIS at Kamkole",
-},
+  "bridge-county": {
+    badge: "A SERENE LANDSCAPE",
+    h1: "Bridge County",
+    subtitle:
+      "A peaceful plotted enclave within Supraja IRIS, designed for calm living, strong connectivity, and long-term location value.",
+    firstParagraph:
+      "Bridge County offers a dedicated 15-acre plotted setting within the broader Supraja IRIS lifestyle ecosystem.",
+    description:
+      "Planned for investors seeking organized infrastructure, peaceful surroundings, and access to the future growth potential of Kamkole - Sangareddy.",
+    tags: [
+      "Limited Time Offer @ 13,500 per yard",
+      "Premium Ploted Development",
+    ],
+    imageAlt:
+      "Bridge County premium plotted enclave within Supraja IRIS at Kamkole",
+  },
 
   "sindhu-sarovar": {
     badge: "Planned Project",
@@ -142,87 +142,27 @@ const fallbackHero = {
 
 const premiumHeroStats: Record<string, any[]> = {
   "bridge-county": [
-    {
-      icon: BadgeCheck,
-      label: "DTCP & RERA",
-      value: "Approved",
-    },
-    {
-      icon: Ruler,
-      label: "15",
-      value: "Acres",
-    },
-    {
-      icon: Award,
-      label: "211",
-      value: "Premium Plots",
-    },
-    {
-      icon: GraduationCap,
-      label: "Adjacent",
-      value: "Woxsen University",
-    },
-    {
-      icon: Route,
-      label: "NH 65",
-      value: "Connectivity",
-    },
+    { icon: BadgeCheck, label: "DTCP & RERA", value: "Approved" },
+    { icon: Ruler, label: "15", value: "Acres" },
+    { icon: Award, label: "211", value: "Premium Plots" },
+    { icon: GraduationCap, label: "Adjacent", value: "Woxsen University" },
+    { icon: Route, label: "NH 65", value: "Connectivity" },
   ],
 
   "sindhu-sarovar": [
-    {
-      icon: BadgeCheck,
-      label: "DTCP",
-      value: "Approved",
-    },
-    {
-      icon: Ruler,
-      label: "Wide",
-      value: "Internal Roads",
-    },
-    {
-      icon: Award,
-      label: "Gated",
-      value: "Community",
-    },
-    {
-      icon: MapPinned,
-      label: "100ft",
-      value: "Road Access",
-    },
-    {
-      icon: Route,
-      label: "Future",
-      value: "Connectivity",
-    },
+    { icon: BadgeCheck, label: "DTCP", value: "Approved" },
+    { icon: Ruler, label: "Wide", value: "Internal Roads" },
+    { icon: Award, label: "Gated", value: "Community" },
+    { icon: MapPinned, label: "100ft", value: "Road Access" },
+    { icon: Route, label: "Future", value: "Connectivity" },
   ],
 
   "subhash-meadows": [
-    {
-      icon: BadgeCheck,
-      label: "LRS",
-      value: "Charges Paid",
-    },
-    {
-      icon: Ruler,
-      label: "30ft+",
-      value: "Blacktop Roads",
-    },
-    {
-      icon: Award,
-      label: "Planned",
-      value: "Amenities",
-    },
-    {
-      icon: MapPinned,
-      label: "Near",
-      value: "Key Hubs",
-    },
-    {
-      icon: Route,
-      label: "ORR",
-      value: "Connectivity",
-    },
+    { icon: BadgeCheck, label: "LRS", value: "Charges Paid" },
+    { icon: Ruler, label: "30ft+", value: "Blacktop Roads" },
+    { icon: Award, label: "Planned", value: "Amenities" },
+    { icon: MapPinned, label: "Near", value: "Key Hubs" },
+    { icon: Route, label: "ORR", value: "Connectivity" },
   ],
 };
 
@@ -302,7 +242,10 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
                 <>
                   A Peaceful Plotted Enclave
                   <br />
-                  Within <span className="text-[#D6B15C]">Supraja IRIS 350 Acres Mega Project</span>
+                  Within{" "}
+                  <span className="text-[#D6B15C]">
+                    Supraja IRIS 350 Acres Mega Project
+                  </span>
                 </>
               ) : (
                 hero.subtitle
@@ -334,6 +277,8 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
                 </span>
               ))}
             </div>
+          </motion.div>
+        </div>
 
         <div className="container-max relative z-20 -mt-20 px-4 pb-16 sm:px-6 lg:px-8">
           <div className="grid gap-0 overflow-hidden rounded-[28px] bg-white shadow-[0_24px_80px_rgba(7,17,31,0.18)] sm:grid-cols-2 lg:grid-cols-5">
