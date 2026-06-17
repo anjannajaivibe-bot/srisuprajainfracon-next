@@ -70,14 +70,14 @@ const heroCopy: Record<
   },
 
   "bridge-county": {
-    badge: "Premium Plotted Enclave",
+    badge: "A SERENE LANDSCAPE",
     h1: "Bridge County",
     subtitle:
       "A peaceful plotted enclave within Supraja IRIS, designed for calm living, strong connectivity, and long-term location value.",
     firstParagraph:
       "Bridge County offers a dedicated 15-acre plotted setting within the broader Supraja IRIS lifestyle ecosystem.",
     description:
-      "Planned for buyers seeking organized infrastructure, peaceful surroundings, and access to the future growth potential of Kamkole.",
+      "Planned for investors seeking organized infrastructure, peaceful surroundings, and access to the future growth potential of Kamkole - Sangareddy.",
     tags: [
       "Starting from ₹18.22 Lakhs",
       "15-Acre Enclave",
@@ -147,7 +147,7 @@ const premiumHeroStats: Record<string, any[]> = {
   "bridge-county": [
     {
       icon: BadgeCheck,
-      label: "DTCP",
+      label: "DTCP & RERA",
       value: "Approved",
     },
     {
@@ -162,7 +162,7 @@ const premiumHeroStats: Record<string, any[]> = {
     },
     {
       icon: GraduationCap,
-      label: "Near",
+      label: "Adjacent to",
       value: "Woxsen University",
     },
     {
@@ -305,7 +305,7 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
                 <>
                   A Peaceful Plotted Enclave
                   <br />
-                  Within <span className="text-[#D6B15C]">Supraja IRIS</span>
+                  Within <span className="text-[#D6B15C]">Supraja IRIS 350 Acres Mega Project</span>
                 </>
               ) : (
                 hero.subtitle
