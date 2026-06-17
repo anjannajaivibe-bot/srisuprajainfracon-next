@@ -95,7 +95,7 @@ const galleryCopy: Record<
   },
 
   "bridge-county": {
-    title: "Bridge County Gallery & Future Growth Landmarks",
+    title: "Gallery & Future Growth Landmarks",
     intro:
       "Discover the landmarks and growth catalysts surrounding Bridge County, including hospitality destinations, educational institutions, recreation zones, and major connectivity corridors shaping the future of the region.",
     altPrefix:
@@ -103,7 +103,7 @@ const galleryCopy: Record<
   },
 
   "sindhu-sarovar": {
-    title: "Sindhu Sarovar Gallery",
+    title: "Project Gallery",
     intro:
       "Explore project visuals, layout references, entrance features, and infrastructure elements.",
     altPrefix:
@@ -111,7 +111,7 @@ const galleryCopy: Record<
   },
 
   "subhash-meadows": {
-    title: "Subhash Meadows Gallery",
+    title: "Project Gallery",
     intro:
       "View site visuals, layout references, entrance features, and key project infrastructure.",
     altPrefix:
