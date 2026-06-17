@@ -49,7 +49,15 @@ export const projects: Project[] = [
       "Supraja IRIS Resort Plots at Kamkole near Woxsen University with Lemon Tree Resort under construction",
 
     highlights: [
+      "DTCP & RERA Approved Open Plots",
       "High ROI (Return on Investment) Growth corridor near NIMZ Zaheerabad",
+      "Sales Open for Limited Plotted Inventory",
+      "350 Acres Resort Style Master Plan",
+      "Lemon Tree Resort under construction",
+      "Water & Amusement Theme Park Under Development",
+      "Go-Karting planned",
+       "Water Villas under construction",
+       "Adjacent to Woxsen University and NH-65",
     ],
 
     link: "/projects/supraja-iris-resort-plots",
