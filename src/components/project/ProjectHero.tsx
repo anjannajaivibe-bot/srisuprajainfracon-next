@@ -289,7 +289,7 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="max-w-4xl font-display text-5xl font-bold leading-[0.98] tracking-tight text-white sm:text-6xl lg:text-8xl"
+            className="max-w-4xl font-display text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl"
           >
             {hero.h1}
           </motion.h1>
