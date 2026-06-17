@@ -33,9 +33,9 @@ const overviewCopy: Record<
     label: "A Distinct Address within a Larger Vision",
     title: "Connected to Something Bigger.",
     description:
-      "Bridge County is a dedicated 15-acre plotted enclave within the larger Supraja IRIS project environment at Kamkole, offering a quieter setting while staying connected to a broader lifestyle destination.",
+      "Experience a thoughtfully planned environment backed by strategic location advantages and the growth potential of the Kamkole corridor.",
     closing:
-      "With organized planning, peaceful surroundings, and access to the wider Kamkole growth corridor, Bridge County is designed for clients seeking both comfort and future potential.",
+      "",
   },
 
   "sindhu-sarovar": {
@@ -163,8 +163,7 @@ const ProjectOverview = ({ project }: Props) => {
               </h3>
 
               <p className="mt-2 text-slate-600">
-                Review the project location, surrounding connectivity, and
-                access routes before planning your visit.
+                
               </p>
             </div>
 

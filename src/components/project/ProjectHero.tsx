@@ -79,7 +79,7 @@ const heroCopy: Record<
   description:
     "Planned for investors seeking organized infrastructure, peaceful surroundings, and access to the future growth potential of Kamkole - Sangareddy.",
   tags: [
-    "Starting from ₹18.22 Lakhs",
+    "Limited Time Offer @ 13,500 per yard",
     "Premium Ploted Development",
   ],
   imageAlt:
