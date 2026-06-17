@@ -143,33 +143,91 @@ const fallbackHero = {
   imageAlt: "Sri Supraja Infracon real estate project",
 };
 
-const bridgeStats = [
-  {
-    icon: BadgeCheck,
-    label: "DTCP",
-    value: "Approved",
-  },
-  {
-    icon: Ruler,
-    label: "15",
-    value: "Acres",
-  },
-  {
-    icon: Award,
-    label: "211",
-    value: "Premium Plots",
-  },
-  {
-    icon: GraduationCap,
-    label: "Near",
-    value: "Woxsen University",
-  },
-  {
-    icon: Route,
-    label: "NH 65",
-    value: "Connectivity",
-  },
-];
+const premiumHeroStats: Record<string, any[]> = {
+  "bridge-county": [
+    {
+      icon: BadgeCheck,
+      label: "DTCP",
+      value: "Approved",
+    },
+    {
+      icon: Ruler,
+      label: "15",
+      value: "Acres",
+    },
+    {
+      icon: Award,
+      label: "211",
+      value: "Premium Plots",
+    },
+    {
+      icon: GraduationCap,
+      label: "Near",
+      value: "Woxsen University",
+    },
+    {
+      icon: Route,
+      label: "NH 65",
+      value: "Connectivity",
+    },
+  ],
+
+  "sindhu-sarovar": [
+    {
+      icon: BadgeCheck,
+      label: "DTCP",
+      value: "Approved",
+    },
+    {
+      icon: Ruler,
+      label: "Wide",
+      value: "Internal Roads",
+    },
+    {
+      icon: Award,
+      label: "Gated",
+      value: "Community",
+    },
+    {
+      icon: MapPinned,
+      label: "100ft",
+      value: "Road Access",
+    },
+    {
+      icon: Route,
+      label: "Future",
+      value: "Connectivity",
+    },
+  ],
+
+  "subhash-meadows": [
+    {
+      icon: BadgeCheck,
+      label: "LRS",
+      value: "Charges Paid",
+    },
+    {
+      icon: Ruler,
+      label: "30ft+",
+      value: "Blacktop Roads",
+    },
+    {
+      icon: Award,
+      label: "Planned",
+      value: "Amenities",
+    },
+    {
+      icon: MapPinned,
+      label: "Near",
+      value: "Key Hubs",
+    },
+    {
+      icon: Route,
+      label: "ORR",
+      value: "Connectivity",
+    },
+  ],
+};
 
 const ProjectHero = ({ project }: ProjectHeroProps) => {
   const seo = getProjectSeo(project.slug);
@@ -179,9 +237,14 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
     project.slug === "supraja-iris-resort-plots" ||
     project.slug === "supraja-iris";
 
-  const isBridgeCounty = project.slug === "bridge-county";
+  const hasPremiumFullHero =
+    project.slug === "bridge-county" ||
+    project.slug === "sindhu-sarovar" ||
+    project.slug === "subhash-meadows";
 
-  if (isBridgeCounty) {
+  if (hasPremiumFullHero) {
+    const stats = premiumHeroStats[project.slug] ?? [];
+
     return (
       <section className="relative overflow-hidden bg-[#07111F]">
         <div className="absolute inset-0">
@@ -226,7 +289,7 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="max-w-4xl font-display text-6xl font-bold leading-[0.95] tracking-tight text-white sm:text-7xl lg:text-8xl"
+            className="max-w-4xl font-display text-5xl font-bold leading-[0.98] tracking-tight text-white sm:text-6xl lg:text-8xl"
           >
             {hero.h1}
           </motion.h1>
@@ -238,34 +301,41 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
             className="mt-8 max-w-3xl"
           >
             <p className="text-2xl font-semibold leading-snug text-white sm:text-3xl">
-              A Peaceful Plotted Enclave
-              <br />
-              Within <span className="text-[#D6B15C]">Supraja IRIS</span>
+              {project.slug === "bridge-county" ? (
+                <>
+                  A Peaceful Plotted Enclave
+                  <br />
+                  Within <span className="text-[#D6B15C]">Supraja IRIS</span>
+                </>
+              ) : (
+                hero.subtitle
+              )}
             </p>
 
-            <div className="mt-8 max-w-xl rounded-[22px] border border-[#D6B15C]/35 bg-[#07111F]/55 p-6 shadow-2xl backdrop-blur-md">
-              <p className="text-base font-semibold text-white">
-                Premium Plots Starting from
-              </p>
-              <p className="mt-2 text-5xl font-extrabold tracking-tight text-[#D6B15C] sm:text-6xl">
-                ₹18.22 <span className="text-2xl">Lakhs*</span>
-              </p>
-            </div>
-
-            <div className="mt-7 grid gap-4 sm:grid-cols-2">
-              <div className="flex items-center gap-3 text-white">
-                <MapPinned className="h-7 w-7 text-[#D6B15C]" />
-                <span className="text-base font-semibold">
-                  Adjacent to Woxsen University
-                </span>
+            {project.slug === "bridge-county" && (
+              <div className="mt-8 max-w-xl rounded-[22px] border border-[#D6B15C]/35 bg-[#07111F]/55 p-6 shadow-2xl backdrop-blur-md">
+                <p className="text-base font-semibold text-white">
+                  Premium Plots Starting from
+                </p>
+                <p className="mt-2 text-5xl font-extrabold tracking-tight text-[#D6B15C] sm:text-6xl">
+                  ₹18.22 <span className="text-2xl">Lakhs*</span>
+                </p>
               </div>
+            )}
 
-              <div className="flex items-center gap-3 text-white">
-                <Award className="h-7 w-7 text-[#D6B15C]" />
-                <span className="text-base font-semibold">
-                  Within Supraja IRIS Mega Project
+            <p className="mt-6 max-w-2xl text-base font-medium leading-8 text-slate-200 sm:text-lg">
+              {hero.description}
+            </p>
+
+            <div className="mt-7 flex flex-wrap gap-3">
+              {hero.tags.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-[#D6B15C]/35 bg-white/10 px-4 py-2 text-xs font-bold text-white backdrop-blur-md sm:text-sm"
+                >
+                  {item}
                 </span>
-              </div>
+              ))}
             </div>
 
             <div className="mt-9 flex flex-wrap gap-4">
@@ -292,14 +362,14 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
 
         <div className="container-max relative z-20 -mt-20 px-4 pb-16 sm:px-6 lg:px-8">
           <div className="grid gap-0 overflow-hidden rounded-[28px] bg-white shadow-[0_24px_80px_rgba(7,17,31,0.18)] sm:grid-cols-2 lg:grid-cols-5">
-            {bridgeStats.map((item, index) => {
+            {stats.map((item, index) => {
               const Icon = item.icon;
 
               return (
                 <div
-                  key={item.value}
+                  key={`${item.label}-${item.value}`}
                   className={`flex items-center gap-4 px-6 py-7 ${
-                    index !== bridgeStats.length - 1
+                    index !== stats.length - 1
                       ? "border-b border-slate-200 lg:border-b-0 lg:border-r"
                       : ""
                   }`}
