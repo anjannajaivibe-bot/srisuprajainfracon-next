@@ -38,6 +38,38 @@ const extraGalleryImages: Record<string, string[]> = {
   ],
 };
 
+const galleryOverlayText: Record<string, string[]> = {
+  "supraja-iris": [
+    "Grand Entrance",
+    "Lifestyle Attractions",
+    "Resort-Inspired Setting",
+    "Blacktop Roads",
+    "Open Green Spaces",
+    "Future-Ready Infrastructure",
+    "Premium Plotted Community",
+  ],
+
+  "supraja-iris-resort-plots": [
+    "Grand Entrance",
+    "Lifestyle Attractions",
+    "Resort-Inspired Setting",
+    "Blacktop Roads",
+    "Open Green Spaces",
+    "Future-Ready Infrastructure",
+    "Premium Plotted Community",
+  ],
+
+  "bridge-county": [
+    "Bridge County Entrance",
+    "15-Acre Premium Enclave",
+    "Within Supraja IRIS",
+    "Adjacent to Woxsen University",
+    "Serene Landscape",
+    "Planned Infrastructure",
+    "Premium Plot Community",
+  ],
+};
+
 const galleryCopy: Record<
   string,
   {
@@ -98,8 +130,7 @@ const ProjectGallery = ({ project }: Props) => {
   const content = projectContent[project.slug as keyof typeof projectContent];
   const copy = galleryCopy[project.slug] ?? fallbackGallery;
 
-  const gallery =
-    extraGalleryImages[project.slug] ?? content?.gallery ?? [];
+  const gallery = extraGalleryImages[project.slug] ?? content?.gallery ?? [];
 
   if (!gallery.length) return null;
 
@@ -121,18 +152,36 @@ const ProjectGallery = ({ project }: Props) => {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {gallery.map((image, index) => (
-            <div
-              key={image}
-              className="group overflow-hidden rounded-[30px] bg-slate-100 shadow-lg"
-            >
-              <SmartImage
-                src={image}
-                alt={`${copy.altPrefix} image ${index + 1}`}
-                className="h-[320px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-          ))}
+          {gallery.map((image, index) => {
+            const overlayText =
+              galleryOverlayText[project.slug]?.[index] ??
+              `${copy.title} View ${index + 1}`;
+
+            return (
+              <div
+                key={image}
+                className="group relative overflow-hidden rounded-[30px] bg-slate-100 shadow-lg"
+              >
+                <SmartImage
+                  src={image}
+                  alt={`${copy.altPrefix} image ${index + 1}`}
+                  className="h-[320px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <p className="text-xs font-bold uppercase tracking-[0.22em] text-amber-300">
+                    Sri Supraja Infracon
+                  </p>
+
+                  <h3 className="mt-2 text-2xl font-extrabold leading-tight text-white">
+                    {overlayText}
+                  </h3>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
