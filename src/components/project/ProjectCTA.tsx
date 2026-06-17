@@ -1,9 +1,10 @@
-import Link from "next/link";
 import type { Project } from "@/data/projects";
 
 type Props = {
   project: Project;
 };
+
+const PHONE_NUMBER = "919640753929";
 
 const ctaCopy: Record<
   string,
@@ -15,43 +16,43 @@ const ctaCopy: Record<
   }
 > = {
   "supraja-iris": {
-    eyebrow: "Plan Your Visit",
-    title: "Explore Supraja IRIS in Person",
+    eyebrow: "Strategic Project Consultation",
+    title: "Understand the Larger Vision of Supraja IRIS",
     text:
-      "Review current availability, lifestyle attraction status, location advantages, and project details with Supraja Management.",
-    whatsappText: "Schedule IRIS Site Visit",
+      "Connect with our team to review current availability, development progress, location strength, lifestyle components, and the long-term value framework of the project.",
+    whatsappText: "Discuss Supraja IRIS",
   },
 
   "supraja-iris-resort-plots": {
-    eyebrow: "Plan Your Visit",
-    title: "Explore Supraja IRIS in Person",
+    eyebrow: "Strategic Project Consultation",
+    title: "Understand the Larger Vision of Supraja IRIS",
     text:
-      "Review current availability, lifestyle attraction status, location advantages, and project details with Supraja Management.",
-    whatsappText: "Schedule IRIS Site Visit",
+      "Connect with our team to review current availability, development progress, location strength, lifestyle components, and the long-term value framework of the project.",
+    whatsappText: "Discuss Supraja IRIS",
   },
 
   "bridge-county": {
-    eyebrow: "Plan Your Visit",
-    title: "Visit Bridge County within Supraja IRIS",
+    eyebrow: "Focused Investment Enquiry",
+    title: "Evaluate Bridge County within the Supraja IRIS Ecosystem",
     text:
-      "Understand this dedicated 15-acre enclave, current availability, project context, and site visit options.",
-    whatsappText: "Schedule Bridge County Visit",
+      "Speak with Supraja Management to understand the 15-acre enclave, price advantage, plot availability, approval status, connectivity, and its position within the larger growth corridor.",
+    whatsappText: "Discuss Bridge County",
   },
 
   "sindhu-sarovar": {
-    eyebrow: "Request Project Details",
-    title: "Learn More About Sindhu Sarovar",
+    eyebrow: "Project Clarity Assistance",
+    title: "Review Sindhu Sarovar with Clear Project Context",
     text:
-      "Review layout details, location advantages, availability, and documentation before planning your visit.",
-    whatsappText: "Ask About Sindhu Sarovar",
+      "Get complete guidance on layout planning, infrastructure features, location relevance, approval details, and current availability before making your site visit decision.",
+    whatsappText: "Discuss Sindhu Sarovar",
   },
 
   "subhash-meadows": {
-    eyebrow: "Request Project Details",
-    title: "Explore Subhash Meadows",
+    eyebrow: "Practical Ownership Enquiry",
+    title: "Explore Subhash Meadows with the Right Details",
     text:
-      "Check project features, LRS documentation, location access, and current availability with Supraja Management.",
-    whatsappText: "Ask About Subhash Meadows",
+      "Connect with our team to review location access, layout features, LRS documentation, infrastructure planning, and availability for budget-focused plot ownership.",
+    whatsappText: "Discuss Subhash Meadows",
   },
 };
 
@@ -59,12 +60,14 @@ const fallbackCopy = {
   eyebrow: "Project Enquiry",
   title: "Request Current Project Details",
   text:
-    "Connect with Supraja Management for availability, documentation, location details, and site visit planning.",
-  whatsappText: "Schedule Site Visit",
+    "Connect with Supraja Management for availability, documentation, location details, project context, and site visit planning.",
+  whatsappText: "Discuss Project Details",
 };
 
 const ProjectCTA = ({ project }: Props) => {
   const copy = ctaCopy[project.slug] ?? fallbackCopy;
+
+  const whatsappMessage = `Hello, I would like to know more about ${project.title}. Please share current availability, pricing, location details, and site visit options.`;
 
   return (
     <section className="bg-slate-950 px-6 py-20 text-white">
@@ -82,21 +85,20 @@ const ProjectCTA = ({ project }: Props) => {
         </p>
 
         <div className="flex flex-wrap justify-center gap-4 text-sm font-bold">
-          <Link href="/projects" className="text-amber-300 underline">
-            Explore all projects
-          </Link>
-
-          <Link href="/contact-us/" className="text-amber-300 underline">
-            Contact Supraja Management
-          </Link>
+          <a
+            href={`tel:+${PHONE_NUMBER}`}
+            className="rounded-full bg-amber-400 px-8 py-4 text-slate-950 transition hover:bg-white"
+          >
+            Call Now
+          </a>
 
           <a
-            href={`https://wa.me/9190529961661?text=${encodeURIComponent(
-              `Hello, I would like to know more about ${project.title}.`
+            href={`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(
+              whatsappMessage
             )}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-amber-300 underline"
+            className="rounded-full border border-amber-400 px-8 py-4 text-amber-300 transition hover:bg-amber-400 hover:text-slate-950"
           >
             {copy.whatsappText}
           </a>
