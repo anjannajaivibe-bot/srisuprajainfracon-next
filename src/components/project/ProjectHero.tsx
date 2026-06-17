@@ -2,6 +2,14 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import {
+  Award,
+  BadgeCheck,
+  GraduationCap,
+  MapPinned,
+  Ruler,
+  Route,
+} from "lucide-react";
 import SmartImage from "@/components/shared/SmartImage";
 import { getProjectSeo } from "@/data/projectSeo";
 
@@ -62,23 +70,23 @@ const heroCopy: Record<
   },
 
   "bridge-county": {
-    badge: "15-Acre Enclave within Supraja IRIS",
-    h1: "A Peaceful Plotted Enclave within Supraja IRIS",
+    badge: "Premium Plotted Enclave",
+    h1: "Bridge County",
     subtitle:
-      "A dedicated 15-acre plotted area in Kamkole, connected to the larger Supraja IRIS project environment.",
+      "A peaceful plotted enclave within Supraja IRIS, designed for calm living, strong connectivity, and long-term location value.",
     firstParagraph:
-      "Bridge County offers a quieter plotted setting within the broader Supraja IRIS lifestyle ecosystem.",
+      "Bridge County offers a dedicated 15-acre plotted setting within the broader Supraja IRIS lifestyle ecosystem.",
     description:
-      "Planned for clients seeking calm surroundings, organized infrastructure, and access to the long-term potential of the Kamkole growth corridor.",
+      "Planned for buyers seeking organized infrastructure, peaceful surroundings, and access to the future growth potential of Kamkole.",
     tags: [
+      "Starting from ₹18.22 Lakhs",
       "15-Acre Enclave",
-      "Within Supraja IRIS",
-      "Kamkole Location",
-      "Peaceful Setting",
-      "Planned Infrastructure",
+      "211 Premium Plots",
+      "Adjacent to Woxsen University",
+      "NH 65 Connectivity",
     ],
     imageAlt:
-      "Bridge County 15 acre plotted enclave within Supraja IRIS project at Kamkole",
+      "Bridge County premium plotted enclave within Supraja IRIS at Kamkole",
   },
 
   "sindhu-sarovar": {
@@ -135,6 +143,34 @@ const fallbackHero = {
   imageAlt: "Sri Supraja Infracon real estate project",
 };
 
+const bridgeStats = [
+  {
+    icon: BadgeCheck,
+    label: "DTCP",
+    value: "Approved",
+  },
+  {
+    icon: Ruler,
+    label: "15",
+    value: "Acres",
+  },
+  {
+    icon: Award,
+    label: "211",
+    value: "Premium Plots",
+  },
+  {
+    icon: GraduationCap,
+    label: "Near",
+    value: "Woxsen University",
+  },
+  {
+    icon: Route,
+    label: "NH 65",
+    value: "Connectivity",
+  },
+];
+
 const ProjectHero = ({ project }: ProjectHeroProps) => {
   const seo = getProjectSeo(project.slug);
   const hero = heroCopy[project.slug] ?? fallbackHero;
@@ -142,6 +178,152 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
   const isSuprajaIris =
     project.slug === "supraja-iris-resort-plots" ||
     project.slug === "supraja-iris";
+
+  const isBridgeCounty = project.slug === "bridge-county";
+
+  if (isBridgeCounty) {
+    return (
+      <section className="relative overflow-hidden bg-[#07111F]">
+        <div className="absolute inset-0">
+          <SmartImage
+            src={project.heroImage || project.image}
+            alt={hero.imageAlt}
+            priority
+            sizes="100vw"
+            wrapperClassName="h-full w-full"
+            imageClassName="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#07111F]/95 via-[#07111F]/72 to-[#07111F]/18" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#07111F]/75 via-transparent to-[#07111F]/35" />
+        </div>
+
+        <div className="container-max relative z-10 px-4 pb-28 pt-28 sm:px-6 lg:px-8 lg:pb-36 lg:pt-32">
+          <div className="mb-10 flex flex-wrap items-center gap-2 text-sm text-slate-200">
+            <Link href="/" className="transition hover:text-[#D6B15C]">
+              Home
+            </Link>
+            <span>/</span>
+            <Link href="/projects" className="transition hover:text-[#D6B15C]">
+              Projects
+            </Link>
+            <span>/</span>
+            <span className="text-[#E8D7A5]">{project.title}</span>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45 }}
+            className="mb-6 inline-flex items-center gap-3"
+          >
+            <span className="text-sm font-bold uppercase tracking-[0.35em] text-[#D6B15C]">
+              {hero.badge}
+            </span>
+            <span className="h-px w-24 bg-[#D6B15C]/60" />
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="max-w-4xl font-display text-6xl font-bold leading-[0.95] tracking-tight text-white sm:text-7xl lg:text-8xl"
+          >
+            {hero.h1}
+          </motion.h1>
+
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.05 }}
+            className="mt-8 max-w-3xl"
+          >
+            <p className="text-2xl font-semibold leading-snug text-white sm:text-3xl">
+              A Peaceful Plotted Enclave
+              <br />
+              Within <span className="text-[#D6B15C]">Supraja IRIS</span>
+            </p>
+
+            <div className="mt-8 max-w-xl rounded-[22px] border border-[#D6B15C]/35 bg-[#07111F]/55 p-6 shadow-2xl backdrop-blur-md">
+              <p className="text-base font-semibold text-white">
+                Premium Plots Starting from
+              </p>
+              <p className="mt-2 text-5xl font-extrabold tracking-tight text-[#D6B15C] sm:text-6xl">
+                ₹18.22 <span className="text-2xl">Lakhs*</span>
+              </p>
+            </div>
+
+            <div className="mt-7 grid gap-4 sm:grid-cols-2">
+              <div className="flex items-center gap-3 text-white">
+                <MapPinned className="h-7 w-7 text-[#D6B15C]" />
+                <span className="text-base font-semibold">
+                  Adjacent to Woxsen University
+                </span>
+              </div>
+
+              <div className="flex items-center gap-3 text-white">
+                <Award className="h-7 w-7 text-[#D6B15C]" />
+                <span className="text-base font-semibold">
+                  Within Supraja IRIS Mega Project
+                </span>
+              </div>
+            </div>
+
+            <div className="mt-9 flex flex-wrap gap-4">
+              <Link
+                href="/contact-us/"
+                className="rounded-full bg-[#D6B15C] px-8 py-4 text-sm font-extrabold text-[#07111F] shadow-lg transition hover:-translate-y-0.5 hover:bg-white"
+              >
+                Explore More
+              </Link>
+
+              {project.brochure && (
+                <a
+                  href={project.brochure}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full border border-[#D6B15C]/70 bg-white/10 px-8 py-4 text-sm font-extrabold text-white backdrop-blur-md transition hover:-translate-y-0.5 hover:bg-white hover:text-[#07111F]"
+                >
+                  Download Brochure
+                </a>
+              )}
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="container-max relative z-20 -mt-20 px-4 pb-16 sm:px-6 lg:px-8">
+          <div className="grid gap-0 overflow-hidden rounded-[28px] bg-white shadow-[0_24px_80px_rgba(7,17,31,0.18)] sm:grid-cols-2 lg:grid-cols-5">
+            {bridgeStats.map((item, index) => {
+              const Icon = item.icon;
+
+              return (
+                <div
+                  key={item.value}
+                  className={`flex items-center gap-4 px-6 py-7 ${
+                    index !== bridgeStats.length - 1
+                      ? "border-b border-slate-200 lg:border-b-0 lg:border-r"
+                      : ""
+                  }`}
+                >
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-[#D6B15C]/50 bg-[#FFF8E5]">
+                    <Icon className="h-7 w-7 text-[#C49A2C]" />
+                  </div>
+
+                  <div>
+                    <p className="text-2xl font-extrabold leading-none text-[#07111F]">
+                      {item.label}
+                    </p>
+                    <p className="mt-1 text-sm font-semibold leading-snug text-slate-600">
+                      {item.value}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="relative overflow-hidden bg-[#F8F6F1] pt-28">
