@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { Project } from "@/data/projects";
 
 type Props = {
@@ -98,37 +97,6 @@ const ProjectHighlights = ({ project }: Props) => {
               </h3>
             </div>
           ))}
-        </div>
-
-        <div className="mt-12 rounded-[32px] border border-[#EFE7D3] bg-white p-7 shadow-[0_12px_40px_rgba(11,22,51,0.06)]">
-          <p className="mx-auto max-w-4xl text-center text-base leading-relaxed text-[#6B7280]">
-            {copy.note}
-          </p>
-
-          <div className="mt-6 grid gap-5 md:grid-cols-3">
-            <Link
-              href="/projects"
-              className="rounded-2xl bg-[#0B1633] px-5 py-4 text-center text-sm font-bold text-white transition hover:bg-[#C9A227] hover:text-[#0B1633]"
-            >
-              Explore All Projects
-            </Link>
-
-            <Link
-              href="/contact-us/"
-              className="rounded-2xl border border-[#C9A227] bg-[#FFF9E8] px-5 py-4 text-center text-sm font-bold text-[#0B1633] transition hover:bg-[#C9A227]"
-            >
-              Request Availability
-            </Link>
-
-            <a
-              href="https://www.rera.telangana.gov.in/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-2xl border border-[#E5E7EB] bg-white px-5 py-4 text-center text-sm font-bold text-[#0B1633] transition hover:border-[#C9A227] hover:bg-[#FFF9E8]"
-            >
-              Verify Project Details
-            </a>
-          </div>
         </div>
       </div>
     </section>
