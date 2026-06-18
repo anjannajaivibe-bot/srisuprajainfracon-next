@@ -108,7 +108,7 @@ const heroCopy: Record<
       "100 Ft Highway Frontage",
       "Gated Community Layout",
       "Wide Internal Blacktop Roads",
-      "150-569 Sq. Yard Plots"
+      "150-569 Sq. Yard Plots",
       "Emerging Growth Zone",
       "Future Ready Address",
       "100% Vaastu Plots",
