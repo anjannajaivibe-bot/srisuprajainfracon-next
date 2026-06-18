@@ -123,25 +123,24 @@ export default function AboutClient() {
       <div className="min-h-screen bg-[#F8F6F1]">
         <Navbar />
 
-        <section className="relative overflow-hidden bg-[#071531] pb-8 pt-20 lg:pb-8 lg:pt-20">
+        <section className="relative overflow-hidden pb-24 pt-32 lg:pb-28">
   <div
-    className="absolute inset-0 bg-cover bg-[center_42%]"
+    className="absolute inset-0 bg-cover bg-center"
     style={{ backgroundImage: `url(${heroBg.src})` }}
   />
 
-  <div className="absolute inset-0 bg-gradient-to-r from-[#041027]/98 via-[#071531]/88 to-[#071531]/62" />
-  <div className="absolute inset-0 bg-black/18" />
-  <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#071531] via-[#071531]/70 to-transparent" />
+  <div className="absolute inset-0 bg-gradient-to-r from-[#071531]/95 via-[#071531]/85 to-[#071531]/55" />
 
   <div className="container-max relative px-4 sm:px-6 lg:px-8">
     <div className="mx-auto max-w-7xl">
-      <div className="grid items-center gap-8 lg:grid-cols-[1fr_330px]">
+      <div className="grid items-center gap-12 lg:grid-cols-[1fr_340px]">
+
         {/* LEFT CONTENT */}
         <div>
           <motion.p
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-5 text-xs font-bold uppercase tracking-[0.42em] text-[#E8C45C]"
+            className="mb-6 text-xs font-bold uppercase tracking-[0.35em] text-[#E8D7A5]"
           >
             About Sri Supraja Infracon
           </motion.p>
@@ -149,55 +148,63 @@ export default function AboutClient() {
           <motion.h1
             initial={{ opacity: 0, y: 36 }}
             animate={{ opacity: 1, y: 0 }}
-            className="max-w-5xl font-display text-[38px] font-bold leading-[1.08] text-white md:text-[50px] lg:text-[64px]"
+            className="max-w-5xl font-display text-[42px] font-bold leading-[1.08] text-white md:text-[56px] lg:text-[72px]"
           >
-            Over 24 Years of
+            Over 24 Years of Building Trust,
             <br />
-            Building Trust.
+            <span className="text-[#C9A227]">
+              Communities.
+            </span>
             <br />
-            <span className="text-[#E8C45C]">Communities.</span>
-            <br />
-            <span className="text-[#E8C45C]">Long-Term Value.</span>
+            <span className="text-[#C9A227]">
+              Long-Term Value.
+            </span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mt-6 max-w-3xl text-base leading-relaxed text-white/90 md:text-lg"
+            className="mt-8 max-w-3xl text-lg leading-relaxed text-slate-200"
           >
             Sri Supraja Infracon is a trusted real estate development company
-            focused on approved layouts, premium communities, and
+            focused on approved layouts, planned infrastructure, and
             customer-first property development across Hyderabad and Telangana.
           </motion.p>
 
           {/* TRUST METRICS */}
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-2xl border border-[#E8C45C]/20 bg-[#FFFCF4]/95 p-5 shadow-xl shadow-black/10 backdrop-blur">
-              <div className="text-3xl font-bold text-[#0B1F4D]">24+</div>
-              <div className="mt-1 text-sm font-medium text-slate-600">
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+              <div className="text-3xl font-bold text-[#C9A227]">
+                24+
+              </div>
+              <div className="mt-1 text-sm text-slate-300">
                 Years of Legacy
               </div>
             </div>
 
-            <div className="rounded-2xl border border-[#E8C45C]/20 bg-[#FFFCF4]/95 p-5 shadow-xl shadow-black/10 backdrop-blur">
-              <div className="text-3xl font-bold text-[#0B1F4D]">10+</div>
-              <div className="mt-1 text-sm font-medium text-slate-600">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+              <div className="text-3xl font-bold text-[#C9A227]">
+                10+
+              </div>
+              <div className="mt-1 text-sm text-slate-300">
                 Completed Projects
               </div>
             </div>
 
-            <div className="rounded-2xl border border-[#E8C45C]/20 bg-[#FFFCF4]/95 p-5 shadow-xl shadow-black/10 backdrop-blur">
-              <div className="text-2xl font-bold text-[#0B1F4D]">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+              <div className="text-3xl font-bold text-[#C9A227]">
                 DTCP &amp; RERA
               </div>
-              <div className="mt-1 text-sm font-medium text-slate-600">
+              <div className="mt-1 text-sm text-slate-300">
                 Approved Developments
               </div>
             </div>
 
-            <div className="rounded-2xl border border-[#E8C45C]/20 bg-[#FFFCF4]/95 p-5 shadow-xl shadow-black/10 backdrop-blur">
-              <div className="text-3xl font-bold text-[#0B1F4D]">5000+</div>
-              <div className="mt-1 text-sm font-medium text-slate-600">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+              <div className="text-3xl font-bold text-[#C9A227]">
+                5000+
+              </div>
+              <div className="mt-1 text-sm text-slate-300">
                 Happy Property Owners
               </div>
             </div>
@@ -206,27 +213,29 @@ export default function AboutClient() {
 
         {/* RIGHT LEGACY CARD */}
         <div className="hidden lg:block">
-          <div className="rounded-[28px] border border-[#E8C45C]/30 bg-[#FFFCF4]/95 p-7 shadow-2xl shadow-black/20 backdrop-blur-xl">
-            <p className="text-xs font-bold uppercase tracking-[0.28em] text-[#0B1F4D]">
+          <div className="rounded-[32px] border border-[#C9A227]/30 bg-white/5 p-8 backdrop-blur-xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#E8D7A5]">
               Building Since
             </p>
 
-            <h2 className="mt-4 font-display text-5xl font-bold text-[#C9A227]">
+            <h2 className="mt-3 text-6xl font-bold text-[#C9A227]">
               2003
             </h2>
 
-            <div className="my-7 h-px bg-[#C9A227]/25" />
+            <div className="my-8 h-px bg-white/10" />
 
             <div>
-              <div className="text-4xl font-bold text-[#0B1F4D]">24+</div>
-              <p className="mt-2 text-sm font-medium text-slate-600">
+              <div className="text-5xl font-bold text-white">
+                24+
+              </div>
+              <p className="mt-2 text-slate-300">
                 Years of Legacy
               </p>
             </div>
 
-            <div className="my-7 h-px bg-[#C9A227]/25" />
+            <div className="my-8 h-px bg-white/10" />
 
-            <div className="space-y-3 text-sm font-medium text-slate-700">
+            <div className="space-y-4 text-slate-300">
               <p>✓ Multiple Completed Projects</p>
               <p>✓ Trusted Across Telangana</p>
               <p>✓ Customer-First Development</p>
@@ -237,48 +246,56 @@ export default function AboutClient() {
       </div>
 
       {/* TIMELINE */}
-      <div className="mt-10 hidden rounded-[24px] border border-[#E8C45C]/25 bg-[#FFFCF4]/95 p-6 shadow-2xl shadow-black/10 backdrop-blur lg:block">
+      <div className="mt-16 hidden rounded-[28px] border border-white/10 bg-white/5 p-8 backdrop-blur lg:block">
         <div className="flex items-center justify-between text-center">
           <div>
-            <div className="text-2xl font-bold text-[#C9A227]">2003</div>
-            <div className="mt-1 text-sm font-medium text-[#0B1F4D]">
+            <div className="text-3xl font-bold text-[#C9A227]">
+              2003
+            </div>
+            <div className="mt-2 text-sm text-slate-300">
               Foundation
             </div>
           </div>
 
-          <div className="mx-6 h-px flex-1 bg-[#C9A227]/25" />
+          <div className="mx-6 h-px flex-1 bg-white/10" />
 
           <div>
-            <div className="font-semibold text-[#0B1F4D]">
+            <div className="font-semibold text-white">
               Multiple Communities
             </div>
-            <div className="mt-1 text-sm text-slate-600">Delivered</div>
+            <div className="mt-2 text-sm text-slate-300">
+              Delivered
+            </div>
           </div>
 
-          <div className="mx-6 h-px flex-1 bg-[#C9A227]/25" />
+          <div className="mx-6 h-px flex-1 bg-white/10" />
 
           <div>
-            <div className="font-semibold text-[#0B1F4D]">
+            <div className="font-semibold text-white">
               Continued Growth
             </div>
-            <div className="mt-1 text-sm text-slate-600">
+            <div className="mt-2 text-sm text-slate-300">
               Across Telangana
             </div>
           </div>
 
-          <div className="mx-6 h-px flex-1 bg-[#C9A227]/25" />
+          <div className="mx-6 h-px flex-1 bg-white/10" />
 
           <div>
-            <div className="text-2xl font-bold text-[#C9A227]">2026</div>
-            <div className="mt-1 text-sm font-medium text-[#0B1F4D]">
+            <div className="text-3xl font-bold text-[#C9A227]">
+              2026
+            </div>
+            <div className="mt-2 text-sm text-slate-300">
               Building the Future
             </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
+
         <section className="bg-white px-6 py-24">
   <div className="container-max">
     <div className="grid gap-12 lg:grid-cols-[380px_1fr] lg:items-start">
