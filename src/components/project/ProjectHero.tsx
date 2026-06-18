@@ -73,9 +73,9 @@ const heroCopy: Record<
     badge: "A SERENE LANDSCAPE",
     h1: "Bridge County",
     subtitle:
-      "A Premium Address Within the Supraja IRIS Ecosystem",
+      "Premium DTCP & RERA Approved Plots Within Supraja IRIS Mega Project",
     firstParagraph:
-      "Bridge County offers a dedicated 15-acre plotted setting within the broader Supraja IRIS lifestyle ecosystem.",
+      "Bridge County is a dedicated 15-acre plotted community within the larger Supraja IRIS ecosystem, offering a balanced combination of location advantage, planned infrastructure, and future growth potential.",
     description:
       "DTCP & RERA Approved plots in a strategically positioned enclave designed for connectivity, infrastructure, and long-term value creation.",
     tags: [
@@ -84,6 +84,11 @@ const heroCopy: Record<
       "Just 5% to Reserve Your Plot",
       "2 Years Complimentary Membership*",
       "Limited Period Offer",
+      "15 Acre Premium Enclave",
+      "100% Vaastu Plots",
+      "Underground Infrastructure",
+      "50 & 33 Ft Roads",
+      "Water Connection to Every Plot",
     ],
     imageAlt:
       "Bridge County premium plotted enclave within Supraja IRIS at Kamkole",
