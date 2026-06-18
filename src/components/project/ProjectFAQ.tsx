@@ -165,7 +165,7 @@ const faqCopy: Record<
 
   "subhash-meadows": {
     eyebrow: "FAQs",
-    title: "Subhash Meadows Questions, Answered Clearly",
+    title: "On Subhash Meadows",
     intro:
       "Useful information about location access, infrastructure, LRS wording, and future ownership planning.",
   },
