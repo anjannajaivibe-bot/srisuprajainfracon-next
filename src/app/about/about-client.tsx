@@ -123,14 +123,15 @@ export default function AboutClient() {
       <div className="min-h-screen bg-[#F8F6F1]">
         <Navbar />
 
-        <section className="relative overflow-hidden bg-[#F8F5EE] pb-8 pt-20 lg:pb-8 lg:pt-20">
+        <section className="relative overflow-hidden bg-[#071531] pb-8 pt-20 lg:pb-8 lg:pt-20">
   <div
-    className="absolute inset-0 bg-cover bg-[center_35%]"
+    className="absolute inset-0 bg-cover bg-[center_42%]"
     style={{ backgroundImage: `url(${heroBg.src})` }}
   />
 
-  <div className="absolute inset-0 bg-gradient-to-r from-[#06142F]/95 via-[#06142F]/82 to-[#06142F]/58" />
-  <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#F8F5EE] via-[#F8F5EE]/65 to-transparent" />
+  <div className="absolute inset-0 bg-gradient-to-r from-[#041027]/98 via-[#071531]/88 to-[#071531]/62" />
+  <div className="absolute inset-0 bg-black/18" />
+  <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#071531] via-[#071531]/70 to-transparent" />
 
   <div className="container-max relative px-4 sm:px-6 lg:px-8">
     <div className="mx-auto max-w-7xl">
@@ -171,21 +172,21 @@ export default function AboutClient() {
 
           {/* TRUST METRICS */}
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-2xl border border-[#E8C45C]/20 bg-white/95 p-5 shadow-xl shadow-black/10 backdrop-blur">
+            <div className="rounded-2xl border border-[#E8C45C]/20 bg-[#FFFCF4]/95 p-5 shadow-xl shadow-black/10 backdrop-blur">
               <div className="text-3xl font-bold text-[#0B1F4D]">24+</div>
               <div className="mt-1 text-sm font-medium text-slate-600">
                 Years of Legacy
               </div>
             </div>
 
-            <div className="rounded-2xl border border-[#E8C45C]/20 bg-white/95 p-5 shadow-xl shadow-black/10 backdrop-blur">
+            <div className="rounded-2xl border border-[#E8C45C]/20 bg-[#FFFCF4]/95 p-5 shadow-xl shadow-black/10 backdrop-blur">
               <div className="text-3xl font-bold text-[#0B1F4D]">10+</div>
               <div className="mt-1 text-sm font-medium text-slate-600">
                 Completed Projects
               </div>
             </div>
 
-            <div className="rounded-2xl border border-[#E8C45C]/20 bg-white/95 p-5 shadow-xl shadow-black/10 backdrop-blur">
+            <div className="rounded-2xl border border-[#E8C45C]/20 bg-[#FFFCF4]/95 p-5 shadow-xl shadow-black/10 backdrop-blur">
               <div className="text-2xl font-bold text-[#0B1F4D]">
                 DTCP &amp; RERA
               </div>
@@ -194,7 +195,7 @@ export default function AboutClient() {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-[#E8C45C]/20 bg-white/95 p-5 shadow-xl shadow-black/10 backdrop-blur">
+            <div className="rounded-2xl border border-[#E8C45C]/20 bg-[#FFFCF4]/95 p-5 shadow-xl shadow-black/10 backdrop-blur">
               <div className="text-3xl font-bold text-[#0B1F4D]">5000+</div>
               <div className="mt-1 text-sm font-medium text-slate-600">
                 Happy Property Owners
