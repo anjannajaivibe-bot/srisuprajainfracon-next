@@ -148,7 +148,7 @@ export default function AboutClient() {
           <motion.h1
             initial={{ opacity: 0, y: 36 }}
             animate={{ opacity: 1, y: 0 }}
-            className="max-w-5xl font-display text-5xl font-bold leading-[1.05] text-white md:text-6xl lg:text-7xl"
+            className="max-w-5xl font-display text-[42px] font-bold leading-[1.08] text-white md:text-[56px] lg:text-[72px]"
           >
             Over 24 Years of Building Trust,
             <br />
@@ -193,7 +193,7 @@ export default function AboutClient() {
 
             <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
               <div className="text-3xl font-bold text-[#C9A227]">
-                DTCP
+                DTCP & RERA
               </div>
               <div className="mt-1 text-sm text-slate-300">
                 Approved Developments
@@ -202,7 +202,7 @@ export default function AboutClient() {
 
             <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
               <div className="text-3xl font-bold text-[#C9A227]">
-                1000+
+                5000+
               </div>
               <div className="mt-1 text-sm text-slate-300">
                 Happy Property Owners
