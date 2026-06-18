@@ -48,10 +48,10 @@ const ctaCopy: Record<
   },
 
   "subhash-meadows": {
-    eyebrow: "Practical Ownership Enquiry",
-    title: "Discover Connectivity, Infrastructure & Future Potential",
+    eyebrow: "Plan Your Visit",
+    title: "Explore Subhash Meadows in Person",
     text:
-      "Review location advantages, infrastructure features, plot availability, and project details with a guided site visit.",
+      "Understand the project's connectivity to ORR, IIT Hyderabad, ICRISAT, and key growth corridors with clear plot and infrastructure details.",
     whatsappText: "Discuss Subhash Meadows",
   },
 };
