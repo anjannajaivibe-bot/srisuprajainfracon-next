@@ -77,7 +77,7 @@ const heroCopy: Record<
     firstParagraph:
       "Bridge County offers a dedicated 15-acre plotted setting within the broader Supraja IRIS lifestyle ecosystem.",
     description:
-      "DTCP Approved plots in a strategically positioned 15-acre enclave designed for connectivity, infrastructure, and long-term value creation.",
+      "DTCP & RERA Approved plots in a strategically positioned enclave designed for connectivity, infrastructure, and long-term value creation.",
     tags: [
       "Starting at ₹13,500 per Sq. Yard",
       "Flexible EMI Plans Available",

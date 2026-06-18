@@ -33,9 +33,9 @@ const ctaCopy: Record<
 
   "bridge-county": {
     eyebrow: "Focused Investment Enquiry",
-    title: "Evaluate Bridge County within the Supraja IRIS Ecosystem",
+    title: "Explore Bridge County in Person",
     text:
-      "Speak with Supraja Management to understand the 15-acre enclave, price advantage, plot availability, approval status, connectivity, and its position within the larger growth corridor.",
+      "Review location advantages, infrastructure features, plot availability, pricing options, and future growth opportunities with our project advisors. Discover how Bridge County combines strategic positioning, organized development, and long-term value within one of the region's emerging destinations.",
     whatsappText: "Discuss Bridge County",
   },
 
