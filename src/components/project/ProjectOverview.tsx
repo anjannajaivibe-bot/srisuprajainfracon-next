@@ -48,13 +48,16 @@ const overviewCopy: Record<
   },
 
   "subhash-meadows": {
-    label: "Well-Connected Project",
-    title: "Well-Planned. Well-Connected.",
-    description:
-      "Subhash Meadows offers a practical land ownership opportunity near important education, employment, and transportation corridors.",
-    closing:
-      "With essential infrastructure, convenient access, and long-term location relevance, Subhash Meadows is suited for investors and future homeowners planning with clarity.",
-  },
+  label: "Strategically Positioned Community",
+
+  title: "Connected to Growth. Designed for Value.",
+
+  description:
+    "Subhash Meadows is a thoughtfully planned plotted community at Indrakaran, strategically positioned just 5 minutes from Outer Ring Road, 10 minutes from ICRISAT, and 15 minutes from IIT Hyderabad, offering excellent connectivity to key educational, employment, and infrastructure destinations.",
+
+  closing:
+    "With Regional Ring Road connectivity accessible within approximately 20 minutes, along with convenient access to Sangareddy, BHEL, and major growth corridors across western Hyderabad, Subhash Meadows combines location advantage, planned infrastructure, and long-term investment potential in a rapidly evolving region.",
+},
 };
 
 const fallbackOverview = {

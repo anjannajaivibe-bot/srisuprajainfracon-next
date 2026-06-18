@@ -120,20 +120,21 @@ const heroCopy: Record<
   },
 
   "subhash-meadows": {
-    badge: "Well-Connected Project",
-    h1: "Well-Connected Plots Near Key Growth Destinations",
+    badge: "WELL-CONNECTED GROWTH CORRIDOR",
+    h1: "Subhash Meadows",
     subtitle:
-      "A practical land ownership opportunity near education, employment, and transportation corridors.",
+      "Infrastructure-Ready Plots Near IIT Hyderabad & ORR",
     firstParagraph:
-      "Subhash Meadows offers accessibility, essential infrastructure, and long-term location relevance.",
+      "A thoughtfully planned plotted community at Indrakaran offering strong connectivity, organized infrastructure, and access to key growth destinations.",
     description:
-      "The project is suited for investors and future homeowners seeking a well-planned setting close to important regional destinations.",
+      "Strategically located near IIT Hyderabad, Outer Ring Road, Regional Ring Road influence zones, and major employment corridors, Subhash Meadows is designed for long-term value and accessibility.",
     tags: [
-      "Indrakaran Location",
-      "Near Key Hubs",
-      "Accessible Project",
-      "LRS Charges Paid",
-      "Future Planning",
+      "Near IIT Hyderabad",
+      "5 Min to ORR",
+      "RRR Influence Zone",
+      "GP Approved, LRS Paid",
+      "Infrastructure Ready Layout",
+      "Affordable Plots at Indrakaran",
     ],
     imageAlt:
       "Subhash Meadows well connected plotted project near key growth destinations",
