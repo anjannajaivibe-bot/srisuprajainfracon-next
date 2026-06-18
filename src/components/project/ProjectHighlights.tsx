@@ -137,16 +137,6 @@ const ProjectHighlights = ({ project }: Props) => {
                   : "group rounded-[28px] border border-[#EFE7D3] bg-white p-6 shadow-[0_10px_35px_rgba(11,22,51,0.06)] transition duration-300 hover:-translate-y-2 hover:border-[#C9A227] hover:shadow-[0_20px_55px_rgba(11,22,51,0.12)]"
               }
             >
-              <div
-                className={
-                  isBridgeCounty
-                    ? "mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#FFF7D6] to-[#F5E6A3] text-lg font-extrabold text-[#0B1633] shadow-sm ring-1 ring-[#E8D7A5]"
-                    : "mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-[#FFF4C7] text-sm font-extrabold text-[#0B1633] ring-1 ring-[#E8D7A5] transition group-hover:bg-[#C9A227]"
-                }
-              >
-                {String(index + 1).padStart(2, "0")}
-              </div>
-
               <h3
                 className={
                   isBridgeCounty
@@ -164,10 +154,6 @@ const ProjectHighlights = ({ project }: Props) => {
                   <p className="mt-5 text-base leading-7 text-[#4B5563]">
                     {item.description}
                   </p>
-
-                  <span className="pointer-events-none absolute right-6 top-6 text-5xl font-black text-[#0B1633]/[0.04]">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
                 </>
               )}
             </div>
