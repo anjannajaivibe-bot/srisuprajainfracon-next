@@ -28,19 +28,28 @@ const extraGalleryImages: Record<string, string[]> = {
   ],
 
   "bridge-county": [
-  "/projects/supraja-bridge/gallery/supraja-iris-gallery-1.webp",
-  "/projects/supraja-bridge/gallery/supraja-iris-gallery-2.webp",
-  "/projects/supraja-bridge/gallery/supraja-iris-gallery-3.webp",
-  "/projects/supraja-bridge/gallery/supraja-iris-gallery-4.webp",
-  "/projects/supraja-bridge/gallery/supraja-iris-gallery-5.webp",
-  "/projects/supraja-bridge/gallery/supraja-iris-gallery-6.webp",
-  "/projects/supraja-bridge/gallery/supraja-iris-gallery-7.webp",
-  "/projects/supraja-bridge/gallery/supraja-iris-gallery-8.webp",
-  "/projects/supraja-bridge/gallery/supraja-iris-gallery-9.webp",
-  "/projects/supraja-bridge/gallery/supraja-iris-gallery-10.webp",
-  "/projects/supraja-bridge/gallery/supraja-iris-gallery-11.webp",
-  "/projects/supraja-bridge/gallery/supraja-iris-gallery-12.webp",
-],
+    "/projects/supraja-bridge/gallery/supraja-iris-gallery-1.webp",
+    "/projects/supraja-bridge/gallery/supraja-iris-gallery-2.webp",
+    "/projects/supraja-bridge/gallery/supraja-iris-gallery-3.webp",
+    "/projects/supraja-bridge/gallery/supraja-iris-gallery-4.webp",
+    "/projects/supraja-bridge/gallery/supraja-iris-gallery-5.webp",
+    "/projects/supraja-bridge/gallery/supraja-iris-gallery-6.webp",
+    "/projects/supraja-bridge/gallery/supraja-iris-gallery-7.webp",
+    "/projects/supraja-bridge/gallery/supraja-iris-gallery-8.webp",
+    "/projects/supraja-bridge/gallery/supraja-iris-gallery-9.webp",
+    "/projects/supraja-bridge/gallery/supraja-iris-gallery-10.webp",
+    "/projects/supraja-bridge/gallery/supraja-iris-gallery-11.webp",
+    "/projects/supraja-bridge/gallery/supraja-iris-gallery-12.webp",
+  ],
+
+  "sindhu-sarovar": [
+    "/projects/supraja-sindhusarovar/gallery/gallery-1.webp",
+    "/projects/supraja-sindhusarovar/gallery/gallery-2.webp",
+    "/projects/supraja-sindhusarovar/gallery/gallery-3.webp",
+    "/projects/supraja-sindhusarovar/gallery/gallery-4.webp",
+    "/projects/supraja-sindhusarovar/gallery/gallery-5.webp",
+    "/projects/supraja-sindhusarovar/gallery/gallery-6.webp",
+  ],
 };
 
 const galleryOverlayText: Record<string, string[]> = {
@@ -65,19 +74,28 @@ const galleryOverlayText: Record<string, string[]> = {
   ],
 
   "bridge-county": [
-  "Lemon Tree Resort Under Construction",
-  "Lemon Tree Resort Vision",
-  "Water Villas Concept",
-  "Adjacent to Woxsen University",
-  "Destination Wedding Hall Planned",
-  "Water & Amusement Park Planned",
-  "Go-Karting Zone Planned",
-  "Supraja IRIS Master-Planned Community",
-  "Bridge County Entrance Vision",
-  "Wide Internal Blacktop Roads",
-  "Parks & Open Green Spaces",
-  "Well-Planned Plot Infrastructure",
-],
+    "Lemon Tree Resort Under Construction",
+    "Lemon Tree Resort Vision",
+    "Water Villas Concept",
+    "Adjacent to Woxsen University",
+    "Destination Wedding Hall Planned",
+    "Water & Amusement Park Planned",
+    "Go-Karting Zone Planned",
+    "Supraja IRIS Master-Planned Community",
+    "Bridge County Entrance Vision",
+    "Wide Internal Blacktop Roads",
+    "Parks & Open Green Spaces",
+    "Well-Planned Plot Infrastructure",
+  ],
+
+  "sindhu-sarovar": [
+    "Grand Project Entrance",
+    "Wide Internal Blacktop Roads",
+    "Landscaped Open Spaces",
+    "Community Park Setting",
+    "Master-Planned Layout",
+    "Clear Plot Layout Plan",
+  ],
 };
 
 const galleryCopy: Record<
@@ -113,11 +131,11 @@ const galleryCopy: Record<
   },
 
   "sindhu-sarovar": {
-    title: "Project Gallery",
+    title: "Supraja Sindhu Sarovar Gallery",
     intro:
-      "Explore project visuals, layout references, entrance features, and infrastructure elements.",
+      "Explore the entrance, internal roads, landscaped spaces, layout views, and planned infrastructure that define the project environment.",
     altPrefix:
-      "Supraja Sindhu Sarovar planned project gallery",
+      "Supraja Sindhu Sarovar planned plotted development gallery",
   },
 
   "subhash-meadows": {
@@ -181,10 +199,6 @@ const ProjectGallery = ({ project }: Props) => {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
 
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <p className="text-xs font-bold uppercase tracking-[0.22em] text-amber-300">
-                    
-                  </p>
-
                   <h3 className="mt-2 text-2xl font-extrabold leading-tight text-white">
                     {overlayText}
                   </h3>
