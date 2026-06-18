@@ -157,10 +157,14 @@ export const projects: Project[] = [
     highlights: [
       "Affordable open plots at Indrakaran",
       "GP LRS Paid",
-      "40, 33 and 30 feet black top roads",
-      "Layout planned as per Vastu",
+      "40, 33 & 30 Ft Roads",
+      "100% Vastu Plots",
       "5 minutes to Outer Ring Road",
       "15 minutes to IIT Hyderabad",
+      "Underground Drainage",
+      "Avenue Plantation",
+      "Electricity & Street Lighting",
+      "Parks & Open Spaces",
     ],
 
     link: "/projects/subhash-meadows",

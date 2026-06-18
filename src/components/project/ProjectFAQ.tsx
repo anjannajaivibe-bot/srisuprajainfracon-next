@@ -111,6 +111,16 @@ const getExtraFaqs = (slug: string): FaqItem[] => {
         answer:
           "Subhash Meadows is suitable for investors and future homeowners looking for accessibility, practical infrastructure, and long-term location relevance.",
       },
+      {
+        question: "What makes Subhash Meadows well connected?",
+        answer:
+          "Subhash Meadows benefits from proximity to IIT Hyderabad, Outer Ring Road, ICRISAT, Sangareddy growth corridors, and Regional Ring Road influence zones.",
+      },
+      {
+        question: "What infrastructure is available within the project?",
+        answer:
+          "The project includes blacktop roads, underground drainage, avenue plantation, street lighting, landscaped open spaces, and secured entry provisions.",
+      },
     ];
   }
 

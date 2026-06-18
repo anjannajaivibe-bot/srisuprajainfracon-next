@@ -49,9 +49,9 @@ const ctaCopy: Record<
 
   "subhash-meadows": {
     eyebrow: "Practical Ownership Enquiry",
-    title: "Explore Subhash Meadows with the Right Details",
+    title: "Discover Connectivity, Infrastructure & Future Potential",
     text:
-      "Connect with our team to review location access, layout features, LRS documentation, infrastructure planning, and availability for budget-focused plot ownership.",
+      "Review location advantages, infrastructure features, plot availability, and project details with a guided site visit.",
     whatsappText: "Discuss Subhash Meadows",
   },
 };
