@@ -50,6 +50,16 @@ const extraGalleryImages: Record<string, string[]> = {
     "/projects/supraja-sindhusarovar/gallery/gallery-5.webp",
     "/projects/supraja-sindhusarovar/gallery/gallery-6.webp",
   ],
+
+  "subhash-meadows": [
+    "/projects/subhash-meadows/gallery/gallery-1.webp",
+    "/projects/subhash-meadows/gallery/gallery-2.webp",
+    "/projects/subhash-meadows/gallery/gallery-3.webp",
+    "/projects/subhash-meadows/gallery/gallery-4.webp",
+    "/projects/subhash-meadows/gallery/gallery-5.webp",
+    "/projects/subhash-meadows/gallery/gallery-6.webp",
+    "/projects/subhash-meadows/gallery/gallery-7.webp",
+  ],
 };
 
 const galleryOverlayText: Record<string, string[]> = {
@@ -96,6 +106,16 @@ const galleryOverlayText: Record<string, string[]> = {
     "Master-Planned Layout",
     "Clear Plot Layout Plan",
   ],
+
+  "subhash-meadows": [
+    "Signature Project Entrance",
+    "Infrastructure-Ready Road Network",
+    "Parks & Landscaped Open Spaces",
+    "Connected to Key Growth Destinations",
+    "Well-Connected Location Advantage",
+    "Planned Infrastructure for Better Tomorrow",
+    "Strategic Project Location Map",
+  ],
 };
 
 const galleryCopy: Record<
@@ -139,9 +159,9 @@ const galleryCopy: Record<
   },
 
   "subhash-meadows": {
-    title: "Project Gallery",
+    title: "Subhash Meadows Gallery",
     intro:
-      "View site visuals, layout references, entrance features, and key project infrastructure.",
+      "View the entrance, internal roads, landscaped open spaces, location highlights, and planned infrastructure that position Subhash Meadows as a well-connected plotted project.",
     altPrefix:
       "Subhash Meadows well-connected plotted project gallery",
   },
