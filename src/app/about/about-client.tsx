@@ -125,11 +125,11 @@ export default function AboutClient() {
 
         <section className="relative overflow-hidden bg-[#F8F5EE] pb-8 pt-20 lg:pb-8 lg:pt-20">
   <div
-    className="absolute inset-0 bg-cover bg-[center_top]"
+    className="absolute inset-0 bg-cover bg-[center_35%]"
     style={{ backgroundImage: `url(${heroBg.src})` }}
   />
 
-  <div className="absolute inset-0 bg-gradient-to-r from-[#06142F]/88 via-[#06142F]/62 to-[#06142F]/20" />
+  <div className="absolute inset-0 bg-gradient-to-r from-[#06142F]/95 via-[#06142F]/82 to-[#06142F]/58" />
   <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#F8F5EE] via-[#F8F5EE]/65 to-transparent" />
 
   <div className="container-max relative px-4 sm:px-6 lg:px-8">
