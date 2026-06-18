@@ -28,14 +28,19 @@ const extraGalleryImages: Record<string, string[]> = {
   ],
 
   "bridge-county": [
-    "/projects/supraja-bridge/gallery/supraja-iris-gallery-1.webp",
-    "/projects/supraja-bridge/gallery/supraja-iris-gallery-2.webp",
-    "/projects/supraja-bridge/gallery/supraja-iris-gallery-3.webp",
-    "/projects/supraja-bridge/gallery/supraja-iris-gallery-4.webp",
-    "/projects/supraja-bridge/gallery/supraja-iris-gallery-5.webp",
-    "/projects/supraja-bridge/gallery/supraja-iris-gallery-6.webp",
-    "/projects/supraja-bridge/gallery/supraja-iris-gallery-7.webp",
-  ],
+  "/projects/supraja-bridge/gallery/supraja-iris-gallery-1.webp",
+  "/projects/supraja-bridge/gallery/supraja-iris-gallery-2.webp",
+  "/projects/supraja-bridge/gallery/supraja-iris-gallery-3.webp",
+  "/projects/supraja-bridge/gallery/supraja-iris-gallery-4.webp",
+  "/projects/supraja-bridge/gallery/supraja-iris-gallery-5.webp",
+  "/projects/supraja-bridge/gallery/supraja-iris-gallery-6.webp",
+  "/projects/supraja-bridge/gallery/supraja-iris-gallery-7.webp",
+  "/projects/supraja-bridge/gallery/supraja-iris-gallery-8.webp",
+  "/projects/supraja-bridge/gallery/supraja-iris-gallery-9.webp",
+  "/projects/supraja-bridge/gallery/supraja-iris-gallery-10.webp",
+  "/projects/supraja-bridge/gallery/supraja-iris-gallery-11.webp",
+  "/projects/supraja-bridge/gallery/supraja-iris-gallery-12.webp",
+],
 };
 
 const galleryOverlayText: Record<string, string[]> = {
@@ -60,14 +65,19 @@ const galleryOverlayText: Record<string, string[]> = {
   ],
 
   "bridge-county": [
-   "Lemon Tree Resort Under Construction",
-    "Lemon Tree Resort - After Completion",
-    "Water Villas Under Construction",
-    "Adjacent Woxen University",
-    "Destination Wedding Hall Upcoming",
-    "Water & Amusement Park Upcoming",
-    "Go-Karting Upcoming",
-  ],
+  "Lemon Tree Resort Under Construction",
+  "Lemon Tree Resort Vision",
+  "Water Villas Concept",
+  "Adjacent to Woxsen University",
+  "Destination Wedding Hall Planned",
+  "Water & Amusement Park Planned",
+  "Go-Karting Zone Planned",
+  "Supraja IRIS Master-Planned Community",
+  "Bridge County Entrance Vision",
+  "Wide Internal Blacktop Roads",
+  "Parks & Open Green Spaces",
+  "Well-Planned Plot Infrastructure",
+],
 };
 
 const galleryCopy: Record<
@@ -95,7 +105,7 @@ const galleryCopy: Record<
   },
 
   "bridge-county": {
-    title: "Gallery & Future Growth Landmarks",
+    title: "Future Growth Drivers Around Bridge County",
     intro:
       "Discover the landmarks and growth catalysts surrounding Bridge County, including hospitality destinations, educational institutions, recreation zones, and major connectivity corridors shaping the future of the region.",
     altPrefix:
