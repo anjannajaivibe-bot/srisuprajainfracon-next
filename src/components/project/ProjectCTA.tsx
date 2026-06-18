@@ -41,9 +41,9 @@ const ctaCopy: Record<
 
   "sindhu-sarovar": {
     eyebrow: "Project Clarity Assistance",
-    title: "Review Sindhu Sarovar with Clear Project Context",
+    title: "Explore Supraja Sindhu Sarovar in Person",
     text:
-      "Get complete guidance on layout planning, infrastructure features, location relevance, approval details, and current availability before making your site visit decision.",
+      "Understand location advantages, layout planning, infrastructure features, and current plot availability through a guided site visit.",
     whatsappText: "Discuss Sindhu Sarovar",
   },
 

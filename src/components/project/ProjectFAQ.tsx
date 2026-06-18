@@ -81,6 +81,16 @@ const getExtraFaqs = (slug: string): FaqItem[] => {
         answer:
           "It is suitable for investors and families seeking a planned project with dependable infrastructure and evolving location advantages.",
       },
+      {
+        question: "Is Sindhu Sarovar a gated community?",
+        answer:
+          "Yes. The project is planned as a gated community with compound wall provisions, security infrastructure, landscaped spaces, and organized internal road networks.",
+      },
+      {
+        question: "What infrastructure is available within the project?",
+        answer:
+          "The project includes wide roads, street lighting, drainage planning, utility infrastructure, parks, pedestrian walkways, rainwater harvesting provisions, and landscaped open spaces.",
+      },
     ];
   }
 
