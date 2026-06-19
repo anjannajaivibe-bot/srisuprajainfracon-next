@@ -29,9 +29,9 @@ const stats = [
   },
   {
     icon: BadgeCheck,
-    value: "5000",
-    label: "+",
-    text: "Happy Customers",
+    value: "5000+",
+    label: "Happy",
+    text: "Customers",
   },
 ];
 

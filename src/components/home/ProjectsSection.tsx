@@ -33,118 +33,149 @@ const projectCardCopy: Record<
 
 const ProjectsSection = () => {
   return (
-    <section className="bg-white px-6 py-24">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-14 text-center">
-          <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#B88900]">
+    <section className="relative overflow-hidden bg-white px-6 py-24">
+      <div className="absolute left-0 top-24 h-72 w-72 rounded-full bg-[#C9A227]/5 blur-3xl" />
+      <div className="absolute right-0 bottom-24 h-72 w-72 rounded-full bg-[#C9A227]/5 blur-3xl" />
+
+      <div className="relative mx-auto max-w-7xl">
+        <div className="mb-16 text-center">
+          <p className="mb-4 text-sm font-bold uppercase tracking-[0.32em] text-[#B88900]">
             Our Ongoing Projects
           </p>
 
-          <h2 className="mx-auto max-w-4xl text-3xl font-extrabold leading-tight text-[#111827] md:text-5xl">
-            Explore Sri Supraja Infracon Projects
+          <div className="mx-auto mb-6 flex max-w-xs items-center justify-center gap-4">
+            <span className="h-px flex-1 bg-[#C9A227]/40" />
+            <span className="h-2 w-2 rotate-45 border border-[#C9A227]" />
+            <span className="h-px flex-1 bg-[#C9A227]/40" />
+          </div>
+
+          <h2 className="mx-auto max-w-5xl font-display text-4xl font-bold leading-tight tracking-tight text-[#07111F] md:text-6xl">
+            Explore{" "}
+            <span className="text-[#C48912]">
+              Sri Supraja Infracon
+            </span>{" "}
+            Projects
           </h2>
 
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-[#4B5563]">
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[#334155]">
             Discover projects across Kamkole, Mominpet, Sangareddy, and
             Indrakaran, each planned with a distinct location advantage,
             ownership purpose, and future growth perspective.
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2">
-          {projects.map((project) => {
+        <div className="space-y-10">
+          {projects.map((project, index) => {
             const cardCopy = projectCardCopy[project.slug] ?? {
               badge: "Sri Supraja Project",
               alt: `${project.title} by Sri Supraja Infracon`,
             };
 
+            const imageFirst = index % 2 === 1;
+
             return (
               <article
                 key={project.id}
-                className="group overflow-hidden rounded-[32px] border border-[#EFE7D3] bg-white shadow-[0_14px_40px_rgba(17,24,39,0.06)] transition duration-300 hover:-translate-y-2 hover:shadow-[0_22px_60px_rgba(17,24,39,0.12)]"
+                className="group overflow-hidden rounded-[34px] border border-[#E8E2D4] bg-white shadow-[0_18px_55px_rgba(15,23,42,0.08)] transition duration-300 hover:-translate-y-1 hover:border-[#C9A227]/45 hover:shadow-[0_28px_80px_rgba(15,23,42,0.14)]"
               >
-                <div className="relative h-[300px] w-full overflow-hidden">
-                  <Link
-                    href={project.link}
-                    aria-label={`View ${project.title} project details`}
-                    className="block h-full w-full"
-                  >
-                    <SmartImage
-                      src={project.image}
-                      alt={project.imageAlt || cardCopy.alt}
-                      className="h-full w-full"
-                      imageClassName="transition-transform duration-700 group-hover:scale-105"
-                    />
-                  </Link>
-
-                  <div className="absolute left-5 top-5 rounded-full bg-white/95 px-4 py-2 text-sm font-bold text-[#111827] shadow-lg backdrop-blur">
-                    {cardCopy.badge}
-                  </div>
-
-                  {project.approvalType && (
-                    <div className="absolute bottom-5 left-5 rounded-full bg-[#FFF9E8]/95 px-4 py-2 text-xs font-bold text-[#7A5A00] shadow-lg backdrop-blur">
-                      {project.approvalType}
+                <div
+                  className={`grid min-h-[430px] lg:grid-cols-2 ${
+                    imageFirst ? "lg:[&>*:first-child]:order-2" : ""
+                  }`}
+                >
+                  <div className="relative z-10 flex flex-col justify-center p-7 sm:p-10 lg:p-12">
+                    <div className="mb-7 inline-flex w-fit rounded-lg bg-[#FFF4D8] px-4 py-2 text-xs font-extrabold uppercase tracking-wide text-[#B88900]">
+                      {cardCopy.badge}
                     </div>
-                  )}
-                </div>
 
-                <div className="p-7">
-                  <p className="mb-2 text-sm font-bold uppercase tracking-wide text-[#B88900]">
-                    {project.location}
-                  </p>
+                    <p className="mb-3 text-sm font-extrabold uppercase tracking-wide text-[#B88900]">
+                      {project.location}
+                    </p>
 
-                  <h3 className="mb-4 text-2xl font-extrabold text-[#111827]">
-                    <Link
-                      href={project.link}
-                      className="font-bold transition hover:text-[#B88900]"
-                    >
-                      {project.title}
-                    </Link>
-                  </h3>
-
-                  <p className="mb-6 leading-relaxed text-[#4B5563]">
-                    {project.shortDescription}
-                  </p>
-
-                  <div className="mb-6 flex flex-wrap gap-2">
-                    {project.highlights.slice(0, 3).map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-full border border-[#EFE7D3] bg-[#FBF8EF] px-3 py-1 text-xs font-bold text-[#374151]"
+                    <h3 className="mb-3 font-display text-3xl font-bold leading-tight text-[#07111F] md:text-4xl">
+                      <Link
+                        href={project.link}
+                        className="transition hover:text-[#B88900]"
                       >
-                        {item}
-                      </span>
-                    ))}
+                        {project.title}
+                      </Link>
+                    </h3>
+
+                    <div className="mb-5 h-px w-16 bg-[#C48912]" />
+
+                    <p className="mb-7 max-w-xl text-[17px] leading-8 text-[#334155]">
+                      {project.shortDescription}
+                    </p>
+
+                    <div className="mb-8 flex flex-wrap gap-3">
+                      {project.highlights.slice(0, 3).map((item) => (
+                        <span
+                          key={item}
+                          className="rounded-lg border border-[#E8D7A5] bg-white px-4 py-2 text-xs font-bold text-[#374151] shadow-sm"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex flex-wrap gap-3">
+                      <Link
+                        href={project.link}
+                        className="inline-flex items-center justify-center rounded-lg bg-[#07111F] px-6 py-3 text-sm font-bold text-white shadow-md transition hover:-translate-y-1 hover:bg-[#C9A227] hover:text-[#07111F]"
+                      >
+                        View Project Details
+                      </Link>
+
+                      {project.availabilityMapUrl && (
+                        <a
+                          href={project.availabilityMapUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center rounded-lg border border-[#CBD5E1] bg-white px-6 py-3 text-sm font-bold text-[#07111F] shadow-sm transition hover:-translate-y-1 hover:border-[#C9A227] hover:bg-[#FFF9E8]"
+                        >
+                          Live Plot Availability
+                        </a>
+                      )}
+
+                      {project.brochure && (
+                        <a
+                          href={project.brochure}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center rounded-lg border border-[#E8D7A5] bg-white px-6 py-3 text-sm font-bold text-[#B88900] shadow-sm transition hover:-translate-y-1 hover:bg-[#C9A227] hover:text-[#07111F]"
+                        >
+                          View Brochure
+                        </a>
+                      )}
+                    </div>
                   </div>
 
-                  <div className="flex flex-wrap gap-3">
+                  <div className="relative min-h-[280px] overflow-hidden lg:min-h-[430px]">
                     <Link
                       href={project.link}
-                      className="inline-flex rounded-full bg-[#111827] px-5 py-2.5 text-sm font-bold text-white shadow-md transition hover:-translate-y-1 hover:bg-[#C9A227] hover:text-[#111827]"
+                      aria-label={`View ${project.title} project details`}
+                      className="block h-full w-full"
                     >
-                      View Project Details
+                      <SmartImage
+                        src={project.image}
+                        alt={project.imageAlt || cardCopy.alt}
+                        className="h-full w-full"
+                        imageClassName="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
                     </Link>
 
-                    {project.availabilityMapUrl && (
-                      <a
-                        href={project.availabilityMapUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex rounded-full border border-[#D1D5DB] bg-white px-5 py-2.5 text-sm font-bold text-[#111827] shadow-sm transition hover:-translate-y-1 hover:border-[#C9A227] hover:bg-[#FFF9E8]"
-                      >
-                        Live Plot Availability
-                      </a>
-                    )}
+                    <div
+                      className={`absolute inset-0 hidden lg:block ${
+                        imageFirst
+                          ? "bg-gradient-to-l from-white via-white/80 to-white/0"
+                          : "bg-gradient-to-r from-white via-white/80 to-white/0"
+                      }`}
+                    />
 
-                    {project.brochure && (
-                      <a
-                        href={project.brochure}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex rounded-full border border-[#E8D7A5] bg-[#FFF9E8] px-5 py-2.5 text-sm font-bold text-[#7A5A00] shadow-sm transition hover:-translate-y-1 hover:bg-[#C9A227] hover:text-[#111827]"
-                      >
-                        View Brochure
-                      </a>
+                    {project.approvalType && (
+                      <div className="absolute bottom-6 left-6 rounded-lg bg-[#07111F]/80 px-4 py-2 text-xs font-bold text-white shadow-lg backdrop-blur">
+                        {project.approvalType}
+                      </div>
                     )}
                   </div>
                 </div>
