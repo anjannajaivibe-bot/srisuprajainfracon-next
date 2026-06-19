@@ -102,7 +102,10 @@ export default function ProjectTestimonials({
 }: ProjectTestimonialsProps) {
   const visibleTestimonials = projectSlug
     ? testimonials.filter(
-        (item) => item.slug === projectSlug || item.slug === "supraja-iris-resort-plots" && projectSlug === "supraja-iris"
+        (item) =>
+          item.slug === projectSlug ||
+          (item.slug === "supraja-iris-resort-plots" &&
+            projectSlug === "supraja-iris")
       )
     : testimonials;
 
@@ -112,66 +115,157 @@ export default function ProjectTestimonials({
     ? sectionCopy[projectSlug] ?? fallbackCopy
     : fallbackCopy;
 
+  const carouselItems =
+    visibleTestimonials.length > 1
+      ? [...visibleTestimonials, ...visibleTestimonials]
+      : visibleTestimonials;
+
   return (
-    <section className="bg-[#f8f8f8] py-16">
-      <div className="mx-auto max-w-7xl px-4">
-        <div className="mb-12 text-center">
-          <p className="text-sm font-semibold uppercase tracking-wide text-green-700">
+    <section className="relative overflow-hidden bg-white px-6 py-24">
+      <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-[#C9A227]/5 blur-3xl" />
+      <div className="absolute right-0 bottom-20 h-72 w-72 rounded-full bg-[#C9A227]/5 blur-3xl" />
+
+      <div className="relative mx-auto max-w-7xl">
+        <div className="mb-14 text-center">
+          <p className="mb-4 text-sm font-bold uppercase tracking-[0.32em] text-[#B88900]">
             WORDS OF TRUST
           </p>
 
-          <h2 className="mt-3 text-3xl font-bold text-gray-900 md:text-4xl">
-            {copy.title}
+          <div className="mx-auto mb-6 flex max-w-xs items-center justify-center gap-4">
+            <span className="h-px flex-1 bg-[#C9A227]/40" />
+            <span className="h-2 w-2 rotate-45 border border-[#C9A227]" />
+            <span className="h-px flex-1 bg-[#C9A227]/40" />
+          </div>
+
+          <h2 className="mx-auto max-w-5xl font-display text-4xl font-bold leading-tight tracking-tight text-[#07111F] md:text-6xl">
+            {projectSlug ? copy.title : "Hear From Our Investors"}
           </h2>
 
-          <p className="mx-auto mt-4 max-w-3xl text-lg text-gray-600">
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[#334155]">
             {copy.intro}
           </p>
         </div>
 
-        <div
-          className={
-            visibleTestimonials.length === 1
-              ? "mx-auto max-w-4xl"
-              : "grid gap-8 md:grid-cols-2"
-          }
-        >
-          {visibleTestimonials.map((item, index) => (
-            <article
-              key={`${item.slug}-${item.name}-${index}`}
-              className="rounded-3xl border border-gray-100 bg-white p-7 shadow-lg md:p-8"
-            >
-              <div className="flex items-start gap-5">
-                <div className="relative h-[86px] w-[86px] flex-shrink-0 overflow-hidden rounded-full bg-gray-100 shadow-md">
-                  <Image
-                    src={item.image}
-                    alt={item.alt}
-                    fill
-                    sizes="86px"
-                    className="object-cover"
-                  />
+        {visibleTestimonials.length === 1 ? (
+          <div className="mx-auto max-w-4xl">
+            {visibleTestimonials.map((item, index) => (
+              <article
+                key={`${item.slug}-${item.name}-${index}`}
+                className="overflow-hidden rounded-[30px] border border-[#EFE7D3] bg-white shadow-[0_18px_55px_rgba(15,23,42,0.08)]"
+              >
+                <div className="grid md:grid-cols-[320px_1fr]">
+                  <div className="relative min-h-[320px] bg-[#F8FAFC]">
+                    <Image
+                      src={item.image}
+                      alt={item.alt}
+                      fill
+                      sizes="320px"
+                      className="object-cover"
+                    />
+                  </div>
+
+                  <div className="flex flex-col justify-center p-8 md:p-10">
+                    <p className="mb-3 text-sm font-bold uppercase tracking-wide text-[#B88900]">
+                      {item.project}
+                    </p>
+
+                    <h3 className="font-display text-3xl font-bold text-[#07111F]">
+                      {item.name}
+                    </h3>
+
+                    <p className="mt-1 text-sm font-medium text-[#64748B]">
+                      {item.role}
+                    </p>
+
+                    <div className="my-6 h-px w-16 bg-[#C48912]" />
+
+                    <p className="text-[17px] leading-8 text-[#334155]">
+                      “{item.text}”
+                    </p>
+                  </div>
                 </div>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <div className="relative">
+            <div className="pointer-events-none absolute left-0 top-0 z-10 hidden h-full w-24 bg-gradient-to-r from-white to-transparent lg:block" />
+            <div className="pointer-events-none absolute right-0 top-0 z-10 hidden h-full w-24 bg-gradient-to-l from-white to-transparent lg:block" />
 
-                <div>
-                  <p className="text-sm font-semibold text-green-700">
-                    {item.project}
-                  </p>
+            <div className="overflow-hidden">
+              <div className="testimonial-marquee flex w-max gap-7">
+                {carouselItems.map((item, index) => (
+                  <article
+                    key={`${item.slug}-${item.name}-${index}`}
+                    className="w-[340px] shrink-0 overflow-hidden rounded-[30px] border border-[#EFE7D3] bg-white shadow-[0_18px_55px_rgba(15,23,42,0.08)] transition duration-300 hover:-translate-y-2 hover:shadow-[0_24px_70px_rgba(15,23,42,0.12)] sm:w-[390px]"
+                  >
+                    <div className="relative h-[260px] bg-[#F8FAFC]">
+                      <Image
+                        src={item.image}
+                        alt={item.alt}
+                        fill
+                        sizes="390px"
+                        className="object-cover"
+                      />
 
-                  <h3 className="mt-1 text-xl font-bold text-gray-900">
-                    {item.name}
-                  </h3>
+                      <div className="absolute left-5 top-5 rounded-full bg-white/95 px-4 py-2 text-xs font-bold uppercase tracking-wide text-[#B88900] shadow-sm backdrop-blur">
+                        {item.project}
+                      </div>
+                    </div>
 
-                  <p className="text-sm text-gray-500">{item.role}</p>
-                </div>
+                    <div className="p-7">
+                      <h3 className="font-display text-2xl font-bold text-[#07111F]">
+                        {item.name}
+                      </h3>
+
+                      <p className="mt-1 text-sm font-medium text-[#64748B]">
+                        {item.role}
+                      </p>
+
+                      <div className="my-5 h-px w-14 bg-[#C48912]" />
+
+                      <p className="text-[16px] leading-7 text-[#334155]">
+                        “{item.text}”
+                      </p>
+                    </div>
+                  </article>
+                ))}
               </div>
+            </div>
 
-              <p className="mt-6 text-[17px] leading-8 text-gray-700">
-                “{item.text}”
-              </p>
-            </article>
-          ))}
-        </div>
+            <div className="mt-9 flex justify-center gap-2">
+              {visibleTestimonials.map((item, index) => (
+                <span
+                  key={`${item.slug}-${index}`}
+                  className={`h-2.5 rounded-full ${
+                    index === 0 ? "w-8 bg-[#C48912]" : "w-2.5 bg-[#D6D3D1]"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        )}
       </div>
+
+      <style jsx>{`
+        .testimonial-marquee {
+          animation: testimonial-scroll 36s linear infinite;
+        }
+
+        .testimonial-marquee:hover {
+          animation-play-state: paused;
+        }
+
+        @keyframes testimonial-scroll {
+          from {
+            transform: translateX(0);
+          }
+
+          to {
+            transform: translateX(-50%);
+          }
+        }
+      `}</style>
     </section>
   );
 }
