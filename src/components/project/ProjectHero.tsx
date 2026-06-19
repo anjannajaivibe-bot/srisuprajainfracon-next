@@ -30,40 +30,42 @@ const heroCopy: Record<
   }
 > = {
   "supraja-iris-resort-plots": {
-    badge: "Resort-Inspired Project",
-    h1: "Resort-Inspired Plots in Kamkole",
+    badge: "MEGA RESORT PROJECT • KAMKOLE",
+    h1: "Resort Plots Within a 350-Acre Lifestyle Destination",
     subtitle:
-      "A destination-led plotted project shaped around lifestyle attractions, future-ready infrastructure, and long-term location value.",
+      "Featuring Lemon Tree Resort, Water Villas, Water Theme Park, Go-Karting and future lifestyle attractions within a master-planned growth destination.",
     firstParagraph:
       "Supraja IRIS brings together plotted ownership, planned lifestyle attractions, and a growth-oriented location in Kamkole.",
     description:
       "Lemon Tree Resort is under construction, while Water & Amusement Theme Park, Go-Karting, and Water Villas are planned as part of the larger lifestyle ecosystem.",
     tags: [
-      "Lemon Tree Resort Under Construction",
-      "Water Villas Under Construction",
-      "Water & Amusement Park",
-      "Go-Karting Planned",
-      "Destination Wedding Convention"
+      "350 Acre Mega Project",
+      "Lemon Tree Resort",
+      "Water Villas",
+      "Water Theme Park",
+      "Go-Karting",
+      "Destination Wedding Venue",
     ],
     imageAlt:
       "Supraja IRIS resort inspired plots in Kamkole with lifestyle attractions and project infrastructure",
   },
 
   "supraja-iris": {
-    badge: "Resort-Inspired Project",
-    h1: "Resort Plots in a 350-Acre Growth Destination",
+    badge: "MEGA RESORT PROJECT • KAMKOLE",
+    h1: "Resort Plots Within a 350-Acre Lifestyle Destination",
     subtitle:
-      "A destination-led plotted project shaped around lifestyle attractions, future-ready infrastructure, and long-term location value.",
+      "Featuring Lemon Tree Resort, Water Villas, Water Theme Park, Go-Karting and future lifestyle attractions within a master-planned growth destination.",
     firstParagraph:
       "Supraja IRIS brings together plotted ownership, planned lifestyle attractions, and a growth-oriented location in Kamkole.",
     description:
       "Lemon Tree Resort is under construction, while Water & Amusement Theme Park, Go-Karting, and Water Villas are planned as part of the larger lifestyle ecosystem.",
     tags: [
-      "Kamkole Growth Corridor",
+      "350 Acre Mega Project",
       "Lemon Tree Resort",
-      "Theme Park Planned",
-      "Go-Karting Planned",
-      "Water Villas Planned",
+      "Water Villas",
+      "Water Theme Park",
+      "Go-Karting",
+      "Destination Wedding Venue",
     ],
     imageAlt:
       "Supraja IRIS resort inspired plots in Kamkole with lifestyle attractions and project infrastructure",
@@ -122,8 +124,7 @@ const heroCopy: Record<
   "subhash-meadows": {
     badge: "WELL-CONNECTED GROWTH CORRIDOR",
     h1: "Affordable Open Plots in a Fast-Growing Corridor",
-    subtitle:
-      "Infrastructure-Ready Plots Near IIT Hyderabad & ORR",
+    subtitle: "Infrastructure-Ready Plots Near IIT Hyderabad & ORR",
     firstParagraph:
       "A thoughtfully planned plotted community at Indrakaran offering strong connectivity, organized infrastructure, and access to key growth destinations.",
     description:
@@ -179,6 +180,13 @@ const premiumHeroStats: Record<string, any[]> = {
     { icon: Route, label: "ORR", value: "Connectivity" },
   ],
 };
+
+const irisStats = [
+  { label: "350", value: "Acres" },
+  { label: "4000+", value: "Premium Plots" },
+  { label: "5", value: "Acre Lemon Tree Resort" },
+  { label: "3", value: "Acre Theme Park" },
+];
 
 const ProjectHero = ({ project }: ProjectHeroProps) => {
   const seo = getProjectSeo(project.slug);
@@ -330,39 +338,82 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
   }
 
   return (
-    <section className="relative overflow-hidden bg-[#F8F6F1] pt-28">
-      <div className="absolute inset-x-0 top-0 h-[470px] bg-gradient-to-br from-[#081225] via-[#0B1633] to-[#18345F]" />
+    <section
+      className={`relative overflow-hidden pt-28 ${
+        isSuprajaIris ? "bg-[#F8F6F1]" : "bg-[#F8F6F1]"
+      }`}
+    >
+      <div
+        className={`absolute inset-x-0 top-0 ${
+          isSuprajaIris
+            ? "h-[540px] bg-gradient-to-br from-[#F8F6F1] via-[#FDFBF6] to-[#EFE8DA]"
+            : "h-[470px] bg-gradient-to-br from-[#081225] via-[#0B1633] to-[#18345F]"
+        }`}
+      />
 
       <div className="container-max relative z-10 px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="mb-8 flex flex-wrap items-center gap-2 text-sm text-slate-200">
-          <Link href="/" className="transition hover:text-[#C9A227]">
+        <div
+          className={`mb-8 flex flex-wrap items-center gap-2 text-sm ${
+            isSuprajaIris ? "text-slate-700" : "text-slate-200"
+          }`}
+        >
+          <Link
+            href="/"
+            className={`transition ${
+              isSuprajaIris ? "hover:text-[#C89B3C]" : "hover:text-[#C9A227]"
+            }`}
+          >
             Home
           </Link>
           <span>/</span>
-          <Link href="/projects" className="transition hover:text-[#C9A227]">
+          <Link
+            href="/projects"
+            className={`transition ${
+              isSuprajaIris ? "hover:text-[#C89B3C]" : "hover:text-[#C9A227]"
+            }`}
+          >
             Projects
           </Link>
           <span>/</span>
-          <span className="text-[#E8D7A5]">{project.title}</span>
+          <span className={isSuprajaIris ? "text-[#C89B3C]" : "text-[#E8D7A5]"}>
+            {project.title}
+          </span>
         </div>
 
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45 }}
-          className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#C9A227]/35 bg-[#C9A227]/10 px-5 py-2"
+          className={`mb-5 inline-flex items-center gap-3 ${
+            isSuprajaIris
+              ? "bg-transparent px-0 py-0"
+              : "rounded-full border border-[#C9A227]/35 bg-[#C9A227]/10 px-5 py-2"
+          }`}
         >
-          <span className="h-2 w-2 rounded-full bg-[#C9A227]" />
-          <span className="text-sm font-semibold text-[#E8D7A5]">
-            {hero.badge}
-          </span>
+          {isSuprajaIris ? (
+            <>
+              <span className="text-sm font-bold uppercase tracking-[0.35em] text-[#C89B3C]">
+                {hero.badge}
+              </span>
+              <span className="h-px w-20 bg-[#C89B3C]/70" />
+            </>
+          ) : (
+            <>
+              <span className="h-2 w-2 rounded-full bg-[#C9A227]" />
+              <span className="text-sm font-semibold text-[#E8D7A5]">
+                {hero.badge}
+              </span>
+            </>
+          )}
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-4 max-w-6xl font-display text-4xl font-bold leading-[1.03] tracking-tight text-white sm:text-5xl lg:text-7xl"
+          className={`mb-4 max-w-6xl font-display text-4xl font-bold leading-[1.03] tracking-tight sm:text-5xl lg:text-7xl ${
+            isSuprajaIris ? "text-[#0B1633]" : "text-white"
+          }`}
         >
           {hero.h1}
         </motion.h1>
@@ -371,7 +422,9 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.05 }}
-          className="mb-10 max-w-4xl text-lg font-semibold leading-relaxed text-[#E8D7A5] sm:text-xl"
+          className={`mb-10 max-w-4xl text-lg font-semibold leading-relaxed sm:text-xl ${
+            isSuprajaIris ? "text-slate-700" : "text-[#E8D7A5]"
+          }`}
         >
           {hero.subtitle}
         </motion.p>
@@ -381,7 +434,11 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
             initial={{ opacity: 0, x: -24 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.55, delay: 0.08 }}
-            className="rounded-[32px] border border-[#EFE7D3] bg-white p-7 shadow-[0_18px_55px_rgba(11,22,51,0.10)] sm:p-8"
+            className={`rounded-[32px] p-7 sm:p-8 ${
+              isSuprajaIris
+                ? "border border-[#EFE2C4] bg-white shadow-[0_24px_70px_rgba(11,22,51,0.10)]"
+                : "border border-[#EFE7D3] bg-white shadow-[0_18px_55px_rgba(11,22,51,0.10)]"
+            }`}
           >
             <p className="text-lg leading-relaxed text-[#4B5563]">
               {hero.firstParagraph}
@@ -395,12 +452,34 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
               {hero.tags.map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-[#E8D7A5] bg-[#FFF9E8] px-4 py-2 text-xs font-bold text-[#0B1633] sm:text-sm"
+                  className={`rounded-full px-4 py-2 text-xs font-bold sm:text-sm ${
+                    isSuprajaIris
+                      ? "border border-[#E8D7A5] bg-[#FFF9E8] text-[#0B1633]"
+                      : "border border-[#E8D7A5] bg-[#FFF9E8] text-[#0B1633]"
+                  }`}
                 >
                   {item}
                 </span>
               ))}
             </div>
+
+            {isSuprajaIris && (
+              <div className="mt-8 grid grid-cols-2 gap-4">
+                {irisStats.map((item) => (
+                  <div
+                    key={`${item.label}-${item.value}`}
+                    className="rounded-2xl border border-[#EFE2C4] bg-[#FFF9E8] p-4"
+                  >
+                    <p className="text-3xl font-extrabold leading-none text-[#0B1633]">
+                      {item.label}
+                    </p>
+                    <p className="mt-2 text-sm font-semibold leading-snug text-slate-600">
+                      {item.value}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            )}
 
             <div className="mt-6 flex flex-wrap gap-4 text-sm font-bold">
               {seo.internalLinks.map((link: any) => (
@@ -439,10 +518,16 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
             transition={{ duration: 0.55, delay: 0.12 }}
             className="relative"
           >
-            <div className="absolute -inset-3 rounded-[36px] bg-gradient-to-br from-[#C9A227]/45 via-white/20 to-[#0B1633]/25 blur-xl" />
+            <div
+              className={`absolute -inset-3 rounded-[36px] blur-xl ${
+                isSuprajaIris
+                  ? "bg-gradient-to-br from-[#C89B3C]/25 via-white/50 to-[#0B1633]/10"
+                  : "bg-gradient-to-br from-[#C9A227]/45 via-white/20 to-[#0B1633]/25"
+              }`}
+            />
 
             {isSuprajaIris ? (
-              <div className="relative h-[320px] w-full overflow-hidden rounded-[32px] border border-white/60 shadow-[0_22px_70px_rgba(11,22,51,0.18)] sm:h-[420px] lg:h-full lg:min-h-[460px]">
+              <div className="relative h-[320px] w-full overflow-hidden rounded-[36px] border border-[#E8D7A5] bg-white shadow-[0_30px_80px_rgba(11,22,51,0.15)] sm:h-[420px] lg:h-full lg:min-h-[460px]">
                 <video
                   className="h-full w-full object-cover"
                   autoPlay
@@ -456,7 +541,7 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
                   <source src="/videos/supraja-iris-hero.mp4" type="video/mp4" />
                 </video>
 
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1633]/35 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1633]/20 via-transparent to-transparent" />
               </div>
             ) : (
               <SmartImage
