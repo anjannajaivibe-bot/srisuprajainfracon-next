@@ -6,8 +6,8 @@ import {
   Award,
   BadgeCheck,
   Building2,
-  CalendarCheck,
   Download,
+  Eye,
   FileCheck2,
   GraduationCap,
   Landmark,
@@ -209,7 +209,7 @@ const suprajaIrisStats = [
     icon: TrendingUp,
     value: "High Growth",
     label: "Corridor",
-    text: "Near Woxen & NIMZ",
+    text: "Near Woxsen & NIMZ",
   },
 ];
 
@@ -268,21 +268,24 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
               </div>
 
               <div className="mt-7 flex flex-wrap gap-4">
-                <Link
-                  href="#project-overview"
+                <a
+                  href="https://suprajagroup.tranquilcrmp.in/mobileapp/newmaps/4"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#D89614] px-7 py-4 text-sm font-bold text-white shadow-[0_12px_26px_rgba(216,150,20,0.26)] transition hover:bg-[#B9780E]"
                 >
-                  <CalendarCheck className="h-5 w-5" />
-                  Explore Project
-                </Link>
+                  <Eye className="h-5 w-5" />
+                  See Live Plot Availability
+                </a>
 
-                <Link
-                  href="#brochure"
+                <a
+                  href="/brochures/supraja-iris-brochure.pdf"
+                  download
                   className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#D6A12B]/45 bg-white px-7 py-4 text-sm font-bold text-[#061A33] transition hover:border-[#C98914] hover:bg-[#FFF7E6]"
                 >
                   <Download className="h-5 w-5" />
                   Download Brochure
-                </Link>
+                </a>
               </div>
 
               <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -312,14 +315,21 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
             >
               <div className="relative overflow-hidden rounded-[30px] border border-[#E8D7A5] bg-[#061A33] shadow-[0_26px_70px_rgba(6,26,51,0.18)]">
                 <div className="relative h-[360px] sm:h-[500px] lg:h-[568px]">
-                  <SmartImage
-                    src={project.heroImage || project.image}
-                    alt={hero.imageAlt}
-                    priority
-                    sizes="(max-width: 1024px) 100vw, 58vw"
-                    wrapperClassName="h-full w-full"
-                    imageClassName="object-cover"
-                  />
+                  <video
+                    className="h-full w-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    poster="/projects/supraja-iris/gallery/supraja-iris-gallery-1.webp"
+                    aria-label={hero.imageAlt}
+                  >
+                    <source
+                      src="/videos/supraja-iris-hero.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
 
                   <div className="absolute inset-0 bg-gradient-to-t from-[#061A33]/80 via-transparent to-transparent" />
 
@@ -330,27 +340,6 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
                     <Play className="h-4 w-4 fill-[#061A33]" />
                     Watch Project Overview
                   </button>
-
-                  <div className="absolute bottom-5 left-5 right-5 grid grid-cols-5 gap-3">
-                    {suprajaIrisGallery.map((item) => (
-                      <div
-                        key={item.label}
-                        className="group relative overflow-hidden rounded-xl border border-white/40 bg-white/10 shadow-lg"
-                      >
-                        <SmartImage
-                          src={item.src}
-                          alt={`${item.label} at Supraja IRIS`}
-                          sizes="120px"
-                          wrapperClassName="h-24 w-full"
-                          imageClassName="object-cover transition duration-500 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#061A33]/90 via-[#061A33]/20 to-transparent" />
-                        <p className="absolute bottom-2 left-2 right-2 text-center text-xs font-bold text-white">
-                          {item.label}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
                 </div>
               </div>
             </motion.div>
