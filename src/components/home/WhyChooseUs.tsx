@@ -31,17 +31,17 @@ const WhyChooseUs = () => {
       <div className="mx-auto max-w-7xl">
         <div className="mb-14 text-center">
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-amber-600">
-            Investor FAQs
+            WHY CHOOSE US
           </p>
 
           <h2 className="mx-auto max-w-4xl text-3xl font-extrabold leading-tight text-slate-950 md:text-5xl">
-            Answers Before You Invest
+            Why Investors Trust Sri Supraja Infracon
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-600">
-            Learn more about project approvals, documentation, development progress, 
-            location advantages, site visits, and investment planning across 
-            Sri Supraja Infracon projects.
+            A customer-first approach, strategic project locations, transparent processes, 
+            and years of real estate experience continue to make Sri Supraja Infracon a preferred 
+            choice for investors and families.
           </p>
         </div>
 

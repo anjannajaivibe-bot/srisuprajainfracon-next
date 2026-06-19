@@ -34,17 +34,16 @@ const FAQSection = () => {
       <div className="mx-auto max-w-5xl">
         <div className="mb-12 text-center">
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-amber-600">
-            FAQs
+            INVESTOR FAQs
           </p>
 
           <h2 className="text-3xl font-extrabold leading-tight text-slate-950 md:text-5xl">
-            About DTCP & RERA Approved Open Plots
+            Answers Before You Invest
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-600">
-            These answers help investors understand approvals, sales status,
-            location advantages, resort ecosystem progress and site visit
-            planning for <strong>approved plotted developments</strong>.
+            Explore important information about approvals, ownership processes, 
+            project updates, growth locations, and site visit planning before making a property decision.
           </p>
         </div>
 
