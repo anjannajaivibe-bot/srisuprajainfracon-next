@@ -189,7 +189,7 @@ const suprajaIrisStats = [
   { icon: Ruler, value: "350", label: "Acres", text: "Mega Project" },
   {
     icon: MapPinned,
-    value: "4000+",
+    value: "4000",
     label: "Premium Plots",
     text: "Well Planned Layout",
   },
@@ -206,39 +206,10 @@ const suprajaIrisStats = [
     text: "Water Theme Park",
   },
   {
-    icon: ShieldCheck,
-    value: "DTCP & RERA",
-    label: "Approved Project",
-    text: "Clear Title • 100% Vastu",
-  },
-  {
     icon: TrendingUp,
     value: "High Growth",
     label: "Corridor",
-    text: "Near Woxsen & NIMZ",
-  },
-];
-
-const suprajaIrisGallery = [
-  {
-    src: "/projects/supraja-iris/gallery/supraja-iris-gallery-1.webp",
-    label: "Grand Entrance",
-  },
-  {
-    src: "/projects/supraja-iris/gallery/supraja-iris-gallery-2.webp",
-    label: "Lemon Tree Resort",
-  },
-  {
-    src: "/projects/supraja-iris/gallery/supraja-iris-gallery-3.webp",
-    label: "Water Villas",
-  },
-  {
-    src: "/projects/supraja-iris/gallery/supraja-iris-gallery-4.webp",
-    label: "Water Theme Park",
-  },
-  {
-    src: "/projects/supraja-iris/gallery/supraja-iris-gallery-5.webp",
-    label: "Master Plan Aerial",
+    text: "Near Woxen & NIMZ",
   },
 ];
 
