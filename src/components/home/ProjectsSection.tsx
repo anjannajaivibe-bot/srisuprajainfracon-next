@@ -152,24 +152,6 @@ const ProjectsSection = () => {
             );
           })}
         </div>
-
-        <div className="mt-12 rounded-[28px] border border-[#EFE7D3] bg-[#FBF8EF] p-7 text-center">
-          <p className="mx-auto max-w-4xl text-lg leading-relaxed text-[#4B5563]">
-            Review project details, brochures, availability, location context,
-            and site visit options before planning your visit with Supraja
-            Management.
-          </p>
-
-          <div className="mt-5 flex flex-wrap justify-center gap-4 text-sm font-bold">
-            <Link href="/projects" className="text-blue-700 underline">
-              View all projects
-            </Link>
-
-            <Link href="/contact-us/" className="text-blue-700 underline">
-              Request project guidance
-            </Link>
-          </div>
-        </div>
       </div>
     </section>
   );
