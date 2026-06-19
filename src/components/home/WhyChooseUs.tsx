@@ -31,18 +31,17 @@ const WhyChooseUs = () => {
       <div className="mx-auto max-w-7xl">
         <div className="mb-14 text-center">
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-amber-600">
-            Why Choose Us
+            Investor FAQs
           </p>
 
           <h2 className="mx-auto max-w-4xl text-3xl font-extrabold leading-tight text-slate-950 md:text-5xl">
-            Why Investors Trust Sri Supraja Infracon
+            Answers Before You Invest
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-600">
-            Sri Supraja Infracon helps investors and families evaluate plotted,
-            residential, and lifestyle-led real estate projects with clear
-            documentation, practical location insights, and guided site visit
-            support.
+            Learn more about project approvals, documentation, development progress, 
+            location advantages, site visits, and investment planning across 
+            Sri Supraja Infracon projects.
           </p>
         </div>
 
