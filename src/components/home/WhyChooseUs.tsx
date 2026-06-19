@@ -1,67 +1,157 @@
-const reasons = [
+import {
+  BadgeCheck,
+  Building2,
+  Handshake,
+  Landmark,
+  MapPinned,
+  ShieldCheck,
+  TrendingUp,
+} from "lucide-react";
+
+const stats = [
   {
-    title: "Proven Real Estate Experience",
-    desc: "A strong track record across plotted developments, residential projects, villas, and lifestyle-led communities.",
+    icon: Landmark,
+    value: "20+",
+    label: "Years",
+    text: "of Real Estate Legacy",
   },
   {
+    icon: Building2,
+    value: "Multiple",
+    label: "Completed",
+    text: "Projects",
+  },
+  {
+    icon: MapPinned,
+    value: "Prime",
+    label: "Growth",
+    text: "Locations",
+  },
+  {
+    icon: BadgeCheck,
+    value: "Investor",
+    label: "Focused",
+    text: "Approach",
+  },
+];
+
+const reasons = [
+  {
+    icon: Landmark,
+    title: "Proven Real Estate Experience",
+    desc: "A strong track record across plotted developments, residential projects, villas, and lifestyle-led developments.",
+  },
+  {
+    icon: MapPinned,
     title: "Projects in Growth Corridors",
     desc: "Strategic project locations across Kamkole, Mominpet, Sangareddy, and Indrakaran with access to key development zones.",
   },
   {
+    icon: ShieldCheck,
     title: "Transparent Documentation",
     desc: "Clear project information, approval details, layout visibility, and guided support before every site visit or booking decision.",
   },
   {
+    icon: Handshake,
     title: "Investor-Focused Guidance",
     desc: "Practical location insights, availability updates, pricing guidance, and comparison support for confident decision-making.",
   },
   {
+    icon: Building2,
     title: "Multiple Project Options",
-    desc: "Choose from resort-inspired plots, premium plotted enclaves, gated communities, and affordable growth-corridor projects.",
+    desc: "Choose from resort-inspired plots, premium plotted enclaves, gated layouts, and affordable growth-corridor projects.",
   },
   {
-    title: "Long-Term Value Focus",
-    desc: "Each project is planned around connectivity, infrastructure movement, residential demand, and future growth potential.",
+    icon: TrendingUp,
+    title: "High Appreciation Potential",
+    desc: "Each project is planned around connectivity, infrastructure growth, residential demand, and future appreciation potential.",
   },
 ];
 
 const WhyChooseUs = () => {
   return (
-    <section className="bg-slate-50 px-6 py-24">
-      <div className="mx-auto max-w-7xl">
+    <section className="relative overflow-hidden bg-white px-6 py-24">
+      <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-[#C9A227]/5 blur-3xl" />
+      <div className="absolute right-0 bottom-20 h-72 w-72 rounded-full bg-[#C9A227]/5 blur-3xl" />
+
+      <div className="relative mx-auto max-w-7xl">
         <div className="mb-14 text-center">
-          <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-amber-600">
+          <p className="mb-4 text-sm font-bold uppercase tracking-[0.32em] text-[#B88900]">
             WHY CHOOSE US
           </p>
 
-          <h2 className="mx-auto max-w-4xl text-3xl font-extrabold leading-tight text-slate-950 md:text-5xl">
-            Why Investors Trust Sri Supraja Infracon
+          <div className="mx-auto mb-6 flex max-w-xs items-center justify-center gap-4">
+            <span className="h-px flex-1 bg-[#C9A227]/40" />
+            <span className="h-2 w-2 rotate-45 border border-[#C9A227]" />
+            <span className="h-px flex-1 bg-[#C9A227]/40" />
+          </div>
+
+          <h2 className="mx-auto max-w-5xl font-display text-4xl font-bold leading-tight tracking-tight text-[#07111F] md:text-6xl">
+            Why Investors{" "}
+            <span className="text-[#C48912]">Trust Sri Supraja Infracon</span>
           </h2>
 
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-600">
-            A customer-first approach, strategic project locations, transparent processes, 
-            and years of real estate experience continue to make Sri Supraja Infracon a preferred 
-            choice for investors and families.
+          <p className="mx-auto mt-6 max-w-4xl text-lg leading-8 text-[#334155]">
+            A customer-first approach, strategic project locations, transparent
+            processes, and years of real estate experience continue to make Sri
+            Supraja Infracon a preferred choice for investors and families.
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {reasons.map((item, index) => (
-            <div
-              key={item.title}
-              className="rounded-[28px] border border-white bg-white p-7 shadow-md transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
-            >
-              <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full bg-amber-500 text-lg font-extrabold text-slate-950">
-                {index + 1}
+        <div className="mb-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {stats.map((item) => {
+            const Icon = item.icon;
+
+            return (
+              <div
+                key={`${item.value}-${item.label}`}
+                className="flex items-center gap-5 border-b border-[#E5E7EB] pb-6 md:border-b-0 md:border-r md:pb-0 md:pr-6 last:border-r-0"
+              >
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-[#E8D7A5] bg-[#FFF9E8]">
+                  <Icon className="h-8 w-8 text-[#C48912]" />
+                </div>
+
+                <div>
+                  <p className="font-display text-3xl font-bold leading-none text-[#07111F]">
+                    {item.value}
+                  </p>
+                  <p className="mt-1 text-lg font-bold leading-tight text-[#C48912]">
+                    {item.label}
+                  </p>
+                  <p className="mt-1 text-sm font-medium text-[#334155]">
+                    {item.text}
+                  </p>
+                </div>
               </div>
+            );
+          })}
+        </div>
 
-              <h3 className="mb-4 text-xl font-extrabold text-slate-950">
-                {item.title}
-              </h3>
+        <div className="grid gap-7 md:grid-cols-2 xl:grid-cols-3">
+          {reasons.map((item) => {
+            const Icon = item.icon;
 
-              <p className="leading-relaxed text-slate-600">{item.desc}</p>
-            </div>
-          ))}
+            return (
+              <div
+                key={item.title}
+                className="group rounded-[28px] border border-[#E8E2D4] bg-white p-8 shadow-[0_18px_45px_rgba(15,23,42,0.08)] transition duration-300 hover:-translate-y-2 hover:border-[#C9A227]/50 hover:shadow-[0_24px_70px_rgba(15,23,42,0.14)]"
+              >
+                <div className="mb-7 flex h-20 w-20 items-center justify-center rounded-full border border-[#E8D7A5] bg-[#FBF8EF] shadow-inner transition group-hover:bg-[#FFF3CC]">
+                  <Icon className="h-10 w-10 text-[#C48912]" />
+                </div>
+
+                <h3 className="mb-4 font-display text-2xl font-bold leading-tight text-[#07111F]">
+                  {item.title}
+                </h3>
+
+                <div className="mb-6 h-px w-14 bg-[#C48912]" />
+
+                <p className="text-[16px] leading-7 text-[#334155]">
+                  {item.desc}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
