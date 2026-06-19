@@ -434,23 +434,15 @@ export default function AboutClient() {
           </p>
 
           {/* Signature */}
-          <div className="mt-10 border-l-4 border-[#C9A227] pl-6">
-            <p className="text-lg italic text-[#6B7280]">
-              With Warm Regards,
-            </p>
+          <div className="mt-8 text-[#111827]">
+  <p className="font-display text-3xl font-bold">
+    Tudi Praveen
+  </p>
 
-            <h2 className="mt-3 text-4xl font-display font-bold text-[#111827]">
-              Tudi Praveen
-            </h2>
-
-            <p className="mt-2 text-lg font-semibold text-[#C9A227]">
-              Chairman &amp; Managing Director
-            </p>
-
-            <p className="mt-1 text-[#6B7280]">
-              Sri Supraja Infracon Builders &amp; Developers
-            </p>
-          </div>
+  <p className="mt-1 text-lg font-medium text-[#C9A227]">
+    Chairman &amp; Managing Director
+  </p>
+</div>
         </div>
       </div>
 
