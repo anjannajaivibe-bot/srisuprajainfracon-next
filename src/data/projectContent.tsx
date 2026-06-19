@@ -1,7 +1,7 @@
 export const projectContent = {
   "supraja-iris-resort-plots": {
     overview:
-      "Supraja IRIS Resort Plots is a DTCP & RERA approved resort-style plotted development at Kamkole near Sangareddy. The project is planned across a 350-acre master plan with open plots, villa plot options, Lemon Tree Resort under construction, planned water villas, water theme park, amusement park, go-karting and destination wedding infrastructure. Sales are open now for buyers looking for premium open plots near Hyderabad with strong high ROI (Return on Investment) Growth potential.",
+      "Supraja IRIS Resort Plots is a DTCP & RERA approved resort-style plotted development at Kamkole near Sangareddy. The project is planned across a 350-acre master plan with open plots, villa plot options, Lemon Tree Resort under construction, planned water villas, water theme park, amusement park, go-karting and destination wedding infrastructure. Sales are open now for buyers looking for premium open plots near Hyderabad with strong high Return on Investment (ROI) Growth potential.",
 
     amenities: [
       "DTCP & RERA approved open plots",
@@ -33,7 +33,7 @@ export const projectContent = {
       "Strong access toward Regional Ring Road influence zone",
       "Strategic connectivity toward NIMZ Zaheerabad",
       "20 minutes to IIT Hyderabad",
-      "High ROI (Return on Investment) Growth corridor near Hyderabad",
+      "High Return on Investment (ROI) Growth corridor near Hyderabad",
     ],
 
     gallery: [
