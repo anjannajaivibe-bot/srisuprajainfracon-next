@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 import Navbar from "@/components/layout/Navbar";
 
-import FlagshipProject from "@/components/home/FlagshipProject";
+
 import ProjectsSection from "@/components/home/ProjectsSection";
 import CTASection from "@/components/home/CTASection";
 
