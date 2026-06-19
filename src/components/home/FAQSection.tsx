@@ -7,9 +7,9 @@ const faqs = [
       "Sri Supraja Infracon offers plotted development options such as Supraja IRIS, Bridge County, Sindhu Sarovar and Subhash Meadows, subject to project-wise approvals and current availability.",
   },
   {
-    question: "Are resort plots near Hyderabad a good option for buyers?",
+    question: "Are resort plots near Hyderabad a good option for investors?",
     answer:
-      "Resort-style plotted developments can be attractive for buyers who want lifestyle positioning, weekend-use potential and long-term growth corridor advantages. Buyers should review approvals, access roads and development status before booking.",
+      "Resort-style plotted developments can be attractive for investors who want lifestyle positioning, weekend-use potential and long-term growth corridor advantages. Investors should review approvals, access roads and development status before booking.",
   },
   {
     question: "Which plotted developments are near Woxsen University?",
@@ -17,9 +17,9 @@ const faqs = [
       "Supraja IRIS and Bridge County are positioned at Kamkole with location advantages connected to Woxsen University, NH-65 and surrounding growth corridors.",
   },
   {
-    question: "What should buyers check before choosing DTCP & RERA approved open plots near Hyderabad?",
+    question: "What should investors check before choosing DTCP & RERA approved open plots near Hyderabad?",
     answer:
-      "Buyers should review approval documents, RERA details where applicable, location connectivity, current development status, road access, nearby growth drivers, pricing, availability and registration process.",
+      "Investors should review approval documents, RERA details where applicable, location connectivity, current development status, road access, nearby growth drivers, pricing, availability and registration process.",
   },
   {
     question: "Is Lemon Tree Resort operational at Supraja IRIS?",
@@ -34,15 +34,15 @@ const FAQSection = () => {
       <div className="mx-auto max-w-5xl">
         <div className="mb-12 text-center">
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-amber-600">
-            Buyer FAQs
+            FAQs
           </p>
 
           <h2 className="text-3xl font-extrabold leading-tight text-slate-950 md:text-5xl">
-            FAQs About DTCP & RERA Approved Open Plots Near Hyderabad
+            About DTCP & RERA Approved Open Plots
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-600">
-            These answers help buyers understand approvals, sales status,
+            These answers help investors understand approvals, sales status,
             location advantages, resort ecosystem progress and site visit
             planning for <strong>approved plotted developments</strong>.
           </p>
@@ -69,7 +69,7 @@ const FAQSection = () => {
           </Link>
 
           <Link href="/open-plots-and-resorts-in-hyderabad" className="text-blue-700 underline">
-            Read open plot buyer guide
+            Read open plot investor guide
           </Link>
 
           <a

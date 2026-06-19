@@ -168,7 +168,7 @@ const FlagshipProject = () => {
 
         <p className="mt-6 text-center text-xs leading-relaxed text-muted-foreground">
           *Loan support and project availability are subject to project status,
-          buyer eligibility and lender terms.
+          investor eligibility and lender terms.
         </p>
       </div>
     </section>

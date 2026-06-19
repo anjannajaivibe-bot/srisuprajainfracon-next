@@ -43,7 +43,7 @@ const ContactSection = () => {
             </p>
 
             <p>
-              <strong className="text-slate-950">Buyer Search Intent:</strong>{" "}
+              <strong className="text-slate-950">Investor Search Intent:</strong>{" "}
               <strong>DTCP & RERA Approved plots</strong>,{" "}
               <strong>RERA approved plots</strong>,{" "}
               <strong>villa plots</strong>, <strong>resort plots</strong> and{" "}
@@ -92,7 +92,7 @@ const ContactSection = () => {
             project. Sri Supraja Infracon continues developing{" "}
             <strong>DTCP & RERA approved open plots near Hyderabad</strong>{" "}
             with a focus on premium infrastructure, strategic growth corridors
-            and long-term buyer confidence.
+            and long-term investor confidence.
           </p>
         </div>
       </div>

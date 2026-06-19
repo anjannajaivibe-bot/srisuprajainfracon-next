@@ -1,29 +1,27 @@
-import Link from "next/link";
-
 const reasons = [
   {
-    title: "Approved Plotted Development Focus",
-    desc: "Sri Supraja Infracon focuses on planned open plot communities with clear documentation, layout visibility and buyer-focused communication.",
+    title: "Proven Real Estate Experience",
+    desc: "A strong track record across plotted developments, residential projects, villas, and lifestyle-led communities.",
   },
   {
-    title: "Strategic Hyderabad Growth Corridors",
-    desc: "Projects are positioned around Kamkole, Mominpet and Indrakaran with access to NH-65, ORR, institutional zones and industrial development corridors.",
+    title: "Projects in Growth Corridors",
+    desc: "Strategic project locations across Kamkole, Mominpet, Sangareddy, and Indrakaran with access to key development zones.",
   },
   {
-    title: "Location-Led Investment Planning",
-    desc: "Project locations are evaluated based on connectivity, infrastructure movement, residential demand and long-term growth potential.",
+    title: "Transparent Documentation",
+    desc: "Clear project information, approval details, layout visibility, and guided support before every site visit or booking decision.",
   },
   {
-    title: "Resort and Lifestyle Positioning",
-    desc: "Supraja IRIS adds a differentiated lifestyle advantage with Lemon Tree Resort under construction and planned family recreation attractions.",
+    title: "Investor-Focused Guidance",
+    desc: "Practical location insights, availability updates, pricing guidance, and comparison support for confident decision-making.",
   },
   {
-    title: "Site Visit and Booking Support",
-    desc: "Our team supports buyers with project walkthroughs, availability details, approval information, loan guidance and registration coordination.",
+    title: "Multiple Project Options",
+    desc: "Choose from resort-inspired plots, premium plotted enclaves, gated communities, and affordable growth-corridor projects.",
   },
   {
-    title: "Local Real Estate Understanding",
-    desc: "The company understands Telangana plotted development demand, buyer expectations and location-based value creation.",
+    title: "Long-Term Value Focus",
+    desc: "Each project is planned around connectivity, infrastructure movement, residential demand, and future growth potential.",
   },
 ];
 
@@ -37,15 +35,14 @@ const WhyChooseUs = () => {
           </p>
 
           <h2 className="mx-auto max-w-4xl text-3xl font-extrabold leading-tight text-slate-950 md:text-5xl">
-            Why Choose Sri Supraja Infracon for Open Plot Investment Near Hyderabad
+            Why Investors Trust Sri Supraja Infracon
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-600">
-            Buyers can evaluate <strong>RERA approved plots near Hyderabad</strong>,{" "}
-            <strong>premium villa plots</strong>,{" "}
-            <strong>resort plot communities</strong> and{" "}
-            <strong>gated community plots</strong> with practical location
-            insights and site visit support.
+            Sri Supraja Infracon helps investors and families evaluate plotted,
+            residential, and lifestyle-led real estate projects with clear
+            documentation, practical location insights, and guided site visit
+            support.
           </p>
         </div>
 
@@ -67,36 +64,9 @@ const WhyChooseUs = () => {
             </div>
           ))}
         </div>
-
-        <div className="mt-12 rounded-[28px] border border-amber-100 bg-white p-7 shadow-sm">
-          <p className="text-lg leading-relaxed text-slate-700">
-            Buyers searching for{" "}
-            <strong className="text-slate-950">
-              DTCP & RERA Approved plots near Hyderabad, RERA approved plotted communities
-              in Telangana, resort plots near Woxsen University, villa plots near
-              NH-65 and premium open plots in Hyderabad growth corridors
-            </strong>{" "}
-            can compare Sri Supraja Infracon projects based on approvals,
-            location advantages, development progress and current availability.
-          </p>
-
-          <div className="mt-5 flex flex-wrap gap-4 text-sm font-bold">
-            <Link href="/projects" className="text-blue-700 underline">
-              Compare all projects
-            </Link>
-
-            <Link href="/contact-us/" className="text-blue-700 underline">
-              Request availability details
-            </Link>
-          </div>
-        </div>
       </div>
     </section>
   );
 };
 
 export default WhyChooseUs;
-
-
-
-
