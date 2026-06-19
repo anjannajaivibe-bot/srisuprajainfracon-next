@@ -51,7 +51,7 @@ const heroCopy: Record<
 
   "supraja-iris": {
     badge: "Resort-Inspired Project",
-    h1: "Resort-Inspired Plots in Kamkole",
+    h1: "Resort Plots in a 350-Acre Growth Destination",
     subtitle:
       "A destination-led plotted project shaped around lifestyle attractions, future-ready infrastructure, and long-term location value.",
     firstParagraph:
@@ -71,7 +71,7 @@ const heroCopy: Record<
 
   "bridge-county": {
     badge: "A SERENE LANDSCAPE",
-    h1: "Bridge County",
+    h1: "Premium Open Plots Within Supraja IRIS",
     subtitle:
       "Premium DTCP & RERA Approved Plots Within Supraja IRIS Mega Project",
     firstParagraph:
@@ -96,7 +96,7 @@ const heroCopy: Record<
 
   "sindhu-sarovar": {
     badge: "Your Space. Your Vision. Your Future.",
-    h1: "Supraja Sindhu Sarovar",
+    h1: "DTCP & RERA Approved Open Plots at Mominpet",
     subtitle:
       "DTCP & RERA Approved Gated Community Plots Along a 100 Ft Highway Corridor",
     firstParagraph:
@@ -121,7 +121,7 @@ const heroCopy: Record<
 
   "subhash-meadows": {
     badge: "WELL-CONNECTED GROWTH CORRIDOR",
-    h1: "Subhash Meadows",
+    h1: "Affordable Open Plots in a Fast-Growing Corridor",
     subtitle:
       "Infrastructure-Ready Plots Near IIT Hyderabad & ORR",
     firstParagraph:
