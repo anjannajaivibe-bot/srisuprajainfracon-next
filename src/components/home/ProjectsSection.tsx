@@ -34,9 +34,6 @@ const projectCardCopy: Record<
 const ProjectsSection = () => {
   return (
     <section className="relative overflow-hidden bg-white py-24">
-      <div className="absolute left-0 top-24 h-72 w-72 rounded-full bg-[#C9A227]/5 blur-3xl" />
-      <div className="absolute right-0 bottom-24 h-72 w-72 rounded-full bg-[#C9A227]/5 blur-3xl" />
-
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="mb-16 text-center">
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.32em] text-[#B88900]">
@@ -63,7 +60,7 @@ const ProjectsSection = () => {
         </div>
       </div>
 
-      <div className="relative">
+      <div>
         {projects.map((project, index) => {
           const cardCopy = projectCardCopy[project.slug] ?? {
             badge: "Sri Supraja Project",
@@ -75,12 +72,39 @@ const ProjectsSection = () => {
           return (
             <article
               key={project.id}
-              className="group border-t border-[#EFE7D3] bg-white last:border-b"
+              className="group relative overflow-hidden border-t border-[#EFE7D3] bg-white last:border-b"
             >
-              <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-2 lg:items-center lg:gap-16">
+              <div
+                className={`absolute inset-y-0 hidden w-[58%] lg:block ${
+                  imageFirst ? "left-0" : "right-0"
+                }`}
+              >
+                <Link
+                  href={project.link}
+                  aria-label={`View ${project.title} project details`}
+                  className="block h-full w-full"
+                >
+                  <SmartImage
+                    src={project.image}
+                    alt={project.imageAlt || cardCopy.alt}
+                    wrapperClassName="h-full w-full"
+                    imageClassName="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </Link>
+              </div>
+
+              <div
+                className={`absolute inset-0 hidden lg:block ${
+                  imageFirst
+                    ? "bg-gradient-to-l from-white via-white/95 to-white/10"
+                    : "bg-gradient-to-r from-white via-white/95 to-white/10"
+                }`}
+              />
+
+              <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:min-h-[560px] lg:grid-cols-2 lg:items-center">
                 <div
-                  className={`relative z-10 flex flex-col justify-center ${
-                    imageFirst ? "lg:order-2" : ""
+                  className={`relative z-10 max-w-xl ${
+                    imageFirst ? "lg:col-start-2 lg:ml-auto" : ""
                   }`}
                 >
                   <div className="mb-7 inline-flex w-fit rounded-lg bg-[#FFF4D8] px-4 py-2 text-xs font-extrabold uppercase tracking-wide text-[#B88900]">
@@ -102,11 +126,11 @@ const ProjectsSection = () => {
 
                   <div className="mb-6 h-px w-16 bg-[#C48912]" />
 
-                  <p className="mb-8 max-w-xl text-[18px] leading-9 text-[#334155]">
+                  <p className="mb-8 text-[18px] leading-9 text-[#334155]">
                     {project.shortDescription}
                   </p>
 
-                  <div className="mb-9 flex max-w-2xl flex-wrap gap-3">
+                  <div className="mb-9 flex flex-wrap gap-3">
                     {project.highlights.slice(0, 3).map((item) => (
                       <span
                         key={item}
@@ -149,37 +173,13 @@ const ProjectsSection = () => {
                   </div>
                 </div>
 
-                <div
-                  className={`relative min-h-[320px] overflow-hidden rounded-[32px] shadow-[0_22px_70px_rgba(15,23,42,0.12)] lg:min-h-[480px] ${
-                    imageFirst ? "lg:order-1" : ""
-                  }`}
-                >
-                  <Link
-                    href={project.link}
-                    aria-label={`View ${project.title} project details`}
-                    className="block h-full w-full"
-                  >
-                    <SmartImage
-                      src={project.image}
-                      alt={project.imageAlt || cardCopy.alt}
-                      className="h-full w-full"
-                      imageClassName="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                  </Link>
-
-                  <div
-                    className={`absolute inset-0 hidden lg:block ${
-                      imageFirst
-                        ? "bg-gradient-to-l from-white/95 via-white/35 to-transparent"
-                        : "bg-gradient-to-r from-white/95 via-white/35 to-transparent"
-                    }`}
+                <div className="relative overflow-hidden rounded-[28px] lg:hidden">
+                  <SmartImage
+                    src={project.image}
+                    alt={project.imageAlt || cardCopy.alt}
+                    wrapperClassName="h-[280px] w-full"
+                    imageClassName="object-cover"
                   />
-
-                  {project.approvalType && (
-                    <div className="absolute bottom-6 left-6 rounded-lg bg-[#07111F]/80 px-4 py-2 text-xs font-bold text-white shadow-lg backdrop-blur">
-                      {project.approvalType}
-                    </div>
-                  )}
                 </div>
               </div>
             </article>
