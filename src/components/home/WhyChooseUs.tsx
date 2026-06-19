@@ -11,7 +11,7 @@ import {
 const stats = [
   {
     icon: Landmark,
-    value: "20+",
+    value: "24+",
     label: "Years",
     text: "of Real Estate Legacy",
   },
@@ -22,16 +22,16 @@ const stats = [
     text: "Projects",
   },
   {
-    icon: MapPinned,
-    value: "Prime",
-    label: "Growth",
-    text: "Locations",
-  },
-  {
     icon: BadgeCheck,
     value: "Investor",
     label: "Focused",
     text: "Approach",
+  },
+  {
+    icon: BadgeCheck,
+    value: "5000",
+    label: "+",
+    text: "Happy Customers",
   },
 ];
 
