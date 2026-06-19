@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-
+import FlagshipProject from "@/components/home/FlagshipProject";
 import Navbar from "@/components/layout/Navbar";
 
 
