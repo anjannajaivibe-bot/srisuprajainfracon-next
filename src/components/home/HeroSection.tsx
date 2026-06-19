@@ -4,9 +4,9 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 const trustBadges = [
-  "DTCP & RERA Approved",
+  "Clear Title & Approvals",
   "Strategic Growth Locations",
-  "Long-Term Investment Potential",
+  "High Return Potential",
 ];
 
 const projectLinks = [
@@ -46,7 +46,7 @@ const HeroSection = () => {
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0B1633] to-transparent" />
       </div>
 
-      <div className="container-max relative z-10 px-4 pb-16 pt-18 text-center sm:px-6 lg:px-8">
+      <div className="container-max relative z-10 px-4 pb-16 pt-19 text-center sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
@@ -78,7 +78,7 @@ const HeroSection = () => {
         >
           Explore premium plotted developments across Kamkole, Sangareddy,
           Mominpet and Indrakaran, thoughtfully positioned around connectivity,
-          infrastructure growth and long-term investment potential.
+          infrastructure growth and high returns potential.
         </motion.p>
 
         <motion.div
@@ -114,11 +114,11 @@ const HeroSection = () => {
           ))}
         </motion.div>
 
-        <div className="mx-auto mt-10 max-w-6xl overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm">
+        <div className="mt-8 overflow-hidden rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm">
           <div className="flex flex-col items-center gap-0 md:flex-row">
-            <div className="shrink-0 border-b border-white/10 px-5 py-4 md:border-b-0 md:border-r">
+            <div className="shrink-0 border-b border-white/10 px-5 py-2.5 md:border-b-0 md:border-r">
               <span className="text-sm font-bold uppercase tracking-[0.18em] text-[#E8D7A5]">
-                Legacy Developments
+                Completed Projects
               </span>
             </div>
 
