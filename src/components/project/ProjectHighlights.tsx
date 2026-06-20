@@ -28,17 +28,17 @@ const sectionCopy: Record<
   }
 > = {
   "supraja-iris-resort-plots": {
-    heading: "Supraja IRIS Project Highlights",
+    heading: "A Resort-Style Destination Designed for Lifestyle and Long-Term Value",
     intro:
-      "Key features designed to support lifestyle value, accessibility, recreation, and long-term ownership confidence.",
+      "A thoughtfully planned destination that combines premium plotted development, lifestyle attractions, future hospitality experiences, and strategic connectivity within one integrated environment.",
     note:
       "Clients are encouraged to review current availability, approvals, layout details, and development status before planning their investment.",
   },
 
   "supraja-iris": {
-    heading: "Supraja IRIS Project Highlights",
+    heading: "A Resort-Style Destination Designed for Lifestyle and Long-Term Value",
     intro:
-      "Key features designed to support lifestyle value, accessibility, recreation, and long-term ownership confidence.",
+      "A thoughtfully planned destination that combines premium plotted development, lifestyle attractions, future hospitality experiences, and strategic connectivity within one integrated environment.",
     note:
       "Clients are encouraged to review current availability, approvals, layout details, and development status before planning their investment.",
   },
@@ -75,6 +75,90 @@ const fallbackCopy = {
   note:
     "Please verify current availability, approval details, and development status before booking.",
 };
+
+const suprajaIrisHighlights = [
+  {
+    icon: Trees,
+    title: "350-Acre Mega Destination",
+    description:
+      "A large-scale resort-inspired environment planned for lifestyle, recreation, and long-term value.",
+  },
+  {
+    icon: LayoutGrid,
+    title: "4000+ Planned Plots",
+    description:
+      "Extensive plotted inventory within a thoughtfully planned destination.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "DTCP & RERA Approved Development",
+    description:
+      "Transparent approvals that support confident ownership and investment clarity.",
+  },
+  {
+    icon: Landmark,
+    title: "Lemon Tree Resort Under Construction",
+    description:
+      "A premium hospitality destination taking shape within the project environment.",
+  },
+  {
+    icon: Waves,
+    title: "Water Theme Park Under Development",
+    description:
+      "Future recreation and leisure experiences planned within the destination.",
+  },
+  {
+    icon: Trees,
+    title: "Luxury Water Villas Under Construction",
+    description:
+      "Unique lifestyle experiences designed around resort-style water-facing spaces.",
+  },
+  {
+    icon: Compass,
+    title: "Go-Karting & Lifestyle Attractions Planned",
+    description:
+      "Planned recreational experiences designed to create a vibrant leisure hub.",
+  },
+  {
+    icon: Road,
+    title: "80, 60, 40 & 33 Ft Black Top Roads",
+    description:
+      "Wide internal roads designed for smooth movement and better connectivity.",
+  },
+  {
+    icon: Lightbulb,
+    title: "Underground Infrastructure & Street Lighting",
+    description:
+      "Modern utility planning with street lighting for long-term community development.",
+  },
+];
+
+const suprajaIrisTrustPoints = [
+  {
+    icon: Trees,
+    title: "Resort Lifestyle Destination",
+    description:
+      "Nature, recreation, and lifestyle experiences planned within one destination.",
+  },
+  {
+    icon: MapPin,
+    title: "Strategic Kamkole Location",
+    description:
+      "Well-connected to key growth corridors and major highway access.",
+  },
+  {
+    icon: Landmark,
+    title: "Future Hospitality & Recreation Hub",
+    description:
+      "A landmark environment with resorts, attractions, and leisure experiences.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Positioned for Long-Term Value",
+    description:
+      "A high-potential investment destination in a fast-developing corridor.",
+  },
+];
 
 const bridgeCountyHighlights = [
   {
@@ -264,6 +348,9 @@ const subhashCommunityHighlights = [
 ];
 
 const ProjectHighlights = ({ project }: Props) => {
+  const isSuprajaIris =
+    project.slug === "supraja-iris" ||
+    project.slug === "supraja-iris-resort-plots";
   const isBridgeCounty = project.slug === "bridge-county";
   const isSindhuSarovar = project.slug === "sindhu-sarovar";
   const isSubhashMeadows = project.slug === "subhash-meadows";
@@ -281,11 +368,23 @@ const ProjectHighlights = ({ project }: Props) => {
     <section className="bg-white px-6 py-24">
       <div className="mx-auto max-w-7xl">
         <div className="mb-14 text-center">
-          <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
+          <p
+            className={
+              isSuprajaIris
+                ? "mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#2E7D32]"
+                : "mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]"
+            }
+          >
             Project Highlights
           </p>
 
-          <h2 className="mx-auto max-w-5xl text-3xl font-extrabold leading-tight text-[#111827] md:text-5xl">
+          <h2
+            className={
+              isSuprajaIris
+                ? "mx-auto max-w-5xl text-3xl font-extrabold leading-tight text-[#0F3D24] md:text-5xl"
+                : "mx-auto max-w-5xl text-3xl font-extrabold leading-tight text-[#111827] md:text-5xl"
+            }
+          >
             {copy.heading}
           </h2>
 
@@ -294,7 +393,73 @@ const ProjectHighlights = ({ project }: Props) => {
           </p>
         </div>
 
-        {isSindhuSarovar ? (
+        {isSuprajaIris ? (
+          <>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {suprajaIrisHighlights.map((item, index) => {
+                const Icon = item.icon;
+
+                return (
+                  <div
+                    key={`${item.title}-${index}`}
+                    className="group flex gap-6 rounded-[28px] border border-[#CFE3D3] bg-white p-7 shadow-[0_12px_40px_rgba(15,61,36,0.07)] transition duration-300 hover:-translate-y-2 hover:border-[#2E7D32] hover:shadow-[0_22px_55px_rgba(15,61,36,0.14)]"
+                  >
+                    <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-[#EAF5EC] text-[#2E7D32] ring-1 ring-[#CFE3D3]">
+                      <Icon
+                        className="h-9 w-9 text-[#2E7D32]"
+                        strokeWidth={1.8}
+                      />
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-extrabold leading-snug text-[#0F3D24]">
+                        {item.title}
+                      </h3>
+
+                      <div className="mt-4 h-[2px] w-12 rounded-full bg-[#2E7D32]" />
+
+                      <p className="mt-4 text-sm leading-6 text-[#4B5563]">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="mt-12 rounded-[28px] border border-[#CFE3D3] bg-[#0F3D24] p-6 shadow-[0_18px_50px_rgba(15,61,36,0.18)]">
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+                {suprajaIrisTrustPoints.map((item, index) => {
+                  const Icon = item.icon;
+
+                  return (
+                    <div
+                      key={`${item.title}-${index}`}
+                      className="flex gap-4 lg:border-r lg:border-white/20 lg:pr-5 last:lg:border-r-0"
+                    >
+                      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white text-[#2E7D32]">
+                        <Icon
+                          className="h-7 w-7 text-[#2E7D32]"
+                          strokeWidth={1.8}
+                        />
+                      </div>
+
+                      <div>
+                        <h3 className="text-lg font-extrabold leading-snug text-white">
+                          {item.title}
+                        </h3>
+
+                        <p className="mt-2 text-sm leading-6 text-white/80">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </>
+        ) : isSindhuSarovar ? (
           <>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {sindhuSarovarHighlights.map((item, index) => {
