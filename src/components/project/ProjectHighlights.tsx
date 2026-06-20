@@ -37,7 +37,7 @@ const sectionCopy: Record<
   },
 
   "sindhu-sarovar": {
-    heading: "Thoughtfully Planned. Future Ready.",
+    heading: "A Well-Planned Gated Community Built for Secure Ownership and Future Growth",
     intro:
       "A thoughtfully planned plotted community at Mominpet featuring wide road connectivity, organized infrastructure, landscaped open spaces, and a location positioned for long-term value creation.",
     note:
