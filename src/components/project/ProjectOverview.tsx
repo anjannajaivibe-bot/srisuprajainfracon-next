@@ -31,7 +31,7 @@ const overviewCopy: Record<
 
   "bridge-county": {
     label: "A Distinct Address within a Larger Vision",
-    title: "Connected to Something Bigger.",
+    title: "More Than a Plot. Part of a Destination.",
     description:
       "Bridge County is a dedicated 15-acre plotted enclave within the larger Supraja IRIS ecosystem at Kamkole. Planned with organized infrastructure, strategic connectivity, and proximity to key growth drivers, it offers investors and future homeowners an opportunity to be part of a larger destination designed for sustained value creation.",
     closing:
@@ -50,7 +50,7 @@ const overviewCopy: Record<
   "subhash-meadows": {
   label: "Strategically Positioned Community",
 
-  title: "Connected to Growth. Designed for Value.",
+  title: "Positioned for Connectivity. Poised for Growth.",
 
   description:
     "Subhash Meadows is a thoughtfully planned plotted community at Indrakaran, strategically positioned just 5 minutes from Outer Ring Road, 10 minutes from ICRISAT, and 15 minutes from IIT Hyderabad, offering excellent connectivity to key educational, employment, and infrastructure destinations.",
