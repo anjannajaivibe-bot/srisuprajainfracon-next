@@ -40,9 +40,9 @@ const overviewCopy: Record<
 
   "sindhu-sarovar": {
     label: "DESIGNED FOR LASTING VALUE · MOMINPET",
-    title: "Thoughtfully Planned. Future Ready.",
+    title: "A Well-Planned Gated Community Built for Secure Ownership and Future Growth",
     description:
-      "An organized plotted community designed for confident ownership and long-term value.",
+      "Discover DTCP & RERA approved plotted development, planned infrastructure, wide internal roads, landscaped open spaces, and a location positioned for long-term value at Mominpet.",
     closing:
       "",
   },
