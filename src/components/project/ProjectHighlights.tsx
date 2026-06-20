@@ -37,9 +37,9 @@ const sectionCopy: Record<
   },
 
   "sindhu-sarovar": {
-    heading: "Supraja Sindhu Sarovar Project Highlights",
+    heading: "Thoughtfully Planned. Future Ready.",
     intro:
-      "A planned project with practical infrastructure, organized layout features, and access-focused location advantages.",
+      "A thoughtfully planned plotted community at Mominpet featuring wide road connectivity, organized infrastructure, landscaped open spaces, and a location positioned for long-term value creation.",
     note:
       "Investors and families should verify approval details, layout information, availability, and current development status before booking.",
   },
@@ -91,6 +91,86 @@ const bridgeCountyHighlights = [
     title: "Positioned for Long-Term Value",
     description:
       "Surrounded by growth drivers including NIMZ, employment hubs, and emerging infrastructure.",
+  },
+];
+
+const sindhuSarovarHighlights = [
+  {
+    icon: "▦",
+    title: "Plot Sizes",
+    accent: "150 to 569 Sq. Yards",
+    description: "A wide range of plot options designed to suit different ownership needs.",
+  },
+  {
+    icon: "▥",
+    title: "100 Ft Road Connectivity",
+    accent: "",
+    description: "Highway-facing road access for excellent visibility and convenient movement.",
+  },
+  {
+    icon: "⌂",
+    title: "Gated Community with Compound Wall",
+    accent: "",
+    description: "A defined community environment planned with privacy and controlled access.",
+  },
+  {
+    icon: "▥",
+    title: "Black Top Internal Roads",
+    accent: "",
+    description: "Smooth and durable internal roads planned for easy everyday access.",
+  },
+  {
+    icon: "⌁",
+    title: "Developed Drainage System",
+    accent: "",
+    description: "Well-planned drainage infrastructure for a clean and organized layout.",
+  },
+  {
+    icon: "◉",
+    title: "Electricity & Street Lighting",
+    accent: "",
+    description: "Essential power and street lighting provisions for safety and convenience.",
+  },
+  {
+    icon: "✧",
+    title: "100% Vaastu Plots",
+    accent: "",
+    description: "Thoughtfully planned plots aligned for positive and harmonious living.",
+  },
+  {
+    icon: "♧",
+    title: "Parks, Gazebo & Open Spaces",
+    accent: "",
+    description: "Landscaped parks and open areas designed for relaxation and community life.",
+  },
+  {
+    icon: "↗",
+    title: "Surrounded by Growth Corridors",
+    accent: "",
+    description: "Located near residential and commercial development zones with future potential.",
+  },
+];
+
+const sindhuSarovarTrustPoints = [
+  {
+    icon: "✓",
+    title: "Planned for Security",
+    description: "Gated community planning with compound wall and security room provisions.",
+  },
+  {
+    icon: "♧",
+    title: "Greenery All Around",
+    description: "Avenue plantation and open spaces for a better community experience.",
+  },
+  {
+    icon: "⌁",
+    title: "Essential Infrastructure",
+    description: "Water, drainage, roads, and utility planning for future-ready ownership.",
+  },
+  {
+    icon: "●",
+    title: "Strategic Location",
+    description: "Mominpet location with access to key growth and connectivity advantages.",
   },
 ];
 
@@ -157,6 +237,7 @@ const subhashCommunityHighlights = [
 
 const ProjectHighlights = ({ project }: Props) => {
   const isBridgeCounty = project.slug === "bridge-county";
+  const isSindhuSarovar = project.slug === "sindhu-sarovar";
   const isSubhashMeadows = project.slug === "subhash-meadows";
 
   const copy = sectionCopy[project.slug] ?? fallbackCopy;
@@ -185,7 +266,65 @@ const ProjectHighlights = ({ project }: Props) => {
           </p>
         </div>
 
-        {isSubhashMeadows ? (
+        {isSindhuSarovar ? (
+          <>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {sindhuSarovarHighlights.map((item, index) => (
+                <div
+                  key={`${item.title}-${index}`}
+                  className="group flex gap-6 rounded-[28px] border border-[#EFE7D3] bg-white p-7 shadow-[0_12px_40px_rgba(11,22,51,0.06)] transition duration-300 hover:-translate-y-2 hover:border-[#C9A227] hover:shadow-[0_22px_55px_rgba(11,22,51,0.12)]"
+                >
+                  <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-[#F8F3E7] text-3xl font-extrabold text-[#B8860B] ring-1 ring-[#EFE7D3]">
+                    {item.icon}
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-extrabold leading-snug text-[#0B1633]">
+                      {item.title}
+                    </h3>
+
+                    {item.accent && (
+                      <p className="mt-1 text-lg font-extrabold leading-snug text-[#B8860B]">
+                        {item.accent}
+                      </p>
+                    )}
+
+                    <div className="mt-4 h-[2px] w-12 rounded-full bg-[#C9A227]" />
+
+                    <p className="mt-4 text-sm leading-6 text-[#4B5563]">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-12 rounded-[28px] border border-[#EFE7D3] bg-[#FFFCF7] p-6 shadow-[0_12px_40px_rgba(11,22,51,0.06)]">
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+                {sindhuSarovarTrustPoints.map((item, index) => (
+                  <div
+                    key={`${item.title}-${index}`}
+                    className="flex gap-4 lg:border-r lg:border-[#E7D7AF] lg:pr-5 last:lg:border-r-0"
+                  >
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white text-2xl font-extrabold text-[#B8860B] ring-1 ring-[#EFE7D3]">
+                      {item.icon}
+                    </div>
+
+                    <div>
+                      <h3 className="text-lg font-extrabold leading-snug text-[#0B1633]">
+                        {item.title}
+                      </h3>
+
+                      <p className="mt-2 text-sm leading-6 text-[#4B5563]">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </>
+        ) : isSubhashMeadows ? (
           <>
             <div className="mb-14">
               <div className="mb-8 flex items-center justify-center gap-4">
