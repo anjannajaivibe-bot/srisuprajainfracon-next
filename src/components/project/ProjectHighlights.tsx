@@ -39,7 +39,7 @@ const sectionCopy: Record<
   "sindhu-sarovar": {
     heading: "A Well-Planned Gated Community Built for Secure Ownership and Future Growth",
     intro:
-      "A thoughtfully planned plotted community at Mominpet featuring wide road connectivity, organized infrastructure, landscaped open spaces, and a location positioned for long-term value creation.",
+      "A well planned DTCP & RERA approved project at Mominpet featuring wide road connectivity, organized infrastructure, landscaped open spaces, and a location positioned for long-term value creation.",
     note:
       "Investors and families should verify approval details, layout information, availability, and current development status before booking.",
   },
