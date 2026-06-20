@@ -430,21 +430,22 @@ export default function AboutClient() {
     </div>
 
     <div className="grid gap-7 lg:grid-cols-[1.05fr_2fr]">
-      <div className="relative overflow-hidden rounded-[28px] border border-[#B8D8BD] bg-gradient-to-br from-[#F2FBF4] via-[#EAF8ED] to-[#E1F4E5] p-8 shadow-[0_14px_45px_rgba(15,23,42,0.06)] md:p-10">
-        <div className="absolute left-0 top-0 h-40 w-40 rounded-full bg-[#2E7D32]/10 blur-3xl" />
+      <div className="relative overflow-hidden rounded-[28px] border border-[#0F5132]/30 bg-gradient-to-br from-[#0F5132] via-[#1B5E20] to-[#2E7D32] p-8 shadow-[0_20px_60px_rgba(15,81,50,0.25)] md:p-10">
+        <div className="absolute -left-10 -top-10 h-48 w-48 rounded-full bg-white/10 blur-3xl" />
+        <div className="absolute bottom-0 right-0 h-56 w-56 rounded-full bg-black/10 blur-3xl" />
 
         <div className="relative">
-          <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-full border border-[#C8DFC9] bg-white shadow-inner">
-            <HandHeart className="h-10 w-10 text-[#2E7D32]" />
+          <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-inner backdrop-blur-sm">
+            <HandHeart className="h-10 w-10 text-white" />
           </div>
 
-          <h3 className="font-display text-3xl font-bold leading-tight text-[#111827]">
+          <h3 className="font-display text-3xl font-bold leading-tight text-white">
             Community-First Growth
           </h3>
 
-          <div className="my-6 h-px w-16 bg-[#2E7D32]" />
+          <div className="my-6 h-px w-16 bg-white/45" />
 
-          <p className="text-[17px] leading-8 text-[#4B5563]">
+          <p className="text-[17px] leading-8 text-white/85">
             Our commitment extends beyond developments to meaningful
             contributions that create lasting social impact and stronger
             communities.
