@@ -6,15 +6,21 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import {
   Award,
+  BookOpen,
+  BriefcaseBusiness,
+  Building2,
   CheckCircle2,
+  Drama,
   Eye,
+  HandHeart,
+  HeartPulse,
   Landmark,
   MapPinned,
   ShieldCheck,
+  Siren,
   Target,
   Users,
 } from "lucide-react";
-
 import heroBg from "@/assets/hero-bg.webp";
 import ownerPhoto from "@/assets/tudi-praveen.webp";
 
