@@ -1,4 +1,19 @@
 import type { Project } from "@/data/projects";
+import {
+  LayoutGrid,
+  Road,
+  Landmark,
+  Route,
+  Waves,
+  Lightbulb,
+  Compass,
+  Trees,
+  TrendingUp,
+  ShieldCheck,
+  Leaf,
+  Droplets,
+  MapPin,
+} from "lucide-react";
 
 type Props = {
   project: Project;
@@ -96,81 +111,94 @@ const bridgeCountyHighlights = [
 
 const sindhuSarovarHighlights = [
   {
-    icon: "▦",
+    icon: LayoutGrid,
     title: "Plot Sizes",
     accent: "150 to 569 Sq. Yards",
-    description: "A wide range of plot options designed to suit different ownership needs.",
+    description:
+      "A wide range of plot options designed to suit different ownership needs.",
   },
   {
-    icon: "▥",
+    icon: Road,
     title: "100 Ft Road Connectivity",
     accent: "",
-    description: "Highway-facing road access for excellent visibility and convenient movement.",
+    description:
+      "Highway-facing road access for excellent visibility and convenient movement.",
   },
   {
-    icon: "⌂",
+    icon: Landmark,
     title: "Gated Community with Compound Wall",
     accent: "",
-    description: "A defined community environment planned with privacy and controlled access.",
+    description:
+      "A defined community environment planned with privacy and controlled access.",
   },
   {
-    icon: "▥",
+    icon: Route,
     title: "Black Top Internal Roads",
     accent: "",
-    description: "Smooth and durable internal roads planned for easy everyday access.",
+    description:
+      "Smooth and durable internal roads planned for easy everyday access.",
   },
   {
-    icon: "⌁",
+    icon: Waves,
     title: "Developed Drainage System",
     accent: "",
-    description: "Well-planned drainage infrastructure for a clean and organized layout.",
+    description:
+      "Well-planned drainage infrastructure for a clean and organized layout.",
   },
   {
-    icon: "◉",
+    icon: Lightbulb,
     title: "Electricity & Street Lighting",
     accent: "",
-    description: "Essential power and street lighting provisions for safety and convenience.",
+    description:
+      "Essential power and street lighting provisions for safety and convenience.",
   },
   {
-    icon: "✧",
+    icon: Compass,
     title: "100% Vaastu Plots",
     accent: "",
-    description: "Thoughtfully planned plots aligned for positive and harmonious living.",
+    description:
+      "Thoughtfully planned plots aligned for positive and harmonious living.",
   },
   {
-    icon: "♧",
+    icon: Trees,
     title: "Parks, Gazebo & Open Spaces",
     accent: "",
-    description: "Landscaped parks and open areas designed for relaxation and community life.",
+    description:
+      "Landscaped parks and open areas designed for relaxation and community life.",
   },
   {
-    icon: "↗",
+    icon: TrendingUp,
     title: "Surrounded by Growth Corridors",
     accent: "",
-    description: "Located near residential and commercial development zones with future potential.",
+    description:
+      "Located near residential and commercial development zones with future potential.",
   },
 ];
 
 const sindhuSarovarTrustPoints = [
   {
-    icon: "✓",
+    icon: ShieldCheck,
     title: "Planned for Security",
-    description: "Gated community planning with compound wall and security room provisions.",
+    description:
+      "Gated community planning with compound wall and security room provisions.",
   },
   {
-    icon: "♧",
+    icon: Leaf,
     title: "Greenery All Around",
-    description: "Avenue plantation and open spaces for a better community experience.",
+    description:
+      "Avenue plantation and open spaces for a better community experience.",
   },
   {
-    icon: "⌁",
+    icon: Droplets,
     title: "Essential Infrastructure",
-    description: "Water, drainage, roads, and utility planning for future-ready ownership.",
+    description:
+      "Water, drainage, roads, and utility planning for future-ready ownership.",
   },
   {
-    icon: "●",
+    icon: MapPin,
     title: "Strategic Location",
-    description: "Mominpet location with access to key growth and connectivity advantages.",
+    description:
+      "Mominpet location with access to key growth and connectivity advantages.",
   },
 ];
 
@@ -275,7 +303,12 @@ const ProjectHighlights = ({ project }: Props) => {
                   className="group flex gap-6 rounded-[28px] border border-[#EFE7D3] bg-white p-7 shadow-[0_12px_40px_rgba(11,22,51,0.06)] transition duration-300 hover:-translate-y-2 hover:border-[#C9A227] hover:shadow-[0_22px_55px_rgba(11,22,51,0.12)]"
                 >
                   <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-[#F8F3E7] text-3xl font-extrabold text-[#B8860B] ring-1 ring-[#EFE7D3]">
-                    {item.icon}
+                    const Icon = item.icon;
+
+<Icon
+  className="h-9 w-9 text-[#B8860B]"
+  strokeWidth={1.8}
+/>
                   </div>
 
                   <div>
@@ -307,7 +340,12 @@ const ProjectHighlights = ({ project }: Props) => {
                     className="flex gap-4 lg:border-r lg:border-[#E7D7AF] lg:pr-5 last:lg:border-r-0"
                   >
                     <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white text-2xl font-extrabold text-[#B8860B] ring-1 ring-[#EFE7D3]">
-                      {item.icon}
+                      const Icon = item.icon;
+
+<Icon
+  className="h-7 w-7 text-[#B8860B]"
+  strokeWidth={1.8}
+/>
                     </div>
 
                     <div>
