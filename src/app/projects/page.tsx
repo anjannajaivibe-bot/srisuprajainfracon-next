@@ -65,7 +65,7 @@ export default function ProjectsPage() {
         mainEntity: [
           {
             "@type": "Product",
-            name: "Supraja IRIS Resort Plots",
+            name: "Supraja IRIS Resort Project",
             url: "https://www.srisuprajainfracon.com/projects/supraja-iris-resort-plots",
           },
           {

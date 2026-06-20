@@ -87,8 +87,8 @@ const WhyChooseUs = () => {
           </div>
 
           <h2 className="mx-auto max-w-5xl font-display text-4xl font-bold leading-tight tracking-tight text-[#07111F] md:text-6xl">
-            Why Investors{" "}
-            <span className="text-[#C48912]">Trust Sri Supraja Infracon</span>
+            Built on Trust.{" "}
+            <span className="text-[#C48912]">Backed by Delivery. Chosen for Growth.</span>
           </h2>
 
           <p className="mx-auto mt-6 max-w-4xl text-lg leading-8 text-[#334155]">

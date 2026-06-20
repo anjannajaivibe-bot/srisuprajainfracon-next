@@ -4,9 +4,9 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 const trustBadges = [
-  "Clear Title & Approvals",
-  "Strategic Growth Locations",
-  "High Return Potential",
+  "24+ Years Legacy",
+  "Prime Growth Corridors",
+  "Transparent Documentation",
 ];
 
 const projectLinks = [

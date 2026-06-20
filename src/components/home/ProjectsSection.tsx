@@ -10,23 +10,23 @@ const projectCardCopy: Record<
   }
 > = {
   "supraja-iris-resort-plots": {
-    badge: "Resort Project",
+    badge: "Flagship Lifestyle Destination",
     alt: "Supraja IRIS resort-inspired plots in Kamkole",
   },
   "supraja-iris": {
-    badge: "Resort Project",
-    alt: "Supraja IRIS resort-inspired plots in Kamkole",
+    badge: "Flagship Lifestyle Destination",
+    alt: "Supraja IRIS resort plots in Kamkole",
   },
   "bridge-county": {
-    badge: "15-Acre Enclave",
+    badge: "Premium 15-Acre Enclave",
     alt: "Bridge County 15-acre plotted enclave within Supraja IRIS",
   },
   "sindhu-sarovar": {
-    badge: "Planned Project",
+    badge: "100 Ft Road Frontage Community",
     alt: "Sindhu Sarovar planned project with organized layout",
   },
   "subhash-meadows": {
-    badge: "Well-Connected Project",
+    badge: "Ready for Future Growth",
     alt: "Subhash Meadows well-connected plotted project",
   },
 };
