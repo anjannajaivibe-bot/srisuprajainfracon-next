@@ -313,10 +313,12 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
               transition={{ duration: 0.55, delay: 0.08 }}
               className="relative"
             >
-              <div className="relative overflow-hidden rounded-[30px] border border-[#E8D7A5] bg-[#061A33] shadow-[0_26px_70px_rgba(6,26,51,0.18)]">
+              <div className="absolute -inset-5 rounded-[42px] bg-[radial-gradient(circle_at_center,rgba(201,137,20,0.28),rgba(216,150,20,0.08)_42%,transparent_72%)] blur-2xl" />
+
+              <div className="relative overflow-hidden rounded-[34px] border border-[#D6A12B]/35 bg-[#061A33] shadow-[0_36px_90px_rgba(6,26,51,0.24)]">
                 <div className="relative h-[360px] sm:h-[500px] lg:h-[568px]">
                   <video
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover opacity-90"
                     autoPlay
                     muted
                     loop
@@ -331,15 +333,35 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
                     />
                   </video>
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#061A33]/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#061A33]/85 via-[#061A33]/18 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#061A33]/20 via-transparent to-[#061A33]/35" />
 
                   <button
                     type="button"
-                    className="absolute right-6 top-6 inline-flex items-center gap-3 rounded-full bg-white px-6 py-3 text-sm font-bold text-[#061A33] shadow-[0_16px_35px_rgba(6,26,51,0.18)] transition hover:bg-[#FFF7E6]"
+                    className="absolute right-5 top-5 inline-flex items-center gap-3 rounded-full border border-white/45 bg-white/90 px-6 py-3 text-sm font-bold text-[#061A33] shadow-[0_16px_35px_rgba(6,26,51,0.22)] backdrop-blur-md transition hover:bg-[#FFF7E6]"
                   >
                     <Play className="h-4 w-4 fill-[#061A33]" />
                     Watch Project Overview
                   </button>
+
+                  <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
+                    <div className="grid gap-3 rounded-[22px] border border-white/18 bg-[#061A33]/70 p-4 backdrop-blur-md sm:grid-cols-3">
+                      {[
+                        "Lemon Tree Resort",
+                        "Water Villas",
+                        "Theme Park",
+                      ].map((item) => (
+                        <div
+                          key={item}
+                          className="rounded-[16px] border border-white/12 bg-white/10 px-4 py-3 text-center"
+                        >
+                          <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#E8D7A5]">
+                            {item}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>
