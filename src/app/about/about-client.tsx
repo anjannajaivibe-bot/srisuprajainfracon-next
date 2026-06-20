@@ -404,19 +404,19 @@ export default function AboutClient() {
 </section>
 
         <section className="relative overflow-hidden bg-white px-6 py-24">
-  <div className="absolute left-0 top-24 h-72 w-72 rounded-full bg-[#C9A227]/5 blur-3xl" />
-  <div className="absolute right-0 bottom-24 h-72 w-72 rounded-full bg-[#C9A227]/5 blur-3xl" />
+  <div className="absolute left-0 top-24 h-72 w-72 rounded-full bg-[#2E7D32]/5 blur-3xl" />
+  <div className="absolute right-0 bottom-24 h-72 w-72 rounded-full bg-[#2E7D32]/5 blur-3xl" />
 
   <div className="container-max relative">
     <div className="mx-auto mb-14 max-w-4xl text-center">
-      <p className="mb-4 text-sm font-bold uppercase tracking-[0.32em] text-[#C9A227]">
+      <p className="mb-4 text-sm font-bold uppercase tracking-[0.32em] text-[#2E7D32]">
         BEYOND REAL ESTATE
       </p>
 
       <div className="mx-auto mb-6 flex max-w-xs items-center justify-center gap-4">
-        <span className="h-px flex-1 bg-[#C9A227]/40" />
-        <span className="h-2 w-2 rotate-45 border border-[#C9A227]" />
-        <span className="h-px flex-1 bg-[#C9A227]/40" />
+        <span className="h-px flex-1 bg-[#2E7D32]/35" />
+        <span className="h-2 w-2 rotate-45 border border-[#2E7D32]" />
+        <span className="h-px flex-1 bg-[#2E7D32]/35" />
       </div>
 
       <h2 className="font-display text-4xl font-bold leading-tight text-[#111827] md:text-6xl">
@@ -430,19 +430,19 @@ export default function AboutClient() {
     </div>
 
     <div className="grid gap-7 lg:grid-cols-[1.05fr_2fr]">
-      <div className="relative overflow-hidden rounded-[28px] border border-[#EFE7D3] bg-[#FFFCF6] p-8 shadow-[0_14px_45px_rgba(15,23,42,0.06)] md:p-10">
-        <div className="absolute left-0 top-0 h-40 w-40 rounded-full bg-[#C9A227]/10 blur-3xl" />
+      <div className="relative overflow-hidden rounded-[28px] border border-[#D6E7D8] bg-[#F4FBF5] p-8 shadow-[0_14px_45px_rgba(15,23,42,0.06)] md:p-10">
+        <div className="absolute left-0 top-0 h-40 w-40 rounded-full bg-[#2E7D32]/10 blur-3xl" />
 
         <div className="relative">
-          <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-full border border-[#E8D7A5] bg-white shadow-inner">
-            <HandHeart className="h-10 w-10 text-[#C9A227]" />
+          <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-full border border-[#C8DFC9] bg-white shadow-inner">
+            <HandHeart className="h-10 w-10 text-[#2E7D32]" />
           </div>
 
           <h3 className="font-display text-3xl font-bold leading-tight text-[#111827]">
             Community-First Growth
           </h3>
 
-          <div className="my-6 h-px w-16 bg-[#C9A227]" />
+          <div className="my-6 h-px w-16 bg-[#2E7D32]" />
 
           <p className="text-[17px] leading-8 text-[#4B5563]">
             Our commitment extends beyond developments to meaningful
@@ -459,17 +459,17 @@ export default function AboutClient() {
           return (
             <div
               key={item.title}
-              className="group rounded-[28px] border border-[#EFE7D3] bg-white p-7 shadow-[0_12px_38px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1 hover:border-[#C9A227]/60 hover:shadow-[0_20px_55px_rgba(15,23,42,0.10)]"
+              className="group rounded-[28px] border border-[#D6E7D8] bg-white p-7 shadow-[0_12px_38px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1 hover:border-[#2E7D32]/50 hover:shadow-[0_20px_55px_rgba(15,23,42,0.10)]"
             >
-              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-[#E8D7A5] bg-[#FFF9E8] transition group-hover:bg-[#FFF3CC]">
-                <Icon className="h-8 w-8 text-[#C9A227]" />
+              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-[#C8DFC9] bg-[#F4FBF5] transition group-hover:bg-[#EAF6EC]">
+                <Icon className="h-8 w-8 text-[#2E7D32]" />
               </div>
 
               <h3 className="font-display text-xl font-bold text-[#111827]">
                 {item.title}
               </h3>
 
-              <div className="my-4 h-px w-12 bg-[#C9A227]" />
+              <div className="my-4 h-px w-12 bg-[#2E7D32]" />
 
               <p className="text-[15px] leading-7 text-[#4B5563]">
                 {item.desc}
@@ -535,9 +535,8 @@ export default function AboutClient() {
 
     <div className="mx-auto mt-8 max-w-4xl rounded-[24px] border border-[#EFE7D3] bg-[#FCFBF8] p-8 text-center shadow-[0_10px_35px_rgba(11,22,51,0.06)]">
       <p className="text-lg font-semibold leading-relaxed text-[#111827]">
-        Every milestone represents more than growth. It represents the trust of
-        customers, the strength of relationships and the responsibility to build
-        developments that serve generations.
+        Each chapter of our growth reflects a commitment to quality, transparency, 
+        and creating lasting value for generations to come.
       </p>
     </div>
   </div>
