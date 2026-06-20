@@ -19,14 +19,37 @@ import heroBg from "@/assets/hero-bg.webp";
 import ownerPhoto from "@/assets/tudi-praveen.webp";
 
 const socialWelfare = [
-  "Education support for students",
-  "Healthcare and community support",
-  "Support during local emergencies",
-  "Employment and skill encouragement",
-  "Infrastructure support for communities",
-  "Cultural and social development",
+  {
+    icon: BookOpen,
+    title: "Education Support",
+    desc: "Encouraging education and supporting students to build a brighter future.",
+  },
+  {
+    icon: HeartPulse,
+    title: "Healthcare Support",
+    desc: "Initiatives that promote health, well-being, and stronger communities.",
+  },
+  {
+    icon: Siren,
+    title: "Emergency Relief",
+    desc: "Standing by communities and providing support during critical times.",
+  },
+  {
+    icon: BriefcaseBusiness,
+    title: "Skill Encouragement",
+    desc: "Encouraging local employment and skill development for future growth.",
+  },
+  {
+    icon: Building2,
+    title: "Community Infrastructure",
+    desc: "Supporting local infrastructure and facilities that improve everyday life.",
+  },
+  {
+    icon: Drama,
+    title: "Cultural Development",
+    desc: "Preserving traditions and encouraging cultural and social development.",
+  },
 ];
-
 const stats = [
   { num: "24+", label: "Years of Legacy" },
   { num: "4", label: "Active Project Pages" },
@@ -374,31 +397,84 @@ export default function AboutClient() {
   </div>
 </section>
 
-        <section className="bg-white px-6 py-20">
-          <div className="container-max">
-            <div className="text-center">
-              <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-[#C9A227]">
-                BEYOND REAL ESTATE
-              </p>
+        <section className="relative overflow-hidden bg-white px-6 py-24">
+  <div className="absolute left-0 top-24 h-72 w-72 rounded-full bg-[#C9A227]/5 blur-3xl" />
+  <div className="absolute right-0 bottom-24 h-72 w-72 rounded-full bg-[#C9A227]/5 blur-3xl" />
 
-              <h2 className="text-3xl font-display font-bold text-[#111827]">
-                Social Responsibility Rooted in Community Growth
-              </h2>
-            </div>
+  <div className="container-max relative">
+    <div className="mx-auto mb-14 max-w-4xl text-center">
+      <p className="mb-4 text-sm font-bold uppercase tracking-[0.32em] text-[#C9A227]">
+        BEYOND REAL ESTATE
+      </p>
 
-            <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {socialWelfare.map((item) => (
-                <div
-                  key={item}
-                  className="rounded-2xl border border-[#EFE7D3] bg-white p-5 shadow-[0_8px_30px_rgba(0,0,0,0.05)]"
-                >
-                  <CheckCircle2 className="mb-3 text-[#C9A227]" size={24} />
-                  <p className="font-semibold text-[#111827]">{item}</p>
-                </div>
-              ))}
-            </div>
+      <div className="mx-auto mb-6 flex max-w-xs items-center justify-center gap-4">
+        <span className="h-px flex-1 bg-[#C9A227]/40" />
+        <span className="h-2 w-2 rotate-45 border border-[#C9A227]" />
+        <span className="h-px flex-1 bg-[#C9A227]/40" />
+      </div>
+
+      <h2 className="font-display text-4xl font-bold leading-tight text-[#111827] md:text-6xl">
+        Creating Value Beyond Developments
+      </h2>
+
+      <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-[#4B5563]">
+        Sri Supraja Infracon believes growth should benefit people,
+        communities, and future generations.
+      </p>
+    </div>
+
+    <div className="grid gap-7 lg:grid-cols-[1.05fr_2fr]">
+      <div className="relative overflow-hidden rounded-[28px] border border-[#EFE7D3] bg-[#FFFCF6] p-8 shadow-[0_14px_45px_rgba(15,23,42,0.06)] md:p-10">
+        <div className="absolute left-0 top-0 h-40 w-40 rounded-full bg-[#C9A227]/10 blur-3xl" />
+
+        <div className="relative">
+          <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-full border border-[#E8D7A5] bg-white shadow-inner">
+            <HandHeart className="h-10 w-10 text-[#C9A227]" />
           </div>
-        </section>
+
+          <h3 className="font-display text-3xl font-bold leading-tight text-[#111827]">
+            Community-First Growth
+          </h3>
+
+          <div className="my-6 h-px w-16 bg-[#C9A227]" />
+
+          <p className="text-[17px] leading-8 text-[#4B5563]">
+            Our commitment extends beyond developments to meaningful
+            contributions that create lasting social impact and stronger
+            communities.
+          </p>
+        </div>
+      </div>
+
+      <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+        {socialWelfare.map((item) => {
+          const Icon = item.icon;
+
+          return (
+            <div
+              key={item.title}
+              className="group rounded-[28px] border border-[#EFE7D3] bg-white p-7 shadow-[0_12px_38px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1 hover:border-[#C9A227]/60 hover:shadow-[0_20px_55px_rgba(15,23,42,0.10)]"
+            >
+              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-[#E8D7A5] bg-[#FFF9E8] transition group-hover:bg-[#FFF3CC]">
+                <Icon className="h-8 w-8 text-[#C9A227]" />
+              </div>
+
+              <h3 className="font-display text-xl font-bold text-[#111827]">
+                {item.title}
+              </h3>
+
+              <div className="my-4 h-px w-12 bg-[#C9A227]" />
+
+              <p className="text-[15px] leading-7 text-[#4B5563]">
+                {item.desc}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</section>
 
 <section className="bg-white px-6 py-24">
   <div className="container-max">
