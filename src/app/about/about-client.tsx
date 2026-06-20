@@ -430,7 +430,7 @@ export default function AboutClient() {
     </div>
 
     <div className="grid gap-7 lg:grid-cols-[1.05fr_2fr]">
-      <div className="relative overflow-hidden rounded-[28px] border border-[#D6E7D8] bg-[#F4FBF5] p-8 shadow-[0_14px_45px_rgba(15,23,42,0.06)] md:p-10">
+      <div className="relative overflow-hidden rounded-[28px] border border-[#B8D8BD] bg-gradient-to-br from-[#F2FBF4] via-[#EAF8ED] to-[#E1F4E5] p-8 shadow-[0_14px_45px_rgba(15,23,42,0.06)] md:p-10">
         <div className="absolute left-0 top-0 h-40 w-40 rounded-full bg-[#2E7D32]/10 blur-3xl" />
 
         <div className="relative">
