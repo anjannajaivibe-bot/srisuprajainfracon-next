@@ -52,9 +52,9 @@ const sectionCopy: Record<
   },
 
   "sindhu-sarovar": {
-    heading: "A Well-Planned Gated Community Built for Secure Ownership and Future Growth",
+    heading: "Thoughtfully Planned. Future Ready.",
     intro:
-      "A well planned DTCP & RERA approved project at Mominpet featuring wide road connectivity, organized infrastructure, landscaped open spaces, and a location positioned for long-term value creation.",
+      "A thoughtfully planned plotted community at Mominpet featuring wide road connectivity, organized infrastructure, landscaped open spaces, and a location positioned for long-term value creation.",
     note:
       "Investors and families should verify approval details, layout information, availability, and current development status before booking.",
   },
@@ -297,68 +297,72 @@ const ProjectHighlights = ({ project }: Props) => {
         {isSindhuSarovar ? (
           <>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {sindhuSarovarHighlights.map((item, index) => (
-                <div
-                  key={`${item.title}-${index}`}
-                  className="group flex gap-6 rounded-[28px] border border-[#EFE7D3] bg-white p-7 shadow-[0_12px_40px_rgba(11,22,51,0.06)] transition duration-300 hover:-translate-y-2 hover:border-[#C9A227] hover:shadow-[0_22px_55px_rgba(11,22,51,0.12)]"
-                >
-                  <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-[#F8F3E7] text-3xl font-extrabold text-[#B8860B] ring-1 ring-[#EFE7D3]">
-                    const Icon = item.icon;
+              {sindhuSarovarHighlights.map((item, index) => {
+                const Icon = item.icon;
 
-<Icon
-  className="h-9 w-9 text-[#B8860B]"
-  strokeWidth={1.8}
-/>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-extrabold leading-snug text-[#0B1633]">
-                      {item.title}
-                    </h3>
-
-                    {item.accent && (
-                      <p className="mt-1 text-lg font-extrabold leading-snug text-[#B8860B]">
-                        {item.accent}
-                      </p>
-                    )}
-
-                    <div className="mt-4 h-[2px] w-12 rounded-full bg-[#C9A227]" />
-
-                    <p className="mt-4 text-sm leading-6 text-[#4B5563]">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-12 rounded-[28px] border border-[#EFE7D3] bg-[#FFFCF7] p-6 shadow-[0_12px_40px_rgba(11,22,51,0.06)]">
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-                {sindhuSarovarTrustPoints.map((item, index) => (
+                return (
                   <div
                     key={`${item.title}-${index}`}
-                    className="flex gap-4 lg:border-r lg:border-[#E7D7AF] lg:pr-5 last:lg:border-r-0"
+                    className="group flex gap-6 rounded-[28px] border border-[#EFE7D3] bg-white p-7 shadow-[0_12px_40px_rgba(11,22,51,0.06)] transition duration-300 hover:-translate-y-2 hover:border-[#C9A227] hover:shadow-[0_22px_55px_rgba(11,22,51,0.12)]"
                   >
-                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white text-2xl font-extrabold text-[#B8860B] ring-1 ring-[#EFE7D3]">
-                      const Icon = item.icon;
-
-<Icon
-  className="h-7 w-7 text-[#B8860B]"
-  strokeWidth={1.8}
-/>
+                    <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-[#F8F3E7] text-3xl font-extrabold text-[#B8860B] ring-1 ring-[#EFE7D3]">
+                      <Icon
+                        className="h-9 w-9 text-[#B8860B]"
+                        strokeWidth={1.8}
+                      />
                     </div>
 
                     <div>
-                      <h3 className="text-lg font-extrabold leading-snug text-[#0B1633]">
+                      <h3 className="text-xl font-extrabold leading-snug text-[#0B1633]">
                         {item.title}
                       </h3>
 
-                      <p className="mt-2 text-sm leading-6 text-[#4B5563]">
+                      {item.accent && (
+                        <p className="mt-1 text-lg font-extrabold leading-snug text-[#B8860B]">
+                          {item.accent}
+                        </p>
+                      )}
+
+                      <div className="mt-4 h-[2px] w-12 rounded-full bg-[#C9A227]" />
+
+                      <p className="mt-4 text-sm leading-6 text-[#4B5563]">
                         {item.description}
                       </p>
                     </div>
                   </div>
-                ))}
+                );
+              })}
+            </div>
+
+            <div className="mt-12 rounded-[28px] border border-[#EFE7D3] bg-[#FFFCF7] p-6 shadow-[0_12px_40px_rgba(11,22,51,0.06)]">
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+                {sindhuSarovarTrustPoints.map((item, index) => {
+                  const Icon = item.icon;
+
+                  return (
+                    <div
+                      key={`${item.title}-${index}`}
+                      className="flex gap-4 lg:border-r lg:border-[#E7D7AF] lg:pr-5 last:lg:border-r-0"
+                    >
+                      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white text-2xl font-extrabold text-[#B8860B] ring-1 ring-[#EFE7D3]">
+                        <Icon
+                          className="h-7 w-7 text-[#B8860B]"
+                          strokeWidth={1.8}
+                        />
+                      </div>
+
+                      <div>
+                        <h3 className="text-lg font-extrabold leading-snug text-[#0B1633]">
+                          {item.title}
+                        </h3>
+
+                        <p className="mt-2 text-sm leading-6 text-[#4B5563]">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </>
