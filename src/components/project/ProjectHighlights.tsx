@@ -60,7 +60,7 @@ const sectionCopy: Record<
   },
 
   "subhash-meadows": {
-    heading: "Strategic Location. Planned Infrastructure. Future Value.",
+    heading: "Strategic Location, Planned Infrastructure. Future Value.",
     intro:
       "Thoughtfully planned features that support connectivity today, everyday convenience, and long-term growth potential.",
     note:
