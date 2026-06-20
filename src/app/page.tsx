@@ -5,7 +5,7 @@ const pageTitle =
   "Sri Supraja Infracon | Real Estate Projects Near Hyderabad";
 
 const pageDescription =
-  "Explore Sri Supraja Infracon projects across Hyderabad growth corridors, including plotted, villa, residential and resort-inspired projects in Kamkole, Sangareddy, Mominpet and Indrakaran.";
+  "Explore Sri Supraja Infracon projects across Hyderabad growth corridors, including plotted, villa, residential and resort projects in Kamkole, Sangareddy, Mominpet and Indrakaran.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     title: pageTitle,
 
     description:
-      "Explore plotted, villa, residential and resort-inspired projects by Sri Supraja Infracon.",
+      "Explore plotted, villa, residential and resort projects by Sri Supraja Infracon.",
 
     images: ["https://www.srisuprajainfracon.com/og/home-og.webp"],
   },

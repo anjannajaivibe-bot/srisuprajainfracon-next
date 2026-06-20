@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Sri Supraja Infracon develops residential, plotted, villa and resort-inspired projects across Hyderabad growth corridors including Kamkole, Sangareddy, Mominpet and Indrakaran.",
+    "Sri Supraja Infracon develops residential, plotted, villa and resort projects across Hyderabad growth corridors including Kamkole, Sangareddy, Mominpet and Indrakaran.",
 
   alternates: {
     canonical: "https://www.srisuprajainfracon.com/",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Sri Supraja Infracon | Real Estate Projects Near Hyderabad",
     description:
-      "Explore Sri Supraja Infracon projects across Hyderabad growth corridors, including plotted, residential, villa and resort-inspired projects.",
+      "Explore Sri Supraja Infracon projects across Hyderabad growth corridors, including plotted, residential, villa and resort projects.",
     url: "https://www.srisuprajainfracon.com/",
     siteName: "Sri Supraja Infracon",
     locale: "en_IN",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sri Supraja Infracon | Real Estate Projects Near Hyderabad",
     description:
-      "Explore residential, plotted, villa and resort-inspired projects by Sri Supraja Infracon.",
+      "Explore residential, plotted, villa and resort projects by Sri Supraja Infracon.",
     images: ["/og-image.jpg"],
   },
 

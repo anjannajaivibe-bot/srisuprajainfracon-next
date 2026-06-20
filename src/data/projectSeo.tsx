@@ -2,7 +2,7 @@ export const projectSeo = {
   "supraja-iris-resort-plots": {
     focusKeyword: "Resort Plots Near Hyderabad",
     h1: "Resort-Inspired Plots in Kamkole",
-    h2: "Supraja IRIS Resort-Inspired Project at Kamkole",
+    h2: "Supraja IRIS Resort Project at Kamkole",
     h3: "Supraja IRIS Brochure and Project Details",
     subtitle: "Supraja IRIS at Kamkole by Sri Supraja Infracon",
     description:
@@ -30,7 +30,7 @@ export const projectSeo = {
   "supraja-iris": {
     focusKeyword: "Resort Plots Near Hyderabad",
     h1: "Resort-Inspired Plots in Kamkole",
-    h2: "Supraja IRIS Resort-Inspired Project at Kamkole",
+    h2: "Supraja IRIS Resort Project at Kamkole",
     h3: "Supraja IRIS Brochure and Project Details",
     subtitle: "Supraja IRIS at Kamkole by Sri Supraja Infracon",
     description:

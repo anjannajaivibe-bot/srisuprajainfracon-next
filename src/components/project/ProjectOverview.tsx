@@ -16,14 +16,14 @@ const overviewCopy: Record<
   }
 > = {
   "supraja-iris": {
-    label: "Resort-Inspired Project",
+    label: "Resort Project",
     title: "A Landmark Destination Taking Shape",
     description: "",
     closing: "",
   },
 
   "supraja-iris-resort-plots": {
-    label: "Resort-Inspired Project",
+    label: "Resort Project",
     title: "A Landmark Destination Taking Shape",
     description: "",
     closing: "",
@@ -50,7 +50,7 @@ const overviewCopy: Record<
   "subhash-meadows": {
   label: "Strategically Positioned Community",
 
-  title: "Positioned for Connectivity. Poised for Growth.",
+  title: "Future in place.",
 
   description:
     "Subhash Meadows is a thoughtfully planned plotted community at Indrakaran, strategically positioned just 5 minutes from Outer Ring Road, 10 minutes from ICRISAT, and 15 minutes from IIT Hyderabad, offering excellent connectivity to key educational, employment, and infrastructure destinations.",

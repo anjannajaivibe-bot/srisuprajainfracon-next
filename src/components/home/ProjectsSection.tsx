@@ -10,11 +10,11 @@ const projectCardCopy: Record<
   }
 > = {
   "supraja-iris-resort-plots": {
-    badge: "Resort-Inspired Project",
+    badge: "Resort Project",
     alt: "Supraja IRIS resort-inspired plots in Kamkole",
   },
   "supraja-iris": {
-    badge: "Resort-Inspired Project",
+    badge: "Resort Project",
     alt: "Supraja IRIS resort-inspired plots in Kamkole",
   },
   "bridge-county": {
@@ -53,9 +53,8 @@ const ProjectsSection = () => {
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[#334155]">
-            Discover projects across Kamkole, Mominpet, Sangareddy, and
-            Indrakaran, each planned with a distinct location advantage,
-            ownership purpose, and future growth perspective.
+            Explore premium plotted developments across Kamkole, Sangareddy, Mominpet and Indrakaran, 
+            thoughtfully positioned around connectivity, infrastructure growth and high returns potential.
           </p>
         </div>
       </div>

@@ -44,7 +44,7 @@ const sectionCopy: Record<
   },
 
   "bridge-county": {
-    heading: "Built Around Location, Infrastructure & Opportunity",
+    heading: "Where Location, Infrastructure & Future Growth Converge",
     intro:
       "Discover the advantages that position Bridge County as a strategically located plotted community within a fast-developing growth corridor.",
     note:
@@ -52,7 +52,7 @@ const sectionCopy: Record<
   },
 
   "sindhu-sarovar": {
-    heading: "Thoughtfully Planned. Future Ready.",
+    heading: "Designed with Purpose. Positioned for Growth.",
     intro:
       "A thoughtfully planned plotted community at Mominpet featuring wide road connectivity, organized infrastructure, landscaped open spaces, and a location positioned for long-term value creation.",
     note:

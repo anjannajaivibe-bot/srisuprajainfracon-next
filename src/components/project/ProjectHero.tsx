@@ -201,7 +201,7 @@ const suprajaIrisStats = [
   },
   {
     icon: Landmark,
-    value: "3",
+    value: "3.5",
     label: "Acres",
     text: "Water Theme Park",
   },
