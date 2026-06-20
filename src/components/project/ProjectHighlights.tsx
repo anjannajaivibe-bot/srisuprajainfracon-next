@@ -85,7 +85,7 @@ const suprajaIrisHighlights = [
   },
   {
     icon: LayoutGrid,
-    title: "4000+ Planned Plots",
+    title: "4000 Planned Plots",
     description:
       "Extensive plotted inventory within a thoughtfully planned destination.",
   },
