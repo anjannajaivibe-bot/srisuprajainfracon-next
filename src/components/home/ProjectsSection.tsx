@@ -47,8 +47,8 @@ const ProjectsSection = () => {
           </div>
 
           <h2 className="mx-auto max-w-5xl font-display text-4xl font-bold leading-tight tracking-tight text-[#07111F] md:text-6xl">
-            Explore{" "}
-            <span className="text-[#C48912]">Sri Supraja Infracon</span>{" "}
+            Discover{" "}
+            <span className="text-[#C48912]">Investment Opportunities Across Our</span>{" "}
             Projects
           </h2>
 
