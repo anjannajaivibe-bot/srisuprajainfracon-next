@@ -94,7 +94,7 @@ export default function Navbar() {
           </span>
         </Link>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-6 xl:flex">
           <Link href="/" className={getNavClass("/")}>
             Home
           </Link>
@@ -190,7 +190,7 @@ export default function Navbar() {
 
         <button
           onClick={() => setMobileOpen((current) => !current)}
-          className={`md:hidden ${menuIconClass}`}
+          className={`xl:hidden ${menuIconClass}`}
           aria-label="Toggle navigation menu"
           type="button"
         >
@@ -204,7 +204,7 @@ export default function Navbar() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="overflow-hidden bg-slate-950/95 backdrop-blur-md md:hidden"
+            className="overflow-hidden bg-slate-950/95 backdrop-blur-md xl:hidden"
           >
             <div className="flex flex-col gap-2 px-6 py-4">
               {navLinks.map((link) => (
