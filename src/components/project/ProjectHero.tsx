@@ -232,8 +232,8 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
         <div className="absolute left-0 top-28 h-56 w-28 rounded-r-full bg-[#D6A12B]/10 blur-3xl" />
         <div className="absolute right-0 top-28 h-72 w-72 rounded-full bg-[#D6A12B]/10 blur-3xl" />
 
-        <div className="container-max relative z-10 px-4 pb-8 sm:px-6 lg:px-8">
-          <div className="grid items-center gap-10 lg:grid-cols-[0.86fr_1.14fr]">
+        <div className="relative z-10 w-full px-4 pb-8 sm:px-6 lg:px-10 2xl:px-16">
+          <div className="grid w-full items-center gap-10 lg:grid-cols-[0.82fr_1.18fr] xl:gap-14">
             <motion.div
               initial={{ opacity: 0, x: -24 }}
               animate={{ opacity: 1, x: 0 }}
@@ -368,7 +368,7 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
           </div>
         </div>
 
-        <div className="container-max relative z-20 px-4 pb-16 sm:px-6 lg:px-8">
+        <div className="relative z-20 w-full px-4 pb-16 sm:px-6 lg:px-10 2xl:px-16">
           <div className="grid overflow-hidden rounded-[22px] border border-[#EFE7D3] bg-white shadow-[0_20px_60px_rgba(6,26,51,0.08)] sm:grid-cols-2 lg:grid-cols-6">
             {suprajaIrisStats.map((item, index) => {
               const Icon = item.icon;
