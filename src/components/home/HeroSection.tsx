@@ -23,15 +23,15 @@ const legacyProjects = [
   "Supraja Harivillu Open Plots, Beeramguda",
   "Supraja Marvel Open Plots, Isnapur",
   "Supraja IIT Technopark Open Plots, IIT Kandi",
-  "Many other projects completed",
+  "many other projects completed",
 ];
 
 const HeroSection = () => {
   return (
-    <section className="relative flex min-h-[78vh] items-center justify-center overflow-hidden bg-[#0B1633] pt-20 sm:min-h-[82vh] lg:min-h-[88vh]">
+    <section className="relative flex min-h-[78vh] items-center justify-center overflow-hidden bg-[#0B1633] pt-20 sm:min-h-[82vh] lg:min-h-[88vh] lg:pt-0">
       <div className="absolute inset-0">
         <video
-          className="h-full w-full object-cover opacity-30 sm:opacity-35"
+          className="h-full w-full object-cover opacity-35"
           autoPlay
           muted
           loop
@@ -42,8 +42,8 @@ const HeroSection = () => {
           <source src="/videos/heroBg.mp4" type="video/mp4" />
         </video>
 
-        <div className="absolute inset-0 bg-gradient-to-br from-[#081225]/96 via-[#0B1633]/90 to-[#1A2F5A]/84" />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0B1633] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#081225]/95 via-[#0B1633]/88 to-[#1A2F5A]/82" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0B1633] to-transparent" />
       </div>
 
       <div className="container-max relative z-10 px-4 pb-10 pt-8 text-center sm:px-6 sm:pb-14 lg:px-8 lg:pb-16">
@@ -63,7 +63,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 22 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55 }}
-          className="mx-auto mb-5 max-w-6xl font-display text-[34px] font-bold leading-[1.12] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl lg:leading-[1.03]"
+          className="mx-auto mb-5 max-w-6xl font-display text-[34px] font-bold leading-[1.12] tracking-tight text-white sm:text-5xl md:text-6xl lg:mb-6 lg:text-7xl lg:leading-[1.03]"
         >
           DTCP & RERA Approved{" "}
           <span className="text-[#C9A227]">Open Plots</span>
@@ -74,7 +74,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.08 }}
-          className="mx-auto mb-7 max-w-3xl text-sm leading-7 text-slate-200 sm:mb-9 sm:text-lg"
+          className="mx-auto mb-7 max-w-4xl text-sm leading-7 text-slate-200 sm:mb-9 sm:text-lg sm:leading-relaxed"
         >
           Explore premium plotted developments across Kamkole, Sangareddy,
           Mominpet and Indrakaran, thoughtfully positioned around connectivity,
@@ -101,7 +101,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.22 }}
-          className="mb-7 grid grid-cols-2 gap-3 sm:mx-auto sm:max-w-2xl md:grid-cols-4"
+          className="mb-7 grid grid-cols-2 gap-3 sm:mx-auto sm:mb-8 sm:max-w-2xl md:grid-cols-4"
         >
           {projectLinks.map((project) => (
             <Link
@@ -114,10 +114,10 @@ const HeroSection = () => {
           ))}
         </motion.div>
 
-        <div className="mx-auto mt-6 max-w-5xl overflow-hidden rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm">
-          <div className="flex flex-col items-center md:flex-row">
-            <div className="w-full border-b border-white/10 px-4 py-2.5 md:w-auto md:border-b-0 md:border-r">
-              <span className="text-xs font-bold uppercase tracking-[0.16em] text-[#E8D7A5] sm:text-sm">
+        <div className="mx-auto mt-6 max-w-5xl overflow-hidden rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm sm:mt-8">
+          <div className="flex flex-col items-center gap-0 md:flex-row">
+            <div className="w-full shrink-0 border-b border-white/10 px-4 py-2.5 md:w-auto md:border-b-0 md:border-r">
+              <span className="text-xs font-bold uppercase tracking-[0.16em] text-[#E8D7A5] sm:text-sm sm:tracking-[0.18em]">
                 Completed Projects
               </span>
             </div>
@@ -144,29 +144,35 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.3 }}
-          className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:gap-4 lg:mt-10"
+          className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4 lg:mt-10"
         >
           <Link
             href="/projects"
-            className="rounded-full bg-white px-7 py-3.5 text-sm font-bold text-[#0B1633] shadow-lg transition hover:-translate-y-0.5 hover:bg-[#C9A227]"
+            className="rounded-full bg-white px-8 py-3.5 text-sm font-bold text-[#0B1633] shadow-lg transition hover:-translate-y-0.5 hover:bg-[#C9A227] sm:py-4"
           >
             Explore Projects
           </Link>
 
           <Link
             href="/contact-us/"
-            className="rounded-full border border-white/20 bg-white/10 px-7 py-3.5 text-sm font-bold text-white backdrop-blur-sm transition hover:bg-white hover:text-[#0B1633]"
+            className="rounded-full border border-white/20 bg-white/10 px-8 py-3.5 text-sm font-bold text-white backdrop-blur-sm transition hover:bg-white hover:text-[#0B1633] sm:py-4"
           >
             Plan a Site Visit
           </Link>
         </motion.div>
 
-        <div className="mt-6 flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs sm:text-sm">
-          <Link href="/projects" className="font-bold text-[#E8D7A5] underline">
+        <div className="mt-6 flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs sm:mt-7 sm:text-sm">
+          <Link
+            href="/projects"
+            className="font-bold text-[#E8D7A5] underline"
+          >
             Project Brochures
           </Link>
 
-          <Link href="/projects" className="font-bold text-[#E8D7A5] underline">
+          <Link
+            href="/projects"
+            className="font-bold text-[#E8D7A5] underline"
+          >
             Location Advantages
           </Link>
 
