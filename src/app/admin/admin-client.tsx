@@ -257,7 +257,7 @@ export default function AdminClient() {
             <h1 className="text-3xl font-bold text-slate-900">
               Supraja Infracon CRM
             </h1>
-            <p className="mt-1 text-slate-600">Lead Management Dashboard</p>
+            <p className="mt-1 text-slate-600">Lead Management Dashboard v2 v2 v2</p>
           </div>
 
           <div className="flex gap-3">
