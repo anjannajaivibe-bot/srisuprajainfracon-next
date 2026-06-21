@@ -43,7 +43,7 @@ export default function ContactForm() {
           phone: form.phone,
           email: form.email,
           message: form.comments,
-          project: getProjectName(pathname),
+          project: getProjectName(pathname || ""),
           source: "website-contact-form",
         }),
       });
