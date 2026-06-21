@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import FloatingCTA from "@/components/layout/FloatingCTA";
-import ContactFormPopup from "@/components/forms/ContactFormPopup";
+import SiteShell from "@/components/layout/SiteShell";
 
 import { DM_Sans, Playfair_Display } from "next/font/google";
 
@@ -124,14 +121,7 @@ export default function RootLayout({
           }}
         />
 
-        <Navbar />
-
-        <div className="min-h-screen pt-24">{children}</div>
-
-        <Footer />
-
-        <FloatingCTA />
-        <ContactFormPopup />
+        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   );

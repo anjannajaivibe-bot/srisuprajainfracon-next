@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function ContactForm() {
   const [form, setForm] = useState({
@@ -11,6 +12,9 @@ export default function ContactForm() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const pathname = usePathname();
 
   const updateField = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -21,23 +25,56 @@ export default function ContactForm() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    console.log("Dummy Form Submission:", form);
+    setSubmitted(false);
+    setError("");
+    setLoading(true);
 
-    setSubmitted(true);
+    try {
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          email: form.email,
+          message: form.comments,
+          project: getProjectName(pathname),
+          source: "website-contact-form",
+        }),
+      });
 
-    setForm({
-      name: "",
-      phone: "",
-      email: "",
-      comments: "",
-    });
+      const result = await response.json();
 
-    setTimeout(() => {
-      setSubmitted(false);
-    }, 4000);
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Unable to submit enquiry.");
+      }
+
+      setSubmitted(true);
+
+      setForm({
+        name: "",
+        phone: "",
+        email: "",
+        comments: "",
+      });
+
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 4000);
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please try again."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -116,14 +153,21 @@ export default function ContactForm() {
 
         <button
           type="submit"
-          className="rounded-full bg-[#C9A227] px-7 py-4 font-bold text-[#0B1633] transition hover:bg-[#0B1633] hover:text-white"
+          disabled={loading}
+          className="rounded-full bg-[#C9A227] px-7 py-4 font-bold text-[#0B1633] transition hover:bg-[#0B1633] hover:text-white disabled:cursor-not-allowed disabled:opacity-60"
         >
-          Submit Enquiry
+          {loading ? "Submitting..." : "Submit Enquiry"}
         </button>
 
         {submitted && (
           <div className="rounded-2xl border border-green-200 bg-green-50 p-4 text-sm font-medium text-green-700">
             Thank you. Your enquiry has been received successfully.
+          </div>
+        )}
+
+        {error && (
+          <div className="rounded-2xl border border-red-200 bg-red-50 p-4 text-sm font-medium text-red-700">
+            {error}
           </div>
         )}
 
@@ -136,7 +180,12 @@ export default function ContactForm() {
     </form>
   );
 }
+function getProjectName(pathname: string) {
+  if (pathname.includes("supraja-iris")) return "Supraja IRIS";
+  if (pathname.includes("bridge-county")) return "Bridge County";
+  if (pathname.includes("sindhu-sarovar")) return "Sindhu Sarovar";
+  if (pathname.includes("subhash-meadows")) return "Subhash Meadows";
+  if (pathname.includes("contact-us")) return "Contact Page";
 
-
-
-
+  return "General Enquiry";
+}
