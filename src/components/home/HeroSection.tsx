@@ -23,7 +23,7 @@ const legacyProjects = [
   "Supraja Harivillu Open Plots, Beeramguda",
   "Supraja Marvel Open Plots, Isnapur",
   "Supraja IIT Technopark Open Plots, IIT Kandi",
-  "many other projects completed",
+  "Many more projects completed",
 ];
 
 const HeroSection = () => {
