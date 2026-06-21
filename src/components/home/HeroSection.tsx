@@ -114,8 +114,8 @@ const HeroSection = () => {
           ))}
         </motion.div>
 
-        <div className="mx-auto mt-5 max-w-5xl overflow-hidden rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm sm:mt-7">
-          <div className="flex flex-col items-center gap-0 lg:flex-row">
+        <div className="mt-5 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden border-y border-white/10 bg-white/5 backdrop-blur-sm sm:mt-7">
+          <div className="mx-auto flex max-w-[1600px] flex-col items-center gap-0 lg:flex-row px-4 sm:px-6 lg:px-8">
             <div className="w-full shrink-0 border-b border-white/10 px-4 py-2.5 lg:w-auto lg:border-b-0 lg:border-r">
               <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#E8D7A5] sm:text-sm sm:tracking-[0.18em]">
                 Completed Projects
