@@ -19,12 +19,12 @@ export default function FloatingCTA() {
       </a>
 
       <a
-        href={`tel:${phoneNumber}`}
-        className="gold-gradient flex h-14 w-14 items-center justify-center rounded-full text-navy shadow-xl transition-transform duration-200 hover:scale-105 active:scale-95"
-        aria-label="Call Now"
-      >
-        <Phone size={26} />
-      </a>
+  href={`tel:${phoneNumber}`}
+  className="flex h-14 w-14 items-center justify-center rounded-full bg-[#2563EB] text-white shadow-xl transition-all duration-200 hover:scale-105 hover:bg-[#1D4ED8] active:scale-95"
+  aria-label="Call Now"
+>
+  <Phone size={26} />
+</a>
     </div>
   );
 }

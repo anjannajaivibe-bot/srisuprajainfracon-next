@@ -180,7 +180,7 @@ export default function Navbar() {
 
             <a
               href={`tel:${phoneNumber}`}
-              className="flex items-center gap-2 rounded-full bg-amber-500 px-5 py-2.5 text-sm font-bold text-slate-950 transition-all hover:bg-amber-400"
+              className="flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-blue-700"
             >
               <Phone size={12} />
               Call Now
@@ -276,7 +276,7 @@ export default function Navbar() {
 
                 <a
                   href={`tel:${phoneNumber}`}
-                  className="flex items-center justify-center gap-2 rounded-full bg-amber-500 px-5 py-3 font-bold text-slate-950"
+                  className="flex items-center justify-center gap-2 rounded-full bg-blue-600 px-5 py-3 font-bold text-white hover:bg-blue-700 transition-all"
                 >
                   <Phone size={14} />
                   Call Now
