@@ -81,7 +81,7 @@ const heroCopy: Record<
     subtitle:
       "Premium DTCP & RERA Approved Plots Within Supraja IRIS Mega Project",
     firstParagraph:
-      "Bridge County is a dedicated 15-acre plotted community within the larger Supraja IRIS ecosystem, offering a balanced combination of location advantage, planned infrastructure, and future growth potential.",
+      "Bridge County is a dedicated 15-acre plotted project within the larger Supraja IRIS ecosystem, offering a balanced combination of location advantage, planned infrastructure, and future growth potential.",
     description:
       "DTCP & RERA Approved plots in a strategically positioned enclave designed for connectivity, infrastructure, and long-term value creation.",
     tags: [
@@ -95,6 +95,7 @@ const heroCopy: Record<
       "Underground Infrastructure",
       "50 & 33 Ft Roads",
       "Water Connection to Every Plot",
+      "100% Vaastu Plots",
     ],
     imageAlt:
       "Bridge County premium plotted enclave within Supraja IRIS at Kamkole",
@@ -104,21 +105,19 @@ const heroCopy: Record<
     badge: "Your Space. Your Vision. Your Future.",
     h1: "DTCP & RERA Approved Open Plots at Mominpet",
     subtitle:
-      "DTCP & RERA Approved Gated Community Plots Along a 100 Ft Highway Corridor",
+      "A Gated project Plots Along a 100 Ft Highway Corridor",
     firstParagraph:
-      "A thoughtfully planned plotted community combining strategic connectivity, organized infrastructure, and long-term growth potential.",
+      "A well planned plotted project combining strategic connectivity, organized infrastructure, and long-term growth potential.",
     description:
       "Developed with wide roads, landscaped open spaces, utility infrastructure, and secure gated access, Supraja Sindhu Sarovar is designed for both end users and long-term investors.",
     tags: [
-      "DTCP & RERA Approved",
       "100 Ft Highway Frontage",
-      "Gated Community Layout",
+      "Gated Project With Security",
       "Wide Internal Blacktop Roads",
       "150-569 Sq. Yard Plots",
       "Emerging Growth Zone",
       "Future Ready Address",
       "100% Vaastu Plots",
-      "Gated Community With Security",
       "Underground Utility Infrastructure",
     ],
     imageAlt:
@@ -130,7 +129,7 @@ const heroCopy: Record<
     h1: "Affordable Open Plots in a Fast-Growing Corridor",
     subtitle: "Infrastructure-Ready Plots Near IIT Hyderabad & ORR",
     firstParagraph:
-      "A thoughtfully planned plotted community at Indrakaran offering strong connectivity, organized infrastructure, and access to key growth destinations.",
+      "A well planned plotted project at Indrakaran offering strong connectivity, organized infrastructure, and access to key growth destinations.",
     description:
       "Strategically located near IIT Hyderabad, Outer Ring Road, Regional Ring Road influence zones, and major employment corridors, Subhash Meadows is designed for long-term value and accessibility.",
     tags: [
@@ -140,6 +139,7 @@ const heroCopy: Record<
       "GP Approved, LRS Paid",
       "Infrastructure Ready Layout",
       "Affordable Plots at Indrakaran",
+      "100% Vaastu Plots",
     ],
     imageAlt:
       "Subhash Meadows well connected plotted project near key growth destinations",
@@ -171,7 +171,7 @@ const premiumHeroStats: Record<string, any[]> = {
   "sindhu-sarovar": [
     { icon: BadgeCheck, label: "DTCP & RERA", value: "Approved" },
     { icon: Ruler, label: "Wide", value: "Blacktop Roads" },
-    { icon: Award, label: "Secure Gated", value: "Community" },
+    { icon: Award, label: "Secure Gated", value: "Project" },
     { icon: MapPinned, label: "100ft", value: "Road Access" },
     { icon: Route, label: "Future", value: "Connectivity" },
   ],
