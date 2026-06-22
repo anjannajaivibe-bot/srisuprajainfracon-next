@@ -157,6 +157,7 @@ export async function PATCH(request: Request) {
     const assigned_to = String(body.assigned_to || "").trim();
     const follow_up_date = body.follow_up_date || null;
     const last_contacted_at = body.last_contacted_at || null;
+const contact_method = String(body.contact_method || "").trim();
 
     if (!id) {
       return NextResponse.json(
@@ -218,8 +219,13 @@ export async function PATCH(request: Request) {
     }
 
     if (last_contacted_at) {
-      await addActivity(id, "Lead contacted.");
-    }
+  await addActivity(
+    id,
+    contact_method
+      ? `Lead contacted via ${contact_method}.`
+      : "Lead contacted."
+  );
+}
 
     return NextResponse.json({
       success: true,
