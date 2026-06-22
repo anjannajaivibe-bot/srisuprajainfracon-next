@@ -362,7 +362,9 @@ export default function AdminClient() {
                     <th className="p-4 text-left">Follow-up</th>
                     <th className="p-4 text-left">Notes</th>
                     <th className="p-4 text-left">WhatsApp Templates</th>
-                    <th className="p-4 text-left">Actions</th>
+                    <th className="sticky right-0 z-30 bg-slate-100 p-4 text-left">
+  Actions
+</th>
                     <th className="p-4 text-left">Timeline</th>
                     <th className="p-4 text-left">Date</th>
                   </tr>
@@ -371,7 +373,7 @@ export default function AdminClient() {
                 <tbody>
                   {filteredLeads.map((lead) => (
                     <tr key={lead.id} className="border-t align-top">
-                      <td className="p-4">
+                      <td className="sticky right-0 z-20 bg-white p-4">
                         <p className="font-bold text-slate-900">{lead.name}</p>
                         <p className="text-sm text-slate-600">{lead.phone}</p>
                         <p className="text-sm text-slate-500">
@@ -391,9 +393,9 @@ export default function AdminClient() {
                         )}
                       </td>
 
-                      <td className="p-4">{lead.project || "General"}</td>
+                      <td className="sticky right-0 z-20 bg-white p-4">{lead.project || "General"}</td>
 
-                      <td className="p-4">
+                      <td className="sticky right-0 z-20 bg-white p-4">
                         <select
                           value={lead.assigned_to || ""}
                           onChange={(e) =>
@@ -412,7 +414,7 @@ export default function AdminClient() {
                         </select>
                       </td>
 
-                      <td className="p-4">
+                      <td className="sticky right-0 z-20 bg-white p-4">
                         <select
                           value={lead.status}
                           onChange={(e) =>
@@ -430,7 +432,7 @@ export default function AdminClient() {
                         </select>
                       </td>
 
-                      <td className="p-4">
+                      <td className="sticky right-0 z-20 bg-white p-4">
                         <input
                           type="date"
                           value={lead.follow_up_date || ""}
@@ -443,7 +445,7 @@ export default function AdminClient() {
                         />
                       </td>
 
-                      <td className="p-4">
+                      <td className="sticky right-0 z-20 bg-white p-4">
                         <textarea
                           value={lead.notes || ""}
                           onChange={(e) =>
@@ -457,7 +459,7 @@ export default function AdminClient() {
                         />
                       </td>
 
-                      <td className="p-4">
+                      <td className="sticky right-0 z-20 bg-white p-4">
                         <div className="flex flex-col gap-2">
                           {whatsappTemplates.map((template) => (
                             <a
@@ -478,7 +480,7 @@ export default function AdminClient() {
                         </div>
                       </td>
 
-                      <td className="p-4">
+                      <td className="sticky right-0 z-20 bg-white p-4">
                         <div className="flex flex-col gap-2">
                           <a
                             href={`tel:${lead.phone}`}
@@ -511,7 +513,7 @@ export default function AdminClient() {
                         </div>
                       </td>
 
-                      <td className="p-4">
+                      <td className="sticky right-0 z-20 bg-white p-4">
                         <button
                           onClick={() =>
                             setOpenTimeline(
