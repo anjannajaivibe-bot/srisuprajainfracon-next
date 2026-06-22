@@ -250,14 +250,14 @@ export default function AdminClient() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 p-6">
-      <div className="mx-auto max-w-7xl">
+    <div className="min-h-screen bg-slate-50 px-4 py-6 sm:px-6">
+      <div className="w-full px-6 py-8">
         <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
             <h1 className="text-3xl font-bold text-slate-900">
               Supraja Infracon CRM
             </h1>
-            <p className="mt-1 text-slate-600">Lead Management Dashboard v2 v2 v2</p>
+            <p className="mt-1 text-slate-600">Lead Management Dashboard</p>
           </div>
 
           <div className="flex gap-3">
@@ -351,10 +351,10 @@ export default function AdminClient() {
           {loading ? (
             <div className="p-10 text-center">Loading...</div>
           ) : (
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[1500px]">
-                <thead>
-                  <tr className="bg-slate-100">
+            <div className="max-h-[72vh] w-full overflow-auto">
+              <table className="w-full min-w-[1700px]">
+                <thead className="sticky top-0 z-20 bg-slate-100">
+                  <tr>
                     <th className="p-4 text-left">Lead</th>
                     <th className="p-4 text-left">Project</th>
                     <th className="p-4 text-left">Assigned To</th>
