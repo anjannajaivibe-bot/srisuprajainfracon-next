@@ -76,17 +76,12 @@ export default function AdminClient() {
 
   const fetchLeads = async () => {
     try {
-      const res = await fetch("/api/leads", {
-        cache: "no-store",
-      });
-
+      const res = await fetch("/api/leads");
       const data = await res.json();
 
       if (data.success) {
         setLeads(data.leads || []);
       }
-    } catch (error) {
-      console.error("Unable to fetch leads:", error);
     } finally {
       setLoading(false);
     }
@@ -105,11 +100,7 @@ export default function AdminClient() {
     updates: Partial<
       Pick<
         Lead,
-        | "status"
-        | "notes"
-        | "follow_up_date"
-        | "assigned_to"
-        | "last_contacted_at"
+        "status" | "notes" | "follow_up_date" | "assigned_to" | "last_contacted_at"
       >
     >
   ) => {
@@ -140,7 +131,7 @@ export default function AdminClient() {
       }),
     });
 
-    fetchLeads();
+    await fetchLeads();
   };
 
   const markContacted = async (id: string, method: "Call" | "WhatsApp") => {
@@ -173,6 +164,27 @@ export default function AdminClient() {
         contact_method: method,
       }),
     });
+
+    await fetchLeads();
+  };
+
+  const handleContactClick = async (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    leadId: string,
+    method: "Call" | "WhatsApp",
+    url: string,
+    openInNewTab = false
+  ) => {
+    event.preventDefault();
+
+    await markContacted(leadId, method);
+
+    if (openInNewTab) {
+      window.open(url, "_blank", "noopener,noreferrer");
+      return;
+    }
+
+    window.location.href = url;
   };
 
   const filteredLeads = useMemo(() => {
@@ -224,24 +236,6 @@ export default function AdminClient() {
       converted: leads.filter((lead) => lead.status === "Converted").length,
       duplicate: leads.filter((lead) => lead.duplicate_of).length,
     };
-  }, [leads]);
-
-  const salesPerformance = useMemo(() => {
-    return salesTeam.map((person) => {
-      const assignedLeads = leads.filter((lead) => lead.assigned_to === person);
-
-      return {
-        name: person,
-        total: assignedLeads.length,
-        contacted: assignedLeads.filter((lead) => lead.status === "Contacted")
-          .length,
-        siteVisit: assignedLeads.filter(
-          (lead) => lead.status === "Site Visit Planned"
-        ).length,
-        converted: assignedLeads.filter((lead) => lead.status === "Converted")
-          .length,
-      };
-    });
   }, [leads]);
 
   const exportCSV = () => {
@@ -309,29 +303,17 @@ export default function AdminClient() {
   };
 
   const getStatusClassName = (status: string) => {
-    if (status === "New") {
-      return "border-blue-200 bg-blue-50 text-blue-700";
-    }
-
-    if (status === "Contacted") {
+    if (status === "New") return "border-blue-200 bg-blue-50 text-blue-700";
+    if (status === "Contacted")
       return "border-orange-200 bg-orange-50 text-orange-700";
-    }
-
-    if (status === "Site Visit Planned") {
+    if (status === "Site Visit Planned")
       return "border-purple-200 bg-purple-50 text-purple-700";
-    }
-
-    if (status === "Follow-up") {
+    if (status === "Follow-up")
       return "border-amber-200 bg-amber-50 text-amber-700";
-    }
-
-    if (status === "Converted") {
+    if (status === "Converted")
       return "border-green-200 bg-green-50 text-green-700";
-    }
-
-    if (status === "Not Interested") {
+    if (status === "Not Interested")
       return "border-red-200 bg-red-50 text-red-700";
-    }
 
     return "border-slate-200 bg-slate-50 text-slate-700";
   };
@@ -344,6 +326,7 @@ export default function AdminClient() {
             <h1 className="text-3xl font-bold text-slate-900">
               Supraja Infracon CRM
             </h1>
+
             <p className="mt-1 text-slate-600">Lead Management Dashboard</p>
           </div>
 
@@ -364,7 +347,7 @@ export default function AdminClient() {
           </div>
         </div>
 
-        <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-8">
+        <div className="mb-8 grid gap-4 sm:grid-cols-4 xl:grid-cols-8">
           <Card title="Total" value={stats.total} />
           <Card title="Today" value={stats.today} />
           <Card title="7 Days" value={stats.week} />
@@ -373,26 +356,6 @@ export default function AdminClient() {
           <Card title="Overdue" value={stats.overdue} />
           <Card title="Converted" value={stats.converted} />
           <Card title="Duplicates" value={stats.duplicate} />
-        </div>
-
-        <div className="mb-8 grid gap-4 rounded-3xl bg-white p-5 shadow lg:grid-cols-4">
-          {salesPerformance.map((person) => (
-            <div key={person.name} className="rounded-2xl border p-4">
-              <p className="font-bold text-slate-900">{person.name}</p>
-              <p className="mt-2 text-sm text-slate-600">
-                Leads: {person.total}
-              </p>
-              <p className="text-sm text-slate-600">
-                Contacted: {person.contacted}
-              </p>
-              <p className="text-sm text-slate-600">
-                Site Visits: {person.siteVisit}
-              </p>
-              <p className="text-sm text-slate-600">
-                Converted: {person.converted}
-              </p>
-            </div>
-          ))}
         </div>
 
         {(stats.dueToday > 0 || stats.overdue > 0) && (
@@ -479,191 +442,230 @@ export default function AdminClient() {
                 </thead>
 
                 <tbody>
-                  {filteredLeads.map((lead) => (
-                    <tr key={lead.id} className="border-t align-top">
-                      <td className="p-4">
-                        <p className="font-bold text-slate-900">{lead.name}</p>
-                        <p className="text-sm text-slate-600">{lead.phone}</p>
-                        <p className="text-sm text-slate-500">
-                          {lead.email || "No email"}
-                        </p>
+                  {filteredLeads.map((lead) => {
+                    const callUrl = `tel:${lead.phone}`;
+                    const whatsappUrl = buildWhatsappUrl(
+                      lead.phone,
+                      "Hello, this is from Sri Supraja Infracon. Thank you for your enquiry."
+                    );
 
-                        {lead.duplicate_of && (
-                          <span className="mt-2 inline-block rounded-full bg-red-100 px-3 py-1 text-xs font-bold text-red-700">
-                            Duplicate Lead
-                          </span>
-                        )}
-
-                        {lead.message && (
-                          <p className="mt-2 max-w-xs text-sm text-slate-500">
-                            {lead.message}
+                    return (
+                      <tr key={lead.id} className="border-t align-top">
+                        <td className="p-4">
+                          <p className="font-bold text-slate-900">
+                            {lead.name}
                           </p>
-                        )}
-                      </td>
 
-                      <td className="p-4">{lead.project || "General"}</td>
+                          <p className="text-sm text-slate-600">
+                            {lead.phone}
+                          </p>
 
-                      <td className="p-4">
-                        <select
-                          value={lead.assigned_to || ""}
-                          onChange={(e) =>
-                            updateLead(lead.id, {
-                              assigned_to: e.target.value || null,
-                            })
-                          }
-                          className="rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none focus:border-[#C9A227]"
-                        >
-                          <option value="">Unassigned</option>
-                          {salesTeam.map((person) => (
-                            <option key={person} value={person}>
-                              {person}
-                            </option>
-                          ))}
-                        </select>
-                      </td>
+                          <p className="text-sm text-slate-500">
+                            {lead.email || "No email"}
+                          </p>
 
-                      <td className="p-4">
-                        <select
-                          value={lead.status}
-                          onChange={(e) =>
-                            updateLead(lead.id, {
-                              status: e.target.value,
-                            })
-                          }
-                          className={`rounded-full border px-3 py-2 text-sm font-semibold outline-none ${getStatusClassName(
-                            lead.status
-                          )}`}
-                        >
-                          {statuses.map((status) => (
-                            <option key={status} value={status}>
-                              {status}
-                            </option>
-                          ))}
-                        </select>
-                      </td>
+                          {lead.duplicate_of && (
+                            <span className="mt-2 inline-block rounded-full bg-red-100 px-3 py-1 text-xs font-bold text-red-700">
+                              Duplicate Lead
+                            </span>
+                          )}
 
-                      <td className="p-4 text-sm text-slate-600">
-                        {lead.last_contacted_at
-                          ? new Date(lead.last_contacted_at).toLocaleString()
-                          : "-"}
-                      </td>
+                          {lead.message && (
+                            <p className="mt-2 max-w-xs text-sm text-slate-500">
+                              {lead.message}
+                            </p>
+                          )}
+                        </td>
 
-                      <td className="p-4">
-                        <input
-                          type="date"
-                          value={lead.follow_up_date || ""}
-                          onChange={(e) =>
-                            updateLead(lead.id, {
-                              follow_up_date: e.target.value || null,
-                            })
-                          }
-                          className="rounded-xl border border-slate-200 px-3 py-2 outline-none focus:border-[#C9A227]"
-                        />
-                      </td>
+                        <td className="p-4">{lead.project || "General"}</td>
 
-                      <td className="p-4">
-                        <textarea
-                          value={lead.notes || ""}
-                          onChange={(e) =>
-                            updateLead(lead.id, {
-                              notes: e.target.value,
-                            })
-                          }
-                          placeholder="Add sales notes"
-                          rows={3}
-                          className="w-56 rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none focus:border-[#C9A227]"
-                        />
-                      </td>
+                        <td className="p-4">
+                          <select
+                            value={lead.assigned_to || ""}
+                            onChange={(e) =>
+                              updateLead(lead.id, {
+                                assigned_to: e.target.value || null,
+                              })
+                            }
+                            className="rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none focus:border-[#C9A227]"
+                          >
+                            <option value="">Unassigned</option>
+                            {salesTeam.map((person) => (
+                              <option key={person} value={person}>
+                                {person}
+                              </option>
+                            ))}
+                          </select>
+                        </td>
 
-                      <td className="p-4">
-                        <div className="flex flex-col gap-2">
-                          {whatsappTemplates.map((template) => (
+                        <td className="p-4">
+                          <select
+                            value={lead.status}
+                            onChange={(e) =>
+                              updateLead(lead.id, {
+                                status: e.target.value,
+                              })
+                            }
+                            className={`rounded-full border px-3 py-2 text-sm font-semibold outline-none ${getStatusClassName(
+                              lead.status
+                            )}`}
+                          >
+                            {statuses.map((status) => (
+                              <option key={status} value={status}>
+                                {status}
+                              </option>
+                            ))}
+                          </select>
+                        </td>
+
+                        <td className="p-4 text-sm text-slate-600">
+                          {lead.last_contacted_at
+                            ? new Date(lead.last_contacted_at).toLocaleString()
+                            : "-"}
+                        </td>
+
+                        <td className="p-4">
+                          <input
+                            type="date"
+                            value={lead.follow_up_date || ""}
+                            onChange={(e) =>
+                              updateLead(lead.id, {
+                                follow_up_date: e.target.value || null,
+                              })
+                            }
+                            className="rounded-xl border border-slate-200 px-3 py-2 outline-none focus:border-[#C9A227]"
+                          />
+                        </td>
+
+                        <td className="p-4">
+                          <textarea
+                            value={lead.notes || ""}
+                            onChange={(e) =>
+                              updateLead(lead.id, {
+                                notes: e.target.value,
+                              })
+                            }
+                            placeholder="Add sales notes"
+                            rows={3}
+                            className="w-56 rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none focus:border-[#C9A227]"
+                          />
+                        </td>
+
+                        <td className="p-4">
+                          <div className="flex flex-col gap-2">
+                            {whatsappTemplates.map((template) => {
+                              const url = buildWhatsappUrl(
+                                lead.phone,
+                                template.text
+                              );
+
+                              return (
+                                <a
+                                  key={template.label}
+                                  href={url}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  onClick={(event) =>
+                                    handleContactClick(
+                                      event,
+                                      lead.id,
+                                      "WhatsApp",
+                                      url,
+                                      true
+                                    )
+                                  }
+                                  className="rounded-full bg-green-600 px-4 py-2 text-center text-xs font-semibold text-white"
+                                >
+                                  {template.label}
+                                </a>
+                              );
+                            })}
+                          </div>
+                        </td>
+
+                        <td className="sticky right-0 z-20 bg-white p-4">
+                          <div className="flex flex-col gap-2">
                             <a
-                              key={template.label}
-                              href={buildWhatsappUrl(lead.phone, template.text)}
+                              href={callUrl}
+                              onClick={(event) =>
+                                handleContactClick(
+                                  event,
+                                  lead.id,
+                                  "Call",
+                                  callUrl,
+                                  false
+                                )
+                              }
+                              className="rounded-full bg-slate-900 px-4 py-2 text-center text-sm font-semibold text-white"
+                            >
+                              Call
+                            </a>
+
+                            <a
+                              href={whatsappUrl}
                               target="_blank"
                               rel="noreferrer"
-                              onClick={() =>
-                                markContacted(lead.id, "WhatsApp")
+                              onClick={(event) =>
+                                handleContactClick(
+                                  event,
+                                  lead.id,
+                                  "WhatsApp",
+                                  whatsappUrl,
+                                  true
+                                )
                               }
-                              className="rounded-full bg-green-600 px-4 py-2 text-center text-xs font-semibold text-white"
+                              className="rounded-full bg-green-600 px-4 py-2 text-center text-sm font-semibold text-white"
                             >
-                              {template.label}
+                              WhatsApp
                             </a>
-                          ))}
-                        </div>
-                      </td>
-
-                      <td className="sticky right-0 z-20 bg-white p-4">
-                        <div className="flex flex-col gap-2">
-                          <a
-                            href={`tel:${lead.phone}`}
-                            onClick={() => markContacted(lead.id, "Call")}
-                            className="rounded-full bg-slate-900 px-4 py-2 text-center text-sm font-semibold text-white"
-                          >
-                            Call
-                          </a>
-
-                          <a
-                            href={buildWhatsappUrl(
-                              lead.phone,
-                              "Hello, this is from Sri Supraja Infracon. Thank you for your enquiry."
-                            )}
-                            target="_blank"
-                            rel="noreferrer"
-                            onClick={() =>
-                              markContacted(lead.id, "WhatsApp")
-                            }
-                            className="rounded-full bg-green-600 px-4 py-2 text-center text-sm font-semibold text-white"
-                          >
-                            WhatsApp
-                          </a>
-                        </div>
-                      </td>
-
-                      <td className="p-4">
-                        <button
-                          onClick={() =>
-                            setOpenTimeline(
-                              openTimeline === lead.id ? null : lead.id
-                            )
-                          }
-                          className="rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700"
-                        >
-                          View
-                        </button>
-
-                        {openTimeline === lead.id && (
-                          <div className="mt-3 w-72 rounded-2xl border border-slate-200 bg-white p-3 shadow">
-                            {(lead.activities || []).length === 0 ? (
-                              <p className="text-sm text-slate-500">
-                                No activity yet.
-                              </p>
-                            ) : (
-                              <div className="space-y-3">
-                                {(lead.activities || []).map((activity) => (
-                                  <div key={activity.id}>
-                                    <p className="text-sm font-medium text-slate-800">
-                                      {activity.activity}
-                                    </p>
-                                    <p className="text-xs text-slate-500">
-                                      {new Date(
-                                        activity.created_at
-                                      ).toLocaleString()}
-                                    </p>
-                                  </div>
-                                ))}
-                              </div>
-                            )}
                           </div>
-                        )}
-                      </td>
+                        </td>
 
-                      <td className="p-4 text-sm text-slate-500">
-                        {new Date(lead.created_at).toLocaleDateString()}
-                      </td>
-                    </tr>
-                  ))}
+                        <td className="p-4">
+                          <button
+                            onClick={() =>
+                              setOpenTimeline(
+                                openTimeline === lead.id ? null : lead.id
+                              )
+                            }
+                            className="rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700"
+                          >
+                            View
+                          </button>
+
+                          {openTimeline === lead.id && (
+                            <div className="mt-3 w-64 rounded-2xl border border-slate-200 bg-white p-3 shadow">
+                              {(lead.activities || []).length === 0 ? (
+                                <p className="text-sm text-slate-500">
+                                  No activity yet.
+                                </p>
+                              ) : (
+                                <div className="space-y-3">
+                                  {(lead.activities || []).map((activity) => (
+                                    <div key={activity.id}>
+                                      <p className="text-sm font-medium text-slate-800">
+                                        {activity.activity}
+                                      </p>
+
+                                      <p className="text-xs text-slate-500">
+                                        {new Date(
+                                          activity.created_at
+                                        ).toLocaleString()}
+                                      </p>
+                                    </div>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          )}
+                        </td>
+
+                        <td className="p-4 text-sm text-slate-500">
+                          {new Date(lead.created_at).toLocaleDateString()}
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
 
@@ -684,6 +686,7 @@ function Card({ title, value }: { title: string; value: number }) {
   return (
     <div className="rounded-3xl bg-white p-5 shadow">
       <p className="text-sm text-slate-500">{title}</p>
+
       <h3 className="mt-2 text-3xl font-bold text-slate-900">{value}</h3>
     </div>
   );
