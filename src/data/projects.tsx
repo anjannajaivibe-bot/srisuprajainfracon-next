@@ -49,7 +49,7 @@ export const projects: Project[] = [
       "Supraja IRIS Resort Plots at Kamkole near Woxsen University with Lemon Tree Resort under construction",
 
     highlights: [
-      "DTCP & RERA Approved Open Plots",
+      "Adjacent to Woxsen University",
       "High Return on Investment (ROI) Growth corridor near NIMZ Zaheerabad",
       "Sales Open for Limited Plotted Inventory",
       "350 Acres Resort Style Master Plan",
@@ -87,7 +87,7 @@ export const projects: Project[] = [
       "Bridge County DTCP and RERA approved open plots at Kamkole near Woxsen University",
 
     highlights: [
-      "DTCP & RERA approved open plots",
+      "Premium Plots at 13,500 per sq. yard",
       "Sales open for premium plotted units",
       "15-acre luxury plotted layout",
       "211 well-planned open plots",
@@ -122,7 +122,7 @@ export const projects: Project[] = [
       "Sindhu Sarovar DTCP and RERA approved open plots at Mominpet",
 
     highlights: [
-      "DTCP & RERA approved open plots",
+      "100% Vastu Plots",
       "Sales Open Now",
       "Plot sizes from 150 to 569 sq. yards",
       "Gated community with compound wall",
