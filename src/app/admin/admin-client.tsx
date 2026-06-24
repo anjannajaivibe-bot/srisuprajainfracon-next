@@ -142,10 +142,7 @@ export default function AdminClient() {
     const lead = leads.find((item) => item.id === id);
     if (!lead) return;
 
-    const updatedLead = {
-      ...lead,
-      ...updates,
-    };
+    const updatedLead = { ...lead, ...updates };
 
     setLeads((current) =>
       current.map((item) => (item.id === id ? updatedLead : item))
@@ -153,9 +150,7 @@ export default function AdminClient() {
 
     await fetch("/api/leads", {
       method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         id,
         status: updatedLead.status,
@@ -186,9 +181,7 @@ export default function AdminClient() {
     await fetch("/api/leads", {
       method: "PATCH",
       keepalive: true,
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         id,
         status: updatedLead.status,
@@ -229,13 +222,10 @@ export default function AdminClient() {
       } ${lead.assigned_to || ""}`.toLowerCase();
 
       const matchesSearch = searchText.includes(search.toLowerCase());
-
       const matchesStatus =
         statusFilter === "All" || lead.status === statusFilter;
-
       const matchesProject =
         projectFilter === "All" || lead.project === projectFilter;
-
       const matchesAssignee =
         assigneeFilter === "All" || lead.assigned_to === assigneeFilter;
 
@@ -310,9 +300,7 @@ export default function AdminClient() {
       "\n"
     );
 
-    const blob = new Blob([csv], {
-      type: "text/csv;charset=utf-8;",
-    });
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
 
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
@@ -321,10 +309,7 @@ export default function AdminClient() {
   };
 
   const logout = async () => {
-    await fetch("/api/admin-logout", {
-      method: "POST",
-    });
-
+    await fetch("/api/admin-logout", { method: "POST" });
     window.location.href = "/admin/login";
   };
 
@@ -379,13 +364,13 @@ export default function AdminClient() {
             </div>
 
             {userRole === "admin" && (
-  <button
-    onClick={exportCSV}
-    className="rounded-xl bg-[#C9A227] px-5 py-3 font-semibold text-[#0B1633]"
-  >
-    Export CSV
-  </button>
-)}
+              <button
+                onClick={exportCSV}
+                className="rounded-xl bg-[#C9A227] px-5 py-3 font-semibold text-[#0B1633]"
+              >
+                Export CSV
+              </button>
+            )}
 
             <button
               onClick={logout}
@@ -397,7 +382,10 @@ export default function AdminClient() {
         </div>
 
         <div className="mb-8 grid gap-4 sm:grid-cols-4 xl:grid-cols-8">
-          <Card title={userRole === "admin" ? "Total" : "My Leads"} value={stats.total} />
+          <Card
+            title={userRole === "admin" ? "Total" : "My Leads"}
+            value={stats.total}
+          />
           <Card title="Today" value={stats.today} />
           <Card title="7 Days" value={stats.week} />
           <Card title="30 Days" value={stats.month} />
@@ -449,19 +437,20 @@ export default function AdminClient() {
           </select>
 
           {userRole === "admin" && (
-  <select
-    value={assigneeFilter}
-    onChange={(e) => setAssigneeFilter(e.target.value)}
-    className="rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-[#C9A227]"
-  >
-    <option value="All">All Assignees</option>
-    {salesTeam.map((person) => (
-      <option key={person} value={person}>
-        {person}
-      </option>
-    ))}
-  </select>
-)}
+            <select
+              value={assigneeFilter}
+              onChange={(e) => setAssigneeFilter(e.target.value)}
+              className="rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-[#C9A227]"
+            >
+              <option value="All">All Assignees</option>
+              {salesTeam.map((person) => (
+                <option key={person} value={person}>
+                  {person}
+                </option>
+              ))}
+            </select>
+          )}
+        </div>
 
         <div className="overflow-hidden rounded-3xl bg-white shadow">
           <div className="border-b p-5">
@@ -530,29 +519,29 @@ export default function AdminClient() {
                         <td className="p-4">{lead.project || "General"}</td>
 
                         <td className="p-4">
-  {userRole === "admin" ? (
-    <select
-      value={lead.assigned_to || ""}
-      onChange={(e) =>
-        updateLead(lead.id, {
-          assigned_to: e.target.value || null,
-        })
-      }
-      className="rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none focus:border-[#C9A227]"
-    >
-      <option value="">Unassigned</option>
-      {salesTeam.map((person) => (
-        <option key={person} value={person}>
-          {person}
-        </option>
-      ))}
-    </select>
-  ) : (
-    <span className="rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700">
-      {lead.assigned_to || "Unassigned"}
-    </span>
-  )}
-</td>
+                          {userRole === "admin" ? (
+                            <select
+                              value={lead.assigned_to || ""}
+                              onChange={(e) =>
+                                updateLead(lead.id, {
+                                  assigned_to: e.target.value || null,
+                                })
+                              }
+                              className="rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none focus:border-[#C9A227]"
+                            >
+                              <option value="">Unassigned</option>
+                              {salesTeam.map((person) => (
+                                <option key={person} value={person}>
+                                  {person}
+                                </option>
+                              ))}
+                            </select>
+                          ) : (
+                            <span className="rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700">
+                              {lead.assigned_to || "Unassigned"}
+                            </span>
+                          )}
+                        </td>
 
                         <td className="p-4">
                           <select
@@ -742,7 +731,6 @@ function Card({ title, value }: { title: string; value: number }) {
   return (
     <div className="rounded-3xl bg-white p-5 shadow">
       <p className="text-sm text-slate-500">{title}</p>
-
       <h3 className="mt-2 text-3xl font-bold text-slate-900">{value}</h3>
     </div>
   );
