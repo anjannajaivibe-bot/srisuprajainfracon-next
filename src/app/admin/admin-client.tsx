@@ -378,12 +378,14 @@ export default function AdminClient() {
               </p>
             </div>
 
-            <button
-              onClick={exportCSV}
-              className="rounded-xl bg-[#C9A227] px-5 py-3 font-semibold text-[#0B1633]"
-            >
-              Export CSV
-            </button>
+            {userRole === "admin" && (
+  <button
+    onClick={exportCSV}
+    className="rounded-xl bg-[#C9A227] px-5 py-3 font-semibold text-[#0B1633]"
+  >
+    Export CSV
+  </button>
+)}
 
             <button
               onClick={logout}
@@ -395,7 +397,7 @@ export default function AdminClient() {
         </div>
 
         <div className="mb-8 grid gap-4 sm:grid-cols-4 xl:grid-cols-8">
-          <Card title="Total" value={stats.total} />
+          <Card title={userRole === "admin" ? "Total" : "My Leads"} value={stats.total} />
           <Card title="Today" value={stats.today} />
           <Card title="7 Days" value={stats.week} />
           <Card title="30 Days" value={stats.month} />
@@ -446,19 +448,20 @@ export default function AdminClient() {
             ))}
           </select>
 
-          <select
-            value={assigneeFilter}
-            onChange={(e) => setAssigneeFilter(e.target.value)}
-            className="rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-[#C9A227]"
-          >
-            <option value="All">All Assignees</option>
-            {salesTeam.map((person) => (
-              <option key={person} value={person}>
-                {person}
-              </option>
-            ))}
-          </select>
-        </div>
+          {userRole === "admin" && (
+  <select
+    value={assigneeFilter}
+    onChange={(e) => setAssigneeFilter(e.target.value)}
+    className="rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-[#C9A227]"
+  >
+    <option value="All">All Assignees</option>
+    {salesTeam.map((person) => (
+      <option key={person} value={person}>
+        {person}
+      </option>
+    ))}
+  </select>
+)}
 
         <div className="overflow-hidden rounded-3xl bg-white shadow">
           <div className="border-b p-5">
