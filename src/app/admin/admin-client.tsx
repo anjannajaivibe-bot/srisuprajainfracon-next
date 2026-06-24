@@ -36,7 +36,20 @@ const statuses = [
   "Not Interested",
 ];
 
-const salesTeam = ["Anjanna", "Sahiti", "Praveen", "Sales Manager"];
+const salesTeam = [
+  "Anjanna",
+  "Rodda Ranganath",
+  "Rama Chary",
+  "Rama Krishna Guntu",
+  "Rama Krishna G",
+  "Tirupati",
+  "Nageshwara Rao",
+  "Ravindra Pala",
+  "Arja Vijay Kumar",
+  "Munnur Ravinder",
+  "Yalla Srikanth",
+  "Ganesh",
+];
 
 const projects = [
   "Contact Page",

@@ -1,10 +1,29 @@
 import { NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
 
-const salesTeam = ["Anjanna", "Sahiti", "Praveen", "Sales Manager"];
+const salesTeam = [
+  { name: "Rodda Ranganath", email: "rodda.ranganath@supraja.com" },
+  { name: "Rama Chary", email: "rama.chary@supraja.com" },
+  { name: "Rama Krishna Guntu", email: "rama.krishna.guntu@supraja.com" },
+  { name: "Rama Krishna G", email: "rama.krishna.g@supraja.com" },
+  { name: "Tirupati", email: "tirupati@supraja.com" },
+  { name: "Nageshwara Rao", email: "nageshwara.rao@supraja.com" },
+  { name: "Ravindra Pala", email: "ravindra.pala@supraja.com" },
+  { name: "Arja Vijay Kumar", email: "arja.vijay.kumar@supraja.com" },
+  { name: "Munnur Ravinder", email: "munnur.ravinder@supraja.com" },
+  { name: "Yalla Srikanth", email: "yalla.srikanth@supraja.com" },
+  { name: "Ganesh", email: "ganesh@supraja.com" },
+];
 
 function cleanPhoneNumber(phone: string) {
   return phone.replace(/\D/g, "");
+}
+
+function getAssigneeEmail(name: string | null) {
+  if (!name) return null;
+  if (name === "Anjanna") return "anjan@supraja.com";
+
+  return salesTeam.find((person) => person.name === name)?.email || null;
 }
 
 async function getNextAssignee() {
@@ -32,7 +51,7 @@ async function findDuplicateLead(phone: string) {
 
   const { data } = await supabaseAdmin
     .from("leads")
-    .select("id, name, phone, assigned_to, created_at")
+    .select("id, name, phone, assigned_to, assigned_email, created_at")
     .ilike("phone", `%${cleanPhone.slice(-10)}%`)
     .order("created_at", { ascending: false })
     .limit(1)
@@ -60,7 +79,10 @@ export async function GET() {
     const { data: activities } = await supabaseAdmin
       .from("lead_activities")
       .select("*")
-      .in("lead_id", leadIds.length ? leadIds : ["00000000-0000-0000-0000-000000000000"])
+      .in(
+        "lead_id",
+        leadIds.length ? leadIds : ["00000000-0000-0000-0000-000000000000"]
+      )
       .order("created_at", { ascending: false });
 
     const leadsWithActivities = (leads || []).map((lead) => ({
@@ -101,7 +123,11 @@ export async function POST(request: Request) {
     }
 
     const duplicateLead = await findDuplicateLead(phone);
-    const assigned_to = duplicateLead?.assigned_to || (await getNextAssignee());
+    const nextAssignee = await getNextAssignee();
+
+    const assigned_to = duplicateLead?.assigned_to || nextAssignee.name;
+    const assigned_email =
+      duplicateLead?.assigned_email || getAssigneeEmail(assigned_to);
 
     const { data, error } = await supabaseAdmin
       .from("leads")
@@ -115,6 +141,7 @@ export async function POST(request: Request) {
           source,
           status: duplicateLead ? "Follow-up" : "New",
           assigned_to,
+          assigned_email,
           duplicate_of: duplicateLead?.id || null,
         },
       ])
@@ -157,7 +184,7 @@ export async function PATCH(request: Request) {
     const assigned_to = String(body.assigned_to || "").trim();
     const follow_up_date = body.follow_up_date || null;
     const last_contacted_at = body.last_contacted_at || null;
-const contact_method = String(body.contact_method || "").trim();
+    const contact_method = String(body.contact_method || "").trim();
 
     if (!id) {
       return NextResponse.json(
@@ -172,6 +199,8 @@ const contact_method = String(body.contact_method || "").trim();
       .eq("id", id)
       .single();
 
+    const assigned_email = getAssigneeEmail(assigned_to);
+
     const { data, error } = await supabaseAdmin
       .from("leads")
       .update({
@@ -179,6 +208,7 @@ const contact_method = String(body.contact_method || "").trim();
         notes: notes || null,
         follow_up_date,
         assigned_to: assigned_to || null,
+        assigned_email,
         last_contacted_at,
       })
       .eq("id", id)
@@ -193,7 +223,10 @@ const contact_method = String(body.contact_method || "").trim();
     }
 
     if (previousLead?.status !== data.status) {
-      await addActivity(id, `Status changed from ${previousLead?.status || "None"} to ${data.status}.`);
+      await addActivity(
+        id,
+        `Status changed from ${previousLead?.status || "None"} to ${data.status}.`
+      );
     }
 
     if (previousLead?.assigned_to !== data.assigned_to) {
@@ -219,13 +252,11 @@ const contact_method = String(body.contact_method || "").trim();
     }
 
     if (last_contacted_at) {
-  await addActivity(
-    id,
-    contact_method
-      ? `Lead contacted via ${contact_method}.`
-      : "Lead contacted."
-  );
-}
+      await addActivity(
+        id,
+        contact_method ? `Lead contacted via ${contact_method}.` : "Lead contacted."
+      );
+    }
 
     return NextResponse.json({
       success: true,
