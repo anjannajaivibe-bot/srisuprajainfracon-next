@@ -85,3 +85,18 @@ export async function POST(request: Request) {
     );
   }
 }
+if (authError || !authData.user) {
+  return NextResponse.json(
+    {
+      success: false,
+      message: "Invalid email or password.",
+      debug: {
+        authErrorMessage: authError?.message || null,
+        authErrorCode: authError?.code || null,
+        supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL || null,
+        hasAnonKey: Boolean(process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY),
+      },
+    },
+    { status: 401 }
+  );
+}
