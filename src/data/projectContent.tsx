@@ -4,7 +4,7 @@ export const projectContent = {
       "Supraja IRIS Resort Plots is a DTCP & RERA approved resort-style plotted development at Kamkole near Sangareddy. The project is planned across a 350-acre master plan with open plots, villa plot options, Lemon Tree Resort under construction, planned water villas, water theme park, amusement park, go-karting and destination wedding infrastructure. Sales are open now for buyers looking for premium open plots near Hyderabad with strong high Return on Investment (ROI) Growth potential.",
 
     amenities: [
-      "DTCP & RERA approved open plots",
+      "Premium Plots at just 13,500 per sq yard",
       "Sales open for limited plotted inventory",
       "80, 60, 40 & 33 feet black top roads",
       "Underground electricity with street lighting",
@@ -74,7 +74,7 @@ export const projectContent = {
       "Bridge County is a DTCP & RERA approved luxury open plot development at Kamkole by Sri Supraja Infracon. Spread across 15 acres with 211 well-planned plotted units, the project offers premium infrastructure, clear title, sales open status and strong high ROI potential near Woxsen University, NH-65 and the NIMZ Zaheerabad growth corridor.",
 
     amenities: [
-      "DTCP & RERA approved project",
+      "Limited time offer. 13,500 per sq yard",
       "Sales open for premium plotted units",
       "24 hours security",
       "100% Vastu compliant plots",
@@ -141,7 +141,6 @@ export const projectContent = {
       "Sindhu Sarovar is a DTCP & RERA approved plotted development at Mominpet offering premium open plots with gated community infrastructure, planned parks, wide roads and strong appreciation potential. Plot sizes range from 150 to 569 square yards, with sales open for selected plot options.",
 
     amenities: [
-      "DTCP & RERA approved open plots",
       "Sales Open Now",
       "Gated community with compound wall",
       "100 feet road connectivity",
