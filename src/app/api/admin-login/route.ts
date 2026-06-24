@@ -1,33 +1,87 @@
 import { NextResponse } from "next/server";
+import { createClient } from "@supabase/supabase-js";
+import { supabaseAdmin } from "@/lib/supabase";
+
+const supabaseAuth = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
 
 export async function POST(request: Request) {
-  const body = await request.json();
+  try {
+    const body = await request.json();
 
-  const username = String(body.username || "").trim();
-  const password = String(body.password || "").trim();
+    const email = String(body.email || "").trim().toLowerCase();
+    const password = String(body.password || "").trim();
 
-  if (
-    username !== process.env.ADMIN_USERNAME ||
-    password !== process.env.ADMIN_PASSWORD
-  ) {
+    if (!email || !password) {
+      return NextResponse.json(
+        { success: false, message: "Email and password are required." },
+        { status: 400 }
+      );
+    }
+
+    const { data: authData, error: authError } =
+      await supabaseAuth.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+    if (authError || !authData.user) {
+      return NextResponse.json(
+        { success: false, message: "Invalid email or password." },
+        { status: 401 }
+      );
+    }
+
+    const { data: crmUser, error: userError } = await supabaseAdmin
+      .from("users")
+      .select("name, email, role")
+      .eq("email", email)
+      .single();
+
+    if (userError || !crmUser) {
+      return NextResponse.json(
+        { success: false, message: "User is not allowed to access CRM." },
+        { status: 403 }
+      );
+    }
+
+    const response = NextResponse.json({
+      success: true,
+      message: "Login successful.",
+      user: crmUser,
+    });
+
+    response.cookies.set("supraja_admin_auth", "true", {
+      httpOnly: true,
+      sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
+      path: "/",
+      maxAge: 60 * 60 * 8,
+    });
+
+    response.cookies.set("supraja_user_email", crmUser.email, {
+      httpOnly: true,
+      sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
+      path: "/",
+      maxAge: 60 * 60 * 8,
+    });
+
+    response.cookies.set("supraja_user_role", crmUser.role, {
+      httpOnly: true,
+      sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
+      path: "/",
+      maxAge: 60 * 60 * 8,
+    });
+
+    return response;
+  } catch {
     return NextResponse.json(
-      { success: false, message: "Invalid username or password." },
-      { status: 401 }
+      { success: false, message: "Login failed." },
+      { status: 500 }
     );
   }
-
-  const response = NextResponse.json({
-    success: true,
-    message: "Login successful.",
-  });
-
-  response.cookies.set("supraja_admin_auth", "true", {
-    httpOnly: true,
-    sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
-    path: "/",
-    maxAge: 60 * 60 * 8,
-  });
-
-  return response;
 }

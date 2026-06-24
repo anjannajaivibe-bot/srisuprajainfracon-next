@@ -51,6 +51,21 @@ const salesTeam = [
   "Ganesh",
 ];
 
+const userMap: Record<string, string> = {
+  "anjan@supraja.com": "Anjanna",
+  "rodda.ranganath@supraja.com": "Rodda Ranganath",
+  "rama.chary@supraja.com": "Rama Chary",
+  "rama.krishna.guntu@supraja.com": "Rama Krishna Guntu",
+  "rama.krishna.g@supraja.com": "Rama Krishna G",
+  "tirupati@supraja.com": "Tirupati",
+  "nageshwara.rao@supraja.com": "Nageshwara Rao",
+  "ravindra.pala@supraja.com": "Ravindra Pala",
+  "arja.vijay.kumar@supraja.com": "Arja Vijay Kumar",
+  "munnur.ravinder@supraja.com": "Munnur Ravinder",
+  "yalla.srikanth@supraja.com": "Yalla Srikanth",
+  "ganesh@supraja.com": "Ganesh",
+};
+
 const projects = [
   "Contact Page",
   "General Enquiry",
@@ -86,6 +101,8 @@ export default function AdminClient() {
   const [projectFilter, setProjectFilter] = useState("All");
   const [assigneeFilter, setAssigneeFilter] = useState("All");
   const [openTimeline, setOpenTimeline] = useState<string | null>(null);
+  const [userName, setUserName] = useState("User");
+  const [userRole, setUserRole] = useState("sales");
 
   const fetchLeads = async () => {
     try {
@@ -94,6 +111,11 @@ export default function AdminClient() {
 
       if (data.success) {
         setLeads(data.leads || []);
+
+        if (data.user?.email) {
+          setUserName(userMap[data.user.email] || data.user.name || "User");
+          setUserRole(data.user.role || "sales");
+        }
       }
     } finally {
       setLoading(false);
@@ -343,7 +365,19 @@ export default function AdminClient() {
             <p className="mt-1 text-slate-600">Lead Management Dashboard</p>
           </div>
 
-          <div className="flex gap-3">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="rounded-2xl border border-[#C9A227]/30 bg-white px-5 py-3 shadow-sm">
+              <p className="text-xs uppercase tracking-wide text-slate-500">
+                Welcome
+              </p>
+
+              <p className="font-semibold text-[#0B1633]">{userName}</p>
+
+              <p className="text-xs font-medium capitalize text-[#C9A227]">
+                {userRole}
+              </p>
+            </div>
+
             <button
               onClick={exportCSV}
               className="rounded-xl bg-[#C9A227] px-5 py-3 font-semibold text-[#0B1633]"

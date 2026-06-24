@@ -7,7 +7,7 @@ export default function LoginClient() {
   const router = useRouter();
 
   const [form, setForm] = useState({
-    username: "",
+    email: "",
     password: "",
   });
 
@@ -46,9 +46,7 @@ export default function LoginClient() {
       router.refresh();
     } catch (err) {
       setError(
-        err instanceof Error
-          ? err.message
-          : "Invalid username or password."
+        err instanceof Error ? err.message : "Invalid email or password."
       );
     } finally {
       setLoading(false);
@@ -59,7 +57,7 @@ export default function LoginClient() {
     <main className="flex min-h-screen items-center justify-center bg-slate-100 px-4">
       <div className="w-full max-w-md rounded-[32px] bg-white p-8 shadow-xl">
         <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
-          Admin Login
+          CRM Login
         </p>
 
         <h1 className="mb-2 font-display text-3xl font-bold text-[#0B1633]">
@@ -67,21 +65,22 @@ export default function LoginClient() {
         </h1>
 
         <p className="mb-8 text-sm text-slate-500">
-          Login to manage website leads and enquiries.
+          Login to manage assigned website leads and enquiries.
         </p>
 
         <form onSubmit={handleLogin} className="grid gap-5">
           <div>
             <label className="mb-2 block font-semibold text-slate-900">
-              Username
+              Email
             </label>
 
             <input
-              name="username"
-              value={form.username}
+              name="email"
+              type="email"
+              value={form.email}
               onChange={updateField}
               required
-              placeholder="Enter username"
+              placeholder="Enter email"
               className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-[#C9A227]"
             />
           </div>

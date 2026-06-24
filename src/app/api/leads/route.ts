@@ -1,5 +1,8 @@
+import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
+
+const adminEmail = "anjan@supraja.com";
 
 const salesTeam = [
   { name: "Rodda Ranganath", email: "rodda.ranganath@supraja.com" },
@@ -21,9 +24,23 @@ function cleanPhoneNumber(phone: string) {
 
 function getAssigneeEmail(name: string | null) {
   if (!name) return null;
-  if (name === "Anjanna") return "anjan@supraja.com";
-
+  if (name === "Anjanna") return adminEmail;
   return salesTeam.find((person) => person.name === name)?.email || null;
+}
+
+async function getLoggedInUser() {
+  const cookieStore = await cookies();
+
+  const isLoggedIn = cookieStore.get("supraja_admin_auth")?.value === "true";
+  const email = cookieStore.get("supraja_user_email")?.value || "";
+  const role = cookieStore.get("supraja_user_role")?.value || "";
+
+  return {
+    isLoggedIn,
+    email,
+    role,
+    isAdmin: email === adminEmail || role === "admin",
+  };
 }
 
 async function getNextAssignee() {
@@ -36,17 +53,11 @@ async function getNextAssignee() {
 }
 
 async function addActivity(leadId: string, activity: string) {
-  await supabaseAdmin.from("lead_activities").insert([
-    {
-      lead_id: leadId,
-      activity,
-    },
-  ]);
+  await supabaseAdmin.from("lead_activities").insert([{ lead_id: leadId, activity }]);
 }
 
 async function findDuplicateLead(phone: string) {
   const cleanPhone = cleanPhoneNumber(phone);
-
   if (!cleanPhone) return null;
 
   const { data } = await supabaseAdmin
@@ -62,10 +73,25 @@ async function findDuplicateLead(phone: string) {
 
 export async function GET() {
   try {
-    const { data: leads, error } = await supabaseAdmin
+    const user = await getLoggedInUser();
+
+    if (!user.isLoggedIn || !user.email) {
+      return NextResponse.json(
+        { success: false, message: "Unauthorized." },
+        { status: 401 }
+      );
+    }
+
+    let query = supabaseAdmin
       .from("leads")
       .select("*")
       .order("created_at", { ascending: false });
+
+    if (!user.isAdmin) {
+      query = query.eq("assigned_email", user.email);
+    }
+
+    const { data: leads, error } = await query;
 
     if (error) {
       return NextResponse.json(
@@ -93,9 +119,13 @@ export async function GET() {
     }));
 
     return NextResponse.json({
-      success: true,
-      leads: leadsWithActivities,
-    });
+  success: true,
+  leads: leadsWithActivities,
+  user: {
+    email: user.email,
+    role: user.role,
+  },
+});
   } catch {
     return NextResponse.json(
       { success: false, message: "Unable to fetch leads." },
@@ -162,10 +192,7 @@ export async function POST(request: Request) {
         : `Lead created and assigned to ${assigned_to}.`
     );
 
-    return NextResponse.json({
-      success: true,
-      lead: data,
-    });
+    return NextResponse.json({ success: true, lead: data });
   } catch {
     return NextResponse.json(
       { success: false, message: "Something went wrong." },
@@ -176,6 +203,15 @@ export async function POST(request: Request) {
 
 export async function PATCH(request: Request) {
   try {
+    const user = await getLoggedInUser();
+
+    if (!user.isLoggedIn || !user.email) {
+      return NextResponse.json(
+        { success: false, message: "Unauthorized." },
+        { status: 401 }
+      );
+    }
+
     const body = await request.json();
 
     const id = String(body.id || "").trim();
@@ -193,13 +229,28 @@ export async function PATCH(request: Request) {
       );
     }
 
-    const { data: previousLead } = await supabaseAdmin
-      .from("leads")
-      .select("*")
-      .eq("id", id)
-      .single();
+    let previousLeadQuery = supabaseAdmin.from("leads").select("*").eq("id", id);
 
-    const assigned_email = getAssigneeEmail(assigned_to);
+    if (!user.isAdmin) {
+      previousLeadQuery = previousLeadQuery.eq("assigned_email", user.email);
+    }
+
+    const { data: previousLead } = await previousLeadQuery.single();
+
+    if (!previousLead) {
+      return NextResponse.json(
+        { success: false, message: "Lead not found or access denied." },
+        { status: 403 }
+      );
+    }
+
+    const assigned_email = user.isAdmin
+      ? getAssigneeEmail(assigned_to)
+      : previousLead.assigned_email;
+
+    const finalAssignedTo = user.isAdmin
+      ? assigned_to || null
+      : previousLead.assigned_to;
 
     const { data, error } = await supabaseAdmin
       .from("leads")
@@ -207,7 +258,7 @@ export async function PATCH(request: Request) {
         status: status || "New",
         notes: notes || null,
         follow_up_date,
-        assigned_to: assigned_to || null,
+        assigned_to: finalAssignedTo,
         assigned_email,
         last_contacted_at,
       })
@@ -258,10 +309,7 @@ export async function PATCH(request: Request) {
       );
     }
 
-    return NextResponse.json({
-      success: true,
-      lead: data,
-    });
+    return NextResponse.json({ success: true, lead: data });
   } catch {
     return NextResponse.json(
       { success: false, message: "Unable to update lead." },
