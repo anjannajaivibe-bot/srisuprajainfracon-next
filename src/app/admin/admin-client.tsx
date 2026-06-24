@@ -527,23 +527,29 @@ export default function AdminClient() {
                         <td className="p-4">{lead.project || "General"}</td>
 
                         <td className="p-4">
-                          <select
-                            value={lead.assigned_to || ""}
-                            onChange={(e) =>
-                              updateLead(lead.id, {
-                                assigned_to: e.target.value || null,
-                              })
-                            }
-                            className="rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none focus:border-[#C9A227]"
-                          >
-                            <option value="">Unassigned</option>
-                            {salesTeam.map((person) => (
-                              <option key={person} value={person}>
-                                {person}
-                              </option>
-                            ))}
-                          </select>
-                        </td>
+  {userRole === "admin" ? (
+    <select
+      value={lead.assigned_to || ""}
+      onChange={(e) =>
+        updateLead(lead.id, {
+          assigned_to: e.target.value || null,
+        })
+      }
+      className="rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none focus:border-[#C9A227]"
+    >
+      <option value="">Unassigned</option>
+      {salesTeam.map((person) => (
+        <option key={person} value={person}>
+          {person}
+        </option>
+      ))}
+    </select>
+  ) : (
+    <span className="rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700">
+      {lead.assigned_to || "Unassigned"}
+    </span>
+  )}
+</td>
 
                         <td className="p-4">
                           <select
