@@ -174,6 +174,86 @@ const fallbackGallery = {
   altPrefix: "Sri Supraja Infracon project gallery",
 };
 
+const galleryCategoryMap: Record<string, string[]> = {
+  "supraja-iris": [
+    "Entrance",
+    "Lifestyle",
+    "Resort",
+    "Infrastructure",
+    "Open Spaces",
+    "Planning",
+    "Community",
+  ],
+
+  "supraja-iris-resort-plots": [
+    "Resort",
+    "Resort",
+    "Lifestyle",
+    "Location",
+    "Lifestyle",
+    "Amenities",
+    "Amenities",
+  ],
+
+  "bridge-county": [
+    "Resort",
+    "Resort",
+    "Lifestyle",
+    "Location",
+    "Lifestyle",
+    "Amenities",
+    "Amenities",
+    "Community",
+    "Entrance",
+    "Infrastructure",
+    "Open Spaces",
+    "Planning",
+  ],
+
+  "sindhu-sarovar": [
+    "Entrance",
+    "Infrastructure",
+    "Open Spaces",
+    "Lifestyle",
+    "Planning",
+    "Layout",
+  ],
+
+  "subhash-meadows": [
+    "Entrance",
+    "Infrastructure",
+    "Open Spaces",
+    "Connectivity",
+    "Location",
+    "Planning",
+    "Map",
+  ],
+};
+
+const getCardClassName = (index: number, total: number) => {
+  if (index === 0) {
+    return "md:col-span-2 xl:col-span-2";
+  }
+
+  if (index === total - 1 && total > 5) {
+    return "md:col-span-2 xl:col-span-3";
+  }
+
+  return "";
+};
+
+const getImageHeightClassName = (index: number, total: number) => {
+  if (index === 0) {
+    return "h-[360px] md:h-[460px]";
+  }
+
+  if (index === total - 1 && total > 5) {
+    return "h-[300px] md:h-[390px]";
+  }
+
+  return "h-[300px] md:h-[340px]";
+};
+
 const ProjectGallery = ({ project }: Props) => {
   const content = projectContent[project.slug as keyof typeof projectContent];
   const copy = galleryCopy[project.slug] ?? fallbackGallery;
@@ -183,48 +263,97 @@ const ProjectGallery = ({ project }: Props) => {
   if (!gallery.length) return null;
 
   return (
-    <section className="bg-white px-6 py-24">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-14 text-center">
-          <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-amber-700">
-            Project Gallery
+    <section className="relative overflow-hidden bg-white px-4 py-24 sm:px-6 lg:py-28">
+      <div className="pointer-events-none absolute left-0 top-0 h-80 w-80 rounded-full bg-amber-100/40 blur-3xl" />
+      <div className="pointer-events-none absolute bottom-0 right-0 h-96 w-96 rounded-full bg-slate-100 blur-3xl" />
+
+      <div className="relative mx-auto max-w-7xl">
+        <div className="mx-auto mb-14 max-w-4xl text-center">
+          <p className="mb-4 text-xs font-extrabold uppercase tracking-[0.45em] text-amber-700">
+            Project Visuals
           </p>
 
-          <h2 className="mx-auto max-w-4xl text-4xl font-extrabold leading-tight text-slate-950 md:text-5xl">
+          <div className="mx-auto mb-5 h-px w-20 bg-amber-600/60" />
+
+          <h2 className="font-display text-4xl font-extrabold leading-tight text-slate-950 md:text-5xl lg:text-6xl">
             {copy.title}
           </h2>
 
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-600">
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-slate-600 md:text-lg">
             {copy.intro}
           </p>
+
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            {["All", "Lifestyle", "Location", "Infrastructure", "Amenities"].map(
+              (item, index) => (
+                <span
+                  key={item}
+                  className={`rounded-full border px-5 py-3 text-xs font-bold uppercase tracking-[0.14em] transition ${
+                    index === 0
+                      ? "border-slate-950 bg-slate-950 text-white shadow-lg shadow-slate-950/15"
+                      : "border-slate-200 bg-white text-slate-600 shadow-sm"
+                  }`}
+                >
+                  {item}
+                </span>
+              ),
+            )}
+          </div>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {gallery.map((image, index) => {
             const overlayText =
               galleryOverlayText[project.slug]?.[index] ??
               `${copy.title} View ${index + 1}`;
 
+            const category =
+              galleryCategoryMap[project.slug]?.[index] ?? "Project View";
+
             return (
-              <div
+              <article
                 key={image}
-                className="group relative overflow-hidden rounded-[30px] bg-slate-100 shadow-lg"
+                className={`group relative overflow-hidden rounded-[30px] border border-slate-100 bg-white shadow-[0_18px_55px_rgba(15,23,42,0.10)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_28px_80px_rgba(15,23,42,0.16)] ${getCardClassName(
+                  index,
+                  gallery.length,
+                )}`}
               >
                 <SmartImage
                   src={image}
                   alt={`${copy.altPrefix} image ${index + 1}`}
-                  className="h-[320px] w-full transition-transform duration-500 group-hover:scale-105"
+                  className={`${getImageHeightClassName(
+                    index,
+                    gallery.length,
+                  )} w-full transition-transform duration-700 group-hover:scale-105`}
                   imageClassName="object-cover"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/35 to-transparent" />
 
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="mt-2 text-2xl font-extrabold leading-tight text-white">
+                <div className="absolute left-5 top-5">
+                  <span className="inline-flex items-center rounded-full border border-white/20 bg-white/15 px-4 py-2 text-[10px] font-extrabold uppercase tracking-[0.18em] text-white shadow-lg backdrop-blur-md">
+                    {category}
+                  </span>
+                </div>
+
+                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-7">
+                  <div className="mb-4 h-[2px] w-12 bg-amber-400" />
+
+                  <h3 className="max-w-xl text-2xl font-extrabold leading-tight text-white md:text-3xl">
                     {overlayText}
                   </h3>
+
+                  {index === 0 && (
+                    <p className="mt-3 max-w-2xl text-sm leading-6 text-white/80 md:text-base">
+                      A premium visual highlight from the project environment.
+                    </p>
+                  )}
                 </div>
-              </div>
+
+                <div className="absolute bottom-6 right-6 hidden h-12 w-12 items-center justify-center rounded-full bg-white text-xl font-bold text-slate-950 shadow-xl transition duration-500 group-hover:scale-110 md:flex">
+                  →
+                </div>
+              </article>
             );
           })}
         </div>
