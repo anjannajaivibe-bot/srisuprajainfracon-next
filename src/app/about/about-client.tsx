@@ -543,6 +543,19 @@ export default function AboutClient() {
   </div>
 </section>
 
+const awards = [
+  "/About/Awards/Award%20Receipt.webp",
+  "/About/Awards/Award%20Receipt%202.webp",
+  "/About/Awards/Award%20Receipt%203.webp",
+  "/About/Awards/Award%20Receipt%204.webp",
+  "/About/Awards/Award%20Receipt%205.webp",
+  "/About/Awards/Award%20Receipt%206.webp",
+  "/About/Awards/Award%20Receipt%207.webp",
+  "/About/Awards/Award%20Receipt%208.webp",
+  "/About/Awards/Award%20Receipt%209.webp",
+  "/About/Awards/Award%20Receipt%2010.webp",
+];
+
 <section className="bg-white px-6 py-24">
   <div className="container-max">
     <div className="mx-auto max-w-4xl text-center">
@@ -550,7 +563,7 @@ export default function AboutClient() {
         Awards &amp; Recognitions
       </p>
 
-      <h2 className="text-3xl font-display font-bold text-[#111827] sm:text-4xl">
+      <h2 className="font-display text-3xl font-bold text-[#111827] sm:text-4xl">
         Recognized for Excellence, Trusted for Integrity
       </h2>
 
@@ -562,19 +575,29 @@ export default function AboutClient() {
     </div>
 
     <div className="mt-12 overflow-hidden">
-      <div className="flex gap-6 overflow-x-auto scroll-smooth pb-4">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
+      <div className="flex gap-6 overflow-x-auto scroll-smooth pb-5 [scrollbar-width:thin]">
+        {awards.map((image, index) => (
           <div
-            key={item}
-            className="min-w-[280px] rounded-[18px] border border-[#EFE7D3] bg-white p-4 shadow-[0_8px_30px_rgba(11,22,51,0.06)] md:min-w-[340px]"
+            key={image}
+            className="group min-w-[280px] overflow-hidden rounded-[22px] border border-[#EFE7D3] bg-white shadow-[0_12px_40px_rgba(11,22,51,0.08)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(11,22,51,0.14)] md:min-w-[360px]"
           >
-            <div className="flex h-[220px] items-center justify-center rounded-[14px] bg-[#F8F6F1]">
-              <Award className="text-[#C9A227]" size={42} />
+            <div className="relative h-[240px] overflow-hidden bg-[#F8F6F1] md:h-[280px]">
+              <img
+                src={image}
+                alt={`Sri Supraja Infracon award recognition ${index + 1}`}
+                className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+              />
             </div>
 
-            <p className="mt-4 text-center font-bold text-[#111827]">
-              Recognition {item}
-            </p>
+            <div className="p-5 text-center">
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#C9A227]">
+                Recognition {index + 1}
+              </p>
+
+              <h3 className="mt-2 font-display text-xl font-bold text-[#111827]">
+                Award &amp; Recognition
+              </h3>
+            </div>
           </div>
         ))}
       </div>
