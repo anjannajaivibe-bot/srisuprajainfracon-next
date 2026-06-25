@@ -191,8 +191,8 @@ const galleryCategoryMap: Record<string, string[]> = {
     "Lifestyle",
     "Location",
     "Lifestyle",
-    "Amenities",
-    "Amenities",
+    "Attractions",
+    "Attractions",
   ],
 
   "bridge-county": [
