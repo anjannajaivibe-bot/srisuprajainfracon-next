@@ -91,7 +91,7 @@ const suprajaIrisHighlights = [
   },
   {
     icon: ShieldCheck,
-    title: "DTCP & RERA Approved Development",
+    title: "DTCP & RERA Approved Project",
     description:
       "Transparent approvals that support confident ownership and investment clarity.",
   },
