@@ -4,25 +4,25 @@ import SmartImage from "@/components/shared/SmartImage";
 import Navbar from "@/components/layout/Navbar";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useRef } from "react";
 import {
-  Award,
   BookOpen,
   BriefcaseBusiness,
   Building2,
-  CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
   Drama,
-  Eye,
   HandHeart,
   HeartPulse,
   Landmark,
   MapPinned,
   ShieldCheck,
   Siren,
-  Target,
   Users,
 } from "lucide-react";
 import heroBg from "@/assets/hero-bg.webp";
 import ownerPhoto from "@/assets/tudi-praveen.webp";
+
 const awards = Array.from({ length: 10 }, (_, index) => ({
   title: `Recognition ${index + 1}`,
   image:
@@ -30,6 +30,7 @@ const awards = Array.from({ length: 10 }, (_, index) => ({
       ? "/About/Awards/Award Receipt.webp"
       : `/About/Awards/Award Receipt ${index + 1}.webp`,
 }));
+
 const socialWelfare = [
   {
     icon: BookOpen,
@@ -61,14 +62,6 @@ const socialWelfare = [
     title: "Cultural Development",
     desc: "Preserving traditions and encouraging cultural and social development.",
   },
-];
-const stats = [
-  { num: "24+", label: "Years of Legacy" },
-  { num: "4", label: "Active Project Pages" },
-  { num: "350", label: "Acres Master Plan at IRIS" },
-  { num: "4000", label: "Plotted Units Planned at IRIS" },
-  { num: "DTCP", label: "Approved Layout Focus" },
-  { num: "RERA", label: "Registered Project Focus" },
 ];
 
 const values = [
@@ -148,6 +141,17 @@ const organizationSchema = {
 };
 
 export default function AboutClient() {
+  const awardsScrollRef = useRef<HTMLDivElement>(null);
+
+  const scrollAwards = (direction: "left" | "right") => {
+    if (!awardsScrollRef.current) return;
+
+    awardsScrollRef.current.scrollBy({
+      left: direction === "left" ? -420 : 420,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       <script
@@ -159,466 +163,416 @@ export default function AboutClient() {
         <Navbar />
 
         <section className="relative overflow-hidden pb-24 pt-32 lg:pb-28">
-  <div
-    className="absolute inset-0 bg-cover bg-center"
-    style={{ backgroundImage: `url(${heroBg.src})` }}
-  />
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${heroBg.src})` }}
+          />
 
-  <div className="absolute inset-0 bg-gradient-to-r from-[#071531]/95 via-[#071531]/85 to-[#071531]/55" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#071531]/95 via-[#071531]/85 to-[#071531]/55" />
 
-  <div className="container-max relative px-4 sm:px-6 lg:px-8">
-    <div className="mx-auto max-w-7xl">
-      <div className="grid items-center gap-12 lg:grid-cols-[1fr_340px]">
+          <div className="container-max relative px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-7xl">
+              <div className="grid items-center gap-12 lg:grid-cols-[1fr_340px]">
+                <div>
+                  <motion.p
+                    initial={{ opacity: 0, y: 18 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mb-6 text-xs font-bold uppercase tracking-[0.35em] text-[#E8D7A5]"
+                  >
+                    About Sri Supraja Infracon
+                  </motion.p>
 
-        {/* LEFT CONTENT */}
-        <div>
-          <motion.p
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-6 text-xs font-bold uppercase tracking-[0.35em] text-[#E8D7A5]"
-          >
-            About Sri Supraja Infracon
-          </motion.p>
+                  <motion.h1
+                    initial={{ opacity: 0, y: 36 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="max-w-5xl font-display text-[42px] font-bold leading-[1.08] text-white md:text-[56px] lg:text-[72px]"
+                  >
+                    Over 24 Years of Building Trust,
+                    <br />
+                    <span className="text-[#C9A227]">Communities.</span>
+                    <br />
+                    <span className="text-[#C9A227]">Long-Term Value.</span>
+                  </motion.h1>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 36 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="max-w-5xl font-display text-[42px] font-bold leading-[1.08] text-white md:text-[56px] lg:text-[72px]"
-          >
-            Over 24 Years of Building Trust,
-            <br />
-            <span className="text-[#C9A227]">
-              Communities.
-            </span>
-            <br />
-            <span className="text-[#C9A227]">
-              Long-Term Value.
-            </span>
-          </motion.h1>
+                  <motion.p
+                    initial={{ opacity: 0, y: 18 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mt-8 max-w-3xl text-lg leading-relaxed text-slate-200"
+                  >
+                    Sri Supraja Infracon is a trusted real estate development
+                    company focused on approved layouts, planned infrastructure,
+                    and customer-first property development across Hyderabad and
+                    Telangana.
+                  </motion.p>
 
-          <motion.p
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mt-8 max-w-3xl text-lg leading-relaxed text-slate-200"
-          >
-            Sri Supraja Infracon is a trusted real estate development company
-            focused on approved layouts, planned infrastructure, and
-            customer-first property development across Hyderabad and Telangana.
-          </motion.p>
+                  <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    {[
+                      ["24+", "Years of Legacy"],
+                      ["10+", "Completed Projects"],
+                      ["DTCP & RERA", "Approved Developments"],
+                      ["5000+", "Happy Property Owners"],
+                    ].map(([num, label]) => (
+                      <div
+                        key={label}
+                        className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur"
+                      >
+                        <div className="text-3xl font-bold text-[#C9A227]">
+                          {num}
+                        </div>
+                        <div className="mt-1 text-sm text-slate-300">
+                          {label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
 
-          {/* TRUST METRICS */}
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
-              <div className="text-3xl font-bold text-[#C9A227]">
-                24+
+                <div className="hidden lg:block">
+                  <div className="rounded-[32px] border border-[#C9A227]/30 bg-white/5 p-8 backdrop-blur-xl">
+                    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#E8D7A5]">
+                      Building Since
+                    </p>
+
+                    <h2 className="mt-3 text-6xl font-bold text-[#C9A227]">
+                      2003
+                    </h2>
+
+                    <div className="my-8 h-px bg-white/10" />
+
+                    <div>
+                      <div className="text-5xl font-bold text-white">24+</div>
+                      <p className="mt-2 text-slate-300">Years of Legacy</p>
+                    </div>
+
+                    <div className="my-8 h-px bg-white/10" />
+
+                    <div className="space-y-4 text-slate-300">
+                      <p>✓ Multiple Completed Projects</p>
+                      <p>✓ Trusted Across Telangana</p>
+                      <p>✓ Customer-First Development</p>
+                      <p>✓ Long-Term Value Creation</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="mt-1 text-sm text-slate-300">
-                Years of Legacy
-              </div>
-            </div>
 
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
-              <div className="text-3xl font-bold text-[#C9A227]">
-                10+
-              </div>
-              <div className="mt-1 text-sm text-slate-300">
-                Completed Projects
-              </div>
-            </div>
+              <div className="mt-16 hidden rounded-[28px] border border-white/10 bg-white/5 p-8 backdrop-blur lg:block">
+                <div className="flex items-center justify-between text-center">
+                  <div>
+                    <div className="text-3xl font-bold text-[#C9A227]">
+                      2003
+                    </div>
+                    <div className="mt-2 text-sm text-slate-300">
+                      Foundation
+                    </div>
+                  </div>
 
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
-              <div className="text-3xl font-bold text-[#C9A227]">
-                DTCP &amp; RERA
-              </div>
-              <div className="mt-1 text-sm text-slate-300">
-                Approved Developments
-              </div>
-            </div>
+                  <div className="mx-6 h-px flex-1 bg-white/10" />
 
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
-              <div className="text-3xl font-bold text-[#C9A227]">
-                5000+
-              </div>
-              <div className="mt-1 text-sm text-slate-300">
-                Happy Property Owners
+                  <div>
+                    <div className="font-semibold text-white">
+                      Multiple Communities
+                    </div>
+                    <div className="mt-2 text-sm text-slate-300">
+                      Delivered
+                    </div>
+                  </div>
+
+                  <div className="mx-6 h-px flex-1 bg-white/10" />
+
+                  <div>
+                    <div className="font-semibold text-white">
+                      Continued Growth
+                    </div>
+                    <div className="mt-2 text-sm text-slate-300">
+                      Across Telangana
+                    </div>
+                  </div>
+
+                  <div className="mx-6 h-px flex-1 bg-white/10" />
+
+                  <div>
+                    <div className="text-3xl font-bold text-[#C9A227]">
+                      2026
+                    </div>
+                    <div className="mt-2 text-sm text-slate-300">
+                      Building the Future
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* RIGHT LEGACY CARD */}
-        <div className="hidden lg:block">
-          <div className="rounded-[32px] border border-[#C9A227]/30 bg-white/5 p-8 backdrop-blur-xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#E8D7A5]">
-              Building Since
-            </p>
-
-            <h2 className="mt-3 text-6xl font-bold text-[#C9A227]">
-              2003
-            </h2>
-
-            <div className="my-8 h-px bg-white/10" />
-
-            <div>
-              <div className="text-5xl font-bold text-white">
-                24+
-              </div>
-              <p className="mt-2 text-slate-300">
-                Years of Legacy
-              </p>
-            </div>
-
-            <div className="my-8 h-px bg-white/10" />
-
-            <div className="space-y-4 text-slate-300">
-              <p>✓ Multiple Completed Projects</p>
-              <p>✓ Trusted Across Telangana</p>
-              <p>✓ Customer-First Development</p>
-              <p>✓ Long-Term Value Creation</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* TIMELINE */}
-      <div className="mt-16 hidden rounded-[28px] border border-white/10 bg-white/5 p-8 backdrop-blur lg:block">
-        <div className="flex items-center justify-between text-center">
-          <div>
-            <div className="text-3xl font-bold text-[#C9A227]">
-              2003
-            </div>
-            <div className="mt-2 text-sm text-slate-300">
-              Foundation
-            </div>
-          </div>
-
-          <div className="mx-6 h-px flex-1 bg-white/10" />
-
-          <div>
-            <div className="font-semibold text-white">
-              Multiple Communities
-            </div>
-            <div className="mt-2 text-sm text-slate-300">
-              Delivered
-            </div>
-          </div>
-
-          <div className="mx-6 h-px flex-1 bg-white/10" />
-
-          <div>
-            <div className="font-semibold text-white">
-              Continued Growth
-            </div>
-            <div className="mt-2 text-sm text-slate-300">
-              Across Telangana
-            </div>
-          </div>
-
-          <div className="mx-6 h-px flex-1 bg-white/10" />
-
-          <div>
-            <div className="text-3xl font-bold text-[#C9A227]">
-              2026
-            </div>
-            <div className="mt-2 text-sm text-slate-300">
-              Building the Future
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+        </section>
 
         <section className="bg-white px-6 py-24">
-  <div className="container-max">
-    <div className="grid gap-12 lg:grid-cols-[380px_1fr] lg:items-start">
+          <div className="container-max">
+            <div className="grid gap-12 lg:grid-cols-[380px_1fr] lg:items-start">
+              <div>
+                <SmartImage
+                  src={ownerPhoto}
+                  alt="Tudi Praveen Chairman and Managing Director of Sri Supraja Infracon"
+                  className="h-[500px] w-full rounded-[12px] lg:h-[650px]"
+                  imageClassName="object-cover object-top"
+                />
+              </div>
 
-      {/* Left Column */}
-      <div>
-        <SmartImage
-          src={ownerPhoto}
-          alt="Tudi Praveen Chairman and Managing Director of Sri Supraja Infracon"
-          className="h-[500px] w-full rounded-[12px] lg:h-[650px]"
-          imageClassName="object-cover object-top"
-        />
-      </div>
+              <div className="max-w-4xl">
+                <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-[#C9A227]">
+                  CHAIRMAN&apos;S MESSAGE
+                </p>
 
-      {/* Right Column */}
-      <div className="max-w-4xl">
-        <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-[#C9A227]">
-          CHAIRMAN'S MESSAGE
-        </p>
+                <div className="space-y-5 text-[17px] leading-8 text-[#4B5563]">
+                  <p>
+                    “Over the past 24 years, Sri Supraja Infracon has grown
+                    with a simple belief: trust is the foundation of every
+                    successful development.”
+                  </p>
 
-        <div className="space-y-5 text-[17px] leading-8 text-[#4B5563]">
-          <p>
-            “Over the past 24 years, Sri Supraja Infracon has grown with a simple belief:
-            trust is the foundation of every successful development.”
-          </p>
+                  <p>
+                    What began as a vision to create quality communities has
+                    evolved into a mission to shape destinations that inspire
+                    growth, opportunity, and a better way of living.
+                  </p>
 
-          <p>
-            What began as a vision to create quality communities has evolved into a mission
-            to shape destinations that inspire growth, opportunity, and a better way of living.
-            Every project we undertake is built on trust, guided by quality, and driven by a
-            commitment to create lasting value for generations.
-          </p>
+                  <p>
+                    We have had the privilege of contributing to the growth of
+                    Hyderabad and Telangana through residential communities,
+                    approved layouts, plotted developments, and large-scale real
+                    estate ventures.
+                  </p>
 
-          <p>
-            We have had the privilege of contributing to the growth of Hyderabad and Telangana
-            through residential communities, approved layouts, plotted developments,
-            and large-scale real estate ventures. Our focus has always remained the same:
-            combining strategic locations, strong infrastructure, and future-ready planning to
-            create places people are proud to own and call their own.
-          </p>
+                  <p>
+                    Today, developments such as Supraja IRIS, Bridge County,
+                    Sindhu Sarovar, and Subhash Meadows represent the next
+                    chapter of our journey.
+                  </p>
 
-          <p>
-            Today, developments such as Supraja IRIS, Bridge County, Sindhu Sarovar,
-            and Subhash Meadows represent the next chapter of our journey.
-            More than projects, they are emerging destinations designed around connectivity,
-            lifestyle, and the aspirations of tomorrow.
-          </p>
+                  <p>
+                    As we look ahead, our commitment remains unwavering in
+                    upholding the highest standards of integrity, transparency,
+                    and customer trust.
+                  </p>
 
-          <p>
-            As we look ahead, our commitment remains unwavering in upholding the highest
-            standards of integrity, transparency, and customer trust while creating
-            developments that stand the test of time. I extend my heartfelt gratitude
-            to our customers, employees, partners, stakeholders, and well-wishers for
-            their continued faith and support. Together, we are shaping tomorrow's
-            landmarks today.
-          </p>
+                  <div className="pt-2">
+                    <p className="font-display text-xl font-semibold text-[#111827]">
+                      Tudi Praveen
+                    </p>
 
-          {/* Signature */}
-<div className="pt-2">
-  <p className="text-xl font-display font-semibold text-[#111827]">
-    Tudi Praveen
-  </p>
+                    <p className="mt-1 text-[15px] font-medium text-[#6B7280]">
+                      Chairman &amp; Managing Director
+                    </p>
 
-  <p className="mt-1 text-[15px] font-medium text-[#6B7280]">
-    Chairman &amp; Managing Director
-  </p>
-
-  <p className="text-[15px] text-[#6B7280]">
-    Sri Supraja Infracon
-  </p>
-</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+                    <p className="text-[15px] text-[#6B7280]">
+                      Sri Supraja Infracon
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section className="relative overflow-hidden bg-white px-6 py-24">
-  <div className="absolute left-0 top-24 h-72 w-72 rounded-full bg-[#2E7D32]/5 blur-3xl" />
-  <div className="absolute right-0 bottom-24 h-72 w-72 rounded-full bg-[#2E7D32]/5 blur-3xl" />
+          <div className="absolute left-0 top-24 h-72 w-72 rounded-full bg-[#2E7D32]/5 blur-3xl" />
+          <div className="absolute right-0 bottom-24 h-72 w-72 rounded-full bg-[#2E7D32]/5 blur-3xl" />
 
-  <div className="container-max relative">
-    <div className="mx-auto mb-14 max-w-4xl text-center">
-      <p className="mb-4 text-sm font-bold uppercase tracking-[0.32em] text-[#2E7D32]">
-        BEYOND REAL ESTATE
-      </p>
+          <div className="container-max relative">
+            <div className="mx-auto mb-14 max-w-4xl text-center">
+              <p className="mb-4 text-sm font-bold uppercase tracking-[0.32em] text-[#2E7D32]">
+                BEYOND REAL ESTATE
+              </p>
 
-      <div className="mx-auto mb-6 flex max-w-xs items-center justify-center gap-4">
-        <span className="h-px flex-1 bg-[#2E7D32]/35" />
-        <span className="h-2 w-2 rotate-45 border border-[#2E7D32]" />
-        <span className="h-px flex-1 bg-[#2E7D32]/35" />
-      </div>
+              <h2 className="font-display text-4xl font-bold leading-tight text-[#111827] md:text-6xl">
+                Creating Value Beyond Developments
+              </h2>
 
-      <h2 className="font-display text-4xl font-bold leading-tight text-[#111827] md:text-6xl">
-        Creating Value Beyond Developments
-      </h2>
-
-      <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-[#4B5563]">
-        Sri Supraja Infracon believes growth should benefit people,
-        communities, and future generations.
-      </p>
-    </div>
-
-    <div className="grid gap-7 lg:grid-cols-[1.05fr_2fr]">
-      <div className="relative overflow-hidden rounded-[28px] border border-[#0F5132]/30 bg-gradient-to-br from-[#0F5132] via-[#1B5E20] to-[#2E7D32] p-8 shadow-[0_20px_60px_rgba(15,81,50,0.25)] md:p-10">
-        <div className="absolute -left-10 -top-10 h-48 w-48 rounded-full bg-white/10 blur-3xl" />
-        <div className="absolute bottom-0 right-0 h-56 w-56 rounded-full bg-black/10 blur-3xl" />
-
-        <div className="relative">
-          <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-inner backdrop-blur-sm">
-            <HandHeart className="h-10 w-10 text-white" />
-          </div>
-
-          <h3 className="font-display text-3xl font-bold leading-tight text-white">
-            Community-First Growth
-          </h3>
-
-          <div className="my-6 h-px w-16 bg-white/45" />
-
-          <p className="text-[17px] leading-8 text-white/85">
-            Our commitment extends beyond developments to meaningful
-            contributions that create lasting social impact and stronger
-            communities.
-          </p>
-        </div>
-      </div>
-
-      <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-        {socialWelfare.map((item) => {
-          const Icon = item.icon;
-
-          return (
-            <div
-              key={item.title}
-              className="group rounded-[28px] border border-[#D6E7D8] bg-white p-7 shadow-[0_12px_38px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1 hover:border-[#2E7D32]/50 hover:shadow-[0_20px_55px_rgba(15,23,42,0.10)]"
-            >
-              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-[#C8DFC9] bg-[#F4FBF5] transition group-hover:bg-[#EAF6EC]">
-                <Icon className="h-8 w-8 text-[#2E7D32]" />
-              </div>
-
-              <h3 className="font-display text-xl font-bold text-[#111827]">
-                {item.title}
-              </h3>
-
-              <div className="my-4 h-px w-12 bg-[#2E7D32]" />
-
-              <p className="text-[15px] leading-7 text-[#4B5563]">
-                {item.desc}
+              <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-[#4B5563]">
+                Sri Supraja Infracon believes growth should benefit people,
+                communities, and future generations.
               </p>
             </div>
-          );
-        })}
-      </div>
-    </div>
-  </div>
-</section>
 
-<section className="bg-white px-6 py-24">
-  <div className="container-max">
-    <div className="mx-auto mb-16 max-w-4xl text-center">
-      <p className="mb-3 text-sm font-bold uppercase tracking-[0.3em] text-[#C9A227]">
-        Our Legacy
-      </p>
+            <div className="grid gap-7 lg:grid-cols-[1.05fr_2fr]">
+              <div className="relative overflow-hidden rounded-[28px] border border-[#0F5132]/30 bg-gradient-to-br from-[#0F5132] via-[#1B5E20] to-[#2E7D32] p-8 shadow-[0_20px_60px_rgba(15,81,50,0.25)] md:p-10">
+                <div className="relative">
+                  <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-inner backdrop-blur-sm">
+                    <HandHeart className="h-10 w-10 text-white" />
+                  </div>
 
-      <h2 className="text-3xl font-display font-bold leading-tight text-[#111827] sm:text-4xl lg:text-5xl">
-        Building History
-      </h2>
+                  <h3 className="font-display text-3xl font-bold leading-tight text-white">
+                    Community-First Growth
+                  </h3>
 
-      <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-[#4B5563]">
-        From humble beginnings to landmark developments, Sri Supraja Infracon&apos;s
-        journey reflects a steady commitment to approvals, transparency,
-        customer confidence and responsible real estate development.
-      </p>
-    </div>
-
-    <div className="relative mx-auto max-w-5xl">
-      <div className="absolute bottom-0 left-4 top-0 w-px bg-gradient-to-b from-[#C9A227] via-[#E8D7A5] to-[#C9A227] md:left-1/2" />
-
-      {milestones.map((m, i) => (
-        <div
-          key={m.year}
-          className={`relative mb-12 flex md:items-center ${
-            i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-          }`}
-        >
-          <div className="pl-12 md:w-1/2 md:px-8">
-            <div className="group rounded-[24px] border border-[#EFE7D3] bg-[#FCFBF8] p-7 shadow-[0_12px_35px_rgba(11,22,51,0.06)] transition duration-300 hover:-translate-y-1 hover:border-[#C9A227] hover:shadow-[0_18px_45px_rgba(11,22,51,0.10)]">
-              <div className="mb-4 inline-flex rounded-full bg-[#F3E8C5] px-4 py-1 text-sm font-bold tracking-[0.18em] text-[#9A7415]">
-                {m.year}
+                  <p className="mt-6 text-[17px] leading-8 text-white/85">
+                    Our commitment extends beyond developments to meaningful
+                    contributions that create lasting social impact and stronger
+                    communities.
+                  </p>
+                </div>
               </div>
 
-              <h3 className="mb-3 text-xl font-display font-bold text-[#111827]">
-                {m.title}
-              </h3>
+              <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+                {socialWelfare.map((item) => {
+                  const Icon = item.icon;
 
-              <p className="text-sm leading-relaxed text-[#4B5563]">
-                {m.desc}
-              </p>
+                  return (
+                    <div
+                      key={item.title}
+                      className="group rounded-[28px] border border-[#D6E7D8] bg-white p-7 shadow-[0_12px_38px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1 hover:border-[#2E7D32]/50 hover:shadow-[0_20px_55px_rgba(15,23,42,0.10)]"
+                    >
+                      <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-[#C8DFC9] bg-[#F4FBF5] transition group-hover:bg-[#EAF6EC]">
+                        <Icon className="h-8 w-8 text-[#2E7D32]" />
+                      </div>
+
+                      <h3 className="font-display text-xl font-bold text-[#111827]">
+                        {item.title}
+                      </h3>
+
+                      <p className="mt-4 text-[15px] leading-7 text-[#4B5563]">
+                        {item.desc}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
+        </section>
 
-          <div className="absolute left-4 flex h-7 w-7 -translate-x-1/2 items-center justify-center rounded-full bg-white ring-4 ring-[#F8F6F1] md:left-1/2">
-            <div className="h-3 w-3 rounded-full bg-[#C9A227]" />
+        <section className="bg-white px-6 py-24">
+          <div className="container-max">
+            <div className="mx-auto mb-16 max-w-4xl text-center">
+              <p className="mb-3 text-sm font-bold uppercase tracking-[0.3em] text-[#C9A227]">
+                Our Legacy
+              </p>
+
+              <h2 className="font-display text-3xl font-bold leading-tight text-[#111827] sm:text-4xl lg:text-5xl">
+                Building History
+              </h2>
+
+              <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-[#4B5563]">
+                From humble beginnings to landmark developments, Sri Supraja
+                Infracon&apos;s journey reflects a steady commitment to
+                approvals, transparency, customer confidence and responsible
+                real estate development.
+              </p>
+            </div>
+
+            <div className="relative mx-auto max-w-5xl">
+              <div className="absolute bottom-0 left-4 top-0 w-px bg-gradient-to-b from-[#C9A227] via-[#E8D7A5] to-[#C9A227] md:left-1/2" />
+
+              {milestones.map((m, i) => (
+                <div
+                  key={m.year}
+                  className={`relative mb-12 flex md:items-center ${
+                    i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                  }`}
+                >
+                  <div className="pl-12 md:w-1/2 md:px-8">
+                    <div className="group rounded-[24px] border border-[#EFE7D3] bg-[#FCFBF8] p-7 shadow-[0_12px_35px_rgba(11,22,51,0.06)] transition duration-300 hover:-translate-y-1 hover:border-[#C9A227] hover:shadow-[0_18px_45px_rgba(11,22,51,0.10)]">
+                      <div className="mb-4 inline-flex rounded-full bg-[#F3E8C5] px-4 py-1 text-sm font-bold tracking-[0.18em] text-[#9A7415]">
+                        {m.year}
+                      </div>
+
+                      <h3 className="font-display mb-3 text-xl font-bold text-[#111827]">
+                        {m.title}
+                      </h3>
+
+                      <p className="text-sm leading-relaxed text-[#4B5563]">
+                        {m.desc}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="absolute left-4 flex h-7 w-7 -translate-x-1/2 items-center justify-center rounded-full bg-white ring-4 ring-[#F8F6F1] md:left-1/2">
+                    <div className="h-3 w-3 rounded-full bg-[#C9A227]" />
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
+        </section>
 
-    <div className="mx-auto mt-8 max-w-4xl rounded-[24px] border border-[#EFE7D3] bg-[#FCFBF8] p-8 text-center shadow-[0_10px_35px_rgba(11,22,51,0.06)]">
-      <p className="text-lg font-semibold leading-relaxed text-[#111827]">
-        Each chapter of our growth reflects a commitment to quality, transparency, 
-        and creating lasting value for generations to come.
-      </p>
-    </div>
-  </div>
-</section>
+        <section className="bg-white px-6 py-24">
+          <div className="container-max">
+            <div className="mx-auto max-w-4xl text-center">
+              <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
+                Awards &amp; Recognitions
+              </p>
 
-const awards = [
-  "/About/Awards/Award%20Receipt.webp",
-  "/About/Awards/Award%20Receipt%202.webp",
-  "/About/Awards/Award%20Receipt%203.webp",
-  "/About/Awards/Award%20Receipt%204.webp",
-  "/About/Awards/Award%20Receipt%205.webp",
-  "/About/Awards/Award%20Receipt%206.webp",
-  "/About/Awards/Award%20Receipt%207.webp",
-  "/About/Awards/Award%20Receipt%208.webp",
-  "/About/Awards/Award%20Receipt%209.webp",
-  "/About/Awards/Award%20Receipt%2010.webp",
-];
+              <h2 className="font-display text-3xl font-bold text-[#111827] sm:text-4xl">
+                Recognized for Excellence, Trusted for Integrity
+              </h2>
 
-<section className="bg-white px-6 py-24">
-  <div className="container-max">
-    <div className="mx-auto max-w-4xl text-center">
-      <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
-        Awards &amp; Recognitions
-      </p>
+              <p className="mx-auto mt-4 max-w-3xl text-[#4B5563]">
+                These recognitions reflect our commitment to quality,
+                transparency, customer satisfaction and responsible real estate
+                development over the years.
+              </p>
+            </div>
 
-      <h2 className="font-display text-3xl font-bold text-[#111827] sm:text-4xl">
-        Recognized for Excellence, Trusted for Integrity
-      </h2>
+            <div className="relative mt-12">
+              <button
+                type="button"
+                aria-label="Scroll awards left"
+                onClick={() => scrollAwards("left")}
+                className="absolute left-0 top-1/2 z-20 hidden -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#EFE7D3] bg-white p-4 text-[#111827] shadow-[0_16px_45px_rgba(11,22,51,0.18)] transition hover:scale-105 hover:bg-[#C9A227] hover:text-white lg:flex"
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </button>
 
-      <p className="mx-auto mt-4 max-w-3xl text-[#4B5563]">
-        These recognitions reflect our commitment to quality, transparency,
-        customer satisfaction and responsible real estate development over the
-        years.
-      </p>
-    </div>
+              <div
+                ref={awardsScrollRef}
+                className="flex gap-6 overflow-x-auto scroll-smooth pb-5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              >
+                {awards.map((award) => (
+                  <div
+                    key={award.image}
+                    className="group min-w-[280px] overflow-hidden rounded-[22px] border border-[#EFE7D3] bg-white shadow-[0_12px_40px_rgba(11,22,51,0.08)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(11,22,51,0.14)] md:min-w-[360px]"
+                  >
+                    <div className="relative h-[240px] overflow-hidden bg-[#F8F6F1] md:h-[280px]">
+                      <img
+                        src={award.image}
+                        alt={award.title}
+                        className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                      />
+                    </div>
 
-    <div className="mt-12 overflow-hidden">
-      <div className="flex gap-6 overflow-x-auto scroll-smooth pb-5 [scrollbar-width:thin]">
-        {awards.map((award, index) => (
-  <div
-    key={award.image}
-    className="group min-w-[280px] overflow-hidden rounded-[22px] border border-[#EFE7D3] bg-white shadow-[0_12px_40px_rgba(11,22,51,0.08)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(11,22,51,0.14)] md:min-w-[360px]"
-  >
-    <div className="relative h-[240px] overflow-hidden bg-[#F8F6F1] md:h-[280px]">
-      <img
-        src={award.image}
-        alt={award.title}
-        className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-      />
-    </div>
+                    <div className="p-5 text-center">
+                      <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#C9A227]">
+                        {award.title}
+                      </p>
 
-    <div className="p-5 text-center">
-      <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#C9A227]">
-        {award.title}
-      </p>
+                      <h3 className="font-display mt-2 text-xl font-bold text-[#111827]">
+                        Award &amp; Recognition
+                      </h3>
+                    </div>
+                  </div>
+                ))}
+              </div>
 
-      <h3 className="mt-2 font-display text-xl font-bold text-[#111827]">
-        Award & Recognition
-      </h3>
-    </div>
-  </div>
-))}
-      </div>
-    </div>
-  </div>
-</section>
+              <button
+                type="button"
+                aria-label="Scroll awards right"
+                onClick={() => scrollAwards("right")}
+                className="absolute right-0 top-1/2 z-20 hidden translate-x-1/2 -translate-y-1/2 rounded-full border border-[#EFE7D3] bg-white p-4 text-[#111827] shadow-[0_16px_45px_rgba(11,22,51,0.18)] transition hover:scale-105 hover:bg-[#C9A227] hover:text-white lg:flex"
+              >
+                <ChevronRight className="h-6 w-6" />
+              </button>
+            </div>
+          </div>
+        </section>
 
         <section className="bg-gradient-to-br from-[#081225] via-[#102348] to-[#0B1633] px-6 py-24 text-white">
           <div className="container-max text-center">
-            <h2 className="text-3xl font-display font-bold sm:text-4xl">
-              Secure Your Place in Hyderabad's Growth Story
+            <h2 className="font-display text-3xl font-bold sm:text-4xl">
+              Secure Your Place in Hyderabad&apos;s Growth Story
             </h2>
 
             <p className="mx-auto mt-4 max-w-3xl text-slate-300">
-              Discover thoughtfully planned communities backed by approvals, transparency and a legacy of trust built over 24 years.
+              Discover thoughtfully planned communities backed by approvals,
+              transparency and a legacy of trust built over 24 years.
             </p>
 
             <div className="mt-7 flex flex-wrap justify-center gap-4">
