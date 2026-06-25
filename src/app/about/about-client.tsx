@@ -271,7 +271,7 @@ export default function AboutClient() {
 
                   <div>
                     <div className="font-semibold text-white">
-                      Multiple Communities
+                      Multiple Projects
                     </div>
                     <div className="mt-2 text-sm text-slate-300">
                       Delivered
