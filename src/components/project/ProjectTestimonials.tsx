@@ -9,43 +9,196 @@ const testimonials = [
   {
     slug: "supraja-iris-resort-plots",
     project: "Supraja IRIS",
-    name: "Anjanna Margam",
-    role: "Plot No. 120 • 645 Sq. Yards",
-    image: "/testimonials/anjanna-margam-supraja-iris-investor.webp",
-    alt: "Anjanna Margam customer feedback for Supraja IRIS at Kamkole",
+    name: "Bhuthada Anilkumar",
+    role: "Plot No. 28 • 636.98 Sq. Yards",
+    image: "/testimonials/default-investor.webp",
+    alt: "Bhuthada Anilkumar customer feedback for Supraja IRIS",
     text:
-      "I chose Supraja IRIS after visiting the site and understanding the overall project plan. The location, layout, and lifestyle attractions gave me confidence. Supraja Management explained the details clearly and made the process comfortable.",
+      "I liked the project location and overall planning. The team explained the plot details clearly, so the booking process felt simple and comfortable.",
   },
   {
     slug: "supraja-iris-resort-plots",
     project: "Supraja IRIS",
-    name: "Raju Kodipelly",
-    role: "Plot No. 160 • 201.67 Sq. Yards",
-    image: "/testimonials/raju-kodiipally-supraja-iris-investor.webp",
-    alt: "Raju Kodipelly customer feedback for Supraja IRIS at Kamkole",
+    name: "Margam Anjanna",
+    role: "Plot No. 120 • 645.56 Sq. Yards",
+    image: "/testimonials/anjanna-margam-supraja-iris-investor.webp",
+    alt: "Margam Anjanna customer feedback for Supraja IRIS",
     text:
-      "What I liked most about Supraja IRIS was the clarity given during the site visit. The team explained the layout, location advantages, and future plans without pressure. That helped me make my decision with confidence.",
+      "After seeing the site and future development plan, I felt confident about Supraja IRIS. The location and project vision looked strong for long-term value.",
+  },
+  {
+    slug: "supraja-iris-resort-plots",
+    project: "Supraja IRIS",
+    name: "Pundari Babu V",
+    role: "Plot No. 542 • 577.78 Sq. Yards",
+    image: "/testimonials/default-investor.webp",
+    alt: "Pundari Babu V customer feedback for Supraja IRIS",
+    text:
+      "The layout, road planning, and project features looked promising. The team gave clear information and helped us understand the project without confusion.",
+  },
+  {
+    slug: "supraja-iris-resort-plots",
+    project: "Supraja IRIS",
+    name: "Rajya Laxmi Sriramabatla",
+    role: "Plot No. 126 • 622.22 Sq. Yards",
+    image: "/testimonials/default-investor.webp",
+    alt: "Rajya Laxmi Sriramabatla customer feedback for Supraja IRIS",
+    text:
+      "We liked the peaceful location and the future lifestyle attractions planned in the project. The explanation from the team was simple and helpful.",
+  },
+  {
+    slug: "supraja-iris-resort-plots",
+    project: "Supraja IRIS",
+    name: "Pranay Gautam Pydi",
+    role: "Plot No. 554 • 743.89 Sq. Yards",
+    image: "/testimonials/default-investor.webp",
+    alt: "Pranay Gautam Pydi customer feedback for Supraja IRIS",
+    text:
+      "Supraja IRIS felt like a good choice because of the project scale and location advantage. The site visit helped us make the decision confidently.",
+  },
+  {
+    slug: "supraja-iris-resort-plots",
+    project: "Supraja IRIS",
+    name: "Jugge Praveen",
+    role: "Plot No. 548 • 599.44 Sq. Yards",
+    image: "/testimonials/default-investor.webp",
+    alt: "Jugge Praveen customer feedback for Supraja IRIS",
+    text:
+      "The project looked well planned and the team was responsive. We got proper clarity about the plot and documentation before moving forward.",
+  },
+  {
+    slug: "supraja-iris-resort-plots",
+    project: "Supraja IRIS",
+    name: "Tubati Rajesh",
+    role: "Plot No. 595 • 636.98 Sq. Yards",
+    image: "/testimonials/default-investor.webp",
+    alt: "Tubati Rajesh customer feedback for Supraja IRIS",
+    text:
+      "I liked the way the project details were explained. The location, planning, and future development gave me confidence in the investment.",
+  },
+
+  {
+    slug: "bridge-county",
+    project: "Bridge County",
+    name: "Mandarapu Radhika",
+    role: "Plot No. 14 • 280.00 Sq. Yards",
+    image: "/testimonials/default-investor.webp",
+    alt: "Mandarapu Radhika customer feedback for Bridge County",
+    text:
+      "Bridge County felt peaceful and well planned. The plot size, location, and project explanation were clear, so we were comfortable with the decision.",
   },
   {
     slug: "bridge-county",
     project: "Bridge County",
-    name: "Verified Client",
-    role: "Bridge County Customer",
+    name: "Shidlty Amith Reddy",
+    role: "Plot No. 207 • 300.00 Sq. Yards",
     image: "/testimonials/default-investor.webp",
-    alt: "Bridge County customer feedback",
+    alt: "Shidlty Amith Reddy customer feedback for Bridge County",
     text:
-      "Bridge County felt peaceful and well planned during our visit. We liked that it is a dedicated area within the larger Supraja IRIS project. Supraja Management guided us clearly and answered our questions patiently.",
+      "The site visit gave us good confidence. We liked the location and the way the team explained the project details patiently.",
+  },
+  {
+    slug: "bridge-county",
+    project: "Bridge County",
+    name: "Rushras Property Ind P Ltd",
+    role: "Plot No. 3 & 4/A • 307.99 Sq. Yards",
+    image: "/testimonials/default-investor.webp",
+    alt: "Rushras Property Ind P Ltd customer feedback for Bridge County",
+    text:
+      "The project looked suitable from an investment point of view. The location inside the larger Supraja IRIS development was the main attraction.",
+  },
+  {
+    slug: "bridge-county",
+    project: "Bridge County",
+    name: "Srinivasa Rao Ladi / Vidya Tangudu",
+    role: "Plot No. 4/B & 5 • 307.66 Sq. Yards",
+    image: "/testimonials/default-investor.webp",
+    alt: "Srinivasa Rao Ladi and Vidya Tangudu customer feedback for Bridge County",
+    text:
+      "We liked the project because it felt organized and easy to understand. The team guided us properly from site visit to booking.",
+  },
+  {
+    slug: "bridge-county",
+    project: "Bridge County",
+    name: "Premkumar Kejriwal & Aayushi Agrawal",
+    role: "Plot No. 28 • 311.00 Sq. Yards",
+    image: "/testimonials/default-investor.webp",
+    alt: "Premkumar Kejriwal and Aayushi Agrawal customer feedback for Bridge County",
+    text:
+      "Bridge County looked like a good planned community. We liked the surroundings, plot planning, and the clear communication from the team.",
+  },
+
+  {
+    slug: "sindhu-sarovar",
+    project: "Sindhu Sarovar",
+    name: "Poluru Sujith",
+    role: "Plot No. 101 • 261.25 Sq. Yards",
+    image: "/testimonials/default-investor.webp",
+    alt: "Poluru Sujith customer feedback for Sindhu Sarovar",
+    text:
+      "The project details were explained in a simple way. We liked the layout and felt comfortable with the overall process.",
   },
   {
     slug: "sindhu-sarovar",
     project: "Sindhu Sarovar",
-    name: "Verified Customer",
-    role: "Sindhu Sarovar Customer",
+    name: "Babita Goel",
+    role: "Plot No. 77 • 319.31 Sq. Yards",
     image: "/testimonials/default-investor.webp",
-    alt: "Sindhu Sarovar customer feedback",
+    alt: "Babita Goel customer feedback for Sindhu Sarovar",
     text:
-      "We appreciated the simple explanation of the project, location, and documentation. The interaction felt transparent, and Supraja Management helped us understand the details before taking the next step.",
+      "The location and plot planning looked good. The team gave us enough clarity before taking the decision.",
   },
+  {
+    slug: "sindhu-sarovar",
+    project: "Sindhu Sarovar",
+    name: "Pontati Sujatha",
+    role: "Plot No. 149 • 261.25 Sq. Yards",
+    image: "/testimonials/default-investor.webp",
+    alt: "Pontati Sujatha customer feedback for Sindhu Sarovar",
+    text:
+      "We liked the project because the layout was easy to understand and the communication was clear throughout.",
+  },
+  {
+    slug: "sindhu-sarovar",
+    project: "Sindhu Sarovar",
+    name: "Gambir Manasa",
+    role: "Plot No. 37 • 275 Sq. Yards",
+    image: "/testimonials/default-investor.webp",
+    alt: "Gambir Manasa customer feedback for Sindhu Sarovar",
+    text:
+      "The project felt practical and well planned. The team explained the details properly and helped us with the next steps.",
+  },
+  {
+    slug: "sindhu-sarovar",
+    project: "Sindhu Sarovar",
+    name: "Neelam Hema Sundari",
+    role: "Plot No. 150 • 249.6 Sq. Yards",
+    image: "/testimonials/default-investor.webp",
+    alt: "Neelam Hema Sundari customer feedback for Sindhu Sarovar",
+    text:
+      "We had a good experience understanding the project. The location and documentation details were explained clearly.",
+  },
+  {
+    slug: "sindhu-sarovar",
+    project: "Sindhu Sarovar",
+    name: "Sahitya Paluru",
+    role: "Plot No. 41/A • 268.89 Sq. Yards",
+    image: "/testimonials/default-investor.webp",
+    alt: "Sahitya Paluru customer feedback for Sindhu Sarovar",
+    text:
+      "The project looked suitable for our requirement. We liked the clear approach and simple explanation from the team.",
+  },
+  {
+    slug: "sindhu-sarovar",
+    project: "Sindhu Sarovar",
+    name: "V. Sirisha",
+    role: "Plot No. 138 • 260 Sq. Yards",
+    image: "/testimonials/default-investor.webp",
+    alt: "V Sirisha customer feedback for Sindhu Sarovar",
+    text:
+      "The process was smooth and the project information was shared clearly. We felt comfortable moving ahead.",
+  },
+
   {
     slug: "subhash-meadows",
     project: "Subhash Meadows",
@@ -66,27 +219,27 @@ const sectionCopy: Record<
   }
 > = {
   "supraja-iris-resort-plots": {
-    title: "Investor Experiences",
+    title: "Customer Experiences",
     intro:
-      "Real feedback from clients who reviewed the project, visited the site, and interacted with Supraja Management.",
+      "Simple feedback from customers who reviewed the project, visited the site, and booked plots in Supraja IRIS.",
   },
   "supraja-iris": {
-    title: "Investor Experiences",
+    title: "Customer Experiences",
     intro:
-      "Real feedback from clients who reviewed the project, visited the site, and interacted with Supraja Management.",
+      "Simple feedback from customers who reviewed the project, visited the site, and booked plots in Supraja IRIS.",
   },
   "bridge-county": {
-    title: "Investor Experiences",
+    title: "Customer Experiences",
     intro:
-      "Feedback from clients who explored this dedicated enclave within the Supraja IRIS project.",
+      "Feedback from customers who explored and booked plots in Bridge County.",
   },
   "sindhu-sarovar": {
-    title: "Investor Experiences",
+    title: "Customer Experiences",
     intro:
-      "Customer feedback focused on project clarity, documentation, and overall experience.",
+      "Customer feedback focused on project clarity, layout understanding, and overall booking experience.",
   },
   "subhash-meadows": {
-    title: "Investor Experiences",
+    title: "Customer Experiences",
     intro:
       "Customer feedback about location access, project information, and interaction with Supraja Management.",
   },
@@ -139,7 +292,7 @@ export default function ProjectTestimonials({
           </div>
 
           <h2 className="mx-auto max-w-5xl font-display text-4xl font-bold leading-tight tracking-tight text-[#07111F] md:text-6xl">
-            {projectSlug ? copy.title : "Hear From Our Investors"}
+            {projectSlug ? copy.title : "Hear From Our Customers"}
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[#334155]">
