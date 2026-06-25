@@ -23,7 +23,13 @@ import {
 } from "lucide-react";
 import heroBg from "@/assets/hero-bg.webp";
 import ownerPhoto from "@/assets/tudi-praveen.webp";
-
+const awards = Array.from({ length: 10 }, (_, index) => ({
+  title: `Recognition ${index + 1}`,
+  image:
+    index === 0
+      ? "/About/Awards/Award Receipt.webp"
+      : `/About/Awards/Award Receipt ${index + 1}.webp`,
+}));
 const socialWelfare = [
   {
     icon: BookOpen,
@@ -576,30 +582,30 @@ const awards = [
 
     <div className="mt-12 overflow-hidden">
       <div className="flex gap-6 overflow-x-auto scroll-smooth pb-5 [scrollbar-width:thin]">
-        {awards.map((image, index) => (
-          <div
-            key={image}
-            className="group min-w-[280px] overflow-hidden rounded-[22px] border border-[#EFE7D3] bg-white shadow-[0_12px_40px_rgba(11,22,51,0.08)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(11,22,51,0.14)] md:min-w-[360px]"
-          >
-            <div className="relative h-[240px] overflow-hidden bg-[#F8F6F1] md:h-[280px]">
-              <img
-                src={image}
-                alt={`Sri Supraja Infracon award recognition ${index + 1}`}
-                className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-              />
-            </div>
+        {awards.map((award, index) => (
+  <div
+    key={award.image}
+    className="group min-w-[280px] overflow-hidden rounded-[22px] border border-[#EFE7D3] bg-white shadow-[0_12px_40px_rgba(11,22,51,0.08)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(11,22,51,0.14)] md:min-w-[360px]"
+  >
+    <div className="relative h-[240px] overflow-hidden bg-[#F8F6F1] md:h-[280px]">
+      <img
+        src={award.image}
+        alt={award.title}
+        className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+      />
+    </div>
 
-            <div className="p-5 text-center">
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#C9A227]">
-                Recognition {index + 1}
-              </p>
+    <div className="p-5 text-center">
+      <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#C9A227]">
+        {award.title}
+      </p>
 
-              <h3 className="mt-2 font-display text-xl font-bold text-[#111827]">
-                Award &amp; Recognition
-              </h3>
-            </div>
-          </div>
-        ))}
+      <h3 className="mt-2 font-display text-xl font-bold text-[#111827]">
+        Award & Recognition
+      </h3>
+    </div>
+  </div>
+))}
       </div>
     </div>
   </div>
