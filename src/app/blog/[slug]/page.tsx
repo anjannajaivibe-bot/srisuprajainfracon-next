@@ -21,6 +21,7 @@ type BlogPost = {
   featuredImage?: string;
   excerpt?: string;
   content: string;
+  category?: string;
 };
 
 type TocItem = {
@@ -30,7 +31,7 @@ type TocItem = {
 };
 
 function stripHtml(html = "") {
-  return html.replace(/<[^>]*>/g, "").trim();
+  return html.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
 }
 
 function slugify(text: string) {
@@ -39,6 +40,11 @@ function slugify(text: string) {
     .replace(/&amp;/g, "and")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
+}
+
+function calculateReadingTime(content: string) {
+  const words = stripHtml(content).split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.ceil(words / 200));
 }
 
 function addHeadingIds(content: string) {
@@ -116,7 +122,7 @@ export async function generateMetadata({
 
   const title = post.seoTitle || stripHtml(post.title);
   const description = post.metaDescription || stripHtml(post.excerpt || "");
-  const canonical = `${SITE_URL}/blog/${slug}/`;
+  const canonical = post.canonical || `${SITE_URL}/blog/${slug}/`;
   const image = post.featuredImage
     ? `${SITE_URL}${post.featuredImage}`
     : `${SITE_URL}/og-image.jpg`;
@@ -130,9 +136,17 @@ export async function generateMetadata({
       description,
       type: "article",
       url: canonical,
-      images: [image],
+      images: [
+        {
+          url: image,
+          width: 1600,
+          height: 900,
+          alt: stripHtml(post.title),
+        },
+      ],
       publishedTime: post.date,
       modifiedTime: post.modified || post.date,
+      authors: ["Sri Supraja Infracon Editorial Team"],
     },
     twitter: {
       card: "summary_large_image",
@@ -158,10 +172,28 @@ export default async function BlogDetailPage({
 
   const title = stripHtml(post.title);
   const description = post.metaDescription || stripHtml(post.excerpt || "");
-  const canonical = `${SITE_URL}/blog/${slug}/`;
+  const canonical = post.canonical || `${SITE_URL}/blog/${slug}/`;
   const image = post.featuredImage
     ? `${SITE_URL}${post.featuredImage}`
     : `${SITE_URL}/og-image.jpg`;
+
+  const readingTime = calculateReadingTime(post.content);
+  const category = post.category || "Investment Guide";
+
+  const formattedDate = new Date(post.date).toLocaleDateString("en-IN", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
+  const formattedModifiedDate = new Date(post.modified || post.date).toLocaleDateString(
+    "en-IN",
+    {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }
+  );
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -171,7 +203,8 @@ export default async function BlogDetailPage({
     image: [image],
     author: {
       "@type": "Organization",
-      name: "Sri Supraja Infracon",
+      name: "Sri Supraja Infracon Editorial Team",
+      url: SITE_URL,
     },
     publisher: {
       "@type": "Organization",
@@ -272,18 +305,30 @@ export default async function BlogDetailPage({
           )}
 
           <article className="max-w-5xl">
-            <p className="text-sm font-medium text-[#b08a3c]">
-              {new Date(post.date).toLocaleDateString("en-IN", {
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-              })}
-            </p>
+            <div className="flex flex-wrap items-center gap-3 text-sm font-medium text-[#b08a3c]">
+              <span>{category}</span>
+              <span className="text-gray-400">•</span>
+              <span>{formattedDate}</span>
+              <span className="text-gray-400">•</span>
+              <span>{readingTime} min read</span>
+            </div>
 
             <h1
               className="mt-4 max-w-4xl font-display text-4xl font-semibold leading-[1.08] tracking-tight text-[#12251d] md:text-5xl"
               dangerouslySetInnerHTML={{ __html: post.title }}
             />
+
+            <div className="mt-5 flex flex-wrap gap-3 text-sm text-gray-600">
+              <span>By Sri Supraja Infracon Editorial Team</span>
+              <span className="text-gray-400">•</span>
+              <span>Last updated: {formattedModifiedDate}</span>
+            </div>
+
+            {post.metaDescription && (
+              <p className="mt-6 max-w-4xl text-lg leading-8 text-[#3d463f]">
+                {post.metaDescription}
+              </p>
+            )}
 
             {post.featuredImage && (
               <div className="relative mt-10 h-[260px] overflow-hidden rounded-3xl bg-gray-100 shadow-sm md:h-[460px]">
@@ -358,7 +403,7 @@ export default async function BlogDetailPage({
                 prose-li:leading-8
                 prose-li:text-[#3d463f]
 
-                prose-img:my-10
+                prose-img:my-12
                 prose-img:rounded-3xl
                 prose-img:shadow-lg
 
@@ -470,5 +515,3 @@ export default async function BlogDetailPage({
     </main>
   );
 }
-
-
