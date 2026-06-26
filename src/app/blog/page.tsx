@@ -73,12 +73,13 @@ export default function BlogPage() {
           </p>
 
           <h1 className="mt-4 text-4xl font-semibold md:text-6xl">
-            Hyderabad Real Estate Insights
+            Investor Knowledge Center
           </h1>
 
           <p className="mx-auto mt-5 max-w-3xl text-lg text-white/80">
-            Expert insights on open plots, resort plots, gated communities,
-            DTCP approvals, RERA approvals, and Hyderabad growth corridors.
+            Expert guides, investment strategies, buyer checklists, 
+            legal insights, and Hyderabad real estate market updates to help you 
+            invest with confidence.
           </p>
         </div>
       </section>
