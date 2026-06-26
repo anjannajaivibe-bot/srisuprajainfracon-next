@@ -5,12 +5,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
+      disallow: ["/_next/"],
     },
-
     sitemap: "https://www.srisuprajainfracon.com/sitemap.xml",
   };
 }
-
-
-
-

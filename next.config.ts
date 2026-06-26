@@ -41,6 +41,18 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
+      // Invalid URLs found in Google Search Console
+      {
+        source: "/&",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/$",
+        destination: "/",
+        permanent: true,
+      },
+
       // Contact page redirects
       {
         source: "/contact",
@@ -66,6 +78,38 @@ const nextConfig: NextConfig = {
           permanent: true,
         },
       ]),
+    ];
+  },
+
+  async headers() {
+    return [
+      {
+        source: "/_next/static/:path*",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex",
+          },
+        ],
+      },
+      {
+        source: "/:path*.ico",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex",
+          },
+        ],
+      },
+      {
+        source: "/manifest.webmanifest",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex",
+          },
+        ],
+      },
     ];
   },
 };
