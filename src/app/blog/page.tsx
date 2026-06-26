@@ -17,26 +17,42 @@ type BlogPost = {
   modified?: string;
   featuredImage?: string;
   excerpt?: string;
+  content?: string;
+  category?: string;
+  readingTime?: number;
 };
 
 export const metadata: Metadata = {
-  title: "Blog | Sri Supraja Infracon",
+  title: "Investor Knowledge Center | Sri Supraja Infracon",
   description:
-    "Read expert insights on DTCP & RERA Approved plots, RERA approved plots, gated community plots, resort plots, and real estate investment in Hyderabad.",
+    "Explore real estate investment guides, buyer checklists, legal insights, plotted development tips, and Hyderabad real estate market updates by Sri Supraja Infracon.",
   alternates: {
     canonical: `${SITE_URL}/blog/`,
   },
   openGraph: {
-    title: "Blog | Sri Supraja Infracon",
+    title: "Investor Knowledge Center | Sri Supraja Infracon",
     description:
-      "Expert insights on open plots, resort plots, gated communities, DTCP approvals, RERA approvals, and Hyderabad growth corridors.",
+      "Expert real estate guides, plot buying checklists, legal insights, and investment knowledge for confident property decisions.",
     url: `${SITE_URL}/blog/`,
     type: "website",
   },
 };
 
 function stripHtml(html = "") {
-  return html.replace(/<[^>]*>/g, "").trim();
+  return html.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
+}
+
+function calculateReadingTime(content = "") {
+  const words = stripHtml(content).split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.ceil(words / 200));
+}
+
+function formatDate(date: string) {
+  return new Date(date).toLocaleDateString("en-IN", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
 }
 
 function getPosts(): BlogPost[] {
@@ -54,6 +70,8 @@ function getPosts(): BlogPost[] {
         ...post,
         title: post.title,
         excerpt: stripHtml(post.excerpt || post.metaDescription || ""),
+        category: post.category || "Investment Guide",
+        readingTime: calculateReadingTime(post.content || ""),
       };
     })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -77,8 +95,8 @@ export default function BlogPage() {
           </h1>
 
           <p className="mx-auto mt-5 max-w-3xl text-lg text-white/80">
-            Expert guides, investment strategies, buyer checklists, 
-            legal insights, and Hyderabad real estate market updates to help you 
+            Expert guides, investment strategies, buyer checklists, legal
+            insights, and Hyderabad real estate market updates to help you
             invest with confidence.
           </p>
         </div>
@@ -93,27 +111,30 @@ export default function BlogPage() {
             <div className="relative min-h-[320px] overflow-hidden bg-gray-100">
               {featuredPost.featuredImage && (
                 <Image
-  src={featuredPost.featuredImage}
-  alt={stripHtml(featuredPost.title)}
-  fill
-  priority
-  sizes="(max-width: 1024px) 100vw, 50vw"
-  className="object-cover transition duration-500 group-hover:scale-105"
-/>
+                  src={featuredPost.featuredImage}
+                  alt={stripHtml(featuredPost.title)}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover transition duration-500 group-hover:scale-105"
+                />
               )}
             </div>
 
             <div className="flex flex-col justify-center p-8 md:p-12">
-              <p className="text-sm font-semibold uppercase tracking-widest text-[#b08a3c]">
-                Featured Article
-              </p>
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="rounded-full bg-[#12251d] px-4 py-2 text-xs font-semibold uppercase tracking-widest text-white">
+                  Featured Article
+                </span>
+
+                <span className="rounded-full bg-[#f5efe2] px-4 py-2 text-xs font-semibold uppercase tracking-widest text-[#8f6f2e]">
+                  {featuredPost.category}
+                </span>
+              </div>
 
               <p className="mt-5 text-sm font-medium text-[#b08a3c]">
-                {new Date(featuredPost.date).toLocaleDateString("en-IN", {
-                  day: "numeric",
-                  month: "long",
-                  year: "numeric",
-                })}
+                {formatDate(featuredPost.date)} • {featuredPost.readingTime} min
+                read
               </p>
 
               <h2
@@ -134,13 +155,19 @@ export default function BlogPage() {
       )}
 
       <section className="mx-auto max-w-7xl px-6 py-16">
-        <div className="mb-10">
-          <p className="text-sm font-semibold uppercase tracking-widest text-[#b08a3c]">
-            Latest Articles
+        <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-widest text-[#b08a3c]">
+              Latest Investment Guides
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold text-[#12251d]">
+              Learn Before You Invest
+            </h2>
+          </div>
+
+          <p className="text-sm font-medium text-gray-600">
+            {posts.length} articles published
           </p>
-          <h2 className="mt-3 text-3xl font-semibold text-[#12251d]">
-            Explore Real Estate Insights
-          </h2>
         </div>
 
         <BlogSearch posts={remainingPosts} />
@@ -148,7 +175,3 @@ export default function BlogPage() {
     </main>
   );
 }
-
-
-
-
