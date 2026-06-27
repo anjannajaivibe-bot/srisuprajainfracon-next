@@ -27,22 +27,22 @@ export default function Footer() {
               {[
                 {
                   label: "Facebook",
-                  href: "https://www.facebook.com/",
+                  href: "https://www.facebook.com/srisuprajainfracon",
                   icon: "f",
                 },
                 {
                   label: "Instagram",
-                  href: "https://www.instagram.com/",
+                  href: "https://www.instagram.com/suprajagroup/",
                   icon: "◎",
                 },
                 {
                   label: "LinkedIn",
-                  href: "https://www.linkedin.com/",
+                  href: "https://www.linkedin.com/in/supraja-infracon-builders-and-developers-635aaa3a0/",
                   icon: "in",
                 },
                 {
                   label: "YouTube",
-                  href: "https://www.youtube.com/",
+                  href: "https://www.youtube.com/@suprajairisresort",
                   icon: "▶",
                 },
               ].map((social) => (
