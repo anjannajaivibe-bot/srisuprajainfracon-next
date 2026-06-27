@@ -2,60 +2,58 @@
 
 import ContactForm from "./ContactForm";
 import Navbar from "@/components/layout/Navbar";
-
 import { motion } from "framer-motion";
 import Link from "next/link";
-
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
-
 import heroBg from "@/assets/hero-bg.webp";
 
 export default function ContactPageClient() {
   return (
-    <div className="min-h-screen bg-[#F8F6F1]">
+    <div className="min-h-screen bg-white">
       <Navbar />
 
-      <section className="relative overflow-hidden pb-20 pt-32">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroBg.src})` }}
-        />
+      <section className="relative overflow-hidden bg-white pt-32">
+        <div className="container-max relative z-10 grid gap-10 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
+          <div className="pb-10 pt-4 lg:pb-28">
+            <motion.p
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-4 text-sm font-bold text-[#7A4F34]"
+            >
+              Find Us Fast
+            </motion.p>
 
-        <div className="absolute inset-0 bg-gradient-to-br from-[#081225]/95 via-[#102348]/90 to-[#0B1633]/95" />
+            <motion.h1
+              initial={{ opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="max-w-3xl font-display text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl"
+            >
+              Let&apos;s Discuss Your Property Goals
+            </motion.h1>
+          </div>
 
-        <div className="container-max relative px-4 text-center sm:px-6 lg:px-8">
-          <motion.p
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-[#E8D7A5]"
-          >
-            Connect With Sri Supraja Infracon
-          </motion.p>
-
-          <motion.h1
+          <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mx-auto max-w-5xl font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-7xl"
+            className="relative z-20 lg:translate-y-8"
           >
-            Let&apos;s Start the Conversation
-          </motion.h1>
+            <ContactForm />
+          </motion.div>
+        </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mx-auto mt-6 max-w-4xl text-lg leading-relaxed text-slate-200"
-          >
-            Whether you&apos;re exploring project options, planning a site visit,
-            or seeking additional information, our team is here to assist you
-            with clear guidance and timely support.
-          </motion.p>
+        <div className="relative -mt-6 h-[320px] overflow-hidden sm:h-[360px] lg:-mt-20 lg:h-[390px]">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${heroBg.src})` }}
+          />
+          <div className="absolute inset-0 bg-black/45" />
         </div>
       </section>
 
-      <section className="bg-[#F8F6F1] px-6 py-24">
+      <section className="bg-[#F8F6F1] px-6 py-20">
         <div className="container-max grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
           <div>
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#7A4F34]">
               Contact Information
             </p>
 
@@ -65,41 +63,29 @@ export default function ContactPageClient() {
 
             <div className="space-y-5">
               <div className="flex items-start gap-4 rounded-2xl border border-[#EFE7D3] bg-white p-5 shadow-sm">
-                <Phone className="mt-1 text-[#C9A227]" size={22} />
-
+                <Phone className="mt-1 text-[#7A4F34]" size={22} />
                 <div>
                   <p className="font-bold text-[#111827]">Phone</p>
-
-                  <a
-                    href="tel:+919052996161"
-                    className="text-[#4B5563] hover:text-[#0B1633]"
-                  >
+                  <a href="tel:+919052996161" className="text-[#4B5563] hover:text-[#0B1633]">
                     +91 90529 96161
                   </a>
                 </div>
               </div>
 
               <div className="flex items-start gap-4 rounded-2xl border border-[#EFE7D3] bg-white p-5 shadow-sm">
-                <Mail className="mt-1 text-[#C9A227]" size={22} />
-
+                <Mail className="mt-1 text-[#7A4F34]" size={22} />
                 <div>
                   <p className="font-bold text-[#111827]">Email</p>
-
-                  <a
-                    href="mailto:info@srisuprajainfracon.com"
-                    className="text-[#4B5563] hover:text-[#0B1633]"
-                  >
+                  <a href="mailto:info@srisuprajainfracon.com" className="text-[#4B5563] hover:text-[#0B1633]">
                     info@srisuprajainfracon.com
                   </a>
                 </div>
               </div>
 
               <div className="flex items-start gap-4 rounded-2xl border border-[#EFE7D3] bg-white p-5 shadow-sm">
-                <MapPin className="mt-1 text-[#C9A227]" size={22} />
-
+                <MapPin className="mt-1 text-[#7A4F34]" size={22} />
                 <div>
                   <p className="font-bold text-[#111827]">Office Location</p>
-
                   <p className="text-[#4B5563]">
                     D. No. 4-91, Above Parampara Sweets,
                     <br />
@@ -109,14 +95,11 @@ export default function ContactPageClient() {
               </div>
 
               <div className="flex items-start gap-4 rounded-2xl border border-[#EFE7D3] bg-white p-5 shadow-sm">
-                <Clock className="mt-1 text-[#C9A227]" size={22} />
-
+                <Clock className="mt-1 text-[#7A4F34]" size={22} />
                 <div>
                   <p className="font-bold text-[#111827]">Office Hours</p>
-
                   <p className="text-[#4B5563]">
-                    Our team is available to assist with project information and
-                    site visit coordination.
+                    Our team is available to assist with project information and site visit coordination.
                   </p>
                 </div>
               </div>
@@ -135,20 +118,28 @@ export default function ContactPageClient() {
 
               <Link
                 href="/projects"
-                className="rounded-full border border-[#C9A227] px-6 py-3 font-bold text-[#0B1633] transition hover:bg-[#C9A227]"
+                className="rounded-full border border-[#7A4F34] px-6 py-3 font-bold text-[#0B1633] transition hover:bg-[#7A4F34] hover:text-white"
               >
                 View Projects
               </Link>
             </div>
           </div>
 
-          <ContactForm />
+          <div className="rounded-3xl bg-white p-6 shadow-sm">
+            <h3 className="mb-4 font-display text-2xl font-bold text-[#111827]">
+              Quick Project Assistance
+            </h3>
+            <p className="leading-relaxed text-[#4B5563]">
+              Share your requirement with our team. We will help you understand available projects,
+              location advantages, plot options, and site visit planning.
+            </p>
+          </div>
         </div>
       </section>
 
       <section className="bg-white px-6 py-24">
         <div className="container-max text-center">
-          <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
+          <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#7A4F34]">
             Explore Projects
           </p>
 
@@ -157,44 +148,25 @@ export default function ContactPageClient() {
           </h2>
 
           <p className="mx-auto mt-5 max-w-3xl text-[#4B5563]">
-            Discover projects across Kamkole, Mominpet, Sangareddy, and
-            Indrakaran, each planned to serve different investment and future
-            ownership aspirations.
-          </p>
-
-          <p className="mx-auto mt-4 max-w-3xl text-[#4B5563]">
-            Explore project details, location advantages, site visuals, and
-            availability information before planning your visit.
+            Discover projects across Kamkole, Mominpet, Sangareddy, and Indrakaran,
+            each planned to serve different investment and future ownership aspirations.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Link
-              href="/projects/supraja-iris-resort-plots"
-              className="rounded-full bg-[#0B1633] px-5 py-3 font-bold text-white transition hover:bg-[#C9A227] hover:text-[#0B1633]"
-            >
-              Supraja IRIS
-            </Link>
-
-            <Link
-              href="/projects/bridge-county"
-              className="rounded-full bg-[#0B1633] px-5 py-3 font-bold text-white transition hover:bg-[#C9A227] hover:text-[#0B1633]"
-            >
-              Bridge County
-            </Link>
-
-            <Link
-              href="/projects/sindhu-sarovar"
-              className="rounded-full bg-[#0B1633] px-5 py-3 font-bold text-white transition hover:bg-[#C9A227] hover:text-[#0B1633]"
-            >
-              Sindhu Sarovar
-            </Link>
-
-            <Link
-              href="/projects/subhash-meadows"
-              className="rounded-full bg-[#0B1633] px-5 py-3 font-bold text-white transition hover:bg-[#C9A227] hover:text-[#0B1633]"
-            >
-              Subhash Meadows
-            </Link>
+            {[
+              ["Supraja IRIS", "/projects/supraja-iris-resort-plots"],
+              ["Bridge County", "/projects/bridge-county"],
+              ["Sindhu Sarovar", "/projects/sindhu-sarovar"],
+              ["Subhash Meadows", "/projects/subhash-meadows"],
+            ].map(([name, href]) => (
+              <Link
+                key={name}
+                href={href}
+                className="rounded-full bg-[#0B1633] px-5 py-3 font-bold text-white transition hover:bg-[#7A4F34]"
+              >
+                {name}
+              </Link>
+            ))}
           </div>
         </div>
       </section>
