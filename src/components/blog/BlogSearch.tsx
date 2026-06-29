@@ -11,9 +11,7 @@ type BlogPost = {
   featuredImage?: string;
   date: string;
   modified?: string;
-  updatedAt?: string;
   category?: string;
-  tags?: string[];
   readingTime?: number;
 };
 
@@ -47,11 +45,7 @@ export default function BlogSearch({ posts }: { posts: BlogPost[] }) {
 
     return posts.filter((post) => {
       const category = post.category || "Investment Guide";
-      const tags = Array.isArray(post.tags) ? post.tags.join(" ") : "";
-
-      const text = `${stripHtml(post.title)} ${
-        post.excerpt || ""
-      } ${category} ${tags}`
+      const text = `${stripHtml(post.title)} ${post.excerpt || ""} ${category}`
         .toLowerCase()
         .trim();
 
@@ -101,7 +95,7 @@ export default function BlogSearch({ posts }: { posts: BlogPost[] }) {
           {filteredPosts.map((post) => {
             const cleanTitle = stripHtml(post.title);
             const category = post.category || "Investment Guide";
-            const updatedDate = post.updatedAt || post.modified || post.date;
+            const updatedDate = post.modified || post.date;
 
             return (
               <article
@@ -128,8 +122,7 @@ export default function BlogSearch({ posts }: { posts: BlogPost[] }) {
 
                   <div className="p-7">
                     <p className="text-sm font-medium text-[#b08a3c]">
-                      Published {formatDate(post.date)} •{" "}
-                      {post.readingTime || 1} min read
+                      {formatDate(post.date)} • {post.readingTime || 1} min read
                     </p>
 
                     <h2
