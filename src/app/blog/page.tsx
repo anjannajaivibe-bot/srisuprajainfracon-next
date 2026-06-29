@@ -15,10 +15,12 @@ type BlogPost = {
   metaDescription?: string;
   date: string;
   modified?: string;
+  updatedAt?: string;
   featuredImage?: string;
   excerpt?: string;
   content?: string;
   category?: string;
+  tags?: string[];
   readingTime?: number;
 };
 
@@ -62,19 +64,28 @@ function getPosts(): BlogPost[] {
     .readdirSync(BLOG_DIR)
     .filter((file) => file.endsWith(".json"))
     .map((file) => {
-      const post = JSON.parse(
-        fs.readFileSync(path.join(BLOG_DIR, file), "utf8")
-      );
+      const filePath = path.join(BLOG_DIR, file);
+      const stats = fs.statSync(filePath);
+      const post = JSON.parse(fs.readFileSync(filePath, "utf8"));
+
+      const fileUpdatedAt = stats.mtime.toISOString();
 
       return {
         ...post,
         title: post.title,
         excerpt: stripHtml(post.excerpt || post.metaDescription || ""),
         category: post.category || "Investment Guide",
+        tags: Array.isArray(post.tags) ? post.tags : [],
         readingTime: calculateReadingTime(post.content || ""),
+        updatedAt: fileUpdatedAt,
+        modified: post.modified || fileUpdatedAt,
       };
     })
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    .sort(
+      (a, b) =>
+        new Date(b.updatedAt || b.modified || b.date).getTime() -
+        new Date(a.updatedAt || a.modified || a.date).getTime()
+    );
 }
 
 export default function BlogPage() {
@@ -124,7 +135,7 @@ export default function BlogPage() {
             <div className="flex flex-col justify-center p-8 md:p-12">
               <div className="flex flex-wrap items-center gap-3">
                 <span className="rounded-full bg-[#12251d] px-4 py-2 text-xs font-semibold uppercase tracking-widest text-white">
-                  Featured Article
+                  Recently Updated
                 </span>
 
                 <span className="rounded-full bg-[#f5efe2] px-4 py-2 text-xs font-semibold uppercase tracking-widest text-[#8f6f2e]">
@@ -133,8 +144,13 @@ export default function BlogPage() {
               </div>
 
               <p className="mt-5 text-sm font-medium text-[#b08a3c]">
-                {formatDate(featuredPost.date)} • {featuredPost.readingTime} min
-                read
+                Published {formatDate(featuredPost.date)} • Updated{" "}
+                {formatDate(
+                  featuredPost.updatedAt ||
+                    featuredPost.modified ||
+                    featuredPost.date
+                )}{" "}
+                • {featuredPost.readingTime} min read
               </p>
 
               <h2

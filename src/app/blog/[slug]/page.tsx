@@ -18,10 +18,13 @@ type BlogPost = {
   canonical?: string;
   date: string;
   modified?: string;
+  updatedAt?: string;
   featuredImage?: string;
   excerpt?: string;
   content: string;
   category?: string;
+  tags?: string[];
+  author?: string;
 };
 
 type TocItem = {
@@ -47,6 +50,14 @@ function calculateReadingTime(content: string) {
   return Math.max(1, Math.ceil(words / 200));
 }
 
+function formatDate(date: string) {
+  return new Date(date).toLocaleDateString("en-IN", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
+
 function addHeadingIds(content: string) {
   const toc: TocItem[] = [];
   const usedIds = new Map<string, number>();
@@ -64,11 +75,7 @@ function addHeadingIds(content: string) {
 
       if (count > 0) id = `${id}-${count + 1}`;
 
-      toc.push({
-        id,
-        text: cleanText,
-        level: Number(level),
-      });
+      toc.push({ id, text: cleanText, level: Number(level) });
 
       if (attrs.includes("id=")) return match;
 
@@ -79,24 +86,80 @@ function addHeadingIds(content: string) {
   return { content: updatedContent, toc };
 }
 
-function getPost(slug: string): BlogPost | null {
-  const filePath = path.join(BLOG_DIR, `${slug}.json`);
-  if (!fs.existsSync(filePath)) return null;
-  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+function readPostFile(file: string): BlogPost {
+  const filePath = path.join(BLOG_DIR, file);
+  const stats = fs.statSync(filePath);
+  const post = JSON.parse(fs.readFileSync(filePath, "utf8"));
+
+  return {
+    ...post,
+    tags: Array.isArray(post.tags) ? post.tags : [],
+    category: post.category || "Investment Guide",
+    author: post.author || "Sri Supraja Infracon Editorial Team",
+    updatedAt: stats.mtime.toISOString(),
+    modified: post.modified || stats.mtime.toISOString(),
+  };
 }
 
-function getRelatedPosts(currentSlug: string): BlogPost[] {
+function getAllPosts(): BlogPost[] {
   if (!fs.existsSync(BLOG_DIR)) return [];
 
   return fs
     .readdirSync(BLOG_DIR)
     .filter((file) => file.endsWith(".json"))
-    .map((file) =>
-      JSON.parse(fs.readFileSync(path.join(BLOG_DIR, file), "utf8"))
-    )
-    .filter((post) => post.slug !== currentSlug)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 3);
+    .map(readPostFile)
+    .sort(
+      (a, b) =>
+        new Date(b.updatedAt || b.modified || b.date).getTime() -
+        new Date(a.updatedAt || a.modified || a.date).getTime()
+    );
+}
+
+function getPost(slug: string): BlogPost | null {
+  const filePath = path.join(BLOG_DIR, `${slug}.json`);
+  if (!fs.existsSync(filePath)) return null;
+  return readPostFile(`${slug}.json`);
+}
+
+function getRelatedPosts(currentPost: BlogPost): BlogPost[] {
+  const currentTags = new Set(
+    (currentPost.tags || []).map((tag) => tag.toLowerCase())
+  );
+
+  return getAllPosts()
+    .filter((post) => post.slug !== currentPost.slug)
+    .map((post) => {
+      const matchingTags = (post.tags || []).filter((tag) =>
+        currentTags.has(tag.toLowerCase())
+      ).length;
+
+      const sameCategory = post.category === currentPost.category ? 1 : 0;
+
+      return {
+        post,
+        score: matchingTags * 3 + sameCategory,
+      };
+    })
+    .sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score;
+
+      return (
+        new Date(b.post.updatedAt || b.post.modified || b.post.date).getTime() -
+        new Date(a.post.updatedAt || a.post.modified || a.post.date).getTime()
+      );
+    })
+    .slice(0, 3)
+    .map((item) => item.post);
+}
+
+function getPreviousNextPosts(currentSlug: string) {
+  const posts = getAllPosts();
+  const index = posts.findIndex((post) => post.slug === currentSlug);
+
+  return {
+    previousPost: index > 0 ? posts[index - 1] : null,
+    nextPost: index >= 0 && index < posts.length - 1 ? posts[index + 1] : null,
+  };
 }
 
 export async function generateStaticParams() {
@@ -145,8 +208,8 @@ export async function generateMetadata({
         },
       ],
       publishedTime: post.date,
-      modifiedTime: post.modified || post.date,
-      authors: ["Sri Supraja Infracon Editorial Team"],
+      modifiedTime: post.updatedAt || post.modified || post.date,
+      authors: [post.author || "Sri Supraja Infracon Editorial Team"],
     },
     twitter: {
       card: "summary_large_image",
@@ -167,7 +230,8 @@ export default async function BlogDetailPage({
 
   if (!post) notFound();
 
-  const relatedPosts = getRelatedPosts(slug);
+  const relatedPosts = getRelatedPosts(post);
+  const { previousPost, nextPost } = getPreviousNextPosts(slug);
   const { content, toc } = addHeadingIds(post.content);
 
   const title = stripHtml(post.title);
@@ -179,20 +243,11 @@ export default async function BlogDetailPage({
 
   const readingTime = calculateReadingTime(post.content);
   const category = post.category || "Investment Guide";
+  const author = post.author || "Sri Supraja Infracon Editorial Team";
 
-  const formattedDate = new Date(post.date).toLocaleDateString("en-IN", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-
-  const formattedModifiedDate = new Date(post.modified || post.date).toLocaleDateString(
-    "en-IN",
-    {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    }
+  const formattedDate = formatDate(post.date);
+  const formattedModifiedDate = formatDate(
+    post.updatedAt || post.modified || post.date
   );
 
   const articleSchema = {
@@ -203,7 +258,7 @@ export default async function BlogDetailPage({
     image: [image],
     author: {
       "@type": "Organization",
-      name: "Sri Supraja Infracon Editorial Team",
+      name: author,
       url: SITE_URL,
     },
     publisher: {
@@ -215,7 +270,7 @@ export default async function BlogDetailPage({
       },
     },
     datePublished: post.date,
-    dateModified: post.modified || post.date,
+    dateModified: post.updatedAt || post.modified || post.date,
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": canonical,
@@ -227,18 +282,8 @@ export default async function BlogDetailPage({
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Blog",
-        item: `${SITE_URL}/blog/`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: title,
-        item: canonical,
-      },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog/` },
+      { "@type": "ListItem", position: 3, name: title, item: canonical },
     ],
   };
 
@@ -308,7 +353,9 @@ export default async function BlogDetailPage({
             <div className="flex flex-wrap items-center gap-3 text-sm font-medium text-[#b08a3c]">
               <span>{category}</span>
               <span className="text-gray-400">•</span>
-              <span>{formattedDate}</span>
+              <span>Published {formattedDate}</span>
+              <span className="text-gray-400">•</span>
+              <span>Updated {formattedModifiedDate}</span>
               <span className="text-gray-400">•</span>
               <span>{readingTime} min read</span>
             </div>
@@ -319,9 +366,7 @@ export default async function BlogDetailPage({
             />
 
             <div className="mt-5 flex flex-wrap gap-3 text-sm text-gray-600">
-              <span>By Sri Supraja Infracon Editorial Team</span>
-              <span className="text-gray-400">•</span>
-              <span>Last updated: {formattedModifiedDate}</span>
+              <span>By {author}</span>
             </div>
 
             {post.metaDescription && (
@@ -365,63 +410,32 @@ export default async function BlogDetailPage({
 
             <div
               className="
-                prose prose-lg md:prose-xl
-                mt-12 max-w-none scroll-smooth
-
-                prose-headings:scroll-mt-28
-                prose-headings:font-display
-                prose-headings:tracking-tight
-                prose-headings:text-[#12251d]
-
-                prose-h2:mt-16
-                prose-h2:mb-6
-                prose-h2:border-b
-                prose-h2:border-[#d6c7a3]
-                prose-h2:pb-3
-                prose-h2:text-3xl
-                md:prose-h2:text-4xl
-
-                prose-h3:mt-12
-                prose-h3:mb-4
-                prose-h3:text-2xl
-                md:prose-h3:text-3xl
-
-                prose-p:mb-7
-                prose-p:leading-9
-                prose-p:text-[#3d463f]
-
+                prose prose-lg md:prose-xl mt-12 max-w-none scroll-smooth
+                prose-headings:scroll-mt-28 prose-headings:font-display prose-headings:tracking-tight prose-headings:text-[#12251d]
+                prose-h2:mt-16 prose-h2:mb-6 prose-h2:border-b prose-h2:border-[#d6c7a3] prose-h2:pb-3 prose-h2:text-3xl md:prose-h2:text-4xl
+                prose-h3:mt-12 prose-h3:mb-4 prose-h3:text-2xl md:prose-h3:text-3xl
+                prose-p:mb-7 prose-p:leading-9 prose-p:text-[#3d463f]
                 prose-strong:text-[#12251d]
-
-                prose-a:font-semibold
-                prose-a:text-[#b08a3c]
-                prose-a:no-underline
-                hover:prose-a:text-[#8f6f2e]
-
-                prose-ul:my-8
-                prose-ol:my-8
-                prose-li:mb-2
-                prose-li:leading-8
-                prose-li:text-[#3d463f]
-
-                prose-img:my-12
-                prose-img:rounded-3xl
-                prose-img:shadow-lg
-
-                prose-blockquote:rounded-r-2xl
-                prose-blockquote:border-l-[#b08a3c]
-                prose-blockquote:bg-[#f5efe2]
-                prose-blockquote:px-6
-                prose-blockquote:py-4
-
-                prose-table:border
-                prose-table:border-collapse
-                prose-th:bg-[#12251d]
-                prose-th:p-4
-                prose-th:text-white
-                prose-td:p-4
+                prose-a:font-semibold prose-a:text-[#b08a3c] prose-a:no-underline hover:prose-a:text-[#8f6f2e]
+                prose-ul:my-8 prose-ol:my-8 prose-li:mb-2 prose-li:leading-8 prose-li:text-[#3d463f]
+                prose-img:my-12 prose-img:rounded-3xl prose-img:shadow-lg
+                prose-blockquote:rounded-r-2xl prose-blockquote:border-l-[#b08a3c] prose-blockquote:bg-[#f5efe2] prose-blockquote:px-6 prose-blockquote:py-4
+                prose-table:border prose-table:border-collapse prose-th:bg-[#12251d] prose-th:p-4 prose-th:text-white prose-td:p-4
               "
               dangerouslySetInnerHTML={{ __html: content }}
             />
+
+            <section className="mt-16 rounded-3xl bg-white p-8 shadow-sm">
+              <h2 className="font-display text-2xl font-semibold text-[#12251d]">
+                About the Editorial Team
+              </h2>
+              <p className="mt-3 leading-7 text-gray-600">
+                Sri Supraja Infracon Editorial Team creates practical real
+                estate guides to help buyers understand plot investment,
+                documentation, approvals, registration, and long-term property
+                decisions with better clarity.
+              </p>
+            </section>
 
             <section className="mt-16 border-t border-gray-200 pt-10">
               <h2 className="font-display text-2xl font-semibold text-[#12251d]">
@@ -459,6 +473,40 @@ export default async function BlogDetailPage({
               </div>
             </section>
 
+            {(previousPost || nextPost) && (
+              <section className="mt-16 grid gap-6 border-t border-gray-200 pt-10 md:grid-cols-2">
+                {previousPost && (
+                  <Link
+                    href={`/blog/${previousPost.slug}/`}
+                    className="rounded-2xl bg-white p-6 shadow-sm transition hover:shadow-lg"
+                  >
+                    <p className="text-sm font-semibold text-[#b08a3c]">
+                      ← Previous Guide
+                    </p>
+                    <h3
+                      className="mt-2 text-lg font-semibold text-[#12251d]"
+                      dangerouslySetInnerHTML={{ __html: previousPost.title }}
+                    />
+                  </Link>
+                )}
+
+                {nextPost && (
+                  <Link
+                    href={`/blog/${nextPost.slug}/`}
+                    className="rounded-2xl bg-white p-6 text-right shadow-sm transition hover:shadow-lg"
+                  >
+                    <p className="text-sm font-semibold text-[#b08a3c]">
+                      Next Guide →
+                    </p>
+                    <h3
+                      className="mt-2 text-lg font-semibold text-[#12251d]"
+                      dangerouslySetInnerHTML={{ __html: nextPost.title }}
+                    />
+                  </Link>
+                )}
+              </section>
+            )}
+
             {relatedPosts.length > 0 && (
               <section className="mt-16 border-t border-gray-200 pt-10">
                 <h2 className="font-display text-2xl font-semibold text-[#12251d]">
@@ -472,6 +520,9 @@ export default async function BlogDetailPage({
                       href={`/blog/${item.slug}/`}
                       className="rounded-2xl bg-white p-5 shadow-sm transition hover:shadow-lg"
                     >
+                      <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#b08a3c]">
+                        {item.category || "Investment Guide"}
+                      </p>
                       <h3
                         className="text-lg font-semibold leading-snug text-[#12251d]"
                         dangerouslySetInnerHTML={{ __html: item.title }}
