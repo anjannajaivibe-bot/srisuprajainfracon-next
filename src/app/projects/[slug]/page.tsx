@@ -439,6 +439,34 @@ export default async function ProjectPage({
 
         category: "Real Estate Plotted Development",
 
+        offers: {
+          "@type": "Offer",
+
+          url: canonical,
+
+          priceCurrency: "INR",
+
+          price: "13500",
+
+          priceSpecification: {
+            "@type": "UnitPriceSpecification",
+
+            price: "13500",
+
+            priceCurrency: "INR",
+
+            unitText: "Per Sq. Yard",
+          },
+
+          availability: "https://schema.org/InStock",
+
+          itemCondition: "https://schema.org/NewCondition",
+
+          seller: {
+            "@id": `${SITE_URL}/#organization`,
+          },
+        },
+
         areaServed: project.location,
 
         additionalProperty: [

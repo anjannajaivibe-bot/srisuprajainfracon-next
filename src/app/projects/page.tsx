@@ -62,28 +62,48 @@ export default function ProjectsPage() {
           "Resort-inspired plots in Kamkole",
           "Residential projects near Hyderabad growth corridors",
         ],
-        mainEntity: [
-          {
-            "@type": "Product",
-            name: "Supraja IRIS Resort Project",
-            url: "https://www.srisuprajainfracon.com/projects/supraja-iris-resort-plots",
-          },
-          {
-            "@type": "Product",
-            name: "Bridge County",
-            url: "https://www.srisuprajainfracon.com/projects/bridge-county",
-          },
-          {
-            "@type": "Product",
-            name: "Sindhu Sarovar",
-            url: "https://www.srisuprajainfracon.com/projects/sindhu-sarovar",
-          },
-          {
-            "@type": "Product",
-            name: "Subhash Meadows",
-            url: "https://www.srisuprajainfracon.com/projects/subhash-meadows",
-          },
-        ],
+        mainEntity: {
+          "@type": "ItemList",
+          name: "Sri Supraja Infracon Projects",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              item: {
+                "@type": "Place",
+                name: "Supraja IRIS Resort Project",
+                url: "https://www.srisuprajainfracon.com/projects/supraja-iris-resort-plots/",
+              },
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              item: {
+                "@type": "Place",
+                name: "Bridge County",
+                url: "https://www.srisuprajainfracon.com/projects/bridge-county/",
+              },
+            },
+            {
+              "@type": "ListItem",
+              position: 3,
+              item: {
+                "@type": "Place",
+                name: "Sindhu Sarovar",
+                url: "https://www.srisuprajainfracon.com/projects/sindhu-sarovar/",
+              },
+            },
+            {
+              "@type": "ListItem",
+              position: 4,
+              item: {
+                "@type": "Place",
+                name: "Subhash Meadows",
+                url: "https://www.srisuprajainfracon.com/projects/subhash-meadows/",
+              },
+            },
+          ],
+        },
       },
       {
         "@type": "BreadcrumbList",
