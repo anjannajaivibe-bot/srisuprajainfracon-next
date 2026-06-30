@@ -308,14 +308,38 @@
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, x: 24 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.55, delay: 0.08 }}
-                className="relative"
-              >
-                <div className="absolute -inset-5 rounded-[42px] bg-[radial-gradient(circle_at_center,rgba(201,137,20,0.28),rgba(216,150,20,0.08)_42%,transparent_72%)] blur-2xl" />
+  initial={{ opacity: 0, x: 24 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.55, delay: 0.08 }}
+  className="relative"
+>
+  <div className="absolute -inset-5 rounded-[42px] bg-[radial-gradient(circle_at_center,rgba(201,137,20,0.28),rgba(216,150,20,0.08)_42%,transparent_72%)] blur-2xl" />
 
-              </motion.div>
+  <div className="relative overflow-hidden rounded-[34px] border border-[#D6A12B]/35 bg-black shadow-[0_36px_90px_rgba(6,26,51,0.24)]">
+    <div className="relative aspect-video w-full bg-black">
+      <video
+        className="h-full w-full object-contain"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster="/videos/supraja-iris-hero-poster.webp"
+        aria-label={hero.imageAlt}
+      >
+        <source src="/videos/supraja-iris-hero.mp4" type="video/mp4" />
+      </video>
+
+      <button
+        type="button"
+        className="absolute right-4 top-4 inline-flex items-center gap-3 rounded-full border border-white/45 bg-white/90 px-5 py-3 text-sm font-bold text-[#061A33] shadow-[0_16px_35px_rgba(6,26,51,0.22)] backdrop-blur-md transition hover:bg-[#FFF7E6] sm:right-5 sm:top-5 sm:px-6"
+      >
+        <Play className="h-4 w-4 fill-[#061A33]" />
+        Watch Project Overview
+      </button>
+    </div>
+  </div>
+</motion.div>
             </div>
           </div>
 
