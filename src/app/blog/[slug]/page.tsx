@@ -34,6 +34,20 @@ function stripHtml(html = "") {
   return html.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
 }
 
+function sanitizeBlogContent(content = "") {
+  return content
+    .replace(/<script[^>]*type=["']application\/ld\+json["'][\s\S]*?<\/script>/gi, "")
+    .replace(/<!--\s*\[et_pb_line_break_holder\]\s*-->/gi, "")
+    .replace(/\[\/?et_pb[^\]]*\]/gi, "")
+    .replace(/<\/?pee[^>]*>/gi, "p")
+    .replace(/<p>\s*<\/p>/gi, "")
+    .replace(/<p>\s*<\/ul>/gi, "</ul>")
+    .replace(/<ul>\s*<\/p>/gi, "<ul>")
+    .replace(/<p>\s*<\/div>/gi, "</div>")
+    .replace(/<div([^>]*)>\s*<\/p>/gi, "<div$1>")
+    .trim();
+}
+
 function slugify(text: string) {
   return stripHtml(text)
     .toLowerCase()
@@ -168,7 +182,8 @@ export default async function BlogDetailPage({
   if (!post) notFound();
 
   const relatedPosts = getRelatedPosts(slug);
-  const { content, toc } = addHeadingIds(post.content);
+  const cleanPostContent = sanitizeBlogContent(post.content);
+  const { content, toc } = addHeadingIds(cleanPostContent);
 
   const title = stripHtml(post.title);
   const description = post.metaDescription || stripHtml(post.excerpt || "");
@@ -177,7 +192,7 @@ export default async function BlogDetailPage({
     ? `${SITE_URL}${post.featuredImage}`
     : `${SITE_URL}/og-image.jpg`;
 
-  const readingTime = calculateReadingTime(post.content);
+  const readingTime = calculateReadingTime(cleanPostContent);
   const category = post.category || "Investment Guide";
 
   const formattedDate = new Date(post.date).toLocaleDateString("en-IN", {
