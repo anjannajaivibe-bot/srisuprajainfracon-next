@@ -327,7 +327,7 @@
         poster="/videos/supraja-iris-hero-poster.webp"
         aria-label={hero.imageAlt}
       >
-        <source src="/videos/supraja-iris-hero.mp4" type="video/mp4" />
+        <source src="/videos/supraja-iris-hero.webm" type="video/webm" />
       </video>
 
       <button
