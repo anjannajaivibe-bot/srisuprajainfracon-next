@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "optimize-blog-images": "node scripts/optimize-blog-images.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
