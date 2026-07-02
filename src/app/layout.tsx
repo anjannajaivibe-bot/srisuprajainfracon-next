@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+import Script from "next/script";
+
 import SiteShell from "@/components/layout/SiteShell";
 
 import { DM_Sans, Playfair_Display } from "next/font/google";
@@ -114,6 +116,20 @@ export default function RootLayout({
   return (
     <html lang="en-IN">
       <body className={`${dmSans.variable} ${playfair.variable}`}>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17957114954"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17957114954');
+          `}
+        </Script>
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
