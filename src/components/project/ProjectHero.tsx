@@ -95,7 +95,6 @@
         "Underground Infrastructure",
         "50 & 33 Ft Roads",
         "Water Connection to Every Plot",
-        "100% Vaastu Plots",
       ],
       imageAlt:
         "Bridge County premium plotted enclave within Supraja IRIS at Kamkole",
