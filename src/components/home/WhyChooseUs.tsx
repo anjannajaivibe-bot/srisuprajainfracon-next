@@ -64,7 +64,7 @@ const reasons = [
   {
     icon: TrendingUp,
     title: "Appreciation by Design",
-    desc: "Each layout is positioned around demand drivers already in motion — not speculative future promises.",
+    desc: "Each layout is positioned around demand drivers already in motion - not speculative future promises.",
   },
 ];
 
@@ -92,7 +92,7 @@ const WhyChooseUs = () => {
           </h2>
 
           <p className="mx-auto mt-6 max-w-4xl text-lg leading-8 text-[#334155]">
-            A track record measured in decades, not testimonials — deliberate site selection, 
+            A track record measured in decades, not testimonials - deliberate site selection, 
             transparent process, and outcomes our clients can independently verify.
           </p>
         </div>

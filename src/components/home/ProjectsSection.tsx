@@ -53,8 +53,8 @@ const ProjectsSection = () => {
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[#334155]">
-            Every Sri Supraja development is chosen for what surrounds it — universities, 
-            transit corridors, employment hubs — not just what's built on it. Four communities, 
+            Every Sri Supraja Infracon Projects is chosen for what surrounds it - universities, 
+            transit corridors, employment hubs - not just what's built on it. Four communities, 
             each at a different stage of maturity, offer entry points suited to different 
             investment timelines.
           </p>

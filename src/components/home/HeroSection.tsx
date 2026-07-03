@@ -77,7 +77,7 @@ const HeroSection = () => {
           className="mx-auto mb-6 max-w-4xl text-sm leading-6 text-slate-200 sm:mb-8 sm:text-base sm:leading-7 md:text-lg md:leading-relaxed"
         >
           Meticulously planned plotted communities across Kamkole, Sangareddy, Mominpet 
-          and Indrakaran — anchored to infrastructure corridors and engineered 
+          and Indrakaran - anchored to infrastructure corridors and engineered 
           for sustained capital appreciation.
         </motion.p>
 
@@ -152,7 +152,7 @@ const HeroSection = () => {
           >
             Plan a Site Visit
           </Link>
-          
+
           <Link
             href="/projects"
             className="rounded-full bg-white px-7 py-3 text-sm font-bold text-[#0B1633] shadow-lg transition hover:-translate-y-0.5 hover:bg-[#C9A227] sm:px-8 sm:py-4"
