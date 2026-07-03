@@ -76,7 +76,7 @@ const HeroSection = () => {
           transition={{ duration: 0.55, delay: 0.08 }}
           className="mx-auto mb-6 max-w-4xl text-sm leading-6 text-slate-200 sm:mb-8 sm:text-base sm:leading-7 md:text-lg md:leading-relaxed"
         >
-          Meticulously planned plotted communities across Kamkole, Sangareddy, Mominpet 
+          Meticulously planned plotted projects across Kamkole, Sangareddy, Mominpet 
           and Indrakaran - anchored to infrastructure corridors and engineered 
           for sustained capital appreciation.
         </motion.p>
