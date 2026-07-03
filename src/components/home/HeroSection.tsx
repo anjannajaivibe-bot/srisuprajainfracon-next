@@ -4,9 +4,9 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 const trustBadges = [
-  "24+ Years Legacy",
-  "Prime Growth Corridors",
-  "Transparent Documentation",
+  "24+ Years of Real Estate Stewardship",
+  "Positioned Along High-Growth Corridors",
+  "Fully Documented, Fully Transparent",
 ];
 
 const projectLinks = [
@@ -76,9 +76,9 @@ const HeroSection = () => {
           transition={{ duration: 0.55, delay: 0.08 }}
           className="mx-auto mb-6 max-w-4xl text-sm leading-6 text-slate-200 sm:mb-8 sm:text-base sm:leading-7 md:text-lg md:leading-relaxed"
         >
-          Explore premium plotted developments across Kamkole, Sangareddy,
-          Mominpet and Indrakaran, thoughtfully positioned around connectivity,
-          infrastructure growth and high returns potential.
+          Meticulously planned plotted communities across Kamkole, Sangareddy, Mominpet 
+          and Indrakaran — anchored to infrastructure corridors and engineered 
+          for sustained capital appreciation.
         </motion.p>
 
         <motion.div
@@ -147,17 +147,17 @@ const HeroSection = () => {
           className="mt-7 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4 lg:mt-10"
         >
           <Link
-            href="/projects"
-            className="rounded-full bg-white px-7 py-3 text-sm font-bold text-[#0B1633] shadow-lg transition hover:-translate-y-0.5 hover:bg-[#C9A227] sm:px-8 sm:py-4"
-          >
-            Explore Projects
-          </Link>
-
-          <Link
             href="/contact-us/"
             className="rounded-full border border-white/20 bg-white/10 px-7 py-3 text-sm font-bold text-white backdrop-blur-sm transition hover:bg-white hover:text-[#0B1633] sm:px-8 sm:py-4"
           >
             Plan a Site Visit
+          </Link>
+          
+          <Link
+            href="/projects"
+            className="rounded-full bg-white px-7 py-3 text-sm font-bold text-[#0B1633] shadow-lg transition hover:-translate-y-0.5 hover:bg-[#C9A227] sm:px-8 sm:py-4"
+          >
+            Explore Projects
           </Link>
         </motion.div>
 

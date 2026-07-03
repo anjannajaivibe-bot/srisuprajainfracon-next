@@ -38,33 +38,33 @@ const stats = [
 const reasons = [
   {
     icon: Landmark,
-    title: "Proven Real Estate Experience",
+    title: "Over Two Decades of Ground Reality",
     desc: "A strong track record across plotted developments, residential projects, villas, and lifestyle-led developments.",
   },
   {
     icon: MapPinned,
-    title: "Projects in Growth Corridors",
+    title: "Corridor-First Site Selection",
     desc: "Strategic project locations across Kamkole, Mominpet, Sangareddy, and Indrakaran with access to key development zones.",
   },
   {
     icon: ShieldCheck,
-    title: "Transparent Documentation",
-    desc: "Clear project information, approval details, layout visibility, and guided support before every site visit or booking decision.",
+    title: "Documentation You Can Audit ",
+    desc: "Approvals, title chain, and layout sanctions made available for independent verification before you commit.",
   },
   {
     icon: Handshake,
-    title: "Investor-Focused Guidance",
+    title: "Advisory, Not Sales Pressure",
     desc: "Practical location insights, availability updates, pricing guidance, and comparison support for confident decision-making.",
   },
   {
     icon: Building2,
-    title: "Multiple Project Options",
+    title: "A Portfolio, Not a Single Bet",
     desc: "Choose from resort-inspired plots, premium plotted enclaves, gated layouts, and affordable growth-corridor projects.",
   },
   {
     icon: TrendingUp,
-    title: "High Appreciation Potential",
-    desc: "Each project is planned around connectivity, infrastructure growth, residential demand, and future appreciation potential.",
+    title: "Appreciation by Design",
+    desc: "Each layout is positioned around demand drivers already in motion — not speculative future promises.",
   },
 ];
 
@@ -92,9 +92,8 @@ const WhyChooseUs = () => {
           </h2>
 
           <p className="mx-auto mt-6 max-w-4xl text-lg leading-8 text-[#334155]">
-            A customer-first approach, strategic project locations, transparent
-            processes, and years of real estate experience continue to make Sri
-            Supraja Infracon a preferred choice for investors and families.
+            A track record measured in decades, not testimonials — deliberate site selection, 
+            transparent process, and outcomes our clients can independently verify.
           </p>
         </div>
 

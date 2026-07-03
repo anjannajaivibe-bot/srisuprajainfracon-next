@@ -9,11 +9,11 @@ const CTASection = () => {
         </p>
 
         <h2 className="mb-5 text-3xl font-extrabold leading-tight md:text-5xl">
-          Secure Your Preferred Plot Before Availability Changes
+          Land Doesn't Wait for the Market to Catch Up
         </h2>
 
         <p className="mx-auto max-w-3xl text-lg leading-relaxed text-slate-300">
-         Schedule a Site Visit and Explore Current Opportunities Across Our Featured Communities.
+         Site visits are the fastest way to separate a good plot from a good pitch. Reserve yours before current inventory allocations close.
         </p>
 
         <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm font-bold">
@@ -22,7 +22,7 @@ const CTASection = () => {
           </Link>
 
           <Link href="/contact-us/" className="text-amber-300 underline">
-            Speak to Sales Advisor
+            Speak to an Advisor
           </Link>
 
           <a

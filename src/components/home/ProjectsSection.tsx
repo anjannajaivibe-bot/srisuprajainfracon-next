@@ -47,14 +47,16 @@ const ProjectsSection = () => {
           </div>
 
           <h2 className="mx-auto max-w-5xl font-display text-4xl font-bold leading-tight tracking-tight text-[#07111F] md:text-6xl">
-            Discover{" "}
-            <span className="text-[#C48912]">Investment Opportunities Across Our</span>{" "}
-            Projects
+            Curated Land.{" "}
+            <span className="text-[#C48912]">Considered Locations.</span>{" "}
+            Deliberate Timing.
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[#334155]">
-            Explore premium plotted developments across Kamkole, Sangareddy, Mominpet and Indrakaran, 
-            thoughtfully positioned around connectivity, infrastructure growth and high returns potential.
+            Every Sri Supraja development is chosen for what surrounds it — universities, 
+            transit corridors, employment hubs — not just what's built on it. Four communities, 
+            each at a different stage of maturity, offer entry points suited to different 
+            investment timelines.
           </p>
         </div>
       </div>
