@@ -187,11 +187,11 @@ export default function AboutClient() {
                     animate={{ opacity: 1, y: 0 }}
                     className="max-w-5xl font-display text-[42px] font-bold leading-[1.08] text-white md:text-[56px] lg:text-[72px]"
                   >
-                    Over 24 Years of Building Trust,
+                    Two Decades of Trust.
                     <br />
-                    <span className="text-[#C9A227]">Communities.</span>
+                    <span className="text-[#C9A227]">A Legacy Still Being</span>
                     <br />
-                    <span className="text-[#C9A227]">Long-Term Value.</span>
+                    <span className="text-[#C9A227]">Written.</span>
                   </motion.h1>
 
                   <motion.p
@@ -199,10 +199,8 @@ export default function AboutClient() {
                     animate={{ opacity: 1, y: 0 }}
                     className="mt-8 max-w-3xl text-lg leading-relaxed text-slate-200"
                   >
-                    Sri Supraja Infracon is a trusted real estate development
-                    company focused on approved layouts, planned infrastructure,
-                    and customer-first property development across Hyderabad and
-                    Telangana.
+                    Sri Supraja Infracon has spent over 24 years turning approved layouts 
+                    and planned projects into long-term value for Hyderabad and Telangana families.
                   </motion.p>
 
                   <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -210,7 +208,7 @@ export default function AboutClient() {
                       ["24+", "Years of Legacy"],
                       ["10+", "Completed Projects"],
                       ["DTCP & RERA", "Approved Developments"],
-                      ["5000+", "Happy Property Owners"],
+                      ["5000+", "Happy Families"],
                     ].map(([num, label]) => (
                       <div
                         key={label}
@@ -388,8 +386,9 @@ export default function AboutClient() {
               </h2>
 
               <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-[#4B5563]">
-                Sri Supraja Infracon believes growth should benefit people,
-                communities, and future generations.
+                A project's value doesn't end at the boundary wall. Sri Supraja Infracon extends 
+                its commitment into the people and places it builds around - through education, 
+                healthcare access, local skilling and cultural preservation.
               </p>
             </div>
 
@@ -567,12 +566,12 @@ export default function AboutClient() {
         <section className="bg-gradient-to-br from-[#081225] via-[#102348] to-[#0B1633] px-6 py-24 text-white">
           <div className="container-max text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">
-              Secure Your Place in Hyderabad&apos;s Growth Story
+              Twenty-Four Years of Delivery. One Next Chapter&apos; - Yours.
             </h2>
 
             <p className="mx-auto mt-4 max-w-3xl text-slate-300">
-              Discover thoughtfully planned communities backed by approvals,
-              transparency and a legacy of trust built over 24 years.
+              Explore the projects shaping Hyderabad's growth story, 
+              or speak directly with our team about what's currently open for investment.
             </p>
 
             <div className="mt-7 flex flex-wrap justify-center gap-4">
