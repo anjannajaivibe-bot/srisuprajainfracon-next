@@ -45,9 +45,9 @@ export default function ContactPageClient() {
             animate={{ opacity: 1, y: 0 }}
             className="mx-auto mt-6 max-w-4xl text-lg leading-relaxed text-slate-200"
           >
-            Whether you&apos;re exploring project options, planning a site visit,
-            or seeking additional information, our team is here to assist you
-            with clear guidance and timely support.
+            Whether you&apos;re evaluating project options, coordinating a site visit, 
+            or seeking further clarity, our team is on hand to offer informed guidance 
+            and prompt assistance.
           </motion.p>
         </div>
       </section>
@@ -60,7 +60,7 @@ export default function ContactPageClient() {
             </p>
 
             <h2 className="mb-6 font-display text-3xl font-bold text-[#111827] sm:text-4xl">
-              Reach Us
+              Get in Touch
             </h2>
 
             <div className="space-y-5">
@@ -115,8 +115,7 @@ export default function ContactPageClient() {
                   <p className="font-bold text-[#111827]">Office Hours</p>
 
                   <p className="text-[#4B5563]">
-                    Our team is available to assist with project information and
-                    site visit coordination.
+                    Our advisory team is available to assist with project enquiries and site visit scheduling.
                   </p>
                 </div>
               </div>
@@ -153,18 +152,18 @@ export default function ContactPageClient() {
           </p>
 
           <h2 className="font-display text-3xl font-bold text-[#111827] sm:text-4xl">
-            Explore Our Projects
+            OUR PROJECT PORTFOLIO
           </h2>
 
           <p className="mx-auto mt-5 max-w-3xl text-[#4B5563]">
-            Discover projects across Kamkole, Mominpet, Sangareddy, and
-            Indrakaran, each planned to serve different investment and future
-            ownership aspirations.
+            Discover projects across Kamkole, Sangareddy, Mominpet and Indrakaran, 
+            each conceived to serve distinct investment horizons and long-term ownership 
+            aspirations.
           </p>
 
           <p className="mx-auto mt-4 max-w-3xl text-[#4B5563]">
-            Explore project details, location advantages, site visuals, and
-            availability information before planning your visit.
+            Review project specifications, locational advantages, site visuals 
+            and current availability.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">

@@ -17,9 +17,10 @@ export default function Footer() {
             </p>
 
             <p className="mt-6 leading-7 text-slate-600">
-              Sri Supraja Infracon develops DTCP & RERA approved open plots,
-              villa plots and premium plotted developments near Hyderabad growth
-              corridors including Kamkole, Sangareddy, Mominpet and Indrakaran.
+              Sri Supraja Infracon delivers DTCP & RERA approved open plots, 
+              HMDA approved villas and apartments, and premium plotted projects 
+              across Hyderabad's growth corridors — including Kamkole, Sangareddy, 
+              Mominpet and Indrakaran.
             </p>
 
             {/* Social Icons */}
