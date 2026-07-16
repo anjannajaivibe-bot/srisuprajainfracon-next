@@ -40,12 +40,6 @@ const HeroSection = () => {
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#0B1633] pt-24 sm:pt-28 lg:min-h-[88vh] lg:pt-0">
       {/* Background */}
       <div className="absolute inset-0" aria-hidden="true">
-        {/*
-          The source media condition prevents this video from being requested
-          on mobile and tablet devices.
-
-          Mobile users receive the lightweight navy background and overlays.
-        */}
         <video
           className="hidden h-full w-full object-cover opacity-35 lg:block"
           autoPlay
@@ -139,18 +133,31 @@ const HeroSection = () => {
                 aria-hidden="true"
               />
 
-              <div className="legacy-marquee-track flex w-max">
-                {[...legacyProjects, ...legacyProjects].map(
-                  (project, index) => (
+              <div className="legacy-marquee-track">
+                <div className="legacy-marquee-group">
+                  {legacyProjects.map((project) => (
                     <span
-                      key={`${project}-${index}`}
-                      className="mx-4 whitespace-nowrap text-[11px] font-semibold text-slate-200 sm:mx-6 sm:text-sm"
-                      aria-hidden={index >= legacyProjects.length}
+                      key={`primary-${project}`}
+                      className="legacy-marquee-item"
                     >
                       {project}
                     </span>
-                  ),
-                )}
+                  ))}
+                </div>
+
+                <div
+                  className="legacy-marquee-group"
+                  aria-hidden="true"
+                >
+                  {legacyProjects.map((project) => (
+                    <span
+                      key={`duplicate-${project}`}
+                      className="legacy-marquee-item"
+                    >
+                      {project}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -214,7 +221,6 @@ const HeroSection = () => {
           opacity: 0;
           transform: translateY(16px);
           animation: hero-reveal-animation 550ms ease-out forwards;
-          will-change: opacity, transform;
         }
 
         .hero-delay-1 {
@@ -242,12 +248,34 @@ const HeroSection = () => {
         }
 
         .legacy-marquee-track {
+          display: flex;
+          width: max-content;
+          min-width: 100%;
           animation: legacy-marquee-scroll 38s linear infinite;
+          transform: translate3d(0, 0, 0);
           will-change: transform;
         }
 
         .legacy-marquee-track:hover {
           animation-play-state: paused;
+        }
+
+        .legacy-marquee-group {
+          display: flex;
+          flex-shrink: 0;
+          align-items: center;
+          width: max-content;
+        }
+
+        .legacy-marquee-item {
+          display: inline-block;
+          flex-shrink: 0;
+          margin-left: 1rem;
+          margin-right: 1rem;
+          white-space: nowrap;
+          font-size: 11px;
+          font-weight: 600;
+          color: rgb(226 232 240);
         }
 
         @keyframes hero-reveal-animation {
@@ -272,18 +300,23 @@ const HeroSection = () => {
           }
         }
 
+        @media (min-width: 640px) {
+          .legacy-marquee-item {
+            margin-left: 1.5rem;
+            margin-right: 1.5rem;
+            font-size: 14px;
+          }
+        }
+
         @media (prefers-reduced-motion: reduce) {
           .hero-reveal {
             opacity: 1;
             transform: none;
             animation: none;
-            will-change: auto;
           }
 
           .legacy-marquee-track {
-            animation: none;
-            transform: none;
-            will-change: auto;
+            animation-duration: 70s;
           }
         }
       `}</style>
