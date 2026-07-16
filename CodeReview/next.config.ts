@@ -1,0 +1,117 @@
+import type { NextConfig } from "next";
+
+const blogSlugs = [
+  "upcoming-attractions-near-hyderabad-2026",
+  "what-is-dtcp-approval-in-hyderabad",
+  "kamkole-real-estate-investment-hotspot",
+  "dtcp-rera-approved-plots-in-hyderabad",
+  "open-villa-plot-projects-in-hyderabad",
+  "best-open-plots-in-hyderabad-for-sale",
+  "upcoming-developing-areas-in-hyderabad-2026",
+  "dtcp-approved-plots-in-hyderabad",
+  "best-plots-in-hyderabad",
+  "hyderabad-investment-areas",
+  "rera-approved-plots-hyderabad-guide",
+  "open-plots-in-hyderabad",
+  "plots-near-orr-hyderabad",
+  "hyderabad-real-estate-market-trends-2025",
+  "top-open-plots-resorts-hyderabad",
+  "best-open-plots-resorts-in-hyderabad",
+  "open-plots-in-hyderabad-investment-2025",
+];
+
+const nextConfig: NextConfig = {
+  images: {
+    formats: ["image/avif", "image/webp"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
+  },
+
+  experimental: {
+    optimizePackageImports: ["lucide-react", "framer-motion"],
+  },
+
+  compress: true,
+  poweredByHeader: false,
+  reactStrictMode: true,
+
+  async redirects() {
+    return [
+      // Invalid URLs found in Google Search Console
+      {
+        source: "/&",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/$",
+        destination: "/",
+        permanent: true,
+      },
+
+      // Contact page redirects
+      {
+        source: "/contact",
+        destination: "/contact-us/",
+        permanent: true,
+      },
+      {
+        source: "/contact/",
+        destination: "/contact-us/",
+        permanent: true,
+      },
+
+      // Legacy blog URL redirects
+      ...blogSlugs.flatMap((slug) => [
+        {
+          source: `/${slug}`,
+          destination: `/blog/${slug}/`,
+          permanent: true,
+        },
+        {
+          source: `/${slug}/`,
+          destination: `/blog/${slug}/`,
+          permanent: true,
+        },
+      ]),
+    ];
+  },
+
+  async headers() {
+    return [
+      {
+        source: "/_next/static/:path*",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex",
+          },
+        ],
+      },
+      {
+        source: "/:path*.ico",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex",
+          },
+        ],
+      },
+      {
+        source: "/manifest.webmanifest",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex",
+          },
+        ],
+      },
+    ];
+  },
+};
+
+export default nextConfig;
