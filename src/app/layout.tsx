@@ -1,22 +1,23 @@
 import type { Metadata } from "next";
+import Script from "next/script";
+import { DM_Sans, Playfair_Display } from "next/font/google";
+
 import "./globals.css";
 
-import Script from "next/script";
-
 import SiteShell from "@/components/layout/SiteShell";
-
-import { DM_Sans, Playfair_Display } from "next/font/google";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-body",
+  preload: true,
 });
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-display",
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -84,9 +85,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -115,36 +116,58 @@ export default function RootLayout({
 
   return (
     <html lang="en-IN">
-      <head>
-        <Script id="gtm-init" strategy="beforeInteractive">
-          {`
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-PFM9PPT3');
-          `}
-        </Script>
-      </head>
       <body className={`${dmSans.variable} ${playfair.variable}`}>
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-PFM9PPT3"
             height="0"
             width="0"
-            style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager"
+            style={{
+              display: "none",
+              visibility: "hidden",
+            }}
           />
         </noscript>
 
+        <SiteShell>{children}</SiteShell>
+
+        {/* Google Tag Manager loads after the page becomes interactive. */}
+        <Script id="gtm-init" strategy="afterInteractive">
+          {`
+            (function(w,d,s,l,i){
+              w[l]=w[l]||[];
+              w[l].push({
+                'gtm.start': new Date().getTime(),
+                event:'gtm.js'
+              });
+
+              var f=d.getElementsByTagName(s)[0],
+                  j=d.createElement(s),
+                  dl=l!='dataLayer'?'&l='+l:'';
+
+              j.async=true;
+              j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+              f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-PFM9PPT3');
+          `}
+        </Script>
+
+        {/* Keep standalone Google Ads tracking until GTM configuration is verified. */}
         <Script
-          async
+          id="google-ads-library"
           src="https://www.googletagmanager.com/gtag/js?id=AW-17957114954"
           strategy="afterInteractive"
         />
-        <Script id="gtag-init" strategy="afterInteractive">
+
+        <Script id="google-ads-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
+
+            function gtag(){
+              window.dataLayer.push(arguments);
+            }
+
             gtag('js', new Date());
             gtag('config', 'AW-17957114954');
           `}
@@ -156,8 +179,6 @@ export default function RootLayout({
             __html: JSON.stringify(organizationSchema),
           }}
         />
-
-        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   );
