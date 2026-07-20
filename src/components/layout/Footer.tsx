@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LazyGoogleMap from "@/components/shared/LazyGoogleMap";
 
 export default function Footer() {
   return (
@@ -17,10 +18,10 @@ export default function Footer() {
             </p>
 
             <p className="mt-6 leading-7 text-slate-600">
-              Sri Supraja Infracon delivers DTCP & RERA approved open plots, 
-              HMDA approved villas and apartments, and premium plotted projects 
-              across Hyderabad's growth corridors — including Kamkole, Sangareddy, 
-              Mominpet and Indrakaran.
+              Sri Supraja Infracon delivers DTCP & RERA approved open plots,
+              HMDA approved villas and apartments, and premium plotted projects
+              across Hyderabad&apos;s growth corridors — including Kamkole,
+              Sangareddy, Mominpet and Indrakaran.
             </p>
 
             {/* Social Icons */}
@@ -195,16 +196,11 @@ export default function Footer() {
 
         {/* Office Map */}
         <div className="mt-14 overflow-hidden rounded-3xl border border-slate-200 shadow-lg">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d511.8898517700488!2d78.3263364719618!3d17.494642678754836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9291f73c9b8d%3A0x500bd3bbe095ab6d!2sSri%20Supraja%20Infracon%20-%20Premium%20Plots%20%26%20Resorts!5e1!3m2!1sen!2sin!4v1780045764967!5m2!1sen!2sin"
-            width="100%"
-            height="350"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
+          <LazyGoogleMap
+            embedUrl="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3199.830322480578!2d78.32710481827314!3d17.4950506675388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2sin!4v1784529285515!5m2!1sen!2sin"
+            externalUrl="https://www.google.com/maps/search/?api=1&query=Sri%20Supraja%20Infracon%20Chandanagar"
             title="Sri Supraja Infracon Office Location"
-            className="w-full"
+            height={350}
           />
         </div>
       </div>
@@ -221,7 +217,10 @@ export default function Footer() {
             aria-label="Legal links"
             className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2"
           >
-            <Link href="/privacy-policy/" className="transition hover:text-[#C9A227]">
+            <Link
+              href="/privacy-policy/"
+              className="transition hover:text-[#C9A227]"
+            >
               Privacy Policy
             </Link>
 
@@ -232,11 +231,17 @@ export default function Footer() {
               Terms & Conditions
             </Link>
 
-            <Link href="/disclaimer/" className="transition hover:text-[#C9A227]">
+            <Link
+              href="/disclaimer/"
+              className="transition hover:text-[#C9A227]"
+            >
               Disclaimer
             </Link>
 
-            <Link href="/cookie-policy/" className="transition hover:text-[#C9A227]">
+            <Link
+              href="/cookie-policy/"
+              className="transition hover:text-[#C9A227]"
+            >
               Cookie Policy
             </Link>
           </nav>
