@@ -364,12 +364,21 @@ export default function AdminClient() {
             </div>
 
             {userRole === "admin" && (
-              <button
-                onClick={exportCSV}
-                className="rounded-xl bg-[#C9A227] px-5 py-3 font-semibold text-[#0B1633]"
-              >
-                Export CSV
-              </button>
+              <>
+                <a
+                  href="/admin/clicks"
+                  className="rounded-xl border border-[#C9A227]/50 bg-white px-5 py-3 text-center font-semibold text-[#0B1633]"
+                >
+                  Website Clicks
+                </a>
+
+                <button
+                  onClick={exportCSV}
+                  className="rounded-xl bg-[#C9A227] px-5 py-3 font-semibold text-[#0B1633]"
+                >
+                  Export CSV
+                </button>
+              </>
             )}
 
             <button

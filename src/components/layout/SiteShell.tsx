@@ -6,6 +6,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FloatingCTA from "@/components/layout/FloatingCTA";
 import ContactFormPopup from "@/components/forms/ContactFormPopup";
+import ClickTracker from "@/components/analytics/ClickTracker";
 
 export default function SiteShell({
   children,
@@ -21,6 +22,7 @@ const isAdmin = pathname.startsWith("/admin");
 
   return (
     <>
+      <ClickTracker />
       <Navbar />
 
       <div className="min-h-screen pt-24">{children}</div>
