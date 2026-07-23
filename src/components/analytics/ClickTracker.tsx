@@ -40,7 +40,11 @@ const safeUrl = (value: string | null) => {
       return `${url.pathname}${url.hash}`.slice(0, 500);
     }
 
-    return `${url.protocol}//${url.host}${url.pathname}`.slice(0, 500);
+    if (url.protocol === "http:" || url.protocol === "https:") {
+  return `${url.protocol}//${url.host}${url.pathname}`.slice(0, 500);
+}
+
+return url.href.slice(0, 500);
   } catch {
     return null;
   }
