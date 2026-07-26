@@ -6,6 +6,7 @@ type ClickEvent = {
   id: number;
   created_at: string;
   session_id: string;
+  visitor_id: string | null;
   event_type: string;
   page_path: string;
   page_title: string;
@@ -25,6 +26,7 @@ type ClickEvent = {
 };
 
 const eventLabels: Record<string, string> = {
+  page_view: "Page View",
   site_click: "Website Click",
   phone_click: "Phone",
   whatsapp_click: "WhatsApp",
@@ -139,6 +141,8 @@ export default function ClickAnalyticsClient() {
         event.link_text,
         event.utm_source,
         event.utm_campaign,
+        event.session_id,
+        event.visitor_id,
         event.ip_address,
         event.city,
         event.region,
@@ -155,28 +159,35 @@ export default function ClickAnalyticsClient() {
   const stats = useMemo(() => {
     const uniqueSessions = new Set(events.map((event) => event.session_id))
       .size;
+    const uniqueVisitors = new Set(
+      events.map((event) => event.visitor_id).filter(Boolean),
+    ).size;
+    const clicks = events.filter((event) => event.event_type !== "page_view");
 
     return {
-      total: events.length,
+      views: events.filter((event) => event.event_type === "page_view").length,
+      clicks: clicks.length,
       sessions: uniqueSessions,
-      phone: events.filter((event) => event.event_type === "phone_click")
+      visitors: uniqueVisitors,
+      phone: clicks.filter((event) => event.event_type === "phone_click")
         .length,
-      whatsapp: events.filter((event) => event.event_type === "whatsapp_click")
+      whatsapp: clicks.filter((event) => event.event_type === "whatsapp_click")
         .length,
-      form: events.filter((event) => event.event_type === "form_action_click")
-        .length,
-      pages: new Set(events.map((event) => event.page_path)).size,
     };
   }, [events]);
 
   const topPages = useMemo(
-    () => countBy(events, (event) => event.page_path).slice(0, 8),
+    () =>
+      countBy(
+        events.filter((event) => event.event_type === "page_view"),
+        (event) => event.page_path,
+      ).slice(0, 8),
     [events],
   );
   const topActions = useMemo(
     () =>
       countBy(
-        events,
+        events.filter((event) => event.event_type !== "page_view"),
         (event) => event.link_text || event.target_url || event.event_type,
       ).slice(0, 8),
     [events],
@@ -207,6 +218,7 @@ export default function ClickAnalyticsClient() {
       "Medium",
       "Campaign",
       "Session",
+      "Anonymous Visitor",
     ];
     const rows = filteredEvents.map((event) => [
       new Date(event.created_at).toLocaleString(),
@@ -224,6 +236,7 @@ export default function ClickAnalyticsClient() {
       event.utm_medium,
       event.utm_campaign,
       event.session_id,
+      event.visitor_id,
     ]);
     const csv = [
       headers.map(csvCell).join(","),
@@ -234,7 +247,7 @@ export default function ClickAnalyticsClient() {
     );
     const link = document.createElement("a");
     link.href = url;
-    link.download = `supraja-website-clicks-${days}-days.csv`;
+    link.download = `supraja-website-analytics-${days}-days.csv`;
     link.click();
     URL.revokeObjectURL(url);
   };
@@ -249,7 +262,7 @@ export default function ClickAnalyticsClient() {
             </p>
             <h1 className="mt-1 text-3xl font-bold">Website Click Analytics</h1>
             <p className="mt-2 text-slate-600">
-              Privacy-safe tracking for website links, buttons and lead actions.
+              Page views, anonymous visitors, sessions and lead-action tracking.
             </p>
           </div>
 
@@ -272,16 +285,16 @@ export default function ClickAnalyticsClient() {
         </header>
 
         <section className="mb-7 grid gap-4 sm:grid-cols-2 xl:grid-cols-6">
-          <StatCard label="Total Clicks" value={stats.total} />
+          <StatCard label="Page Views" value={stats.views} />
+          <StatCard label="Unique Visitors" value={stats.visitors} />
           <StatCard label="Sessions" value={stats.sessions} />
+          <StatCard label="Total Clicks" value={stats.clicks} />
           <StatCard label="Phone Clicks" value={stats.phone} />
           <StatCard label="WhatsApp" value={stats.whatsapp} />
-          <StatCard label="Form Actions" value={stats.form} />
-          <StatCard label="Active Pages" value={stats.pages} />
         </section>
 
         <section className="mb-7 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          <RankingCard title="Most Clicked Pages" rows={topPages} />
+          <RankingCard title="Most Viewed Pages" rows={topPages} />
           <RankingCard title="Most Clicked Actions" rows={topActions} />
           <RankingCard title="Device Split" rows={devices} />
           <RankingCard title="Top Visitor Locations" rows={locations} />
@@ -304,7 +317,7 @@ export default function ClickAnalyticsClient() {
               onChange={(event) => setTypeFilter(event.target.value)}
               className="rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-[#C9A227]"
             >
-              <option value="All">All click types</option>
+              <option value="All">All event types</option>
               {Object.entries(eventLabels).map(([value, label]) => (
                 <option key={value} value={value}>
                   {label}
@@ -331,7 +344,7 @@ export default function ClickAnalyticsClient() {
             </div>
           ) : filteredEvents.length === 0 ? (
             <div className="p-12 text-center text-slate-500">
-              No matching clicks recorded yet.
+              No matching events recorded yet.
             </div>
           ) : (
             <div className="max-h-[68vh] overflow-auto">
@@ -341,7 +354,7 @@ export default function ClickAnalyticsClient() {
                     <TableHeading>Date</TableHeading>
                     <TableHeading>Type</TableHeading>
                     <TableHeading>Page</TableHeading>
-                    <TableHeading>Clicked item</TableHeading>
+                    <TableHeading>Viewed / clicked item</TableHeading>
                     <TableHeading>Destination</TableHeading>
                     <TableHeading>Campaign</TableHeading>
                     <TableHeading>Device</TableHeading>
@@ -369,7 +382,9 @@ export default function ClickAnalyticsClient() {
                       </td>
                       <td className="max-w-xs p-4">
                         <p className="truncate font-medium">
-                          {event.link_text || "(Unlabelled element)"}
+                          {event.event_type === "page_view"
+                            ? event.page_title || event.page_path
+                            : event.link_text || "(Unlabelled element)"}
                         </p>
                       </td>
                       <td className="max-w-xs p-4">

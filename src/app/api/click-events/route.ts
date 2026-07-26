@@ -15,6 +15,7 @@ const clickSchema = z.object({
     .max(60)
     .regex(/^[a-z0-9_]+$/),
   session_id: z.string().uuid(),
+  visitor_id: z.string().uuid(),
   page_path: z.string().trim().min(1).max(500),
   page_title: z.string().trim().max(200),
   target_url: z.string().trim().max(500).nullable(),
@@ -148,7 +149,7 @@ export async function GET(request: NextRequest) {
   const { data, error } = await supabaseAdmin
     .from("click_events")
     .select(
-      "id,created_at,session_id,event_type,page_path,page_title,target_url,link_text,element_type,referrer,utm_source,utm_medium,utm_campaign,device_type,browser,ip_address,city,region,country",
+      "id,created_at,session_id,visitor_id,event_type,page_path,page_title,target_url,link_text,element_type,referrer,utm_source,utm_medium,utm_campaign,device_type,browser,ip_address,city,region,country",
     )
     .gte("created_at", since.toISOString())
     .order("created_at", { ascending: false })
