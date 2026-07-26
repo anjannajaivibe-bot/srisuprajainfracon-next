@@ -31,8 +31,18 @@ create table if not exists public.click_events (
   browser text not null default '' check (char_length(browser) <= 40),
   screen_width integer not null default 0 check (
     screen_width >= 0 and screen_width <= 10000
-  )
+  ),
+  ip_address inet,
+  city text check (city is null or char_length(city) <= 120),
+  region text check (region is null or char_length(region) <= 120),
+  country text check (country is null or char_length(country) = 2)
 );
+
+alter table public.click_events
+  add column if not exists ip_address inet,
+  add column if not exists city text,
+  add column if not exists region text,
+  add column if not exists country text;
 
 alter table public.click_events enable row level security;
 
@@ -48,5 +58,8 @@ create index if not exists click_events_page_path_idx
 create index if not exists click_events_session_id_idx
   on public.click_events (session_id, created_at desc);
 
+create index if not exists click_events_country_city_idx
+  on public.click_events (country, city, created_at desc);
+
 comment on table public.click_events is
-  'Privacy-safe website link and button click analytics.';
+  'Website link and button click analytics with server-derived approximate location.';

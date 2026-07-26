@@ -18,6 +18,10 @@ type ClickEvent = {
   utm_campaign: string | null;
   device_type: "mobile" | "tablet" | "desktop";
   browser: string;
+  ip_address: string | null;
+  city: string | null;
+  region: string | null;
+  country: string | null;
 };
 
 const eventLabels: Record<string, string> = {
@@ -29,17 +33,52 @@ const eventLabels: Record<string, string> = {
   form_action_click: "Form Action",
 };
 
-const countBy = (events: ClickEvent[], selector: (item: ClickEvent) => string) =>
+const countBy = (
+  events: ClickEvent[],
+  selector: (item: ClickEvent) => string,
+) =>
   Object.entries(
     events.reduce<Record<string, number>>((result, event) => {
       const key = selector(event) || "Unknown";
       result[key] = (result[key] || 0) + 1;
       return result;
-    }, {})
+    }, {}),
   ).sort((a, b) => b[1] - a[1]);
 
 const csvCell = (value: string | number | null) =>
   `"${String(value ?? "").replace(/"/g, '""')}"`;
+
+const countryNames =
+  typeof Intl.DisplayNames === "function"
+    ? new Intl.DisplayNames(["en"], { type: "region" })
+    : null;
+
+const countryName = (country: string | null) => {
+  if (!country) return "";
+
+  try {
+    return countryNames?.of(country) || country;
+  } catch {
+    return country;
+  }
+};
+
+const locationLabel = (event: ClickEvent) =>
+  [event.city, event.region, countryName(event.country)]
+    .filter(Boolean)
+    .join(", ") || "Unknown";
+
+const maskIp = (ip: string | null) => {
+  if (!ip) return "Unavailable";
+
+  if (ip.includes(":")) {
+    const parts = ip.split(":").filter(Boolean);
+    return `${parts.slice(0, 3).join(":")}:…`;
+  }
+
+  const parts = ip.split(".");
+  return parts.length === 4 ? `${parts[0]}.${parts[1]}.xxx.xxx` : "Unavailable";
+};
 
 export default function ClickAnalyticsClient() {
   const [events, setEvents] = useState<ClickEvent[]>([]);
@@ -72,7 +111,7 @@ export default function ClickAnalyticsClient() {
           setError(
             loadError instanceof Error
               ? loadError.message
-              : "Unable to load click analytics"
+              : "Unable to load click analytics",
           );
         }
       } finally {
@@ -100,6 +139,10 @@ export default function ClickAnalyticsClient() {
         event.link_text,
         event.utm_source,
         event.utm_campaign,
+        event.ip_address,
+        event.city,
+        event.region,
+        event.country,
       ]
         .filter(Boolean)
         .join(" ")
@@ -110,37 +153,41 @@ export default function ClickAnalyticsClient() {
   }, [events, search, typeFilter]);
 
   const stats = useMemo(() => {
-    const uniqueSessions = new Set(events.map((event) => event.session_id)).size;
+    const uniqueSessions = new Set(events.map((event) => event.session_id))
+      .size;
 
     return {
       total: events.length,
       sessions: uniqueSessions,
-      phone: events.filter((event) => event.event_type === "phone_click").length,
-      whatsapp: events.filter(
-        (event) => event.event_type === "whatsapp_click"
-      ).length,
-      form: events.filter(
-        (event) => event.event_type === "form_action_click"
-      ).length,
+      phone: events.filter((event) => event.event_type === "phone_click")
+        .length,
+      whatsapp: events.filter((event) => event.event_type === "whatsapp_click")
+        .length,
+      form: events.filter((event) => event.event_type === "form_action_click")
+        .length,
       pages: new Set(events.map((event) => event.page_path)).size,
     };
   }, [events]);
 
   const topPages = useMemo(
     () => countBy(events, (event) => event.page_path).slice(0, 8),
-    [events]
+    [events],
   );
   const topActions = useMemo(
     () =>
       countBy(
         events,
-        (event) => event.link_text || event.target_url || event.event_type
+        (event) => event.link_text || event.target_url || event.event_type,
       ).slice(0, 8),
-    [events]
+    [events],
   );
   const devices = useMemo(
     () => countBy(events, (event) => event.device_type),
-    [events]
+    [events],
+  );
+  const locations = useMemo(
+    () => countBy(events, locationLabel).slice(0, 8),
+    [events],
   );
 
   const exportCSV = () => {
@@ -152,6 +199,10 @@ export default function ClickAnalyticsClient() {
       "Destination",
       "Device",
       "Browser",
+      "IP Address",
+      "City",
+      "Region",
+      "Country",
       "Source",
       "Medium",
       "Campaign",
@@ -165,6 +216,10 @@ export default function ClickAnalyticsClient() {
       event.target_url,
       event.device_type,
       event.browser,
+      event.ip_address,
+      event.city,
+      event.region,
+      countryName(event.country),
       event.utm_source,
       event.utm_medium,
       event.utm_campaign,
@@ -175,7 +230,7 @@ export default function ClickAnalyticsClient() {
       ...rows.map((row) => row.map(csvCell).join(",")),
     ].join("\n");
     const url = URL.createObjectURL(
-      new Blob([csv], { type: "text/csv;charset=utf-8" })
+      new Blob([csv], { type: "text/csv;charset=utf-8" }),
     );
     const link = document.createElement("a");
     link.href = url;
@@ -225,10 +280,11 @@ export default function ClickAnalyticsClient() {
           <StatCard label="Active Pages" value={stats.pages} />
         </section>
 
-        <section className="mb-7 grid gap-5 xl:grid-cols-3">
+        <section className="mb-7 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           <RankingCard title="Most Clicked Pages" rows={topPages} />
           <RankingCard title="Most Clicked Actions" rows={topActions} />
           <RankingCard title="Device Split" rows={devices} />
+          <RankingCard title="Top Visitor Locations" rows={locations} />
         </section>
 
         <section className="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-slate-200">
@@ -259,7 +315,7 @@ export default function ClickAnalyticsClient() {
             <input
               value={search}
               onChange={(event) => setSearch(event.target.value)}
-              placeholder="Search page, button, destination or campaign"
+              placeholder="Search page, action, campaign, IP or location"
               className="rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-[#C9A227]"
             />
           </div>
@@ -279,7 +335,7 @@ export default function ClickAnalyticsClient() {
             </div>
           ) : (
             <div className="max-h-[68vh] overflow-auto">
-              <table className="w-full min-w-[1250px] text-sm">
+              <table className="w-full min-w-[1450px] text-sm">
                 <thead className="sticky top-0 z-10 bg-slate-100">
                   <tr>
                     <TableHeading>Date</TableHeading>
@@ -289,6 +345,7 @@ export default function ClickAnalyticsClient() {
                     <TableHeading>Destination</TableHeading>
                     <TableHeading>Campaign</TableHeading>
                     <TableHeading>Device</TableHeading>
+                    <TableHeading>Visitor Location</TableHeading>
                   </tr>
                 </thead>
                 <tbody>
@@ -303,7 +360,9 @@ export default function ClickAnalyticsClient() {
                         </span>
                       </td>
                       <td className="max-w-xs p-4">
-                        <p className="truncate font-medium">{event.page_path}</p>
+                        <p className="truncate font-medium">
+                          {event.page_path}
+                        </p>
                         <p className="mt-1 truncate text-xs text-slate-500">
                           {event.page_title}
                         </p>
@@ -332,6 +391,15 @@ export default function ClickAnalyticsClient() {
                         {event.device_type}
                         <p className="mt-1 text-xs text-slate-500">
                           {event.browser}
+                        </p>
+                      </td>
+                      <td className="min-w-56 p-4">
+                        <p>{locationLabel(event)}</p>
+                        <p
+                          className="mt-1 text-xs text-slate-500"
+                          title="IP address is partially hidden for privacy"
+                        >
+                          {maskIp(event.ip_address)}
                         </p>
                       </td>
                     </tr>

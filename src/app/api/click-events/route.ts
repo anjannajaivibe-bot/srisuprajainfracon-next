@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { isIP } from "node:net";
 import { z } from "zod";
 
 import { supabaseAdmin } from "@/lib/supabase";
@@ -31,6 +32,42 @@ const clickSchema = z.object({
   screen_width: z.number().int().min(0).max(10000),
 });
 
+const headerText = (
+  request: NextRequest,
+  name: string,
+  max: number,
+): string | null => {
+  const value = request.headers.get(name)?.trim();
+  if (!value) return null;
+
+  try {
+    return decodeURIComponent(value).slice(0, max);
+  } catch {
+    return value.slice(0, max);
+  }
+};
+
+const getClientIp = (request: NextRequest): string | null => {
+  const candidates = [
+    request.headers.get("x-real-ip"),
+    request.headers.get("x-forwarded-for")?.split(",")[0],
+  ];
+
+  for (const candidate of candidates) {
+    const value = candidate?.trim();
+    if (value && isIP(value)) return value;
+  }
+
+  return null;
+};
+
+const getServerLocation = (request: NextRequest) => ({
+  ip_address: getClientIp(request),
+  city: headerText(request, "x-vercel-ip-city", 120),
+  region: headerText(request, "x-vercel-ip-country-region", 120),
+  country: headerText(request, "x-vercel-ip-country", 2)?.toUpperCase() || null,
+});
+
 const isAllowedOrigin = (request: NextRequest) => {
   const origin = request.headers.get("origin");
 
@@ -55,21 +92,25 @@ export async function POST(request: NextRequest) {
   if (!isAllowedOrigin(request)) {
     return NextResponse.json(
       { success: false, error: "Origin not allowed" },
-      { status: 403 }
+      { status: 403 },
     );
   }
 
   try {
     const payload = clickSchema.parse(await request.json());
+    const event = {
+      ...payload,
+      ...getServerLocation(request),
+    };
 
-    const { error } = await supabaseAdmin.from("click_events").insert(payload);
+    const { error } = await supabaseAdmin.from("click_events").insert(event);
 
     if (error) {
       console.error("Click event insert failed:", error.message);
 
       return NextResponse.json(
         { success: false, error: "Unable to record click" },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -78,7 +119,7 @@ export async function POST(request: NextRequest) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
         { success: false, error: "Invalid click event" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -86,7 +127,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(
       { success: false, error: "Unable to record click" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -95,7 +136,7 @@ export async function GET(request: NextRequest) {
   if (request.cookies.get("supraja_admin_auth")?.value !== "true") {
     return NextResponse.json(
       { success: false, error: "Unauthorized" },
-      { status: 401 }
+      { status: 401 },
     );
   }
 
@@ -107,7 +148,7 @@ export async function GET(request: NextRequest) {
   const { data, error } = await supabaseAdmin
     .from("click_events")
     .select(
-      "id,created_at,session_id,event_type,page_path,page_title,target_url,link_text,element_type,referrer,utm_source,utm_medium,utm_campaign,device_type,browser"
+      "id,created_at,session_id,event_type,page_path,page_title,target_url,link_text,element_type,referrer,utm_source,utm_medium,utm_campaign,device_type,browser,ip_address,city,region,country",
     )
     .gte("created_at", since.toISOString())
     .order("created_at", { ascending: false })
@@ -118,7 +159,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(
       { success: false, error: "Unable to load click analytics" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 
