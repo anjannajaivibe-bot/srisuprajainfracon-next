@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 type ProjectTestimonialsProps = {
   projectSlug?: string;
@@ -251,9 +252,72 @@ const fallbackCopy = {
     "Feedback from clients who explored Sri Supraja Infracon projects and interacted with Supraja Management.",
 };
 
+type Testimonial = (typeof testimonials)[number];
+
+function getInitials(name: string) {
+  return name
+    .split(/[\s/&]+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join("")
+    .toUpperCase();
+}
+
+function TestimonialCard({ item }: { item: Testimonial }) {
+  const hasCustomerPhoto = item.image !== "/testimonials/default-investor.webp";
+
+  return (
+    <article className="flex h-full min-w-0 snap-start flex-col rounded-[28px] border border-[#E8E2D5] bg-white p-7 shadow-[0_16px_45px_rgba(15,23,42,0.07)] sm:p-8">
+      <div className="flex items-start gap-4">
+        {hasCustomerPhoto ? (
+          <Image
+            src={item.image}
+            alt={item.alt}
+            width={72}
+            height={72}
+            loading="lazy"
+            sizes="72px"
+            className="h-[72px] w-[72px] shrink-0 rounded-full border-2 border-[#E7C967] object-cover"
+          />
+        ) : (
+          <div
+            className="flex h-[72px] w-[72px] shrink-0 items-center justify-center rounded-full border-2 border-[#E7C967] bg-gradient-to-br from-[#FFF8DE] to-[#F2E2A4] text-xl font-bold text-[#8A6500]"
+            aria-hidden="true"
+          >
+            {getInitials(item.name)}
+          </div>
+        )}
+
+        <div className="min-w-0 pt-1">
+          <p className="text-xs font-bold uppercase tracking-[0.15em] text-[#A87800]">
+            {item.project}
+          </p>
+          <h3 className="mt-2 font-display text-2xl font-bold leading-tight text-[#07111F]">
+            {item.name}
+          </h3>
+          <p className="mt-1 text-sm font-medium leading-6 text-[#64748B]">
+            {item.role}
+          </p>
+        </div>
+      </div>
+
+      <div className="my-6 h-px w-14 bg-[#C48912]" />
+
+      <blockquote className="flex-1 text-[16px] leading-7 text-[#334155]">
+        “{item.text}”
+      </blockquote>
+    </article>
+  );
+}
+
 export default function ProjectTestimonials({
   projectSlug,
 }: ProjectTestimonialsProps) {
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [canScrollBack, setCanScrollBack] = useState(false);
+  const [canScrollForward, setCanScrollForward] = useState(false);
+
   const visibleTestimonials = projectSlug
     ? testimonials.filter(
         (item) =>
@@ -263,24 +327,56 @@ export default function ProjectTestimonials({
       )
     : testimonials;
 
-  if (visibleTestimonials.length === 0) return null;
-
   const copy = projectSlug
     ? sectionCopy[projectSlug] ?? fallbackCopy
     : fallbackCopy;
 
-  const carouselItems =
-    visibleTestimonials.length > 1
-      ? [...visibleTestimonials, ...visibleTestimonials]
-      : visibleTestimonials;
+  const updateScrollControls = useCallback(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+    setCanScrollBack(carousel.scrollLeft > 4);
+    setCanScrollForward(carousel.scrollLeft < maxScrollLeft - 4);
+  }, []);
+
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    updateScrollControls();
+    const resizeObserver = new ResizeObserver(updateScrollControls);
+    resizeObserver.observe(carousel);
+
+    return () => resizeObserver.disconnect();
+  }, [updateScrollControls, visibleTestimonials.length]);
+
+  const scrollCarousel = (direction: "previous" | "next") => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    const card = carousel.firstElementChild as HTMLElement | null;
+    const gap = 24;
+    const distance = (card?.offsetWidth ?? carousel.clientWidth) + gap;
+
+    carousel.scrollBy({
+      left: direction === "next" ? distance : -distance,
+      behavior: "smooth",
+    });
+  };
+
+  if (visibleTestimonials.length === 0) return null;
 
   return (
-    <section className="relative overflow-hidden bg-white px-6 py-24">
+    <section
+      className="relative overflow-hidden bg-white px-5 py-20 sm:px-6 lg:py-24"
+      style={{ contentVisibility: "auto", containIntrinsicSize: "700px" }}
+    >
       <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-[#C9A227]/5 blur-3xl" />
       <div className="absolute right-0 bottom-20 h-72 w-72 rounded-full bg-[#C9A227]/5 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl">
-        <div className="mb-14 text-center">
+        <div className="mb-12 text-center">
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.32em] text-[#B88900]">
             WORDS OF TRUST
           </p>
@@ -300,126 +396,68 @@ export default function ProjectTestimonials({
           </p>
         </div>
 
-        {visibleTestimonials.length === 1 ? (
-          <div className="mx-auto max-w-4xl">
+        <div className="relative">
+          <div
+            ref={carouselRef}
+            onScroll={updateScrollControls}
+            className="scrollbar-none grid auto-cols-[100%] grid-flow-col gap-6 overflow-x-auto overscroll-x-contain scroll-smooth pb-3 [scrollbar-width:none] sm:auto-cols-[calc((100%_-_1.5rem)/2)] [&::-webkit-scrollbar]:hidden"
+            aria-label="Customer testimonials"
+          >
             {visibleTestimonials.map((item, index) => (
-              <article
+              <TestimonialCard
                 key={`${item.slug}-${item.name}-${index}`}
-                className="overflow-hidden rounded-[30px] border border-[#EFE7D3] bg-white shadow-[0_18px_55px_rgba(15,23,42,0.08)]"
-              >
-                <div className="grid md:grid-cols-[320px_1fr]">
-                  <div className="relative min-h-[320px] bg-[#F8FAFC]">
-                    <Image
-                      src={item.image}
-                      alt={item.alt}
-                      fill
-                      sizes="320px"
-                      className="object-cover"
-                    />
-                  </div>
-
-                  <div className="flex flex-col justify-center p-8 md:p-10">
-                    <p className="mb-3 text-sm font-bold uppercase tracking-wide text-[#B88900]">
-                      {item.project}
-                    </p>
-
-                    <h3 className="font-display text-3xl font-bold text-[#07111F]">
-                      {item.name}
-                    </h3>
-
-                    <p className="mt-1 text-sm font-medium text-[#64748B]">
-                      {item.role}
-                    </p>
-
-                    <div className="my-6 h-px w-16 bg-[#C48912]" />
-
-                    <p className="text-[17px] leading-8 text-[#334155]">
-                      “{item.text}”
-                    </p>
-                  </div>
-                </div>
-              </article>
+                item={item}
+              />
             ))}
           </div>
-        ) : (
-          <div className="relative">
-            <div className="pointer-events-none absolute left-0 top-0 z-10 hidden h-full w-24 bg-gradient-to-r from-white to-transparent lg:block" />
-            <div className="pointer-events-none absolute right-0 top-0 z-10 hidden h-full w-24 bg-gradient-to-l from-white to-transparent lg:block" />
 
-            <div className="overflow-hidden">
-              <div className="testimonial-marquee flex w-max gap-7">
-                {carouselItems.map((item, index) => (
-                  <article
-                    key={`${item.slug}-${item.name}-${index}`}
-                    className="w-[340px] shrink-0 overflow-hidden rounded-[30px] border border-[#EFE7D3] bg-white shadow-[0_18px_55px_rgba(15,23,42,0.08)] transition duration-300 hover:-translate-y-2 hover:shadow-[0_24px_70px_rgba(15,23,42,0.12)] sm:w-[390px]"
-                  >
-                    <div className="relative h-[260px] bg-[#F8FAFC]">
-                      <Image
-                        src={item.image}
-                        alt={item.alt}
-                        fill
-                        sizes="390px"
-                        className="object-cover"
-                      />
+          {visibleTestimonials.length > 1 && (
+            <div className="mt-8 flex items-center justify-center gap-3">
+              <button
+                type="button"
+                onClick={() => scrollCarousel("previous")}
+                disabled={!canScrollBack}
+                aria-label="Show previous testimonials"
+                className="grid h-12 w-12 place-items-center rounded-full border border-[#D8BF67] bg-white text-[#8A6500] shadow-sm transition hover:border-[#B88900] hover:bg-[#FFF9E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B88900] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-35"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  className="h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="m15 18-6-6 6-6" />
+                </svg>
+              </button>
 
-                      <div className="absolute left-5 top-5 rounded-full bg-white/95 px-4 py-2 text-xs font-bold uppercase tracking-wide text-[#B88900] shadow-sm backdrop-blur">
-                        {item.project}
-                      </div>
-                    </div>
-
-                    <div className="p-7">
-                      <h3 className="font-display text-2xl font-bold text-[#07111F]">
-                        {item.name}
-                      </h3>
-
-                      <p className="mt-1 text-sm font-medium text-[#64748B]">
-                        {item.role}
-                      </p>
-
-                      <div className="my-5 h-px w-14 bg-[#C48912]" />
-
-                      <p className="text-[16px] leading-7 text-[#334155]">
-                        “{item.text}”
-                      </p>
-                    </div>
-                  </article>
-                ))}
-              </div>
+              <button
+                type="button"
+                onClick={() => scrollCarousel("next")}
+                disabled={!canScrollForward}
+                aria-label="Show next testimonials"
+                className="grid h-12 w-12 place-items-center rounded-full border border-[#D8BF67] bg-white text-[#8A6500] shadow-sm transition hover:border-[#B88900] hover:bg-[#FFF9E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B88900] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-35"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  className="h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="m9 18 6-6-6-6" />
+                </svg>
+              </button>
             </div>
-
-            <div className="mt-9 flex justify-center gap-2">
-              {visibleTestimonials.map((item, index) => (
-                <span
-                  key={`${item.slug}-${index}`}
-                  className={`h-2.5 rounded-full ${
-                    index === 0 ? "w-8 bg-[#C48912]" : "w-2.5 bg-[#D6D3D1]"
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
-
-      <style jsx>{`
-        .testimonial-marquee {
-          animation: testimonial-scroll 36s linear infinite;
-        }
-
-        .testimonial-marquee:hover {
-          animation-play-state: paused;
-        }
-
-        @keyframes testimonial-scroll {
-          from {
-            transform: translateX(0);
-          }
-
-          to {
-            transform: translateX(-50%);
-          }
-        }
-      `}</style>
     </section>
   );
 }
