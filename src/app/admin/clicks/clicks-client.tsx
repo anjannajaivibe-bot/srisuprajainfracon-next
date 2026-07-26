@@ -82,6 +82,46 @@ const maskIp = (ip: string | null) => {
   return parts.length === 4 ? `${parts[0]}.${parts[1]}.xxx.xxx` : "Unavailable";
 };
 
+const shortId = (value: string | null) =>
+  value ? `${value.slice(0, 8)}…` : "Unavailable";
+
+function IdValue({
+  label,
+  value,
+}: {
+  label: "Visitor" | "Session";
+  value: string | null;
+}) {
+  const [copied, setCopied] = useState(false);
+
+  const copyId = async () => {
+    if (!value) return;
+
+    await navigator.clipboard.writeText(value);
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 1500);
+  };
+
+  return (
+    <div className="flex items-center justify-between gap-2">
+      <span className="text-xs text-slate-500">{label}</span>
+      {value ? (
+        <button
+          type="button"
+          onClick={copyId}
+          title={`${label} ID: ${value}. Click to copy.`}
+          aria-label={`Copy full ${label.toLowerCase()} ID ${value}`}
+          className="rounded-md bg-slate-100 px-2 py-1 font-mono text-xs font-medium text-slate-700 hover:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-[#C9A227]"
+        >
+          {copied ? "Copied" : shortId(value)}
+        </button>
+      ) : (
+        <span className="text-xs text-slate-400">Unavailable</span>
+      )}
+    </div>
+  );
+}
+
 export default function ClickAnalyticsClient() {
   const [events, setEvents] = useState<ClickEvent[]>([]);
   const [days, setDays] = useState(30);
@@ -348,7 +388,7 @@ export default function ClickAnalyticsClient() {
             </div>
           ) : (
             <div className="max-h-[68vh] overflow-auto">
-              <table className="w-full min-w-[1450px] text-sm">
+              <table className="w-full min-w-[1620px] text-sm">
                 <thead className="sticky top-0 z-10 bg-slate-100">
                   <tr>
                     <TableHeading>Date</TableHeading>
@@ -359,6 +399,7 @@ export default function ClickAnalyticsClient() {
                     <TableHeading>Campaign</TableHeading>
                     <TableHeading>Device</TableHeading>
                     <TableHeading>Visitor Location</TableHeading>
+                    <TableHeading>Visitor / Session</TableHeading>
                   </tr>
                 </thead>
                 <tbody>
@@ -416,6 +457,10 @@ export default function ClickAnalyticsClient() {
                         >
                           {maskIp(event.ip_address)}
                         </p>
+                      </td>
+                      <td className="min-w-52 space-y-2 p-4">
+                        <IdValue label="Visitor" value={event.visitor_id} />
+                        <IdValue label="Session" value={event.session_id} />
                       </td>
                     </tr>
                   ))}
