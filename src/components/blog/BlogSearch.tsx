@@ -102,7 +102,7 @@ export default function BlogSearch({ posts }: { posts: BlogPost[] }) {
                 key={post.slug}
                 className="group overflow-hidden rounded-3xl bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
               >
-                <Link href={`/blog/${post.slug}/`}>
+                <Link href={`/blog/${post.slug}`}>
                   <div className="relative h-64 overflow-hidden bg-gray-100">
                     {post.featuredImage && (
                       <Image

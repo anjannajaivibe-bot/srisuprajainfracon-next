@@ -27,13 +27,13 @@ export const metadata: Metadata = {
   description:
     "Explore real estate investment guides, buyer checklists, legal insights, plotted development tips, and Hyderabad real estate market updates by Sri Supraja Infracon.",
   alternates: {
-    canonical: `${SITE_URL}/blog/`,
+    canonical: `${SITE_URL}/blog`,
   },
   openGraph: {
     title: "Investor Knowledge Center | Sri Supraja Infracon",
     description:
       "Expert real estate guides, plot buying checklists, legal insights, and investment knowledge for confident property decisions.",
-    url: `${SITE_URL}/blog/`,
+    url: `${SITE_URL}/blog`,
     type: "website",
   },
 };
@@ -105,7 +105,7 @@ export default function BlogPage() {
       {featuredPost && (
         <section className="mx-auto max-w-7xl px-6 pt-16">
           <Link
-            href={`/blog/${featuredPost.slug}/`}
+            href={`/blog/${featuredPost.slug}`}
             className="group grid overflow-hidden rounded-[2rem] bg-white shadow-sm transition hover:shadow-xl lg:grid-cols-2"
           >
             <div className="relative min-h-[320px] overflow-hidden bg-gray-100">
