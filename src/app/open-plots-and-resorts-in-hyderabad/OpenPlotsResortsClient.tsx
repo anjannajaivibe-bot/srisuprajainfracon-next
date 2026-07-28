@@ -2,13 +2,11 @@
 
 import Link from "next/link";
 
-import Navbar from "@/components/layout/Navbar";
 import CTASection from "@/components/home/CTASection";
 
 export default function OpenPlotsResortsClient() {
   return (
     <div className="min-h-screen bg-[#F8F6F1]">
-      <Navbar />
 
       {/* HERO */}
       <section className="relative overflow-hidden bg-[#081225] px-6 pb-24 pt-32 text-white">

@@ -1,9 +1,6 @@
 "use client";
 
 import ContactForm from "./ContactForm";
-import Navbar from "@/components/layout/Navbar";
-
-import { motion } from "framer-motion";
 import Link from "next/link";
 
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
@@ -13,8 +10,6 @@ import heroBg from "@/assets/hero-bg.webp";
 export default function ContactPageClient() {
   return (
     <div className="min-h-screen bg-[#F8F6F1]">
-      <Navbar />
-
       <section className="relative overflow-hidden pb-20 pt-32">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -24,31 +19,25 @@ export default function ContactPageClient() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#081225]/95 via-[#102348]/90 to-[#0B1633]/95" />
 
         <div className="container-max relative px-4 text-center sm:px-6 lg:px-8">
-          <motion.p
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
+          <p
             className="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-[#E8D7A5]"
           >
             Connect With Sri Supraja Infracon
-          </motion.p>
+          </p>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
+          <h1
             className="mx-auto max-w-5xl font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-7xl"
           >
             Let&apos;s Start the Conversation
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
+          <p
             className="mx-auto mt-6 max-w-4xl text-lg leading-relaxed text-slate-200"
           >
             Whether you&apos;re evaluating project options, coordinating a site visit, 
             or seeking further clarity, our team is on hand to offer informed guidance 
             and prompt assistance.
-          </motion.p>
+          </p>
         </div>
       </section>
 

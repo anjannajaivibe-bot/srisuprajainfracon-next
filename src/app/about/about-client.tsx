@@ -1,7 +1,6 @@
 "use client";
 
 import SmartImage from "@/components/shared/SmartImage";
-import Navbar from "@/components/layout/Navbar";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useRef } from "react";
@@ -160,8 +159,6 @@ export default function AboutClient() {
       />
 
       <div className="min-h-screen bg-[#F8F6F1]">
-        <Navbar />
-
         <section className="relative overflow-hidden pb-24 pt-32 lg:pb-28">
           <div
             className="absolute inset-0 bg-cover bg-center"
