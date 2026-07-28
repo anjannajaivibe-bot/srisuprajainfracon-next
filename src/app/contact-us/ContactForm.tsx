@@ -14,6 +14,7 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [formStartedAt, setFormStartedAt] = useState(() => Date.now());
   const pathname = usePathname();
 
   const updateField = (
@@ -45,6 +46,8 @@ export default function ContactForm() {
           message: form.comments,
           project: getProjectName(pathname || ""),
           source: "website-contact-form",
+          website: "",
+          formStartedAt,
         }),
       });
 
@@ -62,6 +65,7 @@ export default function ContactForm() {
         email: "",
         comments: "",
       });
+      setFormStartedAt(Date.now());
 
       setTimeout(() => {
         setSubmitted(false);
@@ -101,6 +105,9 @@ export default function ContactForm() {
             value={form.name}
             onChange={updateField}
             required
+            minLength={2}
+            maxLength={100}
+            autoComplete="name"
             placeholder="Enter your full name"
             className="w-full rounded-xl border border-[#E5E7EB] px-4 py-3 outline-none transition focus:border-[#C9A227]"
           />
@@ -113,9 +120,14 @@ export default function ContactForm() {
 
           <input
             name="phone"
+            type="tel"
             value={form.phone}
             onChange={updateField}
             required
+            minLength={10}
+            maxLength={18}
+            inputMode="tel"
+            autoComplete="tel"
             placeholder="Enter phone number"
             className="w-full rounded-xl border border-[#E5E7EB] px-4 py-3 outline-none transition focus:border-[#C9A227]"
           />
@@ -131,6 +143,8 @@ export default function ContactForm() {
             type="email"
             value={form.email}
             onChange={updateField}
+            maxLength={254}
+            autoComplete="email"
             placeholder="Enter email address"
             className="w-full rounded-xl border border-[#E5E7EB] px-4 py-3 outline-none transition focus:border-[#C9A227]"
           />
@@ -146,6 +160,7 @@ export default function ContactForm() {
             value={form.comments}
             onChange={updateField}
             rows={4}
+            maxLength={1000}
             placeholder="Tell us which project you are interested in"
             className="w-full rounded-xl border border-[#E5E7EB] px-4 py-3 outline-none transition focus:border-[#C9A227]"
           />

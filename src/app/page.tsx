@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteMeta } from "@/seo/meta";
 import HomeClient from "./home-client";
 
 const pageTitle =
@@ -68,7 +69,10 @@ export default function HomePage() {
 
         image: "https://www.srisuprajainfracon.com/og/home-og.webp",
 
-        logo: "https://www.srisuprajainfracon.com/logo.png",
+        logo: {
+          "@type": "ImageObject",
+          url: `${siteMeta.domain}${siteMeta.logo}`,
+        },
 
         email: "info@srisuprajainfracon.com",
 
@@ -110,12 +114,7 @@ export default function HomePage() {
 
         openingHours: "Mo-Sa 09:00-18:00",
 
-        sameAs: [
-          "https://www.facebook.com/",
-          "https://www.instagram.com/",
-          "https://www.linkedin.com/",
-          "https://www.youtube.com/",
-        ],
+        sameAs: siteMeta.socialProfiles,
       },
 
       {

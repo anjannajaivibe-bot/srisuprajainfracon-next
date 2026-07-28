@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { supabaseAdmin } from "@/lib/supabase";
+import {
+  ADMIN_ACCESS_COOKIE,
+  ADMIN_SESSION_SECONDS,
+} from "@/lib/admin-auth";
 
 const supabaseAuth = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -12,9 +16,9 @@ export async function POST(request: Request) {
     const body = await request.json();
 
     const email = String(body.email || "").trim().toLowerCase();
-    const password = String(body.password || "").trim();
+    const password = String(body.password || "");
 
-    if (!email || !password) {
+    if (!email || !password || email.length > 254 || password.length > 1024) {
       return NextResponse.json(
         { success: false, message: "Email and password are required." },
         { status: 400 }
@@ -26,23 +30,7 @@ export async function POST(request: Request) {
         email,
         password,
       });
-      if (authError || !authData.user) {
-  return NextResponse.json(
-    {
-      success: false,
-      message: "Invalid email or password.",
-      debug: {
-        authErrorMessage: authError?.message || null,
-        authErrorCode: authError?.code || null,
-        supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL || null,
-        hasAnonKey: Boolean(process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY),
-      },
-    },
-    { status: 401 }
-  );
-}
-
-    if (authError || !authData.user) {
+    if (authError || !authData.user || !authData.session?.access_token) {
       return NextResponse.json(
         { success: false, message: "Invalid email or password." },
         { status: 401 }
@@ -52,8 +40,8 @@ export async function POST(request: Request) {
     const { data: crmUser, error: userError } = await supabaseAdmin
       .from("users")
       .select("name, email, role")
-      .eq("email", email)
-      .single();
+      .ilike("email", email)
+      .maybeSingle();
 
     if (userError || !crmUser) {
       return NextResponse.json(
@@ -68,28 +56,12 @@ export async function POST(request: Request) {
       user: crmUser,
     });
 
-    response.cookies.set("supraja_admin_auth", "true", {
+    response.cookies.set(ADMIN_ACCESS_COOKIE, authData.session.access_token, {
       httpOnly: true,
       sameSite: "lax",
       secure: process.env.NODE_ENV === "production",
       path: "/",
-      maxAge: 60 * 60 * 8,
-    });
-
-    response.cookies.set("supraja_user_email", crmUser.email, {
-      httpOnly: true,
-      sameSite: "lax",
-      secure: process.env.NODE_ENV === "production",
-      path: "/",
-      maxAge: 60 * 60 * 8,
-    });
-
-    response.cookies.set("supraja_user_role", crmUser.role, {
-      httpOnly: true,
-      sameSite: "lax",
-      secure: process.env.NODE_ENV === "production",
-      path: "/",
-      maxAge: 60 * 60 * 8,
+      maxAge: ADMIN_SESSION_SECONDS,
     });
 
     return response;

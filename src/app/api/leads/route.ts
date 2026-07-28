@@ -1,8 +1,133 @@
-import { cookies } from "next/headers";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import { z } from "zod";
 import { supabaseAdmin } from "@/lib/supabase";
+import {
+  getLoggedInCrmUser,
+  PRIMARY_ADMIN_EMAIL,
+} from "@/lib/admin-auth";
 
-const adminEmail = "anjan@supraja.com";
+const adminEmail = PRIMARY_ADMIN_EMAIL;
+
+const MAX_REQUEST_BYTES = 8 * 1024;
+const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
+const RATE_LIMIT_MAX_REQUESTS = 5;
+const MIN_FORM_COMPLETION_MS = 1500;
+
+type RateLimitEntry = {
+  count: number;
+  resetAt: number;
+};
+
+const globalForLeadRateLimit = globalThis as typeof globalThis & {
+  leadRateLimits?: Map<string, RateLimitEntry>;
+};
+
+const leadRateLimits =
+  globalForLeadRateLimit.leadRateLimits ??
+  (globalForLeadRateLimit.leadRateLimits = new Map<string, RateLimitEntry>());
+
+const leadSchema = z
+  .object({
+    name: z
+      .string()
+      .trim()
+      .min(2, "Please enter your full name.")
+      .max(100, "Name is too long.")
+      .regex(
+        /^[\p{L}\p{M}][\p{L}\p{M}\s.'-]*$/u,
+        "Please enter a valid name."
+      ),
+    phone: z
+      .string()
+      .trim()
+      .min(10, "Please enter a valid phone number.")
+      .max(18, "Please enter a valid phone number."),
+    email: z
+      .string()
+      .trim()
+      .max(254, "Email address is too long.")
+      .refine(
+        (value) => !value || z.email().safeParse(value).success,
+        "Please enter a valid email address."
+      ),
+    project: z.string().trim().max(120, "Project value is too long."),
+    message: z.string().trim().max(1000, "Message is too long."),
+    source: z
+      .string()
+      .trim()
+      .min(1)
+      .max(80)
+      .regex(/^[a-z0-9_-]+$/i, "Invalid source."),
+    website: z.string().max(0).optional().default(""),
+    formStartedAt: z.number().int().positive(),
+  })
+  .strict();
+
+function jsonError(message: string, status: number, headers?: HeadersInit) {
+  return NextResponse.json(
+    { success: false, message },
+    { status, headers }
+  );
+}
+
+function getClientKey(request: NextRequest) {
+  const forwardedFor = request.headers.get("x-forwarded-for");
+  const ip = forwardedFor?.split(",")[0]?.trim();
+  return ip || request.headers.get("x-real-ip") || "unknown";
+}
+
+function checkRateLimit(key: string) {
+  const now = Date.now();
+
+  if (leadRateLimits.size > 5000) {
+    for (const [entryKey, entry] of leadRateLimits) {
+      if (entry.resetAt <= now) leadRateLimits.delete(entryKey);
+    }
+  }
+
+  const existing = leadRateLimits.get(key);
+
+  if (!existing || existing.resetAt <= now) {
+    leadRateLimits.set(key, {
+      count: 1,
+      resetAt: now + RATE_LIMIT_WINDOW_MS,
+    });
+    return { allowed: true, retryAfter: 0 };
+  }
+
+  if (existing.count >= RATE_LIMIT_MAX_REQUESTS) {
+    return {
+      allowed: false,
+      retryAfter: Math.max(1, Math.ceil((existing.resetAt - now) / 1000)),
+    };
+  }
+
+  existing.count += 1;
+  return { allowed: true, retryAfter: 0 };
+}
+
+function isSameOrigin(request: NextRequest) {
+  const origin = request.headers.get("origin");
+  if (!origin) return false;
+
+  try {
+    return new URL(origin).host === request.nextUrl.host;
+  } catch {
+    return false;
+  }
+}
+
+function normalizePhone(phone: string) {
+  const digits = phone.replace(/\D/g, "");
+  const normalized =
+    digits.length === 12 && digits.startsWith("91") ? digits.slice(2) : digits;
+
+  if (!/^[6-9]\d{9}$/.test(normalized)) {
+    return null;
+  }
+
+  return normalized;
+}
 
 const salesTeam = [
   { name: "Rodda Ranganath", email: "rodda.ranganath@supraja.com" },
@@ -26,21 +151,6 @@ function getAssigneeEmail(name: string | null) {
   if (!name) return null;
   if (name === "Anjanna") return adminEmail;
   return salesTeam.find((person) => person.name === name)?.email || null;
-}
-
-async function getLoggedInUser() {
-  const cookieStore = await cookies();
-
-  const isLoggedIn = cookieStore.get("supraja_admin_auth")?.value === "true";
-  const email = cookieStore.get("supraja_user_email")?.value || "";
-  const role = cookieStore.get("supraja_user_role")?.value || "";
-
-  return {
-    isLoggedIn,
-    email,
-    role,
-    isAdmin: email === adminEmail || role === "admin",
-  };
 }
 
 async function getNextAssignee() {
@@ -73,9 +183,9 @@ async function findDuplicateLead(phone: string) {
 
 export async function GET() {
   try {
-    const user = await getLoggedInUser();
+    const user = await getLoggedInCrmUser();
 
-    if (!user.isLoggedIn || !user.email) {
+    if (!user) {
       return NextResponse.json(
         { success: false, message: "Unauthorized." },
         { status: 401 }
@@ -134,21 +244,74 @@ export async function GET() {
   }
 }
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
+    if (!isSameOrigin(request)) {
+      return jsonError("Invalid submission origin.", 403);
+    }
 
-    const name = String(body.name || "").trim();
-    const phone = String(body.phone || "").trim();
-    const email = String(body.email || "").trim();
-    const project = String(body.project || "").trim();
-    const message = String(body.message || "").trim();
-    const source = String(body.source || "website").trim();
+    const contentType = request.headers.get("content-type") || "";
+    if (!contentType.toLowerCase().startsWith("application/json")) {
+      return jsonError("Unsupported request format.", 415);
+    }
 
-    if (!name || !phone) {
-      return NextResponse.json(
-        { success: false, message: "Name and phone are required." },
-        { status: 400 }
+    const contentLength = Number(request.headers.get("content-length") || "0");
+    if (contentLength > MAX_REQUEST_BYTES) {
+      return jsonError("Request is too large.", 413);
+    }
+
+    const rateLimit = checkRateLimit(getClientKey(request));
+    if (!rateLimit.allowed) {
+      return jsonError(
+        "Too many enquiries. Please wait a few minutes and try again.",
+        429,
+        { "Retry-After": String(rateLimit.retryAfter) }
+      );
+    }
+
+    const rawBody = await request.text();
+    if (new TextEncoder().encode(rawBody).byteLength > MAX_REQUEST_BYTES) {
+      return jsonError("Request is too large.", 413);
+    }
+
+    let body: unknown;
+    try {
+      body = JSON.parse(rawBody);
+    } catch {
+      return jsonError("Invalid request body.", 400);
+    }
+
+    const parsed = leadSchema.safeParse(body);
+    if (!parsed.success) {
+      const message =
+        parsed.error.issues[0]?.message || "Please check the submitted details.";
+      return jsonError(message, 400);
+    }
+
+    const {
+      name,
+      email,
+      project,
+      message,
+      source,
+      website,
+      formStartedAt,
+    } = parsed.data;
+
+    if (website) {
+      return NextResponse.json({ success: true });
+    }
+
+    const elapsed = Date.now() - formStartedAt;
+    if (elapsed < MIN_FORM_COMPLETION_MS || elapsed > 24 * 60 * 60 * 1000) {
+      return jsonError("Please refresh the form and try again.", 400);
+    }
+
+    const phone = normalizePhone(parsed.data.phone);
+    if (!phone) {
+      return jsonError(
+        "Please enter a valid 10-digit Indian mobile number.",
+        400
       );
     }
 
@@ -203,9 +366,9 @@ export async function POST(request: Request) {
 
 export async function PATCH(request: Request) {
   try {
-    const user = await getLoggedInUser();
+    const user = await getLoggedInCrmUser();
 
-    if (!user.isLoggedIn || !user.email) {
+    if (!user) {
       return NextResponse.json(
         { success: false, message: "Unauthorized." },
         { status: 401 }
