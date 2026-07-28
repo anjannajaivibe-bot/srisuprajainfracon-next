@@ -3,6 +3,7 @@ import { isIP } from "node:net";
 import { z } from "zod";
 
 import { supabaseAdmin } from "@/lib/supabase";
+import { getLoggedInCrmUser } from "@/lib/admin-auth";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -134,7 +135,9 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET(request: NextRequest) {
-  if (request.cookies.get("supraja_admin_auth")?.value !== "true") {
+  const user = await getLoggedInCrmUser();
+
+  if (!user?.isAdmin) {
     return NextResponse.json(
       { success: false, error: "Unauthorized" },
       { status: 401 },

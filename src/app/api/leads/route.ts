@@ -1,8 +1,11 @@
-import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
+import {
+  getLoggedInCrmUser,
+  PRIMARY_ADMIN_EMAIL,
+} from "@/lib/admin-auth";
 
-const adminEmail = "anjan@supraja.com";
+const adminEmail = PRIMARY_ADMIN_EMAIL;
 
 const salesTeam = [
   { name: "Rodda Ranganath", email: "rodda.ranganath@supraja.com" },
@@ -26,21 +29,6 @@ function getAssigneeEmail(name: string | null) {
   if (!name) return null;
   if (name === "Anjanna") return adminEmail;
   return salesTeam.find((person) => person.name === name)?.email || null;
-}
-
-async function getLoggedInUser() {
-  const cookieStore = await cookies();
-
-  const isLoggedIn = cookieStore.get("supraja_admin_auth")?.value === "true";
-  const email = cookieStore.get("supraja_user_email")?.value || "";
-  const role = cookieStore.get("supraja_user_role")?.value || "";
-
-  return {
-    isLoggedIn,
-    email,
-    role,
-    isAdmin: email === adminEmail || role === "admin",
-  };
 }
 
 async function getNextAssignee() {
@@ -73,9 +61,9 @@ async function findDuplicateLead(phone: string) {
 
 export async function GET() {
   try {
-    const user = await getLoggedInUser();
+    const user = await getLoggedInCrmUser();
 
-    if (!user.isLoggedIn || !user.email) {
+    if (!user) {
       return NextResponse.json(
         { success: false, message: "Unauthorized." },
         { status: 401 }
@@ -203,9 +191,9 @@ export async function POST(request: Request) {
 
 export async function PATCH(request: Request) {
   try {
-    const user = await getLoggedInUser();
+    const user = await getLoggedInCrmUser();
 
-    if (!user.isLoggedIn || !user.email) {
+    if (!user) {
       return NextResponse.json(
         { success: false, message: "Unauthorized." },
         { status: 401 }
