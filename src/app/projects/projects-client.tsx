@@ -1,10 +1,5 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
 import FlagshipProject from "@/components/home/FlagshipProject";
-import Navbar from "@/components/layout/Navbar";
-
 
 import ProjectsSection from "@/components/home/ProjectsSection";
 import CTASection from "@/components/home/CTASection";
@@ -39,8 +34,6 @@ const locationLinks = [
 export default function ProjectsClient() {
   return (
     <div className="min-h-screen bg-white">
-      <Navbar />
-
       {/* HERO */}
       <section className="relative overflow-hidden bg-gradient-to-br from-white via-[#FBF8EF] to-[#F4EFE1]">
         <div className="absolute left-[-120px] top-[-120px] h-[320px] w-[320px] rounded-full bg-[#E8D7A5]/35 blur-3xl" />
@@ -48,41 +41,29 @@ export default function ProjectsClient() {
 
         <div className="container-max relative z-10 px-4 pb-20 pt-32 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-6xl text-center">
-            <motion.p
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45 }}
+            <p
               className="mb-5 inline-flex rounded-full border border-[#E8D7A5] bg-white px-5 py-2 text-xs font-bold uppercase tracking-[0.3em] text-[#9A7A16] shadow-sm"
             >
               Sri Supraja Infracon Projects
-            </motion.p>
+            </p>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 22 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55 }}
+            <h1
               className="font-display text-4xl font-bold leading-[1.04] tracking-tight text-[#111827] sm:text-5xl lg:text-7xl"
             >
               Real Estate Projects Across{" "}
               <span className="text-[#B88900]">Hyderabad Growth Corridors</span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.08 }}
+            <p
               className="mx-auto mt-7 max-w-4xl text-lg leading-relaxed text-[#4B5563]"
             >
               Explore Sri Supraja Infracon projects across Kamkole, Mominpet,
               Sangareddy and Indrakaran, including resort-inspired plots,
               residential project layouts, and future-focused land ownership
               opportunities.
-            </motion.p>
+            </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.15 }}
+            <div
               className="mt-8 flex flex-wrap justify-center gap-3"
             >
               {locationLinks.map((item) => (
@@ -94,12 +75,9 @@ export default function ProjectsClient() {
                   {item.label}
                 </Link>
               ))}
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.22 }}
+            <div
               className="mt-10 flex flex-wrap justify-center gap-4"
             >
               <Link
@@ -115,12 +93,9 @@ export default function ProjectsClient() {
               >
                 View Projects
               </Link>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.28 }}
+            <div
               className="mx-auto mt-12 grid max-w-4xl gap-4 sm:grid-cols-3"
             >
               <div className="rounded-3xl border border-[#EFE7D3] bg-white p-6 shadow-sm">
@@ -143,7 +118,7 @@ export default function ProjectsClient() {
                   Acre Supraja IRIS project vision
                 </p>
               </div>
-            </motion.div>
+            </div>
 
             <div className="mt-7 flex flex-wrap justify-center gap-4 text-sm">
               <a
