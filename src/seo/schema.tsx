@@ -4,34 +4,40 @@ import { projects } from "@/data/projects";
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${siteMeta.domain}/#organization`,
   name: "Sri Supraja Infracon",
   url: siteMeta.domain,
-  logo: `${siteMeta.domain}/logo.png`,
+  logo: {
+    "@type": "ImageObject",
+    url: `${siteMeta.domain}${siteMeta.logo}`,
+  },
   parentOrganization: {
     "@type": "Organization",
     name: "Supraja Group",
   },
-  sameAs: [],
+  sameAs: siteMeta.socialProfiles,
 };
 
 export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": `${siteMeta.domain}/#website`,
   name: "Sri Supraja Infracon",
   url: siteMeta.domain,
-  potentialAction: {
-    "@type": "SearchAction",
-    target: `${siteMeta.domain}/search?q={search_term_string}`,
-    "query-input": "required name=search_term_string",
+  publisher: {
+    "@id": `${siteMeta.domain}/#organization`,
   },
 };
 
 export const realEstateSchema = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
+  "@id": `${siteMeta.domain}/#realestateagent`,
   name: "Sri Supraja Infracon",
   url: siteMeta.domain,
   image: `${siteMeta.domain}${siteMeta.defaultImage}`,
+  logo: `${siteMeta.domain}${siteMeta.logo}`,
+  sameAs: siteMeta.socialProfiles,
   areaServed: ["Telangana", "Hyderabad", "Kamkole"],
   priceRange: "₹₹",
   description:

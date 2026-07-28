@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteMeta } from "@/seo/meta";
 import { notFound } from "next/navigation";
 import ProjectDetail from "@/pages/ProjectDetail";
 
@@ -280,7 +281,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         "@id": `${SITE_URL}/#organization`,
         name: "Sri Supraja Infracon",
         url: SITE_URL,
-        logo: `${SITE_URL}/logo.png`,
+        logo: {
+          "@type": "ImageObject",
+          url: `${siteMeta.domain}${siteMeta.logo}`,
+        },
       },
       {
         "@type": "LocalBusiness",
