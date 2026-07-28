@@ -136,7 +136,7 @@ export async function generateMetadata({
 
   const title = post.seoTitle || stripHtml(post.title);
   const description = post.metaDescription || stripHtml(post.excerpt || "");
-  const canonical = post.canonical || `${SITE_URL}/blog/${slug}/`;
+  const canonical = (post.canonical || `${SITE_URL}/blog/${slug}`).replace(/\/+$/, "");
   const image = post.featuredImage
     ? `${SITE_URL}${post.featuredImage}`
     : `${SITE_URL}/og-image.jpg`;
@@ -187,7 +187,7 @@ export default async function BlogDetailPage({
 
   const title = stripHtml(post.title);
   const description = post.metaDescription || stripHtml(post.excerpt || "");
-  const canonical = post.canonical || `${SITE_URL}/blog/${slug}/`;
+  const canonical = (post.canonical || `${SITE_URL}/blog/${slug}`).replace(/\/+$/, "");
   const image = post.featuredImage
     ? `${SITE_URL}${post.featuredImage}`
     : `${SITE_URL}/og-image.jpg`;
@@ -246,7 +246,7 @@ export default async function BlogDetailPage({
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: `${SITE_URL}/blog/`,
+        item: `${SITE_URL}/blog`,
       },
       {
         "@type": "ListItem",
@@ -286,7 +286,7 @@ export default async function BlogDetailPage({
             Home
           </Link>{" "}
           /{" "}
-          <Link href="/blog/" className="hover:text-[#b08a3c]">
+          <Link href="/blog" className="hover:text-[#b08a3c]">
             Blog
           </Link>{" "}
           / <span className="text-[#12251d]">{title}</span>
@@ -466,7 +466,7 @@ export default async function BlogDetailPage({
                 </Link>
 
                 <Link
-                  href="/projects/"
+                  href="/projects"
                   className="rounded-full border bg-white px-5 py-3 text-[#12251d] hover:border-[#b08a3c]"
                 >
                   View All Projects
@@ -484,7 +484,7 @@ export default async function BlogDetailPage({
                   {relatedPosts.map((item) => (
                     <Link
                       key={item.slug}
-                      href={`/blog/${item.slug}/`}
+                      href={`/blog/${item.slug}`}
                       className="rounded-2xl bg-white p-5 shadow-sm transition hover:shadow-lg"
                     >
                       <h3
@@ -511,13 +511,13 @@ export default async function BlogDetailPage({
 
               <div className="mt-6 flex flex-wrap gap-4">
                 <Link
-                  href="/projects/"
+                  href="/projects"
                   className="rounded-full bg-[#b08a3c] px-6 py-3 font-semibold text-white"
                 >
                   Explore Projects
                 </Link>
                 <Link
-                  href="/contact-us/"
+                  href="/contact-us"
                   className="rounded-full border border-white/30 px-6 py-3 font-semibold text-white"
                 >
                   Schedule Site Visit

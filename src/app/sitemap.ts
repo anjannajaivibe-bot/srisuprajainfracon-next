@@ -8,74 +8,74 @@ const baseUrl = "https://www.srisuprajainfracon.com";
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     {
-      url: `${baseUrl}/`,
+      url: `${baseUrl}`,
       changeFrequency: "weekly",
       priority: 1,
     },
     {
-      url: `${baseUrl}/about/`,
+      url: `${baseUrl}/about`,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/projects/`,
+      url: `${baseUrl}/projects`,
       changeFrequency: "weekly",
       priority: 0.95,
     },
     {
-      url: `${baseUrl}/contact-us/`,
+      url: `${baseUrl}/contact-us`,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/blog/`,
+      url: `${baseUrl}/blog`,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/open-plots-and-resorts-in-hyderabad/`,
+      url: `${baseUrl}/open-plots-and-resorts-in-hyderabad`,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/projects/supraja-iris-resort-plots/`,
+      url: `${baseUrl}/projects/supraja-iris-resort-plots`,
       changeFrequency: "weekly",
       priority: 0.98,
     },
     {
-      url: `${baseUrl}/projects/bridge-county/`,
+      url: `${baseUrl}/projects/bridge-county`,
       changeFrequency: "weekly",
       priority: 0.92,
     },
     {
-      url: `${baseUrl}/projects/sindhu-sarovar/`,
+      url: `${baseUrl}/projects/sindhu-sarovar`,
       changeFrequency: "weekly",
       priority: 0.92,
     },
     {
-      url: `${baseUrl}/projects/subhash-meadows/`,
+      url: `${baseUrl}/projects/subhash-meadows`,
       changeFrequency: "weekly",
       priority: 0.92,
     },
 
     // Legal / compliance pages
     {
-      url: `${baseUrl}/privacy-policy/`,
+      url: `${baseUrl}/privacy-policy`,
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
-      url: `${baseUrl}/terms-and-conditions/`,
+      url: `${baseUrl}/terms-and-conditions`,
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
-      url: `${baseUrl}/disclaimer/`,
+      url: `${baseUrl}/disclaimer`,
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
-      url: `${baseUrl}/cookie-policy/`,
+      url: `${baseUrl}/cookie-policy`,
       changeFrequency: "yearly",
       priority: 0.3,
     },
@@ -93,7 +93,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         );
 
         return {
-          url: `${baseUrl}/blog/${post.slug}/`,
+          url: `${baseUrl}/blog/${post.slug}`,
           lastModified: new Date(post.modified || post.date),
           changeFrequency: "monthly" as const,
           priority: 0.75,
