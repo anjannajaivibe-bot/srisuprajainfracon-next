@@ -88,32 +88,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Sri Supraja Infracon",
-    url: "https://www.srisuprajainfracon.com",
-    logo: "https://www.srisuprajainfracon.com/logo.png",
-    image: "https://www.srisuprajainfracon.com/og-image.jpg",
-    description:
-      "Sri Supraja Infracon develops residential, plotted, villa and resort-inspired real estate projects across Hyderabad growth corridors.",
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: "+91 90529 96161",
-      contactType: "customer support",
-      areaServed: "IN",
-      availableLanguage: ["English", "Telugu", "Hindi"],
-    },
-    areaServed: [
-      "Hyderabad",
-      "Kamkole",
-      "Sangareddy",
-      "Mominpet",
-      "Indrakaran",
-      "Telangana",
-    ],
-  };
-
   return (
     <html lang="en-IN">
       <body className={`${dmSans.variable} ${playfair.variable}`}>
@@ -173,12 +147,6 @@ export default function RootLayout({
           `}
         </Script>
 
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
-          }}
-        />
       </body>
     </html>
   );
