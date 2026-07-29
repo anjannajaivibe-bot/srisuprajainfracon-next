@@ -114,7 +114,7 @@ const WhyChooseUs = () => {
                   <p className="font-display text-3xl font-bold leading-none text-[#07111F]">
                     {item.value}
                   </p>
-                  <p className="mt-1 text-lg font-bold leading-tight text-[#C48912]">
+                  <p className="mt-1 text-lg font-bold leading-tight text-[#725700]">
                     {item.label}
                   </p>
                   <p className="mt-1 text-sm font-medium text-[#334155]">

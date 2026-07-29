@@ -5,11 +5,11 @@ import projectIris from "@/assets/project-iris.webp";
 const stats = [
   {
     value: "350",
-    label: "Acres Master Planned Development",
+    label: "Acres Master Planned Project",
   },
   {
     value: "4000",
-    label: "Plotted Units Planned",
+    label: "Plotted Units",
   },
   {
     value: "Sales",
@@ -25,7 +25,7 @@ const attractions = [
   },
   {
     icon: "🌊",
-    title: "Planned Water Villas",
+    title: "Water Villas Under Construction",
     desc: "A premium leisure concept planned as part of the future lifestyle environment.",
   },
   {
@@ -36,7 +36,7 @@ const attractions = [
   {
     icon: "🎢",
     title: "Water Theme Park and Amusement Zone",
-    desc: "Future recreation attractions planned to support family leisure and destination appeal.",
+    desc: "Future recreation attractions under construction to support family leisure and destination appeal.",
   },
   {
     icon: "🏁",
