@@ -106,8 +106,8 @@ export default function RootLayout({
 
         <SiteShell>{children}</SiteShell>
 
-        {/* Google Tag Manager loads after the page becomes interactive. */}
-        <Script id="gtm-init" strategy="afterInteractive">
+        {/* Defer analytics until the load event so it cannot compete with LCP. */}
+        <Script id="gtm-init" strategy="lazyOnload">
           {`
             (function(w,d,s,l,i){
               w[l]=w[l]||[];
@@ -131,10 +131,10 @@ export default function RootLayout({
         <Script
           id="google-ads-library"
           src="https://www.googletagmanager.com/gtag/js?id=AW-17957114954"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
 
-        <Script id="google-ads-init" strategy="afterInteractive">
+        <Script id="google-ads-init" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
 
@@ -146,7 +146,6 @@ export default function RootLayout({
             gtag('config', 'AW-17957114954');
           `}
         </Script>
-
       </body>
     </html>
   );

@@ -62,7 +62,7 @@ const HeroSection = () => {
 
       {/* Hero content */}
       <div className="container-max relative z-10 w-full px-4 pb-8 pt-6 text-center sm:px-6 sm:pb-12 md:pb-14 lg:px-8 lg:pb-16">
-        <div className="hero-reveal hero-delay-1 mb-4 inline-flex max-w-full items-center gap-2 rounded-full border border-[#C9A227]/35 bg-[#C9A227]/10 px-3 py-2 sm:mb-6 sm:px-5">
+        <div className="mb-4 inline-flex max-w-full items-center gap-2 rounded-full border border-[#C9A227]/35 bg-[#C9A227]/10 px-3 py-2 sm:mb-6 sm:px-5">
           <span
             className="h-2 w-2 shrink-0 rounded-full bg-[#C9A227]"
             aria-hidden="true"
@@ -73,20 +73,20 @@ const HeroSection = () => {
           </span>
         </div>
 
-        <h1 className="hero-reveal hero-delay-2 mx-auto mb-4 max-w-6xl font-display text-[30px] font-bold leading-[1.12] tracking-tight text-white min-[390px]:text-[34px] sm:text-5xl md:text-[52px] lg:mb-6 lg:text-7xl lg:leading-[1.03]">
+        <h1 className="mx-auto mb-4 max-w-6xl font-display text-[30px] font-bold leading-[1.12] tracking-tight text-white min-[390px]:text-[34px] sm:text-5xl md:text-[52px] lg:mb-6 lg:text-7xl lg:leading-[1.03]">
           DTCP &amp; RERA Approved{" "}
           <span className="text-[#C9A227]">Open Plots</span>
           <br className="hidden md:block" /> Near Hyderabad
         </h1>
 
-        <p className="hero-reveal hero-delay-3 mx-auto mb-6 max-w-4xl text-sm leading-6 text-slate-200 sm:mb-8 sm:text-base sm:leading-7 md:text-lg md:leading-relaxed">
+        <p className="mx-auto mb-6 max-w-4xl text-sm leading-6 text-slate-200 sm:mb-8 sm:text-base sm:leading-7 md:text-lg md:leading-relaxed">
           Meticulously planned plotted projects across Kamkole, Sangareddy,
           Mominpet and Indrakaran, anchored to infrastructure corridors and
           engineered for sustained capital appreciation.
         </p>
 
         {/* Trust badges */}
-        <div className="hero-reveal hero-delay-4 mb-6 flex flex-wrap justify-center gap-2 sm:mb-7 sm:gap-3">
+        <div className="mb-6 flex flex-wrap justify-center gap-2 sm:mb-7 sm:gap-3">
           {trustBadges.map((badge) => (
             <span
               key={badge}
@@ -100,7 +100,7 @@ const HeroSection = () => {
         {/* Project links */}
         <nav
           aria-label="Featured projects"
-          className="hero-reveal hero-delay-5 mx-auto mb-6 grid max-w-[520px] grid-cols-2 gap-3 sm:mb-7 md:max-w-3xl md:grid-cols-4"
+          className="mx-auto mb-6 grid max-w-[520px] grid-cols-2 gap-3 sm:mb-7 md:max-w-3xl md:grid-cols-4"
         >
           {projectLinks.map((project) => (
             <Link
@@ -145,10 +145,7 @@ const HeroSection = () => {
                   ))}
                 </div>
 
-                <div
-                  className="legacy-marquee-group"
-                  aria-hidden="true"
-                >
+                <div className="legacy-marquee-group" aria-hidden="true">
                   {legacyProjects.map((project) => (
                     <span
                       key={`duplicate-${project}`}
@@ -164,7 +161,7 @@ const HeroSection = () => {
         </div>
 
         {/* Primary CTA buttons */}
-        <div className="hero-reveal hero-delay-6 mt-7 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4 lg:mt-10">
+        <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4 lg:mt-10">
           <Link
             href="/contact-us/"
             className="rounded-full border border-white/20 bg-white/10 px-7 py-3 text-sm font-bold text-white transition duration-200 hover:bg-white hover:text-[#0B1633] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1633] sm:px-8 sm:py-4 lg:backdrop-blur-sm"
@@ -217,36 +214,6 @@ const HeroSection = () => {
       </div>
 
       <style>{`
-        .hero-reveal {
-          opacity: 0;
-          transform: translateY(16px);
-          animation: hero-reveal-animation 550ms ease-out forwards;
-        }
-
-        .hero-delay-1 {
-          animation-delay: 40ms;
-        }
-
-        .hero-delay-2 {
-          animation-delay: 90ms;
-        }
-
-        .hero-delay-3 {
-          animation-delay: 140ms;
-        }
-
-        .hero-delay-4 {
-          animation-delay: 190ms;
-        }
-
-        .hero-delay-5 {
-          animation-delay: 240ms;
-        }
-
-        .hero-delay-6 {
-          animation-delay: 290ms;
-        }
-
         .legacy-marquee-track {
           display: flex;
           width: max-content;
@@ -278,18 +245,6 @@ const HeroSection = () => {
           color: rgb(226 232 240);
         }
 
-        @keyframes hero-reveal-animation {
-          from {
-            opacity: 0;
-            transform: translateY(16px);
-          }
-
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
         @keyframes legacy-marquee-scroll {
           from {
             transform: translate3d(0, 0, 0);
@@ -309,12 +264,6 @@ const HeroSection = () => {
         }
 
         @media (prefers-reduced-motion: reduce) {
-          .hero-reveal {
-            opacity: 1;
-            transform: none;
-            animation: none;
-          }
-
           .legacy-marquee-track {
             animation-duration: 70s;
           }

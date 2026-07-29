@@ -36,7 +36,7 @@ const ProjectsSection = () => {
     <section className="relative overflow-hidden bg-white py-24">
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="mb-16 text-center">
-          <p className="mb-4 text-sm font-bold uppercase tracking-[0.32em] text-[#B88900]">
+          <p className="mb-4 text-sm font-bold uppercase tracking-[0.32em] text-[#725700]">
             Our Ongoing Projects
           </p>
 
@@ -53,10 +53,10 @@ const ProjectsSection = () => {
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[#334155]">
-            Every Sri Supraja Infracon Projects is chosen for what surrounds it - universities, 
-            transit corridors, employment hubs - not just what's built on it. Four projects, 
-            each at a different stage of maturity, offer entry points suited to different 
-            investment timelines.
+            Every Sri Supraja Infracon Projects is chosen for what surrounds it
+            - universities, transit corridors, employment hubs - not just what's
+            built on it. Four projects, each at a different stage of maturity,
+            offer entry points suited to different investment timelines.
           </p>
         </div>
       </div>
@@ -108,18 +108,18 @@ const ProjectsSection = () => {
                     imageFirst ? "lg:col-start-2 lg:ml-auto" : ""
                   }`}
                 >
-                  <div className="mb-7 inline-flex w-fit rounded-lg bg-[#FFF4D8] px-4 py-2 text-xs font-extrabold uppercase tracking-wide text-[#B88900]">
+                  <div className="mb-7 inline-flex w-fit rounded-lg bg-[#FFF4D8] px-4 py-2 text-xs font-extrabold uppercase tracking-wide text-[#725700]">
                     {cardCopy.badge}
                   </div>
 
-                  <p className="mb-3 text-sm font-extrabold uppercase tracking-wide text-[#B88900]">
+                  <p className="mb-3 text-sm font-extrabold uppercase tracking-wide text-[#725700]">
                     {project.location}
                   </p>
 
                   <h3 className="mb-3 font-display text-4xl font-bold leading-tight text-[#07111F] md:text-5xl">
                     <Link
                       href={project.link}
-                      className="transition hover:text-[#B88900]"
+                      className="transition hover:text-[#725700]"
                     >
                       {project.title}
                     </Link>
@@ -166,7 +166,7 @@ const ProjectsSection = () => {
                         href={project.brochure}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center rounded-lg border border-[#E8D7A5] bg-white px-6 py-3 text-sm font-bold text-[#B88900] shadow-sm transition hover:-translate-y-1 hover:bg-[#C9A227] hover:text-[#07111F]"
+                        className="inline-flex items-center justify-center rounded-lg border border-[#A98219] bg-white px-6 py-3 text-sm font-bold text-[#725700] shadow-sm transition hover:-translate-y-1 hover:bg-[#C9A227] hover:text-[#07111F]"
                       >
                         View Brochure
                       </a>
