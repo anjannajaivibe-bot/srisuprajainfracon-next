@@ -1,12 +1,19 @@
-Sri Supraja Infracon
+# Sri Supraja Infracon
 
-Premium DTCP & RERA approved plotted developments near Hyderabad.
+Sri Supraja Infracon develops DTCP and RERA approved plotted projects, villas
+and residential communities across Hyderabad's growth corridors.
 
-Projects:
-- Supraja IRIS
-- Bridge County
-- Sindhu Sarovar
-- Subhash Meadows
+## Main Pages
 
-Website:
-https://www.suprajainfracon.com
+- [Home](https://www.srisuprajainfracon.com/)
+- [About Sri Supraja Infracon](https://www.srisuprajainfracon.com/about)
+- [All Projects](https://www.srisuprajainfracon.com/projects)
+- [Investor Knowledge Center](https://www.srisuprajainfracon.com/blog)
+- [Contact Us](https://www.srisuprajainfracon.com/contact-us)
+
+## Projects
+
+- [Supraja IRIS](https://www.srisuprajainfracon.com/projects/supraja-iris-resort-plots)
+- [Bridge County](https://www.srisuprajainfracon.com/projects/bridge-county)
+- [Sindhu Sarovar](https://www.srisuprajainfracon.com/projects/sindhu-sarovar)
+- [Subhash Meadows](https://www.srisuprajainfracon.com/projects/subhash-meadows)

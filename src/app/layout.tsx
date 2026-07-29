@@ -106,44 +106,69 @@ export default function RootLayout({
 
         <SiteShell>{children}</SiteShell>
 
-        {/* Defer analytics until the load event so it cannot compete with LCP. */}
-        <Script id="gtm-init" strategy="lazyOnload">
+        {/* Start third-party tracking after interaction, with a delayed fallback. */}
+        <Script id="deferred-tracking" strategy="lazyOnload">
           {`
-            (function(w,d,s,l,i){
-              w[l]=w[l]||[];
-              w[l].push({
-                'gtm.start': new Date().getTime(),
-                event:'gtm.js'
+            (function(w,d){
+              var started=false;
+              var events=['pointerdown','keydown','touchstart','scroll'];
+
+              function loadScript(src,id,onload){
+                if(d.getElementById(id)){
+                  if(onload) onload();
+                  return;
+                }
+
+                var script=d.createElement('script');
+                script.id=id;
+                script.async=true;
+                script.src=src;
+                if(onload) script.onload=onload;
+                d.head.appendChild(script);
+              }
+
+              function startTracking(){
+                if(started) return;
+                started=true;
+
+                events.forEach(function(eventName){
+                  w.removeEventListener(eventName,startTracking);
+                });
+
+                w.dataLayer=w.dataLayer||[];
+                w.dataLayer.push({
+                  'gtm.start':new Date().getTime(),
+                  event:'gtm.js'
+                });
+
+                loadScript(
+                  'https://www.googletagmanager.com/gtm.js?id=GTM-PFM9PPT3',
+                  'gtm-library'
+                );
+
+                loadScript(
+                  'https://www.googletagmanager.com/gtag/js?id=AW-17957114954',
+                  'google-ads-library',
+                  function(){
+                    function gtag(){
+                      w.dataLayer.push(arguments);
+                    }
+
+                    gtag('js',new Date());
+                    gtag('config','AW-17957114954');
+                  }
+                );
+              }
+
+              events.forEach(function(eventName){
+                w.addEventListener(eventName,startTracking,{
+                  once:true,
+                  passive:true
+                });
               });
 
-              var f=d.getElementsByTagName(s)[0],
-                  j=d.createElement(s),
-                  dl=l!='dataLayer'?'&l='+l:'';
-
-              j.async=true;
-              j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-              f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-PFM9PPT3');
-          `}
-        </Script>
-
-        {/* Keep standalone Google Ads tracking until GTM configuration is verified. */}
-        <Script
-          id="google-ads-library"
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17957114954"
-          strategy="lazyOnload"
-        />
-
-        <Script id="google-ads-init" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-
-            function gtag(){
-              window.dataLayer.push(arguments);
-            }
-
-            gtag('js', new Date());
-            gtag('config', 'AW-17957114954');
+              w.setTimeout(startTracking,10000);
+            })(window,document);
           `}
         </Script>
       </body>

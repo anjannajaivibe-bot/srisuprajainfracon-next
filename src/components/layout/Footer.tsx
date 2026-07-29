@@ -13,7 +13,7 @@ export default function Footer() {
               Sri Supraja Infracon
             </h3>
 
-            <p className="mt-2 text-sm uppercase tracking-[0.3em] text-[#C9A227]">
+            <p className="mt-2 text-sm uppercase tracking-[0.3em] text-[#765D00]">
               Builders & Developers
             </p>
 
@@ -54,7 +54,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-sm font-bold text-slate-700 shadow-sm transition hover:border-[#C9A227] hover:text-[#C9A227]"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-sm font-bold text-slate-700 shadow-sm transition hover:border-[#765D00] hover:text-[#765D00]"
                 >
                   {social.icon}
                 </a>
@@ -70,13 +70,13 @@ export default function Footer() {
 
             <ul className="space-y-3 text-slate-600">
               <li>
-                <Link href="/" className="transition hover:text-[#C9A227]">
+                <Link href="/" className="transition hover:text-[#765D00]">
                   Home
                 </Link>
               </li>
 
               <li>
-                <Link href="/about" className="transition hover:text-[#C9A227]">
+                <Link href="/about" className="transition hover:text-[#765D00]">
                   About Us
                 </Link>
               </li>
@@ -84,7 +84,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/projects"
-                  className="transition hover:text-[#C9A227]"
+                  className="transition hover:text-[#765D00]"
                 >
                   Projects
                 </Link>
@@ -93,14 +93,14 @@ export default function Footer() {
               <li>
                 <Link
                   href="/contact-us/"
-                  className="transition hover:text-[#C9A227]"
+                  className="transition hover:text-[#765D00]"
                 >
                   Contact Us
                 </Link>
               </li>
 
               <li>
-                <Link href="/blog" className="transition hover:text-[#C9A227]">
+                <Link href="/blog" className="transition hover:text-[#765D00]">
                   Blog
                 </Link>
               </li>
@@ -117,7 +117,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/projects/supraja-iris-resort-plots"
-                  className="transition hover:text-[#C9A227]"
+                  className="transition hover:text-[#765D00]"
                 >
                   Supraja IRIS
                 </Link>
@@ -126,7 +126,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/projects/bridge-county"
-                  className="transition hover:text-[#C9A227]"
+                  className="transition hover:text-[#765D00]"
                 >
                   Bridge County
                 </Link>
@@ -135,7 +135,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/projects/sindhu-sarovar"
-                  className="transition hover:text-[#C9A227]"
+                  className="transition hover:text-[#765D00]"
                 >
                   Sindhu Sarovar
                 </Link>
@@ -144,7 +144,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/projects/subhash-meadows"
-                  className="transition hover:text-[#C9A227]"
+                  className="transition hover:text-[#765D00]"
                 >
                   Subhash Meadows
                 </Link>
@@ -160,29 +160,29 @@ export default function Footer() {
 
             <div className="space-y-5">
               <div className="flex items-start gap-3">
-                <span className="mt-1 text-[#C9A227]">📞</span>
+                <span className="mt-1 text-[#765D00]">📞</span>
 
                 <a
                   href="tel:+919052996161"
-                  className="text-slate-600 transition hover:text-[#C9A227]"
+                  className="text-slate-600 transition hover:text-[#765D00]"
                 >
                   +91 90529 96161
                 </a>
               </div>
 
               <div className="flex items-start gap-3">
-                <span className="mt-1 text-[#C9A227]">✉</span>
+                <span className="mt-1 text-[#765D00]">✉</span>
 
                 <a
                   href="mailto:support@srisuprajainfracon.com"
-                  className="text-slate-600 transition hover:text-[#C9A227]"
+                  className="text-slate-600 transition hover:text-[#765D00]"
                 >
                   support@srisuprajainfracon.com
                 </a>
               </div>
 
               <div className="flex items-start gap-3">
-                <span className="mt-1 text-[#C9A227]">📍</span>
+                <span className="mt-1 text-[#765D00]">📍</span>
 
                 <p className="leading-7 text-slate-600">
                   H.No. 4-91, Above Parampara Mithai,
@@ -219,28 +219,28 @@ export default function Footer() {
           >
             <Link
               href="/privacy-policy/"
-              className="transition hover:text-[#C9A227]"
+              className="transition hover:text-[#765D00]"
             >
               Privacy Policy
             </Link>
 
             <Link
               href="/terms-and-conditions/"
-              className="transition hover:text-[#C9A227]"
+              className="transition hover:text-[#765D00]"
             >
               Terms & Conditions
             </Link>
 
             <Link
               href="/disclaimer/"
-              className="transition hover:text-[#C9A227]"
+              className="transition hover:text-[#765D00]"
             >
               Disclaimer
             </Link>
 
             <Link
               href="/cookie-policy/"
-              className="transition hover:text-[#C9A227]"
+              className="transition hover:text-[#765D00]"
             >
               Cookie Policy
             </Link>
