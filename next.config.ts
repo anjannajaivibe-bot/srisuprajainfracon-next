@@ -53,6 +53,53 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
+      // Obsolete internal URLs retained for visitors and search engines
+      {
+        source: "/resort-plots-in-hyderabad",
+        destination: "/projects/supraja-iris-resort-plots",
+        permanent: true,
+      },
+      {
+        source: "/open-plots-in-west-hyderabad-mumbai-highway",
+        destination: "/open-plots-and-resorts-in-hyderabad",
+        permanent: true,
+      },
+      {
+        source: "/gated-community-plots-in-hyderabad",
+        destination: "/projects",
+        permanent: true,
+      },
+      {
+        source: "/hmda-approved-open-plots-hyderabad",
+        destination: "/projects",
+        permanent: true,
+      },
+      {
+        source: "/is-this-a-good-time-to-buy-plots-in-hyderabad",
+        destination: "/blog/hyderabad-real-estate-market-trends-2025",
+        permanent: true,
+      },
+      {
+        source: "/open-plots-vs-apartments-investment-guide",
+        destination: "/blog/open-plots-in-hyderabad-investment-2025",
+        permanent: true,
+      },
+      {
+        source: "/best-investment-opportunity-in-hyderabad",
+        destination: "/blog/hyderabad-investment-areas",
+        permanent: true,
+      },
+      {
+        source: "/best-open-plot-developers-in-hyderabad",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/supraja-vs-generic-layouts",
+        destination: "/projects",
+        permanent: true,
+      },
+
       // Contact page redirects
       {
         source: "/contact",
