@@ -93,7 +93,7 @@ export default function OpenPlotsResortsClient() {
             </Link>
 
             <Link
-              href="/resort-plots-in-hyderabad"
+              href="/projects/supraja-iris-resort-plots"
               className="rounded-[28px] border border-[#EFE7D3] bg-[#F8F6F1] p-6 transition hover:border-[#C9A227]"
             >
               <h3 className="text-xl font-extrabold text-[#111827]">
