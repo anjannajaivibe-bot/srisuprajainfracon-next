@@ -23,11 +23,11 @@ const locationLinks = [
   },
   {
     label: "Resort Plot Guide",
-    href: "/resort-plots-in-hyderabad",
+    href: "/projects/supraja-iris-resort-plots",
   },
   {
     label: "West Hyderabad Corridor",
-    href: "/open-plots-in-west-hyderabad-mumbai-highway",
+    href: "/open-plots-and-resorts-in-hyderabad",
   },
 ];
 
@@ -175,14 +175,14 @@ export default function ProjectsClient() {
             </Link>
 
             <Link
-              href="/gated-community-plots-in-hyderabad"
+              href="/projects"
               className="rounded-full border border-[#C9A227] bg-[#FFF9E8] px-6 py-3 text-sm font-bold text-[#111827] transition hover:bg-[#C9A227]"
             >
               Gated Project Guide
             </Link>
 
             <Link
-              href="/resort-plots-in-hyderabad"
+              href="/projects/supraja-iris-resort-plots"
               className="rounded-full border border-[#E5E7EB] bg-white px-6 py-3 text-sm font-bold text-[#111827] transition hover:border-[#C9A227] hover:bg-[#FFF9E8]"
             >
               Resort Plot Guide
