@@ -20,10 +20,10 @@ export const projectSeo = {
       "resort-inspired plotted project",
     ],
     imageAlt:
-      "Supraja IRIS resort-inspired plots at Kamkole near Hyderabad",
+      "Supraja IRIS resort-inspired plots at Kamkole near Sadashivapet",
     internalLinks: [
       { label: "View all Sri Supraja projects", href: "/projects" },
-      { label: "Explore resort plot guide", href: "/resort-plots-in-hyderabad" },
+      { label: "Explore resort plot guide", href: "/blog/plot-orientation-practical-planning-every-direction" },
     ],
   },
 
