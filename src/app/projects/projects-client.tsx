@@ -238,6 +238,74 @@ export default function ProjectsClient() {
         </div>
       </section>
 
+      <section className="bg-white px-6 py-20">
+        <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#B88900]">
+              Investor Resources
+            </p>
+            <h2 className="text-3xl font-extrabold leading-tight text-[#111827] md:text-5xl">
+              Practical Guides Before You Choose a Plot
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-[#4B5563]">
+              Use these buyer-focused guides to review approvals, documents,
+              ownership records, and essential checks before comparing projects
+              or scheduling a site visit.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                title: "Plot Buying Checklist",
+                description: "Review 20 practical checks covering documents, access, infrastructure, and developer credibility.",
+                href: "/blog/plot-buying-checklist",
+              },
+              {
+                title: "Verify Land Ownership",
+                description: "Understand title records, survey details, link documents, and physical verification.",
+                href: "/blog/how-to-verify-land-ownership-before-buying-a-plot",
+              },
+              {
+                title: "HMDA vs DTCP vs RERA",
+                description: "Learn what each approval or registration means before evaluating a plotted development.",
+                href: "/blog/hmda-vs-dtcp-vs-rera",
+              },
+              {
+                title: "Documents Before Buying",
+                description: "Use a clear document checklist before booking or registering a residential plot.",
+                href: "/blog/documents-required-before-buying-a-plot-in-telangana",
+              },
+            ].map((resource) => (
+              <Link
+                key={resource.href}
+                href={resource.href}
+                className="group rounded-3xl border border-[#EFE7D3] bg-[#FBF8EF] p-6 transition hover:-translate-y-1 hover:border-[#C9A227] hover:shadow-lg"
+              >
+                <h3 className="text-xl font-extrabold text-[#111827] group-hover:text-[#9A7A16]">
+                  {resource.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-[#4B5563]">
+                  {resource.description}
+                </p>
+                <span className="mt-5 inline-flex text-sm font-bold text-blue-700 underline">
+                  Read guide
+                </span>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-8 text-center">
+            <Link
+              href="/blog"
+              className="inline-flex rounded-full border border-[#C9A227] bg-white px-6 py-3 text-sm font-bold text-[#111827] transition hover:bg-[#FFF7DD]"
+            >
+              Visit Investor Knowledge Center
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <CTASection />
     </div>
   );
