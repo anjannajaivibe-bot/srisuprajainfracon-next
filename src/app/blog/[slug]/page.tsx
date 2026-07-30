@@ -99,8 +99,43 @@ function getPost(slug: string): BlogPost | null {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
 }
 
-function getRelatedPosts(currentSlug: string): BlogPost[] {
+const RELATED_STOP_WORDS = new Set([
+  "about",
+  "after",
+  "approved",
+  "before",
+  "best",
+  "buying",
+  "complete",
+  "guide",
+  "hyderabad",
+  "investment",
+  "plots",
+  "property",
+  "real",
+  "estate",
+  "simple",
+  "telangana",
+  "what",
+  "when",
+  "with",
+]);
+
+function getRelatedKeywords(post: BlogPost) {
+  return new Set(
+    stripHtml(
+      `${post.title} ${post.metaDescription || ""} ${post.category || ""}`
+    )
+      .toLowerCase()
+      .split(/[^a-z0-9]+/)
+      .filter((word) => word.length > 3 && !RELATED_STOP_WORDS.has(word))
+  );
+}
+
+function getRelatedPosts(currentPost: BlogPost): BlogPost[] {
   if (!fs.existsSync(BLOG_DIR)) return [];
+
+  const currentKeywords = getRelatedKeywords(currentPost);
 
   return fs
     .readdirSync(BLOG_DIR)
@@ -108,9 +143,26 @@ function getRelatedPosts(currentSlug: string): BlogPost[] {
     .map((file) =>
       JSON.parse(fs.readFileSync(path.join(BLOG_DIR, file), "utf8"))
     )
-    .filter((post) => post.slug !== currentSlug)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 3);
+    .filter((post) => post.slug !== currentPost.slug)
+    .map((post) => {
+      const sharedKeywords = [...getRelatedKeywords(post)].filter((keyword) =>
+        currentKeywords.has(keyword)
+      ).length;
+      const categoryScore =
+        post.category && post.category === currentPost.category ? 3 : 0;
+
+      return {
+        post,
+        score: sharedKeywords * 2 + categoryScore,
+      };
+    })
+    .sort(
+      (a, b) =>
+        b.score - a.score ||
+        new Date(b.post.date).getTime() - new Date(a.post.date).getTime()
+    )
+    .slice(0, 3)
+    .map(({ post }) => post);
 }
 
 export async function generateStaticParams() {
@@ -181,7 +233,7 @@ export default async function BlogDetailPage({
 
   if (!post) notFound();
 
-  const relatedPosts = getRelatedPosts(slug);
+  const relatedPosts = getRelatedPosts(post);
   const cleanPostContent = sanitizeBlogContent(post.content);
   const { content, toc } = addHeadingIds(cleanPostContent);
 
