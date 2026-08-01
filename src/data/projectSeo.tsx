@@ -23,7 +23,7 @@ export const projectSeo = {
       "Supraja IRIS resort-inspired plots at Kamkole near Sadashivapet",
     internalLinks: [
       { label: "View all Sri Supraja projects", href: "/projects" },
-      { label: "Explore resort plot guide", href: "/blog/plot-orientation-practical-planning-every-direction" },
+      { label: "Compare open and resort plot options", href: "/open-plots-and-resorts-in-hyderabad" },
     ],
   },
 
@@ -79,7 +79,7 @@ export const projectSeo = {
       "Bridge County 15-acre plotted enclave within Supraja IRIS at Kamkole",
     internalLinks: [
       { label: "View all Sri Supraja projects", href: "/projects" },
-      { label: "Contact for Bridge County availability", href: "/contact-us/" },
+      { label: "Understand the wider Supraja IRIS destination", href: "/open-plots-and-resorts-in-hyderabad" },
     ],
   },
 

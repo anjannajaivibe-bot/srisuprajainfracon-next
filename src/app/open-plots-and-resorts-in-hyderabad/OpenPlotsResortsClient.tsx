@@ -93,16 +93,16 @@ export default function OpenPlotsResortsClient() {
             </Link>
 
             <Link
-              href="/projects/supraja-iris-resort-plots"
+              href="/projects/bridge-county"
               className="rounded-[28px] border border-[#EFE7D3] bg-[#F8F6F1] p-6 transition hover:border-[#C9A227]"
             >
               <h3 className="text-xl font-extrabold text-[#111827]">
-                Resort Plot Communities
+                Bridge County within Supraja IRIS
               </h3>
 
               <p className="mt-3 text-sm leading-relaxed text-[#6B7280]">
-                Explore plotted communities with lifestyle-oriented and
-                resort ecosystem positioning.
+                Explore a dedicated plotted enclave within the broader Supraja
+                IRIS project environment at Kamkole.
               </p>
             </Link>
           </div>
@@ -113,6 +113,7 @@ export default function OpenPlotsResortsClient() {
 </div>
   );
 }
+
 
 
 
