@@ -1,4 +1,5 @@
 import type { Project } from "@/data/projects";
+import Link from "next/link";
 
 type Props = {
   project: Project;
@@ -64,8 +65,32 @@ const fallbackCopy = {
   whatsappText: "Discuss Project Details",
 };
 
+const projectGuides: Record<string, { title: string; href: string }[]> = {
+  "supraja-iris": [
+    { title: "Kamkole Investment Guide", href: "/blog/kamkole-real-estate-investment-hotspot" },
+    { title: "Understanding DTCP Approval", href: "/blog/what-is-dtcp-approval-in-hyderabad" },
+  ],
+  "supraja-iris-resort-plots": [
+    { title: "Kamkole Investment Guide", href: "/blog/kamkole-real-estate-investment-hotspot" },
+    { title: "Understanding DTCP Approval", href: "/blog/what-is-dtcp-approval-in-hyderabad" },
+  ],
+  "bridge-county": [
+    { title: "Plot Buying Checklist", href: "/blog/plot-buying-checklist" },
+    { title: "HMDA vs DTCP vs RERA", href: "/blog/hmda-vs-dtcp-vs-rera" },
+  ],
+  "sindhu-sarovar": [
+    { title: "Documents Before Buying a Plot", href: "/blog/documents-required-before-buying-a-plot-in-telangana" },
+    { title: "Verify Land Ownership", href: "/blog/how-to-verify-land-ownership-before-buying-a-plot" },
+  ],
+  "subhash-meadows": [
+    { title: "Plots Near ORR Hyderabad", href: "/blog/plots-near-orr-hyderabad" },
+    { title: "Plot Orientation Planning", href: "/blog/plot-orientation-practical-planning-every-direction" },
+  ],
+};
+
 const ProjectCTA = ({ project }: Props) => {
   const copy = ctaCopy[project.slug] ?? fallbackCopy;
+  const guides = projectGuides[project.slug] ?? [];
 
   const whatsappMessage = `Hello, I would like to know more about ${project.title}. Please share current availability, pricing, location details, and site visit options.`;
 
@@ -103,6 +128,23 @@ const ProjectCTA = ({ project }: Props) => {
             {copy.whatsappText}
           </a>
         </div>
+
+        {guides.length > 0 && (
+          <nav
+            aria-label={`Helpful guides for ${project.title}`}
+            className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm"
+          >
+            {guides.map((guide) => (
+              <Link
+                key={guide.href}
+                href={guide.href}
+                className="font-semibold text-amber-300 underline decoration-amber-300/50 underline-offset-4 hover:text-white"
+              >
+                {guide.title}
+              </Link>
+            ))}
+          </nav>
+        )}
       </div>
     </section>
   );
