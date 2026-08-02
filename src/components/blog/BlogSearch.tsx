@@ -27,7 +27,13 @@ function formatDate(date: string) {
   });
 }
 
-export default function BlogSearch({ posts }: { posts: BlogPost[] }) {
+export default function BlogSearch({
+  posts,
+  featuredSlug,
+}: {
+  posts: BlogPost[];
+  featuredSlug?: string;
+}) {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
   const deferredQuery = useDeferredValue(query);
@@ -57,6 +63,11 @@ export default function BlogSearch({ posts }: { posts: BlogPost[] }) {
     });
   }, [activeCategory, deferredQuery, posts]);
 
+  const isDefaultView = !deferredQuery.trim() && activeCategory === "All";
+  const displayedPosts = isDefaultView
+    ? filteredPosts.filter((post) => post.slug !== featuredSlug)
+    : filteredPosts;
+
   return (
     <>
       <div className="mb-8 grid gap-4 lg:grid-cols-[1fr_auto]">
@@ -69,7 +80,9 @@ export default function BlogSearch({ posts }: { posts: BlogPost[] }) {
         />
 
         <div className="flex items-center rounded-2xl bg-white px-5 py-4 text-sm font-medium text-gray-600 shadow-sm">
-          {filteredPosts.length} result{filteredPosts.length === 1 ? "" : "s"}
+          {isDefaultView
+            ? `${displayedPosts.length} more article${displayedPosts.length === 1 ? "" : "s"}`
+            : `${displayedPosts.length} result${displayedPosts.length === 1 ? "" : "s"}`}
         </div>
       </div>
 
@@ -90,9 +103,9 @@ export default function BlogSearch({ posts }: { posts: BlogPost[] }) {
         ))}
       </div>
 
-      {filteredPosts.length > 0 ? (
+      {displayedPosts.length > 0 ? (
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {filteredPosts.map((post) => {
+          {displayedPosts.map((post) => {
             const cleanTitle = stripHtml(post.title);
             const category = post.category || "Investment Guide";
             const updatedDate = post.modified || post.date;
