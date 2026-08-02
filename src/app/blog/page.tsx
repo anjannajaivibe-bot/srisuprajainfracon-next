@@ -23,7 +23,7 @@ type BlogPost = {
 };
 
 export const metadata: Metadata = {
-  title: "Investor Knowledge Center | Sri Supraja Infracon",
+  title: "Investor Knowledge Center",
   description:
     "Explore real estate investment guides, buyer checklists, legal insights, plotted development tips, and Hyderabad real estate market updates by Sri Supraja Infracon.",
   alternates: {
@@ -67,8 +67,11 @@ function getPosts(): BlogPost[] {
       );
 
       return {
-        ...post,
+        slug: post.slug,
         title: post.title,
+        date: post.date,
+        modified: post.modified,
+        featuredImage: post.featuredImage,
         excerpt: stripHtml(post.excerpt || post.metaDescription || ""),
         category: post.category || "Investment Guide",
         readingTime: calculateReadingTime(post.content || ""),
@@ -80,7 +83,6 @@ function getPosts(): BlogPost[] {
 export default function BlogPage() {
   const posts = getPosts();
   const featuredPost = posts[0];
-  const remainingPosts = posts.slice(1);
 
   return (
     <main className="min-h-screen bg-[#f8f6f1]">
@@ -170,7 +172,7 @@ export default function BlogPage() {
           </p>
         </div>
 
-        <BlogSearch posts={remainingPosts} />
+        <BlogSearch posts={posts} featuredSlug={featuredPost?.slug} />
       </section>
     </main>
   );
