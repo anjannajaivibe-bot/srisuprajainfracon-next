@@ -1,0 +1,36 @@
+name: Materialize blog images
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'scripts/blog-images-batch-2026-08.b64'
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Decode WebP image pack
+        shell: bash
+        run: |
+          mkdir -p public/uploads/blog
+          base64 --decode scripts/blog-images-batch-2026-08.b64 > /tmp/blog-images.zip
+          unzip -o /tmp/blog-images.zip -d public/uploads/blog
+          rm scripts/blog-images-batch-2026-08.b64
+
+      - name: Commit generated images
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/uploads/blog scripts/blog-images-batch-2026-08.b64
+          git commit -m "Add generated WebP images for four SEO blogs"
+          git push
