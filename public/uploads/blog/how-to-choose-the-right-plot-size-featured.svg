@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect width="1600" height="900" fill="#cfe5f2"/><rect y="90" width="1600" height="810" fill="#f8f6f1"/>
+<rect width="1600" height="90" fill="#12251d"/><text x="55" y="58" font-family="Arial" font-weight="700" font-size="42" fill="#fff">Choose for your family's future</text>
+<polygon points="0,760 1600,620 1600,900 0,900" fill="#4b5056"/><line x1="0" y1="760" x2="1600" y2="620" stroke="#fff" stroke-width="6"/>
+<g fill="#b7945f" stroke="#fff" stroke-width="5">
+<polygon points="70,370 265,350 290,605 90,630"/><polygon points="320,370 515,350 540,605 340,630"/><polygon points="570,370 765,350 790,605 590,630"/><polygon points="820,370 1015,350 1040,605 840,630"/><polygon points="1070,370 1265,350 1290,605 1090,630"/><polygon points="1320,370 1515,350 1540,605 1340,630"/>
+</g>
+<g fill="#fff" stroke="#12251d" stroke-width="3"><rect x="100" y="175" width="210" height="125"/><rect x="450" y="175" width="210" height="125"/><rect x="800" y="175" width="210" height="125"/><rect x="1150" y="175" width="210" height="125"/></g>
+<g fill="#7dafc8"><rect x="130" y="210" width="50" height="60"/><rect x="225" y="205" width="55" height="65"/><rect x="480" y="210" width="50" height="60"/><rect x="575" y="205" width="55" height="65"/><rect x="830" y="210" width="50" height="60"/><rect x="925" y="205" width="55" height="65"/><rect x="1180" y="210" width="50" height="60"/><rect x="1275" y="205" width="55" height="65"/></g>
+<g fill="#e1bea0"><circle cx="430" cy="530" r="30"/><circle cx="530" cy="530" r="30"/><circle cx="730" cy="530" r="30"/><circle cx="600" cy="602" r="22"/></g>
+<g><rect x="390" y="560" width="80" height="130" fill="#466478"/><rect x="490" y="560" width="80" height="130" fill="#be7864"/><rect x="690" y="560" width="80" height="130" fill="#507db4"/><rect x="572" y="625" width="56" height="85" fill="#ebaa3c"/></g>
+<polygon points="700,570 850,535 880,630 730,665" fill="#fff" stroke="#12251d" stroke-width="4"/>
+</svg>
