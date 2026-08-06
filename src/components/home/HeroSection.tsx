@@ -7,22 +7,10 @@ const trustBadges = [
 ];
 
 const projectLinks = [
-  {
-    name: "Supraja IRIS",
-    href: "/projects/supraja-iris-resort-plots",
-  },
-  {
-    name: "Bridge County",
-    href: "/projects/bridge-county",
-  },
-  {
-    name: "Sindhu Sarovar",
-    href: "/projects/sindhu-sarovar",
-  },
-  {
-    name: "Subhash Meadows",
-    href: "/projects/subhash-meadows",
-  },
+  { name: "Supraja IRIS", href: "/projects/supraja-iris-resort-plots" },
+  { name: "Bridge County", href: "/projects/bridge-county" },
+  { name: "Sindhu Sarovar", href: "/projects/sindhu-sarovar" },
+  { name: "Subhash Meadows", href: "/projects/subhash-meadows" },
 ];
 
 const legacyProjects = [
@@ -38,7 +26,6 @@ const legacyProjects = [
 const HeroSection = () => {
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#0B1633] pt-24 sm:pt-28 lg:min-h-[88vh] lg:pt-0">
-      {/* Background */}
       <div className="absolute inset-0" aria-hidden="true">
         <video
           className="hidden h-full w-full object-cover opacity-35 lg:block"
@@ -49,25 +36,16 @@ const HeroSection = () => {
           preload="none"
           tabIndex={-1}
         >
-          <source
-            src="/videos/heroBg.mp4"
-            type="video/mp4"
-            media="(min-width: 1024px)"
-          />
+          <source src="/videos/heroBg.mp4" type="video/mp4" media="(min-width: 1024px)" />
         </video>
 
         <div className="absolute inset-0 bg-gradient-to-br from-[#081225]/95 via-[#0B1633]/88 to-[#1A2F5A]/82" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0B1633] to-transparent" />
       </div>
 
-      {/* Hero content */}
       <div className="container-max relative z-10 w-full px-4 pb-8 pt-6 text-center sm:px-6 sm:pb-12 md:pb-14 lg:px-8 lg:pb-16">
         <div className="mb-4 inline-flex max-w-full items-center gap-2 rounded-full border border-[#C9A227]/35 bg-[#C9A227]/10 px-3 py-2 sm:mb-6 sm:px-5">
-          <span
-            className="h-2 w-2 shrink-0 rounded-full bg-[#C9A227]"
-            aria-hidden="true"
-          />
-
+          <span className="h-2 w-2 shrink-0 rounded-full bg-[#C9A227]" aria-hidden="true" />
           <span className="text-[11px] font-semibold text-[#E8D7A5] sm:text-sm">
             Sri Supraja Infracon Builders &amp; Developers
           </span>
@@ -85,7 +63,6 @@ const HeroSection = () => {
           engineered for sustained capital appreciation.
         </p>
 
-        {/* Trust badges */}
         <div className="mb-6 flex flex-wrap justify-center gap-2 sm:mb-7 sm:gap-3">
           {trustBadges.map((badge) => (
             <span
@@ -97,7 +74,6 @@ const HeroSection = () => {
           ))}
         </div>
 
-        {/* Project links */}
         <nav
           aria-label="Featured projects"
           className="mx-auto mb-6 grid max-w-[520px] grid-cols-2 gap-3 sm:mb-7 md:max-w-3xl md:grid-cols-4"
@@ -113,7 +89,6 @@ const HeroSection = () => {
           ))}
         </nav>
 
-        {/* Completed projects marquee */}
         <div className="relative left-1/2 right-1/2 mt-5 w-screen -ml-[50vw] -mr-[50vw] overflow-hidden border-y border-white/10 bg-white/5 sm:mt-7 lg:backdrop-blur-sm">
           <div className="mx-auto flex max-w-[1600px] flex-col items-center gap-0 px-4 sm:px-6 lg:flex-row lg:px-8">
             <div className="w-full shrink-0 border-b border-white/10 px-4 py-2.5 lg:w-auto lg:border-b-0 lg:border-r">
@@ -123,36 +98,29 @@ const HeroSection = () => {
             </div>
 
             <div className="relative min-w-0 flex-1 overflow-hidden py-3 sm:py-4">
-              <div
-                className="pointer-events-none absolute left-0 top-0 z-10 h-full w-8 bg-gradient-to-r from-[#0B1633] to-transparent sm:w-16"
-                aria-hidden="true"
-              />
-
-              <div
-                className="pointer-events-none absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-[#0B1633] to-transparent sm:w-16"
-                aria-hidden="true"
-              />
+              <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-8 bg-gradient-to-r from-[#0B1633] to-transparent sm:w-16" aria-hidden="true" />
+              <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-[#0B1633] to-transparent sm:w-16" aria-hidden="true" />
 
               <div className="legacy-marquee-track">
                 <div className="legacy-marquee-group">
                   {legacyProjects.map((project) => (
-                    <span
-                      key={`primary-${project}`}
-                      className="legacy-marquee-item"
-                    >
+                    <span key={`primary-${project}`} className="legacy-marquee-item">
                       {project}
                     </span>
                   ))}
                 </div>
 
-                <div className="legacy-marquee-group" aria-hidden="true">
+                <div
+                  className="legacy-marquee-group legacy-marquee-duplicate"
+                  aria-hidden="true"
+                  role="presentation"
+                >
                   {legacyProjects.map((project) => (
                     <span
                       key={`duplicate-${project}`}
                       className="legacy-marquee-item"
-                    >
-                      {project}
-                    </span>
+                      data-label={project}
+                    />
                   ))}
                 </div>
               </div>
@@ -160,7 +128,6 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Primary CTA buttons */}
         <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4 lg:mt-10">
           <Link
             href="/contact-us/"
@@ -177,37 +144,17 @@ const HeroSection = () => {
           </Link>
         </div>
 
-        {/* Supporting links */}
         <div className="mt-5 flex flex-wrap justify-center gap-x-4 gap-y-2 text-[11px] sm:mt-7 sm:text-sm">
-          <Link
-            href="/projects"
-            className="font-bold text-[#E8D7A5] underline decoration-[#E8D7A5]/60 underline-offset-4 transition hover:text-white"
-          >
+          <Link href="/projects" className="font-bold text-[#E8D7A5] underline decoration-[#E8D7A5]/60 underline-offset-4 transition hover:text-white">
             Project Brochures
           </Link>
-
-          <Link
-            href="/projects"
-            className="font-bold text-[#E8D7A5] underline decoration-[#E8D7A5]/60 underline-offset-4 transition hover:text-white"
-          >
+          <Link href="/projects" className="font-bold text-[#E8D7A5] underline decoration-[#E8D7A5]/60 underline-offset-4 transition hover:text-white">
             Location Advantages
           </Link>
-
-          <a
-            href="https://www.rera.telangana.gov.in/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-bold text-[#E8D7A5] underline decoration-[#E8D7A5]/60 underline-offset-4 transition hover:text-white"
-          >
+          <a href="https://www.rera.telangana.gov.in/" target="_blank" rel="noopener noreferrer" className="font-bold text-[#E8D7A5] underline decoration-[#E8D7A5]/60 underline-offset-4 transition hover:text-white">
             Telangana RERA
           </a>
-
-          <a
-            href="https://dtcp.telangana.gov.in/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-bold text-[#E8D7A5] underline decoration-[#E8D7A5]/60 underline-offset-4 transition hover:text-white"
-          >
+          <a href="https://dtcp.telangana.gov.in/" target="_blank" rel="noopener noreferrer" className="font-bold text-[#E8D7A5] underline decoration-[#E8D7A5]/60 underline-offset-4 transition hover:text-white">
             Telangana DTCP
           </a>
         </div>
@@ -245,14 +192,13 @@ const HeroSection = () => {
           color: rgb(226 232 240);
         }
 
-        @keyframes legacy-marquee-scroll {
-          from {
-            transform: translate3d(0, 0, 0);
-          }
+        .legacy-marquee-duplicate .legacy-marquee-item::before {
+          content: attr(data-label);
+        }
 
-          to {
-            transform: translate3d(-50%, 0, 0);
-          }
+        @keyframes legacy-marquee-scroll {
+          from { transform: translate3d(0, 0, 0); }
+          to { transform: translate3d(-50%, 0, 0); }
         }
 
         @media (min-width: 640px) {
