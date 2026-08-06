@@ -16,24 +16,31 @@ import {
   type ProjectContentKey,
 } from "@/data/projectContent";
 
+const SectionSkeleton = () => (
+  <div
+    className="mx-auto max-w-7xl px-6 py-24"
+    aria-hidden="true"
+    role="presentation"
+  >
+    <div className="h-8 w-48 animate-pulse rounded-lg bg-slate-100" />
+    <div className="mt-6 grid gap-6 md:grid-cols-3">
+      <div className="h-64 animate-pulse rounded-[28px] bg-slate-100" />
+      <div className="h-64 animate-pulse rounded-[28px] bg-slate-100" />
+      <div className="h-64 animate-pulse rounded-[28px] bg-slate-100" />
+    </div>
+  </div>
+);
+
 /* Lazy Loaded Below Fold Sections */
 const ProjectGallery = dynamic(
   () => import("@/components/project/ProjectGallery"),
   {
-    loading: () => (
-      <div className="py-24 text-center text-slate-500">
-        Loading gallery...
-      </div>
-    ),
+    loading: () => <SectionSkeleton />,
   }
 );
 
 const ProjectFAQ = dynamic(() => import("@/components/project/ProjectFAQ"), {
-  loading: () => (
-    <div className="py-24 text-center text-slate-500">
-      Loading FAQs...
-    </div>
-  ),
+  loading: () => <SectionSkeleton />,
 });
 
 const ProjectDetail = ({ slug }: { slug: string }) => {
@@ -86,7 +93,9 @@ const ProjectDetail = ({ slug }: { slug: string }) => {
         <ProjectGallery project={project} />
 
         {/* Testimonials */}
-        <ProjectTestimonials projectSlug={project.slug} />
+        {project.slug !== "subhash-meadows" && (
+          <ProjectTestimonials projectSlug={project.slug} />
+        )}
 
         {/* FAQ */}
         <ProjectFAQ project={project} />
