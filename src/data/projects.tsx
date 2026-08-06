@@ -37,8 +37,8 @@ export const projects: Project[] = [
     location: "Kamkole",
     status: "Sales Open",
     approvalType: "DTCP & RERA Approved Open Plots",
-    dtcpNo: "TLP No. 272/2022/H",
-    reraNo: "RERA Approved",
+    dtcpNo: "TLP No. 155/2024/H",
+    reraNo: "P02100009249",
 
     shortDescription:
       "DTCP & RERA approved open plots at Kamkole near Woxsen University with Lemon Tree Resort under construction, planned water villas, theme park attractions and strong high Return on Investment (ROI) Growth potential.",
@@ -56,8 +56,8 @@ export const projects: Project[] = [
       "Lemon Tree Resort under construction",
       "Water & Amusement Theme Park Under Development",
       "Go-Karting planned",
-       "Water Villas under construction",
-       "Adjacent to Woxsen University and NH-65",
+      "Water Villas under construction",
+      "Adjacent to Woxsen University and NH-65",
     ],
 
     link: "/projects/supraja-iris-resort-plots",
@@ -111,7 +111,7 @@ export const projects: Project[] = [
     status: "Sales Open",
     approvalType: "DTCP & RERA Approved Open Plots",
     dtcpNo: "TLP No. 154/2021/H, 233/2021/H",
-    reraNo: "P02100003339",
+    reraNo: "P02100003339, P02100009951",
 
     shortDescription:
       "DTCP & RERA approved open plots at Mominpet with gated community planning, wide roads, landscaped parks, plot sizes from 150 to 569 sq. yards and strong appreciation potential.",
@@ -175,9 +175,3 @@ export const projects: Project[] = [
       "https://suprajagroup.tranquilcrmp.in/mobileapp/newmaps/7",
   },
 ];
-
-
-
-
-
-
