@@ -59,11 +59,13 @@ export default function HomePage() {
 
     "@graph": [
       {
-        "@type": "RealEstateAgent",
+        "@type": ["Organization", "Corporation"],
 
-        "@id": "https://www.srisuprajainfracon.com/#realestateagent",
+        "@id": "https://www.srisuprajainfracon.com/#organization",
 
         name: "Sri Supraja Infracon",
+
+        legalName: "Sri Supraja Infracon",
 
         url: "https://www.srisuprajainfracon.com/",
 
@@ -79,7 +81,16 @@ export default function HomePage() {
         telephone: "+91 90529 96161",
 
         description:
-          "Sri Supraja Infracon develops residential, plotted, villa and resort-inspired real estate projects across Hyderabad growth corridors.",
+          "Sri Supraja Infracon is a real estate developer, land developer and project developer creating plotted, residential, villa and resort-inspired developments across Hyderabad growth corridors.",
+
+        knowsAbout: [
+          "Real estate development",
+          "Land development",
+          "Project development",
+          "Plotted development",
+          "Residential development",
+          "Resort development",
+        ],
 
         address: {
           "@type": "PostalAddress",
@@ -127,7 +138,7 @@ export default function HomePage() {
         name: "Sri Supraja Infracon",
 
         publisher: {
-          "@id": "https://www.srisuprajainfracon.com/#realestateagent",
+          "@id": "https://www.srisuprajainfracon.com/#organization",
         },
       },
 
@@ -147,7 +158,7 @@ export default function HomePage() {
         },
 
         about: {
-          "@id": "https://www.srisuprajainfracon.com/#realestateagent",
+          "@id": "https://www.srisuprajainfracon.com/#organization",
         },
 
         primaryImageOfPage: {
