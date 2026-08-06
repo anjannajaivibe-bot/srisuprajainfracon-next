@@ -125,6 +125,22 @@ const ProjectsSection = () => {
                     </Link>
                   </h3>
 
+                  {(project.dtcpNo || project.reraNo) && (
+                    <div className="mb-5 flex flex-wrap gap-2" aria-label="Project approval details">
+                      {project.dtcpNo && (
+                        <span className="rounded-md border border-[#E8D7A5] bg-[#FFF9E8] px-3 py-1.5 text-xs font-bold text-[#725700]">
+                          DTCP: {project.dtcpNo}
+                        </span>
+                      )}
+
+                      {project.reraNo && (
+                        <span className="rounded-md border border-[#D7DEE8] bg-[#F8FAFC] px-3 py-1.5 text-xs font-bold text-[#334155]">
+                          RERA: {project.reraNo}
+                        </span>
+                      )}
+                    </div>
+                  )}
+
                   <div className="mb-6 h-px w-16 bg-[#C48912]" />
 
                   <p className="mb-8 text-[18px] leading-9 text-[#334155]">
