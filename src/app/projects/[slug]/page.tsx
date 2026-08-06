@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { siteMeta } from "@/seo/meta";
 import { notFound } from "next/navigation";
 import ProjectDetail from "@/pages/ProjectDetail";
+import { siteMeta } from "@/seo/meta";
 
 type ProjectSlug =
   | "supraja-iris-resort-plots"
@@ -24,30 +24,29 @@ type ApprovalDetail = {
   approvalAuthorities?: string[];
 };
 
+type ProjectSeo = {
+  focusKeyword: string;
+  title: string;
+  description: string;
+  ogImage: string;
+  location: string;
+  projectName: string;
+  approval: string;
+  approvalDetail?: ApprovalDetail;
+  keywords: string[];
+  faqs: { question: string; answer: string }[];
+};
+
 const SITE_URL = "https://www.srisuprajainfracon.com";
 
-const projectSeo: Record<
-  ProjectSlug,
-  {
-    focusKeyword: string;
-    title: string;
-    description: string;
-    ogImage: string;
-    location: string;
-    projectName: string;
-    approval: string;
-    approvalDetail?: ApprovalDetail;
-    keywords: string[];
-    faqs: { question: string; answer: string }[];
-  }
-> = {
+const projectSeo: Record<ProjectSlug, ProjectSeo> = {
   "supraja-iris-resort-plots": {
     focusKeyword: "DTCP & RERA Approved Resort Plots Near Hyderabad",
     title: "DTCP & RERA Approved Resort Plots Near Hyderabad | Supraja IRIS",
     description:
       "Explore DTCP & RERA Approved Resort Plots Near Hyderabad at Supraja IRIS Kamkole with Lemon Tree Resort under construction, planned water villas and NH-65 growth corridor access.",
     ogImage: `${SITE_URL}/og/supraja-iris-og.webp`,
-    location: "Kamkole, Telangana",
+    location: "Marpalle, Vikarabad, Telangana",
     projectName: "Supraja IRIS",
     approval: "DTCP & RERA Approved",
     approvalDetail: {
@@ -77,7 +76,7 @@ const projectSeo: Record<
       {
         question: "Where is Supraja IRIS located?",
         answer:
-          "Supraja IRIS is located at Kamkole near Hyderabad with access to NH-65, Woxsen University and the NIMZ Zaheerabad growth corridor.",
+          "Supraja IRIS is marketed from the Kamkole and Sadashivapet growth corridor, while the Phase 3 registration records the project locality as Marpalle, Vikarabad district.",
       },
       {
         question: "Is Lemon Tree Resort operational at Supraja IRIS?",
@@ -140,10 +139,10 @@ const projectSeo: Record<
     projectName: "Sindhu Sarovar",
     approval: "DTCP & RERA Approved",
     approvalDetail: {
-      phase: "Phases 1 and 2",
+      phase: "Phase 2",
       dtcpNumbers: ["TLP No. 154/2021/H", "TLP No. 233/2021/H"],
-      reraNumbers: ["P02100003339", "P02100009951"],
-      surveyNumbers: ["406/P", "407/P", "18/P", "19/P"],
+      reraNumbers: ["P02100009951"],
+      surveyNumbers: ["18/P", "19/P"],
       approvalAuthorities: ["Telangana RERA", "DTCP Telangana"],
     },
     keywords: [
@@ -158,12 +157,12 @@ const projectSeo: Record<
       {
         question: "Is Sindhu Sarovar DTCP & RERA Approved?",
         answer:
-          "Yes. Sindhu Sarovar has DTCP TLP Nos. 154/2021/H and 233/2021/H, with Telangana RERA registrations P02100003339 and P02100009951 for the applicable phases.",
+          "Yes. The active Phase 2 details use Telangana RERA registration P02100009951, with the applicable DTCP layout approvals displayed in the project overview.",
       },
       {
         question: "Is Sindhu Sarovar RERA approved?",
         answer:
-          "Yes. The applicable Telangana RERA registration numbers are P02100003339 and P02100009951.",
+          "Yes. The Telangana RERA registration number used for Sindhu Sarovar Phase 2 is P02100009951.",
       },
       {
         question: "Where is Sindhu Sarovar located?",
@@ -219,7 +218,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
   const { slug } = await params;
-  if (!isValidSlug(slug)) return { title: "Project Not Found | Sri Supraja Infracon" };
+  if (!isValidSlug(slug)) {
+    return { title: "Project Not Found | Sri Supraja Infracon" };
+  }
 
   const project = projectSeo[slug];
   const canonical = `${SITE_URL}/projects/${slug}/`;
@@ -235,7 +236,14 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
       url: canonical,
       siteName: "Sri Supraja Infracon",
       locale: "en_IN",
-      images: [{ url: project.ogImage, width: 1200, height: 630, alt: `${project.focusKeyword} - ${project.projectName}` }],
+      images: [
+        {
+          url: project.ogImage,
+          width: 1200,
+          height: 630,
+          alt: `${project.focusKeyword} - ${project.projectName}`,
+        },
+      ],
       type: "website",
     },
     twitter: {
@@ -247,7 +255,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   };
 }
 
-function approvalProperties(project: (typeof projectSeo)[ProjectSlug]) {
+function approvalProperties(project: ProjectSeo) {
   const details = project.approvalDetail;
   const properties: Record<string, unknown>[] = [
     { "@type": "PropertyValue", name: "Approval Type", value: project.approval },
