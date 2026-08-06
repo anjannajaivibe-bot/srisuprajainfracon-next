@@ -19,23 +19,17 @@ export default function ContactPageClient() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#081225]/95 via-[#102348]/90 to-[#0B1633]/95" />
 
         <div className="container-max relative px-4 text-center sm:px-6 lg:px-8">
-          <p
-            className="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-[#E8D7A5]"
-          >
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-[#E8D7A5]">
             Connect With Sri Supraja Infracon
           </p>
 
-          <h1
-            className="mx-auto max-w-5xl font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-7xl"
-          >
+          <h1 className="mx-auto max-w-5xl font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-7xl">
             Let&apos;s Start the Conversation
           </h1>
 
-          <p
-            className="mx-auto mt-6 max-w-4xl text-lg leading-relaxed text-slate-200"
-          >
-            Whether you&apos;re evaluating project options, coordinating a site visit, 
-            or seeking further clarity, our team is on hand to offer informed guidance 
+          <p className="mx-auto mt-6 max-w-4xl text-lg leading-relaxed text-slate-200">
+            Whether you&apos;re evaluating project options, coordinating a site visit,
+            or seeking further clarity, our team is on hand to offer informed guidance
             and prompt assistance.
           </p>
         </div>
@@ -55,14 +49,9 @@ export default function ContactPageClient() {
             <div className="space-y-5">
               <div className="flex items-start gap-4 rounded-2xl border border-[#EFE7D3] bg-white p-5 shadow-sm">
                 <Phone className="mt-1 text-[#C9A227]" size={22} />
-
                 <div>
                   <p className="font-bold text-[#111827]">Phone</p>
-
-                  <a
-                    href="tel:+919052996161"
-                    className="text-[#4B5563] hover:text-[#0B1633]"
-                  >
+                  <a href="tel:+919052996161" className="text-[#4B5563] hover:text-[#0B1633]">
                     +91 90529 96161
                   </a>
                 </div>
@@ -70,14 +59,9 @@ export default function ContactPageClient() {
 
               <div className="flex items-start gap-4 rounded-2xl border border-[#EFE7D3] bg-white p-5 shadow-sm">
                 <Mail className="mt-1 text-[#C9A227]" size={22} />
-
                 <div>
                   <p className="font-bold text-[#111827]">Email</p>
-
-                  <a
-                    href="mailto:info@srisuprajainfracon.com"
-                    className="text-[#4B5563] hover:text-[#0B1633]"
-                  >
+                  <a href="mailto:info@srisuprajainfracon.com" className="text-[#4B5563] hover:text-[#0B1633]">
                     info@srisuprajainfracon.com
                   </a>
                 </div>
@@ -85,12 +69,10 @@ export default function ContactPageClient() {
 
               <div className="flex items-start gap-4 rounded-2xl border border-[#EFE7D3] bg-white p-5 shadow-sm">
                 <MapPin className="mt-1 text-[#C9A227]" size={22} />
-
                 <div>
                   <p className="font-bold text-[#111827]">Office Location</p>
-
                   <p className="text-[#4B5563]">
-                    D. No. 4-91, Above Parampara Sweets,
+                    D. No. 4-91, Above Parampara Mithai,
                     <br />
                     Chandanagar, Hyderabad - 500050
                   </p>
@@ -99,10 +81,8 @@ export default function ContactPageClient() {
 
               <div className="flex items-start gap-4 rounded-2xl border border-[#EFE7D3] bg-white p-5 shadow-sm">
                 <Clock className="mt-1 text-[#C9A227]" size={22} />
-
                 <div>
                   <p className="font-bold text-[#111827]">Office Hours</p>
-
                   <p className="text-[#4B5563]">
                     Our advisory team is available to assist with project enquiries and site visit scheduling.
                   </p>
@@ -145,42 +125,27 @@ export default function ContactPageClient() {
           </h2>
 
           <p className="mx-auto mt-5 max-w-3xl text-[#4B5563]">
-            Discover projects across Kamkole, Sangareddy, Mominpet and Indrakaran, 
-            each conceived to serve distinct investment horizons and long-term ownership 
+            Discover projects across Kamkole, Sangareddy, Mominpet and Indrakaran,
+            each conceived to serve distinct investment horizons and long-term ownership
             aspirations.
           </p>
 
           <p className="mx-auto mt-4 max-w-3xl text-[#4B5563]">
-            Review project specifications, locational advantages, site visuals 
+            Review project specifications, locational advantages, site visuals
             and current availability.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Link
-              href="/projects/supraja-iris-resort-plots"
-              className="rounded-full bg-[#0B1633] px-5 py-3 font-bold text-white transition hover:bg-[#C9A227] hover:text-[#0B1633]"
-            >
+            <Link href="/projects/supraja-iris-resort-plots" className="rounded-full bg-[#0B1633] px-5 py-3 font-bold text-white transition hover:bg-[#C9A227] hover:text-[#0B1633]">
               Supraja IRIS
             </Link>
-
-            <Link
-              href="/projects/bridge-county"
-              className="rounded-full bg-[#0B1633] px-5 py-3 font-bold text-white transition hover:bg-[#C9A227] hover:text-[#0B1633]"
-            >
+            <Link href="/projects/bridge-county" className="rounded-full bg-[#0B1633] px-5 py-3 font-bold text-white transition hover:bg-[#C9A227] hover:text-[#0B1633]">
               Bridge County
             </Link>
-
-            <Link
-              href="/projects/sindhu-sarovar"
-              className="rounded-full bg-[#0B1633] px-5 py-3 font-bold text-white transition hover:bg-[#C9A227] hover:text-[#0B1633]"
-            >
+            <Link href="/projects/sindhu-sarovar" className="rounded-full bg-[#0B1633] px-5 py-3 font-bold text-white transition hover:bg-[#C9A227] hover:text-[#0B1633]">
               Sindhu Sarovar
             </Link>
-
-            <Link
-              href="/projects/subhash-meadows"
-              className="rounded-full bg-[#0B1633] px-5 py-3 font-bold text-white transition hover:bg-[#C9A227] hover:text-[#0B1633]"
-            >
+            <Link href="/projects/subhash-meadows" className="rounded-full bg-[#0B1633] px-5 py-3 font-bold text-white transition hover:bg-[#C9A227] hover:text-[#0B1633]">
               Subhash Meadows
             </Link>
           </div>
