@@ -111,7 +111,7 @@ export const projects: Project[] = [
     status: "Sales Open",
     approvalType: "DTCP & RERA Approved Open Plots",
     dtcpNo: "TLP No. 154/2021/H, 233/2021/H",
-    reraNo: "P02100003339, P02100009951",
+    reraNo: "P02100009951",
 
     shortDescription:
       "DTCP & RERA approved open plots at Mominpet with gated community planning, wide roads, landscaped parks, plot sizes from 150 to 569 sq. yards and strong appreciation potential.",
