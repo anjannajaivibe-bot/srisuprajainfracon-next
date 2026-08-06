@@ -4,10 +4,8 @@ import LazyGoogleMap from "@/components/shared/LazyGoogleMap";
 export default function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-[#F8FAFC] text-slate-800">
-      {/* Main Footer */}
       <div className="container-max px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-4">
-          {/* Brand */}
           <div>
             <h3 className="text-2xl font-bold text-slate-900">
               Sri Supraja Infracon
@@ -24,29 +22,12 @@ export default function Footer() {
               Sangareddy, Mominpet and Indrakaran.
             </p>
 
-            {/* Social Icons */}
             <div className="mt-8 flex items-center gap-4">
               {[
-                {
-                  label: "Facebook",
-                  href: "https://www.facebook.com/srisuprajainfracon",
-                  icon: "f",
-                },
-                {
-                  label: "Instagram",
-                  href: "https://www.instagram.com/suprajagroup/",
-                  icon: "◎",
-                },
-                {
-                  label: "LinkedIn",
-                  href: "https://www.linkedin.com/in/supraja-infracon-builders-and-developers-635aaa3a0/",
-                  icon: "in",
-                },
-                {
-                  label: "YouTube",
-                  href: "https://www.youtube.com/@suprajairisresort",
-                  icon: "▶",
-                },
+                { label: "Facebook", href: "https://www.facebook.com/srisuprajainfracon", icon: "f" },
+                { label: "Instagram", href: "https://www.instagram.com/suprajagroup/", icon: "◎" },
+                { label: "LinkedIn", href: "https://www.linkedin.com/in/supraja-infracon-builders-and-developers-635aaa3a0/", icon: "in" },
+                { label: "YouTube", href: "https://www.youtube.com/@suprajairisresort", icon: "▶" },
               ].map((social) => (
                 <a
                   key={social.label}
@@ -62,128 +43,46 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h4 className="mb-5 text-lg font-semibold text-slate-900">
-              Quick Links
-            </h4>
-
+            <h4 className="mb-5 text-lg font-semibold text-slate-900">Quick Links</h4>
             <ul className="space-y-3 text-slate-600">
-              <li>
-                <Link href="/" className="transition hover:text-[#765D00]">
-                  Home
-                </Link>
-              </li>
-
-              <li>
-                <Link href="/about" className="transition hover:text-[#765D00]">
-                  About Us
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/projects"
-                  className="transition hover:text-[#765D00]"
-                >
-                  Projects
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/contact-us/"
-                  className="transition hover:text-[#765D00]"
-                >
-                  Contact Us
-                </Link>
-              </li>
-
-              <li>
-                <Link href="/blog" className="transition hover:text-[#765D00]">
-                  Blog
-                </Link>
-              </li>
+              <li><Link href="/" className="transition hover:text-[#765D00]">Home</Link></li>
+              <li><Link href="/about" className="transition hover:text-[#765D00]">About Us</Link></li>
+              <li><Link href="/projects" className="transition hover:text-[#765D00]">Projects</Link></li>
+              <li><Link href="/contact-us/" className="transition hover:text-[#765D00]">Contact Us</Link></li>
+              <li><Link href="/blog" className="transition hover:text-[#765D00]">Blog</Link></li>
             </ul>
           </div>
 
-          {/* Projects */}
           <div>
-            <h4 className="mb-5 text-lg font-semibold text-slate-900">
-              Our Projects
-            </h4>
-
+            <h4 className="mb-5 text-lg font-semibold text-slate-900">Our Projects</h4>
             <ul className="space-y-3 text-slate-600">
-              <li>
-                <Link
-                  href="/projects/supraja-iris-resort-plots"
-                  className="transition hover:text-[#765D00]"
-                >
-                  Supraja IRIS
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/projects/bridge-county"
-                  className="transition hover:text-[#765D00]"
-                >
-                  Bridge County
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/projects/sindhu-sarovar"
-                  className="transition hover:text-[#765D00]"
-                >
-                  Sindhu Sarovar
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/projects/subhash-meadows"
-                  className="transition hover:text-[#765D00]"
-                >
-                  Subhash Meadows
-                </Link>
-              </li>
+              <li><Link href="/projects/supraja-iris-resort-plots" className="transition hover:text-[#765D00]">Supraja IRIS</Link></li>
+              <li><Link href="/projects/bridge-county" className="transition hover:text-[#765D00]">Bridge County</Link></li>
+              <li><Link href="/projects/sindhu-sarovar" className="transition hover:text-[#765D00]">Sindhu Sarovar</Link></li>
+              <li><Link href="/projects/subhash-meadows" className="transition hover:text-[#765D00]">Subhash Meadows</Link></li>
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
-            <h4 className="mb-5 text-lg font-semibold text-slate-900">
-              Contact Information
-            </h4>
-
+            <h4 className="mb-5 text-lg font-semibold text-slate-900">Contact Information</h4>
             <div className="space-y-5">
               <div className="flex items-start gap-3">
                 <span className="mt-1 text-[#765D00]">📞</span>
-
-                <a
-                  href="tel:+919052996161"
-                  className="text-slate-600 transition hover:text-[#765D00]"
-                >
+                <a href="tel:+919052996161" className="text-slate-600 transition hover:text-[#765D00]">
                   +91 90529 96161
                 </a>
               </div>
 
               <div className="flex items-start gap-3">
                 <span className="mt-1 text-[#765D00]">✉</span>
-
-                <a
-                  href="mailto:support@srisuprajainfracon.com"
-                  className="text-slate-600 transition hover:text-[#765D00]"
-                >
-                  support@srisuprajainfracon.com
+                <a href="mailto:info@srisuprajainfracon.com" className="text-slate-600 transition hover:text-[#765D00]">
+                  info@srisuprajainfracon.com
                 </a>
               </div>
 
               <div className="flex items-start gap-3">
                 <span className="mt-1 text-[#765D00]">📍</span>
-
                 <p className="leading-7 text-slate-600">
                   H.No. 4-91, Above Parampara Mithai,
                   <br />
@@ -194,7 +93,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Office Map */}
         <div className="mt-14 overflow-hidden rounded-3xl border border-slate-200 shadow-lg">
           <LazyGoogleMap
             embedUrl="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3199.830322480578!2d78.32710481827314!3d17.4950506675388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2sin!4v1784529285515!5m2!1sen!2sin"
@@ -205,45 +103,15 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Footer */}
       <div className="border-t border-slate-200 bg-white">
         <div className="container-max flex flex-col items-center justify-between gap-4 px-4 py-6 text-center text-sm text-slate-500 sm:flex-row sm:px-6 sm:text-left lg:px-8">
-          <p>
-            © {new Date().getFullYear()} Sri Supraja Infracon. All Rights
-            Reserved.
-          </p>
+          <p>© {new Date().getFullYear()} Sri Supraja Infracon. All Rights Reserved.</p>
 
-          <nav
-            aria-label="Legal links"
-            className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2"
-          >
-            <Link
-              href="/privacy-policy/"
-              className="transition hover:text-[#765D00]"
-            >
-              Privacy Policy
-            </Link>
-
-            <Link
-              href="/terms-and-conditions/"
-              className="transition hover:text-[#765D00]"
-            >
-              Terms & Conditions
-            </Link>
-
-            <Link
-              href="/disclaimer/"
-              className="transition hover:text-[#765D00]"
-            >
-              Disclaimer
-            </Link>
-
-            <Link
-              href="/cookie-policy/"
-              className="transition hover:text-[#765D00]"
-            >
-              Cookie Policy
-            </Link>
+          <nav aria-label="Legal links" className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            <Link href="/privacy-policy/" className="transition hover:text-[#765D00]">Privacy Policy</Link>
+            <Link href="/terms-and-conditions/" className="transition hover:text-[#765D00]">Terms & Conditions</Link>
+            <Link href="/disclaimer/" className="transition hover:text-[#765D00]">Disclaimer</Link>
+            <Link href="/cookie-policy/" className="transition hover:text-[#765D00]">Cookie Policy</Link>
           </nav>
         </div>
       </div>
