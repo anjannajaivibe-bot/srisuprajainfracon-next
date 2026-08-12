@@ -5,6 +5,7 @@ import {
   getLoggedInCrmUser,
   PRIMARY_ADMIN_EMAIL,
 } from "@/lib/admin-auth";
+import { logTranquilCrmEvent, sendLeadToTranquilCrm } from "@/lib/tranquil-crm";
 
 const adminEmail = PRIMARY_ADMIN_EMAIL;
 
@@ -354,6 +355,30 @@ export async function POST(request: NextRequest) {
         ? `Duplicate lead created. Matched with ${duplicateLead.name}. Assigned to ${assigned_to}.`
         : `Lead created and assigned to ${assigned_to}.`
     );
+
+    const tranquilResult = await sendLeadToTranquilCrm({
+      name,
+      phone,
+      email,
+      project,
+      message,
+      source,
+    });
+
+    await logTranquilCrmEvent({
+      leadId: data.id,
+      phone,
+      project,
+      source,
+      result: tranquilResult,
+    });
+
+    if (!tranquilResult.ok) {
+      await addActivity(
+        data.id,
+        `Tranquil CRM sync failed: ${tranquilResult.error}.`
+      );
+    }
 
     return NextResponse.json({ success: true, lead: data });
   } catch {
