@@ -26,6 +26,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.95,
     },
     {
+      url: `${baseUrl}/project-verification`,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/telangana-plot-verification`,
+      changeFrequency: "monthly",
+      priority: 0.88,
+    },
+    {
       url: `${baseUrl}/projects/supraja-iris-resort-plots`,
       changeFrequency: "weekly",
       priority: 0.98,
