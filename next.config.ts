@@ -1,23 +1,41 @@
 import type { NextConfig } from "next";
 
-const blogSlugs = [
+const legacyBlogSlugs = [
   "upcoming-attractions-near-hyderabad-2026",
   "what-is-dtcp-approval-in-hyderabad",
   "kamkole-real-estate-investment-hotspot",
   "dtcp-rera-approved-plots-in-hyderabad",
   "open-villa-plot-projects-in-hyderabad",
-  "best-open-plots-in-hyderabad-for-sale",
   "upcoming-developing-areas-in-hyderabad-2026",
-  "dtcp-approved-plots-in-hyderabad",
   "best-plots-in-hyderabad",
   "hyderabad-investment-areas",
   "rera-approved-plots-hyderabad-guide",
-  "open-plots-in-hyderabad",
   "plots-near-orr-hyderabad",
   "hyderabad-real-estate-market-trends-2025",
-  "top-open-plots-resorts-hyderabad",
-  "best-open-plots-resorts-in-hyderabad",
   "open-plots-in-hyderabad-investment-2025",
+];
+
+const consolidatedBlogRedirects = [
+  {
+    slug: "open-plots-in-hyderabad",
+    destination: "/open-plots-and-resorts-in-hyderabad",
+  },
+  {
+    slug: "best-open-plots-in-hyderabad-for-sale",
+    destination: "/open-plots-and-resorts-in-hyderabad",
+  },
+  {
+    slug: "top-open-plots-resorts-hyderabad",
+    destination: "/open-plots-and-resorts-in-hyderabad",
+  },
+  {
+    slug: "best-open-plots-resorts-in-hyderabad",
+    destination: "/open-plots-and-resorts-in-hyderabad",
+  },
+  {
+    slug: "dtcp-approved-plots-in-hyderabad",
+    destination: "/blog/dtcp-rera-approved-plots-in-hyderabad",
+  },
 ];
 
 const nextConfig: NextConfig = {
@@ -52,6 +70,30 @@ const nextConfig: NextConfig = {
         destination: "/",
         permanent: true,
       },
+
+      // Consolidate overlapping commercial-intent content into one authority URL.
+      ...consolidatedBlogRedirects.flatMap(({ slug, destination }) => [
+        {
+          source: `/blog/${slug}`,
+          destination,
+          permanent: true,
+        },
+        {
+          source: `/blog/${slug}/`,
+          destination,
+          permanent: true,
+        },
+        {
+          source: `/${slug}`,
+          destination,
+          permanent: true,
+        },
+        {
+          source: `/${slug}/`,
+          destination,
+          permanent: true,
+        },
+      ]),
 
       // Obsolete internal URLs retained for visitors and search engines
       {
@@ -112,8 +154,8 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
-      // Legacy blog URL redirects
-      ...blogSlugs.flatMap((slug) => [
+      // Legacy root-level blog URL redirects
+      ...legacyBlogSlugs.flatMap((slug) => [
         {
           source: `/${slug}`,
           destination: `/blog/${slug}`,
