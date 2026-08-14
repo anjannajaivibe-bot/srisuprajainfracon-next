@@ -10,7 +10,7 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
-  { label: "Contact Us", href: "/contact-us/" },
+  { label: "Contact Us", href: "/contact-us" },
 ];
 
 const projectLinks = [
@@ -163,7 +163,7 @@ export default function Navbar() {
             Blog
           </Link>
 
-          <Link href="/contact-us/" className={getNavClass("/contact-us/")}>
+          <Link href="/contact-us" className={getNavClass("/contact-us")}>
             Contact Us
           </Link>
 
