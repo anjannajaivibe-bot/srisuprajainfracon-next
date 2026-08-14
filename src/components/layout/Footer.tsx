@@ -16,10 +16,9 @@ export default function Footer() {
             </p>
 
             <p className="mt-6 leading-7 text-slate-600">
-              Sri Supraja Infracon delivers DTCP & RERA approved open plots,
-              HMDA approved villas and apartments, and premium plotted projects
-              across Hyderabad&apos;s growth corridors — including Kamkole,
-              Sangareddy, Mominpet and Indrakaran.
+              Sri Supraja Infracon develops approved open plots, residential,
+              villa and resort-inspired projects across Hyderabad&apos;s growth
+              corridors, including Kamkole, Sangareddy, Mominpet and Indrakaran.
             </p>
 
             <div className="mt-8 flex items-center gap-4">
@@ -86,7 +85,7 @@ export default function Footer() {
                 <p className="leading-7 text-slate-600">
                   H.No. 4-91, Above Parampara Mithai,
                   <br />
-                  Chandanagar, Hyderabad – 500050
+                  Chandanagar, Hyderabad - 500050
                 </p>
               </div>
             </div>
@@ -107,7 +106,8 @@ export default function Footer() {
         <div className="container-max flex flex-col items-center justify-between gap-4 px-4 py-6 text-center text-sm text-slate-500 sm:flex-row sm:px-6 sm:text-left lg:px-8">
           <p>© {new Date().getFullYear()} Sri Supraja Infracon. All Rights Reserved.</p>
 
-          <nav aria-label="Legal links" className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+          <nav aria-label="Legal and trust links" className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            <Link href="/editorial-policy" className="transition hover:text-[#765D00]">Editorial Policy</Link>
             <Link href="/privacy-policy" className="transition hover:text-[#765D00]">Privacy Policy</Link>
             <Link href="/terms-and-conditions" className="transition hover:text-[#765D00]">Terms & Conditions</Link>
             <Link href="/disclaimer" className="transition hover:text-[#765D00]">Disclaimer</Link>
