@@ -8,6 +8,14 @@ import BlogSearch from "@/components/blog/BlogSearch";
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
 const SITE_URL = "https://www.srisuprajainfracon.com";
 
+const consolidatedBlogSlugs = new Set([
+  "open-plots-in-hyderabad",
+  "best-open-plots-in-hyderabad-for-sale",
+  "top-open-plots-resorts-hyderabad",
+  "best-open-plots-resorts-in-hyderabad",
+  "dtcp-approved-plots-in-hyderabad",
+]);
+
 type BlogPost = {
   slug: string;
   title: string;
@@ -32,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Investor Knowledge Center | Sri Supraja Infracon",
     description:
-      "Expert real estate guides, plot buying checklists, legal insights, and investment knowledge for confident property decisions.",
+      "Practical real estate guides, plot buying checklists, legal insights, and investment knowledge for informed property decisions.",
     url: `${SITE_URL}/blog`,
     type: "website",
   },
@@ -77,6 +85,7 @@ function getPosts(): BlogPost[] {
         readingTime: calculateReadingTime(post.content || ""),
       };
     })
+    .filter((post) => !consolidatedBlogSlugs.has(post.slug))
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
@@ -91,15 +100,12 @@ export default function BlogPage() {
           <p className="text-sm uppercase tracking-[0.3em] text-[#d6b56d]">
             Sri Supraja Insights
           </p>
-
           <h1 className="mt-4 text-4xl font-semibold md:text-6xl">
             Investor Knowledge Center
           </h1>
-
           <p className="mx-auto mt-5 max-w-3xl text-lg text-white/80">
-            Expert guides, investment strategies, buyer checklists, legal
-            insights, and Hyderabad real estate market updates to help you
-            invest with confidence.
+            Practical guides, buyer checklists, legal explanations and Hyderabad
+            real estate insights designed to support informed property decisions.
           </p>
         </div>
       </section>
@@ -122,32 +128,25 @@ export default function BlogPage() {
                 />
               )}
             </div>
-
             <div className="flex flex-col justify-center p-8 md:p-12">
               <div className="flex flex-wrap items-center gap-3">
                 <span className="rounded-full bg-[#12251d] px-4 py-2 text-xs font-semibold uppercase tracking-widest text-white">
                   Featured Article
                 </span>
-
                 <span className="rounded-full bg-[#f5efe2] px-4 py-2 text-xs font-semibold uppercase tracking-widest text-[#8f6f2e]">
                   {featuredPost.category}
                 </span>
               </div>
-
               <p className="mt-5 text-sm font-medium text-[#b08a3c]">
-                {formatDate(featuredPost.date)} • {featuredPost.readingTime} min
-                read
+                {formatDate(featuredPost.date)} • {featuredPost.readingTime} min read
               </p>
-
               <h2
                 className="mt-4 text-3xl font-semibold leading-tight text-[#12251d] md:text-4xl"
                 dangerouslySetInnerHTML={{ __html: featuredPost.title }}
               />
-
               <p className="mt-5 line-clamp-4 text-gray-600">
                 {featuredPost.excerpt}
               </p>
-
               <span className="mt-8 font-semibold text-[#12251d]">
                 Read Featured Blog →
               </span>
@@ -166,12 +165,10 @@ export default function BlogPage() {
               Learn Before You Invest
             </h2>
           </div>
-
           <p className="text-sm font-medium text-gray-600">
             {posts.length} articles published
           </p>
         </div>
-
         <BlogSearch posts={posts} featuredSlug={featuredPost?.slug} />
       </section>
     </main>
