@@ -15,31 +15,11 @@ const consolidatedBlogSlugs = new Set([
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
-    {
-      url: `${baseUrl}`,
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/about`,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/projects`,
-      changeFrequency: "weekly",
-      priority: 0.95,
-    },
-    {
-      url: `${baseUrl}/contact-us`,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog`,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
+    { url: `${baseUrl}`, changeFrequency: "weekly", priority: 1 },
+    { url: `${baseUrl}/about`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/projects`, changeFrequency: "weekly", priority: 0.95 },
+    { url: `${baseUrl}/contact-us`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${baseUrl}/blog`, changeFrequency: "weekly", priority: 0.9 },
     {
       url: `${baseUrl}/open-plots-and-resorts-in-hyderabad`,
       changeFrequency: "weekly",
@@ -66,25 +46,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.92,
     },
     {
-      url: `${baseUrl}/privacy-policy`,
-      changeFrequency: "yearly",
-      priority: 0.3,
+      url: `${baseUrl}/editorial-policy`,
+      changeFrequency: "monthly",
+      priority: 0.55,
     },
-    {
-      url: `${baseUrl}/terms-and-conditions`,
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/disclaimer`,
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/cookie-policy`,
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
+    { url: `${baseUrl}/privacy-policy`, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${baseUrl}/terms-and-conditions`, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${baseUrl}/disclaimer`, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${baseUrl}/cookie-policy`, changeFrequency: "yearly", priority: 0.3 },
   ];
 
   let blogPages: MetadataRoute.Sitemap = [];
