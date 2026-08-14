@@ -103,12 +103,12 @@ const nextConfig: NextConfig = {
       // Contact page redirects
       {
         source: "/contact",
-        destination: "/contact-us/",
+        destination: "/contact-us",
         permanent: true,
       },
       {
         source: "/contact/",
-        destination: "/contact-us/",
+        destination: "/contact-us",
         permanent: true,
       },
 
@@ -116,12 +116,12 @@ const nextConfig: NextConfig = {
       ...blogSlugs.flatMap((slug) => [
         {
           source: `/${slug}`,
-          destination: `/blog/${slug}/`,
+          destination: `/blog/${slug}`,
           permanent: true,
         },
         {
           source: `/${slug}/`,
-          destination: `/blog/${slug}/`,
+          destination: `/blog/${slug}`,
           permanent: true,
         },
       ]),
