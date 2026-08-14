@@ -48,6 +48,8 @@ export default function Footer() {
               <li><Link href="/" className="transition hover:text-[#765D00]">Home</Link></li>
               <li><Link href="/about" className="transition hover:text-[#765D00]">About Us</Link></li>
               <li><Link href="/projects" className="transition hover:text-[#765D00]">Projects</Link></li>
+              <li><Link href="/project-verification" className="transition hover:text-[#765D00]">Project Verification</Link></li>
+              <li><Link href="/telangana-plot-verification" className="transition hover:text-[#765D00]">Plot Verification Guide</Link></li>
               <li><Link href="/contact-us" className="transition hover:text-[#765D00]">Contact Us</Link></li>
               <li><Link href="/blog" className="transition hover:text-[#765D00]">Blog</Link></li>
             </ul>
@@ -107,6 +109,7 @@ export default function Footer() {
           <p>© {new Date().getFullYear()} Sri Supraja Infracon. All Rights Reserved.</p>
 
           <nav aria-label="Legal and trust links" className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            <Link href="/project-verification" className="transition hover:text-[#765D00]">Project Verification</Link>
             <Link href="/editorial-policy" className="transition hover:text-[#765D00]">Editorial Policy</Link>
             <Link href="/privacy-policy" className="transition hover:text-[#765D00]">Privacy Policy</Link>
             <Link href="/terms-and-conditions" className="transition hover:text-[#765D00]">Terms & Conditions</Link>
