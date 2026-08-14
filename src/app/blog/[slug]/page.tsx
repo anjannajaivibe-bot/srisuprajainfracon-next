@@ -47,7 +47,9 @@ function sanitizeBlogContent(content = "") {
     .replace(/<div([^>]*)>\s*<\/p>/gi, "<div$1>")
     .replace(/https?:\/\/(?:www\.)?suprajairis\.com\/?/gi, `${SITE_URL}/projects/supraja-iris-resort-plots`)
     .replace(/https?:\/\/(?:www\.)?srisuprajainfracon\.com/gi, SITE_URL)
+    .replace(new RegExp(`href=["']${SITE_URL.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}([^"']*)["']`, "gi"), (_match, pathValue) => `href="${pathValue || "/"}"`)
     .replace(/href=["']\/((?:best-plots-in-hyderabad|dtcp-approved-plots-in-hyderabad|top-open-plots-resorts-hyderabad|best-open-plots-resorts-in-hyderabad|rera-approved-plots-hyderabad-guide|hyderabad-real-estate-market-trends-2025|hyderabad-investment-areas|plots-near-orr-hyderabad)\/?)["']/gi, (_match, legacySlug) => `href="/blog/${legacySlug.replace(/\/$/, "")}"`)
+    .replace(/href=["'](\/(?!$|#)[^"'#?]+)\/["']/gi, (_match, internalPath) => `href="${internalPath}"`)
     .replace(/\/about\/wp-content\/uploads\/2025\/12\/A03-1-1024x576\.webp/gi, "/uploads/blog/plots-near-orr-hyderabad-2di86icu.webp")
     .replace(/\/uploads\/blog\/rera-hmda-dtcp-comparison\.webp/gi, "/uploads/blog/hmda-vs-dtcp-vs-rera.webp")
     .replace(/<a\s+([^>]*href=["']https?:\/\/[^"']+["'][^>]*)>/gi, (match, attrs) => {
