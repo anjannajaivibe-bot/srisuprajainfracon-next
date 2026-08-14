@@ -2,9 +2,7 @@
 
 import ContactForm from "./ContactForm";
 import Link from "next/link";
-
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
-
 import heroBg from "@/assets/hero-bg.webp";
 
 export default function ContactPageClient() {
@@ -15,18 +13,15 @@ export default function ContactPageClient() {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroBg.src})` }}
         />
-
         <div className="absolute inset-0 bg-gradient-to-br from-[#081225]/95 via-[#102348]/90 to-[#0B1633]/95" />
 
         <div className="container-max relative px-4 text-center sm:px-6 lg:px-8">
           <p className="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-[#E8D7A5]">
             Connect With Sri Supraja Infracon
           </p>
-
           <h1 className="mx-auto max-w-5xl font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-7xl">
             Let&apos;s Start the Conversation
           </h1>
-
           <p className="mx-auto mt-6 max-w-4xl text-lg leading-relaxed text-slate-200">
             Whether you&apos;re evaluating project options, coordinating a site visit,
             or seeking further clarity, our team is on hand to offer informed guidance
@@ -41,7 +36,6 @@ export default function ContactPageClient() {
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
               Contact Information
             </p>
-
             <h2 className="mb-6 font-display text-3xl font-bold text-[#111827] sm:text-4xl">
               Get in Touch
             </h2>
@@ -72,7 +66,7 @@ export default function ContactPageClient() {
                 <div>
                   <p className="font-bold text-[#111827]">Office Location</p>
                   <p className="text-[#4B5563]">
-                    D. No. 4-91, Above Parampara Mithai,
+                    H.No. 4-91, Above Parampara Mithai,
                     <br />
                     Chandanagar, Hyderabad - 500050
                   </p>
@@ -100,7 +94,6 @@ export default function ContactPageClient() {
                 <MessageCircle size={18} />
                 Chat on WhatsApp
               </a>
-
               <Link
                 href="/projects"
                 className="rounded-full border border-[#C9A227] px-6 py-3 font-bold text-[#0B1633] transition hover:bg-[#C9A227]"
@@ -119,17 +112,14 @@ export default function ContactPageClient() {
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#C9A227]">
             Explore Projects
           </p>
-
           <h2 className="font-display text-3xl font-bold text-[#111827] sm:text-4xl">
             OUR PROJECT PORTFOLIO
           </h2>
-
           <p className="mx-auto mt-5 max-w-3xl text-[#4B5563]">
             Discover projects across Kamkole, Sangareddy, Mominpet and Indrakaran,
             each conceived to serve distinct investment horizons and long-term ownership
             aspirations.
           </p>
-
           <p className="mx-auto mt-4 max-w-3xl text-[#4B5563]">
             Review project specifications, locational advantages, site visuals
             and current availability.
