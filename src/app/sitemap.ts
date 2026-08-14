@@ -5,6 +5,14 @@ import type { MetadataRoute } from "next";
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
 const baseUrl = "https://www.srisuprajainfracon.com";
 
+const consolidatedBlogSlugs = new Set([
+  "open-plots-in-hyderabad",
+  "best-open-plots-in-hyderabad-for-sale",
+  "top-open-plots-resorts-hyderabad",
+  "best-open-plots-resorts-in-hyderabad",
+  "dtcp-approved-plots-in-hyderabad",
+]);
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     {
@@ -34,8 +42,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/open-plots-and-resorts-in-hyderabad`,
-      changeFrequency: "monthly",
-      priority: 0.9,
+      changeFrequency: "weekly",
+      priority: 0.95,
     },
     {
       url: `${baseUrl}/projects/supraja-iris-resort-plots`,
@@ -57,8 +65,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.92,
     },
-
-    // Legal / compliance pages
     {
       url: `${baseUrl}/privacy-policy`,
       changeFrequency: "yearly",
@@ -87,18 +93,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     blogPages = fs
       .readdirSync(BLOG_DIR)
       .filter((file) => file.endsWith(".json"))
-      .map((file) => {
-        const post = JSON.parse(
-          fs.readFileSync(path.join(BLOG_DIR, file), "utf8")
-        );
-
-        return {
-          url: `${baseUrl}/blog/${post.slug}`,
-          lastModified: new Date(post.modified || post.date),
-          changeFrequency: "monthly" as const,
-          priority: 0.75,
-        };
-      });
+      .map((file) =>
+        JSON.parse(fs.readFileSync(path.join(BLOG_DIR, file), "utf8"))
+      )
+      .filter((post) => !consolidatedBlogSlugs.has(post.slug))
+      .map((post) => ({
+        url: `${baseUrl}/blog/${post.slug}`,
+        lastModified: new Date(post.modified || post.date),
+        changeFrequency: "monthly" as const,
+        priority: 0.75,
+      }));
   }
 
   return [...staticPages, ...blogPages];
