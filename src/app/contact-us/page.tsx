@@ -50,7 +50,7 @@ export default function ContactPage() {
         ],
         address: {
           "@type": "PostalAddress",
-          streetAddress: "D. No. 4-91, Above Parampara Mithai, Chandanagar",
+          streetAddress: "H.No. 4-91, Above Parampara Mithai, Chandanagar",
           addressLocality: "Hyderabad",
           postalCode: "500050",
           addressRegion: "Telangana",
