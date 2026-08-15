@@ -157,6 +157,16 @@ const ProjectOverview = ({ project }: Props) => {
                   {link.label}
                 </Link>
               ))}
+              {project.slug === "supraja-iris-resort-plots" && (
+                <a
+                  href="https://suprajairis.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-700 underline"
+                >
+                  Visit Supraja IRIS official website
+                </a>
+              )}
               <a
                 href="https://www.google.com/maps"
                 target="_blank"
