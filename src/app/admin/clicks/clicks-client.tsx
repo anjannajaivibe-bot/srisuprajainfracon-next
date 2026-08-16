@@ -2,6 +2,8 @@
 
 import { useEffect, useMemo, useState } from "react";
 
+type TrafficType = "human" | "known_bot" | "suspected_bot";
+
 type ClickEvent = {
   id: number;
   created_at: string;
@@ -23,6 +25,9 @@ type ClickEvent = {
   city: string | null;
   region: string | null;
   country: string | null;
+  traffic_type: TrafficType;
+  bot_name: string | null;
+  user_agent: string | null;
 };
 
 const eventLabels: Record<string, string> = {
@@ -33,6 +38,12 @@ const eventLabels: Record<string, string> = {
   email_click: "Email",
   download_click: "Download",
   form_action_click: "Form Action",
+};
+
+const trafficLabels: Record<TrafficType, string> = {
+  human: "Human",
+  known_bot: "Known Bot",
+  suspected_bot: "Suspected Bot",
 };
 
 const countBy = (
@@ -127,7 +138,9 @@ export default function ClickAnalyticsClient() {
   const [days, setDays] = useState(30);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [truncated, setTruncated] = useState(false);
   const [typeFilter, setTypeFilter] = useState("All");
+  const [trafficFilter, setTrafficFilter] = useState<"human" | "known_bot" | "suspected_bot" | "all">("human");
   const [search, setSearch] = useState("");
 
   useEffect(() => {
@@ -147,7 +160,10 @@ export default function ClickAnalyticsClient() {
           throw new Error(result.error || "Unable to load click analytics");
         }
 
-        if (active) setEvents(result.events || []);
+        if (active) {
+          setEvents(result.events || []);
+          setTruncated(Boolean(result.truncated));
+        }
       } catch (loadError) {
         if (active) {
           setError(
@@ -168,10 +184,19 @@ export default function ClickAnalyticsClient() {
     };
   }, [days]);
 
+  const trafficEvents = useMemo(
+    () =>
+      events.filter(
+        (event) =>
+          trafficFilter === "all" || event.traffic_type === trafficFilter,
+      ),
+    [events, trafficFilter],
+  );
+
   const filteredEvents = useMemo(() => {
     const query = search.trim().toLowerCase();
 
-    return events.filter((event) => {
+    return trafficEvents.filter((event) => {
       const matchesType =
         typeFilter === "All" || event.event_type === typeFilter;
       const haystack = [
@@ -187,6 +212,8 @@ export default function ClickAnalyticsClient() {
         event.city,
         event.region,
         event.country,
+        event.bot_name,
+        event.user_agent,
       ]
         .filter(Boolean)
         .join(" ")
@@ -194,18 +221,22 @@ export default function ClickAnalyticsClient() {
 
       return matchesType && (!query || haystack.includes(query));
     });
-  }, [events, search, typeFilter]);
+  }, [trafficEvents, search, typeFilter]);
 
   const stats = useMemo(() => {
-    const uniqueSessions = new Set(events.map((event) => event.session_id))
-      .size;
-    const uniqueVisitors = new Set(
-      events.map((event) => event.visitor_id).filter(Boolean),
+    const uniqueSessions = new Set(
+      trafficEvents.map((event) => event.session_id),
     ).size;
-    const clicks = events.filter((event) => event.event_type !== "page_view");
+    const uniqueVisitors = new Set(
+      trafficEvents.map((event) => event.visitor_id).filter(Boolean),
+    ).size;
+    const clicks = trafficEvents.filter(
+      (event) => event.event_type !== "page_view",
+    );
 
     return {
-      views: events.filter((event) => event.event_type === "page_view").length,
+      views: trafficEvents.filter((event) => event.event_type === "page_view")
+        .length,
       clicks: clicks.length,
       sessions: uniqueSessions,
       visitors: uniqueVisitors,
@@ -214,36 +245,38 @@ export default function ClickAnalyticsClient() {
       whatsapp: clicks.filter((event) => event.event_type === "whatsapp_click")
         .length,
     };
-  }, [events]);
+  }, [trafficEvents]);
 
   const topPages = useMemo(
     () =>
       countBy(
-        events.filter((event) => event.event_type === "page_view"),
+        trafficEvents.filter((event) => event.event_type === "page_view"),
         (event) => event.page_path,
       ).slice(0, 8),
-    [events],
+    [trafficEvents],
   );
   const topActions = useMemo(
     () =>
       countBy(
-        events.filter((event) => event.event_type !== "page_view"),
+        trafficEvents.filter((event) => event.event_type !== "page_view"),
         (event) => event.link_text || event.target_url || event.event_type,
       ).slice(0, 8),
-    [events],
+    [trafficEvents],
   );
   const devices = useMemo(
-    () => countBy(events, (event) => event.device_type),
-    [events],
+    () => countBy(trafficEvents, (event) => event.device_type),
+    [trafficEvents],
   );
   const locations = useMemo(
-    () => countBy(events, locationLabel).slice(0, 8),
-    [events],
+    () => countBy(trafficEvents, locationLabel).slice(0, 8),
+    [trafficEvents],
   );
 
   const exportCSV = () => {
     const headers = [
       "Date",
+      "Traffic Type",
+      "Bot Name",
       "Event",
       "Page",
       "Button or Link",
@@ -259,9 +292,12 @@ export default function ClickAnalyticsClient() {
       "Campaign",
       "Session",
       "Anonymous Visitor",
+      "User Agent",
     ];
     const rows = filteredEvents.map((event) => [
       new Date(event.created_at).toLocaleString(),
+      trafficLabels[event.traffic_type] || event.traffic_type,
+      event.bot_name,
       event.event_type,
       event.page_path,
       event.link_text,
@@ -277,6 +313,7 @@ export default function ClickAnalyticsClient() {
       event.utm_campaign,
       event.session_id,
       event.visitor_id,
+      event.user_agent,
     ]);
     const csv = [
       headers.map(csvCell).join(","),
@@ -302,7 +339,8 @@ export default function ClickAnalyticsClient() {
             </p>
             <h1 className="mt-1 text-3xl font-bold">Website Click Analytics</h1>
             <p className="mt-2 text-slate-600">
-              Page views, anonymous visitors, sessions and lead-action tracking.
+              Human visitor behaviour is shown by default. Bot traffic remains
+              available separately for SEO and GEO analysis.
             </p>
           </div>
 
@@ -319,10 +357,17 @@ export default function ClickAnalyticsClient() {
               disabled={filteredEvents.length === 0}
               className="rounded-xl bg-[#C9A227] px-5 py-3 font-semibold text-[#0B1633] disabled:cursor-not-allowed disabled:opacity-50"
             >
-              Export CSV
+              Export CSV ({filteredEvents.length.toLocaleString()})
             </button>
           </div>
         </header>
+
+        {truncated && (
+          <div className="mb-6 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
+            This period contains more than 50,000 analytics events. The dashboard
+            is showing the newest 50,000 records.
+          </div>
+        )}
 
         <section className="mb-7 grid gap-4 sm:grid-cols-2 xl:grid-cols-6">
           <StatCard label="Page Views" value={stats.views} />
@@ -341,7 +386,7 @@ export default function ClickAnalyticsClient() {
         </section>
 
         <section className="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-slate-200">
-          <div className="grid gap-4 border-b border-slate-200 p-5 lg:grid-cols-[180px_220px_1fr]">
+          <div className="grid gap-4 border-b border-slate-200 p-5 lg:grid-cols-[180px_200px_220px_1fr]">
             <select
               value={days}
               onChange={(event) => setDays(Number(event.target.value))}
@@ -350,6 +395,25 @@ export default function ClickAnalyticsClient() {
               <option value={7}>Last 7 days</option>
               <option value={30}>Last 30 days</option>
               <option value={90}>Last 90 days</option>
+            </select>
+
+            <select
+              value={trafficFilter}
+              onChange={(event) =>
+                setTrafficFilter(
+                  event.target.value as
+                    | "human"
+                    | "known_bot"
+                    | "suspected_bot"
+                    | "all",
+                )
+              }
+              className="rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-[#C9A227]"
+            >
+              <option value="human">Human traffic</option>
+              <option value="known_bot">Known bots</option>
+              <option value="suspected_bot">Suspected bots</option>
+              <option value="all">All traffic</option>
             </select>
 
             <select
@@ -368,7 +432,7 @@ export default function ClickAnalyticsClient() {
             <input
               value={search}
               onChange={(event) => setSearch(event.target.value)}
-              placeholder="Search page, action, campaign, IP or location"
+              placeholder="Search page, action, campaign, bot, IP or location"
               className="rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-[#C9A227]"
             />
           </div>
@@ -388,10 +452,11 @@ export default function ClickAnalyticsClient() {
             </div>
           ) : (
             <div className="max-h-[68vh] overflow-auto">
-              <table className="w-full min-w-[1620px] text-sm">
+              <table className="w-full min-w-[1760px] text-sm">
                 <thead className="sticky top-0 z-10 bg-slate-100">
                   <tr>
                     <TableHeading>Date</TableHeading>
+                    <TableHeading>Traffic</TableHeading>
                     <TableHeading>Type</TableHeading>
                     <TableHeading>Page</TableHeading>
                     <TableHeading>Viewed / clicked item</TableHeading>
@@ -408,15 +473,23 @@ export default function ClickAnalyticsClient() {
                       <td className="whitespace-nowrap p-4 text-slate-500">
                         {new Date(event.created_at).toLocaleString()}
                       </td>
+                      <td className="min-w-36 p-4">
+                        <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
+                          {trafficLabels[event.traffic_type] || event.traffic_type}
+                        </span>
+                        {event.bot_name && (
+                          <p className="mt-2 text-xs font-medium text-slate-500">
+                            {event.bot_name}
+                          </p>
+                        )}
+                      </td>
                       <td className="p-4">
                         <span className="rounded-full bg-[#C9A227]/15 px-3 py-1 font-semibold text-[#775D0B]">
                           {eventLabels[event.event_type] || event.event_type}
                         </span>
                       </td>
                       <td className="max-w-xs p-4">
-                        <p className="truncate font-medium">
-                          {event.page_path}
-                        </p>
+                        <p className="truncate font-medium">{event.page_path}</p>
                         <p className="mt-1 truncate text-xs text-slate-500">
                           {event.page_title}
                         </p>
