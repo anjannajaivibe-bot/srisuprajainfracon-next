@@ -158,7 +158,7 @@ export default function BlogPage() {
       )}
 
       {NEWSLETTER_ENABLED && (
-        <section className="mx-auto max-w-7xl px-6 pt-12">
+        <section id="subscribe" className="mx-auto max-w-7xl scroll-mt-28 px-6 pt-12">
           <NewsletterSubscribe source="blog-hub" />
         </section>
       )}
