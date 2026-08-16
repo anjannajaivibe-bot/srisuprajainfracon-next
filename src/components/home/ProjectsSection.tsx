@@ -54,9 +54,10 @@ const ProjectsSection = () => {
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[#334155]">
             Every Sri Supraja Infracon project is chosen for what surrounds it
-            - universities, transit corridors, employment hubs - not just what's
-            built on it. Four projects, each at a different stage of maturity,
-            offer entry points suited to different investment timelines.
+            - universities, transit corridors and employment hubs - not just what&apos;s
+            built on it. Our portfolio includes <strong className="font-semibold text-[#07111F]">gated community plots near Hyderabad</strong>,
+            resort-inspired developments and plotted communities across different
+            growth corridors, each suited to a different ownership requirement.
           </p>
         </div>
       </div>
