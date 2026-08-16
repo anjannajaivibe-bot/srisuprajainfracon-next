@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  BadgeIndianRupee,
   Building2,
   CheckCircle2,
   Handshake,
@@ -18,19 +17,17 @@ const SITE_URL = "https://www.srisuprajainfracon.com";
 const PHONE_DISPLAY = "+91 96407 53929";
 const PHONE_NUMBER = "+919640753929";
 const WHATSAPP_URL =
-  "https://wa.me/919640753929?text=Hi%2C%20I%20am%20interested%20in%20becoming%20a%20channel%20partner%20with%20Sri%20Supraja%20Infracon.%20Please%20share%20the%20details.";
+  "https://wa.me/919640753929?text=Hi%2C%20I%20am%20interested%20in%20working%20with%20Sri%20Supraja%20Infracon%20as%20a%20channel%20partner.%20Please%20share%20the%20details.";
 
 export const metadata: Metadata = {
-  title: "Careers & Channel Partner Opportunities | Sri Supraja Infracon",
+  title: "Careers & Business Associations | Sri Supraja Infracon",
   description:
-    "Explore channel partner opportunities with Sri Supraja Infracon and connect with our team to market approved plotted development projects across Hyderabad growth corridors.",
-  alternates: {
-    canonical: `${SITE_URL}/careers`,
-  },
+    "Explore professional and business association opportunities with Sri Supraja Infracon, including opportunities for experienced real estate consultants, agencies and referral professionals.",
+  alternates: { canonical: `${SITE_URL}/careers` },
   openGraph: {
-    title: "Channel Partner Opportunities | Sri Supraja Infracon",
+    title: "Careers & Business Associations | Sri Supraja Infracon",
     description:
-      "Grow your real estate business with Sri Supraja Infracon. Explore channel partner opportunities across our plotted development portfolio.",
+      "Connect with Sri Supraja Infracon for professional opportunities and real estate business associations across our project portfolio.",
     url: `${SITE_URL}/careers`,
     type: "website",
     images: [
@@ -38,94 +35,84 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/projects/supraja-iris/gallery/supraja-iris-gallery-1.webp`,
         width: 1200,
         height: 630,
-        alt: "Sri Supraja Infracon channel partner opportunities",
+        alt: "Sri Supraja Infracon professional opportunities",
       },
     ],
   },
 };
 
-const benefits = [
+const strengths = [
   {
     icon: Building2,
-    title: "Strong Project Portfolio",
-    text: "Represent plotted development projects positioned across important Hyderabad growth corridors.",
-  },
-  {
-    icon: BadgeIndianRupee,
-    title: "Business Growth Opportunity",
-    text: "Build a long-term real estate sales pipeline with project support and structured channel coordination.",
-  },
-  {
-    icon: Users,
-    title: "Sales Support",
-    text: "Get access to project information, sales material and support needed to communicate clearly with buyers.",
+    title: "Established Portfolio",
+    text: "Present plotted development opportunities backed by clear project information and an experienced development team.",
   },
   {
     icon: ShieldCheck,
-    title: "Buyer-Focused Approach",
-    text: "Work with a developer focused on approved layouts, project transparency and informed property decisions.",
+    title: "Clear Communication",
+    text: "Receive relevant project details and updates so conversations with prospective buyers remain informed and transparent.",
+  },
+  {
+    icon: Users,
+    title: "Sales Coordination",
+    text: "Work with our team on enquiries, site visits and the practical information required during the buyer journey.",
   },
 ];
 
-const steps = [
-  "Connect with our channel partner team",
-  "Understand the active projects and buyer segments",
-  "Complete partner onboarding and commercial discussion",
-  "Receive project material and sales support",
-  "Start generating enquiries, site visits and closures",
-];
-
-const partnerTypes = [
+const associates = [
   "Independent real estate consultants",
   "Property brokers and agencies",
-  "Digital lead generation professionals",
-  "Local market and referral partners",
+  "Referral professionals with established local networks",
+  "Digital lead generation and property marketing professionals",
   "Experienced real estate sales professionals",
+];
+
+const steps = [
+  { title: "Connect", text: "Introduce yourself and tell us about your market or customer network." },
+  { title: "Discuss", text: "Understand the current projects, customer segments and commercial terms." },
+  { title: "Onboard", text: "Complete the applicable association formalities with our team." },
+  { title: "Begin", text: "Receive relevant project material and start coordinating genuine buyer enquiries." },
 ];
 
 export default function CareersPage() {
   return (
     <main className="overflow-hidden bg-white text-slate-900">
       <section className="relative isolate overflow-hidden bg-slate-950 pt-24 text-white">
-        <div className="absolute inset-0 opacity-25">
+        <div className="absolute inset-0 opacity-20">
           <Image
             src="/projects/supraja-iris/gallery/supraja-iris-gallery-1.webp"
-            alt="Sri Supraja Infracon plotted development"
+            alt="Sri Supraja Infracon development"
             fill
             priority
             sizes="100vw"
             className="object-cover"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/92 to-slate-950/55" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/95 to-slate-950/65" />
 
-        <div className="container-max relative z-10 grid items-center gap-12 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:py-24">
+        <div className="container-max relative z-10 grid items-center gap-12 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-24">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-amber-300/25 bg-amber-300/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-amber-200">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-amber-300">
               <Handshake size={15} />
-              Channel Partner Opportunities
+              Business Associations
             </div>
-
-            <h1 className="mt-6 font-display text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.75rem]">
-              Grow Your Real Estate Business With
-              <span className="block text-amber-300">Sri Supraja Infracon</span>
+            <h1 className="mt-5 max-w-xl font-display text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-[3.45rem]">
+              Build Your Real Estate Business With Confidence
             </h1>
-
             <p className="mt-6 max-w-xl text-base leading-7 text-slate-200 sm:text-lg sm:leading-8">
-              We are expanding our channel partner network and welcome real estate
-              professionals who want to work with plotted development opportunities
-              across Hyderabad&apos;s key growth corridors.
+              Sri Supraja Infracon welcomes experienced consultants, agencies and
+              referral professionals who value credible projects, clear information
+              and long-term working relationships.
             </p>
-
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-green-500 px-6 py-3.5 text-sm font-bold text-white shadow-lg transition hover:bg-green-600"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-green-500 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-green-600"
               >
                 <MessageCircle size={18} />
-                Become a Channel Partner
+                Discuss an Association
               </a>
               <a
                 href={`tel:${PHONE_NUMBER}`}
@@ -135,169 +122,117 @@ export default function CareersPage() {
                 {PHONE_DISPLAY}
               </a>
             </div>
-
-            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-xs text-slate-300 sm:text-sm">
-              <span className="inline-flex items-center gap-2">
-                <CheckCircle2 size={15} className="text-amber-300" />
-                Real estate professionals welcome
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <CheckCircle2 size={15} className="text-amber-300" />
-                Hyderabad and regional network
-              </span>
-            </div>
           </div>
 
           <div className="relative mx-auto hidden w-full max-w-lg lg:block">
-            <div className="relative ml-auto h-[420px] w-[82%] overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
+            <div className="relative ml-auto h-[390px] w-[88%] overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
               <Image
                 src="/projects/supraja-iris/gallery/supraja-iris-gallery-2.webp"
-                alt="Supraja IRIS project view"
+                alt="Sri Supraja Infracon project environment"
                 fill
                 sizes="500px"
                 className="object-cover"
               />
             </div>
-            <div className="absolute -bottom-10 left-3 h-48 w-52 overflow-hidden rounded-2xl border-6 border-slate-950 shadow-2xl">
-              <Image
-                src="/projects/supraja-iris/gallery/supraja-iris-gallery-3.webp"
-                alt="Sri Supraja Infracon project infrastructure"
-                fill
-                sizes="220px"
-                className="object-cover"
-              />
-            </div>
-            <div className="absolute -left-2 top-8 max-w-[190px] rounded-xl border border-white/10 bg-slate-900/90 p-4 shadow-xl backdrop-blur-xl">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-amber-300">
-                Partner With Us
-              </p>
-              <p className="mt-2 text-base font-semibold leading-snug text-white">
-                Build a stronger sales pipeline with the right project support.
+            <div className="absolute -bottom-8 left-0 max-w-[250px] rounded-xl border border-white/10 bg-slate-900/95 p-5 shadow-xl">
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-amber-300">Work With Us</p>
+              <p className="mt-2 text-base font-semibold leading-6 text-white">
+                A professional relationship supported by project knowledge and responsive coordination.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-slate-50 py-16 sm:py-20">
+      <section className="border-b border-slate-100 bg-slate-50 py-16 sm:py-20">
         <div className="container-max px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700">
-              Why Partner With Us
-            </p>
-            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
-              A practical partnership built around sales support
-            </h2>
-            <p className="mt-4 text-base leading-7 text-slate-600 sm:text-lg">
-              The right channel partnership should provide clarity, dependable
-              project information and the support needed to present opportunities
-              confidently to prospective buyers.
-            </p>
-          </div>
+          <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-700">Working Together</p>
+              <h2 className="mt-3 max-w-lg font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+                What you can expect from the relationship
+              </h2>
+              <p className="mt-4 max-w-lg text-base leading-7 text-slate-600">
+                Productive associations depend on reliable information, timely communication and a shared focus on helping buyers make considered property decisions.
+              </p>
+            </div>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {benefits.map(({ icon: Icon, title, text }) => (
-              <article
-                key={title}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
-              >
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-amber-800">
-                  <Icon size={20} />
-                </div>
-                <h3 className="mt-5 text-lg font-bold text-slate-950">{title}</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{text}</p>
-              </article>
-            ))}
+            <div className="grid gap-4 md:grid-cols-3">
+              {strengths.map(({ icon: Icon, title, text }) => (
+                <article key={title} className="border-t-2 border-amber-400 bg-white px-5 py-6 shadow-sm">
+                  <Icon size={21} className="text-amber-700" />
+                  <h3 className="mt-4 text-base font-bold text-slate-950">{title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">{text}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       <section className="py-16 sm:py-20">
-        <div className="container-max grid items-center gap-10 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
-          <div className="grid grid-cols-2 gap-4">
-            <div className="relative h-[340px] overflow-hidden rounded-3xl sm:h-[420px]">
-              <Image
-                src="/projects/supraja-iris/gallery/supraja-iris-gallery-4.webp"
-                alt="Developed roads at Sri Supraja Infracon project"
-                fill
-                sizes="(max-width: 1024px) 50vw, 25vw"
-                className="object-cover"
-              />
-            </div>
-            <div className="space-y-4 pt-8">
-              <div className="relative h-44 overflow-hidden rounded-3xl sm:h-52">
-                <Image
-                  src="/projects/supraja-iris/gallery/supraja-iris-gallery-5.webp"
-                  alt="Plotted development by Sri Supraja Infracon"
-                  fill
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="rounded-2xl bg-slate-950 p-5 text-white">
-                <p className="text-lg font-semibold leading-snug">
-                  Your network. Our projects. A stronger opportunity to grow together.
-                </p>
-              </div>
+        <div className="container-max grid gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-8">
+          <div className="relative min-h-[360px] overflow-hidden rounded-2xl bg-slate-100 sm:min-h-[440px]">
+            <Image
+              src="/projects/supraja-iris/gallery/supraja-iris-gallery-5.webp"
+              alt="Sri Supraja Infracon plotted development project"
+              fill
+              sizes="(max-width: 1024px) 100vw, 45vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/85 to-transparent px-6 pb-6 pt-24 text-white">
+              <p className="max-w-md text-base font-semibold leading-6">
+                Strong local relationships become more valuable when they are supported by dependable project information.
+              </p>
             </div>
           </div>
 
-          <div className="lg:pl-6">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700">
-              Who Can Join
-            </p>
-            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
-              We are expanding our channel partner network
+          <div className="lg:pl-4">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-700">Who We Work With</p>
+            <h2 className="mt-3 max-w-xl font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+              Experienced professionals with genuine market reach
             </h2>
-            <p className="mt-5 text-base leading-7 text-slate-600 sm:text-lg">
-              Whether you already work in real estate or have a strong buyer and
-              referral network, we would like to explore how we can work together.
+            <p className="mt-5 max-w-xl text-base leading-7 text-slate-600">
+              We are interested in people and organisations that understand their customers, communicate responsibly and can build trust within the markets they serve.
             </p>
 
-            <div className="mt-7 grid gap-3 sm:grid-cols-2">
-              {partnerTypes.map((item) => (
-                <div key={item} className="flex items-start gap-3 rounded-xl bg-slate-50 p-3">
+            <div className="mt-7 divide-y divide-slate-200 border-y border-slate-200">
+              {associates.map((item) => (
+                <div key={item} className="flex items-start gap-3 py-3.5">
                   <CheckCircle2 className="mt-0.5 shrink-0 text-amber-700" size={18} />
                   <span className="text-sm font-semibold leading-6 text-slate-700">{item}</span>
                 </div>
               ))}
             </div>
 
-            <div className="mt-7 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-slate-700">
-              Channel partner opportunities are independent business arrangements
-              and are not salaried employment unless specifically communicated in
-              writing for a separate role.
-            </div>
+            <p className="mt-5 text-xs leading-5 text-slate-500">
+              Business associations are independent arrangements and do not constitute salaried employment unless a separate role is expressly offered in writing.
+            </p>
           </div>
         </div>
       </section>
 
       <section className="bg-slate-950 py-16 text-white sm:py-20">
         <div className="container-max px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+          <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-300">
-                Simple Onboarding
-              </p>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-300">Getting Started</p>
               <h2 className="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">
-                A clear and straightforward way to get started
+                A simple route from introduction to active collaboration
               </h2>
-              <p className="mt-5 max-w-xl text-base leading-7 text-slate-300 sm:text-lg">
-                Speak with our team, understand the opportunity and decide whether
-                the partnership is right for you.
+              <p className="mt-5 max-w-lg text-base leading-7 text-slate-300">
+                The first conversation is exploratory. We understand your experience and reach, then discuss where there may be a suitable fit.
               </p>
             </div>
 
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className="grid gap-x-8 gap-y-7 sm:grid-cols-2">
               {steps.map((step, index) => (
-                <div
-                  key={step}
-                  className="flex gap-4 rounded-xl border border-white/10 bg-white/[0.04] p-4"
-                >
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber-300 text-sm font-bold text-slate-950">
-                    {index + 1}
+                <div key={step.title} className="border-t border-white/15 pt-4">
+                  <div className="flex items-center gap-3">
+                    <span className="text-sm font-bold text-amber-300">0{index + 1}</span>
+                    <h3 className="text-base font-bold text-white">{step.title}</h3>
                   </div>
-                  <p className="pt-1 text-sm font-semibold leading-6 text-slate-100">{step}</p>
+                  <p className="mt-2 text-sm leading-6 text-slate-300">{step.text}</p>
                 </div>
               ))}
             </div>
@@ -307,47 +242,40 @@ export default function CareersPage() {
 
       <section className="py-16 sm:py-20">
         <div className="container-max px-4 sm:px-6 lg:px-8">
-          <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-amber-50 via-white to-slate-50 px-6 py-10 sm:px-8 lg:px-10 lg:py-12">
-            <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
-              <div>
-                <div className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-xs font-bold text-amber-800 shadow-sm">
-                  <MapPin size={14} />
-                  Hyderabad & Telangana
-                </div>
-                <h2 className="mt-4 max-w-3xl font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
-                  Interested in becoming a Sri Supraja Infracon channel partner?
-                </h2>
-                <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">
-                  Call or WhatsApp us directly. We will share the current project
-                  opportunities and explain the partner onboarding process.
-                </p>
+          <div className="grid gap-8 border border-slate-200 bg-slate-50 px-6 py-9 sm:px-9 lg:grid-cols-[1fr_auto] lg:items-center lg:px-10">
+            <div>
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-amber-700">
+                <MapPin size={14} /> Hyderabad & Telangana
               </div>
+              <h2 className="mt-3 max-w-2xl font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-[2.15rem]">
+                Interested in exploring a business association with us?
+              </h2>
+              <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">
+                Speak directly with our team to understand the current portfolio, working model and next steps.
+              </p>
+            </div>
 
-              <div className="flex min-w-[260px] flex-col gap-3">
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-green-500 px-6 py-3.5 text-sm font-bold text-white shadow-lg transition hover:bg-green-600"
-                >
-                  <MessageCircle size={18} />
-                  WhatsApp Now
-                </a>
-                <a
-                  href={`tel:${PHONE_NUMBER}`}
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-slate-800"
-                >
-                  <Phone size={17} />
-                  {PHONE_DISPLAY}
-                </a>
-                <Link
-                  href="/projects"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-bold text-slate-800 transition hover:border-amber-500 hover:text-amber-800"
-                >
-                  Explore Projects
-                  <ArrowRight size={17} />
-                </Link>
-              </div>
+            <div className="flex min-w-[245px] flex-col gap-3">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-green-500 px-6 py-3 text-sm font-bold text-white transition hover:bg-green-600"
+              >
+                <MessageCircle size={18} /> WhatsApp
+              </a>
+              <a
+                href={`tel:${PHONE_NUMBER}`}
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-6 py-3 text-sm font-bold text-white transition hover:bg-slate-800"
+              >
+                <Phone size={17} /> {PHONE_DISPLAY}
+              </a>
+              <Link
+                href="/projects"
+                className="inline-flex items-center justify-center gap-2 text-sm font-bold text-slate-700 transition hover:text-amber-800"
+              >
+                View Our Projects <ArrowRight size={16} />
+              </Link>
             </div>
           </div>
         </div>
