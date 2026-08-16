@@ -10,6 +10,7 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
+  { label: "Careers", href: "/careers" },
   { label: "Contact Us", href: "/contact-us" },
 ];
 
@@ -94,7 +95,7 @@ export default function Navbar() {
           </span>
         </Link>
 
-        <div className="hidden items-center gap-6 xl:flex">
+        <div className="hidden items-center gap-5 xl:flex">
           <Link href="/" className={getNavClass("/")}>
             Home
           </Link>
@@ -161,6 +162,10 @@ export default function Navbar() {
 
           <Link href="/blog" className={getNavClass("/blog")}>
             Blog
+          </Link>
+
+          <Link href="/careers" className={getNavClass("/careers")}>
+            Careers
           </Link>
 
           <Link href="/contact-us" className={getNavClass("/contact-us")}>
