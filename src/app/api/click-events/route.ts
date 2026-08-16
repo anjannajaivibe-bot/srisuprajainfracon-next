@@ -8,6 +8,9 @@ import { getLoggedInCrmUser } from "@/lib/admin-auth";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
+const CLICK_PAGE_SIZE = 100;
+const MAX_ANALYTICS_ROWS = 50000;
+
 const clickSchema = z.object({
   event_type: z
     .string()
@@ -149,27 +152,43 @@ export async function GET(request: NextRequest) {
   const since = new Date();
   since.setDate(since.getDate() - days);
 
-  const { data, error } = await supabaseAdmin
-    .from("click_events")
-    .select(
-      "id,created_at,session_id,visitor_id,event_type,page_path,page_title,target_url,link_text,element_type,referrer,utm_source,utm_medium,utm_campaign,device_type,browser,ip_address,city,region,country",
-    )
-    .gte("created_at", since.toISOString())
-    .order("created_at", { ascending: false })
-    .limit(10000);
+  const events: Record<string, unknown>[] = [];
+  let offset = 0;
+  let truncated = false;
 
-  if (error) {
-    console.error("Click event read failed:", error.message);
+  while (events.length < MAX_ANALYTICS_ROWS) {
+    const { data, error } = await supabaseAdmin
+      .from("click_events")
+      .select(
+        "id,created_at,session_id,visitor_id,event_type,page_path,page_title,target_url,link_text,element_type,referrer,utm_source,utm_medium,utm_campaign,device_type,browser,ip_address,city,region,country",
+      )
+      .gte("created_at", since.toISOString())
+      .order("created_at", { ascending: false })
+      .order("id", { ascending: false })
+      .range(offset, offset + CLICK_PAGE_SIZE - 1);
 
-    return NextResponse.json(
-      { success: false, error: "Unable to load click analytics" },
-      { status: 500 },
-    );
+    if (error) {
+      console.error("Click event read failed:", error.message);
+
+      return NextResponse.json(
+        { success: false, error: "Unable to load click analytics" },
+        { status: 500 },
+      );
+    }
+
+    const page = data || [];
+    events.push(...page);
+
+    if (page.length < CLICK_PAGE_SIZE) break;
+
+    offset += page.length;
+    if (events.length >= MAX_ANALYTICS_ROWS) truncated = true;
   }
 
   return NextResponse.json({
     success: true,
     days,
-    events: data || [],
+    events: events.slice(0, MAX_ANALYTICS_ROWS),
+    truncated,
   });
 }
