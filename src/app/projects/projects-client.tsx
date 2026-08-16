@@ -58,9 +58,9 @@ export default function ProjectsClient() {
               className="mx-auto mt-7 max-w-4xl text-lg leading-relaxed text-[#4B5563]"
             >
               Explore Sri Supraja Infracon projects across Kamkole, Mominpet,
-              Sangareddy and Indrakaran, including resort-inspired plots,
-              residential project layouts, and future-focused land ownership
-              opportunities.
+              Sangareddy and Indrakaran, including <strong className="font-semibold text-[#111827]">open plots for sale near Hyderabad</strong>,
+              resort-inspired communities and residential plotted developments
+              positioned around established and emerging growth corridors.
             </p>
 
             <div
@@ -161,9 +161,10 @@ export default function ProjectsClient() {
 
           <p className="mx-auto mt-6 max-w-4xl text-lg leading-relaxed text-[#4B5563]">
             Our projects are planned across locations influenced by improving
-            connectivity, education hubs, employment activity, and regional
-            infrastructure. Each project offers a different ownership perspective
-            based on location, scale, lifestyle value, and future relevance.
+            connectivity, education hubs, employment activity and regional
+            infrastructure. Buyers comparing <strong className="font-semibold text-[#111827]">plots in Sangareddy and Hyderabad growth corridors</strong> can
+            evaluate each project by location, scale, lifestyle value and current
+            development context.
           </p>
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
