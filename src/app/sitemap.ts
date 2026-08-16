@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/projects`, changeFrequency: "weekly", priority: 0.95 },
     { url: `${baseUrl}/contact-us`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/blog`, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${baseUrl}/careers`, changeFrequency: "monthly", priority: 0.78 },
     {
       url: `${baseUrl}/open-plots-and-resorts-in-hyderabad`,
       changeFrequency: "weekly",
