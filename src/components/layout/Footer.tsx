@@ -1,26 +1,24 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import LazyGoogleMap from "@/components/shared/LazyGoogleMap";
 
 export default function Footer() {
+  const pathname = usePathname() || "";
+  const isCareers = pathname.startsWith("/careers");
+
+  const contactPhone = isCareers ? "+919640753929" : "+919052996161";
+  const contactPhoneDisplay = isCareers ? "+91 96407 53929" : "+91 90529 96161";
+
   return (
     <footer className="border-t border-slate-200 bg-[#F8FAFC] text-slate-800">
       <div className="container-max px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-4">
           <div>
-            <h3 className="text-2xl font-bold text-slate-900">
-              Sri Supraja Infracon
-            </h3>
-
-            <p className="mt-2 text-sm uppercase tracking-[0.3em] text-[#765D00]">
-              Builders & Developers
-            </p>
-
-            <p className="mt-6 leading-7 text-slate-600">
-              Sri Supraja Infracon develops approved open plots, residential,
-              villa and resort-inspired projects across Hyderabad&apos;s growth
-              corridors, including Kamkole, Sangareddy, Mominpet and Indrakaran.
-            </p>
-
+            <h3 className="text-2xl font-bold text-slate-900">Sri Supraja Infracon</h3>
+            <p className="mt-2 text-sm uppercase tracking-[0.3em] text-[#765D00]">Builders & Developers</p>
+            <p className="mt-6 leading-7 text-slate-600">Sri Supraja Infracon develops approved open plots, residential, villa and resort-inspired projects across Hyderabad&apos;s growth corridors, including Kamkole, Sangareddy, Mominpet and Indrakaran.</p>
             <div className="mt-8 flex items-center gap-4">
               {[
                 { label: "Facebook", href: "https://www.facebook.com/srisuprajainfracon", icon: "f" },
@@ -28,16 +26,7 @@ export default function Footer() {
                 { label: "LinkedIn", href: "https://www.linkedin.com/in/supraja-infracon-builders-and-developers-635aaa3a0/", icon: "in" },
                 { label: "YouTube", href: "https://www.youtube.com/@suprajairisresort", icon: "▶" },
               ].map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-sm font-bold text-slate-700 shadow-sm transition hover:border-[#765D00] hover:text-[#765D00]"
-                >
-                  {social.icon}
-                </a>
+                <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-sm font-bold text-slate-700 shadow-sm transition hover:border-[#765D00] hover:text-[#765D00]">{social.icon}</a>
               ))}
             </div>
           </div>
@@ -69,46 +58,36 @@ export default function Footer() {
           <div>
             <h4 className="mb-5 text-lg font-semibold text-slate-900">Contact Information</h4>
             <div className="space-y-5">
+              {isCareers && (
+                <div>
+                  <p className="font-bold text-slate-900">Anjan Margam</p>
+                  <p className="text-sm text-slate-500">HR Manager</p>
+                </div>
+              )}
               <div className="flex items-start gap-3">
                 <span className="mt-1 text-[#765D00]">📞</span>
-                <a href="tel:+919052996161" className="text-slate-600 transition hover:text-[#765D00]">
-                  +91 90529 96161
-                </a>
+                <a href={`tel:${contactPhone}`} className="text-slate-600 transition hover:text-[#765D00]">{contactPhoneDisplay}</a>
               </div>
-
               <div className="flex items-start gap-3">
                 <span className="mt-1 text-[#765D00]">✉</span>
-                <a href="mailto:info@srisuprajainfracon.com" className="text-slate-600 transition hover:text-[#765D00]">
-                  info@srisuprajainfracon.com
-                </a>
+                <a href="mailto:info@srisuprajainfracon.com" className="text-slate-600 transition hover:text-[#765D00]">info@srisuprajainfracon.com</a>
               </div>
-
               <div className="flex items-start gap-3">
                 <span className="mt-1 text-[#765D00]">📍</span>
-                <p className="leading-7 text-slate-600">
-                  H.No. 4-91, Above Parampara Mithai,
-                  <br />
-                  Chandanagar, Hyderabad - 500050
-                </p>
+                <p className="leading-7 text-slate-600">H.No. 4-91, Above Parampara Mithai,<br />Chandanagar, Hyderabad - 500050</p>
               </div>
             </div>
           </div>
         </div>
 
         <div className="mt-14 overflow-hidden rounded-3xl border border-slate-200 shadow-lg">
-          <LazyGoogleMap
-            embedUrl="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3199.830322480578!2d78.32710481827314!3d17.4950506675388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2sin!4v1784529285515!5m2!1sen!2sin"
-            externalUrl="https://www.google.com/maps/search/?api=1&query=Sri%20Supraja%20Infracon%20Chandanagar"
-            title="Sri Supraja Infracon Office Location"
-            height={350}
-          />
+          <LazyGoogleMap embedUrl="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3199.830322480578!2d78.32710481827314!3d17.4950506675388!2m3!1f0!2f0!3f0!3m2!1i1024!1i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2sin!4v1784529285515!5m2!1sen!2sin" externalUrl="https://www.google.com/maps/search/?api=1&query=Sri%20Supraja%20Infracon%20Chandanagar" title="Sri Supraja Infracon Office Location" height={350} />
         </div>
       </div>
 
       <div className="border-t border-slate-200 bg-white">
         <div className="container-max flex flex-col items-center justify-between gap-4 px-4 py-6 text-center text-sm text-slate-500 sm:flex-row sm:px-6 sm:text-left lg:px-8">
           <p>© {new Date().getFullYear()} Sri Supraja Infracon. All Rights Reserved.</p>
-
           <nav aria-label="Legal and trust links" className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
             <Link href="/project-verification" className="transition hover:text-[#765D00]">Project Verification</Link>
             <Link href="/editorial-policy" className="transition hover:text-[#765D00]">Editorial Policy</Link>
