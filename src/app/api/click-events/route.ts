@@ -158,6 +158,15 @@ const isMissingTrafficColumns = (message = "") =>
   /traffic_type|bot_name|user_agent/i.test(message) &&
   /column|schema cache|does not exist/i.test(message);
 
+const normalizeRows = (value: unknown): Record<string, unknown>[] => {
+  if (!Array.isArray(value)) return [];
+
+  return value.filter(
+    (row): row is Record<string, unknown> =>
+      typeof row === "object" && row !== null && !Array.isArray(row),
+  );
+};
+
 export async function POST(request: NextRequest) {
   if (!isAllowedOrigin(request)) {
     return NextResponse.json({ success: false, error: "Origin not allowed" }, { status: 403 });
@@ -237,17 +246,17 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const page: Record<string, unknown>[] = (data || []).map((event) => {
-      const normalizedEvent = event as Record<string, unknown>;
-      return useLegacySelect
+    const rows = normalizeRows(data);
+    const page = rows.map((event) =>
+      useLegacySelect
         ? {
-            ...normalizedEvent,
+            ...event,
             traffic_type: "human",
             bot_name: null,
             user_agent: null,
           }
-        : normalizedEvent;
-    });
+        : event,
+    );
 
     events.push(...page);
     if (page.length < CLICK_PAGE_SIZE) break;
