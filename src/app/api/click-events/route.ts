@@ -11,6 +11,79 @@ export const dynamic = "force-dynamic";
 const CLICK_PAGE_SIZE = 100;
 const MAX_ANALYTICS_ROWS = 50000;
 
+type TrafficType = "human" | "known_bot" | "suspected_bot";
+
+const knownBots: Array<[RegExp, string]> = [
+  [/googlebot/i, "Googlebot"],
+  [/bingbot/i, "Bingbot"],
+  [/duckduckbot/i, "DuckDuckBot"],
+  [/baiduspider/i, "Baiduspider"],
+  [/yandexbot/i, "YandexBot"],
+  [/slurp/i, "Yahoo Slurp"],
+  [/facebookexternalhit/i, "Facebook Crawler"],
+  [/twitterbot/i, "Twitterbot"],
+  [/linkedinbot/i, "LinkedInBot"],
+  [/pinterestbot/i, "Pinterestbot"],
+  [/semrushbot/i, "SemrushBot"],
+  [/ahrefsbot/i, "AhrefsBot"],
+  [/gptbot/i, "GPTBot"],
+  [/chatgpt-user/i, "ChatGPT-User"],
+  [/oai-searchbot/i, "OAI-SearchBot"],
+  [/claudebot/i, "ClaudeBot"],
+  [/claude-user/i, "Claude-User"],
+  [/anthropic-ai/i, "Anthropic AI"],
+  [/perplexitybot/i, "PerplexityBot"],
+  [/perplexity-user/i, "Perplexity-User"],
+  [/ccbot/i, "CCBot"],
+  [/google-extended/i, "Google-Extended"],
+  [/bytespider/i, "Bytespider"],
+  [/cohere-ai/i, "Cohere AI"],
+  [/meta-externalagent/i, "Meta External Agent"],
+];
+
+const suspectedBotPattern =
+  /\b(bot|crawler|spider|headless|phantomjs|selenium|playwright|puppeteer|curl|wget|python-requests|python-urllib|httpclient|go-http-client|scrapy)\b/i;
+
+const classifyTraffic = (request: NextRequest): {
+  traffic_type: TrafficType;
+  bot_name: string | null;
+  user_agent: string | null;
+} => {
+  const userAgent = request.headers.get("user-agent")?.trim().slice(0, 500) || null;
+
+  if (!userAgent) {
+    return {
+      traffic_type: "suspected_bot",
+      bot_name: "Missing User-Agent",
+      user_agent: null,
+    };
+  }
+
+  for (const [pattern, name] of knownBots) {
+    if (pattern.test(userAgent)) {
+      return {
+        traffic_type: "known_bot",
+        bot_name: name,
+        user_agent: userAgent,
+      };
+    }
+  }
+
+  if (suspectedBotPattern.test(userAgent)) {
+    return {
+      traffic_type: "suspected_bot",
+      bot_name: "Automated Client",
+      user_agent: userAgent,
+    };
+  }
+
+  return {
+    traffic_type: "human",
+    bot_name: null,
+    user_agent: userAgent,
+  };
+};
+
 const clickSchema = z.object({
   event_type: z
     .string()
@@ -106,6 +179,7 @@ export async function POST(request: NextRequest) {
     const event = {
       ...payload,
       ...getServerLocation(request),
+      ...classifyTraffic(request),
     };
 
     const { error } = await supabaseAdmin.from("click_events").insert(event);
@@ -160,7 +234,7 @@ export async function GET(request: NextRequest) {
     const { data, error } = await supabaseAdmin
       .from("click_events")
       .select(
-        "id,created_at,session_id,visitor_id,event_type,page_path,page_title,target_url,link_text,element_type,referrer,utm_source,utm_medium,utm_campaign,device_type,browser,ip_address,city,region,country",
+        "id,created_at,session_id,visitor_id,event_type,page_path,page_title,target_url,link_text,element_type,referrer,utm_source,utm_medium,utm_campaign,device_type,browser,ip_address,city,region,country,traffic_type,bot_name,user_agent",
       )
       .gte("created_at", since.toISOString())
       .order("created_at", { ascending: false })
