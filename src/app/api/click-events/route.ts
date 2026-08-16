@@ -10,6 +10,9 @@ export const dynamic = "force-dynamic";
 
 const CLICK_PAGE_SIZE = 100;
 const MAX_ANALYTICS_ROWS = 50000;
+const LEGACY_SELECT =
+  "id,created_at,session_id,visitor_id,event_type,page_path,page_title,target_url,link_text,element_type,referrer,utm_source,utm_medium,utm_campaign,device_type,browser,ip_address,city,region,country";
+const ENRICHED_SELECT = `${LEGACY_SELECT},traffic_type,bot_name,user_agent`;
 
 type TrafficType = "human" | "known_bot" | "suspected_bot";
 
@@ -85,12 +88,7 @@ const classifyTraffic = (request: NextRequest): {
 };
 
 const clickSchema = z.object({
-  event_type: z
-    .string()
-    .trim()
-    .min(1)
-    .max(60)
-    .regex(/^[a-z0-9_]+$/),
+  event_type: z.string().trim().min(1).max(60).regex(/^[a-z0-9_]+$/),
   session_id: z.string().uuid(),
   visitor_id: z.string().uuid(),
   page_path: z.string().trim().min(1).max(500),
@@ -110,14 +108,9 @@ const clickSchema = z.object({
   screen_width: z.number().int().min(0).max(10000),
 });
 
-const headerText = (
-  request: NextRequest,
-  name: string,
-  max: number,
-): string | null => {
+const headerText = (request: NextRequest, name: string, max: number): string | null => {
   const value = request.headers.get(name)?.trim();
   if (!value) return null;
-
   try {
     return decodeURIComponent(value).slice(0, max);
   } catch {
@@ -130,12 +123,10 @@ const getClientIp = (request: NextRequest): string | null => {
     request.headers.get("x-real-ip"),
     request.headers.get("x-forwarded-for")?.split(",")[0],
   ];
-
   for (const candidate of candidates) {
     const value = candidate?.trim();
     if (value && isIP(value)) return value;
   }
-
   return null;
 };
 
@@ -148,12 +139,9 @@ const getServerLocation = (request: NextRequest) => ({
 
 const isAllowedOrigin = (request: NextRequest) => {
   const origin = request.headers.get("origin");
-
   if (!origin) return true;
-
   try {
     const hostname = new URL(origin).hostname;
-
     return (
       hostname === "srisuprajainfracon.com" ||
       hostname === "www.srisuprajainfracon.com" ||
@@ -166,27 +154,29 @@ const isAllowedOrigin = (request: NextRequest) => {
   }
 };
 
+const isMissingTrafficColumns = (message = "") =>
+  /traffic_type|bot_name|user_agent/i.test(message) &&
+  /column|schema cache|does not exist/i.test(message);
+
 export async function POST(request: NextRequest) {
   if (!isAllowedOrigin(request)) {
-    return NextResponse.json(
-      { success: false, error: "Origin not allowed" },
-      { status: 403 },
-    );
+    return NextResponse.json({ success: false, error: "Origin not allowed" }, { status: 403 });
   }
 
   try {
     const payload = clickSchema.parse(await request.json());
-    const event = {
-      ...payload,
-      ...getServerLocation(request),
-      ...classifyTraffic(request),
-    };
+    const baseEvent = { ...payload, ...getServerLocation(request) };
+    const enrichedEvent = { ...baseEvent, ...classifyTraffic(request) };
 
-    const { error } = await supabaseAdmin.from("click_events").insert(event);
+    let { error } = await supabaseAdmin.from("click_events").insert(enrichedEvent);
+
+    if (error && isMissingTrafficColumns(error.message)) {
+      console.warn("Analytics traffic columns not active yet; using legacy insert.");
+      ({ error } = await supabaseAdmin.from("click_events").insert(baseEvent));
+    }
 
     if (error) {
       console.error("Click event insert failed:", error.message);
-
       return NextResponse.json(
         { success: false, error: "Unable to record click" },
         { status: 500 },
@@ -196,14 +186,9 @@ export async function POST(request: NextRequest) {
     return new NextResponse(null, { status: 204 });
   } catch (error) {
     if (error instanceof z.ZodError) {
-      return NextResponse.json(
-        { success: false, error: "Invalid click event" },
-        { status: 400 },
-      );
+      return NextResponse.json({ success: false, error: "Invalid click event" }, { status: 400 });
     }
-
     console.error("Click event request failed:", error);
-
     return NextResponse.json(
       { success: false, error: "Unable to record click" },
       { status: 500 },
@@ -213,12 +198,8 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   const user = await getLoggedInCrmUser();
-
   if (!user?.isAdmin) {
-    return NextResponse.json(
-      { success: false, error: "Unauthorized" },
-      { status: 401 },
-    );
+    return NextResponse.json({ success: false, error: "Unauthorized" }, { status: 401 });
   }
 
   const requestedDays = Number(request.nextUrl.searchParams.get("days") || 30);
@@ -229,32 +210,41 @@ export async function GET(request: NextRequest) {
   const events: Record<string, unknown>[] = [];
   let offset = 0;
   let truncated = false;
+  let useLegacySelect = false;
 
   while (events.length < MAX_ANALYTICS_ROWS) {
-    const { data, error } = await supabaseAdmin
-      .from("click_events")
-      .select(
-        "id,created_at,session_id,visitor_id,event_type,page_path,page_title,target_url,link_text,element_type,referrer,utm_source,utm_medium,utm_campaign,device_type,browser,ip_address,city,region,country,traffic_type,bot_name,user_agent",
-      )
-      .gte("created_at", since.toISOString())
-      .order("created_at", { ascending: false })
-      .order("id", { ascending: false })
-      .range(offset, offset + CLICK_PAGE_SIZE - 1);
+    const buildQuery = (select: string) =>
+      supabaseAdmin
+        .from("click_events")
+        .select(select)
+        .gte("created_at", since.toISOString())
+        .order("created_at", { ascending: false })
+        .order("id", { ascending: false })
+        .range(offset, offset + CLICK_PAGE_SIZE - 1);
+
+    let { data, error } = await buildQuery(useLegacySelect ? LEGACY_SELECT : ENRICHED_SELECT);
+
+    if (error && !useLegacySelect && isMissingTrafficColumns(error.message)) {
+      useLegacySelect = true;
+      ({ data, error } = await buildQuery(LEGACY_SELECT));
+    }
 
     if (error) {
       console.error("Click event read failed:", error.message);
-
       return NextResponse.json(
         { success: false, error: "Unable to load click analytics" },
         { status: 500 },
       );
     }
 
-    const page = data || [];
+    const page = (data || []).map((event) =>
+      useLegacySelect
+        ? { ...event, traffic_type: "human", bot_name: null, user_agent: null }
+        : event,
+    );
+
     events.push(...page);
-
     if (page.length < CLICK_PAGE_SIZE) break;
-
     offset += page.length;
     if (events.length >= MAX_ANALYTICS_ROWS) truncated = true;
   }
@@ -264,5 +254,6 @@ export async function GET(request: NextRequest) {
     days,
     events: events.slice(0, MAX_ANALYTICS_ROWS),
     truncated,
+    trafficClassificationActive: !useLegacySelect,
   });
 }
