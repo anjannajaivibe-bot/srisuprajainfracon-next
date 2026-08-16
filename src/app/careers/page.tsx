@@ -77,7 +77,7 @@ const steps = [
 export default function CareersPage() {
   return (
     <main className="overflow-hidden bg-white text-slate-900">
-      <section className="relative isolate overflow-hidden bg-slate-950 pt-24 text-white">
+      <section className="relative isolate overflow-hidden bg-slate-950 text-white">
         <div className="absolute inset-0 opacity-20">
           <Image
             src="/projects/supraja-iris/gallery/supraja-iris-gallery-1.webp"
@@ -90,7 +90,7 @@ export default function CareersPage() {
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/95 to-slate-950/65" />
 
-        <div className="container-max relative z-10 grid items-center gap-12 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-24">
+        <div className="container-max relative z-10 grid items-center gap-12 px-4 py-14 sm:px-6 sm:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-20">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-amber-300">
               <Handshake size={15} />
@@ -105,40 +105,22 @@ export default function CareersPage() {
               and long-term working relationships.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-green-500 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-green-600"
-              >
-                <MessageCircle size={18} />
-                Discuss an Association
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-green-500 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-green-600">
+                <MessageCircle size={18} /> Discuss an Association
               </a>
-              <a
-                href={`tel:${PHONE_NUMBER}`}
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-white/15"
-              >
-                <Phone size={17} />
-                {PHONE_DISPLAY}
+              <a href={`tel:${PHONE_NUMBER}`} className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-white/15">
+                <Phone size={17} /> {PHONE_DISPLAY}
               </a>
             </div>
           </div>
 
           <div className="relative mx-auto hidden w-full max-w-lg lg:block">
             <div className="relative ml-auto h-[390px] w-[88%] overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
-              <Image
-                src="/projects/supraja-iris/gallery/supraja-iris-gallery-2.webp"
-                alt="Sri Supraja Infracon project environment"
-                fill
-                sizes="500px"
-                className="object-cover"
-              />
+              <Image src="/projects/supraja-iris/gallery/supraja-iris-gallery-2.webp" alt="Sri Supraja Infracon project environment" fill sizes="500px" className="object-cover" />
             </div>
             <div className="absolute -bottom-8 left-0 max-w-[250px] rounded-xl border border-white/10 bg-slate-900/95 p-5 shadow-xl">
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-amber-300">Work With Us</p>
-              <p className="mt-2 text-base font-semibold leading-6 text-white">
-                A professional relationship supported by project knowledge and responsive coordination.
-              </p>
+              <p className="mt-2 text-base font-semibold leading-6 text-white">A professional relationship supported by project knowledge and responsive coordination.</p>
             </div>
           </div>
         </div>
@@ -149,14 +131,9 @@ export default function CareersPage() {
           <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-700">Working Together</p>
-              <h2 className="mt-3 max-w-lg font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
-                What you can expect from the relationship
-              </h2>
-              <p className="mt-4 max-w-lg text-base leading-7 text-slate-600">
-                Productive associations depend on reliable information, timely communication and a shared focus on helping buyers make considered property decisions.
-              </p>
+              <h2 className="mt-3 max-w-lg font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">What you can expect from the relationship</h2>
+              <p className="mt-4 max-w-lg text-base leading-7 text-slate-600">Productive associations depend on reliable information, timely communication and a shared focus on helping buyers make considered property decisions.</p>
             </div>
-
             <div className="grid gap-4 md:grid-cols-3">
               {strengths.map(({ icon: Icon, title, text }) => (
                 <article key={title} className="border-t-2 border-amber-400 bg-white px-5 py-6 shadow-sm">
@@ -173,29 +150,15 @@ export default function CareersPage() {
       <section className="py-16 sm:py-20">
         <div className="container-max grid gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-8">
           <div className="relative min-h-[360px] overflow-hidden rounded-2xl bg-slate-100 sm:min-h-[440px]">
-            <Image
-              src="/projects/supraja-iris/gallery/supraja-iris-gallery-5.webp"
-              alt="Sri Supraja Infracon plotted development project"
-              fill
-              sizes="(max-width: 1024px) 100vw, 45vw"
-              className="object-cover"
-            />
+            <Image src="/projects/supraja-iris/gallery/supraja-iris-gallery-5.webp" alt="Sri Supraja Infracon plotted development project" fill sizes="(max-width: 1024px) 100vw, 45vw" className="object-cover" />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/85 to-transparent px-6 pb-6 pt-24 text-white">
-              <p className="max-w-md text-base font-semibold leading-6">
-                Strong local relationships become more valuable when they are supported by dependable project information.
-              </p>
+              <p className="max-w-md text-base font-semibold leading-6">Strong local relationships become more valuable when they are supported by dependable project information.</p>
             </div>
           </div>
-
           <div className="lg:pl-4">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-700">Who We Work With</p>
-            <h2 className="mt-3 max-w-xl font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
-              Experienced professionals with genuine market reach
-            </h2>
-            <p className="mt-5 max-w-xl text-base leading-7 text-slate-600">
-              We are interested in people and organisations that understand their customers, communicate responsibly and can build trust within the markets they serve.
-            </p>
-
+            <h2 className="mt-3 max-w-xl font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">Experienced professionals with genuine market reach</h2>
+            <p className="mt-5 max-w-xl text-base leading-7 text-slate-600">We are interested in people and organisations that understand their customers, communicate responsibly and can build trust within the markets they serve.</p>
             <div className="mt-7 divide-y divide-slate-200 border-y border-slate-200">
               {associates.map((item) => (
                 <div key={item} className="flex items-start gap-3 py-3.5">
@@ -204,10 +167,7 @@ export default function CareersPage() {
                 </div>
               ))}
             </div>
-
-            <p className="mt-5 text-xs leading-5 text-slate-500">
-              Business associations are independent arrangements and do not constitute salaried employment unless a separate role is expressly offered in writing.
-            </p>
+            <p className="mt-5 text-xs leading-5 text-slate-500">Business associations are independent arrangements and do not constitute salaried employment unless a separate role is expressly offered in writing.</p>
           </div>
         </div>
       </section>
@@ -217,21 +177,13 @@ export default function CareersPage() {
           <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-300">Getting Started</p>
-              <h2 className="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">
-                A simple route from introduction to active collaboration
-              </h2>
-              <p className="mt-5 max-w-lg text-base leading-7 text-slate-300">
-                The first conversation is exploratory. We understand your experience and reach, then discuss where there may be a suitable fit.
-              </p>
+              <h2 className="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">A simple route from introduction to active collaboration</h2>
+              <p className="mt-5 max-w-lg text-base leading-7 text-slate-300">The first conversation is exploratory. We understand your experience and reach, then discuss where there may be a suitable fit.</p>
             </div>
-
             <div className="grid gap-x-8 gap-y-7 sm:grid-cols-2">
               {steps.map((step, index) => (
                 <div key={step.title} className="border-t border-white/15 pt-4">
-                  <div className="flex items-center gap-3">
-                    <span className="text-sm font-bold text-amber-300">0{index + 1}</span>
-                    <h3 className="text-base font-bold text-white">{step.title}</h3>
-                  </div>
+                  <div className="flex items-center gap-3"><span className="text-sm font-bold text-amber-300">0{index + 1}</span><h3 className="text-base font-bold text-white">{step.title}</h3></div>
                   <p className="mt-2 text-sm leading-6 text-slate-300">{step.text}</p>
                 </div>
               ))}
@@ -244,38 +196,14 @@ export default function CareersPage() {
         <div className="container-max px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 border border-slate-200 bg-slate-50 px-6 py-9 sm:px-9 lg:grid-cols-[1fr_auto] lg:items-center lg:px-10">
             <div>
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-amber-700">
-                <MapPin size={14} /> Hyderabad & Telangana
-              </div>
-              <h2 className="mt-3 max-w-2xl font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-[2.15rem]">
-                Interested in exploring a business association with us?
-              </h2>
-              <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">
-                Speak directly with our team to understand the current portfolio, working model and next steps.
-              </p>
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-amber-700"><MapPin size={14} /> Hyderabad & Telangana</div>
+              <h2 className="mt-3 max-w-2xl font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-[2.15rem]">Interested in exploring a business association with us?</h2>
+              <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">Speak directly with our team to understand the current portfolio, working model and next steps.</p>
             </div>
-
             <div className="flex min-w-[245px] flex-col gap-3">
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-green-500 px-6 py-3 text-sm font-bold text-white transition hover:bg-green-600"
-              >
-                <MessageCircle size={18} /> WhatsApp
-              </a>
-              <a
-                href={`tel:${PHONE_NUMBER}`}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-6 py-3 text-sm font-bold text-white transition hover:bg-slate-800"
-              >
-                <Phone size={17} /> {PHONE_DISPLAY}
-              </a>
-              <Link
-                href="/projects"
-                className="inline-flex items-center justify-center gap-2 text-sm font-bold text-slate-700 transition hover:text-amber-800"
-              >
-                View Our Projects <ArrowRight size={16} />
-              </Link>
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-green-500 px-6 py-3 text-sm font-bold text-white transition hover:bg-green-600"><MessageCircle size={18} /> WhatsApp</a>
+              <a href={`tel:${PHONE_NUMBER}`} className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-6 py-3 text-sm font-bold text-white transition hover:bg-slate-800"><Phone size={17} /> {PHONE_DISPLAY}</a>
+              <Link href="/projects" className="inline-flex items-center justify-center gap-2 text-sm font-bold text-slate-700 transition hover:text-amber-800">View Our Projects <ArrowRight size={16} /></Link>
             </div>
           </div>
         </div>
