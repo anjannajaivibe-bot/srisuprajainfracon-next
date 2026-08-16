@@ -37,6 +37,13 @@ const isAllowedOrigin = (request: NextRequest) => {
 };
 
 export async function POST(request: NextRequest) {
+  if (process.env.NEWSLETTER_ENABLED !== "true") {
+    return NextResponse.json(
+      { success: false, error: "Newsletter subscriptions are not active yet." },
+      { status: 503 },
+    );
+  }
+
   if (!isAllowedOrigin(request)) {
     return NextResponse.json(
       { success: false, error: "Origin not allowed" },
