@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import BlogSearch from "@/components/blog/BlogSearch";
+import NewsletterSubscribe from "@/components/blog/NewsletterSubscribe";
 
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
 const SITE_URL = "https://www.srisuprajainfracon.com";
@@ -154,6 +155,10 @@ export default function BlogPage() {
           </Link>
         </section>
       )}
+
+      <section className="mx-auto max-w-7xl px-6 pt-12">
+        <NewsletterSubscribe source="blog-hub" />
+      </section>
 
       <section className="mx-auto max-w-7xl px-6 py-16">
         <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
