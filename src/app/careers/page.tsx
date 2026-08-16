@@ -39,7 +39,7 @@ export default function CareersPage() {
         <div className="container-max relative z-10 grid items-center gap-12 px-4 py-14 sm:px-6 sm:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-20">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-amber-300"><Handshake size={15} /> Channel Partner Opportunities</div>
-            <h1 className="mt-5 max-w-xl font-display text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-[3.45rem]">Grow Your Real Estate Business With Us</h1>
+            <h1 className="mt-5 max-w-xl font-display text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-[3.45rem]">Join Sri Supraja Infracon as a Channel Partner</h1>
             <p className="mt-6 max-w-xl text-base leading-7 text-slate-200 sm:text-lg sm:leading-8">Join Sri Supraja Infracon as a channel partner and work with our team to promote established real estate projects to genuine buyers.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-green-500 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-green-600"><MessageCircle size={18} /> Join as Channel Partner</a>
