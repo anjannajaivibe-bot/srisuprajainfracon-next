@@ -26,7 +26,7 @@ export default function EngagementFloatingCTA() {
         aria-label="Join as a channel partner"
       >
         <Handshake size={17} className="shrink-0 text-amber-300" />
-        <span className="hidden sm:inline">Partner With Us</span>
+        <span className="hidden sm:inline">Join as Channel Partner</span>
       </button>
     </div>
   );
