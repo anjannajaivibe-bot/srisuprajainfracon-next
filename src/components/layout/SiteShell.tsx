@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import FloatingCTA from "@/components/layout/FloatingCTA";
 import EngagementFloatingCTA from "@/components/layout/EngagementFloatingCTA";
 import ContactFormPopup from "@/components/forms/ContactFormPopup";
+import ChannelPartnerFormPopup from "@/components/forms/ChannelPartnerFormPopup";
 import ClickTracker from "@/components/analytics/ClickTracker";
 
 export default function SiteShell({
@@ -33,6 +34,7 @@ export default function SiteShell({
       <EngagementFloatingCTA />
       <FloatingCTA />
       <ContactFormPopup />
+      <ChannelPartnerFormPopup />
     </>
   );
 }
