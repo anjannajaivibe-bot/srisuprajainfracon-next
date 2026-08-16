@@ -6,6 +6,7 @@ import Navbar from "@/components/layout/Navbar";
 import ProjectHero from "@/components/project/ProjectHero";
 import ProjectOverview from "@/components/project/ProjectOverview";
 import ProjectHighlights from "@/components/project/ProjectHighlights";
+import LemonTreeProgress from "@/components/project/LemonTreeProgress";
 import ProjectCTA from "@/components/project/ProjectCTA";
 import ProjectTestimonials from "@/components/project/ProjectTestimonials";
 
@@ -31,7 +32,6 @@ const SectionSkeleton = () => (
   </div>
 );
 
-/* Lazy Loaded Below Fold Sections */
 const ProjectGallery = dynamic(
   () => import("@/components/project/ProjectGallery"),
   {
@@ -80,27 +80,19 @@ const ProjectDetail = ({ slug }: { slug: string }) => {
       <Navbar />
 
       <main>
-        {/* Hero */}
         <ProjectHero project={project} />
-
-        {/* Overview / Brochure */}
         <ProjectOverview project={project} />
-
-        {/* Highlights */}
         <ProjectHighlights project={project} />
 
-        {/* Gallery */}
+        {project.slug === "supraja-iris-resort-plots" && <LemonTreeProgress />}
+
         <ProjectGallery project={project} />
 
-        {/* Testimonials */}
         {project.slug !== "subhash-meadows" && (
           <ProjectTestimonials projectSlug={project.slug} />
         )}
 
-        {/* FAQ */}
         <ProjectFAQ project={project} />
-
-        {/* CTA */}
         <ProjectCTA project={project} />
       </main>
     </div>
