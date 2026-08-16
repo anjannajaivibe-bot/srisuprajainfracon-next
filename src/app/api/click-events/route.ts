@@ -237,11 +237,17 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const page = (data || []).map((event) =>
-      useLegacySelect
-        ? { ...event, traffic_type: "human", bot_name: null, user_agent: null }
-        : event,
-    );
+    const page: Record<string, unknown>[] = (data || []).map((event) => {
+      const normalizedEvent = event as Record<string, unknown>;
+      return useLegacySelect
+        ? {
+            ...normalizedEvent,
+            traffic_type: "human",
+            bot_name: null,
+            user_agent: null,
+          }
+        : normalizedEvent;
+    });
 
     events.push(...page);
     if (page.length < CLICK_PAGE_SIZE) break;
