@@ -36,7 +36,12 @@ create table if not exists public.click_events (
   ip_address inet,
   city text check (city is null or char_length(city) <= 120),
   region text check (region is null or char_length(region) <= 120),
-  country text check (country is null or char_length(country) = 2)
+  country text check (country is null or char_length(country) = 2),
+  traffic_type text not null default 'human' check (
+    traffic_type in ('human', 'known_bot', 'suspected_bot')
+  ),
+  bot_name text check (bot_name is null or char_length(bot_name) <= 80),
+  user_agent text check (user_agent is null or char_length(user_agent) <= 500)
 );
 
 alter table public.click_events
@@ -44,7 +49,10 @@ alter table public.click_events
   add column if not exists ip_address inet,
   add column if not exists city text,
   add column if not exists region text,
-  add column if not exists country text;
+  add column if not exists country text,
+  add column if not exists traffic_type text not null default 'human',
+  add column if not exists bot_name text,
+  add column if not exists user_agent text;
 
 alter table public.click_events enable row level security;
 
@@ -66,5 +74,8 @@ create index if not exists click_events_visitor_id_idx
 create index if not exists click_events_country_city_idx
   on public.click_events (country, city, created_at desc);
 
+create index if not exists click_events_traffic_type_idx
+  on public.click_events (traffic_type, created_at desc);
+
 comment on table public.click_events is
-  'Website page-view and click analytics with anonymous visitor/session IDs and server-derived approximate location.';
+  'Website page-view and click analytics with anonymous visitor/session IDs, server-derived approximate location, and server-side traffic classification.';

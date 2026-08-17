@@ -8,13 +8,87 @@ import { getLoggedInCrmUser } from "@/lib/admin-auth";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
+const CLICK_PAGE_SIZE = 100;
+const MAX_ANALYTICS_ROWS = 50000;
+const LEGACY_SELECT =
+  "id,created_at,session_id,visitor_id,event_type,page_path,page_title,target_url,link_text,element_type,referrer,utm_source,utm_medium,utm_campaign,device_type,browser,ip_address,city,region,country";
+const ENRICHED_SELECT = `${LEGACY_SELECT},traffic_type,bot_name,user_agent`;
+
+type TrafficType = "human" | "known_bot" | "suspected_bot";
+
+const knownBots: Array<[RegExp, string]> = [
+  [/googlebot/i, "Googlebot"],
+  [/bingbot/i, "Bingbot"],
+  [/duckduckbot/i, "DuckDuckBot"],
+  [/baiduspider/i, "Baiduspider"],
+  [/yandexbot/i, "YandexBot"],
+  [/slurp/i, "Yahoo Slurp"],
+  [/facebookexternalhit/i, "Facebook Crawler"],
+  [/twitterbot/i, "Twitterbot"],
+  [/linkedinbot/i, "LinkedInBot"],
+  [/pinterestbot/i, "Pinterestbot"],
+  [/semrushbot/i, "SemrushBot"],
+  [/ahrefsbot/i, "AhrefsBot"],
+  [/gptbot/i, "GPTBot"],
+  [/chatgpt-user/i, "ChatGPT-User"],
+  [/oai-searchbot/i, "OAI-SearchBot"],
+  [/claudebot/i, "ClaudeBot"],
+  [/claude-user/i, "Claude-User"],
+  [/anthropic-ai/i, "Anthropic AI"],
+  [/perplexitybot/i, "PerplexityBot"],
+  [/perplexity-user/i, "Perplexity-User"],
+  [/ccbot/i, "CCBot"],
+  [/google-extended/i, "Google-Extended"],
+  [/bytespider/i, "Bytespider"],
+  [/cohere-ai/i, "Cohere AI"],
+  [/meta-externalagent/i, "Meta External Agent"],
+];
+
+const suspectedBotPattern =
+  /\b(bot|crawler|spider|headless|phantomjs|selenium|playwright|puppeteer|curl|wget|python-requests|python-urllib|httpclient|go-http-client|scrapy)\b/i;
+
+const classifyTraffic = (request: NextRequest): {
+  traffic_type: TrafficType;
+  bot_name: string | null;
+  user_agent: string | null;
+} => {
+  const userAgent = request.headers.get("user-agent")?.trim().slice(0, 500) || null;
+
+  if (!userAgent) {
+    return {
+      traffic_type: "suspected_bot",
+      bot_name: "Missing User-Agent",
+      user_agent: null,
+    };
+  }
+
+  for (const [pattern, name] of knownBots) {
+    if (pattern.test(userAgent)) {
+      return {
+        traffic_type: "known_bot",
+        bot_name: name,
+        user_agent: userAgent,
+      };
+    }
+  }
+
+  if (suspectedBotPattern.test(userAgent)) {
+    return {
+      traffic_type: "suspected_bot",
+      bot_name: "Automated Client",
+      user_agent: userAgent,
+    };
+  }
+
+  return {
+    traffic_type: "human",
+    bot_name: null,
+    user_agent: userAgent,
+  };
+};
+
 const clickSchema = z.object({
-  event_type: z
-    .string()
-    .trim()
-    .min(1)
-    .max(60)
-    .regex(/^[a-z0-9_]+$/),
+  event_type: z.string().trim().min(1).max(60).regex(/^[a-z0-9_]+$/),
   session_id: z.string().uuid(),
   visitor_id: z.string().uuid(),
   page_path: z.string().trim().min(1).max(500),
@@ -34,14 +108,9 @@ const clickSchema = z.object({
   screen_width: z.number().int().min(0).max(10000),
 });
 
-const headerText = (
-  request: NextRequest,
-  name: string,
-  max: number,
-): string | null => {
+const headerText = (request: NextRequest, name: string, max: number): string | null => {
   const value = request.headers.get(name)?.trim();
   if (!value) return null;
-
   try {
     return decodeURIComponent(value).slice(0, max);
   } catch {
@@ -54,12 +123,10 @@ const getClientIp = (request: NextRequest): string | null => {
     request.headers.get("x-real-ip"),
     request.headers.get("x-forwarded-for")?.split(",")[0],
   ];
-
   for (const candidate of candidates) {
     const value = candidate?.trim();
     if (value && isIP(value)) return value;
   }
-
   return null;
 };
 
@@ -72,12 +139,9 @@ const getServerLocation = (request: NextRequest) => ({
 
 const isAllowedOrigin = (request: NextRequest) => {
   const origin = request.headers.get("origin");
-
   if (!origin) return true;
-
   try {
     const hostname = new URL(origin).hostname;
-
     return (
       hostname === "srisuprajainfracon.com" ||
       hostname === "www.srisuprajainfracon.com" ||
@@ -90,26 +154,38 @@ const isAllowedOrigin = (request: NextRequest) => {
   }
 };
 
+const isMissingTrafficColumns = (message = "") =>
+  /traffic_type|bot_name|user_agent/i.test(message) &&
+  /column|schema cache|does not exist/i.test(message);
+
+const normalizeRows = (value: unknown): Record<string, unknown>[] => {
+  if (!Array.isArray(value)) return [];
+
+  return value.filter(
+    (row): row is Record<string, unknown> =>
+      typeof row === "object" && row !== null && !Array.isArray(row),
+  );
+};
+
 export async function POST(request: NextRequest) {
   if (!isAllowedOrigin(request)) {
-    return NextResponse.json(
-      { success: false, error: "Origin not allowed" },
-      { status: 403 },
-    );
+    return NextResponse.json({ success: false, error: "Origin not allowed" }, { status: 403 });
   }
 
   try {
     const payload = clickSchema.parse(await request.json());
-    const event = {
-      ...payload,
-      ...getServerLocation(request),
-    };
+    const baseEvent = { ...payload, ...getServerLocation(request) };
+    const enrichedEvent = { ...baseEvent, ...classifyTraffic(request) };
 
-    const { error } = await supabaseAdmin.from("click_events").insert(event);
+    let { error } = await supabaseAdmin.from("click_events").insert(enrichedEvent);
+
+    if (error && isMissingTrafficColumns(error.message)) {
+      console.warn("Analytics traffic columns not active yet; using legacy insert.");
+      ({ error } = await supabaseAdmin.from("click_events").insert(baseEvent));
+    }
 
     if (error) {
       console.error("Click event insert failed:", error.message);
-
       return NextResponse.json(
         { success: false, error: "Unable to record click" },
         { status: 500 },
@@ -119,14 +195,9 @@ export async function POST(request: NextRequest) {
     return new NextResponse(null, { status: 204 });
   } catch (error) {
     if (error instanceof z.ZodError) {
-      return NextResponse.json(
-        { success: false, error: "Invalid click event" },
-        { status: 400 },
-      );
+      return NextResponse.json({ success: false, error: "Invalid click event" }, { status: 400 });
     }
-
     console.error("Click event request failed:", error);
-
     return NextResponse.json(
       { success: false, error: "Unable to record click" },
       { status: 500 },
@@ -136,12 +207,8 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   const user = await getLoggedInCrmUser();
-
   if (!user?.isAdmin) {
-    return NextResponse.json(
-      { success: false, error: "Unauthorized" },
-      { status: 401 },
-    );
+    return NextResponse.json({ success: false, error: "Unauthorized" }, { status: 401 });
   }
 
   const requestedDays = Number(request.nextUrl.searchParams.get("days") || 30);
@@ -149,27 +216,59 @@ export async function GET(request: NextRequest) {
   const since = new Date();
   since.setDate(since.getDate() - days);
 
-  const { data, error } = await supabaseAdmin
-    .from("click_events")
-    .select(
-      "id,created_at,session_id,visitor_id,event_type,page_path,page_title,target_url,link_text,element_type,referrer,utm_source,utm_medium,utm_campaign,device_type,browser,ip_address,city,region,country",
-    )
-    .gte("created_at", since.toISOString())
-    .order("created_at", { ascending: false })
-    .limit(10000);
+  const events: Record<string, unknown>[] = [];
+  let offset = 0;
+  let truncated = false;
+  let useLegacySelect = false;
 
-  if (error) {
-    console.error("Click event read failed:", error.message);
+  while (events.length < MAX_ANALYTICS_ROWS) {
+    const buildQuery = (select: string) =>
+      supabaseAdmin
+        .from("click_events")
+        .select(select)
+        .gte("created_at", since.toISOString())
+        .order("created_at", { ascending: false })
+        .order("id", { ascending: false })
+        .range(offset, offset + CLICK_PAGE_SIZE - 1);
 
-    return NextResponse.json(
-      { success: false, error: "Unable to load click analytics" },
-      { status: 500 },
+    let { data, error } = await buildQuery(useLegacySelect ? LEGACY_SELECT : ENRICHED_SELECT);
+
+    if (error && !useLegacySelect && isMissingTrafficColumns(error.message)) {
+      useLegacySelect = true;
+      ({ data, error } = await buildQuery(LEGACY_SELECT));
+    }
+
+    if (error) {
+      console.error("Click event read failed:", error.message);
+      return NextResponse.json(
+        { success: false, error: "Unable to load click analytics" },
+        { status: 500 },
+      );
+    }
+
+    const rows = normalizeRows(data);
+    const page = rows.map((event) =>
+      useLegacySelect
+        ? {
+            ...event,
+            traffic_type: "human",
+            bot_name: null,
+            user_agent: null,
+          }
+        : event,
     );
+
+    events.push(...page);
+    if (page.length < CLICK_PAGE_SIZE) break;
+    offset += page.length;
+    if (events.length >= MAX_ANALYTICS_ROWS) truncated = true;
   }
 
   return NextResponse.json({
     success: true,
     days,
-    events: data || [],
+    events: events.slice(0, MAX_ANALYTICS_ROWS),
+    truncated,
+    trafficClassificationActive: !useLegacySelect,
   });
 }

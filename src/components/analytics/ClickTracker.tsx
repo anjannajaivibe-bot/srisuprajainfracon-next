@@ -198,12 +198,11 @@ export default function ClickTracker() {
   useEffect(() => {
     let lastPageView = "";
 
+    const currentPagePath = () => clip(window.location.pathname || "/", 500);
+
     const basePayload = () => ({
       ...getAnalyticsIdentity(),
-      page_path: clip(
-        `${window.location.pathname}${window.location.search}`,
-        500,
-      ),
+      page_path: currentPagePath(),
       page_title: clip(document.title, 200),
       referrer: safeUrl(document.referrer),
       ...getCampaign(),
@@ -213,7 +212,7 @@ export default function ClickTracker() {
     });
 
     const recordPageView = () => {
-      const pageKey = `${window.location.pathname}${window.location.search}`;
+      const pageKey = currentPagePath();
       const now = Date.now();
       if (
         pageKey === lastPageView ||

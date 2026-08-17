@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ProjectsClient from "./projects-client";
 
+const SITE_URL = "https://www.srisuprajainfracon.com";
 const pageTitle = "Sri Supraja Infracon Projects | Hyderabad Real Estate";
 const pageDescription =
   "Explore Sri Supraja Infracon projects across Kamkole, Mominpet, Sangareddy and Indrakaran, including Supraja IRIS, Bridge County, Sindhu Sarovar and Subhash Meadows.";
@@ -9,17 +10,17 @@ export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: {
-    canonical: "https://www.srisuprajainfracon.com/projects/",
+    canonical: `${SITE_URL}/projects/`,
   },
   openGraph: {
     title: pageTitle,
     description:
-      "View project details, locations, brochures and site visit information for Sri Supraja Infracon projects near Hyderabad growth corridors.",
-    url: "https://www.srisuprajainfracon.com/projects/",
+      "View project details, locations, approvals and site visit information for Sri Supraja Infracon projects near Hyderabad growth corridors.",
+    url: `${SITE_URL}/projects/`,
     siteName: "Sri Supraja Infracon",
     images: [
       {
-        url: "https://www.srisuprajainfracon.com/og-image.jpg",
+        url: `${SITE_URL}/og-image.jpg`,
         width: 1200,
         height: 630,
         alt: "Sri Supraja Infracon projects near Hyderabad",
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
     title: pageTitle,
     description:
       "Explore Supraja IRIS, Bridge County, Sindhu Sarovar and Subhash Meadows by Sri Supraja Infracon.",
-    images: ["https://www.srisuprajainfracon.com/og-image.jpg"],
+    images: [`${SITE_URL}/og-image.jpg`],
   },
 };
 
@@ -42,24 +43,20 @@ export default function ProjectsPage() {
     "@graph": [
       {
         "@type": "CollectionPage",
-        "@id": "https://www.srisuprajainfracon.com/projects/#collectionpage",
+        "@id": `${SITE_URL}/projects/#collectionpage`,
         name: "Sri Supraja Infracon Projects",
-        url: "https://www.srisuprajainfracon.com/projects/",
+        url: `${SITE_URL}/projects/`,
         description: pageDescription,
-        publisher: {
-          "@type": "RealEstateAgent",
-          name: "Sri Supraja Infracon",
-          url: "https://www.srisuprajainfracon.com/",
-        },
+        publisher: { "@id": `${SITE_URL}/#organization` },
         primaryImageOfPage: {
           "@type": "ImageObject",
-          url: "https://www.srisuprajainfracon.com/og-image.jpg",
+          url: `${SITE_URL}/og-image.jpg`,
           caption: "Sri Supraja Infracon projects near Hyderabad",
         },
         about: [
-          "Real estate projects near Hyderabad",
-          "Plotted projects in Telangana",
-          "Resort-inspired plots in Kamkole",
+          "Real estate development near Hyderabad",
+          "Plotted development in Telangana",
+          "Resort-inspired plotted development in Kamkole",
           "Residential projects near Hyderabad growth corridors",
         ],
         mainEntity: {
@@ -71,8 +68,8 @@ export default function ProjectsPage() {
               position: 1,
               item: {
                 "@type": "Place",
-                name: "Supraja IRIS Resort Project",
-                url: "https://www.srisuprajainfracon.com/projects/supraja-iris-resort-plots/",
+                name: "Supraja IRIS",
+                url: `${SITE_URL}/projects/supraja-iris-resort-plots/`,
               },
             },
             {
@@ -81,7 +78,7 @@ export default function ProjectsPage() {
               item: {
                 "@type": "Place",
                 name: "Bridge County",
-                url: "https://www.srisuprajainfracon.com/projects/bridge-county/",
+                url: `${SITE_URL}/projects/bridge-county/`,
               },
             },
             {
@@ -90,7 +87,7 @@ export default function ProjectsPage() {
               item: {
                 "@type": "Place",
                 name: "Sindhu Sarovar",
-                url: "https://www.srisuprajainfracon.com/projects/sindhu-sarovar/",
+                url: `${SITE_URL}/projects/sindhu-sarovar/`,
               },
             },
             {
@@ -99,7 +96,7 @@ export default function ProjectsPage() {
               item: {
                 "@type": "Place",
                 name: "Subhash Meadows",
-                url: "https://www.srisuprajainfracon.com/projects/subhash-meadows/",
+                url: `${SITE_URL}/projects/subhash-meadows/`,
               },
             },
           ],
@@ -112,13 +109,13 @@ export default function ProjectsPage() {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://www.srisuprajainfracon.com/",
+            item: `${SITE_URL}/`,
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Projects",
-            item: "https://www.srisuprajainfracon.com/projects/",
+            item: `${SITE_URL}/projects/`,
           },
         ],
       },
@@ -131,7 +128,6 @@ export default function ProjectsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
-
       <ProjectsClient />
     </>
   );

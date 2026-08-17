@@ -2,30 +2,30 @@ import type { Metadata } from "next";
 import { siteMeta } from "@/seo/meta";
 import HomeClient from "./home-client";
 
+const SITE_URL = "https://www.srisuprajainfracon.com";
 const pageTitle =
-  "Sri Supraja Infracon | Real Estate Projects Near Hyderabad";
-
+  "Sri Supraja Infracon | Real Estate Developer Near Hyderabad";
 const pageDescription =
-  "Explore Sri Supraja Infracon projects across Hyderabad growth corridors, including plotted, villa, residential and resort projects in Kamkole, Sangareddy, Mominpet and Indrakaran.";
+  "Sri Supraja Infracon is a real estate developer creating plotted, villa, residential and resort-inspired projects across Kamkole, Sangareddy, Mominpet and Indrakaran growth corridors near Hyderabad.";
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: {
-    canonical: "https://www.srisuprajainfracon.com/",
+    canonical: `${SITE_URL}/`,
   },
   openGraph: {
     title: pageTitle,
     description:
       "Discover Sri Supraja Infracon projects across key Hyderabad growth corridors, including Supraja IRIS, Bridge County, Sindhu Sarovar and Subhash Meadows.",
-    url: "https://www.srisuprajainfracon.com/",
+    url: `${SITE_URL}/`,
     siteName: "Sri Supraja Infracon",
     images: [
       {
-        url: "https://www.srisuprajainfracon.com/og/home-og.webp",
+        url: `${SITE_URL}/og/home-og.webp`,
         width: 1200,
         height: 630,
-        alt: "Sri Supraja Infracon real estate projects near Hyderabad",
+        alt: "Sri Supraja Infracon real estate developer near Hyderabad",
       },
     ],
     locale: "en_IN",
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: pageTitle,
     description:
-      "Explore plotted, villa, residential and resort projects by Sri Supraja Infracon.",
-    images: ["https://www.srisuprajainfracon.com/og/home-og.webp"],
+      "Explore plotted, villa, residential and resort-inspired projects by Sri Supraja Infracon.",
+    images: [`${SITE_URL}/og/home-og.webp`],
   },
 };
 
@@ -46,11 +46,11 @@ export default function HomePage() {
     "@graph": [
       {
         "@type": ["Organization", "Corporation"],
-        "@id": "https://www.srisuprajainfracon.com/#organization",
+        "@id": `${SITE_URL}/#organization`,
         name: "Sri Supraja Infracon",
         legalName: "Sri Supraja Infracon",
-        url: "https://www.srisuprajainfracon.com/",
-        image: "https://www.srisuprajainfracon.com/og/home-og.webp",
+        url: `${SITE_URL}/`,
+        image: `${SITE_URL}/og/home-og.webp`,
         logo: {
           "@type": "ImageObject",
           url: `${siteMeta.domain}${siteMeta.logo}`,
@@ -59,17 +59,28 @@ export default function HomePage() {
         telephone: "+91 90529 96161",
         description:
           "Sri Supraja Infracon is a real estate developer, land developer and project developer creating plotted, residential, villa and resort-inspired developments across Hyderabad growth corridors.",
+        publishingPrinciples: `${SITE_URL}/editorial-policy/`,
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: "+91 90529 96161",
+          email: "info@srisuprajainfracon.com",
+          contactType: "customer service",
+          areaServed: "IN",
+          availableLanguage: ["English", "Telugu", "Hindi"],
+        },
         knowsAbout: [
           "Real estate development",
           "Land development",
           "Project development",
           "Plotted development",
           "Residential development",
-          "Resort development",
+          "Resort-inspired plotted development",
+          "DTCP layout approvals",
+          "Telangana RERA project information",
         ],
         address: {
           "@type": "PostalAddress",
-          streetAddress: "D. No. 4-91, Above Parampara Mithai, Chandanagar",
+          streetAddress: "H.No. 4-91, Above Parampara Mithai, Chandanagar",
           addressLocality: "Hyderabad",
           addressRegion: "Telangana",
           postalCode: "500050",
@@ -93,32 +104,31 @@ export default function HomePage() {
       },
       {
         "@type": "WebSite",
-        "@id": "https://www.srisuprajainfracon.com/#website",
-        url: "https://www.srisuprajainfracon.com/",
+        "@id": `${SITE_URL}/#website`,
+        url: `${SITE_URL}/`,
         name: "Sri Supraja Infracon",
         publisher: {
-          "@id": "https://www.srisuprajainfracon.com/#organization",
+          "@id": `${SITE_URL}/#organization`,
         },
       },
       {
         "@type": "WebPage",
-        "@id": "https://www.srisuprajainfracon.com/#webpage",
-        url: "https://www.srisuprajainfracon.com/",
+        "@id": `${SITE_URL}/#webpage`,
+        url: `${SITE_URL}/`,
         name: pageTitle,
         description: pageDescription,
         isPartOf: {
-          "@id": "https://www.srisuprajainfracon.com/#website",
+          "@id": `${SITE_URL}/#website`,
         },
         about: {
-          "@id": "https://www.srisuprajainfracon.com/#organization",
+          "@id": `${SITE_URL}/#organization`,
         },
         primaryImageOfPage: {
           "@type": "ImageObject",
-          url: "https://www.srisuprajainfracon.com/og/home-og.webp",
+          url: `${SITE_URL}/og/home-og.webp`,
           width: 1200,
           height: 630,
-          caption:
-            "Sri Supraja Infracon real estate projects near Hyderabad",
+          caption: "Sri Supraja Infracon real estate developer near Hyderabad",
         },
       },
     ],

@@ -5,7 +5,9 @@ import { usePathname } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FloatingCTA from "@/components/layout/FloatingCTA";
+import EngagementFloatingCTA from "@/components/layout/EngagementFloatingCTA";
 import ContactFormPopup from "@/components/forms/ContactFormPopup";
+import ChannelPartnerFormPopup from "@/components/forms/ChannelPartnerFormPopup";
 import ClickTracker from "@/components/analytics/ClickTracker";
 
 export default function SiteShell({
@@ -14,7 +16,7 @@ export default function SiteShell({
   children: React.ReactNode;
 }) {
   const pathname = usePathname() || "";
-const isAdmin = pathname.startsWith("/admin");
+  const isAdmin = pathname.startsWith("/admin");
 
   if (isAdmin) {
     return <>{children}</>;
@@ -25,12 +27,14 @@ const isAdmin = pathname.startsWith("/admin");
       <ClickTracker />
       <Navbar />
 
-      <div className="min-h-screen pt-24">{children}</div>
+      <div className="min-h-screen pt-[76px]">{children}</div>
 
       <Footer />
 
+      <EngagementFloatingCTA />
       <FloatingCTA />
       <ContactFormPopup />
+      <ChannelPartnerFormPopup />
     </>
   );
 }
