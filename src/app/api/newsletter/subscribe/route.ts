@@ -5,7 +5,7 @@ import { z } from "zod";
 import { supabaseAdmin } from "@/lib/supabase";
 import {
   newsletterEmailConfigured,
-  sendVerificationEmail,
+  sendWelcomeEmail,
 } from "@/lib/newsletter-email";
 
 export const runtime = "nodejs";
@@ -59,8 +59,8 @@ export async function POST(request: NextRequest) {
     }
 
     const email = payload.email.toLowerCase();
-    const verificationToken = randomUUID();
     const unsubscribeToken = randomUUID();
+    const now = new Date().toISOString();
 
     const { data: existing, error: readError } = await supabaseAdmin
       .from("newsletter_subscribers")
@@ -80,18 +80,18 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({
         success: true,
         alreadySubscribed: true,
-        message: "This email is already subscribed.",
+        message: "You are already subscribed to Sri Supraja Insights.",
       });
     }
 
     const subscriber = {
       name: payload.name || existing?.name || "",
       email,
-      status: "pending",
+      status: "active",
       source: payload.source || "blog",
-      verification_token: verificationToken,
+      verification_token: null,
       unsubscribe_token: unsubscribeToken,
-      subscribed_at: new Date().toISOString(),
+      subscribed_at: now,
       verified_at: null,
       unsubscribed_at: null,
     };
@@ -113,33 +113,33 @@ export async function POST(request: NextRequest) {
 
     if (!newsletterEmailConfigured()) {
       console.warn(
-        "Newsletter subscriber saved, but RESEND_API_KEY or NEWSLETTER_FROM_EMAIL is not configured.",
+        "Newsletter subscriber activated, but RESEND_API_KEY or NEWSLETTER_FROM_EMAIL is not configured.",
       );
       return NextResponse.json({
         success: true,
         pendingEmailSetup: true,
-        message: "Subscription saved. Email confirmation is being configured.",
+        message: "You are subscribed to Sri Supraja Insights.",
       });
     }
 
     try {
-      await sendVerificationEmail({
+      await sendWelcomeEmail({
         email,
         name: subscriber.name,
-        token: verificationToken,
+        unsubscribeToken,
       });
     } catch (emailError) {
-      console.error("Newsletter verification email failed:", emailError);
+      console.error("Newsletter welcome email failed:", emailError);
       return NextResponse.json({
         success: true,
         pendingEmailSetup: true,
-        message: "Subscription saved, but the confirmation email could not be sent.",
+        message: "You are subscribed to Sri Supraja Insights.",
       });
     }
 
     return NextResponse.json({
       success: true,
-      message: "Please check your email and confirm your subscription.",
+      message: "You are subscribed to Sri Supraja Insights. A welcome email has been sent.",
     });
   } catch (error) {
     if (error instanceof z.ZodError) {
