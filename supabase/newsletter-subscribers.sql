@@ -2,8 +2,8 @@ create table if not exists public.newsletter_subscribers (
   id uuid primary key default gen_random_uuid(),
   name text not null default '',
   email text not null,
-  status text not null default 'pending'
-    check (status in ('pending', 'active', 'unsubscribed')),
+  status text not null default 'active'
+    check (status in ('active', 'unsubscribed')),
   source text not null default 'blog',
   verification_token uuid unique,
   unsubscribe_token uuid not null unique default gen_random_uuid(),
@@ -47,4 +47,4 @@ before update on public.newsletter_subscribers
 for each row execute function public.set_newsletter_updated_at();
 
 comment on table public.newsletter_subscribers is
-  'Opt-in email subscribers for Sri Supraja Infracon content and selected project updates.';
+  'Single opt-in email subscribers for Sri Supraja Infracon insights and selected project updates.';
