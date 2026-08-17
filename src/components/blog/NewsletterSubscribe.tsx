@@ -37,7 +37,7 @@ export default function NewsletterSubscribe({
       }
 
       setStatus("success");
-      setMessage(result.message || "Please check your email to confirm.");
+      setMessage(result.message || "You are subscribed to Sri Supraja Insights.");
       setName("");
       setEmail("");
     } catch (error) {
@@ -84,9 +84,7 @@ export default function NewsletterSubscribe({
 
         <form
           onSubmit={submit}
-          className={`mt-6 grid gap-3 ${
-            compact ? "md:grid-cols-[1fr_1.2fr_auto]" : "md:grid-cols-[1fr_1.2fr_auto]"
-          }`}
+          className="mt-6 grid gap-3 md:grid-cols-[1fr_1.2fr_auto]"
         >
           <label className="sr-only" htmlFor={`newsletter-name-${source}`}>
             Name
@@ -136,7 +134,7 @@ export default function NewsletterSubscribe({
                 : "bg-[#d6b56d] text-[#12251d] hover:bg-[#e4c985]"
             }`}
           >
-            {status === "loading" ? "Subscribing..." : "Get New Articles"}
+            {status === "loading" ? "Subscribing..." : "Subscribe"}
           </button>
         </form>
 
@@ -145,7 +143,7 @@ export default function NewsletterSubscribe({
             compact ? "text-[#66736d]" : "text-white/60"
           }`}
         >
-          No spam. You can unsubscribe from any update.
+          Subscription is immediate. No email confirmation is required. You can unsubscribe from any update.
         </p>
 
         {message && (
