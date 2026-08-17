@@ -33,8 +33,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/telangana-plot-verification`,
+      lastModified: new Date("2026-08-17"),
       changeFrequency: "monthly",
-      priority: 0.88,
+      priority: 0.92,
     },
     {
       url: `${baseUrl}/projects/supraja-iris-resort-plots`,
