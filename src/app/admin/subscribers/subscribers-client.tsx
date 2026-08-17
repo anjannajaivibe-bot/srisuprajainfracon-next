@@ -6,10 +6,9 @@ type Subscriber = {
   id: string;
   name: string;
   email: string;
-  status: "pending" | "active" | "unsubscribed";
+  status: "active" | "unsubscribed";
   source: string;
   subscribed_at: string;
-  verified_at: string | null;
   unsubscribed_at: string | null;
   created_at: string;
   updated_at: string;
@@ -30,7 +29,6 @@ function formatDate(value: string | null) {
 
 function statusClass(status: Subscriber["status"]) {
   if (status === "active") return "border-green-200 bg-green-50 text-green-700";
-  if (status === "pending") return "border-amber-200 bg-amber-50 text-amber-700";
   return "border-slate-200 bg-slate-100 text-slate-600";
 }
 
@@ -99,7 +97,6 @@ export default function SubscribersClient() {
     return {
       total: subscribers.length,
       active: subscribers.filter((item) => item.status === "active").length,
-      pending: subscribers.filter((item) => item.status === "pending").length,
       unsubscribed: subscribers.filter((item) => item.status === "unsubscribed").length,
       last7Days: subscribers.filter(
         (item) => new Date(item.subscribed_at) >= sevenDaysAgo,
@@ -114,7 +111,6 @@ export default function SubscribersClient() {
       "Status",
       "Source",
       "Subscribed At",
-      "Verified At",
       "Unsubscribed At",
     ];
 
@@ -124,7 +120,6 @@ export default function SubscribersClient() {
       subscriber.status,
       subscriber.source,
       formatDate(subscriber.subscribed_at),
-      formatDate(subscriber.verified_at),
       formatDate(subscriber.unsubscribed_at),
     ]);
 
@@ -160,7 +155,7 @@ export default function SubscribersClient() {
               Newsletter Subscribers
             </h1>
             <p className="mt-1 text-sm text-slate-600">
-              View people who subscribed for blog and project updates.
+              People who subscribed to Sri Supraja Insights and project updates.
             </p>
           </div>
 
@@ -188,10 +183,9 @@ export default function SubscribersClient() {
           </div>
         </div>
 
-        <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <StatCard label="Total Subscribers" value={stats.total} />
           <StatCard label="Active" value={stats.active} />
-          <StatCard label="Pending Verification" value={stats.pending} />
           <StatCard label="Unsubscribed" value={stats.unsubscribed} />
           <StatCard label="New in 7 Days" value={stats.last7Days} />
         </div>
@@ -210,7 +204,6 @@ export default function SubscribersClient() {
           >
             <option value="All">All Statuses</option>
             <option value="active">Active</option>
-            <option value="pending">Pending</option>
             <option value="unsubscribed">Unsubscribed</option>
           </select>
           <button
@@ -238,14 +231,13 @@ export default function SubscribersClient() {
             <div className="p-10 text-center text-slate-500">No subscribers found.</div>
           ) : (
             <div className="max-h-[68vh] overflow-auto">
-              <table className="w-full min-w-[1050px] text-sm">
+              <table className="w-full min-w-[900px] text-sm">
                 <thead className="sticky top-0 z-10 bg-slate-100 text-slate-700">
                   <tr>
                     <th className="px-5 py-3 text-left">Subscriber</th>
                     <th className="px-5 py-3 text-left">Status</th>
                     <th className="px-5 py-3 text-left">Source</th>
                     <th className="px-5 py-3 text-left">Subscribed</th>
-                    <th className="px-5 py-3 text-left">Verified</th>
                     <th className="px-5 py-3 text-left">Unsubscribed</th>
                   </tr>
                 </thead>
@@ -277,9 +269,6 @@ export default function SubscribersClient() {
                       </td>
                       <td className="px-5 py-4 text-slate-600">
                         {formatDate(subscriber.subscribed_at)}
-                      </td>
-                      <td className="px-5 py-4 text-slate-600">
-                        {formatDate(subscriber.verified_at)}
                       </td>
                       <td className="px-5 py-4 text-slate-600">
                         {formatDate(subscriber.unsubscribed_at)}
