@@ -36,7 +36,7 @@ export default function CareersPage() {
             <div className="mt-7 flex flex-col gap-3 sm:flex-row"><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-green-500 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-green-600"><MessageCircle size={18} /> Join as Channel Partner</a><a href={`tel:${PHONE_NUMBER}`} className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/35 bg-white/5 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-white/10"><Phone size={17} /> {PHONE_DISPLAY}</a></div>
             <p className="mt-4 text-sm font-semibold text-slate-200">{CONTACT_NAME} <span className="mx-2 text-slate-500">|</span> {CONTACT_ROLE}</p>
           </div>
-          <div className="relative min-h-[300px] overflow-hidden rounded-2xl lg:min-h-[390px]"><Image src="/projects/supraja-iris/gallery/supraja-iris-gallery-2.webp" alt="Sri Supraja Infracon channel partner opportunity" fill priority sizes="(max-width: 1024px) 100vw, 58vw" className="object-cover" /><div className="absolute inset-0 bg-gradient-to-r from-[#06142b]/20 via-transparent to-transparent" /></div>
+          <div className="relative min-h-[300px] overflow-hidden rounded-2xl lg:min-h-[390px]"><Image src="/uploads/careers/careers-hero-handshake.webp" alt="Business handshake representing Sri Supraja Infracon channel partner opportunity" fill priority sizes="(max-width: 1024px) 100vw, 58vw" className="object-cover" /><div className="absolute inset-0 bg-gradient-to-r from-[#06142b]/10 via-transparent to-transparent" /></div>
         </div>
       </section>
 
