@@ -52,7 +52,7 @@ export default function CareersPage() {
           </div>
 
           <div className="relative min-h-[300px] overflow-hidden rounded-2xl lg:min-h-[390px]">
-            <Image src="/uploads/careers/careers-hero-handshake.webp" alt="Business handshake representing Sri Supraja Infracon channel partner opportunity" fill priority sizes="(max-width: 1024px) 100vw, 58vw" className="object-cover" />
+            <Image src="/projects/supraja-iris/gallery/supraja-iris-gallery-2.webp" alt="Sri Supraja Infracon channel partner opportunity" fill priority sizes="(max-width: 1024px) 100vw, 58vw" className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#06142b]/20 via-transparent to-transparent" />
           </div>
         </div>
@@ -77,7 +77,7 @@ export default function CareersPage() {
       <section className="py-11 sm:py-14">
         <div className="container-max grid overflow-hidden rounded-xl border border-slate-200 bg-[#fffaf2] lg:grid-cols-[1fr_1fr] lg:items-stretch">
           <div className="flex flex-col justify-center px-6 py-8 sm:px-9 lg:px-10"><p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-700">Let&apos;s Work Together</p><h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">Interested in working with us?</h2><p className="mt-3 max-w-xl text-base leading-7 text-slate-600">Share your details or contact us directly. We will explain the available projects, working process and next steps.</p><div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap"><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-green-500 px-6 py-3 text-sm font-bold text-white transition hover:bg-green-600"><MessageCircle size={17} /> Join on WhatsApp</a><a href={`tel:${PHONE_NUMBER}`} className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3 text-sm font-bold text-slate-900 transition hover:border-slate-400"><Phone size={16} /> Call {PHONE_DISPLAY}</a></div><p className="mt-4 text-sm font-bold text-slate-800">{CONTACT_NAME} <span className="mx-2 font-normal text-slate-400">|</span> {CONTACT_ROLE}</p></div>
-          <div className="relative min-h-[250px] lg:min-h-[315px]"><Image src="/uploads/blog/architect-planning-home-layout.webp" alt="Real estate project layout discussion" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover object-center" /></div>
+          <div className="relative min-h-[250px] lg:min-h-[315px]"><Image src="/uploads/blog/approved-layout-plan-explained.webp" alt="Real estate project layout discussion" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover object-center" /></div>
         </div>
       </section>
 
