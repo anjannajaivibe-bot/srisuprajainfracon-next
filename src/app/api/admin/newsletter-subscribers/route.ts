@@ -19,10 +19,26 @@ export async function GET() {
     );
   }
 
+  const { error: migrationError } = await supabaseAdmin
+    .from("newsletter_subscribers")
+    .update({
+      status: "active",
+      verification_token: null,
+      unsubscribed_at: null,
+    })
+    .eq("status", "pending");
+
+  if (migrationError) {
+    console.error(
+      "Legacy newsletter subscriber normalization failed:",
+      migrationError.message,
+    );
+  }
+
   const { data, error } = await supabaseAdmin
     .from("newsletter_subscribers")
     .select(
-      "id, name, email, status, source, subscribed_at, verified_at, unsubscribed_at, created_at, updated_at",
+      "id, name, email, status, source, subscribed_at, unsubscribed_at, created_at, updated_at",
     )
     .order("subscribed_at", { ascending: false })
     .limit(10000);
