@@ -51,31 +51,36 @@ async function sendEmail({
   }
 }
 
-export async function sendVerificationEmail({
+export async function sendWelcomeEmail({
   email,
   name,
-  token,
+  unsubscribeToken,
 }: {
   email: string;
   name: string;
-  token: string;
+  unsubscribeToken: string;
 }) {
   const baseUrl = getBaseUrl();
-  const verifyUrl = `${baseUrl}/api/newsletter/verify?token=${encodeURIComponent(token)}`;
+  const unsubscribeUrl = `${baseUrl}/api/newsletter/unsubscribe?token=${encodeURIComponent(
+    unsubscribeToken,
+  )}`;
   const greeting = name ? `Hello ${escapeHtml(name)},` : "Hello,";
 
   await sendEmail({
     to: email,
-    subject: "Confirm your Sri Supraja Infracon updates",
-    idempotencyKey: `newsletter-verify-${token}`,
+    subject: "Welcome to Sri Supraja Insights",
+    idempotencyKey: `newsletter-welcome-${unsubscribeToken}`,
     html: `
       <div style="font-family:Arial,sans-serif;max-width:620px;margin:0 auto;color:#24342d;line-height:1.6">
+        <p style="font-size:13px;text-transform:uppercase;letter-spacing:1.5px;color:#9a7a12;font-weight:700">Sri Supraja Insights</p>
+        <h1 style="font-size:26px;line-height:1.25;color:#12251d">You are subscribed</h1>
         <p>${greeting}</p>
-        <p>Thank you for subscribing to Sri Supraja Infracon insights. Please confirm your email address to receive new property guides and selected project updates.</p>
-        <p style="margin:28px 0">
-          <a href="${verifyUrl}" style="display:inline-block;background:#12251d;color:#ffffff;text-decoration:none;padding:13px 22px;border-radius:999px;font-weight:700">Confirm subscription</a>
+        <p>Thank you for subscribing to Sri Supraja Insights. We will send you new property guides, useful buyer information, selected project updates and investor articles when they are published.</p>
+        <p style="font-size:13px;color:#66736d">No further confirmation is required.</p>
+        <p style="font-size:12px;color:#78827d;border-top:1px solid #e5e7eb;padding-top:18px;margin-top:26px">
+          You received this email because this address was subscribed on the Sri Supraja Infracon website.
+          <a href="${unsubscribeUrl}" style="color:#6b5a27">Unsubscribe</a>
         </p>
-        <p style="font-size:13px;color:#66736d">If you did not request this subscription, you can ignore this email.</p>
       </div>
     `,
   });
