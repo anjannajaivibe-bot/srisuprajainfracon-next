@@ -157,6 +157,28 @@ export default function BlogPage() {
         </section>
       )}
 
+      <section className="mx-auto max-w-7xl px-6 pt-10">
+        <Link
+          href="/telangana-plot-verification"
+          className="group flex flex-col justify-between gap-5 rounded-3xl border border-[#d6c7a3] bg-[#f5efe2] p-6 transition hover:border-[#b08a3c] hover:shadow-md md:flex-row md:items-center md:p-8"
+        >
+          <div className="max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#8f6f2e]">
+              Free Buyer Tool
+            </p>
+            <h2 className="mt-2 text-2xl font-semibold text-[#12251d] md:text-3xl">
+              Telangana Plot Buyer Toolkit 2026
+            </h2>
+            <p className="mt-3 leading-7 text-[#4b554f]">
+              Use official Telangana verification links, a plot area converter and a practical due-diligence checklist before evaluating a plotted property.
+            </p>
+          </div>
+          <span className="shrink-0 font-semibold text-[#12251d] transition group-hover:translate-x-1">
+            Open Toolkit →
+          </span>
+        </Link>
+      </section>
+
       {NEWSLETTER_ENABLED && (
         <section id="subscribe" className="mx-auto max-w-7xl scroll-mt-28 px-6 pt-12">
           <NewsletterSubscribe source="blog-hub" />
