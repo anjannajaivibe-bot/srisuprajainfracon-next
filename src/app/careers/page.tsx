@@ -146,12 +146,6 @@ export default function CareersPage() {
             </p>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <button
-                type="button"
-                onClick={undefined}
-                className="hidden"
-                aria-hidden="true"
-              />
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
