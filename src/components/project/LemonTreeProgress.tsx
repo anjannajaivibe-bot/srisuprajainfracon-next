@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const IMAGE = "/projects/supraja-iris/gallery/lemon-tree-resort-construction-progress-august-2026.webp";
+const IMAGE = "/api/media/lemon-tree-progress";
 
 export default function LemonTreeProgress({ compact = false }: { compact?: boolean }) {
   if (compact) {
@@ -13,6 +13,7 @@ export default function LemonTreeProgress({ compact = false }: { compact?: boole
               src={IMAGE}
               alt="Lemon Tree Resort construction progress at Supraja IRIS in August 2026"
               fill
+              unoptimized
               sizes="(max-width: 768px) 100vw, 55vw"
               className="object-cover"
             />
@@ -41,6 +42,7 @@ export default function LemonTreeProgress({ compact = false }: { compact?: boole
               src={IMAGE}
               alt="Latest Lemon Tree Resort construction progress at Supraja IRIS, August 2026"
               fill
+              unoptimized
               sizes="(max-width: 1024px) 100vw, 58vw"
               className="object-cover"
             />
