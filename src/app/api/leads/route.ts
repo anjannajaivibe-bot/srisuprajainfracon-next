@@ -61,6 +61,20 @@ const leadSchema = z
       .regex(/^[a-z0-9_-]+$/i, "Invalid source."),
     website: z.string().max(0).optional().default(""),
     formStartedAt: z.number().int().positive(),
+    // Ad-tracking data — only landing pages send these; the website contact
+    // form omits them entirely, which is also how Tranquil CRM sync tells
+    // the two channels apart.
+    utm_source: z.string().trim().max(120).optional().default(""),
+    utm_medium: z.string().trim().max(120).optional().default(""),
+    utm_campaign: z.string().trim().max(120).optional().default(""),
+    utm_content: z.string().trim().max(120).optional().default(""),
+    utm_term: z.string().trim().max(120).optional().default(""),
+    utm_campaign_id: z.string().trim().max(120).optional().default(""),
+    utm_network: z.string().trim().max(120).optional().default(""),
+    utm_device: z.string().trim().max(40).optional().default(""),
+    gclid: z.string().trim().max(200).optional().default(""),
+    location: z.string().trim().max(120).optional().default(""),
+    budget: z.string().trim().max(40).optional().default(""),
   })
   .strict();
 
@@ -343,6 +357,13 @@ async function handleLeadSubmission(request: NextRequest): Promise<NextResponse>
       source,
       website,
       formStartedAt,
+      utm_campaign,
+      utm_content,
+      utm_term,
+      utm_campaign_id,
+      gclid,
+      location,
+      budget,
     } = parsed.data;
 
     if (website) {
@@ -409,6 +430,13 @@ async function handleLeadSubmission(request: NextRequest): Promise<NextResponse>
       project,
       message,
       source,
+      utmCampaign: utm_campaign,
+      utmContent: utm_content,
+      utmTerm: utm_term,
+      utmCampaignId: utm_campaign_id,
+      gclid,
+      location,
+      budget,
     });
 
     await logTranquilCrmEvent({
