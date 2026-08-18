@@ -94,11 +94,12 @@ export async function sendLeadToTranquilCrm(
     customer_name: lead.name,
   });
 
-  // Tranquil's docs list email as optional, but their DB column (email_id) is
-  // NOT NULL — an omitted email 500s the whole insert. Fall back to a
-  // placeholder tied to the phone number when the lead didn't supply one.
+  // Tranquil's docs list email and remark as optional, but their DB columns
+  // (email_id, note) are both NOT NULL — an omitted value 500s the whole
+  // insert. Fall back to placeholders when the lead didn't supply them
+  // (landing-page leads never collect a message, so this hits every time).
   params.set("email", lead.email || `lead-${lead.phone}@srisuprajainfracon.com`);
-  if (lead.message) params.set("remark", lead.message);
+  params.set("remark", lead.message || `Lead via ${lead.source}`);
   if (lead.utmCampaign) params.set("campaign_name", lead.utmCampaign);
   if (lead.utmContent) params.set("adgroup_name", lead.utmContent);
   if (lead.utmTerm) params.set("ad_name", lead.utmTerm);
