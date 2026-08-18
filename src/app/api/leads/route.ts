@@ -107,15 +107,44 @@ function checkRateLimit(key: string) {
   return { allowed: true, retryAfter: 0 };
 }
 
+// Landing pages published on this subdomain (e.g. the Supraja IRIS LP) submit
+// straight to this endpoint from a different host than the main site.
+const ALLOWED_CROSS_ORIGIN_HOSTS = ["info.srisuprajainfracon.com"];
+
 function isSameOrigin(request: NextRequest) {
   const origin = request.headers.get("origin");
   if (!origin) return false;
 
   try {
-    return new URL(origin).host === request.nextUrl.host;
+    const originHost = new URL(origin).host;
+    return (
+      originHost === request.nextUrl.host ||
+      ALLOWED_CROSS_ORIGIN_HOSTS.includes(originHost)
+    );
   } catch {
     return false;
   }
+}
+
+// A cross-origin browser POST with a JSON body triggers a CORS preflight, so
+// the allowed origin above also needs a reflected Access-Control-Allow-Origin
+// on every response (including errors) or the browser blocks it client-side
+// before our own origin check ever matters.
+function withCors(response: NextResponse, request: NextRequest) {
+  const origin = request.headers.get("origin");
+  if (!origin) return response;
+
+  try {
+    if (ALLOWED_CROSS_ORIGIN_HOSTS.includes(new URL(origin).host)) {
+      response.headers.set("Access-Control-Allow-Origin", origin);
+      response.headers.set("Vary", "Origin");
+    }
+  } catch {
+    // Malformed Origin header — no CORS header added, request already
+    // fails isSameOrigin anyway.
+  }
+
+  return response;
 }
 
 function normalizePhone(phone: string) {
@@ -245,7 +274,24 @@ export async function GET() {
   }
 }
 
+export async function OPTIONS(request: NextRequest) {
+  return withCors(
+    new NextResponse(null, {
+      status: 204,
+      headers: {
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
+      },
+    }),
+    request
+  );
+}
+
 export async function POST(request: NextRequest) {
+  return withCors(await handleLeadSubmission(request), request);
+}
+
+async function handleLeadSubmission(request: NextRequest): Promise<NextResponse> {
   try {
     if (!isSameOrigin(request)) {
       return jsonError("Invalid submission origin.", 403);
