@@ -59,7 +59,17 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
-      // Invalid URLs found in Google Search Console
+      // Invalid and obsolete URLs reported in Google Search Console.
+      {
+        source: "/index",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/index/",
+        destination: "/",
+        permanent: true,
+      },
       {
         source: "/&",
         destination: "/",
@@ -95,7 +105,7 @@ const nextConfig: NextConfig = {
         },
       ]),
 
-      // Obsolete internal URLs retained for visitors and search engines
+      // Obsolete internal URLs retained for visitors and search engines.
       {
         source: "/resort-plots-in-hyderabad",
         destination: "/projects/supraja-iris-resort-plots",
@@ -142,7 +152,7 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
-      // Contact page redirects
+      // Contact page redirects.
       {
         source: "/contact",
         destination: "/contact-us",
@@ -154,7 +164,7 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
-      // Legacy root-level blog URL redirects
+      // Legacy root-level blog URL redirects.
       ...legacyBlogSlugs.flatMap((slug) => [
         {
           source: `/${slug}`,
