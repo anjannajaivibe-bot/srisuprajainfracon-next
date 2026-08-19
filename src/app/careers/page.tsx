@@ -21,12 +21,12 @@ const WHATSAPP_URL =
 export const metadata: Metadata = {
   title: "Join as a Channel Partner | Sri Supraja Infracon",
   description:
-    "Join Sri Supraja Infracon as a channel partner. Speak with our team about current projects, sales support and how to get started.",
+    "Join Sri Supraja Infracon as a channel partner and represent established real estate projects with project information, site visit coordination and sales support.",
   alternates: { canonical: `${SITE_URL}/careers` },
   openGraph: {
     title: "Join as a Channel Partner | Sri Supraja Infracon",
     description:
-      "Work with Sri Supraja Infracon and explore channel partner opportunities across our real estate projects.",
+      "Explore channel partner opportunities with Sri Supraja Infracon and connect buyers with established real estate projects.",
     url: `${SITE_URL}/careers`,
     type: "website",
   },
@@ -36,17 +36,17 @@ const benefits = [
   {
     icon: Building2,
     title: "Established Projects",
-    text: "Work with well-planned developments backed by an experienced real estate team.",
+    text: "Represent thoughtfully planned developments backed by an experienced real estate team.",
   },
   {
     icon: FileText,
-    title: "Clear Project Information",
-    text: "Receive the details and updates you need to speak to customers with confidence.",
+    title: "Reliable Project Information",
+    text: "Access relevant project details and updates to guide prospective buyers with confidence.",
   },
   {
     icon: Users,
     title: "Sales & Site Visit Support",
-    text: "Get coordination from our team when a customer needs guidance or wants to visit a project.",
+    text: "Coordinate smoothly with our team when prospects need guidance or wish to visit a project.",
   },
 ];
 
@@ -58,9 +58,62 @@ const whoCanJoin = [
   "People with a strong local customer network",
 ];
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/careers#webpage`,
+      url: `${SITE_URL}/careers`,
+      name: "Join Sri Supraja Infracon as a Channel Partner",
+      description:
+        "Channel partner opportunity with Sri Supraja Infracon for real estate consultants, brokers, referral professionals and property sales professionals.",
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      about: { "@id": `${SITE_URL}/#organization` },
+      breadcrumb: { "@id": `${SITE_URL}/careers#breadcrumb` },
+      inLanguage: "en-IN",
+    },
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: "Sri Supraja Infracon",
+      url: SITE_URL,
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: PHONE_NUMBER,
+        contactType: "channel partner enquiries",
+        availableLanguage: ["English", "Telugu", "Hindi"],
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${SITE_URL}/careers#breadcrumb`,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: SITE_URL,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Channel Partner Opportunity",
+          item: `${SITE_URL}/careers`,
+        },
+      ],
+    },
+  ],
+};
+
 export default function CareersPage() {
   return (
     <main className="overflow-hidden bg-white text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+
       <section className="relative isolate overflow-hidden bg-[#06142b] text-white">
         <div className="absolute inset-y-0 right-0 hidden w-[62%] lg:block">
           <Image
@@ -83,7 +136,7 @@ export default function CareersPage() {
               Join Sri Supraja Infracon as a <span className="text-amber-400">Channel Partner</span>
             </h1>
             <p className="mt-5 max-w-lg text-base leading-7 text-slate-200">
-              Work with our team to promote established real estate projects and connect interested buyers with the right opportunities.
+              Represent established real estate projects, connect genuine buyers with suitable opportunities and grow with the support of our team.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <a
@@ -111,9 +164,9 @@ export default function CareersPage() {
       <section className="border-b border-slate-100 bg-white py-11 sm:py-14">
         <div className="container-max px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-700">Why Join Us</p>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-700">Why Partner With Us</p>
             <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
-              Simple support for your business
+              Practical support at every stage
             </h2>
           </div>
           <div className="mt-8 grid gap-7 md:grid-cols-3">
@@ -144,10 +197,10 @@ export default function CareersPage() {
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-700">Who Can Join</p>
             <h2 className="mt-2 max-w-xl font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
-              If you work in property sales or referrals, speak with us
+              Built for people who understand property buyers
             </h2>
             <p className="mt-4 max-w-xl text-base leading-7 text-slate-600">
-              We welcome people who understand their local market, communicate clearly and can connect interested customers with suitable projects.
+              This opportunity suits professionals who know their local market, communicate clearly and can introduce serious buyers to relevant projects.
             </p>
             <div className="mt-5 space-y-2.5">
               {whoCanJoin.map((item) => (
@@ -164,12 +217,12 @@ export default function CareersPage() {
       <section className="py-11 sm:py-14">
         <div className="container-max grid overflow-hidden rounded-xl border border-slate-200 bg-[#fffaf2] lg:grid-cols-[1fr_1fr] lg:items-stretch">
           <div className="flex flex-col justify-center px-6 py-8 sm:px-9 lg:px-10">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-700">Let&apos;s Work Together</p>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-700">Take the Next Step</p>
             <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
-              Interested in working with us?
+              Ready to explore the partnership?
             </h2>
             <p className="mt-3 max-w-xl text-base leading-7 text-slate-600">
-              Share your details or contact us directly. We will explain the available projects, working process and next steps.
+              Connect with us to understand current projects, partner coordination and the process for getting started.
             </p>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
@@ -178,7 +231,7 @@ export default function CareersPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-green-500 px-6 py-3 text-sm font-bold text-white transition hover:bg-green-600"
               >
-                <MessageCircle size={17} /> Join on WhatsApp
+                <MessageCircle size={17} /> Enquire on WhatsApp
               </a>
               <a
                 href={`tel:${PHONE_NUMBER}`}
