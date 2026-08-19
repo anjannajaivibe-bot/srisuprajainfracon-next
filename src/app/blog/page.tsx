@@ -18,6 +18,24 @@ const consolidatedBlogSlugs = new Set([
   "dtcp-approved-plots-in-hyderabad",
 ]);
 
+// High-value buyer guides reported by GSC as discovered but not yet crawled.
+// Keep these as server-rendered links near the top of the knowledge centre so
+// crawlers can reach them without depending on search/filter interaction.
+const priorityGuideSlugs = [
+  "documents-required-before-buying-a-plot-in-telangana",
+  "how-to-verify-land-ownership-before-buying-a-plot",
+  "plot-buying-checklist",
+  "sale-deed-vs-title-deed-buying-a-plot",
+  "common-mistakes-to-avoid-when-buying-a-plot",
+  "hidden-costs-of-buying-a-residential-plot",
+  "plot-site-visit-checklist",
+  "agreement-of-sale-for-plot-purchase",
+  "how-to-read-a-plot-layout-map",
+  "how-to-choose-the-right-plot-size",
+  "how-property-appreciation-works",
+  "residential-plot-maintenance-after-purchase",
+];
+
 type BlogPost = {
   slug: string;
   title: string;
@@ -94,6 +112,10 @@ function getPosts(): BlogPost[] {
 export default function BlogPage() {
   const posts = getPosts();
   const featuredPost = posts[0];
+  const postBySlug = new Map(posts.map((post) => [post.slug, post]));
+  const priorityGuides = priorityGuideSlugs
+    .map((slug) => postBySlug.get(slug))
+    .filter((post): post is BlogPost => Boolean(post));
 
   return (
     <main className="min-h-screen bg-[#f8f6f1]">
@@ -178,6 +200,36 @@ export default function BlogPage() {
           </span>
         </Link>
       </section>
+
+      {priorityGuides.length > 0 && (
+        <section className="mx-auto max-w-7xl px-6 pt-12" aria-labelledby="essential-buyer-guides">
+          <div className="rounded-3xl border border-[#e5dcc7] bg-white p-7 shadow-sm md:p-9">
+            <div className="max-w-3xl">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#8f6f2e]">
+                Essential Buyer Guides
+              </p>
+              <h2 id="essential-buyer-guides" className="mt-2 text-2xl font-semibold text-[#12251d] md:text-3xl">
+                Start with plot verification, documents and due diligence
+              </h2>
+              <p className="mt-3 leading-7 text-[#4b554f]">
+                These practical guides cover the checks buyers commonly need before selecting, verifying, registering and maintaining a residential plot.
+              </p>
+            </div>
+
+            <div className="mt-7 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+              {priorityGuides.map((guide) => (
+                <Link
+                  key={guide.slug}
+                  href={`/blog/${guide.slug}`}
+                  className="rounded-2xl border border-[#ece6d8] px-5 py-4 font-medium leading-6 text-[#12251d] transition hover:border-[#b08a3c] hover:bg-[#f8f6f1]"
+                >
+                  {stripHtml(guide.title)} →
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {NEWSLETTER_ENABLED && (
         <section id="subscribe" className="mx-auto max-w-7xl scroll-mt-28 px-6 pt-12">
