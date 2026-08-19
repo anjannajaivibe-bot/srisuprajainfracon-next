@@ -4,6 +4,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import LazyGoogleMap from "@/components/shared/LazyGoogleMap";
 
+const buyerResources = [
+  { href: "/blog/documents-required-before-buying-a-plot-in-telangana", label: "Documents Before Buying a Plot" },
+  { href: "/blog/how-to-verify-land-ownership-before-buying-a-plot", label: "Verify Land Ownership" },
+  { href: "/blog/plot-buying-checklist", label: "Plot Buying Checklist" },
+  { href: "/blog/plot-site-visit-checklist", label: "Plot Site Visit Checklist" },
+];
+
 export default function Footer() {
   const pathname = usePathname() || "";
   const isCareers = pathname.startsWith("/careers");
@@ -80,7 +87,23 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 overflow-hidden rounded-3xl border border-slate-200 shadow-lg">
+        <div className="mt-12 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#765D00]">Buyer Resources</p>
+              <h4 className="mt-1 text-lg font-semibold text-slate-900">Important guides before buying a plot</h4>
+            </div>
+            <nav aria-label="Buyer resources" className="flex flex-wrap gap-x-5 gap-y-3 text-sm font-medium text-slate-600">
+              {buyerResources.map((resource) => (
+                <Link key={resource.href} href={resource.href} className="transition hover:text-[#765D00]">
+                  {resource.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+        </div>
+
+        <div className="mt-10 overflow-hidden rounded-3xl border border-slate-200 shadow-lg">
           <LazyGoogleMap embedUrl="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3199.830322480578!2d78.32710481827314!3d17.4950506675388!2m3!1f0!2f0!3f0!3m2!1i1024!1i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2sin!4v1784529285515!5m2!1sen!2sin" externalUrl="https://www.google.com/maps/search/?api=1&query=Sri%20Supraja%20Infracon%20Chandanagar" title="Sri Supraja Infracon Office Location" height={350} />
         </div>
       </div>
