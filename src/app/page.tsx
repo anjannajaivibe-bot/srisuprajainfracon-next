@@ -45,9 +45,10 @@ export default function HomePage() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": ["Organization", "Corporation"],
+        "@type": ["Organization", "Corporation", "LocalBusiness"],
         "@id": `${SITE_URL}/#organization`,
         name: "Sri Supraja Infracon",
+        alternateName: "Supraja Infracon",
         legalName: "Sri Supraja Infracon",
         url: `${SITE_URL}/`,
         image: `${SITE_URL}/og/home-og.webp`,
@@ -88,8 +89,8 @@ export default function HomePage() {
         },
         geo: {
           "@type": "GeoCoordinates",
-          latitude: "17.494642678754836",
-          longitude: "78.3263364719618",
+          latitude: 17.494642678754836,
+          longitude: 78.3263364719618,
         },
         areaServed: [
           "Hyderabad",
@@ -99,7 +100,14 @@ export default function HomePage() {
           "Indrakaran",
           "Telangana",
         ],
-        openingHours: "Mo-Sa 09:00-18:00",
+        openingHoursSpecification: [
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            opens: "09:00",
+            closes: "18:00",
+          },
+        ],
         sameAs: siteMeta.socialProfiles,
       },
       {
@@ -107,6 +115,7 @@ export default function HomePage() {
         "@id": `${SITE_URL}/#website`,
         url: `${SITE_URL}/`,
         name: "Sri Supraja Infracon",
+        alternateName: "Supraja Infracon",
         publisher: {
           "@id": `${SITE_URL}/#organization`,
         },
