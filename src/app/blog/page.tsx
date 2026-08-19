@@ -18,9 +18,6 @@ const consolidatedBlogSlugs = new Set([
   "dtcp-approved-plots-in-hyderabad",
 ]);
 
-// High-value buyer guides reported by GSC as discovered but not yet crawled.
-// Keep these as server-rendered links near the top of the knowledge centre so
-// crawlers can reach them without depending on search/filter interaction.
 const priorityGuideSlugs = [
   "documents-required-before-buying-a-plot-in-telangana",
   "how-to-verify-land-ownership-before-buying-a-plot",
@@ -117,8 +114,49 @@ export default function BlogPage() {
     .map((slug) => postBySlug.get(slug))
     .filter((post): post is BlogPost => Boolean(post));
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${SITE_URL}/blog/#webpage`,
+        url: `${SITE_URL}/blog`,
+        name: "Investor Knowledge Center",
+        description:
+          "Real estate investment guides, buyer checklists, legal insights and plotted development information by Sri Supraja Infracon.",
+        isPartOf: { "@id": `${SITE_URL}/#website` },
+        publisher: { "@id": `${SITE_URL}/#organization` },
+        breadcrumb: { "@id": `${SITE_URL}/blog/#breadcrumb` },
+        mainEntity: {
+          "@type": "ItemList",
+          name: "Sri Supraja Infracon Real Estate Guides",
+          numberOfItems: posts.length,
+          itemListElement: posts.slice(0, 30).map((post, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            name: stripHtml(post.title),
+            url: `${SITE_URL}/blog/${post.slug}`,
+          })),
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${SITE_URL}/blog/#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+          { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+        ],
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-[#f8f6f1]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+
       <section className="bg-[#12251d] px-6 py-20 text-white">
         <div className="mx-auto max-w-7xl text-center">
           <p className="text-sm uppercase tracking-[0.3em] text-[#d6b56d]">
