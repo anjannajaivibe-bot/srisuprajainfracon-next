@@ -17,6 +17,8 @@ import {
   type ProjectContentKey,
 } from "@/data/projectContent";
 
+const SITE_URL = "https://www.srisuprajainfracon.com";
+
 const SectionSkeleton = () => (
   <div
     className="mx-auto max-w-7xl px-6 py-24"
@@ -75,8 +77,35 @@ const ProjectDetail = ({ slug }: { slug: string }) => {
     projectContent[project.slug as ProjectContentKey] ||
     projectContent["supraja-iris-resort-plots"];
 
+  const suprajaIrisVideoSchema =
+    project.slug === "supraja-iris-resort-plots"
+      ? {
+          "@context": "https://schema.org",
+          "@type": "VideoObject",
+          "@id": `${SITE_URL}/projects/supraja-iris-resort-plots/#project-video`,
+          name: "Supraja IRIS Resort Plots Project Overview",
+          description:
+            "Project overview video showing Supraja IRIS resort plots at Kamkole, the planned lifestyle destination, project entrance and development environment.",
+          thumbnailUrl: `${SITE_URL}/videos/supraja-iris-hero-poster.webp`,
+          uploadDate: "2026-05-30T11:21:38+05:30",
+          contentUrl: `${SITE_URL}/videos/supraja-iris-hero.webm`,
+          url: `${SITE_URL}/projects/supraja-iris-resort-plots/`,
+          publisher: { "@id": `${SITE_URL}/#organization` },
+          inLanguage: "en-IN",
+        }
+      : null;
+
   return (
     <div className="min-h-screen bg-white">
+      {suprajaIrisVideoSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(suprajaIrisVideoSchema),
+          }}
+        />
+      )}
+
       <Navbar />
 
       <main>
