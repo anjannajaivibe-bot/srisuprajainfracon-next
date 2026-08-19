@@ -58,12 +58,23 @@ export default function ContactPage() {
         },
       },
       {
+        "@type": "BreadcrumbList",
+        "@id": `${SITE_URL}/contact-us/#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+          { "@type": "ListItem", position: 2, name: "Contact", item: `${SITE_URL}/contact-us/` },
+        ],
+      },
+      {
         "@type": "ContactPage",
         "@id": `${SITE_URL}/contact-us/#webpage`,
         url: `${SITE_URL}/contact-us/`,
         name: "Contact Sri Supraja Infracon",
+        isPartOf: { "@id": `${SITE_URL}/#website` },
         about: { "@id": `${SITE_URL}/#organization` },
         mainEntity: { "@id": `${SITE_URL}/#organization` },
+        breadcrumb: { "@id": `${SITE_URL}/contact-us/#breadcrumb` },
+        inLanguage: "en-IN",
       },
     ],
   };
