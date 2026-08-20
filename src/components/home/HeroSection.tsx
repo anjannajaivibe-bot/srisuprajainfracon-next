@@ -58,9 +58,9 @@ const HeroSection = () => {
         </h1>
 
         <p className="mx-auto mb-6 max-w-4xl text-sm leading-6 text-slate-200 sm:mb-8 sm:text-base sm:leading-7 md:text-lg md:leading-relaxed">
-          Meticulously planned plotted projects across Kamkole, Sangareddy,
-          Mominpet and Indrakaran, anchored to infrastructure corridors and
-          engineered for sustained capital appreciation.
+          Explore <strong className="font-semibold text-white">DTCP and RERA approved open plots near Hyderabad</strong> across
+          Kamkole, Sangareddy, Mominpet and Indrakaran, with projects planned
+          around established and emerging infrastructure corridors.
         </p>
 
         <div className="mb-6 flex flex-wrap justify-center gap-2 sm:mb-7 sm:gap-3">

@@ -72,11 +72,11 @@ const FlagshipProject = () => {
           </h2>
 
           <p className="mx-auto mt-5 max-w-3xl text-muted-foreground">
-            Supraja IRIS is a{" "}
-            <strong>resort-style plotted development</strong> at Kamkole near
-            Hyderabad, positioned adjacent to Woxsen University, NH-65,
-            Regional Ring Road influence zones and the NIMZ Zaheerabad growth
-            corridor.
+            <strong>Supraja IRIS</strong> is a{" "}
+            <strong>resort-style plotted development</strong> at{" "}
+            <strong>Kamkole near Hyderabad</strong>, positioned adjacent to Woxsen
+            University, NH-65, Regional Ring Road influence zones and the NIMZ
+            Zaheerabad growth corridor.
           </p>
 
           <div className="mt-5 flex flex-wrap justify-center gap-4 text-sm font-semibold">
