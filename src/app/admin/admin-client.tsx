@@ -120,7 +120,7 @@ export default function AdminClient() {
           const next = { ...current };
           nextLeads.forEach((lead) => {
             if (!(lead.id in next)) {
-              next[lead.id] = lead.notes || "";
+              next[lead.id] = "";
             }
           });
           return next;
@@ -183,13 +183,18 @@ export default function AdminClient() {
   };
 
   const saveNote = async (lead: Lead) => {
-    const draft = noteDrafts[lead.id] ?? lead.notes ?? "";
+    const draft = (noteDrafts[lead.id] || "").trim();
+    if (!draft) return;
+
     setNoteSaveState((current) => ({ ...current, [lead.id]: "saving" }));
 
-    const saved = await updateLead(lead.id, { notes: draft });
+    const timestamp = new Date().toLocaleString();
+    const noteEntry = `[${timestamp}] ${userName}: ${draft}`;
+    const combinedNotes = lead.notes ? `${lead.notes}\n${noteEntry}` : noteEntry;
+    const saved = await updateLead(lead.id, { notes: combinedNotes });
 
     if (saved) {
-      setNoteDrafts((current) => ({ ...current, [lead.id]: draft }));
+      setNoteDrafts((current) => ({ ...current, [lead.id]: "" }));
       setNoteSaveState((current) => ({ ...current, [lead.id]: "saved" }));
       window.setTimeout(() => {
         setNoteSaveState((current) => ({ ...current, [lead.id]: "idle" }));
@@ -458,8 +463,8 @@ export default function AdminClient() {
                     const callUrl = `tel:${lead.phone}`;
                     const whatsappUrl = buildWhatsappUrl(lead.phone, "Hello, this is from Sri Supraja Infracon. Thank you for your enquiry.");
                     const saveState = noteSaveState[lead.id] || "idle";
-                    const draft = noteDrafts[lead.id] ?? lead.notes ?? "";
-                    const hasNoteChanges = draft !== (lead.notes || "");
+                    const draft = noteDrafts[lead.id] || "";
+                    const canSaveNote = draft.trim().length > 0;
 
                     return (
                       <tr key={lead.id} className="border-t align-top">
@@ -512,7 +517,12 @@ export default function AdminClient() {
                         </td>
 
                         <td className="p-4">
-                          <div className="w-64">
+                          <div className="w-72">
+                            {lead.notes && (
+                              <div className="mb-2 max-h-28 overflow-y-auto whitespace-pre-wrap rounded-lg bg-slate-50 p-2 text-xs text-slate-600">
+                                {lead.notes}
+                              </div>
+                            )}
                             <textarea
                               value={draft}
                               onChange={(e) => {
@@ -520,7 +530,7 @@ export default function AdminClient() {
                                 setNoteDrafts((current) => ({ ...current, [lead.id]: value }));
                                 setNoteSaveState((current) => ({ ...current, [lead.id]: "idle" }));
                               }}
-                              placeholder="Add sales notes"
+                              placeholder="Add a new sales note"
                               rows={3}
                               className="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none focus:border-[#C9A227]"
                             />
@@ -528,7 +538,7 @@ export default function AdminClient() {
                               <button
                                 type="button"
                                 onClick={() => saveNote(lead)}
-                                disabled={saveState === "saving" || (!hasNoteChanges && saveState !== "error")}
+                                disabled={saveState === "saving" || !canSaveNote}
                                 className="rounded-lg bg-[#0B1633] px-4 py-2 text-xs font-semibold text-white disabled:cursor-not-allowed disabled:opacity-45"
                               >
                                 {saveState === "saving" ? "Saving..." : "Save Note"}
