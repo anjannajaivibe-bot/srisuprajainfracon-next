@@ -231,27 +231,26 @@ const galleryCategoryMap: Record<string, string[]> = {
 };
 
 const getCardClassName = (index: number, total: number) => {
-  if (index === 0) {
-    return "md:col-span-2 xl:col-span-2";
+  if (total === 7) {
+    if (index === 0) return "md:col-span-2 xl:col-span-4";
+    if (index === 1) return "xl:col-span-2";
+    if (index >= 2 && index <= 4) return "xl:col-span-2";
+    return "xl:col-span-3";
   }
 
-  if (index === total - 1 && total > 5) {
-    return "md:col-span-2 xl:col-span-3";
-  }
-
-  return "";
+  return "xl:col-span-2";
 };
 
 const getImageHeightClassName = (index: number, total: number) => {
-  if (index === 0) {
-    return "h-[360px] md:h-[460px]";
+  if (total === 7 && index === 0) {
+    return "h-[320px] md:h-[380px] xl:h-[400px]";
   }
 
-  if (index === total - 1 && total > 5) {
-    return "h-[300px] md:h-[390px]";
+  if (total === 7 && index === 1) {
+    return "h-[320px] md:h-[340px] xl:h-[400px]";
   }
 
-  return "h-[300px] md:h-[340px]";
+  return "h-[300px] md:h-[340px] xl:h-[350px]";
 };
 
 const ProjectGallery = ({ project }: Props) => {
@@ -301,7 +300,7 @@ const ProjectGallery = ({ project }: Props) => {
           </div>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-6">
           {gallery.map((image, index) => {
             const overlayText =
               galleryOverlayText[project.slug]?.[index] ??
