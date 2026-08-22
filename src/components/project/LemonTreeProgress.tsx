@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const IMAGE = "/api/media/lemon-tree-progress";
+const IMAGE = "/projects/supraja-iris/gallery/lemon-tree-resort-construction-progress-august-2026.webp";
 
 export default function LemonTreeProgress({ compact = false }: { compact?: boolean }) {
   if (compact) {
