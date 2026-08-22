@@ -90,18 +90,18 @@
 
 @layer components {
   .section-padding {
-    padding: 4rem 1rem;
+    padding: 3.5rem 1rem;
   }
 
   @media (min-width: 640px) {
     .section-padding {
-      padding: 5rem 1.5rem;
+      padding: 4rem 1.5rem;
     }
   }
 
   @media (min-width: 1024px) {
     .section-padding {
-      padding: 6rem 2rem;
+      padding: 4.5rem 2rem;
     }
   }
 
@@ -217,6 +217,3 @@
 .legacy-marquee:hover .legacy-marquee-track {
   animation-play-state: paused;
 }
-
-
-
