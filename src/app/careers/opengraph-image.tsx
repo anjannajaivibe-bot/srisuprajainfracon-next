@@ -6,12 +6,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default function Image() {
-  const projectImage = new URL(
-    "/projects/supraja-iris/gallery/supraja-iris-gallery-2.webp",
-    "https://www.srisuprajainfracon.com",
-  ).toString();
-
-  return new ImageResponse(
+return new ImageResponse(
     (
       <div
         style={{
@@ -105,12 +100,41 @@ export default function Image() {
             overflow: "hidden",
           }}
         >
-          <img
-            src={projectImage}
-            width="504"
-            height="630"
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          />
+          <div
+  style={{
+    position: "absolute",
+    inset: 0,
+    display: "flex",
+    background:
+      "radial-gradient(circle at 72% 28%, rgba(240,166,43,0.42) 0%, rgba(240,166,43,0.08) 26%, transparent 48%), linear-gradient(145deg, #10294f 0%, #0b1d38 52%, #06142b 100%)",
+  }}
+/>
+
+<div
+  style={{
+    position: "absolute",
+    width: 280,
+    height: 280,
+    right: -70,
+    top: -50,
+    borderRadius: "50%",
+    border: "2px solid rgba(240,166,43,0.25)",
+    display: "flex",
+  }}
+/>
+
+<div
+  style={{
+    position: "absolute",
+    width: 190,
+    height: 190,
+    right: 55,
+    top: 115,
+    borderRadius: "50%",
+    border: "2px solid rgba(255,255,255,0.12)",
+    display: "flex",
+  }}
+/>
           <div
             style={{
               position: "absolute",
