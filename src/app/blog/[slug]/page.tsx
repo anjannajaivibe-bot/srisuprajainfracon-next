@@ -10,6 +10,18 @@ import { extractFaqSchema } from "@/lib/blog-schema";
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
 const SITE_URL = "https://www.srisuprajainfracon.com";
 
+const CONSOLIDATED_BLOG_DESTINATIONS: Record<string, string> = {
+  "open-plots-in-hyderabad": "/open-plots-and-resorts-in-hyderabad",
+  "best-open-plots-in-hyderabad-for-sale": "/open-plots-and-resorts-in-hyderabad",
+  "top-open-plots-resorts-hyderabad": "/open-plots-and-resorts-in-hyderabad",
+  "best-open-plots-resorts-in-hyderabad": "/open-plots-and-resorts-in-hyderabad",
+  "dtcp-approved-plots-in-hyderabad": "/blog/dtcp-rera-approved-plots-in-hyderabad",
+};
+
+const CONSOLIDATED_BLOG_SLUGS = new Set(
+  Object.keys(CONSOLIDATED_BLOG_DESTINATIONS)
+);
+
 type BlogPost = {
   slug: string;
   title: string;
@@ -48,7 +60,11 @@ function sanitizeBlogContent(content = "") {
     .replace(/https?:\/\/(?:www\.)?suprajairis\.com\/?/gi, `${SITE_URL}/projects/supraja-iris-resort-plots`)
     .replace(/https?:\/\/(?:www\.)?srisuprajainfracon\.com/gi, SITE_URL)
     .replace(new RegExp(`href=["']${SITE_URL.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}([^"']*)["']`, "gi"), (_match, pathValue) => `href="${pathValue || "/"}"`)
-    .replace(/href=["']\/((?:best-plots-in-hyderabad|dtcp-approved-plots-in-hyderabad|top-open-plots-resorts-hyderabad|best-open-plots-resorts-in-hyderabad|rera-approved-plots-hyderabad-guide|hyderabad-real-estate-market-trends-2025|hyderabad-investment-areas|plots-near-orr-hyderabad)\/?)["']/gi, (_match, legacySlug) => `href="/blog/${legacySlug.replace(/\/$/, "")}"`)
+    .replace(
+      /href=["']\/(?:blog\/)?(open-plots-in-hyderabad|best-open-plots-in-hyderabad-for-sale|top-open-plots-resorts-hyderabad|best-open-plots-resorts-in-hyderabad|dtcp-approved-plots-in-hyderabad)\/?["']/gi,
+      (_match, slug) => `href="${CONSOLIDATED_BLOG_DESTINATIONS[slug]}"`
+    )
+    .replace(/href=["']\/((?:best-plots-in-hyderabad|rera-approved-plots-hyderabad-guide|hyderabad-real-estate-market-trends-2025|hyderabad-investment-areas|plots-near-orr-hyderabad)\/?)["']/gi, (_match, legacySlug) => `href="/blog/${legacySlug.replace(/\/$/, "")}"`)
     .replace(/href=["'](\/(?!$|#)[^"'#?]+)\/["']/gi, (_match, internalPath) => `href="${internalPath}"`)
     .replace(/\/about\/wp-content\/uploads\/2025\/12\/A03-1-1024x576\.webp/gi, "/uploads/blog/plots-near-orr-hyderabad-2di86icu.webp")
     .replace(/\/uploads\/blog\/rera-hmda-dtcp-comparison\.webp/gi, "/uploads/blog/hmda-vs-dtcp-vs-rera.webp")
@@ -154,7 +170,11 @@ function getRelatedPosts(currentPost: BlogPost): BlogPost[] {
     .map((file) =>
       JSON.parse(fs.readFileSync(path.join(BLOG_DIR, file), "utf8"))
     )
-    .filter((post) => post.slug !== currentPost.slug)
+    .filter(
+      (post) =>
+        post.slug !== currentPost.slug &&
+        !CONSOLIDATED_BLOG_SLUGS.has(post.slug)
+    )
     .map((post) => {
       const sharedKeywords = [...getRelatedKeywords(post)].filter((keyword) =>
         currentKeywords.has(keyword)
