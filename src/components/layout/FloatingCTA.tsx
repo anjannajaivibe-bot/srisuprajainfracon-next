@@ -5,15 +5,16 @@ import { MessageCircle, Phone } from "lucide-react";
 
 const defaultPhoneNumber = "+919052996161";
 const careersPhoneNumber = "+919640753929";
+const defaultWhatsappUrl =
+  "https://wa.me/919052996161?text=Hi%2C%20May%20I%20know%20more%20details%20about%20the%20project%3F";
+const careersWhatsappUrl =
+  "https://wa.me/919640753929?text=Hi%2C%20I%20am%20interested%20in%20joining%20Sri%20Supraja%20Infracon%20as%20a%20channel%20partner.%20Please%20share%20the%20details.";
 
 export default function FloatingCTA() {
   const pathname = usePathname() || "";
   const isCareers = pathname.startsWith("/careers");
   const phoneNumber = isCareers ? careersPhoneNumber : defaultPhoneNumber;
-  const whatsappText = isCareers
-    ? "Hi, I am interested in joining Sri Supraja Infracon as a channel partner. Please share the details."
-    : "Hi, May I Know More Details about the project?";
-  const whatsappUrl = `https://wa.me/${phoneNumber.replace(/\D/g, "")}?text=${encodeURIComponent(whatsappText)}`;
+  const whatsappUrl = isCareers ? careersWhatsappUrl : defaultWhatsappUrl;
 
   return (
     <div className="fixed bottom-5 right-5 z-[9999] flex flex-col gap-4">
