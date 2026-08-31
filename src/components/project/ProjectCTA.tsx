@@ -6,6 +6,8 @@ type Props = {
 };
 
 const PHONE_NUMBER = "919052996161";
+const WHATSAPP_URL =
+  "https://wa.me/919052996161?text=Hi%2C%20May%20I%20know%20more%20details%20about%20the%20project%3F";
 
 const ctaCopy: Record<
   string,
@@ -92,8 +94,6 @@ const ProjectCTA = ({ project }: Props) => {
   const copy = ctaCopy[project.slug] ?? fallbackCopy;
   const guides = projectGuides[project.slug] ?? [];
 
-  const whatsappMessage = `Hello, I would like to know more about ${project.title}. Please share current availability, pricing, location details, and site visit options.`;
-
   return (
     <section className="bg-slate-950 px-6 py-20 text-white">
       <div className="mx-auto max-w-5xl text-center">
@@ -118,9 +118,7 @@ const ProjectCTA = ({ project }: Props) => {
           </a>
 
           <a
-            href={`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(
-              whatsappMessage
-            )}`}
+            href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-full border border-amber-400 px-8 py-4 text-amber-300 transition hover:bg-amber-400 hover:text-slate-950"
