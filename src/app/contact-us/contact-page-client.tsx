@@ -5,6 +5,9 @@ import Link from "next/link";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import heroBg from "@/assets/hero-bg.webp";
 
+const WHATSAPP_URL =
+  "https://wa.me/919052996161?text=Hi%2C%20May%20I%20know%20more%20details%20about%20the%20project%3F";
+
 export default function ContactPageClient() {
   return (
     <div className="min-h-screen bg-[#F8F6F1]">
@@ -86,7 +89,7 @@ export default function ContactPageClient() {
 
             <div className="mt-8 flex flex-wrap gap-4">
               <a
-                href="https://wa.me/919052996161?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20Sri%20Supraja%20Infracon%20projects."
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 font-bold text-white transition hover:scale-105"
