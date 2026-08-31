@@ -74,18 +74,6 @@ const structuredData = {
       inLanguage: "en-IN",
     },
     {
-      "@type": "Organization",
-      "@id": `${SITE_URL}/#organization`,
-      name: "Sri Supraja Infracon",
-      url: SITE_URL,
-      contactPoint: {
-        "@type": "ContactPoint",
-        telephone: PHONE_NUMBER,
-        contactType: "channel partner enquiries",
-        availableLanguage: ["English", "Telugu", "Hindi"],
-      },
-    },
-    {
       "@type": "BreadcrumbList",
       "@id": `${SITE_URL}/careers#breadcrumb`,
       itemListElement: [

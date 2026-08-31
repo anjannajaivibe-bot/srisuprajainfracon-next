@@ -207,6 +207,7 @@ const ProjectFAQ = ({ project }: Props) => {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "@id": `https://www.srisuprajainfracon.com/projects/${project.slug}/#faq`,
     mainEntity: faqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,

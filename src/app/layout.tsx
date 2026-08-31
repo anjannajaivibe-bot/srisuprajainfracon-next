@@ -5,6 +5,7 @@ import { DM_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 import SiteShell from "@/components/layout/SiteShell";
+import { organizationEntity, websiteEntity } from "@/seo/schema";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -88,9 +89,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const globalSchema = {
+    "@context": "https://schema.org",
+    "@graph": [organizationEntity, websiteEntity],
+  };
+
   return (
     <html lang="en-IN">
       <body className={`${dmSans.variable} ${playfair.variable}`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(globalSchema).replace(/</g, "\\u003c"),
+          }}
+        />
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-PFM9PPT3"

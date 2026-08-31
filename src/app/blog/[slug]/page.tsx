@@ -276,6 +276,7 @@ export default async function BlogDetailPage({
     : `${SITE_URL}/og-image.jpg`;
 
   const readingTime = calculateReadingTime(cleanPostContent);
+  const wordCount = stripHtml(cleanPostContent).split(/\s+/).filter(Boolean).length;
   const category = post.category || "Investment Guide";
 
   const formattedDate = new Date(post.date).toLocaleDateString("en-IN", {
@@ -295,22 +296,19 @@ export default async function BlogDetailPage({
 
   const articleSchema = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
+    "@id": `${canonical}#article`,
     headline: title,
     description,
     image: [image],
     author: {
       "@type": "Organization",
+      "@id": `${SITE_URL}/#editorial-team`,
       name: "Sri Supraja Infracon Editorial Team",
       url: SITE_URL,
     },
     publisher: {
-      "@type": "Organization",
-      name: "Sri Supraja Infracon",
-      logo: {
-        "@type": "ImageObject",
-        url: `${SITE_URL}/og-image.jpg`,
-      },
+      "@id": `${SITE_URL}/#organization`,
     },
     datePublished: post.date,
     dateModified: post.modified || post.date,
@@ -318,6 +316,11 @@ export default async function BlogDetailPage({
       "@type": "WebPage",
       "@id": canonical,
     },
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    inLanguage: "en-IN",
+    articleSection: category,
+    keywords: [...getRelatedKeywords(post)].join(", "),
+    wordCount,
   };
 
   const breadcrumbSchema = {

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ProjectDetail from "@/pages/ProjectDetail";
-import { siteMeta } from "@/seo/meta";
 
 type ProjectSlug =
   | "supraja-iris-resort-plots"
@@ -32,6 +31,8 @@ type ProjectSeo = {
   description: string;
   ogImage: string;
   location: string;
+  latitude: number;
+  longitude: number;
   projectName: string;
   approval: string;
   approvalDetail?: ApprovalDetail;
@@ -50,6 +51,8 @@ const projectSeo: Record<ProjectSlug, ProjectSeo> = {
       "Explore DTCP & RERA Approved Resort Plots Near Hyderabad at Supraja IRIS Kamkole with Lemon Tree Resort under construction, planned water villas and NH-65 growth corridor access.",
     ogImage: `${SITE_URL}/og/supraja-iris-og.webp`,
     location: "Marpalle, Vikarabad, Telangana",
+    latitude: 17.631095215457595,
+    longitude: 77.79124881460227,
     projectName: "Supraja IRIS",
     approval: "DTCP & RERA Approved",
     approvalDetail: {
@@ -97,6 +100,8 @@ const projectSeo: Record<ProjectSlug, ProjectSeo> = {
       "Explore DTCP & RERA Approved Luxury Plots at Kamkole in Bridge County by Sri Supraja Infracon near Woxsen University, NH-65 and Hyderabad growth corridors.",
     ogImage: `${SITE_URL}/og/bridge-county-og.webp`,
     location: "Kamkole, Telangana",
+    latitude: 17.6377793524897,
+    longitude: 77.79436807688003,
     projectName: "Bridge County",
     approval: "DTCP & RERA Approved",
     approvalDetail: {
@@ -143,6 +148,8 @@ const projectSeo: Record<ProjectSlug, ProjectSeo> = {
       "Explore Sindhu Sarovar open plots in Mominpet with documented project approval references, gated community infrastructure and plotted development planning by Sri Supraja Infracon.",
     ogImage: `${SITE_URL}/og/sindhu-sarovar-og.webp`,
     location: "Mominpet, Telangana",
+    latitude: 17.50216579948956,
+    longitude: 77.87623247462946,
     projectName: "Sindhu Sarovar",
     approval: "Documented DTCP & RERA project records",
     approvalDetail: {
@@ -189,6 +196,8 @@ const projectSeo: Record<ProjectSlug, ProjectSeo> = {
       "Explore Affordable Open Plots Near ORR Hyderabad at Subhash Meadows Indrakaran with planned roads, Vastu layout, drainage, avenue plantation and access to IIT Hyderabad, BHEL and Sangareddy.",
     ogImage: `${SITE_URL}/og/subhash-meadows-og.webp`,
     location: "Indrakaran, Telangana",
+    latitude: 17.524786798833457,
+    longitude: 78.16053747462993,
     projectName: "Subhash Meadows",
     approval: "Planned Open Plot Development",
     keywords: [
@@ -306,13 +315,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         ],
       },
       {
-        "@type": "Organization",
-        "@id": `${SITE_URL}/#organization`,
-        name: "Sri Supraja Infracon",
-        url: SITE_URL,
-        logo: { "@type": "ImageObject", url: `${siteMeta.domain}${siteMeta.logo}` },
-      },
-      {
         "@type": "Place",
         "@id": `${canonical}#place`,
         name: project.projectName,
@@ -323,6 +325,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           "@type": "PostalAddress",
           addressLocality: project.location,
           addressCountry: "IN",
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: project.latitude,
+          longitude: project.longitude,
         },
         additionalProperty: approvalProperties(project),
         subjectOf: {
@@ -354,15 +361,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           height: 630,
           caption: `${project.focusKeyword} - ${project.projectName}`,
         },
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${canonical}#faq`,
-        mainEntity: project.faqs.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: { "@type": "Answer", text: faq.answer },
-        })),
       },
     ],
   };

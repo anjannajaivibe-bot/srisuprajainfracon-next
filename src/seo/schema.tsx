@@ -1,16 +1,57 @@
 import { siteMeta } from "@/seo/meta";
 import { projects } from "@/data/projects";
 
-export const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
+export const organizationEntity = {
+  "@type": ["Organization", "Corporation", "LocalBusiness"],
   "@id": `${siteMeta.domain}/#organization`,
   name: "Sri Supraja Infracon",
-  url: siteMeta.domain,
+  alternateName: "Supraja Infracon",
+  legalName: "Sri Supraja Infracon",
+  url: `${siteMeta.domain}/`,
+  image: `${siteMeta.domain}${siteMeta.defaultImage}`,
   logo: {
     "@type": "ImageObject",
     url: `${siteMeta.domain}${siteMeta.logo}`,
   },
+  email: "info@srisuprajainfracon.com",
+  telephone: "+91 90529 96161",
+  description:
+    "Sri Supraja Infracon is a real estate developer, land developer and project developer creating plotted, residential, villa and resort-inspired developments across Hyderabad growth corridors.",
+  publishingPrinciples: `${siteMeta.domain}/editorial-policy/`,
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+91 90529 96161",
+    email: "info@srisuprajainfracon.com",
+    contactType: "customer service",
+    areaServed: "IN",
+    availableLanguage: ["English", "Telugu", "Hindi"],
+  },
+  knowsAbout: [
+    "Real estate development", "Land development", "Project development",
+    "Plotted development", "Residential development",
+    "Resort-inspired plotted development", "DTCP layout approvals",
+    "Telangana RERA project information",
+  ],
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "H.No. 4-91, Above Parampara Mithai, Chandanagar",
+    addressLocality: "Hyderabad",
+    addressRegion: "Telangana",
+    postalCode: "500050",
+    addressCountry: "IN",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 17.4950506675388,
+    longitude: 78.32710481827314,
+  },
+  areaServed: ["Hyderabad", "Kamkole", "Sangareddy", "Mominpet", "Indrakaran", "Telangana"],
+  openingHoursSpecification: [{
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    opens: "09:00",
+    closes: "18:00",
+  }],
   parentOrganization: {
     "@type": "Organization",
     name: "Supraja Group",
@@ -18,15 +59,25 @@ export const organizationSchema = {
   sameAs: siteMeta.socialProfiles,
 };
 
-export const websiteSchema = {
+export const organizationSchema = {
   "@context": "https://schema.org",
+  ...organizationEntity,
+};
+
+export const websiteEntity = {
   "@type": "WebSite",
   "@id": `${siteMeta.domain}/#website`,
   name: "Sri Supraja Infracon",
-  url: siteMeta.domain,
+  alternateName: "Supraja Infracon",
+  url: `${siteMeta.domain}/`,
   publisher: {
     "@id": `${siteMeta.domain}/#organization`,
   },
+};
+
+export const websiteSchema = {
+  "@context": "https://schema.org",
+  ...websiteEntity,
 };
 
 export const realEstateSchema = {
@@ -93,7 +144,6 @@ export const faqSchema = (
     },
   })),
 });
-
 
 
 

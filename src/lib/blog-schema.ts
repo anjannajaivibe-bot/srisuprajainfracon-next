@@ -7,17 +7,24 @@ export function extractFaqSchema(content: string) {
     /<h[2-3][^>]*>(.*?)<\/h[2-3]>\s*<p[^>]*>(.*?)<\/p>/gi;
 
   const faqs = [];
+  const seen = new Set<string>();
   let match;
 
   while ((match = faqRegex.exec(content)) !== null) {
-    const question = stripHtml(match[1]);
+    const question = stripHtml(match[1]).replace(
+      /^(?:frequently asked questions|faqs?)\s*/i,
+      ""
+    );
     const answer = stripHtml(match[2]);
+    const key = question.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 
     if (
       question.length > 10 &&
       answer.length > 20 &&
-      question.toLowerCase().includes("?")
+      question.includes("?") &&
+      !seen.has(key)
     ) {
+      seen.add(key);
       faqs.push({
         "@type": "Question",
         name: question,
@@ -37,7 +44,6 @@ export function extractFaqSchema(content: string) {
     mainEntity: faqs,
   };
 }
-
 
 
 

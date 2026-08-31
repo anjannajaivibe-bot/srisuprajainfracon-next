@@ -182,7 +182,7 @@ export const projectContent = {
       {
         question: "Is Sindhu Sarovar RERA approved?",
         answer:
-          "Yes. The project RERA number is P02100003339.",
+          "The reviewed Phase 2 record references RERA number P02100009951. Buyers should verify any extension or current registration status directly with TG RERA before purchase.",
       },
       {
         question: "What plot sizes are available in Sindhu Sarovar?",
@@ -259,7 +259,6 @@ export const projectContent = {
 };
 
 export type ProjectContentKey = keyof typeof projectContent;
-
 
 
 

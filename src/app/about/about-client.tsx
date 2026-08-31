@@ -123,22 +123,6 @@ const milestones = [
   },
 ];
 
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Sri Supraja Infracon",
-  url: "https://www.srisuprajainfracon.com",
-  logo: "https://www.srisuprajainfracon.com/logo.png",
-  description:
-    "Sri Supraja Infracon develops DTCP and RERA approved open plot communities near Hyderabad growth corridors.",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Hyderabad",
-    addressRegion: "Telangana",
-    addressCountry: "India",
-  },
-};
-
 export default function AboutClient() {
   const awardsScrollRef = useRef<HTMLDivElement>(null);
 
@@ -153,11 +137,6 @@ export default function AboutClient() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
-
       <div className="min-h-screen bg-[#F8F6F1]">
         <section className="relative overflow-hidden pb-24 pt-32 lg:pb-28">
           <div

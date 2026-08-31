@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { siteMeta } from "@/seo/meta";
 import HomeClient from "./home-client";
 
 const SITE_URL = "https://www.srisuprajainfracon.com";
@@ -44,82 +43,6 @@ export default function HomePage() {
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": ["Organization", "Corporation", "LocalBusiness"],
-        "@id": `${SITE_URL}/#organization`,
-        name: "Sri Supraja Infracon",
-        alternateName: "Supraja Infracon",
-        legalName: "Sri Supraja Infracon",
-        url: `${SITE_URL}/`,
-        image: `${SITE_URL}/og/home-og.webp`,
-        logo: {
-          "@type": "ImageObject",
-          url: `${siteMeta.domain}${siteMeta.logo}`,
-        },
-        email: "info@srisuprajainfracon.com",
-        telephone: "+91 90529 96161",
-        description:
-          "Sri Supraja Infracon is a real estate developer, land developer and project developer creating plotted, residential, villa and resort-inspired developments across Hyderabad growth corridors.",
-        publishingPrinciples: `${SITE_URL}/editorial-policy/`,
-        contactPoint: {
-          "@type": "ContactPoint",
-          telephone: "+91 90529 96161",
-          email: "info@srisuprajainfracon.com",
-          contactType: "customer service",
-          areaServed: "IN",
-          availableLanguage: ["English", "Telugu", "Hindi"],
-        },
-        knowsAbout: [
-          "Real estate development",
-          "Land development",
-          "Project development",
-          "Plotted development",
-          "Residential development",
-          "Resort-inspired plotted development",
-          "DTCP layout approvals",
-          "Telangana RERA project information",
-        ],
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "H.No. 4-91, Above Parampara Mithai, Chandanagar",
-          addressLocality: "Hyderabad",
-          addressRegion: "Telangana",
-          postalCode: "500050",
-          addressCountry: "IN",
-        },
-        geo: {
-          "@type": "GeoCoordinates",
-          latitude: 17.494642678754836,
-          longitude: 78.3263364719618,
-        },
-        areaServed: [
-          "Hyderabad",
-          "Kamkole",
-          "Sangareddy",
-          "Mominpet",
-          "Indrakaran",
-          "Telangana",
-        ],
-        openingHoursSpecification: [
-          {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-            opens: "09:00",
-            closes: "18:00",
-          },
-        ],
-        sameAs: siteMeta.socialProfiles,
-      },
-      {
-        "@type": "WebSite",
-        "@id": `${SITE_URL}/#website`,
-        url: `${SITE_URL}/`,
-        name: "Sri Supraja Infracon",
-        alternateName: "Supraja Infracon",
-        publisher: {
-          "@id": `${SITE_URL}/#organization`,
-        },
-      },
       {
         "@type": "WebPage",
         "@id": `${SITE_URL}/#webpage`,

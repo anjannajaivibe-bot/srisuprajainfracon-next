@@ -31,33 +31,6 @@ export default function ContactPage() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": ["Organization", "Corporation"],
-        "@id": `${SITE_URL}/#organization`,
-        name: "Sri Supraja Infracon",
-        legalName: "Sri Supraja Infracon",
-        url: `${SITE_URL}/`,
-        telephone: "+91 90529 96161",
-        email: "info@srisuprajainfracon.com",
-        description:
-          "Sri Supraja Infracon is a real estate developer, land developer and project developer focused on plotted, residential, villa and resort-inspired developments in Telangana growth corridors.",
-        areaServed: [
-          "Hyderabad",
-          "Kamkole",
-          "Sangareddy",
-          "Mominpet",
-          "Indrakaran",
-          "Telangana",
-        ],
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "H.No. 4-91, Above Parampara Mithai, Chandanagar",
-          addressLocality: "Hyderabad",
-          postalCode: "500050",
-          addressRegion: "Telangana",
-          addressCountry: "IN",
-        },
-      },
-      {
         "@type": "BreadcrumbList",
         "@id": `${SITE_URL}/contact-us/#breadcrumb`,
         itemListElement: [
