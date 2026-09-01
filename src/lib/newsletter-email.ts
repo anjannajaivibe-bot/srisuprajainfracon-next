@@ -11,8 +11,10 @@ const escapeHtml = (value: string) =>
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
+    .replace(/\"/g, "&quot;")
     .replace(/'/g, "&#039;");
+
+const nl2br = (value: string) => escapeHtml(value).replace(/\n/g, "<br />");
 
 export const newsletterEmailConfigured = () =>
   Boolean(process.env.RESEND_API_KEY && process.env.NEWSLETTER_FROM_EMAIL);
@@ -125,6 +127,67 @@ export async function sendBlogNotificationEmail({
           You received this because you subscribed to Sri Supraja Infracon updates.
           <a href="${unsubscribeUrl}" style="color:#6b5a27">Unsubscribe</a>
         </p>
+      </div>
+    `,
+  });
+}
+
+export async function sendSubscriberUpdateEmail({
+  email,
+  name,
+  unsubscribeToken,
+  subject,
+  message,
+  imageUrl,
+  buttonLabel,
+  buttonUrl,
+  updateId,
+}: {
+  email: string;
+  name: string;
+  unsubscribeToken: string;
+  subject: string;
+  message: string;
+  imageUrl?: string;
+  buttonLabel?: string;
+  buttonUrl?: string;
+  updateId: string;
+}) {
+  const baseUrl = getBaseUrl();
+  const unsubscribeUrl = `${baseUrl}/api/newsletter/unsubscribe?token=${encodeURIComponent(
+    unsubscribeToken,
+  )}`;
+  const greeting = name ? `Hello ${escapeHtml(name)},` : "Hello,";
+  const safeImage = imageUrl ? escapeHtml(imageUrl) : "";
+  const safeButtonUrl = buttonUrl ? escapeHtml(buttonUrl) : "";
+
+  await sendEmail({
+    to: email,
+    subject,
+    idempotencyKey: `newsletter-update-${updateId}-${unsubscribeToken}`.slice(0, 250),
+    html: `
+      <div style="background:#f5f7fa;padding:24px 12px;font-family:Arial,sans-serif;color:#1f2937;line-height:1.65">
+        <div style="max-width:640px;margin:0 auto;background:#ffffff;border:1px solid #e5e7eb;border-radius:18px;overflow:hidden">
+          <div style="background:#0B1633;padding:22px 28px">
+            <div style="font-size:12px;text-transform:uppercase;letter-spacing:1.7px;color:#E0B84B;font-weight:700">Sri Supraja Infracon</div>
+            <div style="margin-top:5px;font-size:13px;color:#d8deea">Subscriber Update</div>
+          </div>
+          ${safeImage ? `<img src="${safeImage}" alt="Sri Supraja Infracon update" width="640" style="display:block;width:100%;height:auto;max-height:420px;object-fit:cover" />` : ""}
+          <div style="padding:28px">
+            <p style="margin:0 0 14px;color:#64748b;font-size:14px">${greeting}</p>
+            <h1 style="margin:0 0 16px;font-size:27px;line-height:1.25;color:#0B1633">${escapeHtml(subject)}</h1>
+            <div style="font-size:16px;color:#334155">${nl2br(message)}</div>
+            ${
+              safeButtonUrl && buttonLabel
+                ? `<p style="margin:28px 0 6px"><a href="${safeButtonUrl}" style="display:inline-block;background:#C9A227;color:#0B1633;text-decoration:none;padding:13px 22px;border-radius:10px;font-weight:700">${escapeHtml(buttonLabel)}</a></p>`
+                : ""
+            }
+          </div>
+          <div style="border-top:1px solid #e5e7eb;padding:18px 28px 24px;color:#78827d;font-size:12px">
+            You received this because you subscribed to Sri Supraja Infracon updates.
+            <a href="${unsubscribeUrl}" style="color:#7b640f">Unsubscribe</a>
+          </div>
+        </div>
       </div>
     `,
   });
