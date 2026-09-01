@@ -14,6 +14,7 @@ export const maxDuration = 60;
 
 const REPOSITORY = "anjannajaivibe-bot/srisuprajainfracon-next";
 const STATE_BUCKET = "newsletter-system";
+const MAX_COMMIT_AGE_MS = 2 * 60 * 60 * 1000;
 
 const payloadSchema = z.object({
   before: z.string().regex(/^[0-9a-f]{40}$/i),
@@ -62,6 +63,9 @@ const cleanText = (value = "") =>
     .replace(/&hellip;/gi, "...")
     .replace(/\s+/g, " ")
     .trim();
+
+const pauseForEmailRateLimit = () =>
+  new Promise((resolve) => setTimeout(resolve, 550));
 
 async function ensureStateBucket() {
   const { data } = await supabaseAdmin.storage.getBucket(STATE_BUCKET);
@@ -140,6 +144,20 @@ export async function POST(request: NextRequest) {
   try {
     const { before, after } = payloadSchema.parse(await request.json());
 
+    const commit = await githubJson<{
+      commit?: { committer?: { date?: string } };
+    }>(`https://api.github.com/repos/${REPOSITORY}/commits/${after}`);
+    const commitDate = commit.commit?.committer?.date
+      ? new Date(commit.commit.committer.date).getTime()
+      : 0;
+
+    if (!commitDate || Math.abs(Date.now() - commitDate) > MAX_COMMIT_AGE_MS) {
+      return NextResponse.json(
+        { success: false, error: "Notification request is outside the allowed publish window." },
+        { status: 403 },
+      );
+    }
+
     const ancestry = await githubJson<{
       merge_base_commit?: { sha?: string };
     }>(`https://api.github.com/repos/${REPOSITORY}/compare/${after}...master`);
@@ -186,6 +204,10 @@ export async function POST(request: NextRequest) {
       throw new Error(`Unable to load subscribers: ${subscriberError.message}`);
     }
 
+    const deliverableSubscribers = (subscribers || []).filter(
+      (subscriber) => Boolean(subscriber.id && subscriber.email),
+    );
+
     for (const filename of blogFiles) {
       const blogResponse = await fetch(
         `https://raw.githubusercontent.com/${REPOSITORY}/${after}/${filename}`,
@@ -204,8 +226,9 @@ export async function POST(request: NextRequest) {
       if (!slug || state.completed.includes(slug)) continue;
       state.sent[slug] ||= [];
 
-      for (const subscriber of subscribers || []) {
-        if (!subscriber.email || state.sent[slug].includes(subscriber.id)) continue;
+      for (let index = 0; index < deliverableSubscribers.length; index += 1) {
+        const subscriber = deliverableSubscribers[index];
+        if (state.sent[slug].includes(subscriber.id)) continue;
 
         let unsubscribeToken = subscriber.unsubscribe_token as string | null;
         if (!unsubscribeToken) {
@@ -243,9 +266,13 @@ export async function POST(request: NextRequest) {
             error: error instanceof Error ? error.message : "Email delivery failed",
           });
         }
+
+        if (index < deliverableSubscribers.length - 1) {
+          await pauseForEmailRateLimit();
+        }
       }
 
-      const expectedIds = (subscribers || []).map((subscriber) => subscriber.id);
+      const expectedIds = deliverableSubscribers.map((subscriber) => subscriber.id);
       if (expectedIds.every((id) => state.sent[slug].includes(id))) {
         state.completed.push(slug);
       }
