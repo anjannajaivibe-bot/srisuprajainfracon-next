@@ -1,0 +1,55 @@
+name: Notify Blog Subscribers
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "content/blog/*.json"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: blog-subscriber-notification-${{ github.sha }}
+  cancel-in-progress: false
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+
+    steps:
+      - name: Wait for production deployment
+        run: sleep 150
+
+      - name: Notify active newsletter subscribers
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          AFTER_SHA: ${{ github.sha }}
+        run: |
+          payload=$(printf '{"before":"%s","after":"%s"}' "$BEFORE_SHA" "$AFTER_SHA")
+
+          for attempt in 1 2 3 4 5; do
+            echo "Notification attempt $attempt of 5"
+
+            if response=$(curl \
+              --silent \
+              --show-error \
+              --fail-with-body \
+              --max-time 65 \
+              --request POST \
+              --header "Content-Type: application/json" \
+              --data "$payload" \
+              "https://www.srisuprajainfracon.com/api/newsletter/notify-blog"); then
+              echo "$response"
+              exit 0
+            fi
+
+            if [ "$attempt" -lt 5 ]; then
+              sleep 30
+            fi
+          done
+
+          echo "Subscriber notification failed after all retries."
+          exit 1
