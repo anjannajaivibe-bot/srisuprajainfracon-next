@@ -51,7 +51,7 @@ export default function OpenPlotsResortsClient() {
             Open Plots Near Hyderabad
           </h1>
           <p className="mt-7 max-w-4xl text-lg leading-relaxed text-slate-200">
-            Compare Sri Supraja Infracon plotted developments across Kamkole,
+            Compare <strong className="font-semibold text-white">open plots and resort-style projects near Hyderabad</strong> across Kamkole,
             Mominpet, Indrakaran and nearby growth corridors. Review project
             locations, approval details, infrastructure context and direct links
             to each project before planning a site visit.
@@ -85,15 +85,15 @@ export default function OpenPlotsResortsClient() {
             <div className="mt-8 space-y-6 text-lg leading-relaxed text-[#4B5563]">
               <p>
                 A useful comparison starts with the project itself, not with a
-                broad promise about future returns. Buyers should review the
-                applicable layout approval, RERA registration where relevant,
-                survey details, access roads, current development status and the
-                intended use of the plot.
+                broad promise about future returns. Buyers considering <strong className="font-semibold text-[#111827]">DTCP approved plots near Hyderabad</strong> should
+                review the applicable layout approval, RERA registration where
+                relevant, survey details, access roads, current development status
+                and the intended use of the plot.
               </p>
               <p>
-                Location should then be evaluated in context. Kamkole and the
-                Sadashivapet side of the NH-65 corridor are influenced by
-                educational, hospitality and regional infrastructure activity.
+                Location should then be evaluated in context. Buyers looking at
+                <strong className="font-semibold text-[#111827]"> open plots in Kamkole</strong> should consider the Sadashivapet side of the NH-65 corridor,
+                nearby education and hospitality activity, and actual road access.
                 Mominpet and Indrakaran serve different buyer requirements, so
                 price alone is not a meaningful way to compare them.
               </p>
