@@ -11,6 +11,7 @@ const consolidatedBlogSlugs = new Set([
   "top-open-plots-resorts-hyderabad",
   "best-open-plots-resorts-in-hyderabad",
   "dtcp-approved-plots-in-hyderabad",
+  "kamkole-real-estate-investment-guide",
 ]);
 
 export default function sitemap(): MetadataRoute.Sitemap {
