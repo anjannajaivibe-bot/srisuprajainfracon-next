@@ -77,6 +77,10 @@ const ProjectDetail = ({ slug }: { slug: string }) => {
     projectContent[project.slug as ProjectContentKey] ||
     projectContent["supraja-iris-resort-plots"];
 
+  const isKamkoleCorridor =
+    project.slug === "supraja-iris-resort-plots" ||
+    project.slug === "bridge-county";
+
   const suprajaIrisVideoSchema =
     project.slug === "supraja-iris-resort-plots"
       ? {
@@ -122,6 +126,40 @@ const ProjectDetail = ({ slug }: { slug: string }) => {
         )}
 
         <ProjectFAQ project={project} />
+
+        <section className="border-y border-slate-200 bg-[#F8F6F1] px-6 py-12">
+          <div className="mx-auto max-w-6xl rounded-[28px] border border-[#DED4BD] bg-white p-7 md:p-9">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#8A6A26]">
+              Compare before you decide
+            </p>
+            <h2 className="mt-3 text-2xl font-bold text-[#17211B] md:text-3xl">
+              Compare Sri Supraja plotted developments across Hyderabad growth corridors
+            </h2>
+            <p className="mt-4 max-w-4xl leading-7 text-slate-600">
+              Review current projects together by location, applicable approvals and development context before shortlisting a site visit.
+              {isKamkoleCorridor
+                ? " For Kamkole projects, the Sadashivapet and NH-65 corridor guide adds useful location context."
+                : " The Hyderabad plots comparison page helps place this project alongside Sri Supraja's other plotted developments."}
+            </p>
+            <div className="mt-6 flex flex-wrap gap-4">
+              <Link
+                href="/open-plots-and-resorts-in-hyderabad"
+                className="rounded-full bg-[#10251D] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#8A6A26]"
+              >
+                Compare Current Plotted Developments
+              </Link>
+              {isKamkoleCorridor && (
+                <Link
+                  href="/blog/kamkole-real-estate-investment-hotspot"
+                  className="rounded-full border border-[#CDBD98] bg-white px-5 py-3 text-sm font-semibold text-[#17211B] transition hover:border-[#8A6A26]"
+                >
+                  Read Kamkole & NH-65 Location Guide
+                </Link>
+              )}
+            </div>
+          </div>
+        </section>
+
         <ProjectCTA project={project} />
       </main>
     </div>
