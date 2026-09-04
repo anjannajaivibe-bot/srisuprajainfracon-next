@@ -4,18 +4,18 @@ import OpenPlotsResortsClient from "./OpenPlotsResortsClient";
 const SITE_URL = "https://www.srisuprajainfracon.com";
 const canonical = `${SITE_URL}/open-plots-and-resorts-in-hyderabad/`;
 const pageTitle =
-  "Open Plots Near Hyderabad | DTCP & RERA Approved Projects";
+  "Open Plots in Hyderabad for Sale | DTCP & RERA Approved";
 const pageDescription =
-  "Explore open plots near Hyderabad across Kamkole, Mominpet and Sangareddy corridors. Compare Sri Supraja Infracon projects with DTCP and RERA details, locations and project-specific information.";
+  "Explore open plots in Hyderabad for sale from Sri Supraja Infracon. Compare DTCP and RERA approved plotted projects across Kamkole, Sadashivapet, Mominpet and the western Hyderabad growth corridors.";
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical },
   openGraph: {
-    title: "Open Plots Near Hyderabad | Sri Supraja Infracon",
+    title: "Open Plots in Hyderabad for Sale | Sri Supraja Infracon",
     description:
-      "Compare plotted and resort-inspired developments across Kamkole, Mominpet, Sangareddy and nearby Hyderabad growth corridors.",
+      "Compare approved plotted developments across Kamkole, Sadashivapet, Mominpet and western Hyderabad growth corridors, with project-specific approval and location information.",
     url: canonical,
     siteName: "Sri Supraja Infracon",
     locale: "en_IN",
@@ -25,15 +25,15 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Open plots near Hyderabad by Sri Supraja Infracon",
+        alt: "Open plots in Hyderabad for sale by Sri Supraja Infracon",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Open Plots Near Hyderabad | Sri Supraja Infracon",
+    title: "Open Plots in Hyderabad for Sale | Sri Supraja Infracon",
     description:
-      "Explore approved plotted developments near Hyderabad with project-specific approval and location information.",
+      "Explore DTCP and RERA approved plotted developments across Hyderabad growth corridors with project-specific approval and location information.",
     images: ["/og-image.jpg"],
   },
   robots: { index: true, follow: true },
@@ -51,9 +51,16 @@ export default function Page() {
         description: pageDescription,
         publisher: { "@id": `${SITE_URL}/#organization` },
         isPartOf: { "@id": `${SITE_URL}/#website` },
+        about: [
+          { "@type": "Thing", name: "Open plots in Hyderabad" },
+          { "@type": "Thing", name: "Residential plots in Hyderabad" },
+          { "@type": "Thing", name: "DTCP approved plots" },
+          { "@type": "Thing", name: "RERA approved plots" },
+        ],
         mainEntity: {
           "@type": "ItemList",
-          name: "Sri Supraja Infracon plotted developments near Hyderabad",
+          name: "Open plot projects in Hyderabad growth corridors by Sri Supraja Infracon",
+          numberOfItems: 4,
           itemListElement: [
             {
               "@type": "ListItem",
@@ -89,7 +96,7 @@ export default function Page() {
           {
             "@type": "ListItem",
             position: 2,
-            name: "Open Plots Near Hyderabad",
+            name: "Open Plots in Hyderabad",
             item: canonical,
           },
         ],
