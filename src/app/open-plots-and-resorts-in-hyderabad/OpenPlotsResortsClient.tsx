@@ -7,10 +7,10 @@ const projects = [
   {
     name: "Supraja IRIS",
     href: "/projects/supraja-iris-resort-plots",
-    location: "Kamkole and Sadashivapet growth corridor",
+    location: "Kamkole, near Sadashivapet",
     approval: "DTCP & RERA approved active phase",
     description:
-      "A resort-inspired plotted development near Woxsen University and the NH-65 corridor, with project-specific approval details published on the project page.",
+      "A resort-inspired plotted development near Woxsen University and the NH-65 Mumbai Highway corridor, with project-specific approval details published on the project page.",
   },
   {
     name: "Bridge County",
@@ -45,23 +45,24 @@ export default function OpenPlotsResortsClient() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(201,162,39,0.18),transparent_30%)]" />
         <div className="relative mx-auto max-w-7xl">
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-[#E8D7A5]">
-            Hyderabad Growth Corridors
+            DTCP & RERA Approved Plotted Projects
           </p>
           <h1 className="max-w-5xl text-4xl font-extrabold leading-[1.03] md:text-6xl">
-            Open Plots Near Hyderabad
+            Open Plots in Hyderabad for Sale
           </h1>
           <p className="mt-7 max-w-4xl text-lg leading-relaxed text-slate-200">
-            Compare Sri Supraja Infracon plotted developments across Kamkole,
-            Mominpet, Indrakaran and nearby growth corridors. Review project
-            locations, approval details, infrastructure context and direct links
-            to each project before planning a site visit.
+            Explore open plots in Hyderabad growth corridors from Sri Supraja
+            Infracon, a real estate developer with plotted projects across
+            Kamkole, near Sadashivapet, Mominpet and Indrakaran. Compare current
+            projects, locations and applicable DTCP and RERA details before
+            planning a site visit.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
-              href="/projects"
+              href="#current-projects"
               className="rounded-full bg-[#C9A227] px-7 py-4 text-sm font-bold text-[#081225] transition hover:bg-white"
             >
-              Compare Projects
+              View Current Projects
             </Link>
             <Link
               href="/contact-us"
@@ -73,35 +74,34 @@ export default function OpenPlotsResortsClient() {
         </div>
       </section>
 
-      <section className="bg-white px-6 py-24">
+      <section id="current-projects" className="scroll-mt-24 bg-white px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="max-w-4xl">
             <p className="text-sm font-bold uppercase tracking-[0.22em] text-[#9A7820]">
-              Start with verifiable information
+              Current plotted developments
             </p>
             <h2 className="mt-4 text-3xl font-extrabold text-[#111827] md:text-5xl">
-              How to Compare Open Plots Near Hyderabad
+              Compare Open Plot Projects in Hyderabad Growth Corridors
             </h2>
             <div className="mt-8 space-y-6 text-lg leading-relaxed text-[#4B5563]">
               <p>
-                A useful comparison starts with the project itself, not with a
-                broad promise about future returns. Buyers should review the
-                applicable layout approval, RERA registration where relevant,
-                survey details, access roads, current development status and the
-                intended use of the plot.
+                Buyers looking for open plots in Hyderabad often compare projects
+                by approval status, location, connectivity, plot configuration and
+                on-ground development. The projects below serve different buyer
+                requirements across the western Hyderabad growth belt.
               </p>
               <p>
-                Location should then be evaluated in context. Kamkole and the
-                Sadashivapet side of the NH-65 corridor are influenced by
-                educational, hospitality and regional infrastructure activity.
-                Mominpet and Indrakaran serve different buyer requirements, so
-                price alone is not a meaningful way to compare them.
+                Supraja IRIS and Bridge County are positioned at Kamkole near
+                Sadashivapet, with access to the NH-65 Mumbai Highway corridor and
+                proximity to Woxsen University. Sindhu Sarovar is at Mominpet,
+                while Subhash Meadows is at Indrakaran with connectivity toward
+                Sangareddy and IIT Hyderabad.
               </p>
               <p>
-                Sri Supraja Infracon publishes project-specific approval numbers
-                and location information on the individual project pages so that
-                buyers can examine each development separately rather than rely on
-                generic claims.
+                Sri Supraja Infracon publishes project-specific approval numbers,
+                phase information and location details on the individual project
+                pages. Buyers can review these details before visiting the site or
+                making a purchase decision.
               </p>
             </div>
           </div>
@@ -137,8 +137,14 @@ export default function OpenPlotsResortsClient() {
       <section className="bg-[#F8F6F1] px-6 py-24">
         <div className="mx-auto max-w-5xl">
           <h2 className="text-3xl font-extrabold text-[#111827] md:text-4xl">
-            What Buyers Should Verify Before Choosing a Plot
+            What Buyers Should Verify Before Choosing Open Plots in Hyderabad
           </h2>
+          <p className="mt-6 max-w-4xl text-lg leading-relaxed text-[#5D665F]">
+            A strong plot comparison goes beyond advertised price. Verify the
+            applicable project approvals, the actual location and access road,
+            development completed on the ground, and whether future facilities
+            are completed, under construction or planned.
+          </p>
           <div className="mt-8 grid gap-5 md:grid-cols-2">
             {[
               ["Approvals and registration", "Match the project name, phase, approval number and survey details with the applicable official records."],
