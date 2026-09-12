@@ -237,6 +237,16 @@ export default function CareersPage() {
                 </div>
               ))}
             </div>
+            <p className="mt-5 max-w-xl text-sm leading-6 text-slate-600">
+              New to channel partnerships? Read our{" "}
+              <Link
+                href="/blog/become-real-estate-channel-partner-hyderabad"
+                className="font-semibold text-blue-700 underline underline-offset-4 hover:text-blue-800"
+              >
+                complete guide to becoming a real estate channel partner in Hyderabad
+              </Link>{" "}
+              to understand the role, preparation and questions to ask before getting started.
+            </p>
           </div>
         </div>
       </section>
