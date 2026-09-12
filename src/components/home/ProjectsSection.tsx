@@ -10,23 +10,23 @@ const projectCardCopy: Record<
   }
 > = {
   "supraja-iris-resort-plots": {
-    badge: "Flagship Lifestyle Destination",
+    badge: "Flagship Plotted Development",
     alt: "Supraja IRIS resort-inspired plots in Kamkole",
   },
   "supraja-iris": {
-    badge: "Flagship Lifestyle Destination",
+    badge: "Flagship Plotted Development",
     alt: "Supraja IRIS resort plots in Kamkole",
   },
   "bridge-county": {
-    badge: "Premium 15-Acre Enclave",
+    badge: "15-Acre Enclave within Supraja IRIS",
     alt: "Bridge County 15-acre plotted enclave within Supraja IRIS",
   },
   "sindhu-sarovar": {
-    badge: "100 Ft Road Frontage Community",
+    badge: "100 Ft Road Frontage",
     alt: "Sindhu Sarovar planned project with organized layout",
   },
   "subhash-meadows": {
-    badge: "Ready for Future Growth",
+    badge: "Plotted Development at Indrakaran",
     alt: "Subhash Meadows well-connected plotted project",
   },
 };
@@ -47,16 +47,13 @@ const ProjectsSection = () => {
           </div>
 
           <h2 className="mx-auto max-w-5xl font-display text-4xl font-bold leading-tight tracking-tight text-[#07111F] md:text-6xl">
-            Curated Land.{" "}
-            <span className="text-[#C48912]">Considered Locations.</span>{" "}
-            Deliberate Timing.
+            Ongoing <span className="text-[#C48912]">Plotted Developments</span> Near Hyderabad
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[#334155]">
-            Every Sri Supraja Infracon project is chosen for what surrounds it
-            - universities, transit corridors, employment hubs - not just what's
-            built on it. Four projects, each at a different stage of maturity,
-            offer entry points suited to different investment timelines.
+            Compare our current projects by location, approval status, plot size,
+            price, connectivity and on-site development. Each project page includes
+            the details you need before arranging a site visit.
           </p>
         </div>
       </div>
