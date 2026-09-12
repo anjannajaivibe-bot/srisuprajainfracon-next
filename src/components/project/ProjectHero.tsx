@@ -8,15 +8,11 @@ import {
   Building2,
   Download,
   Eye,
-  FileCheck2,
   GraduationCap,
   Landmark,
   MapPinned,
-  Play,
   Ruler,
   Route,
-  ShieldCheck,
-  TrendingUp,
 } from "lucide-react";
 import SmartImage from "@/components/shared/SmartImage";
 import { getProjectSeo } from "@/data/projectSeo";
@@ -38,171 +34,165 @@ const heroCopy: Record<
   }
 > = {
   "supraja-iris-resort-plots": {
-    badge: "MEGA RESORT PROJECT • KAMKOLE",
-    h1: "Resort Plots Within a 350-Acre Lifestyle Destination",
+    badge: "SUPRAJA IRIS • KAMKOLE",
+    h1: "DTCP & RERA Approved Resort Plots at Kamkole",
     subtitle:
-      "Featuring Lemon Tree Resort, Water Villas, Water Theme Park, Go-Karting and future lifestyle attractions within a master-planned growth destination.",
+      "350-acre plotted development adjacent to Woxsen University, with Lemon Tree Resort and water villas under construction.",
     firstParagraph:
-      "Supraja IRIS brings together plotted ownership, lifestyle attractions, and a strategic growth location in Kamkole.",
+      "Supraja IRIS is a large plotted development at Kamkole with approved plots and resort and recreation facilities at different stages of development.",
     description:
-      "A destination-led plotted project planned around resort living, future-ready infrastructure, and long-term investment value.",
+      "Review the approvals, current construction, available plots, pricing and location before planning a site visit.",
     tags: [
       "DTCP Approved",
       "RERA Registered",
-      "Bank Loan Available",
-      "Spot Registration",
+      "Plots from 165 Sq. Yards",
+      "Near NH-65",
     ],
     imageAlt:
-      "Supraja IRIS resort plots in Kamkole with grand entrance and lifestyle attractions",
+      "Supraja IRIS DTCP and RERA approved resort plots at Kamkole near Woxsen University",
   },
   "supraja-iris": {
-    badge: "MEGA RESORT PROJECT • KAMKOLE",
-    h1: "Resort Plots Within a 350-Acre Lifestyle Destination",
+    badge: "SUPRAJA IRIS • KAMKOLE",
+    h1: "DTCP & RERA Approved Resort Plots at Kamkole",
     subtitle:
-      "Featuring Lemon Tree Resort, Water Villas, Water Theme Park, Go-Karting and future lifestyle attractions within a master-planned growth destination.",
+      "350-acre plotted development adjacent to Woxsen University, with Lemon Tree Resort and water villas under construction.",
     firstParagraph:
-      "Supraja IRIS brings together plotted ownership, lifestyle attractions, and a strategic growth location in Kamkole.",
+      "Supraja IRIS is a large plotted development at Kamkole with approved plots and resort and recreation facilities at different stages of development.",
     description:
-      "A destination-led plotted project planned around resort living, future-ready infrastructure, and long-term investment value.",
+      "Review the approvals, current construction, available plots, pricing and location before planning a site visit.",
     tags: [
       "DTCP Approved",
       "RERA Registered",
-      "Bank Loan Available",
-      "Spot Registration",
+      "Plots from 165 Sq. Yards",
+      "Near NH-65",
     ],
     imageAlt:
-      "Supraja IRIS resort plots in Kamkole with grand entrance and lifestyle attractions",
+      "Supraja IRIS DTCP and RERA approved resort plots at Kamkole near Woxsen University",
   },
   "bridge-county": {
-    badge: "A SERENE LANDSCAPE",
-    h1: "Premium Open Plots Within Supraja IRIS",
+    badge: "BRIDGE COUNTY • KAMKOLE",
+    h1: "DTCP & RERA Approved Open Plots at Kamkole",
     subtitle:
-      "Premium DTCP & RERA Approved Plots Within Supraja IRIS Mega Project",
+      "15-acre plotted enclave within Supraja IRIS, adjacent to Woxsen University and connected to the NH-65 corridor.",
     firstParagraph:
-      "Bridge County is a dedicated 15-acre plotted project within the larger Supraja IRIS ecosystem, offering a balanced combination of location advantage, planned infrastructure, and future growth potential.",
+      "Bridge County is a 15-acre plotted enclave within the larger Supraja IRIS development at Kamkole.",
     description:
-      "DTCP & RERA Approved plots in a strategically positioned enclave designed for connectivity, infrastructure, and long-term value creation.",
+      "The layout includes 211 plots, 50 and 33 ft roads, underground utility planning and access toward Woxsen University and NH-65.",
     tags: [
-      "Starting at ₹13,500 per Sq. Yard",
-      "Flexible EMI Plans Available",
-      "Just 5% to Reserve Your Plot",
-      "2 Years Complimentary Membership*",
-      "Limited Period Offer",
-      "15 Acre Premium Enclave",
-      "100% Vaastu Plots",
-      "Underground Infrastructure",
+      "₹13,500 per Sq. Yard",
+      "15 Acre Enclave",
+      "211 Plots",
+      "Near Woxsen University",
       "50 & 33 Ft Roads",
-      "Water Connection to Every Plot",
+      "Underground Infrastructure",
     ],
     imageAlt:
-      "Bridge County premium plotted enclave within Supraja IRIS at Kamkole",
+      "Bridge County DTCP and RERA approved open plots within Supraja IRIS at Kamkole",
   },
   "sindhu-sarovar": {
-    badge: "Your Space. Your Vision. Your Future.",
+    badge: "SINDHU SAROVAR • MOMINPET",
     h1: "DTCP & RERA Approved Open Plots at Mominpet",
     subtitle:
-      "A Gated project Plots Along a 100 Ft Highway Corridor",
+      "Plots from 150 to 569 sq. yards with 100 ft road access, blacktop roads and gated community planning.",
     firstParagraph:
-      "A well planned plotted project combining strategic connectivity, organized infrastructure, and long-term growth potential.",
+      "Sindhu Sarovar is a plotted development at Mominpet with documented DTCP and RERA project records.",
     description:
-      "Developed with wide roads, landscaped open spaces, utility infrastructure, and secure gated access, Supraja Sindhu Sarovar is designed for both end users and long-term investors.",
+      "The layout includes wide roads, electricity and drainage planning, landscaped areas and gated access. Buyers should verify the latest RERA status before purchase.",
     tags: [
-      "100 Ft Highway Frontage",
-      "Gated Project With Security",
-      "Wide Internal Blacktop Roads",
       "150-569 Sq. Yard Plots",
-      "Emerging Growth Zone",
-      "Future Ready Address",
-      "100% Vaastu Plots",
-      "Underground Utility Infrastructure",
+      "100 Ft Road Access",
+      "Gated Layout",
+      "Blacktop Roads",
+      "Parks & Open Spaces",
+      "Mominpet Location",
     ],
     imageAlt:
-      "Supraja Sindhu Sarovar planned project with organized layout and connectivity",
+      "Sindhu Sarovar open plots at Mominpet with wide roads and gated community planning",
   },
   "subhash-meadows": {
-    badge: "WELL-CONNECTED GROWTH CORRIDOR",
-    h1: "Affordable Open Plots in a Fast-Growing Corridor",
-    subtitle: "Infrastructure-Ready Plots Near IIT Hyderabad & ORR",
+    badge: "SUBHASH MEADOWS • INDRAKARAN",
+    h1: "Affordable Open Plots at Indrakaran Near ORR",
+    subtitle:
+      "Planned blacktop roads, drainage, parks and access toward IIT Hyderabad, ICRISAT and BHEL.",
     firstParagraph:
-      "A well planned plotted project at Indrakaran offering strong connectivity, organized infrastructure, and access to key growth destinations.",
+      "Subhash Meadows is an affordable plotted development at Indrakaran with planned community infrastructure.",
     description:
-      "Strategically located near IIT Hyderabad, Outer Ring Road, Regional Ring Road influence zones, and major employment corridors, Subhash Meadows is designed for long-term value and accessibility.",
+      "The project has road access toward ORR, IIT Hyderabad, ICRISAT, BHEL and Sangareddy, with blacktop roads, drainage, lighting and park provisions.",
     tags: [
-      "Near IIT Hyderabad",
+      "GP LRS Paid",
       "5 Min to ORR",
-      "RRR Influence Zone",
-      "GP Approved, LRS Paid",
-      "Infrastructure Ready Layout",
-      "Affordable Plots at Indrakaran",
-      "100% Vaastu Plots",
+      "15 Min to IIT Hyderabad",
+      "40, 33 & 30 Ft Roads",
+      "Underground Drainage",
+      "Parks & Avenue Plantation",
     ],
     imageAlt:
-      "Subhash Meadows well connected plotted project near key growth destinations",
+      "Subhash Meadows affordable open plots at Indrakaran near ORR and IIT Hyderabad",
   },
 };
 
 const fallbackHero = {
-  badge: "Sri Supraja Project",
-  h1: "A Thoughtfully Planned Real Estate Project",
+  badge: "SRI SUPRAJA INFRACON PROJECT",
+  h1: "Plotted Development by Sri Supraja Infracon",
   subtitle:
-    "Designed around accessibility, infrastructure, and long-term ownership confidence.",
+    "Review the project location, approvals, infrastructure and current availability before planning a visit.",
   firstParagraph:
-    "This project reflects Sri Supraja Infracon’s focus on dependable planning and customer trust.",
+    "This project is part of Sri Supraja Infracon's real estate portfolio in the Hyderabad region.",
   description:
-    "Created for investors, clients, and families seeking a clear and future-ready real estate opportunity.",
-  tags: ["Planned Project", "Accessible Location", "Sri Supraja Infracon"],
-  imageAlt: "Sri Supraja Infracon real estate project",
+    "Project details, current availability and documentation can be reviewed with our team before booking.",
+  tags: ["Project Details", "Location Information", "Site Visit Available"],
+  imageAlt: "Sri Supraja Infracon plotted development",
 };
 
 const premiumHeroStats: Record<string, any[]> = {
   "bridge-county": [
     { icon: BadgeCheck, label: "DTCP & RERA", value: "Approved" },
     { icon: Ruler, label: "15", value: "Acres" },
-    { icon: Award, label: "211", value: "Premium Plots" },
+    { icon: Award, label: "211", value: "Plots" },
     { icon: GraduationCap, label: "Adjacent", value: "Woxsen University" },
-    { icon: Route, label: "NH 65", value: "Connectivity" },
+    { icon: Route, label: "NH-65", value: "Connectivity" },
   ],
   "sindhu-sarovar": [
-    { icon: BadgeCheck, label: "DTCP & RERA", value: "Approved" },
-    { icon: Ruler, label: "Wide", value: "Blacktop Roads" },
-    { icon: Award, label: "Secure Gated", value: "Project" },
-    { icon: MapPinned, label: "100ft", value: "Road Access" },
-    { icon: Route, label: "Future", value: "Connectivity" },
+    { icon: BadgeCheck, label: "DTCP", value: "Project Records" },
+    { icon: Ruler, label: "150-569", value: "Sq. Yard Plots" },
+    { icon: Award, label: "Gated", value: "Layout" },
+    { icon: MapPinned, label: "100 Ft", value: "Road Access" },
+    { icon: Route, label: "Mominpet", value: "Location" },
   ],
   "subhash-meadows": [
     { icon: BadgeCheck, label: "LRS", value: "Charges Paid" },
-    { icon: Ruler, label: "30ft+", value: "Blacktop Roads" },
+    { icon: Ruler, label: "30 Ft+", value: "Blacktop Roads" },
     { icon: Award, label: "Planned", value: "Amenities" },
-    { icon: MapPinned, label: "Near", value: "Key Hubs" },
-    { icon: Route, label: "ORR", value: "Connectivity" },
+    { icon: MapPinned, label: "15 Min", value: "IIT Hyderabad" },
+    { icon: Route, label: "5 Min", value: "ORR" },
   ],
 };
 
 const suprajaIrisStats = [
-  { icon: Ruler, value: "350", label: "Acres", text: "Mega Project" },
+  { icon: Ruler, value: "350", label: "Acres", text: "Master Plan" },
   {
     icon: MapPinned,
     value: "4000",
-    label: "Premium Plots",
-    text: "Well Planned Layout",
+    label: "Approx. Plots",
+    text: "Overall Development",
   },
   {
     icon: Building2,
     value: "5",
     label: "Acres",
-    text: "Lemon Tree Resort",
+    text: "Lemon Tree Resort Site",
   },
   {
     icon: Landmark,
     value: "3.5",
     label: "Acres",
-    text: "Water Theme Park",
+    text: "Water Theme Park Area",
   },
   {
-    icon: TrendingUp,
-    value: "High Growth",
-    label: "Corridor",
-    text: "Near Woxsen & NIMZ",
+    icon: GraduationCap,
+    value: "Adjacent",
+    label: "Woxsen University",
+    text: "Kamkole Location",
   },
 ];
 
@@ -260,7 +250,7 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
 
               <div className="mt-6 inline-flex rounded-[18px] border border-[#D6B15C]/35 bg-white/10 px-5 py-3 backdrop-blur-md">
                 <p className="text-sm font-bold uppercase tracking-[0.12em] text-white">
-                  Plots starting from just{" "}
+                  Plots starting from{" "}
                   <span className="text-[#D6B15C]">₹22.3 Lakhs</span>
                 </p>
               </div>
@@ -319,14 +309,6 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
                   >
                     <source src="/videos/supraja-iris-hero.webm" type="video/webm" />
                   </video>
-
-                  <button
-                    type="button"
-                    className="absolute right-4 top-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-[#07111F]/75 px-4 py-2.5 text-sm font-bold text-white shadow-lg backdrop-blur-md transition hover:bg-[#07111F]/90 sm:right-5 sm:top-5 sm:px-5"
-                  >
-                    <Play className="h-4 w-4 fill-white" />
-                    Watch Project Overview
-                  </button>
                 </div>
               </div>
             </motion.div>
@@ -347,7 +329,7 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
                   }`}
                 >
                   <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-[#D6B15C]/50 bg-[#FFF8E5]">
-                    <Icon className="h-7 w-7 text-[#C49A2C]" />
+                    <Icon className="h-7 w-7 text-[#8A6500]" />
                   </div>
                   <div>
                     <p className="text-2xl font-extrabold leading-none text-[#07111F]">
@@ -356,7 +338,7 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
                     <p className="mt-1 text-sm font-bold text-[#07111F]">
                       {item.label}
                     </p>
-                    <p className="mt-1 text-xs font-semibold leading-snug text-slate-500">
+                    <p className="mt-1 text-xs font-semibold leading-snug text-slate-600">
                       {item.text}
                     </p>
                   </div>
@@ -430,12 +412,9 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
             <p className="text-2xl font-semibold leading-snug text-white sm:text-3xl">
               {project.slug === "bridge-county" ? (
                 <>
-                  A Peaceful Plotted Enclave
+                  15-Acre Plotted Enclave
                   <br />
-                  Within{" "}
-                  <span className="text-[#D6B15C]">
-                    Supraja IRIS 350 Acres Mega Project
-                  </span>
+                  Within <span className="text-[#D6B15C]">Supraja IRIS</span>
                 </>
               ) : (
                 hero.subtitle
@@ -443,12 +422,12 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
             </p>
 
             {project.slug === "bridge-county" && (
-              <div className="mt-8 max-w-xl rounded-[22px] border border-[#D6B15C]/35 bg-[#07111F]/55 p-6 shadow-2xl backdrop-blur-md">
+              <div className="mt-8 max-w-xl rounded-[22px] border border-[#D6B15C]/35 bg-[#07111F]/65 p-6 shadow-2xl backdrop-blur-md">
                 <p className="text-base font-semibold text-white">
-                  Premium Plots Starting from
+                  Current Listed Price
                 </p>
-                <p className="mt-2 text-5xl font-extrabold tracking-tight text-[#D6B15C] sm:text-6xl">
-                  ₹22.3 <span className="text-2xl">Lakhs*</span>
+                <p className="mt-2 text-4xl font-extrabold tracking-tight text-[#D6B15C] sm:text-5xl">
+                  ₹13,500 <span className="text-xl">/ Sq. Yard</span>
                 </p>
               </div>
             )}
@@ -461,7 +440,7 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
               {hero.tags.map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-[#D6B15C]/35 bg-white/10 px-4 py-2 text-xs font-bold text-white backdrop-blur-md sm:text-sm"
+                  className="rounded-full border border-[#D6B15C]/35 bg-[#07111F]/55 px-4 py-2 text-xs font-bold text-white backdrop-blur-md sm:text-sm"
                 >
                   {item}
                 </span>
@@ -484,7 +463,7 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
                   }`}
                 >
                   <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-[#D6B15C]/50 bg-[#FFF8E5]">
-                    <Icon className="h-7 w-7 text-[#C49A2C]" />
+                    <Icon className="h-7 w-7 text-[#8A6500]" />
                   </div>
                   <div>
                     <p className="text-2xl font-extrabold leading-none text-[#07111F]">

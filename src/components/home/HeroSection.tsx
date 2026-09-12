@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 const trustBadges = [
-  "24+ Years of Real Estate Stewardship",
-  "Positioned Along High-Growth Corridors",
-  "Fully Documented, Fully Transparent",
+  "24+ Years in Real Estate",
+  "Projects Across Key Hyderabad Locations",
+  "DTCP & RERA Details Available",
 ];
 
 const projectLinks = [
@@ -58,9 +58,9 @@ const HeroSection = () => {
         </h1>
 
         <p className="mx-auto mb-6 max-w-4xl text-sm leading-6 text-slate-200 sm:mb-8 sm:text-base sm:leading-7 md:text-lg md:leading-relaxed">
-          Meticulously planned plotted projects across Kamkole, Sangareddy,
-          Mominpet and Indrakaran, anchored to infrastructure corridors and
-          engineered for sustained capital appreciation.
+          Explore plotted developments across Kamkole, Sangareddy, Mominpet and
+          Indrakaran. Compare approvals, location advantages, pricing and current
+          on-site development before you plan a visit.
         </p>
 
         <div className="mb-6 flex flex-wrap justify-center gap-2 sm:mb-7 sm:gap-3">
