@@ -1,11 +1,11 @@
 export const projectContent = {
   "supraja-iris-resort-plots": {
     overview:
-      "Supraja IRIS Resort Plots is a DTCP & RERA approved resort-style plotted development at Kamkole near Sangareddy. The project is planned across a 350-acre master plan with open plots, villa plot options, Lemon Tree Resort under construction, planned water villas, water theme park, amusement park, go-karting and destination wedding infrastructure. Sales are open now for buyers looking for premium open plots near Hyderabad with strong high Return on Investment (ROI) Growth potential.",
+      "Supraja IRIS Resort Plots is a DTCP & RERA approved resort-style plotted development at Kamkole near Sangareddy. The project is planned across a 350-acre master plan with open plots, villa plot options, Lemon Tree Resort and water villas under construction, water theme park and amusement park development, planned go-karting and a proposed destination event venue. Sales are open for buyers comparing approved open plots near Hyderabad, Woxsen University and the NH-65 corridor.",
 
     amenities: [
-      "Premium Plots at just 13,500 per sq yard",
-      "Sales open for limited plotted inventory",
+      "Premium Plots at 13,500 per sq yard",
+      "Sales open for selected plots",
       "80, 60, 40 & 33 feet black top roads",
       "Underground electricity with street lighting",
       "Water connection to each plot",
@@ -20,20 +20,20 @@ export const projectContent = {
       "Bank loan assistance available",
       "Spot registration support",
       "Lemon Tree Resort under construction",
-      "Planned water theme park",
-      "Planned water villas",
-      "Destination wedding convention concept",
+      "Water theme park under development",
+      "Water villas under construction",
+      "Destination wedding convention concept planned",
       "SPA, fitness and swimming pool concepts",
     ],
 
     locationAdvantages: [
       "Located at Kamkole near Sangareddy",
       "Adjacent to Woxsen University",
-      "Near NH-65 growth corridor",
-      "Strong access toward Regional Ring Road influence zone",
-      "Strategic connectivity toward NIMZ Zaheerabad",
+      "Near NH-65 corridor",
+      "Access toward the Regional Ring Road influence zone",
+      "Connectivity toward NIMZ Zaheerabad",
       "20 minutes to IIT Hyderabad",
-      "High Return on Investment (ROI) Growth corridor near Hyderabad",
+      "Connected to the Hyderabad-Mumbai highway corridor",
     ],
 
     gallery: [
@@ -54,28 +54,28 @@ export const projectContent = {
       {
         question: "Are Supraja IRIS Resort Plots available for sale?",
         answer:
-          "Yes. Sales are open now for selected open plots and villa plot options. Buyers can check current availability before the next price revision.",
+          "Yes. Sales are open for selected open plots and villa plot options. Buyers can check current availability before planning a site visit.",
       },
       {
         question: "Is Lemon Tree Resort operational?",
         answer:
-          "No. Lemon Tree Resort is currently under construction within the Supraja IRIS ecosystem.",
+          "No. Lemon Tree Resort is currently under construction within the Supraja IRIS project.",
       },
       {
-        question: "Why is Supraja IRIS considered a high ROI location?",
+        question: "What location advantages does Supraja IRIS have?",
         answer:
-          "The project benefits from Kamkole location advantage, Woxsen University adjacency, NH-65 connectivity, Regional Ring Road influence and NIMZ Zaheerabad growth corridor potential.",
+          "Supraja IRIS is at Kamkole, adjacent to Woxsen University, with access to NH-65 and connectivity toward the Regional Ring Road influence zone and NIMZ Zaheerabad.",
       },
     ],
   },
 
   "bridge-county": {
     overview:
-      "Bridge County is a DTCP & RERA approved luxury open plot development at Kamkole by Sri Supraja Infracon. Spread across 15 acres with 211 well-planned plotted units, the project offers premium infrastructure, clear title, sales open status and strong high ROI potential near Woxsen University, NH-65 and the NIMZ Zaheerabad growth corridor.",
+      "Bridge County is a DTCP & RERA approved open plot development at Kamkole by Sri Supraja Infracon. Spread across 15 acres with 211 plotted units, the project is located within the larger Supraja IRIS development near Woxsen University and NH-65, with clear-title documentation, planned infrastructure and bank loan assistance.",
 
     amenities: [
-      "Limited time offer. 13,500 per sq yard",
-      "Sales open for premium plotted units",
+      "Current listed price: 13,500 per sq yard",
+      "Sales open for selected plots",
       "24 hours security",
       "100% Vastu compliant plots",
       "Clear title open plots",
@@ -97,13 +97,13 @@ export const projectContent = {
     ],
 
     locationAdvantages: [
-      "Luxury plots at Kamkole",
+      "Open plots at Kamkole",
       "Adjacent to Woxsen University",
       "Near NH-65 corridor",
       "Near Regional Ring Road influence zone",
-      "Excellent connectivity toward NIMZ Zaheerabad",
+      "Connectivity toward NIMZ Zaheerabad",
       "20 minutes to IIT Hyderabad",
-      "High ROI investment location near Hyderabad",
+      "Located within the larger Supraja IRIS development",
     ],
 
     gallery: [
@@ -126,19 +126,19 @@ export const projectContent = {
       {
         question: "Where is Bridge County located?",
         answer:
-          "Bridge County is located at Kamkole near Woxsen University with strong connectivity to NH-65 and NIMZ Zaheerabad growth corridor.",
+          "Bridge County is located at Kamkole near Woxsen University, with connectivity to NH-65 and toward NIMZ Zaheerabad.",
       },
       {
         question: "Are Bridge County plots available for booking?",
         answer:
-          "Yes. Sales are open now for premium luxury open plots at Bridge County.",
+          "Yes. Sales are open for selected open plots at Bridge County, subject to current availability.",
       },
     ],
   },
 
   "sindhu-sarovar": {
     overview:
-      "Sindhu Sarovar is a DTCP & RERA approved plotted development at Mominpet offering premium open plots with gated community infrastructure, planned parks, wide roads and strong appreciation potential. Plot sizes range from 150 to 569 square yards, with sales open for selected plot options.",
+      "Sindhu Sarovar is a plotted development at Mominpet with documented DTCP and RERA project records, gated community infrastructure, landscaped parks and wide internal roads. Plot sizes range from 150 to 569 square yards, with selected plot options currently available. Buyers should verify the latest RERA status before purchase.",
 
     amenities: [
       "Sales Open Now",
@@ -160,11 +160,11 @@ export const projectContent = {
 
     locationAdvantages: [
       "Located at Mominpet",
-      "Good highway connectivity",
-      "Strategic future growth corridor",
+      "100 feet road connectivity",
+      "Road access toward Hyderabad",
       "Surrounded by residential developments",
-      "Commercial zone growth nearby",
-      "Strong appreciation potential",
+      "Commercial activity in the wider Mominpet area",
+      "Plot sizes from 150 to 569 square yards",
     ],
 
     gallery: [
@@ -177,7 +177,7 @@ export const projectContent = {
       {
         question: "Is Sindhu Sarovar DTCP & RERA Approved?",
         answer:
-          "Yes. Sindhu Sarovar is approved under TLP No. 154/2021/H and 233/2021/H.",
+          "The project has documented DTCP references TLP No. 154/2021/H and 233/2021/H and a reviewed Phase 2 RERA record. Buyers should verify the latest RERA status directly with TG RERA before purchase.",
       },
       {
         question: "Is Sindhu Sarovar RERA approved?",
@@ -199,11 +199,11 @@ export const projectContent = {
 
   "subhash-meadows": {
     overview:
-      "Subhash Meadows is an affordable open plot community at Indrakaran by Sri Supraja Infracon offering planned infrastructure, Vastu-compliant layouts and strong connectivity toward ORR, IIT Hyderabad, ICRISAT, BHEL and Sangareddy growth zones. Sales are open for buyers looking for budget-friendly open plots near Hyderabad.",
+      "Subhash Meadows is an affordable open plot community at Indrakaran by Sri Supraja Infracon, with planned black top roads, Vastu-oriented layout planning, drainage, avenue plantation and access toward ORR, IIT Hyderabad, ICRISAT, BHEL and Sangareddy. Sales are open for buyers comparing budget-friendly open plots near Hyderabad.",
 
     amenities: [
       "Affordable open plots at Indrakaran",
-      "Sales open with limited availability",
+      "Sales open",
       "40, 33 and 30 feet black top roads",
       "Footpath with curbing stone",
       "Layout as per Vastu",
@@ -224,7 +224,7 @@ export const projectContent = {
       "10 minutes to ICRISAT",
       "15 minutes to BHEL",
       "20 minutes to Sangareddy Collectorate",
-      "Excellent connectivity toward Hyderabad",
+      "Road connectivity toward Hyderabad",
     ],
 
     gallery: [
@@ -237,7 +237,7 @@ export const projectContent = {
       {
         question: "Where is Subhash Meadows located?",
         answer:
-          "Subhash Meadows is located at Indrakaran with excellent access to ORR, IIT Hyderabad, ICRISAT and BHEL.",
+          "Subhash Meadows is located at Indrakaran with access to ORR, IIT Hyderabad, ICRISAT and BHEL.",
       },
       {
         question: "What road sizes are available in Subhash Meadows?",
@@ -247,18 +247,15 @@ export const projectContent = {
       {
         question: "Is the Subhash Meadows layout Vastu compliant?",
         answer:
-          "Yes. The plotted layout is planned as per Vastu principles.",
+          "The plotted layout is planned as per Vastu principles.",
       },
       {
         question: "Are Subhash Meadows plots available for sale?",
         answer:
-          "Yes. Affordable open plots are currently available for booking.",
+          "Yes. Affordable open plots are currently available for booking, subject to current availability.",
       },
     ],
   },
 };
 
 export type ProjectContentKey = keyof typeof projectContent;
-
-
-
