@@ -41,7 +41,7 @@ export const projects: Project[] = [
     reraNo: "P02100009249",
 
     shortDescription:
-      "DTCP & RERA approved open plots at Kamkole near Woxsen University with Lemon Tree Resort under construction, planned water villas, theme park attractions and strong high Return on Investment (ROI) Growth potential.",
+      "DTCP & RERA approved open plots at Kamkole near Woxsen University, with a 350-acre resort-style master plan, Lemon Tree Resort and water villas under construction, water and amusement park development, and planned go-karting.",
 
     image: irisImage,
 
@@ -50,8 +50,8 @@ export const projects: Project[] = [
 
     highlights: [
       "Adjacent to Woxsen University",
-      "High Return on Investment (ROI) Growth corridor near NIMZ Zaheerabad",
-      "Sales Open for Limited Plotted Inventory",
+      "Near NIMZ Zaheerabad corridor",
+      "Sales Open",
       "350 Acres Resort Style Master Plan",
       "Lemon Tree Resort under construction",
       "Water & Amusement Theme Park Under Development",
@@ -79,7 +79,7 @@ export const projects: Project[] = [
     reraNo: "P01100009141",
 
     shortDescription:
-      "DTCP & RERA approved luxury open plots at Kamkole near Woxsen University with clear title, planned infrastructure, bank loan support and strong high Return on Investment (ROI) Growth potential.",
+      "DTCP & RERA approved open plots at Kamkole in a 15-acre layout within Supraja IRIS, near Woxsen University and NH-65, with clear-title documentation, planned infrastructure and bank loan support.",
 
     image: bridgeImage,
 
@@ -88,11 +88,11 @@ export const projects: Project[] = [
 
     highlights: [
       "Premium Plots at 13,500 per sq. yard",
-      "Sales open for premium plotted units",
-      "15-acre luxury plotted layout",
+      "Sales Open",
+      "15-acre plotted layout",
       "211 well-planned open plots",
       "Near NH-65 and Woxsen University",
-      "High ROI potential near NIMZ corridor",
+      "Near NIMZ Zaheerabad corridor",
     ],
 
     link: "/projects/bridge-county",
@@ -114,7 +114,7 @@ export const projects: Project[] = [
     reraNo: "P02100009951",
 
     shortDescription:
-      "DTCP & RERA approved open plots at Mominpet with gated community planning, wide roads, landscaped parks, plot sizes from 150 to 569 sq. yards and strong appreciation potential.",
+      "DTCP & RERA approved open plots at Mominpet with plot sizes from 150 to 569 sq. yards, gated community planning, wide internal roads, landscaped parks and 100 ft road connectivity.",
 
     image: sindhuImage,
 
@@ -127,7 +127,7 @@ export const projects: Project[] = [
       "Plot sizes from 150 to 569 sq. yards",
       "Gated community with compound wall",
       "100 feet road connectivity",
-      "Strong future growth potential",
+      "Landscaped parks and open spaces",
     ],
 
     link: "/projects/sindhu-sarovar",
