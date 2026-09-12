@@ -5,15 +5,15 @@ import projectIris from "@/assets/project-iris.webp";
 const stats = [
   {
     value: "350",
-    label: "Acres Master Planned Project",
+    label: "Acres in the Master Plan",
   },
   {
     value: "4000",
-    label: "Plotted Units",
+    label: "Approx. Plotted Units",
   },
   {
     value: "Sales",
-    label: "Open for Selected Inventory",
+    label: "Open",
   },
 ];
 
@@ -21,32 +21,32 @@ const attractions = [
   {
     icon: "🏨",
     title: "Lemon Tree Resort Under Construction",
-    desc: "A hospitality anchor under construction within the wider Supraja IRIS resort ecosystem.",
+    desc: "Construction is underway within the Supraja IRIS project.",
   },
   {
     icon: "🌊",
     title: "Water Villas Under Construction",
-    desc: "A premium leisure concept planned as part of the future lifestyle environment.",
+    desc: "Water villas are under construction as part of the project development.",
   },
   {
     icon: "💒",
-    title: "Destination Wedding Convention",
-    desc: "A planned event venue concept for celebrations, gatherings and destination experiences.",
+    title: "Convention & Event Venue Planned",
+    desc: "A venue for weddings, celebrations and larger gatherings is planned within the project.",
   },
   {
     icon: "🎢",
-    title: "Water Theme Park and Amusement Zone",
-    desc: "Future recreation attractions under construction to support family leisure and destination appeal.",
+    title: "Water Theme Park & Amusement Park Under Construction",
+    desc: "Both recreation facilities are currently under development within Supraja IRIS.",
   },
   {
     icon: "🏁",
-    title: "Go-Karting Attraction",
-    desc: "A planned entertainment feature designed to enhance weekend recreation value.",
+    title: "Go-Kart Track Planned",
+    desc: "A go-kart track is planned as an additional recreation facility.",
   },
   {
     icon: "📍",
-    title: "Near Woxsen University and NH-65",
-    desc: "A strategic Kamkole location with access to education, highway and growth corridor advantages.",
+    title: "Near Woxsen University & NH-65",
+    desc: "The project is at Kamkole, adjacent to Woxsen University and connected to the NH-65 corridor.",
   },
 ];
 
@@ -68,15 +68,14 @@ const FlagshipProject = () => {
             id="flagship-project-heading"
             className="font-display text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl"
           >
-            Supraja IRIS – DTCP &amp; RERA Approved Open Plots Near Hyderabad
+            Supraja IRIS - DTCP &amp; RERA Approved Open Plots Near Hyderabad
           </h2>
 
           <p className="mx-auto mt-5 max-w-3xl text-muted-foreground">
-            Supraja IRIS is a{" "}
-            <strong>resort-style plotted development</strong> at Kamkole near
-            Hyderabad, positioned adjacent to Woxsen University, NH-65,
-            Regional Ring Road influence zones and the NIMZ Zaheerabad growth
-            corridor.
+            Supraja IRIS is a <strong>350-acre resort-style plotted development</strong>{" "}
+            at Kamkole, adjacent to Woxsen University and connected to NH-65. The
+            project combines approved open plots with resort and recreation facilities
+            at different stages of development.
           </p>
 
           <div className="mt-5 flex flex-wrap justify-center gap-4 text-sm font-semibold">
@@ -114,7 +113,7 @@ const FlagshipProject = () => {
           <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
             <div className="flex flex-wrap gap-3">
               <span className="rounded-full border border-emerald-400/60 bg-emerald-900/90 px-4 py-1.5 text-sm font-semibold text-emerald-100 shadow-md lg:backdrop-blur-sm">
-                ✓ Sales Open for Selected Inventory
+                ✓ Sales Open
               </span>
 
               <span className="rounded-full border border-yellow-300/70 bg-yellow-500/95 px-4 py-1.5 text-sm font-semibold text-slate-950 shadow-md lg:backdrop-blur-sm">
@@ -146,9 +145,9 @@ const FlagshipProject = () => {
           ))}
         </div>
 
-        {/* Lifestyle attractions */}
+        {/* Development status */}
         <h3 className="mb-8 text-center font-display text-2xl font-bold text-foreground">
-          Lifestyle Attractions
+          Amenities and Development Status
         </h3>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -177,7 +176,7 @@ const FlagshipProject = () => {
 
         <p className="mt-6 text-center text-xs leading-relaxed text-muted-foreground">
           *Loan support and project availability are subject to project status,
-          investor eligibility and lender terms.
+          buyer eligibility and lender terms.
         </p>
       </div>
     </section>
