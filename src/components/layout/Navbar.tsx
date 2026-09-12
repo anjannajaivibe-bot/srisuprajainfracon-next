@@ -10,7 +10,7 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
-  { label: "Careers", href: "/careers" },
+  { label: "Channel Partners", href: "/careers" },
   { label: "Contact Us", href: "/contact-us" },
 ];
 
@@ -165,7 +165,7 @@ export default function Navbar() {
           </Link>
 
           <Link href="/careers" className={getNavClass("/careers")}>
-            Careers
+            Channel Partners
           </Link>
 
           <Link href="/contact-us" className={getNavClass("/contact-us")}>
@@ -177,7 +177,7 @@ export default function Navbar() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full bg-green-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-green-600"
+              className="flex items-center gap-2 rounded-full bg-green-700 px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-green-800"
             >
               <MessageCircle size={14} />
               WhatsApp
@@ -273,7 +273,7 @@ export default function Navbar() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 rounded-full bg-green-500 px-5 py-3 font-semibold text-white transition-all duration-300 hover:bg-green-600"
+                  className="flex items-center justify-center gap-2 rounded-full bg-green-700 px-5 py-3 font-semibold text-white transition-all duration-300 hover:bg-green-800"
                 >
                   <MessageCircle size={16} />
                   WhatsApp
