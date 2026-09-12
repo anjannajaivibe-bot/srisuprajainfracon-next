@@ -17,49 +17,48 @@ const overviewCopy: Record<
   }
 > = {
   "supraja-iris": {
-    label: "Resort Project",
-    title: "A Landmark Destination Taking Shape",
-    description: "",
+    label: "Supraja IRIS at Kamkole",
+    title: "350-Acre Resort-Style Plotted Development",
+    description:
+      "Supraja IRIS is a DTCP & RERA approved plotted development at Kamkole, adjacent to Woxsen University. The master plan combines open plots with resort and recreation facilities at different stages of construction and planning.",
     closing: "",
   },
   "supraja-iris-resort-plots": {
-    label: "Resort Project",
-    title: "A Landmark Destination Taking Shape",
-    description: "",
+    label: "Supraja IRIS at Kamkole",
+    title: "350-Acre Resort-Style Plotted Development",
+    description:
+      "Supraja IRIS is a DTCP & RERA approved plotted development at Kamkole, adjacent to Woxsen University. The master plan combines open plots with resort and recreation facilities at different stages of construction and planning.",
     closing: "",
   },
   "bridge-county": {
-    label: "A Distinct Address within a Larger Vision",
-    title: "More Than a Plot. Part of a Destination.",
+    label: "15-Acre Enclave within Supraja IRIS",
+    title: "211 Open Plots at Kamkole",
     description:
-      "Bridge County is a dedicated 15-acre plotted enclave within the larger Supraja IRIS ecosystem at Kamkole. Planned with organized infrastructure, strategic connectivity, and proximity to key growth drivers, it offers investors and future homeowners an opportunity to be part of a larger destination designed for sustained value creation.",
+      "Bridge County is a 15-acre plotted enclave within the larger Supraja IRIS development at Kamkole. It includes 211 plots and is located near Woxsen University with access to NH-65.",
     closing: "",
   },
   "sindhu-sarovar": {
-    label: "DESIGNED FOR LASTING VALUE · MOMINPET",
-    title:
-      "A Well-Planned Gated Community Built for Secure Ownership and Future Growth",
+    label: "Mominpet Plotted Development",
+    title: "Open Plots from 150 to 569 Sq. Yards",
     description:
-      "Discover DTCP & RERA approved plotted development, planned infrastructure, wide internal roads, landscaped open spaces, and a location positioned for long-term value at Mominpet.",
+      "Sindhu Sarovar is a plotted development at Mominpet with documented DTCP and RERA project records, gated community planning, wide internal roads, landscaped areas and 100 ft road connectivity.",
     closing: "",
   },
   "subhash-meadows": {
-    label: "Strategically Positioned Community",
-    title: "Future in place.",
+    label: "Indrakaran Open Plots",
+    title: "Planned Open Plots Near ORR and IIT Hyderabad",
     description:
-      "Subhash Meadows is a thoughtfully planned plotted community at Indrakaran, strategically positioned just 5 minutes from Outer Ring Road, 10 minutes from ICRISAT, and 15 minutes from IIT Hyderabad, offering excellent connectivity to key educational, employment, and infrastructure destinations.",
-    closing:
-      "With Regional Ring Road connectivity accessible within approximately 20 minutes, along with convenient access to Sangareddy, BHEL, and major growth corridors across western Hyderabad, Subhash Meadows combines location advantage, planned infrastructure, and long-term investment potential in a rapidly evolving region.",
+      "Subhash Meadows is a plotted development at Indrakaran with planned black top roads, drainage, parks, avenue plantation and road access toward ORR, IIT Hyderabad, ICRISAT, BHEL and Sangareddy.",
+    closing: "",
   },
 };
 
 const fallbackOverview = {
   label: "Project Overview",
-  title: "Thoughtfully Planned for Long-Term Value.",
+  title: "Project Details at a Glance",
   description:
-    "A well-planned project by Sri Supraja Infracon, shaped around accessibility, infrastructure, and future location potential.",
-  closing:
-    "The project is designed for investors, clients, and families seeking dependable planning and long-term ownership confidence.",
+    "Review the project location, approvals, infrastructure, current availability and site-visit information before making a decision.",
+  closing: "",
 };
 
 const projectMaps: Record<
@@ -186,11 +185,10 @@ const ProjectOverview = ({ project }: Props) => {
                 PROJECT LOCATION
               </p>
               <h3 className="text-2xl font-extrabold text-slate-950">
-                Explore the master plan, location advantages, plot configuration,
-                infrastructure features, and project specifications in detail.
+                Find {project.title} on the Map
               </h3>
               <p className="mt-2 text-slate-600">
-                A Destination with Strong Potential
+                Review the project location and plan your route before a site visit.
               </p>
             </div>
             <LazyGoogleMap
@@ -210,9 +208,8 @@ const ProjectOverview = ({ project }: Props) => {
                   {seo.h3}
                 </h3>
                 <p className="mt-1 text-sm text-slate-500">
-                  Explore project details, layout plans, connectivity
-                  information, key features, and brochure resources for{" "}
-                  {project.title}.
+                  Review project details, layout plans, connectivity information,
+                  key features and brochure resources for {project.title}.
                 </p>
               </div>
               <div className="hidden flex-wrap gap-3 md:flex">
@@ -247,8 +244,8 @@ const ProjectOverview = ({ project }: Props) => {
                   View {project.title} PDF Brochure
                 </h4>
                 <p className="mb-6 text-sm leading-relaxed text-slate-200">
-                  Open the brochure to explore project information, layout
-                  plans, location insights, and key features.
+                  Open the brochure to review project information, layout plans,
+                  location details and key features.
                 </p>
                 <div className="flex flex-col gap-3">
                   <a
