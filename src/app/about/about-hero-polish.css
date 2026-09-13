@@ -1,0 +1,160 @@
+.about-page-polish > div > section:first-child {
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+  padding-top: 6.25rem !important;
+  padding-bottom: 5.5rem !important;
+}
+
+.about-page-polish > div > section:first-child > div:first-child {
+  background-position: center 44% !important;
+}
+
+.about-page-polish > div > section:first-child > div:nth-child(2) {
+  background: linear-gradient(
+    90deg,
+    rgba(4, 16, 42, 0.96) 0%,
+    rgba(4, 16, 42, 0.9) 42%,
+    rgba(4, 16, 42, 0.67) 70%,
+    rgba(4, 16, 42, 0.5) 100%
+  ) !important;
+}
+
+.about-page-polish > div > section:first-child .container-max > .mx-auto > .grid {
+  grid-template-columns: minmax(0, 920px) !important;
+  gap: 0 !important;
+}
+
+.about-page-polish > div > section:first-child .container-max > .mx-auto > .grid > div:last-child {
+  display: none !important;
+}
+
+.about-page-polish > div > section:first-child h1 {
+  max-width: 900px !important;
+  font-size: clamp(3.15rem, 5vw, 4.4rem) !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.035em;
+}
+
+.about-page-polish > div > section:first-child h1 span {
+  display: inline-block;
+  max-width: 760px;
+  margin-top: 0.55rem;
+  font-size: 0.56em;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: #e2b72f !important;
+}
+
+.about-page-polish > div > section:first-child h1 + p {
+  max-width: 760px !important;
+  margin-top: 1.65rem !important;
+  font-size: 1.08rem !important;
+  line-height: 1.72 !important;
+  color: #e5e7eb !important;
+}
+
+.about-page-polish > div > section:first-child .mt-12.grid {
+  max-width: 860px;
+  margin-top: 2rem !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 0.75rem !important;
+}
+
+.about-page-polish > div > section:first-child .mt-12.grid > div {
+  min-height: 92px;
+  border-radius: 14px !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  background: rgba(7, 21, 49, 0.58) !important;
+  padding: 0.9rem 1rem !important;
+  backdrop-filter: blur(10px);
+  box-shadow: none !important;
+}
+
+.about-page-polish > div > section:first-child .mt-12.grid > div > div:first-child {
+  font-size: 1.45rem !important;
+  line-height: 1.15 !important;
+  color: #f2cf62 !important;
+}
+
+.about-page-polish > div > section:first-child .mt-12.grid > div > div:last-child {
+  margin-top: 0.4rem !important;
+  font-size: 0.78rem !important;
+  line-height: 1.35 !important;
+  color: #dbe3ef !important;
+}
+
+body:has(.about-page-polish) a[aria-label="Subscribe to Sri Supraja Infracon updates"],
+body:has(.about-page-polish) a[aria-label="Join as a channel partner"] {
+  display: none !important;
+}
+
+@media (max-width: 1023px) {
+  .about-page-polish > div > section:first-child {
+    min-height: 590px;
+    padding-top: 5.5rem !important;
+    padding-bottom: 4.5rem !important;
+  }
+
+  .about-page-polish > div > section:first-child h1 {
+    max-width: 780px !important;
+  }
+
+  .about-page-polish > div > section:first-child .mt-12.grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    max-width: 650px;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-page-polish > div > section:first-child {
+    min-height: auto;
+    padding-top: 4.75rem !important;
+    padding-bottom: 3.75rem !important;
+  }
+
+  .about-page-polish > div > section:first-child > div:first-child {
+    background-position: 58% center !important;
+  }
+
+  .about-page-polish > div > section:first-child > div:nth-child(2) {
+    background: linear-gradient(
+      90deg,
+      rgba(4, 16, 42, 0.96) 0%,
+      rgba(4, 16, 42, 0.88) 72%,
+      rgba(4, 16, 42, 0.72) 100%
+    ) !important;
+  }
+
+  .about-page-polish > div > section:first-child h1 {
+    font-size: 2.65rem !important;
+    line-height: 1.02 !important;
+  }
+
+  .about-page-polish > div > section:first-child h1 span {
+    margin-top: 0.65rem;
+    font-size: 0.62em;
+    line-height: 1.16;
+  }
+
+  .about-page-polish > div > section:first-child h1 + p {
+    margin-top: 1.35rem !important;
+    font-size: 1rem !important;
+    line-height: 1.65 !important;
+  }
+
+  .about-page-polish > div > section:first-child .mt-12.grid {
+    margin-top: 1.6rem !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.6rem !important;
+  }
+
+  .about-page-polish > div > section:first-child .mt-12.grid > div {
+    min-height: 82px;
+    padding: 0.8rem 0.85rem !important;
+  }
+
+  .about-page-polish > div > section:first-child .mt-12.grid > div > div:first-child {
+    font-size: 1.25rem !important;
+  }
+}
