@@ -9,6 +9,7 @@ import ProjectHighlights from "@/components/project/ProjectHighlights";
 import LemonTreeProgress from "@/components/project/LemonTreeProgress";
 import ProjectCTA from "@/components/project/ProjectCTA";
 import ProjectTestimonials from "@/components/project/ProjectTestimonials";
+import SuprajaIrisLeadSection from "@/components/project/SuprajaIrisLeadSection";
 
 import { projects } from "@/data/projects";
 
@@ -114,6 +115,11 @@ const ProjectDetail = ({ slug }: { slug: string }) => {
 
       <main>
         <ProjectHero project={project} />
+
+        {project.slug === "supraja-iris-resort-plots" && (
+          <SuprajaIrisLeadSection />
+        )}
+
         <ProjectOverview project={project} />
         <ProjectHighlights project={project} />
 
