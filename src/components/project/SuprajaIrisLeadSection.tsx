@@ -24,7 +24,7 @@ export default function SuprajaIrisLeadSection() {
   return (
     <section
       id="supraja-iris-enquiry"
-      className="scroll-mt-24 bg-[#F7F4EC] px-4 py-14 sm:px-6 lg:px-8 lg:py-18"
+      className="scroll-mt-24 bg-[#F7F4EC] px-4 py-14 sm:px-6 lg:px-8 lg:py-20"
       aria-labelledby="supraja-iris-enquiry-heading"
     >
       <div className="mx-auto grid max-w-7xl items-start gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-14">
