@@ -74,7 +74,7 @@ export const projectContent = {
       "Bridge County is a DTCP & RERA approved open plot development at Kamkole by Sri Supraja Infracon. Spread across 15 acres with 211 plotted units, the project is located within the larger Supraja IRIS development near Woxsen University and NH-65, with clear-title documentation, planned infrastructure and bank loan assistance.",
 
     amenities: [
-      "Current listed price: 13,500 per sq yard",
+      "Current listed price: ₹15,000 per sq yard",
       "Sales open for selected plots",
       "24 hours security",
       "100% Vastu compliant plots",
