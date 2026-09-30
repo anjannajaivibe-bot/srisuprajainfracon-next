@@ -74,12 +74,9 @@ export const projectContent = {
       "Bridge County is a DTCP & RERA approved open plot development at Kamkole by Sri Supraja Infracon. Spread across 15 acres with 211 plotted units, the project is located within the larger Supraja IRIS development near Woxsen University and NH-65, with clear-title documentation, planned infrastructure and bank loan assistance.",
 
     amenities: [
-      "Current listed price: ₹15,000 per sq yard",
-      "0% EMI starts from ₹25,000 per month for 36 months",
-      "165 sq. yd. plot option: ₹25,000 monthly; every 6th month ₹1,00,000 inclusive of that month's EMI",
-      "183 sq. yd. plot option: ₹30,000 monthly; every 6th month ₹1,15,000 inclusive of that month's EMI",
-      "5% booking and 25% payment within 1 month",
-      "Remaining balance payable at registration",
+      "0% Easy EMI available",
+      "EMI starts from ₹25,000 per month",
+      "Contact the sales team for current pricing and complete payment details",
       "Sales open for selected plots",
       "24 hours security",
       "100% Vastu compliant plots",
@@ -136,7 +133,7 @@ export const projectContent = {
       {
         question: "Does Bridge County have a 0% EMI payment plan?",
         answer:
-          "Yes. The current payment plan starts from ₹25,000 per month for a 165 sq. yd. plot and runs for 36 months at 0% interest. The offer also includes booking, milestone and registration-stage payments, subject to current terms and availability.",
+          "Yes. 0% Easy EMI is available, with EMI starting from ₹25,000 per month. Contact the Bridge County sales team for current pricing, plot availability and the complete payment plan. Terms and conditions apply.",
       },
       {
         question: "Are Bridge County plots available for booking?",
