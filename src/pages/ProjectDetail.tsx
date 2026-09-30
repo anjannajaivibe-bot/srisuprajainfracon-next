@@ -10,6 +10,7 @@ import LemonTreeProgress from "@/components/project/LemonTreeProgress";
 import ProjectCTA from "@/components/project/ProjectCTA";
 import ProjectTestimonials from "@/components/project/ProjectTestimonials";
 import SuprajaIrisLeadSection from "@/components/project/SuprajaIrisLeadSection";
+import BridgeCountyPaymentPlan from "@/components/project/BridgeCountyPaymentPlan";
 
 import { projects } from "@/data/projects";
 
@@ -119,6 +120,8 @@ const ProjectDetail = ({ slug }: { slug: string }) => {
         {project.slug === "supraja-iris-resort-plots" && (
           <SuprajaIrisLeadSection />
         )}
+
+        {project.slug === "bridge-county" && <BridgeCountyPaymentPlan />}
 
         <ProjectOverview project={project} />
         <ProjectHighlights project={project} />
