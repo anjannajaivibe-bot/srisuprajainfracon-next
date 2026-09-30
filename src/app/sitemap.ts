@@ -34,7 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/telangana-plot-verification`,
-      lastModified: new Date("2026-08-17"),
+      lastModified: new Date("2026-09-30"),
       changeFrequency: "monthly",
       priority: 0.92,
     },
