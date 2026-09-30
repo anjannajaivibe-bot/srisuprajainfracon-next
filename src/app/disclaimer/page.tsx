@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: "Disclaimer | Sri Supraja Infracon",
   description:
     "Read the Sri Supraja Infracon disclaimer regarding project information, visuals, approvals, pricing, timelines, and investment-related statements.",
-  alternates: { canonical: "/disclaimer/" },
+  alternates: { canonical: "/disclaimer" },
   robots: { index: true, follow: true },
 };
 
