@@ -41,7 +41,7 @@ type ProjectSeo = {
 };
 
 const SITE_URL = "https://www.srisuprajainfracon.com";
-const VERIFICATION_URL = `${SITE_URL}/project-verification/`;
+const VERIFICATION_URL = `${SITE_URL}/project-verification`;
 
 const projectSeo: Record<ProjectSlug, ProjectSeo> = {
   "supraja-iris-resort-plots": {
@@ -243,7 +243,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   }
 
   const project = projectSeo[slug];
-  const canonical = `${SITE_URL}/projects/${slug}/`;
+  const canonical = `${SITE_URL}/projects/${slug}`;
 
   return {
     title: project.title,
