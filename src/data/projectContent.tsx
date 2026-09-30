@@ -75,6 +75,11 @@ export const projectContent = {
 
     amenities: [
       "Current listed price: ₹15,000 per sq yard",
+      "0% EMI starts from ₹25,000 per month for 36 months",
+      "165 sq. yd. plot option: ₹25,000 monthly; every 6th month ₹1,00,000 inclusive of that month's EMI",
+      "183 sq. yd. plot option: ₹30,000 monthly; every 6th month ₹1,15,000 inclusive of that month's EMI",
+      "5% booking and 25% payment within 1 month",
+      "Remaining balance payable at registration",
       "Sales open for selected plots",
       "24 hours security",
       "100% Vastu compliant plots",
@@ -127,6 +132,11 @@ export const projectContent = {
         question: "Where is Bridge County located?",
         answer:
           "Bridge County is located at Kamkole near Woxsen University, with connectivity to NH-65 and toward NIMZ Zaheerabad.",
+      },
+      {
+        question: "Does Bridge County have a 0% EMI payment plan?",
+        answer:
+          "Yes. The current payment plan starts from ₹25,000 per month for a 165 sq. yd. plot and runs for 36 months at 0% interest. The offer also includes booking, milestone and registration-stage payments, subject to current terms and availability.",
       },
       {
         question: "Are Bridge County plots available for booking?",
