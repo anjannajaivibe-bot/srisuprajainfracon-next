@@ -427,7 +427,7 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
                   Current Listed Price
                 </p>
                 <p className="mt-2 text-4xl font-extrabold tracking-tight text-[#D6B15C] sm:text-5xl">
-                  ₹13,500 <span className="text-xl">/ Sq. Yard</span>
+                  ₹15,000 <span className="text-xl">/ Sq. Yard</span>
                 </p>
               </div>
             )}
