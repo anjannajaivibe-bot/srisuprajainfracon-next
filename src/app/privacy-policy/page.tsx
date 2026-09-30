@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy | Sri Supraja Infracon",
   description:
     "Read the Privacy Policy of Sri Supraja Infracon, including how we collect, use, protect, and process enquiry information.",
-  alternates: { canonical: "/privacy-policy/" },
+  alternates: { canonical: "/privacy-policy" },
   robots: { index: true, follow: true },
 };
 
