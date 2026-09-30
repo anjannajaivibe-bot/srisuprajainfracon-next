@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: "Cookie Policy | Sri Supraja Infracon",
   description:
     "Read the Cookie Policy of Sri Supraja Infracon to understand how cookies, analytics tools, and tracking technologies may be used.",
-  alternates: { canonical: "/cookie-policy/" },
+  alternates: { canonical: "/cookie-policy" },
   robots: { index: true, follow: true },
 };
 
