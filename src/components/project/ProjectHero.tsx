@@ -79,7 +79,7 @@ const heroCopy: Record<
     description:
       "The layout includes 211 plots, 50 and 33 ft roads, underground utility planning and access toward Woxsen University and NH-65.",
     tags: [
-      "₹13,500 per Sq. Yard",
+      "₹15,000 per Sq. Yard",
       "15 Acre Enclave",
       "211 Plots",
       "Near Woxsen University",
