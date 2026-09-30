@@ -79,9 +79,9 @@ const heroCopy: Record<
     description:
       "The layout includes 211 plots, 50 and 33 ft roads, underground utility planning and access toward Woxsen University and NH-65.",
     tags: [
-      "₹15,000 per Sq. Yard",
-      "0% EMI from ₹25,000/Month",
-      "36-Month Payment Plan",
+      "0% Easy EMI Available",
+      "EMI from ₹25,000/Month*",
+      "Call for Complete Payment Details",
       "15 Acre Enclave",
       "211 Plots",
       "Near Woxsen University",
@@ -425,28 +425,32 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
 
             {project.slug === "bridge-county" && (
               <div className="mt-8 max-w-xl rounded-[22px] border border-[#D6B15C]/35 bg-[#07111F]/65 p-6 shadow-2xl backdrop-blur-md">
-                <p className="text-base font-semibold text-white">
-                  Current Listed Price
+                <p className="text-sm font-bold uppercase tracking-[0.12em] text-slate-300">
+                  0% Easy EMI Available*
                 </p>
-                <p className="mt-2 text-4xl font-extrabold tracking-tight text-[#D6B15C] sm:text-5xl">
-                  ₹15,000 <span className="text-xl">/ Sq. Yard</span>
+                <p className="mt-2 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+                  EMI Starts From Just{" "}
+                  <span className="text-[#D6B15C]">₹25,000/Month*</span>
+                </p>
+                <p className="mt-3 text-sm font-semibold leading-6 text-slate-300">
+                  Call or WhatsApp our sales team for the current price, plot
+                  availability and complete payment plan.
                 </p>
 
-                <div className="mt-5 border-t border-white/15 pt-5">
-                  <p className="text-sm font-bold uppercase tracking-[0.12em] text-slate-300">
-                    0% EMI Payment Plan
-                  </p>
-                  <p className="mt-2 text-2xl font-extrabold text-white sm:text-3xl">
-                    From <span className="text-[#D6B15C]">₹25,000/Month*</span>
-                  </p>
-                  <p className="mt-1 text-sm font-semibold text-slate-300">
-                    36 Months | No Interest
-                  </p>
+                <div className="mt-5 flex flex-wrap gap-3">
                   <a
-                    href="#bridge-county-emi-plan"
-                    className="mt-4 inline-flex rounded-full bg-[#D6B15C] px-5 py-2.5 text-sm font-extrabold text-[#07111F] transition hover:bg-[#E4C97F]"
+                    href="tel:+919052996161"
+                    className="inline-flex rounded-full bg-[#D6B15C] px-5 py-2.5 text-sm font-extrabold text-[#07111F] transition hover:bg-[#E4C97F]"
                   >
-                    View Easy Payment Plan
+                    Call for Details
+                  </a>
+                  <a
+                    href="https://wa.me/919052996161?text=Hi%2C%20I%20want%20complete%20details%20about%20the%20Bridge%20County%200%25%20Easy%20EMI%20offer."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex rounded-full border border-[#D6B15C] px-5 py-2.5 text-sm font-extrabold text-[#E8D7A5] transition hover:bg-[#D6B15C] hover:text-[#07111F]"
+                  >
+                    WhatsApp for Details
                   </a>
                 </div>
               </div>
