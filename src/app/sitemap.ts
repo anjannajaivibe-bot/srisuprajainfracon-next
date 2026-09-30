@@ -21,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/projects`, changeFrequency: "weekly", priority: 0.95 },
     { url: `${baseUrl}/contact-us`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/blog`, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${baseUrl}/careers`, changeFrequency: "monthly", priority: 0.78 },
+    { url: `${baseUrl}/careers`, lastModified: new Date("2026-09-30"), changeFrequency: "monthly", priority: 0.78 },
     {
       url: `${baseUrl}/open-plots-and-resorts-in-hyderabad`,
       changeFrequency: "weekly",
@@ -60,6 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/editorial-policy`,
+      lastModified: new Date("2026-09-30"),
       changeFrequency: "monthly",
       priority: 0.55,
     },
