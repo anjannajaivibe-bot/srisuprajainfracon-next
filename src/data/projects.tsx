@@ -87,7 +87,7 @@ export const projects: Project[] = [
       "Bridge County DTCP and RERA approved open plots at Kamkole near Woxsen University",
 
     highlights: [
-      "Premium Plots at 13,500 per sq. yard",
+      "Premium Plots at ₹15,000 per sq. yard",
       "Sales Open",
       "15-acre plotted layout",
       "211 well-planned open plots",
