@@ -70,6 +70,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/index.php",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/index.php/",
+        destination: "/",
+        permanent: true,
+      },
+      {
         source: "/index/",
         destination: "/",
         permanent: true,
