@@ -38,7 +38,7 @@ const ctaCopy: Record<
     eyebrow: "Focused Investment Enquiry",
     title: "Explore Bridge County in Person",
     text:
-      "Review location advantages, infrastructure features, plot availability, pricing options, and future growth opportunities with our project advisors. Discover how Bridge County combines strategic positioning, organized development, and long-term value within one of the region's emerging destinations.",
+      "Speak with our project advisors for current plot availability, the 0% Easy EMI offer, complete payment-plan details and site visit assistance. We will explain the applicable terms directly based on your preferred plot.",
     whatsappText: "Discuss Bridge County",
   },
 
