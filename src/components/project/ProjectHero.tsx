@@ -80,6 +80,8 @@ const heroCopy: Record<
       "The layout includes 211 plots, 50 and 33 ft roads, underground utility planning and access toward Woxsen University and NH-65.",
     tags: [
       "₹15,000 per Sq. Yard",
+      "0% EMI from ₹25,000/Month",
+      "36-Month Payment Plan",
       "15 Acre Enclave",
       "211 Plots",
       "Near Woxsen University",
@@ -429,6 +431,24 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
                 <p className="mt-2 text-4xl font-extrabold tracking-tight text-[#D6B15C] sm:text-5xl">
                   ₹15,000 <span className="text-xl">/ Sq. Yard</span>
                 </p>
+
+                <div className="mt-5 border-t border-white/15 pt-5">
+                  <p className="text-sm font-bold uppercase tracking-[0.12em] text-slate-300">
+                    0% EMI Payment Plan
+                  </p>
+                  <p className="mt-2 text-2xl font-extrabold text-white sm:text-3xl">
+                    From <span className="text-[#D6B15C]">₹25,000/Month*</span>
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-slate-300">
+                    36 Months | No Interest
+                  </p>
+                  <a
+                    href="#bridge-county-emi-plan"
+                    className="mt-4 inline-flex rounded-full bg-[#D6B15C] px-5 py-2.5 text-sm font-extrabold text-[#07111F] transition hover:bg-[#E4C97F]"
+                  >
+                    View Easy Payment Plan
+                  </a>
+                </div>
               </div>
             )}
 
