@@ -79,7 +79,7 @@ export const projects: Project[] = [
     reraNo: "P01100009141",
 
     shortDescription:
-      "DTCP & RERA approved open plots at Kamkole in a 15-acre layout within Supraja IRIS, near Woxsen University and NH-65, with clear-title documentation, planned infrastructure and bank loan support.",
+      "DTCP & RERA approved open plots at Kamkole in a 15-acre layout within Supraja IRIS, with 0% EMI options starting from ₹25,000 per month, near Woxsen University and NH-65.",
 
     image: bridgeImage,
 
@@ -88,6 +88,8 @@ export const projects: Project[] = [
 
     highlights: [
       "Premium Plots at ₹15,000 per sq. yard",
+      "0% EMI from ₹25,000/month",
+      "36-month easy payment plan",
       "Sales Open",
       "15-acre plotted layout",
       "211 well-planned open plots",
