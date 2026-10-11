@@ -15,8 +15,8 @@ export default function Footer() {
   const pathname = usePathname() || "";
   const isCareers = pathname.startsWith("/careers");
 
-  const contactPhone = isCareers ? "+919640753929" : "+919052996161";
-  const contactPhoneDisplay = isCareers ? "+91 96407 53929" : "+91 90529 96161";
+  const contactPhone = isCareers ? "+919052996161" : "+919052996161";
+  const contactPhoneDisplay = isCareers ? "+91 90529 96161" : "+91 90529 96161";
 
   return (
     <footer className="border-t border-slate-200 bg-[#F8FAFC] text-slate-800">
