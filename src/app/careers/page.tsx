@@ -12,12 +12,12 @@ import {
 } from "lucide-react";
 
 const SITE_URL = "https://www.srisuprajainfracon.com";
-const PHONE_DISPLAY = "+91 96407 53929";
-const PHONE_NUMBER = "+919640753929";
+const PHONE_DISPLAY = "+91 90529 96161";
+const PHONE_NUMBER = "+919052996161";
 const CONTACT_NAME = "Anjan Margam";
 const CONTACT_ROLE = "HR Manager";
 const WHATSAPP_URL =
-  "https://wa.me/919640753929?text=Hi%2C%20I%20am%20interested%20in%20joining%20Sri%20Supraja%20Infracon%20as%20a%20channel%20partner.%20Please%20share%20the%20details.";
+  "https://wa.me/919052996161?text=Hi%2C%20I%20am%20interested%20in%20joining%20Sri%20Supraja%20Infracon%20as%20a%20channel%20partner.%20Please%20share%20the%20details.";
 
 export const metadata: Metadata = {
   title: "Channel Partner Opportunities in Hyderabad",
