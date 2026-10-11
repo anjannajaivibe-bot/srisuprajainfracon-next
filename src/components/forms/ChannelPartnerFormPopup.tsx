@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import { Handshake, Phone, X } from "lucide-react";
 
-const HR_PHONE_DISPLAY = "+91 96407 53929";
-const HR_PHONE_NUMBER = "+919640753929";
+const HR_PHONE_DISPLAY = "+91 90529 96161";
+const HR_PHONE_NUMBER = "+919052996161";
 
 export default function ChannelPartnerFormPopup() {
   const [open, setOpen] = useState(false);
