@@ -79,9 +79,9 @@ const heroCopy: Record<
     description:
       "The layout includes 211 plots, 50 and 33 ft roads, underground utility planning and access toward Woxsen University and NH-65.",
     tags: [
-      "0% Easy EMI Available",
-      "EMI from ₹25,000/Month*",
-      "Call for Complete Payment Details",
+      "Flexible 0% Interest EMI",
+      "Starting from ₹25,000/month*",
+      "Payment Schedule Available",
       "15 Acre Enclave",
       "211 Plots",
       "Near Woxsen University",
@@ -121,7 +121,7 @@ const heroCopy: Record<
     description:
       "The project has road access toward ORR, IIT Hyderabad, ICRISAT, BHEL and Sangareddy, with blacktop roads, drainage, lighting and park provisions.",
     tags: [
-      "GP LRS Paid",
+      "Check Approval Records",
       "5 Min to ORR",
       "15 Min to IIT Hyderabad",
       "40, 33 & 30 Ft Roads",
@@ -162,7 +162,7 @@ const premiumHeroStats: Record<string, any[]> = {
     { icon: Route, label: "Mominpet", value: "Location" },
   ],
   "subhash-meadows": [
-    { icon: BadgeCheck, label: "LRS", value: "Charges Paid" },
+    { icon: BadgeCheck, label: "Approvals", value: "Verify Records" },
     { icon: Ruler, label: "30 Ft+", value: "Blacktop Roads" },
     { icon: Award, label: "Planned", value: "Amenities" },
     { icon: MapPinned, label: "15 Min", value: "IIT Hyderabad" },
@@ -426,15 +426,14 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
             {project.slug === "bridge-county" && (
               <div className="mt-8 max-w-xl rounded-[22px] border border-[#D6B15C]/35 bg-[#07111F]/65 p-6 shadow-2xl backdrop-blur-md">
                 <p className="text-sm font-bold uppercase tracking-[0.12em] text-slate-300">
-                  0% Easy EMI Available*
+                  Flexible 0% Interest EMI*
                 </p>
                 <p className="mt-2 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-                  EMI Starts From Just{" "}
+                  Starting from{" "}
                   <span className="text-[#D6B15C]">₹25,000/Month*</span>
                 </p>
                 <p className="mt-3 text-sm font-semibold leading-6 text-slate-300">
-                  Call or WhatsApp our sales team for the current price, plot
-                  availability and complete payment plan.
+                  Ask about plot availability and the complete 0% interest payment schedule. Terms apply.
                 </p>
 
                 <div className="mt-5 flex flex-wrap gap-3">

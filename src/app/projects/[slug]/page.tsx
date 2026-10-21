@@ -97,7 +97,7 @@ const projectSeo: Record<ProjectSlug, ProjectSeo> = {
     focusKeyword: "DTCP & RERA Approved Luxury Plots at Kamkole",
     title: "DTCP & RERA Approved Luxury Plots at Kamkole | Bridge County",
     description:
-      "Explore DTCP & RERA Approved Luxury Plots at Kamkole in Bridge County by Sri Supraja Infracon near Woxsen University, NH-65 and Hyderabad growth corridors.",
+      "Explore Bridge County plots at Kamkole with flexible 0% interest EMI starting at ₹25,000/month. Review phase-specific DTCP/RERA references and plan a site visit.",
     ogImage: `${SITE_URL}/og/bridge-county-og.webp`,
     location: "Kamkole, Telangana",
     latitude: 17.6377793524897,
@@ -154,14 +154,14 @@ const projectSeo: Record<ProjectSlug, ProjectSeo> = {
     approval: "Documented DTCP & RERA project records",
     approvalDetail: {
       phase: "Phase 2",
-      dtcpNumbers: ["TLP No. 154/2021/H", "TLP No. 233/2021/H"],
+      dtcpNumbers: ["Draft TLP No. 233/2021/H"],
       reraNumbers: ["P02100009951"],
       surveyNumbers: ["18/P", "19/P"],
       reraValidFrom: "2021-10-23",
       reraValidUntil: "2025-08-23",
       approvalAuthorities: ["Telangana RERA", "DTCP Telangana"],
       verificationNote:
-        "The uploaded Phase 2 Form C records a period ending 23 August 2025. Any extension or current status should be verified directly with TG RERA.",
+        "The uploaded Phase 2 Form C records a period ending 23 August 2025. Draft TLP 233/2021/H relates to surveys 18/P and 19/P; Phase 1 uses TLP 154/2021/H. Verify current registration and final release before purchase.",
     },
     keywords: [
       "Mominpet open plots",

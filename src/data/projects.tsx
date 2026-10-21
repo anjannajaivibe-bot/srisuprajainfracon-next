@@ -79,7 +79,7 @@ export const projects: Project[] = [
     reraNo: "P01100009141",
 
     shortDescription:
-      "DTCP & RERA approved open plots at Kamkole in a 15-acre layout within Supraja IRIS, with 0% EMI options starting from ₹25,000 per month, near Woxsen University and NH-65.",
+      "DTCP & RERA approved open plots at Kamkole in a 15-acre layout within Supraja IRIS, with flexible 0% interest EMI starting from ₹25,000/month (terms apply), near Woxsen University and NH-65.",
 
     image: bridgeImage,
 
@@ -87,9 +87,9 @@ export const projects: Project[] = [
       "Bridge County DTCP and RERA approved open plots at Kamkole near Woxsen University",
 
     highlights: [
-      "0% Easy EMI Available",
-      "EMI starts from ₹25,000/month*",
-      "Call for complete payment details",
+      "Flexible 0% Interest EMI",
+      "EMI starting from ₹25,000/month*",
+      "Ask for the complete EMI schedule",
       "Sales Open",
       "15-acre plotted layout",
       "211 well-planned open plots",
@@ -116,7 +116,7 @@ export const projects: Project[] = [
     reraNo: "P02100009951",
 
     shortDescription:
-      "DTCP & RERA approved open plots at Mominpet with plot sizes from 150 to 569 sq. yards, gated community planning, wide internal roads, landscaped parks and 100 ft road connectivity.",
+      "Open plots at Mominpet with documented phase-specific DTCP and RERA references and plot sizes from 150 to 569 sq. yards, gated community planning, wide internal roads, landscaped parks and 100 ft road connectivity.",
 
     image: sindhuImage,
 
@@ -158,7 +158,7 @@ export const projects: Project[] = [
 
     highlights: [
       "Affordable open plots at Indrakaran",
-      "GP LRS Paid",
+      "Request applicable approval documents",
       "40, 33 & 30 Ft Roads",
       "100% Vastu Plots",
       "5 minutes to Outer Ring Road",

@@ -8,7 +8,7 @@ const projects = [
     name: "Supraja IRIS",
     href: "/projects/supraja-iris-resort-plots",
     location: "Kamkole, near Sadashivapet",
-    approval: "DTCP & RERA approved active phase",
+    approval: "DTCP/RERA documents: verify current phase status",
     description:
       "A resort-inspired plotted development near Woxsen University and the NH-65 Mumbai Highway corridor, with project-specific approval details published on the project page.",
   },
@@ -16,7 +16,7 @@ const projects = [
     name: "Bridge County",
     href: "/projects/bridge-county",
     location: "Kamkole",
-    approval: "DTCP & RERA approved",
+    approval: "DTCP & RERA records available",
     description:
       "A plotted enclave in the broader Supraja IRIS environment, positioned near Woxsen University with project-specific DTCP and Telangana RERA details.",
   },
@@ -24,7 +24,7 @@ const projects = [
     name: "Sindhu Sarovar",
     href: "/projects/sindhu-sarovar",
     location: "Mominpet",
-    approval: "DTCP & RERA approved active phase",
+    approval: "DTCP/RERA documents: verify current phase status",
     description:
       "A gated plotted development at Mominpet with phase-specific approval information, planned infrastructure and project documentation.",
   },
@@ -32,7 +32,7 @@ const projects = [
     name: "Subhash Meadows",
     href: "/projects/subhash-meadows",
     location: "Indrakaran",
-    approval: "Plotted development",
+    approval: "Approval documents to verify",
     description:
       "A value-oriented plotted development with connectivity toward Sangareddy, IIT Hyderabad, BHEL and the western Hyderabad growth belt.",
   },
@@ -45,7 +45,7 @@ export default function OpenPlotsResortsClient() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(201,162,39,0.18),transparent_30%)]" />
         <div className="relative mx-auto max-w-7xl">
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-[#E8D7A5]">
-            DTCP & RERA Approved Plotted Projects
+            Project-Wise Approval Information
           </p>
           <h1 className="max-w-5xl text-4xl font-extrabold leading-[1.03] md:text-6xl">
             Open Plots in Hyderabad for Sale
@@ -98,9 +98,7 @@ export default function OpenPlotsResortsClient() {
                 Sangareddy and IIT Hyderabad.
               </p>
               <p>
-                Sri Supraja Infracon publishes project-specific approval numbers,
-                phase information and location details on the individual project
-                pages. Buyers can review these details before visiting the site or
+                Sri Supraja Infracon publishes available project-specific approval numbers, phase information and location details on individual project pages. Some records require updated government verification. Buyers can review these details before visiting the site or
                 making a purchase decision.
               </p>
             </div>

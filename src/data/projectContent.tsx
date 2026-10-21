@@ -49,7 +49,7 @@ export const projectContent = {
       {
         question: "Is Supraja IRIS DTCP & RERA approved?",
         answer:
-          "Yes. Supraja IRIS is a DTCP & RERA approved resort-style open plot development at Kamkole.",
+          "Supraja IRIS has documented phase-specific DTCP and RERA records. The reviewed Phase 3 Form C shows an end date of 8 October 2026, unless extended. Check current status for the exact phase before booking.",
       },
       {
         question: "Are Supraja IRIS Resort Plots available for sale?",
@@ -74,9 +74,9 @@ export const projectContent = {
       "Bridge County is a DTCP & RERA approved open plot development at Kamkole by Sri Supraja Infracon. Spread across 15 acres with 211 plotted units, the project is located within the larger Supraja IRIS development near Woxsen University and NH-65, with clear-title documentation, planned infrastructure and bank loan assistance.",
 
     amenities: [
-      "0% Easy EMI available",
-      "EMI starts from ₹25,000 per month",
-      "Contact the sales team for current pricing and complete payment details",
+      "Flexible 0% interest EMI available",
+      "EMI starting from ₹25,000/month (terms apply)",
+      "Contact the sales team for the complete interest-free EMI schedule and plot availability",
       "Sales open for selected plots",
       "24 hours security",
       "100% Vastu compliant plots",
@@ -133,7 +133,7 @@ export const projectContent = {
       {
         question: "Does Bridge County have a 0% EMI payment plan?",
         answer:
-          "Yes. 0% Easy EMI is available, with EMI starting from ₹25,000 per month. Contact the Bridge County sales team for current pricing, plot availability and the complete payment plan. Terms and conditions apply.",
+          "Yes. Flexible 0% interest EMI is available, starting from ₹25,000/month. Terms depend on plot selection and payment schedule. Contact the sales team for complete plan details.",
       },
       {
         question: "Are Bridge County plots available for booking?",
