@@ -138,8 +138,18 @@ export default function AdminClient() {
 
   useEffect(() => {
     fetchLeads();
-    const interval = window.setInterval(fetchLeads, 30000);
-    return () => window.clearInterval(interval);
+    // Avoid network requests in background tabs; refresh on return.
+    const refreshOnVisibility = () => {
+      if (!document.hidden) void fetchLeads();
+    };
+    document.addEventListener("visibilitychange", refreshOnVisibility);
+    const interval = window.setInterval(() => {
+      if (!document.hidden) void fetchLeads();
+    }, 60000);
+    return () => {
+      window.clearInterval(interval);
+      document.removeEventListener("visibilitychange", refreshOnVisibility);
+    };
   }, []);
 
   const updateLead = async (
