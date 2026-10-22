@@ -8,7 +8,9 @@ import { getLoggedInCrmUser } from "@/lib/admin-auth";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-const CLICK_PAGE_SIZE = 100;
+// Larger batches cut dozens of sequential Supabase round-trips.
+// Supabase normally returns at most 1,000 rows per API request.
+const CLICK_PAGE_SIZE = 1000;
 const MAX_ANALYTICS_ROWS = 50000;
 const LEGACY_SELECT =
   "id,created_at,session_id,visitor_id,event_type,page_path,page_title,target_url,link_text,element_type,referrer,utm_source,utm_medium,utm_campaign,device_type,browser,ip_address,city,region,country";
