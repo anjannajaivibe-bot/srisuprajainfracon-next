@@ -265,11 +265,17 @@ export async function GET() {
       )
       .order("created_at", { ascending: false });
 
+    // Group once rather than scan every activity for every lead.
+    const activitiesByLead = new Map<string, NonNullable<typeof activities>>();
+    for (const activity of activities || []) {
+      const leadActivities = activitiesByLead.get(activity.lead_id) || [];
+      leadActivities.push(activity);
+      activitiesByLead.set(activity.lead_id, leadActivities);
+    }
+
     const leadsWithActivities = (leads || []).map((lead) => ({
       ...lead,
-      activities: (activities || []).filter(
-        (activity) => activity.lead_id === lead.id
-      ),
+      activities: activitiesByLead.get(lead.id) || [],
     }));
 
     return NextResponse.json({
