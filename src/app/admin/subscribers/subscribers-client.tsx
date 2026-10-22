@@ -90,6 +90,7 @@ export default function SubscribersClient() {
   const [sendResult, setSendResult] = useState<{ type: "success" | "error"; text: string } | null>(null);
   const [confirmOpen, setConfirmOpen] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const historyRequestedRef = useRef(false);
 
   const loadSubscribers = async () => {
     try {
@@ -130,9 +131,15 @@ export default function SubscribersClient() {
   };
 
   useEffect(() => {
-    loadSubscribers();
-    loadHistory();
+    void loadSubscribers();
   }, []);
+
+  // Delay 20 storage downloads until the Send Updates tab is opened.
+  useEffect(() => {
+    if (tab !== "send" || historyRequestedRef.current) return;
+    historyRequestedRef.current = true;
+    void loadHistory();
+  }, [tab]);
 
   const filteredSubscribers = useMemo(() => {
     const query = search.trim().toLowerCase();
