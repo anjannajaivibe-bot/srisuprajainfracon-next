@@ -60,6 +60,7 @@ function trackEvent(name: string, pathname: string, forcedAudience?: "careers_pa
     // A clicked CTA indicates interest, not a confirmed enquiry or sale.
     if (["phone_click", "whatsapp_click", "brochure_download_click", "lead_form_success", "channel_partner_form_success"].includes(name)) {
       clarity("set", "high_intent_action", "yes");
+      clarity("set", audience === "careers_partner" ? "partner_high_intent" : "buyer_high_intent", "yes");
     }
     clarity("event", name);
   } catch {
