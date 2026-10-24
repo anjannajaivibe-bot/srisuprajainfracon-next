@@ -56,6 +56,15 @@ export default function ChannelPartnerFormPopup() {
       });
       const result = await response.json();
       if (!response.ok || !result.success) throw new Error(result.message || "Unable to submit your details.");
+      // Record only the successful partner conversion, never the submitted PII.
+      window.dispatchEvent(new CustomEvent("supraja:analytics", {
+        detail: {
+          event_type: "channel_partner_form_submit_success",
+          element_type: "form",
+          element_id: "channel-partner-form",
+          link_text: "channel-partner-form",
+        },
+      }));
       setSubmitted(true);
       setForm({ name: "", phone: "", email: "" });
       setFormStartedAt(Date.now());
