@@ -54,6 +54,14 @@ export default function CookiePolicyPage() {
           Pixel, or similar analytics and advertising technologies.
         </p>
 
+        <p>
+          Microsoft Clarity is used on the main public website for
+          session replay and heatmap analytics. It may use cookies or
+          similar technologies to distinguish visits and understand
+          site interactions. Personal information in enquiry forms is
+          masked in recordings.
+        </p>
+
         <h2>4. Managing Cookies</h2>
         <p>
           You can manage, block, or delete cookies through your browser settings.

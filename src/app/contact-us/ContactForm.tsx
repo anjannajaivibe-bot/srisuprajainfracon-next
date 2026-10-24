@@ -203,6 +203,7 @@ export default function ContactForm({
   return (
     <form
       ref={formRef}
+      data-clarity-mask="true"
       id={formId}
       onSubmit={handleSubmit}
       className={`rounded-[32px] border border-[#EFE7D3] bg-white shadow-[0_15px_40px_rgba(11,22,51,0.08)] ${

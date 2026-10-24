@@ -9,6 +9,7 @@ import EngagementFloatingCTA from "@/components/layout/EngagementFloatingCTA";
 import ContactFormPopup from "@/components/forms/ContactFormPopup";
 import ChannelPartnerFormPopup from "@/components/forms/ChannelPartnerFormPopup";
 import ClickTracker from "@/components/analytics/ClickTracker";
+import ClarityTracker from "@/components/analytics/ClarityTracker";
 
 export default function SiteShell({
   children,
@@ -19,11 +20,12 @@ export default function SiteShell({
   const isAdmin = pathname.startsWith("/admin");
 
   if (isAdmin) {
-    return <>{children}</>;
+    return <><ClarityTracker pathname={pathname} />{children}</>;
   }
 
   return (
     <>
+      <ClarityTracker pathname={pathname} />
       <ClickTracker />
       <Navbar />
 

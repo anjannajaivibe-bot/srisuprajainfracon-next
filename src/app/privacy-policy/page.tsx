@@ -60,6 +60,17 @@ export default function PrivacyPolicyPage() {
           performance, and provide relevant communication.
         </p>
 
+        <h2>Microsoft Clarity Website Analytics</h2>
+        <p>
+          On our public website, we use Microsoft Clarity to understand
+          interactions through heatmaps, session replays, and aggregated
+          usage information. Clarity processes technical and website usage
+          information on our behalf. We exclude the administration area
+          from this installation and mark lead enquiry forms for masking
+          so their personal details are not displayed in recordings.
+          Do not enter sensitive information in general website messages.
+        </p>
+
         <h2>5. Sharing of Information</h2>
         <p>
           We do not sell personal information. Information may be shared with
