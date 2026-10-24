@@ -26,20 +26,41 @@ function projectFromPath(path: string) {
   return "general";
 }
 
-function safeTrafficSource() {
-  const query = new URLSearchParams(window.location.search);
-  if (query.has("fbclid")) return "facebook_click";
-  if (query.has("gclid")) return "google_ads_click";
-  const source = (query.get("utm_source") || "").toLowerCase().trim();
-  const allowed = ["facebook", "instagram", "google", "bing", "whatsapp", "youtube", "email"];
-  return allowed.includes(source) ? source : undefined;
+// These labels describe the page or action, not a verified identity.
+// A session can visit both property and careers pages, so use action events
+// for conversion comparisons rather than treating audiences as exclusive.
+function audienceFromPath(path: string) {
+  if (path === "/careers" || path.startsWith("/careers/") ||
+      path.startsWith("/blog/become-real-estate-channel-partner")) return "careers_partner";
+  if (path === "/projects" || path.startsWith("/projects/") ||
+      path.startsWith("/open-plots-and-resorts-in-hyderabad") ||
+      path.startsWith("/project-verification") ||
+      path.startsWith("/telangana-plot-verification")) return "property_buyer";
+  return "general";
 }
 
-function trackEvent(name: string, pathname: string) {
+function safeTrafficSource() {
+  const query = new URLSearchParams(window.location.search);
+  const source = (query.get("utm_source") || "").toLowerCase().trim();
+  const allowed = ["facebook", "instagram", "google", "bing", "whatsapp", "youtube", "email"];
+  if (allowed.includes(source)) return source;
+  if (query.has("gclid")) return "google_ads_click";
+  // fbclid is attached to both Facebook and Instagram visits.
+  if (query.has("fbclid")) return "meta_click";
+  return undefined;
+}
+
+function trackEvent(name: string, pathname: string, forcedAudience?: "careers_partner" | "property_buyer") {
   try {
     const clarity = (window as ClarityWindow).clarity;
     if (!clarity) return;
+    const audience = forcedAudience || (audienceFromPath(pathname) === "careers_partner" ? "careers_partner" : "property_buyer");
     clarity("set", "property", projectFromPath(pathname));
+    clarity("set", "lead_category", audience);
+    // A clicked CTA indicates interest, not a confirmed enquiry or sale.
+    if (["phone_click", "whatsapp_click", "brochure_download_click", "lead_form_success", "channel_partner_form_success"].includes(name)) {
+      clarity("set", "high_intent_action", "yes");
+    }
     clarity("event", name);
   } catch {
     // Never block navigation or enquiries because of an analytics failure.
@@ -88,6 +109,7 @@ export default function ClarityTracker({ pathname }: { pathname: string }) {
     if (!clarity) return;
 
     clarity("set", "property", projectFromPath(pathname));
+    clarity("set", "page_audience", audienceFromPath(pathname));
     const source = safeTrafficSource();
     if (source) clarity("set", "traffic_source", source);
 
@@ -105,9 +127,14 @@ export default function ClarityTracker({ pathname }: { pathname: string }) {
 
     const formHandler = (event: Event) => {
       if (!(event instanceof CustomEvent)) return;
-      if (event.detail?.event_type === "form_submit_success") {
-        // Never forward visitor names, phone numbers, email or messages.
-        trackEvent("lead_form_success", pathname);
+      // Only forward fixed event names, never form fields or lead data.
+      const eventType = event.detail?.event_type;
+      if (eventType === "form_start") {
+        trackEvent("lead_form_start", pathname);
+      } else if (eventType === "form_submit_success") {
+        trackEvent("lead_form_success", pathname, "property_buyer");
+      } else if (eventType === "channel_partner_form_submit_success") {
+        trackEvent("channel_partner_form_success", pathname, "careers_partner");
       }
     };
 
