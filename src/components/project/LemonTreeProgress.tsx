@@ -11,14 +11,14 @@ export default function LemonTreeProgress({ compact = false }: { compact?: boole
           <div className="relative min-h-[260px] md:min-h-[340px]">
             <Image
               src={IMAGE}
-              alt="Lemon Tree Resort construction progress at Supraja IRIS in August 2026"
+              alt="Lemon Tree Resort construction progress at Supraja IRIS in October 2026"
               fill
               sizes="(max-width: 768px) 100vw, 55vw"
               className="object-cover"
             />
           </div>
           <div className="flex flex-col justify-center p-7 sm:p-9">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-700">Latest Construction Update · August 2026</p>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-700">Latest Construction Update · October 2026</p>
             <h2 className="mt-3 font-display text-3xl font-bold leading-tight text-slate-950">Lemon Tree Resort Construction Progress</h2>
             <p className="mt-4 text-base leading-7 text-slate-600">
               Approximately 60% construction completed at the Lemon Tree Resort component within Supraja IRIS, based on the latest project update.
@@ -39,7 +39,7 @@ export default function LemonTreeProgress({ compact = false }: { compact?: boole
           <div className="relative aspect-[16/9]">
             <Image
               src={IMAGE}
-              alt="Latest Lemon Tree Resort construction progress at Supraja IRIS, August 2026"
+              alt="Latest Lemon Tree Resort construction progress at Supraja IRIS, October 2026"
               fill
               sizes="(max-width: 1024px) 100vw, 58vw"
               className="object-cover"
@@ -55,7 +55,7 @@ export default function LemonTreeProgress({ compact = false }: { compact?: boole
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700">Latest Construction Progress</p>
           <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">Visible on-site progress at Lemon Tree Resort</h2>
           <p className="mt-5 text-base leading-8 text-slate-600">
-            Approximately 60% construction completed at the Lemon Tree Resort component within Supraja IRIS, according to the latest project update. The photograph documents visible site progress in August 2026.
+            Approximately 60% construction completed at the Lemon Tree Resort component within Supraja IRIS, according to the latest project update. The photograph documents visible site progress in October 2026.
           </p>
 
           <dl className="mt-7 grid gap-4 sm:grid-cols-2">
@@ -65,7 +65,7 @@ export default function LemonTreeProgress({ compact = false }: { compact?: boole
             </div>
             <div className="border-l-2 border-amber-500 pl-4">
               <dt className="text-xs font-bold uppercase tracking-wider text-slate-500">Latest Update</dt>
-              <dd className="mt-1 font-bold text-slate-950">August 2026</dd>
+              <dd className="mt-1 font-bold text-slate-950">October 2026</dd>
             </div>
           </dl>
 
