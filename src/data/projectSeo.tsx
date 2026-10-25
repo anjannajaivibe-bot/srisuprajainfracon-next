@@ -8,7 +8,7 @@ export const projectSeo = {
     description:
       "Supraja IRIS is a resort-inspired plotted project at Kamkole near Hyderabad, planned around lifestyle attractions, Lemon Tree Resort under construction, Water & Amusement Theme Park, Go-Karting, Water Villas, and strong growth corridor connectivity.",
     firstParagraph:
-      "Supraja IRIS brings together plotted ownership, lifestyle attractions, and long-term location value near Kamkole, NH-65, Woxsen University, RRR influence zone, and the NIMZ corridor.",
+      "Supraja IRIS brings together plotted ownership, lifestyle attractions, and high return potential linked to the location's growth prospects near Kamkole, NH-65, Woxsen University, RRR influence zone, and the NIMZ corridor.",
     lastParagraph:
       "For investors and families exploring resort plots near Hyderabad, Supraja IRIS offers a distinctive project environment shaped by recreation, infrastructure, and future growth potential.",
     synonyms: [
@@ -36,7 +36,7 @@ export const projectSeo = {
     description:
       "Supraja IRIS is a resort-inspired plotted project at Kamkole near Hyderabad, planned around lifestyle attractions, Lemon Tree Resort under construction, Water & Amusement Theme Park, Go-Karting, Water Villas, and strong growth corridor connectivity.",
     firstParagraph:
-      "Supraja IRIS brings together plotted ownership, lifestyle attractions, and long-term location value near Kamkole, NH-65, Woxsen University, RRR influence zone, and the NIMZ corridor.",
+      "Supraja IRIS brings together plotted ownership, lifestyle attractions, and high return potential linked to the location's growth prospects near Kamkole, NH-65, Woxsen University, RRR influence zone, and the NIMZ corridor.",
     lastParagraph:
       "For investors and families exploring resort plots near Hyderabad, Supraja IRIS offers a distinctive project environment shaped by recreation, infrastructure, and future growth potential.",
     synonyms: [
@@ -90,11 +90,11 @@ export const projectSeo = {
     h3: "Sindhu Sarovar Brochure and Project Details",
     subtitle: "Sindhu Sarovar by Sri Supraja Infracon",
     description:
-      "Sindhu Sarovar is a thoughtfully planned project in Mominpet focused on organized layouts, practical infrastructure, accessibility, and long-term location relevance.",
+      "Sindhu Sarovar is a thoughtfully planned project in Mominpet focused on organized layouts, practical infrastructure, accessibility, and growth corridor potential.",
     firstParagraph:
       "Sindhu Sarovar offers a structured project environment for investors and families seeking planning quality, dependable infrastructure, and future growth potential in Mominpet.",
     lastParagraph:
-      "For clients exploring open plots in Mominpet, Sindhu Sarovar presents a clear project proposition built around accessibility, planning, and long-term ownership confidence.",
+      "For clients exploring open plots in Mominpet, Sindhu Sarovar presents a clear project proposition built around accessibility, planning, and confidence in the project's location and planning.",
     synonyms: [
       "Mominpet plots",
       "open plots in Mominpet",
@@ -122,7 +122,7 @@ export const projectSeo = {
     firstParagraph:
       "Subhash Meadows offers practical land ownership near important education, employment, and transportation corridors around Indrakaran.",
     lastParagraph:
-      "For investors and future homeowners exploring open plots near ORR Hyderabad, Subhash Meadows provides accessibility, essential infrastructure, and long-term location relevance.",
+      "For investors and future homeowners exploring open plots near ORR Hyderabad, Subhash Meadows provides accessibility, essential infrastructure, and growth corridor potential.",
     synonyms: [
       "Indrakaran plots",
       "plots near ORR Hyderabad",
