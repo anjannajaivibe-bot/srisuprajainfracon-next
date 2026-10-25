@@ -300,7 +300,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   if (!isValidSlug(slug)) notFound();
 
   const project = projectSeo[slug];
-  const canonical = `${SITE_URL}/projects/${slug}/`;
+  const canonical = `${SITE_URL}/projects/${slug}`;
 
   const schema = {
     "@context": "https://schema.org",
@@ -310,7 +310,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         "@id": `${canonical}#breadcrumb`,
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
-          { "@type": "ListItem", position: 2, name: "Projects", item: `${SITE_URL}/projects/` },
+          { "@type": "ListItem", position: 2, name: "Projects", item: `${SITE_URL}/projects` },
           { "@type": "ListItem", position: 3, name: project.projectName, item: canonical },
         ],
       },
@@ -353,7 +353,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         },
         about: { "@id": `${canonical}#place` },
         breadcrumb: { "@id": `${canonical}#breadcrumb` },
-        relatedLink: [VERIFICATION_URL, `${SITE_URL}/telangana-plot-verification/`],
+        relatedLink: [VERIFICATION_URL, `${SITE_URL}/telangana-plot-verification`],
         primaryImageOfPage: {
           "@type": "ImageObject",
           url: project.ogImage,
