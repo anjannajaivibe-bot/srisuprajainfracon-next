@@ -133,8 +133,11 @@ function IdValue({
   );
 }
 
+const EVENTS_PER_PAGE = 100;
+
 export default function ClickAnalyticsClient() {
   const [events, setEvents] = useState<ClickEvent[]>([]);
+  const [page, setPage] = useState(1);
   const [days, setDays] = useState(30);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -222,6 +225,14 @@ export default function ClickAnalyticsClient() {
       return matchesType && (!query || haystack.includes(query));
     });
   }, [trafficEvents, search, typeFilter]);
+
+  // Render only one page of rows; totals and CSV use every filtered event.
+  const totalPages = Math.max(1, Math.ceil(filteredEvents.length / EVENTS_PER_PAGE));
+  const currentPage = Math.min(page, totalPages);
+  const visibleEvents = useMemo(
+    () => filteredEvents.slice((currentPage - 1) * EVENTS_PER_PAGE, currentPage * EVENTS_PER_PAGE),
+    [filteredEvents, currentPage],
+  );
 
   const stats = useMemo(() => {
     const uniqueSessions = new Set(
@@ -389,7 +400,7 @@ export default function ClickAnalyticsClient() {
           <div className="grid gap-4 border-b border-slate-200 p-5 lg:grid-cols-[180px_200px_220px_1fr]">
             <select
               value={days}
-              onChange={(event) => setDays(Number(event.target.value))}
+              onChange={(event) => { setDays(Number(event.target.value)); setPage(1); }}
               className="rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-[#C9A227]"
             >
               <option value={7}>Last 7 days</option>
@@ -399,15 +410,10 @@ export default function ClickAnalyticsClient() {
 
             <select
               value={trafficFilter}
-              onChange={(event) =>
-                setTrafficFilter(
-                  event.target.value as
-                    | "human"
-                    | "known_bot"
-                    | "suspected_bot"
-                    | "all",
-                )
-              }
+              onChange={(event) => {
+                setTrafficFilter(event.target.value as "human" | "known_bot" | "suspected_bot" | "all");
+                setPage(1);
+              }}
               className="rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-[#C9A227]"
             >
               <option value="human">Human traffic</option>
@@ -418,7 +424,7 @@ export default function ClickAnalyticsClient() {
 
             <select
               value={typeFilter}
-              onChange={(event) => setTypeFilter(event.target.value)}
+              onChange={(event) => { setTypeFilter(event.target.value); setPage(1); }}
               className="rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-[#C9A227]"
             >
               <option value="All">All event types</option>
@@ -431,7 +437,7 @@ export default function ClickAnalyticsClient() {
 
             <input
               value={search}
-              onChange={(event) => setSearch(event.target.value)}
+              onChange={(event) => { setSearch(event.target.value); setPage(1); }}
               placeholder="Search page, action, campaign, bot, IP or location"
               className="rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-[#C9A227]"
             />
@@ -451,7 +457,8 @@ export default function ClickAnalyticsClient() {
               No matching events recorded yet.
             </div>
           ) : (
-            <div className="max-h-[68vh] overflow-auto">
+            <>
+              <div className="max-h-[68vh] overflow-auto">
               <table className="w-full min-w-[1760px] text-sm">
                 <thead className="sticky top-0 z-10 bg-slate-100">
                   <tr>
@@ -468,7 +475,7 @@ export default function ClickAnalyticsClient() {
                   </tr>
                 </thead>
                 <tbody>
-                  {filteredEvents.map((event) => (
+                  {visibleEvents.map((event) => (
                     <tr key={event.id} className="border-t border-slate-100">
                       <td className="whitespace-nowrap p-4 text-slate-500">
                         {new Date(event.created_at).toLocaleString()}
@@ -539,7 +546,22 @@ export default function ClickAnalyticsClient() {
                   ))}
                 </tbody>
               </table>
-            </div>
+              </div>
+              <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 px-5 py-4 text-sm text-slate-600">
+                <span>
+                  Showing {((currentPage - 1) * EVENTS_PER_PAGE + 1).toLocaleString()} to {Math.min(currentPage * EVENTS_PER_PAGE, filteredEvents.length).toLocaleString()} of {filteredEvents.length.toLocaleString()} events
+                </span>
+                <div className="flex items-center gap-3">
+                  <button type="button" onClick={() => setPage((value) => Math.max(1, value - 1))} disabled={currentPage === 1} className="rounded-lg border border-slate-300 px-3 py-2 font-medium disabled:cursor-not-allowed disabled:opacity-40">
+                    Previous
+                  </button>
+                  <span aria-live="polite">Page {currentPage} of {totalPages}</span>
+                  <button type="button" onClick={() => setPage((value) => Math.min(totalPages, value + 1))} disabled={currentPage === totalPages} className="rounded-lg border border-slate-300 px-3 py-2 font-medium disabled:cursor-not-allowed disabled:opacity-40">
+                    Next
+                  </button>
+                </div>
+              </div>
+            </>
           )}
         </section>
       </div>

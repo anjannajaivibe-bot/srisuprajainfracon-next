@@ -54,6 +54,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${SITE_URL}/blog`,
   },
+  robots: { index: true, follow: true },
   openGraph: {
     title: "Investor Knowledge Center | Sri Supraja Infracon",
     description:
@@ -131,7 +132,7 @@ export default function BlogPage() {
           "@type": "ItemList",
           name: "Sri Supraja Infracon Real Estate Guides",
           numberOfItems: posts.length,
-          itemListElement: posts.slice(0, 30).map((post, index) => ({
+          itemListElement: posts.map((post, index) => ({
             "@type": "ListItem",
             position: index + 1,
             name: stripHtml(post.title),
@@ -290,6 +291,48 @@ export default function BlogPage() {
           </p>
         </div>
         <BlogSearch posts={posts} featuredSlug={featuredPost?.slug} />
+
+        <nav
+          className="mt-14 rounded-3xl border border-[#e5dcc7] bg-white p-7 md:p-9"
+          aria-labelledby="all-guides-directory"
+        >
+          <h2
+            id="all-guides-directory"
+            className="text-2xl font-semibold text-[#12251d]"
+          >
+            Complete Investor Guide Directory
+          </h2>
+          <p className="mt-3 max-w-3xl leading-7 text-[#4b554f]">
+            Browse every published buyer, verification, location and investment
+            guide from Sri Supraja Infracon.
+          </p>
+          <div className="mt-6 grid gap-x-8 gap-y-3 md:grid-cols-2 lg:grid-cols-3">
+            {posts.map((post) => (
+              <Link
+                key={`directory-${post.slug}`}
+                href={`/blog/${post.slug}`}
+                className="text-sm font-medium leading-6 text-blue-700 underline decoration-blue-200 underline-offset-4 hover:text-blue-800"
+              >
+                {stripHtml(post.title)}
+              </Link>
+            ))}
+          </div>
+        </nav>
+
+        <div className="mt-10 flex flex-wrap gap-4 text-sm">
+          <Link
+            href="/careers"
+            className="font-semibold text-blue-700 underline underline-offset-4 hover:text-blue-800"
+          >
+            Channel Partner Opportunities
+          </Link>
+          <Link
+            href="/editorial-policy"
+            className="font-semibold text-blue-700 underline underline-offset-4 hover:text-blue-800"
+          >
+            Editorial & Verification Policy
+          </Link>
+        </div>
       </section>
     </main>
   );

@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { MessageCircle, Phone } from "lucide-react";
 
 const defaultPhoneNumber = "+919052996161";
-const careersPhoneNumber = "+919640753929";
+const careersPhoneNumber = defaultPhoneNumber;
 const defaultWhatsappUrl =
   "https://wa.me/919052996161?text=Hi%2C%20May%20I%20know%20more%20details%20about%20the%20project%3F";
 const careersWhatsappUrl =

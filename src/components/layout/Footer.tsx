@@ -15,8 +15,8 @@ export default function Footer() {
   const pathname = usePathname() || "";
   const isCareers = pathname.startsWith("/careers");
 
-  const contactPhone = isCareers ? "+919640753929" : "+919052996161";
-  const contactPhoneDisplay = isCareers ? "+91 96407 53929" : "+91 90529 96161";
+  const contactPhone = isCareers ? "+919052996161" : "+919052996161";
+  const contactPhoneDisplay = isCareers ? "+91 90529 96161" : "+91 90529 96161";
 
   return (
     <footer className="border-t border-slate-200 bg-[#F8FAFC] text-slate-800">
@@ -44,7 +44,7 @@ export default function Footer() {
               <li><Link href="/" className="transition hover:text-[#765D00]">Home</Link></li>
               <li><Link href="/about" className="transition hover:text-[#765D00]">About Us</Link></li>
               <li><Link href="/projects" className="transition hover:text-[#765D00]">Projects</Link></li>
-              <li><Link href="/careers" className="transition hover:text-[#765D00]">Careers</Link></li>
+              <li><Link href="/careers" className="transition hover:text-[#765D00]">Channel Partners</Link></li>
               <li><Link href="/project-verification" className="transition hover:text-[#765D00]">Project Verification</Link></li>
               <li><Link href="/telangana-plot-verification" className="transition hover:text-[#765D00]">Plot Verification Guide</Link></li>
               <li><Link href="/contact-us" className="transition hover:text-[#765D00]">Contact Us</Link></li>

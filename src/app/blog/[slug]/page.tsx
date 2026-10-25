@@ -12,14 +12,17 @@ const SITE_URL = "https://www.srisuprajainfracon.com";
 
 const CONSOLIDATED_BLOG_DESTINATIONS: Record<string, string> = {
   "open-plots-in-hyderabad": "/open-plots-and-resorts-in-hyderabad",
-  "best-open-plots-in-hyderabad-for-sale": "/open-plots-and-resorts-in-hyderabad",
+  "best-open-plots-in-hyderabad-for-sale":
+    "/open-plots-and-resorts-in-hyderabad",
   "top-open-plots-resorts-hyderabad": "/open-plots-and-resorts-in-hyderabad",
-  "best-open-plots-resorts-in-hyderabad": "/open-plots-and-resorts-in-hyderabad",
-  "dtcp-approved-plots-in-hyderabad": "/blog/dtcp-rera-approved-plots-in-hyderabad",
+  "best-open-plots-resorts-in-hyderabad":
+    "/open-plots-and-resorts-in-hyderabad",
+  "dtcp-approved-plots-in-hyderabad":
+    "/blog/dtcp-rera-approved-plots-in-hyderabad",
 };
 
 const CONSOLIDATED_BLOG_SLUGS = new Set(
-  Object.keys(CONSOLIDATED_BLOG_DESTINATIONS)
+  Object.keys(CONSOLIDATED_BLOG_DESTINATIONS),
 );
 
 type BlogPost = {
@@ -31,6 +34,11 @@ type BlogPost = {
   date: string;
   modified?: string;
   featuredImage?: string;
+  imageAlt?: string;
+  imageCaption?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  audience?: "channel-partner";
   excerpt?: string;
   content: string;
   category?: string;
@@ -43,12 +51,18 @@ type TocItem = {
 };
 
 function stripHtml(html = "") {
-  return html.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
+  return html
+    .replace(/<[^>]*>/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 function sanitizeBlogContent(content = "") {
   return content
-    .replace(/<script[^>]*type=["']application\/ld\+json["'][\s\S]*?<\/script>/gi, "")
+    .replace(
+      /<script[^>]*type=["']application\/ld\+json["'][\s\S]*?<\/script>/gi,
+      "",
+    )
     .replace(/<!--\s*\[et_pb_line_break_holder\]\s*-->/gi, "")
     .replace(/\[\/?et_pb[^\]]*\]/gi, "")
     .replace(/<\/?pee[^>]*>/gi, "p")
@@ -57,21 +71,45 @@ function sanitizeBlogContent(content = "") {
     .replace(/<ul>\s*<\/p>/gi, "<ul>")
     .replace(/<p>\s*<\/div>/gi, "</div>")
     .replace(/<div([^>]*)>\s*<\/p>/gi, "<div$1>")
-    .replace(/https?:\/\/(?:www\.)?suprajairis\.com\/?/gi, `${SITE_URL}/projects/supraja-iris-resort-plots`)
+    .replace(
+      /https?:\/\/(?:www\.)?suprajairis\.com\/?/gi,
+      `${SITE_URL}/projects/supraja-iris-resort-plots`,
+    )
     .replace(/https?:\/\/(?:www\.)?srisuprajainfracon\.com/gi, SITE_URL)
-    .replace(new RegExp(`href=["']${SITE_URL.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}([^"']*)["']`, "gi"), (_match, pathValue) => `href="${pathValue || "/"}"`)
+    .replace(
+      new RegExp(
+        `href=["']${SITE_URL.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}([^"']*)["']`,
+        "gi",
+      ),
+      (_match, pathValue) => `href="${pathValue || "/"}"`,
+    )
     .replace(
       /href=["']\/(?:blog\/)?(open-plots-in-hyderabad|best-open-plots-in-hyderabad-for-sale|top-open-plots-resorts-hyderabad|best-open-plots-resorts-in-hyderabad|dtcp-approved-plots-in-hyderabad)\/?["']/gi,
-      (_match, slug) => `href="${CONSOLIDATED_BLOG_DESTINATIONS[slug]}"`
+      (_match, slug) => `href="${CONSOLIDATED_BLOG_DESTINATIONS[slug]}"`,
     )
-    .replace(/href=["']\/((?:best-plots-in-hyderabad|rera-approved-plots-hyderabad-guide|hyderabad-real-estate-market-trends-2025|hyderabad-investment-areas|plots-near-orr-hyderabad)\/?)["']/gi, (_match, legacySlug) => `href="/blog/${legacySlug.replace(/\/$/, "")}"`)
-    .replace(/href=["'](\/(?!$|#)[^"'#?]+)\/["']/gi, (_match, internalPath) => `href="${internalPath}"`)
-    .replace(/\/about\/wp-content\/uploads\/2025\/12\/A03-1-1024x576\.webp/gi, "/uploads/blog/plots-near-orr-hyderabad-2di86icu.webp")
-    .replace(/\/uploads\/blog\/rera-hmda-dtcp-comparison\.webp/gi, "/uploads/blog/hmda-vs-dtcp-vs-rera.webp")
-    .replace(/<a\s+([^>]*href=["']https?:\/\/[^"']+["'][^>]*)>/gi, (match, attrs) => {
-      if (/\btarget=/i.test(attrs)) return match;
-      return `<a ${attrs} target="_blank" rel="noopener noreferrer">`;
-    })
+    .replace(
+      /href=["']\/((?:best-plots-in-hyderabad|rera-approved-plots-hyderabad-guide|hyderabad-real-estate-market-trends-2025|hyderabad-investment-areas|plots-near-orr-hyderabad)\/?)["']/gi,
+      (_match, legacySlug) => `href="/blog/${legacySlug.replace(/\/$/, "")}"`,
+    )
+    .replace(
+      /href=["'](\/(?!$|#)[^"'#?]+)\/["']/gi,
+      (_match, internalPath) => `href="${internalPath}"`,
+    )
+    .replace(
+      /\/about\/wp-content\/uploads\/2025\/12\/A03-1-1024x576\.webp/gi,
+      "/uploads/blog/plots-near-orr-hyderabad-2di86icu.webp",
+    )
+    .replace(
+      /\/uploads\/blog\/rera-hmda-dtcp-comparison\.webp/gi,
+      "/uploads/blog/hmda-vs-dtcp-vs-rera.webp",
+    )
+    .replace(
+      /<a\s+([^>]*href=["']https?:\/\/[^"']+["'][^>]*)>/gi,
+      (match, attrs) => {
+        if (/\btarget=/i.test(attrs)) return match;
+        return `<a ${attrs} target="_blank" rel="noopener noreferrer">`;
+      },
+    )
     .trim();
 }
 
@@ -114,7 +152,7 @@ function addHeadingIds(content: string) {
       if (attrs.includes("id=")) return match;
 
       return `<h${level}${attrs} id="${id}">${headingText}</h${level}>`;
-    }
+    },
   );
 
   return { content: updatedContent, toc };
@@ -151,11 +189,11 @@ const RELATED_STOP_WORDS = new Set([
 function getRelatedKeywords(post: BlogPost) {
   return new Set(
     stripHtml(
-      `${post.title} ${post.metaDescription || ""} ${post.category || ""}`
+      `${post.title} ${post.metaDescription || ""} ${post.category || ""}`,
     )
       .toLowerCase()
       .split(/[^a-z0-9]+/)
-      .filter((word) => word.length > 3 && !RELATED_STOP_WORDS.has(word))
+      .filter((word) => word.length > 3 && !RELATED_STOP_WORDS.has(word)),
   );
 }
 
@@ -168,16 +206,16 @@ function getRelatedPosts(currentPost: BlogPost): BlogPost[] {
     .readdirSync(BLOG_DIR)
     .filter((file) => file.endsWith(".json"))
     .map((file) =>
-      JSON.parse(fs.readFileSync(path.join(BLOG_DIR, file), "utf8"))
+      JSON.parse(fs.readFileSync(path.join(BLOG_DIR, file), "utf8")),
     )
     .filter(
       (post) =>
         post.slug !== currentPost.slug &&
-        !CONSOLIDATED_BLOG_SLUGS.has(post.slug)
+        !CONSOLIDATED_BLOG_SLUGS.has(post.slug),
     )
     .map((post) => {
       const sharedKeywords = [...getRelatedKeywords(post)].filter((keyword) =>
-        currentKeywords.has(keyword)
+        currentKeywords.has(keyword),
       ).length;
       const categoryScore =
         post.category && post.category === currentPost.category ? 3 : 0;
@@ -190,7 +228,7 @@ function getRelatedPosts(currentPost: BlogPost): BlogPost[] {
     .sort(
       (a, b) =>
         b.score - a.score ||
-        new Date(b.post.date).getTime() - new Date(a.post.date).getTime()
+        new Date(b.post.date).getTime() - new Date(a.post.date).getTime(),
     )
     .slice(0, 3)
     .map(({ post }) => post);
@@ -229,8 +267,12 @@ export async function generateMetadata({
     description,
     alternates: { canonical },
     openGraph: {
-      title,
-      description,
+      title:
+        post.audience === "channel-partner" ? post.ogTitle || title : title,
+      description:
+        post.audience === "channel-partner"
+          ? post.ogDescription || description
+          : description,
       type: "article",
       url: canonical,
       images: [
@@ -238,7 +280,7 @@ export async function generateMetadata({
           url: image,
           width: 1600,
           height: 900,
-          alt: stripHtml(post.title),
+          alt: post.imageAlt || stripHtml(post.title),
         },
       ],
       publishedTime: post.date,
@@ -276,8 +318,11 @@ export default async function BlogDetailPage({
     : `${SITE_URL}/og-image.jpg`;
 
   const readingTime = calculateReadingTime(cleanPostContent);
-  const wordCount = stripHtml(cleanPostContent).split(/\s+/).filter(Boolean).length;
+  const wordCount = stripHtml(cleanPostContent)
+    .split(/\s+/)
+    .filter(Boolean).length;
   const category = post.category || "Investment Guide";
+  const isPartnerGuide = post.audience === "channel-partner";
 
   const formattedDate = new Date(post.date).toLocaleDateString("en-IN", {
     day: "numeric",
@@ -285,14 +330,13 @@ export default async function BlogDetailPage({
     year: "numeric",
   });
 
-  const formattedModifiedDate = new Date(post.modified || post.date).toLocaleDateString(
-    "en-IN",
-    {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    }
-  );
+  const formattedModifiedDate = new Date(
+    post.modified || post.date,
+  ).toLocaleDateString("en-IN", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -368,11 +412,11 @@ export default async function BlogDetailPage({
 
       <section className="mx-auto max-w-7xl px-6 py-12 md:py-16">
         <nav className="mb-8 text-sm text-gray-600">
-          <Link href="/" className="hover:text-[#b08a3c]">
+          <Link href="/" className="hover:text-[#765D00]">
             Home
           </Link>{" "}
           /{" "}
-          <Link href="/blog" className="hover:text-[#b08a3c]">
+          <Link href="/blog" className="hover:text-[#765D00]">
             Blog
           </Link>{" "}
           / <span className="text-[#12251d]">{title}</span>
@@ -382,7 +426,7 @@ export default async function BlogDetailPage({
           {toc.length > 0 && (
             <aside className="hidden lg:block">
               <div className="sticky top-28 rounded-3xl bg-white p-6 shadow-sm">
-                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#b08a3c]">
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#765D00]">
                   Table of Contents
                 </p>
 
@@ -391,7 +435,7 @@ export default async function BlogDetailPage({
                     <a
                       key={item.id}
                       href={`#${item.id}`}
-                      className={`block text-sm leading-snug transition hover:text-[#b08a3c] ${
+                      className={`block text-sm leading-snug transition hover:text-[#765D00] ${
                         item.level === 3
                           ? "ml-4 text-gray-500"
                           : "font-medium text-[#12251d]"
@@ -406,7 +450,7 @@ export default async function BlogDetailPage({
           )}
 
           <article className="max-w-5xl">
-            <div className="flex flex-wrap items-center gap-3 text-sm font-medium text-[#b08a3c]">
+            <div className="flex flex-wrap items-center gap-3 text-sm font-medium text-[#765D00]">
               <span>{category}</span>
               <span className="text-gray-400">•</span>
               <span>{formattedDate}</span>
@@ -435,7 +479,7 @@ export default async function BlogDetailPage({
               <div className="relative mt-10 h-[260px] overflow-hidden rounded-3xl bg-gray-100 shadow-sm md:h-[460px]">
                 <Image
                   src={post.featuredImage}
-                  alt={title}
+                  alt={post.imageAlt || title}
                   fill
                   priority
                   sizes="(max-width: 768px) 100vw, 900px"
@@ -444,9 +488,31 @@ export default async function BlogDetailPage({
               </div>
             )}
 
+            {post.imageCaption && (
+              <p className="mt-3 text-sm text-slate-600">{post.imageCaption}</p>
+            )}
+
+            {isPartnerGuide && (
+              <div className="mt-8 rounded-2xl border border-blue-200 bg-white p-6">
+                <p className="text-lg font-semibold text-slate-950">
+                  Ready to explore a partnership?
+                </p>
+                <p className="mt-2 leading-7 text-slate-600">
+                  Introduce yourself and discuss the opportunity with our team.
+                </p>
+                <Link
+                  href="/careers"
+                  data-track-label="Channel partner blog: introduction CTA"
+                  className="mt-4 inline-flex rounded-xl bg-blue-700 px-5 py-3 font-semibold text-white hover:bg-blue-800"
+                >
+                  Explore partnership details
+                </Link>
+              </div>
+            )}
+
             {toc.length > 0 && (
               <div className="mt-10 rounded-3xl bg-white p-6 shadow-sm lg:hidden">
-                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#b08a3c]">
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#765D00]">
                   Table of Contents
                 </p>
 
@@ -455,7 +521,7 @@ export default async function BlogDetailPage({
                     <a
                       key={item.id}
                       href={`#${item.id}`}
-                      className="block text-sm font-medium text-[#12251d] hover:text-[#b08a3c]"
+                      className="block text-sm font-medium text-[#12251d] hover:text-[#765D00]"
                     >
                       {item.text}
                     </a>
@@ -494,9 +560,9 @@ export default async function BlogDetailPage({
                 prose-strong:text-[#12251d]
 
                 prose-a:font-semibold
-                prose-a:text-[#b08a3c]
-                prose-a:no-underline
-                hover:prose-a:text-[#8f6f2e]
+                prose-a:text-blue-700
+                prose-a:underline prose-a:underline-offset-4
+                hover:prose-a:text-blue-800
 
                 prose-ul:my-8
                 prose-ol:my-8
@@ -504,6 +570,7 @@ export default async function BlogDetailPage({
                 prose-li:leading-8
                 prose-li:text-[#3d463f]
 
+                prose-figcaption:text-slate-600
                 prose-img:my-12
                 prose-img:rounded-3xl
                 prose-img:shadow-lg
@@ -532,7 +599,7 @@ export default async function BlogDetailPage({
               <div className="mt-6 flex flex-wrap gap-4">
                 <Link
                   href="/projects/supraja-iris-resort-plots"
-                  className="rounded-full bg-[#12251d] px-5 py-3 text-white hover:bg-[#b08a3c]"
+                  className="rounded-full bg-[#12251d] px-5 py-3 text-white hover:bg-[#765D00]"
                 >
                   Supraja IRIS
                 </Link>
@@ -586,30 +653,49 @@ export default async function BlogDetailPage({
               </section>
             )}
 
-            <section className="mt-16 rounded-3xl bg-[#12251d] p-8 text-white">
-              <h2 className="font-display text-2xl font-semibold">
-                Looking for DTCP & RERA Approved Plots?
-              </h2>
-              <p className="mt-3 text-white/80">
-                Explore premium plotted developments by Sri Supraja Infracon
-                across Hyderabad growth corridors.
-              </p>
+            {isPartnerGuide ? (
+              <section className="mt-16 rounded-3xl bg-[#102749] p-8 text-white">
+                <h2 className="font-display text-2xl font-semibold">
+                  Build your next property partnership
+                </h2>
+                <p className="mt-3 leading-7 text-slate-200">
+                  Connect with Sri Supraja Infracon to discuss your experience,
+                  project interests and the proposed working arrangement.
+                </p>
+                <Link
+                  href="/careers"
+                  data-track-label="Channel partner blog: closing CTA"
+                  className="mt-6 inline-flex rounded-xl bg-white px-6 py-3 font-semibold text-blue-800 hover:bg-blue-50"
+                >
+                  Enquire about becoming a partner
+                </Link>
+              </section>
+            ) : (
+              <section className="mt-16 rounded-3xl bg-[#12251d] p-8 text-white">
+                <h2 className="font-display text-2xl font-semibold">
+                  Looking for DTCP & RERA Approved Plots?
+                </h2>
+                <p className="mt-3 text-white/80">
+                  Explore premium plotted developments by Sri Supraja Infracon
+                  across Hyderabad growth corridors.
+                </p>
 
-              <div className="mt-6 flex flex-wrap gap-4">
-                <Link
-                  href="/projects"
-                  className="rounded-full bg-[#b08a3c] px-6 py-3 font-semibold text-white"
-                >
-                  Explore Projects
-                </Link>
-                <Link
-                  href="/contact-us"
-                  className="rounded-full border border-white/30 px-6 py-3 font-semibold text-white"
-                >
-                  Schedule Site Visit
-                </Link>
-              </div>
-            </section>
+                <div className="mt-6 flex flex-wrap gap-4">
+                  <Link
+                    href="/projects"
+                    className="rounded-full bg-[#765D00] px-6 py-3 font-semibold text-white"
+                  >
+                    Explore Projects
+                  </Link>
+                  <Link
+                    href="/contact-us"
+                    className="rounded-full border border-white/30 px-6 py-3 font-semibold text-white"
+                  >
+                    Schedule Site Visit
+                  </Link>
+                </div>
+              </section>
+            )}
           </article>
         </div>
       </section>

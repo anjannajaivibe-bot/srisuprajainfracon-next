@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: "Cookie Policy | Sri Supraja Infracon",
   description:
     "Read the Cookie Policy of Sri Supraja Infracon to understand how cookies, analytics tools, and tracking technologies may be used.",
-  alternates: { canonical: "/cookie-policy/" },
+  alternates: { canonical: "/cookie-policy" },
   robots: { index: true, follow: true },
 };
 
@@ -52,6 +52,14 @@ export default function CookiePolicyPage() {
         <p>
           Our website may use tools such as Google Analytics, Google Ads, Meta
           Pixel, or similar analytics and advertising technologies.
+        </p>
+
+        <p>
+          Microsoft Clarity is used on the main public website for
+          session replay and heatmap analytics. It may use cookies or
+          similar technologies to distinguish visits and understand
+          site interactions. Personal information in enquiry forms is
+          masked in recordings.
         </p>
 
         <h2>4. Managing Cookies</h2>

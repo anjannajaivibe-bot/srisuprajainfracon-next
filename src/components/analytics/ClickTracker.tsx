@@ -23,6 +23,14 @@ type ClickPayload = {
   screen_width: number;
 };
 
+type AnalyticsEventDetail = {
+  event_type: string;
+  link_text?: string;
+  element_type?: string;
+  element_id?: string | null;
+  target_url?: string | null;
+};
+
 const SESSION_KEY = "supraja_analytics_session";
 const VISITOR_KEY = "supraja_analytics_visitor_id";
 const UTM_KEY = "supraja_click_utm";
@@ -123,27 +131,47 @@ const getAnalyticsIdentity = () => {
 
 const getCampaign = () => {
   const params = new URLSearchParams(window.location.search);
+  const gclid = clip(params.get("gclid"), 200) || null;
+  const googleCampaignId =
+    clip(params.get("gad_campaignid") || params.get("utm_campaign_id"), 120) ||
+    null;
+
   const current = {
-    utm_source: clip(params.get("utm_source"), 100) || null,
-    utm_medium: clip(params.get("utm_medium"), 100) || null,
-    utm_campaign: clip(params.get("utm_campaign"), 150) || null,
+    utm_source:
+      clip(params.get("utm_source"), 100) || (gclid ? "google" : null),
+    utm_medium:
+      clip(params.get("utm_medium"), 100) || (gclid ? "cpc" : null),
+    utm_campaign:
+      clip(params.get("utm_campaign"), 150) ||
+      (googleCampaignId ? `google-ads-${googleCampaignId}` : null),
     utm_content: clip(params.get("utm_content"), 150) || null,
     utm_term: clip(params.get("utm_term"), 150) || null,
   };
 
-  if (Object.values(current).some(Boolean)) {
-    sessionStorage.setItem(UTM_KEY, JSON.stringify(current));
+  if (Object.values(current).some(Boolean) || gclid || googleCampaignId) {
+    try {
+      sessionStorage.setItem(
+        UTM_KEY,
+        JSON.stringify({
+          ...current,
+          gclid,
+          utm_campaign_id: googleCampaignId,
+        }),
+      );
+    } catch {
+      // Analytics should never interrupt navigation or lead capture.
+    }
     return current;
   }
 
   try {
+    const stored = JSON.parse(sessionStorage.getItem(UTM_KEY) || "{}");
     return {
-      utm_source: null,
-      utm_medium: null,
-      utm_campaign: null,
-      utm_content: null,
-      utm_term: null,
-      ...JSON.parse(sessionStorage.getItem(UTM_KEY) || "{}"),
+      utm_source: stored.utm_source || null,
+      utm_medium: stored.utm_medium || null,
+      utm_campaign: stored.utm_campaign || null,
+      utm_content: stored.utm_content || null,
+      utm_term: stored.utm_term || null,
     };
   } catch {
     return current;
@@ -269,6 +297,22 @@ export default function ClickTracker() {
       sendClick(payload);
     };
 
+    const handleAnalyticsEvent = (event: Event) => {
+      if (!(event instanceof CustomEvent)) return;
+      const detail = (event.detail || {}) as AnalyticsEventDetail;
+      const eventType = clip(detail.event_type, 60);
+      if (!eventType || !/^[a-z0-9_]+$/.test(eventType)) return;
+
+      sendClick({
+        event_type: eventType,
+        ...basePayload(),
+        target_url: safeUrl(detail.target_url || null),
+        link_text: clip(detail.link_text || "", 160),
+        element_type: clip(detail.element_type || "form", 30),
+        element_id: clip(detail.element_id || "", 120) || null,
+      });
+    };
+
     const originalPushState = history.pushState;
     const originalReplaceState = history.replaceState;
     const handleRouteChange = () => window.setTimeout(recordPageView, 0);
@@ -284,11 +328,13 @@ export default function ClickTracker() {
 
     document.addEventListener("click", handleClick, true);
     window.addEventListener("popstate", handleRouteChange);
+    window.addEventListener("supraja:analytics", handleAnalyticsEvent);
     recordPageView();
 
     return () => {
       document.removeEventListener("click", handleClick, true);
       window.removeEventListener("popstate", handleRouteChange);
+      window.removeEventListener("supraja:analytics", handleAnalyticsEvent);
       history.pushState = originalPushState;
       history.replaceState = originalReplaceState;
     };

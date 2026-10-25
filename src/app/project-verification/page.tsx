@@ -26,7 +26,7 @@ const projects = [
     href: "/projects/supraja-iris-resort-plots",
     location: "Ghanpur / Marpalle, Vikarabad District",
     rera: "P02100009249",
-    tlp: "155/2024/H",
+    tlp: "Draft TLP 155/2024/H",
     surveys: "130/Part, 131/Part, 147/Part, 148/Part, 149/Part",
     period: "08 October 2024 to 08 October 2026, unless extended by the Authority",
     note: "The uploaded TG RERA Form C and DTCP proceedings support these phase-specific details.",
@@ -36,17 +36,27 @@ const projects = [
     href: "/projects/supraja-iris-resort-plots",
     location: "Ghanapur, Marpalle, Vikarabad District",
     rera: "P02100009961",
-    tlp: "Revised TLP 59/2025/H",
+    tlp: "Revised Draft TLP 59/2025/H",
     surveys: "Survey No. 134",
     period: "11 June 2025 to 11 June 2027, unless extended or otherwise updated by the Authority",
     note: "The TG RERA certificate and revised DTCP proceedings are treated as separate source records and should be cross-checked for the latest regulatory status.",
+  },
+  {
+    name: "Supraja IRIS Resort Phase 1 (historical record)",
+    href: "/projects/supraja-iris-resort-plots",
+    location: "Ghanapur, Marpalle, Vikarabad District",
+    rera: "P02100005515",
+    tlp: "Final TLP 272/2022/H",
+    surveys: "130/P, 131/P, 132/P, 133/P, 134/P, 143/P, 144/P, 145/P, 146/P, 147/P, 148/P, 149/P",
+    period: "14 December 2022 to 26 August 2024, unless extended by the Authority",
+    note: "Uploaded Phase 1 RERA and final TLP proceedings support these historical references. They do not prove current registration validity.",
   },
   {
     name: "Supraja Bridge County",
     href: "/projects/bridge-county",
     location: "Kamkole, Munipally Mandal, Sangareddy District",
     rera: "P01100009141",
-    tlp: "160/2024/H",
+    tlp: "Draft TLP 160/2024/H",
     surveys: "186/P, 187/P, 189/P",
     period: "30 October 2024 to 30 October 2026, unless extended by the Authority",
     note: "The DTCP layout proceedings record approximately 14.875 acres and 211 plots for the referenced layout.",
@@ -56,7 +66,7 @@ const projects = [
     href: "/projects/sindhu-sarovar",
     location: "Morangapally, Mominpet, Vikarabad District",
     rera: "P02100009951",
-    tlp: "Project page carries the applicable DTCP layout references",
+    tlp: "Draft TLP 233/2021/H",
     surveys: "18/P and 19/P",
     period: "Uploaded Form C records 23 October 2021 to 23 August 2025, unless extended by the Authority",
     note: "Because the documented period in the uploaded certificate has ended, buyers should verify any extension or current status directly with TG RERA before relying on it.",
@@ -66,7 +76,7 @@ const projects = [
     href: "/projects/sindhu-sarovar",
     location: "Mominpet, Vikarabad District",
     rera: "P02100003339",
-    tlp: "Historical phase record",
+    tlp: "Draft TLP 154/2021/H",
     surveys: "406/P and 407/P",
     period: "Uploaded Form C records 25 August 2021 to 17 May 2023, unless extended by the Authority",
     note: "This is presented as a historical project record, not as evidence of current registration status.",
@@ -115,7 +125,7 @@ export default function ProjectVerificationPage() {
       <section className="bg-[#10251D] px-6 pb-20 pt-32 text-white">
         <div className="mx-auto max-w-6xl">
           <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#D8B96A]">
-            Verified Project Information
+            Reviewed Approval Documents
           </p>
           <h1 className="mt-4 max-w-5xl text-4xl font-bold leading-tight md:text-6xl">
             Sri Supraja Infracon Project Verification Center
@@ -131,7 +141,7 @@ export default function ProjectVerificationPage() {
           <div className="rounded-3xl border border-[#D9CFB7] bg-white p-7 shadow-sm md:p-9">
             <h2 className="text-2xl font-bold">How to use this verification center</h2>
             <p className="mt-4 leading-7 text-slate-600">
-              Treat the entries below as a concise reference to the documents reviewed by Sri Supraja Infracon. For any purchase decision, independently verify the project number on the official TG RERA portal and review the applicable layout approval, title documents and current project status with qualified professionals.
+              Treat the entries below as references from uploaded documents, not proof of current registration validity. Some certificates have passed their printed end dates, and some TLP proceedings are marked draft. Before purchasing, independently check the latest TG RERA status, any extension, final DTCP release and title documents.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a
@@ -188,6 +198,14 @@ export default function ProjectVerificationPage() {
               </article>
             ))}
           </div>
+
+          <aside className="mt-10 rounded-3xl border border-[#D9CFB7] bg-white p-7 text-[#17211B] md:p-9">
+            <h2 className="text-2xl font-bold">Subhash Meadows: documents to verify</h2>
+            <p className="mt-3 leading-7 text-slate-700">
+              Approval or LRS regularisation documents for Subhash Meadows were not included in the reviewed files. Request the applicable official papers and verify their status before booking.
+            </p>
+            <Link href="/projects/subhash-meadows" className="mt-4 inline-block font-bold text-[#765D00] underline underline-offset-4">View Subhash Meadows</Link>
+          </aside>
 
           <div className="mt-12 rounded-3xl bg-[#10251D] p-8 text-white md:p-10">
             <h2 className="text-2xl font-bold">Privacy and legal-use policy</h2>

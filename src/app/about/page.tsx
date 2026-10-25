@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   description:
     "Learn about Sri Supraja Infracon, a trusted real estate developer focused on DTCP and RERA approved open plots, resort plots and plotted communities near Hyderabad growth corridors.",
   alternates: {
-    canonical: `${SITE_URL}/about/`,
+    canonical: `${SITE_URL}/about`,
   },
   openGraph: {
     title: "About Sri Supraja Infracon | Open Plot Developers Near Hyderabad",
     description:
       "Sri Supraja Infracon develops approved open plot communities across Hyderabad growth corridors including Kamkole, Mominpet, Sangareddy and Indrakaran.",
-    url: `${SITE_URL}/about/`,
+    url: `${SITE_URL}/about`,
     siteName: "Sri Supraja Infracon",
     type: "website",
   },
@@ -34,23 +34,23 @@ export default function AboutPage() {
     "@graph": [
       {
         "@type": "AboutPage",
-        "@id": `${SITE_URL}/about/#webpage`,
-        url: `${SITE_URL}/about/`,
+        "@id": `${SITE_URL}/about#webpage`,
+        url: `${SITE_URL}/about`,
         name: "About Sri Supraja Infracon",
         description:
           "Sri Supraja Infracon is a real estate developer focused on plotted, residential, villa and resort-inspired developments across Hyderabad growth corridors.",
         isPartOf: { "@id": `${SITE_URL}/#website` },
         about: { "@id": `${SITE_URL}/#organization` },
         mainEntity: { "@id": `${SITE_URL}/#organization` },
-        breadcrumb: { "@id": `${SITE_URL}/about/#breadcrumb` },
+        breadcrumb: { "@id": `${SITE_URL}/about#breadcrumb` },
         inLanguage: "en-IN",
       },
       {
         "@type": "BreadcrumbList",
-        "@id": `${SITE_URL}/about/#breadcrumb`,
+        "@id": `${SITE_URL}/about#breadcrumb`,
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
-          { "@type": "ListItem", position: 2, name: "About", item: `${SITE_URL}/about/` },
+          { "@type": "ListItem", position: 2, name: "About", item: `${SITE_URL}/about` },
         ],
       },
     ],

@@ -23,7 +23,7 @@ const stats = [
   },
   {
     icon: BadgeCheck,
-    value: "Investor",
+    value: "Buyer",
     label: "Focused",
     text: "Approach",
   },
@@ -38,33 +38,33 @@ const stats = [
 const reasons = [
   {
     icon: Landmark,
-    title: "Over Two Decades of Ground Reality",
-    desc: "A strong track record across plotted developments, residential projects, villas, and lifestyle-led developments.",
+    title: "24+ Years in Real Estate",
+    desc: "Experience across plotted developments, apartments, villas and residential projects in and around Hyderabad.",
   },
   {
     icon: MapPinned,
-    title: "Corridor-First Site Selection",
-    desc: "Strategic project locations across Kamkole, Mominpet, Sangareddy, and Indrakaran with access to key development zones.",
+    title: "Locations Explained Clearly",
+    desc: "Review road access, nearby employment and education hubs, and development activity around each project before you visit.",
   },
   {
     icon: ShieldCheck,
-    title: "Documentation You Can Audit ",
-    desc: "Approvals, title chain, and layout sanctions made available for independent verification before you commit.",
+    title: "Approval Details Up Front",
+    desc: "DTCP and RERA details are shown project by project, with project documentation available for buyer verification.",
   },
   {
     icon: Handshake,
-    title: "Advisory, Not Sales Pressure",
-    desc: "Practical location insights, availability updates, pricing guidance, and comparison support for confident decision-making.",
+    title: "Site Visits Before Decisions",
+    desc: "Our team can walk you through the site, current development, available plot options and project information before you decide.",
   },
   {
     icon: Building2,
-    title: "A Portfolio, Not a Single Bet",
-    desc: "Choose from resort-inspired plots, premium plotted enclaves, gated layouts, and affordable growth-corridor projects.",
+    title: "Projects for Different Budgets",
+    desc: "Compare resort plots, gated layouts and plotted developments across our current project portfolio.",
   },
   {
     icon: TrendingUp,
-    title: "Appreciation by Design",
-    desc: "Each layout is positioned around demand drivers already in motion - not speculative future promises.",
+    title: "Progress You Can See",
+    desc: "Real site photographs and construction updates help you understand what is completed, under construction and planned.",
   },
 ];
 
@@ -87,13 +87,11 @@ const WhyChooseUs = () => {
           </div>
 
           <h2 className="mx-auto max-w-5xl font-display text-4xl font-bold leading-tight tracking-tight text-[#07111F] md:text-6xl">
-            Built on Trust.{" "}
-            <span className="text-[#C48912]">Backed by Delivery. Chosen for Growth.</span>
+            What Buyers Can <span className="text-[#C48912]">Review Before They Decide</span>
           </h2>
 
           <p className="mx-auto mt-6 max-w-4xl text-lg leading-8 text-[#334155]">
-            A track record measured in decades, not testimonials - deliberate site selection, 
-            transparent process, and outcomes our clients can independently verify.
+            Clear approval information, real project updates, practical location details and site visits that help buyers compare projects on facts.
           </p>
         </div>
 

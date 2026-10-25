@@ -10,7 +10,7 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
-  { label: "Careers", href: "/careers" },
+  { label: "Channel Partners", href: "/careers" },
   { label: "Contact Us", href: "/contact-us" },
 ];
 
@@ -37,6 +37,8 @@ const phoneNumber = "+919052996161";
 
 const whatsappUrl =
   "https://wa.me/919052996161?text=Hi%2C%20May%20I%20Know%20More%20Details%20about%20the%20project%3F";
+const careersWhatsappUrl =
+  "https://wa.me/919640753929?text=Hi%2C%20I%20am%20interested%20in%20joining%20Sri%20Supraja%20Infracon%20as%20a%20channel%20partner.%20Please%20share%20the%20details.";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -45,6 +47,7 @@ export default function Navbar() {
   const [projectsOpen, setProjectsOpen] = useState(false);
 
   const pathname = usePathname() || "/";
+  const headerWhatsappUrl = pathname.startsWith("/careers") ? careersWhatsappUrl : whatsappUrl;
   const isProjectsActive = pathname.startsWith("/projects");
 
   useEffect(() => {
@@ -165,7 +168,7 @@ export default function Navbar() {
           </Link>
 
           <Link href="/careers" className={getNavClass("/careers")}>
-            Careers
+            Channel Partners
           </Link>
 
           <Link href="/contact-us" className={getNavClass("/contact-us")}>
@@ -174,10 +177,10 @@ export default function Navbar() {
 
           <div className="flex items-center gap-3">
             <a
-              href={whatsappUrl}
+              href={headerWhatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full bg-green-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-green-600"
+              className="flex items-center gap-2 rounded-full bg-green-700 px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-green-800"
             >
               <MessageCircle size={14} />
               WhatsApp
@@ -270,10 +273,10 @@ export default function Navbar() {
 
               <div className="flex flex-col gap-3 pt-3">
                 <a
-                  href={whatsappUrl}
+                  href={headerWhatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 rounded-full bg-green-500 px-5 py-3 font-semibold text-white transition-all duration-300 hover:bg-green-600"
+                  className="flex items-center justify-center gap-2 rounded-full bg-green-700 px-5 py-3 font-semibold text-white transition-all duration-300 hover:bg-green-800"
                 >
                   <MessageCircle size={16} />
                   WhatsApp

@@ -36,6 +36,10 @@ const consolidatedBlogRedirects = [
     slug: "dtcp-approved-plots-in-hyderabad",
     destination: "/blog/dtcp-rera-approved-plots-in-hyderabad",
   },
+  {
+    slug: "kamkole-real-estate-investment-guide",
+    destination: "/blog/kamkole-real-estate-investment-hotspot",
+  },
 ];
 
 const nextConfig: NextConfig = {
@@ -66,6 +70,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/index.php",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/index.php/",
+        destination: "/",
+        permanent: true,
+      },
+      {
         source: "/index/",
         destination: "/",
         permanent: true,
@@ -81,7 +95,7 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
-      // Consolidate overlapping commercial-intent content into one authority URL.
+      // Consolidate overlapping search-intent content into stronger authority URLs.
       ...consolidatedBlogRedirects.flatMap(({ slug, destination }) => [
         {
           source: `/blog/${slug}`,

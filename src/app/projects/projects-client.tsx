@@ -57,10 +57,9 @@ export default function ProjectsClient() {
             <p
               className="mx-auto mt-7 max-w-4xl text-lg leading-relaxed text-[#4B5563]"
             >
-              Explore Sri Supraja Infracon projects across Kamkole, Mominpet,
-              Sangareddy and Indrakaran, including resort-inspired plots,
-              residential project layouts, and future-focused land ownership
-              opportunities.
+              Explore our plotted developments across Kamkole, Mominpet,
+              Sangareddy and Indrakaran. Compare approval details, plot sizes,
+              current availability, brochures and site-visit options before you choose a project.
             </p>
 
             <div
@@ -115,7 +114,7 @@ export default function ProjectsClient() {
               <div className="rounded-3xl border border-[#EFE7D3] bg-white p-6 shadow-sm">
                 <p className="text-3xl font-extrabold text-[#B88900]">350</p>
                 <p className="mt-2 text-sm font-bold text-[#374151]">
-                  Acre Supraja IRIS project vision
+                  Acre Supraja IRIS master plan
                 </p>
               </div>
             </div>
@@ -152,18 +151,18 @@ export default function ProjectsClient() {
       <section className="bg-white px-6 py-24">
         <div className="mx-auto max-w-6xl text-center">
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#B88900]">
-            Location Advantage
+            Compare Locations
           </p>
 
           <h2 className="mx-auto max-w-4xl text-3xl font-extrabold leading-tight text-[#111827] md:text-5xl">
-            Projects Positioned Around Emerging Growth Corridors
+            Review Each Project by Location and Connectivity
           </h2>
 
           <p className="mx-auto mt-6 max-w-4xl text-lg leading-relaxed text-[#4B5563]">
-            Our projects are planned across locations influenced by improving
-            connectivity, education hubs, employment activity, and regional
-            infrastructure. Each project offers a different ownership perspective
-            based on location, scale, lifestyle value, and future relevance.
+            Our projects are in different parts of the Hyderabad region, so the
+            right choice depends on what matters to you. Compare road access,
+            nearby universities and employment areas, approval status, project scale
+            and current development before planning a visit.
           </p>
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
@@ -195,19 +194,18 @@ export default function ProjectsClient() {
         <div className="mx-auto max-w-6xl">
           <div className="rounded-[32px] border border-[#EFE7D3] bg-white p-8 shadow-sm md:p-10">
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#B88900]">
-              Investor Guidance
+              Before Your Site Visit
             </p>
 
             <h3 className="text-2xl font-extrabold leading-tight text-[#111827] md:text-4xl">
-              How to Evaluate a Project Before Planning Your Visit
+              What to Check Before You Visit a Project
             </h3>
 
             <p className="mt-6 text-lg leading-relaxed text-[#4B5563]">
-              Review the project location, access roads, documentation, current
-              availability, development progress, brochure details, and site
-              visit options. For locations near NH-65, Woxsen University, ORR
-              influence zones, and emerging infrastructure corridors, clarity at
-              this stage helps investors and families make informed decisions.
+              Start with the project location, access roads, approval details,
+              current plot availability, on-site progress and brochure. For projects
+              near NH-65, Woxsen University, ORR influence zones and other major
+              infrastructure, check the actual access and distance on the ground as well.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-4 text-sm font-bold">
@@ -230,9 +228,8 @@ export default function ProjectsClient() {
             </div>
 
             <p className="mt-7 text-base leading-relaxed text-[#4B5563]">
-              Sri Supraja Infracon focuses on transparent project communication,
-              organized planning, location-led decision support, and dependable
-              customer assistance across its project portfolio.
+              Our team can help you compare project documents, current plot availability,
+              site progress and location access before you decide which project to visit.
             </p>
           </div>
         </div>
@@ -249,7 +246,7 @@ export default function ProjectsClient() {
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-[#4B5563]">
               Use these buyer-focused guides to review approvals, documents,
-              ownership records, and essential checks before comparing projects
+              ownership records and essential checks before comparing projects
               or scheduling a site visit.
             </p>
           </div>
@@ -258,12 +255,12 @@ export default function ProjectsClient() {
             {[
               {
                 title: "Plot Buying Checklist",
-                description: "Review 20 practical checks covering documents, access, infrastructure, and developer credibility.",
+                description: "Review 20 practical checks covering documents, access, infrastructure and developer credibility.",
                 href: "/blog/plot-buying-checklist",
               },
               {
                 title: "Verify Land Ownership",
-                description: "Understand title records, survey details, link documents, and physical verification.",
+                description: "Understand title records, survey details, link documents and physical verification.",
                 href: "/blog/how-to-verify-land-ownership-before-buying-a-plot",
               },
               {

@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: {
-    canonical: `${SITE_URL}/projects/`,
+    canonical: `${SITE_URL}/projects`,
   },
   openGraph: {
     title: pageTitle,
     description:
       "View project details, locations, approvals and site visit information for Sri Supraja Infracon projects near Hyderabad growth corridors.",
-    url: `${SITE_URL}/projects/`,
+    url: `${SITE_URL}/projects`,
     siteName: "Sri Supraja Infracon",
     images: [
       {
@@ -43,9 +43,9 @@ export default function ProjectsPage() {
     "@graph": [
       {
         "@type": "CollectionPage",
-        "@id": `${SITE_URL}/projects/#collectionpage`,
+        "@id": `${SITE_URL}/projects#collectionpage`,
         name: "Sri Supraja Infracon Projects",
-        url: `${SITE_URL}/projects/`,
+        url: `${SITE_URL}/projects`,
         description: pageDescription,
         publisher: { "@id": `${SITE_URL}/#organization` },
         primaryImageOfPage: {
@@ -69,7 +69,7 @@ export default function ProjectsPage() {
               item: {
                 "@type": "Place",
                 name: "Supraja IRIS",
-                url: `${SITE_URL}/projects/supraja-iris-resort-plots/`,
+                url: `${SITE_URL}/projectssupraja-iris-resort-plots/`,
               },
             },
             {
@@ -78,7 +78,7 @@ export default function ProjectsPage() {
               item: {
                 "@type": "Place",
                 name: "Bridge County",
-                url: `${SITE_URL}/projects/bridge-county/`,
+                url: `${SITE_URL}/projectsbridge-county/`,
               },
             },
             {
@@ -87,7 +87,7 @@ export default function ProjectsPage() {
               item: {
                 "@type": "Place",
                 name: "Sindhu Sarovar",
-                url: `${SITE_URL}/projects/sindhu-sarovar/`,
+                url: `${SITE_URL}/projectssindhu-sarovar/`,
               },
             },
             {
@@ -96,7 +96,7 @@ export default function ProjectsPage() {
               item: {
                 "@type": "Place",
                 name: "Subhash Meadows",
-                url: `${SITE_URL}/projects/subhash-meadows/`,
+                url: `${SITE_URL}/projectssubhash-meadows/`,
               },
             },
           ],
@@ -115,7 +115,7 @@ export default function ProjectsPage() {
             "@type": "ListItem",
             position: 2,
             name: "Projects",
-            item: `${SITE_URL}/projects/`,
+            item: `${SITE_URL}/projects`,
           },
         ],
       },

@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: "Terms & Conditions | Sri Supraja Infracon",
   description:
     "Read the Terms and Conditions for using the Sri Supraja Infracon website, including project information, user responsibilities, and disclaimers.",
-  alternates: { canonical: "/terms-and-conditions/" },
+  alternates: { canonical: "/terms-and-conditions" },
   robots: { index: true, follow: true },
 };
 

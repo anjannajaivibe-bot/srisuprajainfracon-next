@@ -7,14 +7,14 @@ const faqs = [
       "Sri Supraja Infracon offers plotted development options including Supraja IRIS, Bridge County, Sindhu Sarovar, and Subhash Meadows. Buyers should compare each project’s location, current availability, development status, and applicable approval documents before booking.",
   },
   {
-    question: "Are resort-themed plots near Hyderabad worth evaluating?",
+    question: "What should I check when comparing resort-themed plots near Hyderabad?",
     answer:
-      "Resort-themed plotted developments may appeal to buyers seeking lifestyle positioning and long-term growth potential. Before investing, verify the project approvals, road access, title documents, current construction progress, and whether each advertised attraction is operational, under construction, or planned.",
+      "Check the project approvals, title documents, road access, current construction, plot dimensions, pricing and registration process. For resort or recreation features, confirm whether each facility is completed, under construction or planned rather than relying only on promotional visuals.",
   },
   {
     question: "Which open plots are near Woxsen University and NH-65?",
     answer:
-      "Supraja IRIS and Bridge County are located at Kamkole near Sadashivapet, with access to Woxsen University, NH-65, and surrounding growth corridors. Bridge County is a plotted enclave within the larger Supraja IRIS development.",
+      "Supraja IRIS and Bridge County are located at Kamkole near Sadashivapet, with access to Woxsen University and NH-65. Bridge County is a plotted enclave within the larger Supraja IRIS development.",
   },
   {
     question: "What documents should buyers verify before purchasing a plot?",
@@ -27,9 +27,9 @@ const faqs = [
       "Lemon Tree Resort, the Water Theme and Amusement Park, and Water Villas are under construction within Supraja IRIS. The Go-Kart track is planned. Buyers should confirm the latest construction status and timelines during a site visit.",
   },
   {
-    question: "Why are buyers evaluating plots near Sadashivapet?",
+    question: "Why do buyers consider plots near Sadashivapet and Kamkole?",
     answer:
-      "The Sadashivapet and Kamkole region is evaluated for NH-65 connectivity, proximity to Woxsen University, and the influence of NIMZ and other emerging employment and infrastructure corridors. Investment decisions should still be based on project documentation, access, development progress, and budget.",
+      "Buyers often compare the Sadashivapet and Kamkole area because of NH-65 connectivity, proximity to Woxsen University and access toward NIMZ and other employment and infrastructure areas. The final decision should still be based on project documents, access, current development and budget.",
   },
   {
     question: "How can I arrange a site visit to a Sri Supraja Infracon project?",
@@ -67,7 +67,7 @@ const FAQSection = () => {
       <div className="mx-auto max-w-5xl">
         <div className="mb-12 text-center">
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#8A6500]">
-            INVESTOR FAQs
+            BUYER QUESTIONS
           </p>
 
           <h2 className="text-3xl font-extrabold leading-tight text-slate-950 md:text-5xl">
@@ -75,9 +75,9 @@ const FAQSection = () => {
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-600">
-            Get clear information about Sri Supraja Infracon projects,
-            documentation, developing locations, construction updates, and site
-            visit planning before making a property decision.
+            Review practical information about our projects, approvals,
+            documentation, construction status and site visits before comparing
+            plot options.
           </p>
         </div>
 

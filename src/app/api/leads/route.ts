@@ -265,11 +265,17 @@ export async function GET() {
       )
       .order("created_at", { ascending: false });
 
+    // Group once rather than scan every activity for every lead.
+    const activitiesByLead = new Map<string, NonNullable<typeof activities>>();
+    for (const activity of activities || []) {
+      const leadActivities = activitiesByLead.get(activity.lead_id) || [];
+      leadActivities.push(activity);
+      activitiesByLead.set(activity.lead_id, leadActivities);
+    }
+
     const leadsWithActivities = (leads || []).map((lead) => ({
       ...lead,
-      activities: (activities || []).filter(
-        (activity) => activity.lead_id === lead.id
-      ),
+      activities: activitiesByLead.get(lead.id) || [],
     }));
 
     return NextResponse.json({
@@ -357,6 +363,8 @@ async function handleLeadSubmission(request: NextRequest): Promise<NextResponse>
       source,
       website,
       formStartedAt,
+      utm_source,
+      utm_medium,
       utm_campaign,
       utm_content,
       utm_term,
@@ -400,6 +408,13 @@ async function handleLeadSubmission(request: NextRequest): Promise<NextResponse>
           project: project || null,
           message: message || null,
           source,
+          utm_source: utm_source || null,
+          utm_medium: utm_medium || null,
+          utm_campaign: utm_campaign || null,
+          utm_content: utm_content || null,
+          utm_term: utm_term || null,
+          utm_campaign_id: utm_campaign_id || null,
+          gclid: gclid || null,
           status: duplicateLead ? "Follow-up" : "New",
           assigned_to,
           assigned_email,

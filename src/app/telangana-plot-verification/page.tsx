@@ -3,7 +3,7 @@ import Link from "next/link";
 import PlotBuyerTools from "./PlotBuyerTools";
 
 const SITE_URL = "https://www.srisuprajainfracon.com";
-const canonical = `${SITE_URL}/telangana-plot-verification/`;
+const canonical = `${SITE_URL}/telangana-plot-verification`;
 
 export const metadata: Metadata = {
   title: "Telangana Plot Buyer Toolkit 2026 | Verification & Area Converter",
@@ -82,7 +82,7 @@ export default function TelanganaPlotVerificationPage() {
         mainEntityOfPage: canonical,
         author: { "@id": `${SITE_URL}/#organization` },
         publisher: { "@id": `${SITE_URL}/#organization` },
-        dateModified: "2026-08-17",
+        dateModified: "2026-09-30",
         about: [
           "Telangana plot verification",
           "TG RERA verification",

@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 const trustBadges = [
-  "24+ Years of Real Estate Stewardship",
-  "Positioned Along High-Growth Corridors",
-  "Fully Documented, Fully Transparent",
+  "24+ Years in Real Estate",
+  "Projects Across Key Hyderabad Locations",
+  "DTCP & RERA Details Available",
 ];
 
 const projectLinks = [
@@ -52,15 +52,14 @@ const HeroSection = () => {
         </div>
 
         <h1 className="mx-auto mb-4 max-w-6xl font-display text-[30px] font-bold leading-[1.12] tracking-tight text-white min-[390px]:text-[34px] sm:text-5xl md:text-[52px] lg:mb-6 lg:text-7xl lg:leading-[1.03]">
-          DTCP &amp; RERA Approved{" "}
+          Explore{" "}
           <span className="text-[#C9A227]">Open Plots</span>
           <br className="hidden md:block" /> Near Hyderabad
         </h1>
 
         <p className="mx-auto mb-6 max-w-4xl text-sm leading-6 text-slate-200 sm:mb-8 sm:text-base sm:leading-7 md:text-lg md:leading-relaxed">
-          Meticulously planned plotted projects across Kamkole, Sangareddy,
-          Mominpet and Indrakaran, anchored to infrastructure corridors and
-          engineered for sustained capital appreciation.
+          Explore plotted developments across Kamkole, Sangareddy, Mominpet and
+          Indrakaran. Compare project-wise DTCP and RERA records, payment options and on-site development before planning a visit.
         </p>
 
         <div className="mb-6 flex flex-wrap justify-center gap-2 sm:mb-7 sm:gap-3">
