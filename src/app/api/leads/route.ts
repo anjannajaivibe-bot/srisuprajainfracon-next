@@ -5,7 +5,6 @@ import {
   getLoggedInCrmUser,
   PRIMARY_ADMIN_EMAIL,
 } from "@/lib/admin-auth";
-import { logTranquilCrmEvent, sendLeadToTranquilCrm } from "@/lib/tranquil-crm";
 
 const adminEmail = PRIMARY_ADMIN_EMAIL;
 
@@ -61,9 +60,7 @@ const leadSchema = z
       .regex(/^[a-z0-9_-]+$/i, "Invalid source."),
     website: z.string().max(0).optional().default(""),
     formStartedAt: z.number().int().positive(),
-    // Ad-tracking data — only landing pages send these; the website contact
-    // form omits them entirely, which is also how Tranquil CRM sync tells
-    // the two channels apart.
+    // Optional campaign tracking data from website and landing-page forms.
     utm_source: z.string().trim().max(120).optional().default(""),
     utm_medium: z.string().trim().max(120).optional().default(""),
     utm_campaign: z.string().trim().max(120).optional().default(""),
@@ -370,8 +367,6 @@ async function handleLeadSubmission(request: NextRequest): Promise<NextResponse>
       utm_term,
       utm_campaign_id,
       gclid,
-      location,
-      budget,
     } = parsed.data;
 
     if (website) {
@@ -437,37 +432,6 @@ async function handleLeadSubmission(request: NextRequest): Promise<NextResponse>
         ? `Duplicate lead created. Matched with ${duplicateLead.name}. Assigned to ${assigned_to}.`
         : `Lead created and assigned to ${assigned_to}.`
     );
-
-    const tranquilResult = await sendLeadToTranquilCrm({
-      name,
-      phone,
-      email,
-      project,
-      message,
-      source,
-      utmCampaign: utm_campaign,
-      utmContent: utm_content,
-      utmTerm: utm_term,
-      utmCampaignId: utm_campaign_id,
-      gclid,
-      location,
-      budget,
-    });
-
-    await logTranquilCrmEvent({
-      leadId: data.id,
-      phone,
-      project,
-      source,
-      result: tranquilResult,
-    });
-
-    if (!tranquilResult.ok) {
-      await addActivity(
-        data.id,
-        `Tranquil CRM sync failed: ${tranquilResult.error}.`
-      );
-    }
 
     return NextResponse.json({ success: true, lead: data });
   } catch {
