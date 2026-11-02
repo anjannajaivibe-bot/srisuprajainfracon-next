@@ -7,10 +7,10 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const sourceDir = path.join(root, 'src');
 const publicDir = path.join(root, 'public');
-const inventorySource = 'src/data/projects.tsx';
-const approvedInventoryUrls = [1, 2, 4, 7].map(
-  (id) => `https://suprajagroup.tranquilcrmp.in/mobileapp/newmaps/${id}`,
-);
+const approvedInventoryBySource = new Map([
+  ['src/data/projects.tsx', [1, 2, 4, 7]],
+  ['src/components/project/ProjectHero.tsx', [4]],
+]);
 const restrictedPattern = /tranquilcrmone\.in|tranquilcrmp\.in|TRANQUIL_CRM_API_KEY|sendLeadToTranquilCrm|\/v2\/createlead/i;
 const inspectExtensions = new Set(['.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs', '.html']);
 const errors = [];
@@ -30,8 +30,10 @@ function walk(dir) {
     let content = readFileSync(absolute, 'utf8');
     inspected++;
 
-    if (relative === inventorySource) {
-      for (const url of approvedInventoryUrls) {
+    const approvedInventoryIds = approvedInventoryBySource.get(relative);
+    if (approvedInventoryIds) {
+      for (const id of approvedInventoryIds) {
+        const url = `https://suprajagroup.tranquilcrmp.in/mobileapp/newmaps/${id}`;
         const matches = content.split(url).length - 1;
         if (matches !== 1) {
           errors.push(`${relative}: expected existing inventory link exactly once (${url}), found ${matches}`);
