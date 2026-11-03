@@ -1,6 +1,8 @@
 import AdminClient from "./admin-client";
+import { getLoggedInCrmUser } from "@/lib/admin-auth";
 
-export default function AdminPage() {
+export default async function AdminPage() {
+  const currentUser = await getLoggedInCrmUser();
   return (
     <>
       <nav className="border-b border-slate-800 bg-slate-950 px-6 py-3 text-sm text-white">
@@ -21,6 +23,14 @@ export default function AdminPage() {
           >
             Website Clicks
           </a>
+          {currentUser?.isAdmin && (
+            <a
+              href="/admin/whatsapp"
+              className="rounded-lg px-4 py-2 font-semibold text-slate-200 transition hover:bg-white/10 hover:text-white"
+            >
+              WhatsApp Enquiries
+            </a>
+          )}
         </div>
       </nav>
       <AdminClient />
