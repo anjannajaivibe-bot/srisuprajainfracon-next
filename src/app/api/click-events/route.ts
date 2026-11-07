@@ -179,11 +179,21 @@ export async function POST(request: NextRequest) {
     const baseEvent = { ...payload, ...getServerLocation(request) };
     const enrichedEvent = { ...baseEvent, ...classifyTraffic(request) };
 
-    let { error } = await supabaseAdmin.from("click_events").insert(enrichedEvent);
+    let attemptedPayload: typeof baseEvent | typeof enrichedEvent = enrichedEvent;
+    let { error } = await supabaseAdmin.from("click_events").insert(attemptedPayload);
 
     if (error && isMissingTrafficColumns(error.message)) {
       console.warn("Analytics traffic columns not active yet; using legacy insert.");
-      ({ error } = await supabaseAdmin.from("click_events").insert(baseEvent));
+      attemptedPayload = baseEvent;
+      ({ error } = await supabaseAdmin.from("click_events").insert(attemptedPayload));
+    }
+
+    // Supabase occasionally rejects a request when the service JWT appears
+    // issued slightly in the future. Retry ONLY that explicit failure, once.
+    // Never retry successful inserts or arbitrary DB errors, to avoid duplicates.
+    if (error && /JWT issued at future/i.test(error.message)) {
+      await new Promise((resolve) => setTimeout(resolve, 1200));
+      ({ error } = await supabaseAdmin.from("click_events").insert(attemptedPayload));
     }
 
     if (error) {
