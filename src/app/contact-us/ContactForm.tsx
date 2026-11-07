@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import { BUYER_WHATSAPP_URL } from "@/lib/whatsapp-links";
 
 type ContactFormProps = {
   source?: string;
@@ -79,14 +80,14 @@ export default function ContactForm({
   const viewTracked = useRef(false);
   const startTracked = useRef(false);
 
-  const trackFormEvent = (eventType: string) => {
+  const trackFormEvent = (eventType: string, reason?: string) => {
     if (typeof window === "undefined") return;
 
     window.dispatchEvent(
       new CustomEvent("supraja:analytics", {
         detail: {
           event_type: eventType,
-          link_text: source,
+          link_text: reason ? `${source}:${reason}` : source,
           element_type: "form",
           element_id: formId,
         },
@@ -124,6 +125,7 @@ export default function ContactForm({
   ) => {
     if (!startTracked.current) {
       startTracked.current = true;
+      setFormStartedAt(Date.now());
       trackFormEvent("form_start");
     }
 
@@ -140,6 +142,7 @@ export default function ContactForm({
     setError("");
     setLoading(true);
     trackFormEvent("form_submit_attempt");
+    let failureCode = "network_or_client_error";
 
     try {
       const elapsed = Date.now() - formStartedAt;
@@ -170,6 +173,7 @@ export default function ContactForm({
       const result = await response.json();
 
       if (!response.ok || !result.success) {
+        failureCode = `http_${response.status}`;
         throw new Error(result.message || "Unable to submit enquiry.");
       }
 
@@ -187,9 +191,9 @@ export default function ContactForm({
 
       setTimeout(() => {
         setSubmitted(false);
-      }, 4000);
+      }, 15000);
     } catch (err) {
-      trackFormEvent("form_submit_error");
+      trackFormEvent("form_submit_error", failureCode);
       setError(
         err instanceof Error
           ? err.message
@@ -308,7 +312,9 @@ export default function ContactForm({
             className="rounded-2xl border border-green-200 bg-green-50 p-4 text-sm font-medium text-green-800"
             role="status"
           >
-            Thank you. Your enquiry has been received successfully.
+            <p>Thank you. Your enquiry has been saved in our CRM.</p>
+            <a href={BUYER_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex min-h-11 items-center rounded-lg bg-green-700 px-4 py-2 text-sm font-bold text-white hover:bg-green-800">Continue on WhatsApp (optional)</a>
+            <p className="mt-2 text-xs">Your enquiry is already saved. WhatsApp is optional and opens a prefilled message.</p>
           </div>
         )}
 

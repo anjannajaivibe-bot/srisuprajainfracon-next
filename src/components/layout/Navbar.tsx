@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { BUYER_WHATSAPP_URL } from "@/lib/whatsapp-links";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
@@ -35,8 +36,7 @@ const projectLinks = [
 
 const phoneNumber = "+919052996161";
 
-const whatsappUrl =
-  "https://wa.me/919052996161?text=Hi%2C%20May%20I%20Know%20More%20Details%20about%20the%20project%3F";
+const whatsappUrl = BUYER_WHATSAPP_URL;
 const careersWhatsappUrl =
   "https://wa.me/919640753929?text=Hi%2C%20I%20am%20interested%20in%20joining%20Sri%20Supraja%20Infracon%20as%20a%20channel%20partner.%20Please%20share%20the%20details.";
 
