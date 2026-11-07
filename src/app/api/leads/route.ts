@@ -420,10 +420,8 @@ async function handleLeadSubmission(request: NextRequest): Promise<NextResponse>
       .single();
 
     if (error) {
-      return NextResponse.json(
-        { success: false, message: error.message },
-        { status: 500 }
-      );
+      console.error("Supraja website lead insert failed", error.code || "database_error");
+      return jsonError("We could not save your enquiry. Please try again or call our team.", 503);
     }
 
     await addActivity(

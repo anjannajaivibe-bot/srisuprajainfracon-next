@@ -39,6 +39,7 @@ export default function ChannelPartnerFormPopup() {
     setLoading(true);
     setError("");
     setSubmitted(false);
+    window.dispatchEvent(new CustomEvent("supraja:analytics", { detail: { event_type: "form_submit_attempt", element_type: "form", element_id: "channel-partner-form", link_text: "channel-partner-form" } }));
     try {
       const response = await fetch("/api/leads", {
         method: "POST",
@@ -69,6 +70,7 @@ export default function ChannelPartnerFormPopup() {
       setForm({ name: "", phone: "", email: "" });
       setFormStartedAt(Date.now());
     } catch (err) {
+      window.dispatchEvent(new CustomEvent("supraja:analytics", { detail: { event_type: "form_submit_error", element_type: "form", element_id: "channel-partner-form", link_text: "channel-partner-form" } }));
       setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
     } finally {
       setLoading(false);

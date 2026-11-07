@@ -1,12 +1,13 @@
 "use client";
 
+import { BUYER_WHATSAPP_URL } from "@/lib/whatsapp-links";
+
 import { usePathname } from "next/navigation";
 import { MessageCircle, Phone } from "lucide-react";
 
 const defaultPhoneNumber = "+919052996161";
 const careersPhoneNumber = defaultPhoneNumber;
-const defaultWhatsappUrl =
-  "https://wa.me/919052996161?text=Hi%2C%20May%20I%20know%20more%20details%20about%20the%20project%3F";
+const defaultWhatsappUrl = BUYER_WHATSAPP_URL;
 const careersWhatsappUrl =
   "https://wa.me/919640753929?text=Hi%2C%20I%20am%20interested%20in%20joining%20Sri%20Supraja%20Infracon%20as%20a%20channel%20partner.%20Please%20share%20the%20details.";
 

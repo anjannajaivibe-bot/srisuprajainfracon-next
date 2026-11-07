@@ -98,6 +98,7 @@ const whatsappTemplates = [
 export default function AdminClient() {
   const [leads, setLeads] = useState<Lead[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState("");
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("All");
   const [projectFilter, setProjectFilter] = useState("All");
@@ -110,10 +111,11 @@ export default function AdminClient() {
 
   const fetchLeads = async () => {
     try {
-      const res = await fetch("/api/leads");
+      const res = await fetch("/api/leads", { cache: "no-store" });
       const data = await res.json();
-
-      if (data.success) {
+      if (!res.ok || !data?.success) throw new Error(data?.message || "Unable to refresh leads.");
+      setLoadError("");
+      {
         const nextLeads: Lead[] = data.leads || [];
         setLeads(nextLeads);
         setNoteDrafts((current) => {
@@ -131,6 +133,8 @@ export default function AdminClient() {
           setUserRole(data.user.role || "sales");
         }
       }
+    } catch (error) {
+      setLoadError(error instanceof Error ? error.message : "Unable to load leads.");
     } finally {
       setLoading(false);
     }
@@ -290,6 +294,9 @@ export default function AdminClient() {
 
     return {
       total: leads.length,
+      buyerLeads: leads.filter((lead) => lead.project !== "Channel Partner" && lead.source !== "channel-partner-form").length,
+      partnerLeads: leads.filter((lead) => lead.project === "Channel Partner" || lead.source === "channel-partner-form").length,
+      newWithoutContact: leads.filter((lead) => lead.status === "New" && !lead.last_contacted_at).length,
       today: leads.filter((lead) => lead.created_at.slice(0, 10) === todayKey).length,
       week: leads.filter((lead) => new Date(lead.created_at) >= weekAgo).length,
       month: leads.filter((lead) => new Date(lead.created_at) >= monthAgo).length,
@@ -387,6 +394,7 @@ export default function AdminClient() {
                 <a href="/admin/clicks" className="rounded-xl border border-[#C9A227]/50 bg-white px-5 py-3 text-center font-semibold text-[#0B1633]">
                   Website Clicks
                 </a>
+                <a href="/admin/whatsapp" className="rounded-xl border border-green-300 bg-white px-5 py-3 text-center font-semibold text-green-800">WhatsApp Activity</a>
                 <button onClick={exportCSV} className="rounded-xl bg-[#C9A227] px-5 py-3 font-semibold text-[#0B1633]">
                   Export CSV
                 </button>
@@ -399,7 +407,14 @@ export default function AdminClient() {
           </div>
         </div>
 
-        <div className="mb-8 grid gap-4 sm:grid-cols-4 xl:grid-cols-8">
+        {loadError && (
+          <div role="alert" className="mb-6 flex flex-wrap items-center gap-3 rounded-xl border border-red-300 bg-red-50 p-4 text-red-900">
+            <span><strong>CRM refresh failed.</strong> {loadError}. Previously loaded leads may be stale.</span>
+            <button type="button" className="rounded-lg bg-red-900 px-4 py-2 font-semibold text-white" onClick={() => void fetchLeads()}>Retry</button>
+          </div>
+        )}
+
+        <div className="mb-8 grid gap-4 sm:grid-cols-4 xl:grid-cols-5">
           <Card title={userRole === "admin" ? "Total" : "My Leads"} value={stats.total} />
           <Card title="Today" value={stats.today} />
           <Card title="7 Days" value={stats.week} />
@@ -408,6 +423,9 @@ export default function AdminClient() {
           <Card title="Overdue" value={stats.overdue} />
           <Card title="Converted" value={stats.converted} />
           <Card title="Duplicates" value={stats.duplicate} />
+          <Card title="Plot Buyer Leads" value={stats.buyerLeads} />
+          <Card title="Channel Partners" value={stats.partnerLeads} />
+          <Card title="New, No Contact Logged" value={stats.newWithoutContact} />
         </div>
 
         {(stats.dueToday > 0 || stats.overdue > 0) && (

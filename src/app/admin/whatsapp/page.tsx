@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getLoggedInCrmUser } from "@/lib/admin-auth";
 import { supabaseAdmin } from "@/lib/supabase";
+import ManualWhatsAppLeadForm from "./ManualWhatsAppLeadForm";
 
 export const dynamic = "force-dynamic";
 
@@ -41,6 +42,18 @@ export default async function WhatsAppInboxPage() {
     .order("created_at", { ascending: false })
     .limit(100);
 
+  const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
+  const [buyerCountResult, partnerCountResult, clickResult] = await Promise.all([
+    supabaseAdmin.from("click_events").select("id", { count: "exact", head: true })
+      .eq("event_type", "whatsapp_click").eq("traffic_type", "human").neq("page_path", "/careers").gte("created_at", thirtyDaysAgo),
+    supabaseAdmin.from("click_events").select("id", { count: "exact", head: true })
+      .eq("event_type", "whatsapp_click").eq("traffic_type", "human").eq("page_path", "/careers").gte("created_at", thirtyDaysAgo),
+    supabaseAdmin.from("click_events").select("created_at,page_path,utm_source,link_text")
+      .eq("event_type", "whatsapp_click").eq("traffic_type", "human").gte("created_at", thirtyDaysAgo)
+      .order("created_at", { ascending: false }).limit(30),
+  ]);
+  const recentClicks = clickResult.data || [];
+
   const messages = data || [];
   const needsReview = messages.filter((item) => item.handling_status === "needs_review").length;
   const linked = messages.filter((item) => item.lead_id !== null).length;
@@ -57,8 +70,8 @@ export default async function WhatsAppInboxPage() {
               Incoming WhatsApp Enquiries
             </h1>
             <p className="mt-2 max-w-3xl text-sm text-slate-600">
-              Confirmed inbound messages only. WhatsApp link clicks are tracked separately under
-              Website Clicks and do not reveal a visitor's telephone number.
+              Without Meta API access, this page tracks anonymous WhatsApp button clicks and allows
+              staff to save confirmed customer conversations manually. Clicks are not leads.
             </p>
           </div>
           <Link
@@ -83,7 +96,7 @@ export default async function WhatsAppInboxPage() {
             <span className="text-sm text-slate-600">
               {enabled
                 ? "Server configuration is present. Confirm live messaging with an authorized test."
-                : "Existing WhatsApp numbers and chats remain untouched. Official account onboarding is still required."}
+                : "Click-to-chat works without a Meta API plan, but confirmed conversations must be entered manually. Existing chats are untouched."}
             </span>
           </div>
           <div className="mt-5 grid gap-3 sm:grid-cols-3">
@@ -103,6 +116,21 @@ export default async function WhatsAppInboxPage() {
           </div>
         </div>
 
+        <section className="mt-6 rounded-xl border border-slate-200 bg-white p-5">
+          <h2 className="text-lg font-bold text-slate-950">Website WhatsApp click activity, last 30 days</h2>
+          <p className="mt-2 text-sm text-slate-600">Anonymous click attempts, not verified customer messages or phone numbers. Careers is reported separately from plot-buyer pages.</p>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <div className="rounded-lg bg-green-50 p-4"><p className="text-sm font-semibold text-green-900">Buyer WhatsApp clicks</p><p className="mt-1 text-3xl font-bold">{buyerCountResult.count ?? 0}</p></div>
+            <div className="rounded-lg bg-amber-50 p-4"><p className="text-sm font-semibold text-amber-900">Channel Partner WhatsApp clicks</p><p className="mt-1 text-3xl font-bold">{partnerCountResult.count ?? 0}</p></div>
+          </div>
+          {(buyerCountResult.error || partnerCountResult.error || clickResult.error) && <p role="alert" className="mt-3 text-sm text-red-800">Click analytics could not be fully loaded. Check Website Clicks for details.</p>}
+          {recentClicks.length > 0 && <div className="mt-4 overflow-x-auto"><table className="min-w-[580px] w-full text-left text-sm"><thead className="bg-slate-100"><tr><th className="p-3">Click time (IST)</th><th className="p-3">Page</th><th className="p-3">Campaign source</th></tr></thead><tbody>{recentClicks.map((item, index) => <tr key={index} className="border-t border-slate-100"><td className="p-3">{dateInIndia(item.created_at)}</td><td className="p-3">{item.page_path}</td><td className="p-3">{item.utm_source || "Direct / unknown"}</td></tr>)}</tbody></table></div>}
+          <Link href="/admin/clicks" className="mt-3 inline-block font-semibold text-blue-700 underline">View all tracked clicks</Link>
+        </section>
+
+        <ManualWhatsAppLeadForm />
+
+        <div className="mt-6">
         {error ? (
           <p role="alert" className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-800">
             WhatsApp messages could not be loaded. Contact the CRM administrator.
@@ -159,6 +187,7 @@ export default async function WhatsAppInboxPage() {
             </table>
           </div>
         )}
+        </div>
       </div>
     </main>
   );

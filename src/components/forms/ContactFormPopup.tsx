@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { X } from "lucide-react";
 
 const ContactForm = dynamic(
@@ -19,13 +20,19 @@ const ContactForm = dynamic(
 );
 
 const SESSION_KEY = "supraja_contact_popup_shown";
-const POPUP_DELAY_MS = 20_000;
-const REQUIRED_SCROLL_PERCENT = 35;
+const POPUP_DELAY_MS = 12_000;
+const REQUIRED_SCROLL_PERCENT = 20;
 
 export default function ContactFormPopup() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname() || "";
 
   useEffect(() => {
+    // Recruitment pages use a different contact flow from plot-buyer enquiries.
+    if (pathname.startsWith("/careers") || pathname.startsWith("/admin")) {
+      setOpen(false);
+      return;
+    }
     if (sessionStorage.getItem(SESSION_KEY)) {
       return;
     }
@@ -80,7 +87,7 @@ export default function ContactFormPopup() {
       window.clearTimeout(timer);
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [pathname]);
 
   const closePopup = () => {
     setOpen(false);

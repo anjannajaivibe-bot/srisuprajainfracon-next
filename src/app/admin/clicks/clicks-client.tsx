@@ -255,6 +255,8 @@ export default function ClickAnalyticsClient() {
         .length,
       whatsapp: clicks.filter((event) => event.event_type === "whatsapp_click")
         .length,
+      buyerWhatsapp: clicks.filter((event) => event.event_type === "whatsapp_click" && event.page_path !== "/careers").length,
+      partnerWhatsapp: clicks.filter((event) => event.event_type === "whatsapp_click" && event.page_path === "/careers").length,
     };
   }, [trafficEvents]);
 
@@ -380,14 +382,17 @@ export default function ClickAnalyticsClient() {
           </div>
         )}
 
-        <section className="mb-7 grid gap-4 sm:grid-cols-2 xl:grid-cols-6">
+        <section className="mb-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           <StatCard label="Page Views" value={stats.views} />
           <StatCard label="Unique Visitors" value={stats.visitors} />
           <StatCard label="Sessions" value={stats.sessions} />
           <StatCard label="Total Clicks" value={stats.clicks} />
           <StatCard label="Phone Clicks" value={stats.phone} />
-          <StatCard label="WhatsApp" value={stats.whatsapp} />
+          <StatCard label="WhatsApp Clicks (All)" value={stats.whatsapp} />
+          <StatCard label="Buyer WhatsApp Clicks" value={stats.buyerWhatsapp} />
+          <StatCard label="Channel Partner WhatsApp Clicks" value={stats.partnerWhatsapp} />
         </section>
+        <p className="mb-7 text-sm text-slate-600">WhatsApp clicks are anonymous website interactions, not confirmed messages or saved CRM leads. The buyer count excludes /careers. Staff can record genuine conversations in <a className="font-semibold text-blue-700 underline" href="/admin/whatsapp">WhatsApp Activity</a>.</p>
 
         <section className="mb-7 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           <RankingCard title="Most Viewed Pages" rows={topPages} />

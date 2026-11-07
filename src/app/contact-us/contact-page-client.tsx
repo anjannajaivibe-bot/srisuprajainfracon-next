@@ -1,12 +1,13 @@
 "use client";
 
+import { BUYER_WHATSAPP_URL } from "@/lib/whatsapp-links";
+
 import ContactForm from "./ContactForm";
 import Link from "next/link";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import heroBg from "@/assets/hero-bg.webp";
 
-const WHATSAPP_URL =
-  "https://wa.me/919052996161?text=Hi%2C%20May%20I%20know%20more%20details%20about%20the%20project%3F";
+const WHATSAPP_URL = BUYER_WHATSAPP_URL;
 
 export default function ContactPageClient() {
   return (
