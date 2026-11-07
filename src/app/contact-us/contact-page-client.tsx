@@ -1,5 +1,6 @@
-import { BUYER_WHATSAPP_URL } from "@/lib/whatsapp-links";
 "use client";
+
+import { BUYER_WHATSAPP_URL } from "@/lib/whatsapp-links";
 
 import ContactForm from "./ContactForm";
 import Link from "next/link";
