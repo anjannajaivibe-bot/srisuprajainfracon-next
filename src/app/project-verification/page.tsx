@@ -5,7 +5,7 @@ const SITE_URL = "https://www.srisuprajainfracon.com";
 const canonical = `${SITE_URL}/project-verification`;
 
 export const metadata: Metadata = {
-  title: { absolute: "Project Verification Center | Sri Supraja Infracon" }
+  title: { absolute: "Project Verification Center | Sri Supraja Infracon" },
   description:
     "Verify key Sri Supraja Infracon project approval details, RERA registration numbers, DTCP/TLP references, survey numbers and documented validity periods without exposing sensitive records.",
   alternates: { canonical },
