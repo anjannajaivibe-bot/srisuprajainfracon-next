@@ -4,7 +4,7 @@ import ContactPageClient from "./contact-page-client";
 const SITE_URL = "https://www.srisuprajainfracon.com";
 
 export const metadata: Metadata = {
-  title: "Contact Sri Supraja Infracon | Project Information & Site Visits",
+  title: { absolute: "Contact Sri Supraja Infracon | Book a Site Visit" },
   description:
     "Connect with Sri Supraja Infracon for project information, site visits, availability details, and customer assistance across our residential and plotted projects.",
   alternates: {
