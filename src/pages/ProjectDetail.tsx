@@ -139,7 +139,7 @@ const ProjectDetail = ({ slug }: { slug: string }) => {
               </Link>
             </div>
           </aside>
-        )
+        )}
 
         {project.slug === "supraja-iris-resort-plots" && (
           <SuprajaIrisLeadSection />
