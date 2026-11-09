@@ -36,7 +36,7 @@ export const projects: Project[] = [
     title: "Supraja IRIS Resort Plots",
     location: "Kamkole",
     status: "Sales Open",
-    approvalType: "DTCP / TG RERA Records Available"
+    approvalType: "DTCP / TG RERA Records Available",
     dtcpNo: "TLP No. 155/2024/H",
     reraNo: "P02100009249",
 
@@ -74,7 +74,7 @@ export const projects: Project[] = [
     title: "Bridge County",
     location: "Kamkole",
     status: "Sales Open",
-    approvalType: "DTCP / TG RERA Records Available"
+    approvalType: "DTCP / TG RERA Records Available",
     dtcpNo: "TLP No. 160/2024/H",
     reraNo: "P01100009141",
 
@@ -111,7 +111,7 @@ export const projects: Project[] = [
     title: "Sindhu Sarovar",
     location: "Mominpet",
     status: "Sales Open",
-    approvalType: "DTCP / TG RERA Records Available"
+    approvalType: "DTCP / TG RERA Records Available",
     dtcpNo: "TLP No. 154/2021/H, 233/2021/H",
     reraNo: "P02100009951",
 
