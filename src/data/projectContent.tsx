@@ -1,7 +1,7 @@
 export const projectContent = {
   "supraja-iris-resort-plots": {
     overview:
-      "Supraja IRIS Resort Plots is a DTCP & RERA approved resort-style plotted development at Kamkole near Sangareddy. The project is planned across a 350-acre master plan with open plots, villa plot options, Lemon Tree Resort and water villas under construction, water theme park and amusement park development, planned go-karting and a proposed destination event venue. Sales are open for buyers comparing approved open plots near Hyderabad, Woxsen University and the NH-65 corridor.",
+      "Supraja IRIS Resort Plots is a resort-inspired plotted development at Kamkole near Sangareddy with documented phase-specific DTCP and TG RERA references. The project is planned across a 350-acre master plan with open plots, villa plot options, Lemon Tree Resort and water villas under construction, water theme park and amusement park development, planned go-karting and a proposed destination event venue. Sales are open for buyers comparing approved open plots near Hyderabad, Woxsen University and the NH-65 corridor.",
 
     amenities: [
       "Premium Plots at 13,500 per sq yard",
@@ -71,12 +71,12 @@ export const projectContent = {
 
   "bridge-county": {
     overview:
-      "Bridge County is a DTCP & RERA approved open plot development at Kamkole by Sri Supraja Infracon. Spread across 15 acres with 211 plotted units, the project is located within the larger Supraja IRIS development near Woxsen University and NH-65, with clear-title documentation, planned infrastructure and bank loan assistance.",
+      "Bridge County is a plotted development at Kamkole by Sri Supraja Infracon with documented DTCP and TG RERA project records. Spread across 15 acres with 211 plotted units, the project is located within the larger Supraja IRIS development near Woxsen University and NH-65, with clear-title documentation, planned infrastructure and bank loan assistance.",
 
     amenities: [
-      "Flexible 0% interest EMI available",
-      "EMI starting from ₹25,000/month (terms apply)",
-      "Contact the sales team for the complete interest-free EMI schedule and plot availability",
+      "Ask about the current EMI option and eligibility",
+      "Request the current written monthly payment schedule",
+      "Confirm written EMI terms, plot availability and eligibility with the sales team",
       "Sales open for selected plots",
       "24 hours security",
       "100% Vastu compliant plots",
@@ -116,14 +116,14 @@ export const projectContent = {
 
     faq: [
       {
-        question: "Is Bridge County DTCP & RERA Approved?",
+        question: "Which DTCP and TG RERA records are documented for Bridge County?",
         answer:
-          "Yes. Bridge County is a DTCP & RERA Approved plotted development with TLP No. 160/2024/H.",
+          "The reviewed records reference DTCP TLP No. 160/2024/H and TG RERA P01100009141. The certificate period ended 30 October 2026 unless extended; verify the latest official status and final layout release.",
       },
       {
-        question: "Is Bridge County RERA approved?",
+        question: "What is Bridge County's documented TG RERA registration number?",
         answer:
-          "Yes. Bridge County is registered under RERA No. P01100009141.",
+          "The reviewed certificate identifies TG RERA P01100009141. Buyers should check the Authority's current extension and validity status for the exact registered project.",
       },
       {
         question: "Where is Bridge County located?",
@@ -133,7 +133,7 @@ export const projectContent = {
       {
         question: "Does Bridge County have a 0% EMI payment plan?",
         answer:
-          "Yes. Flexible 0% interest EMI is available, starting from ₹25,000/month. Terms depend on plot selection and payment schedule. Contact the sales team for complete plan details.",
+          "An EMI option has been advertised previously. Contact the sales team to confirm the current written payment schedule, eligible plots, down payment and conditions before making a booking.",
       },
       {
         question: "Are Bridge County plots available for booking?",

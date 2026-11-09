@@ -15,6 +15,13 @@ const consolidatedBlogSlugs = new Set([
 ]);
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  // Reflect only pages substantively revised in the November 2026 SEO release.
+  const seoRevisedPaths = new Set([
+    "/about", "/contact-us", "/open-plots-and-resorts-in-hyderabad",
+    "/project-verification", "/editorial-policy",
+    "/projects/supraja-iris-resort-plots", "/projects/bridge-county", "/projects/sindhu-sarovar"
+  ]);
+  const siteRevisionDate = new Date("2026-11-09T15:30:00+05:30");
   const staticPages: MetadataRoute.Sitemap = [
     { url: `${baseUrl}`, changeFrequency: "weekly", priority: 1 },
     { url: `${baseUrl}/about`, changeFrequency: "monthly", priority: 0.8 },
@@ -88,5 +95,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       }));
   }
 
-  return [...staticPages, ...blogPages];
+  return [
+    ...staticPages.map((page) =>
+      seoRevisedPaths.has(page.url.replace(baseUrl, ""))
+        ? { ...page, lastModified: siteRevisionDate }
+        : page
+    ),
+    ...blogPages,
+  ];
 }

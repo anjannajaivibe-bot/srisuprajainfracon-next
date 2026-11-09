@@ -21,6 +21,54 @@ const CONSOLIDATED_BLOG_DESTINATIONS: Record<string, string> = {
     "/blog/dtcp-rera-approved-plots-in-hyderabad",
 };
 
+const SEARCH_BUYER_PATHS: Record<
+  string,
+  { title: string; description: string; projectHref: string; projectLabel: string; campaign: string }
+> = {
+  "what-is-dtcp-approval-in-hyderabad": {
+    title: "Apply this approval checklist to a real project",
+    description: "Compare available plot projects and verify the relevant DTCP layout and TG RERA references for the exact phase before a site visit.",
+    projectHref: "/project-verification",
+    projectLabel: "Review Project Approval Records",
+    campaign: "dtcp-layout-guide"
+  },
+  "what-is-survey-number-in-land": {
+    title: "Checking survey details before a plot visit?",
+    description: "Explore project locations, survey references and supporting documentation before selecting a plot. Ask the team about the exact phase.",
+    projectHref: "/project-verification",
+    projectLabel: "Check Project Survey References",
+    campaign: "survey-number-guide"
+  },
+  "how-to-choose-the-right-plot-size": {
+    title: "Compare plot options before deciding",
+    description: "Compare location, dimensions, frontage and project availability. Confirm the current options with our team before arranging a site visit.",
+    projectHref: "/projects",
+    projectLabel: "Compare Supraja Plotted Projects",
+    campaign: "plot-size-guide"
+  },
+  "what-is-property-tax-assessment-number": {
+    title: "Researching the documents for your next plot?",
+    description: "A tax assessment number and a survey number are different. Compare project records and request the relevant documents for the plot you are considering.",
+    projectHref: "/telangana-plot-verification",
+    projectLabel: "Read the Plot Verification Guide",
+    campaign: "property-tax-guide"
+  },
+  "kamkole-real-estate-investment-hotspot": {
+    title: "Visit plotted developments in the Kamkole corridor",
+    description: "Explore Supraja IRIS and Bridge County near Kamkole, review the phase-specific project records and request current availability and site-visit information.",
+    projectHref: "/projects/supraja-iris-resort-plots",
+    projectLabel: "Explore Supraja IRIS at Kamkole",
+    campaign: "kamkole-corridor-guide"
+  },
+  "plot-registration-process-in-telangana": {
+    title: "Planning a plot purchase in Telangana?",
+    description: "Before registration, compare the plot details with the title documents and relevant project records. Ask for a site visit and an explanation of the documents.",
+    projectHref: "/projects",
+    projectLabel: "See Current Supraja Projects",
+    campaign: "telangana-plot-registration"
+  }
+};
+
 const CONSOLIDATED_BLOG_SLUGS = new Set(
   Object.keys(CONSOLIDATED_BLOG_DESTINATIONS),
 );
@@ -323,6 +371,7 @@ export default async function BlogDetailPage({
     .filter(Boolean).length;
   const category = post.category || "Investment Guide";
   const isPartnerGuide = post.audience === "channel-partner";
+  const buyerPath = SEARCH_BUYER_PATHS[slug];
 
   const formattedDate = new Date(post.date).toLocaleDateString("en-IN", {
     day: "numeric",
@@ -510,6 +559,36 @@ export default async function BlogDetailPage({
               </div>
             )}
 
+            {!isPartnerGuide && buyerPath && (
+              <aside
+                aria-label="Next steps for buyers"
+                className="mt-9 rounded-2xl border border-[#DED4BD] bg-white px-6 py-6 shadow-sm sm:px-8"
+              >
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#8A6500]">Practical next step</p>
+                <h2 className="mt-3 font-display text-xl font-semibold text-[#12251d] sm:text-2xl">
+                  {buyerPath.title}
+                </h2>
+                <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">
+                  {buyerPath.description}
+                </p>
+                <div className="mt-5 flex flex-wrap gap-3">
+                  <Link
+                    href={buyerPath.projectHref}
+                    className="inline-flex min-h-11 items-center rounded-full bg-[#0B1633] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#765D00]"
+                  >
+                    {buyerPath.projectLabel}
+                  </Link>
+                  <Link
+                    href={`/contact-us?utm_source=blog&utm_medium=internal&utm_campaign=${buyerPath.campaign}`}
+                    data-track-label={`Blog qualified site visit: ${buyerPath.campaign}`}
+                    className="inline-flex min-h-11 items-center rounded-full border border-[#B79B65] bg-white px-5 py-3 text-sm font-semibold text-[#12251d] transition hover:bg-[#F8F6F1]"
+                  >
+                    Request a Site Visit
+                  </Link>
+                </div>
+              </aside>
+            )}
+
             {toc.length > 0 && (
               <div className="mt-10 rounded-3xl bg-white p-6 shadow-sm lg:hidden">
                 <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#765D00]">
@@ -673,7 +752,7 @@ export default async function BlogDetailPage({
             ) : (
               <section className="mt-16 rounded-3xl bg-[#12251d] p-8 text-white">
                 <h2 className="font-display text-2xl font-semibold">
-                  Looking for DTCP & RERA Approved Plots?
+                  Exploring Open Plots Near Hyderabad?
                 </h2>
                 <p className="mt-3 text-white/80">
                   Explore premium plotted developments by Sri Supraja Infracon

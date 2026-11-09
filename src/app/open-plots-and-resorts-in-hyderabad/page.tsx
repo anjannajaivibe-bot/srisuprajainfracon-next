@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import OpenPlotsResortsClient from "./OpenPlotsResortsClient";
 
 const SITE_URL = "https://www.srisuprajainfracon.com";
-const canonical = `${SITE_URL}/open-plots-and-resorts-in-hyderabad/`;
+const canonical = `${SITE_URL}/open-plots-and-resorts-in-hyderabad`;
 const pageTitle =
   "Open Plots in Hyderabad for Sale | Compare Project Approvals";
 const pageDescription =
   "Explore open plots in Hyderabad for sale with project-wise DTCP and RERA records, EMI options and location details across Kamkole, Mominpet and Indrakaran.";
 
 export const metadata: Metadata = {
-  title: pageTitle,
+  title: { absolute: pageTitle },
   description: pageDescription,
   alternates: { canonical },
   openGraph: {

@@ -25,7 +25,7 @@ export default function Footer() {
           <div>
             <h3 className="text-2xl font-bold text-slate-900">Sri Supraja Infracon</h3>
             <p className="mt-2 text-sm uppercase tracking-[0.3em] text-[#765D00]">Builders & Developers</p>
-            <p className="mt-6 leading-7 text-slate-600">Sri Supraja Infracon develops approved open plots, residential, villa and resort-inspired projects across Hyderabad&apos;s growth corridors, including Kamkole, Sangareddy, Mominpet and Indrakaran.</p>
+            <p className="mt-6 leading-7 text-slate-600">Sri Supraja Infracon develops plotted, residential, villa and resort-inspired projects across Hyderabad&apos;s growth corridors. Review project- and phase-specific DTCP and TG RERA records before booking.</p>
             <div className="mt-8 flex items-center gap-4">
               {[
                 { label: "Facebook", href: "https://www.facebook.com/srisuprajainfracon", icon: "f" },

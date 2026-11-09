@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 const SITE_URL = "https://www.srisuprajainfracon.com";
-const canonical = `${SITE_URL}/editorial-policy/`;
+const canonical = `${SITE_URL}/editorial-policy`;
 
 export const metadata: Metadata = {
-  title: "Editorial & Verification Policy | Sri Supraja Infracon",
+  title: { absolute: "Editorial & Verification Policy | Sri Supraja Infracon" },
   description:
     "Learn how Sri Supraja Infracon researches, verifies, updates and corrects real estate, project, approval and buyer-education content published on this website.",
   alternates: { canonical },

@@ -5,7 +5,7 @@ const SITE_URL = "https://www.srisuprajainfracon.com";
 
 export const metadata: Metadata = {
   title:
-    "About Sri Supraja Infracon | DTCP & RERA Approved Open Plot Developers",
+    { absolute: "About Sri Supraja Infracon | Hyderabad Projects & Experience" },
   description:
     "Learn about Sri Supraja Infracon, a trusted real estate developer focused on DTCP and RERA approved open plots, resort plots and plotted communities near Hyderabad growth corridors.",
   alternates: {

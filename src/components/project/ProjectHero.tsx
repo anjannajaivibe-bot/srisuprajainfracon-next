@@ -35,43 +35,43 @@ const heroCopy: Record<
 > = {
   "supraja-iris-resort-plots": {
     badge: "SUPRAJA IRIS • KAMKOLE",
-    h1: "DTCP & RERA Approved Resort Plots at Kamkole",
+    h1: "Supraja IRIS Resort Plots at Kamkole",
     subtitle:
       "350-acre plotted development adjacent to Woxsen University, with Lemon Tree Resort and water villas under construction.",
     firstParagraph:
-      "Supraja IRIS is a large plotted development at Kamkole with approved plots and resort and recreation facilities at different stages of development.",
+      "Supraja IRIS is a large plotted development at Kamkole with documented phase-specific approval references and resort facilities at different stages of development.",
     description:
       "Review the approvals, current construction, available plots, pricing and location before planning a site visit.",
     tags: [
-      "DTCP Approved",
-      "RERA Registered",
+      "DTCP Layout Record", 
+      "TG RERA Record", 
       "Plots from 165 Sq. Yards",
       "Near NH-65",
     ],
     imageAlt:
-      "Supraja IRIS DTCP and RERA approved resort plots at Kamkole near Woxsen University",
+      "Supraja IRIS resort-inspired plotted development at Kamkole near Woxsen University",
   },
   "supraja-iris": {
     badge: "SUPRAJA IRIS • KAMKOLE",
-    h1: "DTCP & RERA Approved Resort Plots at Kamkole",
+    h1: "Supraja IRIS Resort Plots at Kamkole",
     subtitle:
       "350-acre plotted development adjacent to Woxsen University, with Lemon Tree Resort and water villas under construction.",
     firstParagraph:
-      "Supraja IRIS is a large plotted development at Kamkole with approved plots and resort and recreation facilities at different stages of development.",
+      "Supraja IRIS is a large plotted development at Kamkole with documented phase-specific approval references and resort facilities at different stages of development.",
     description:
       "Review the approvals, current construction, available plots, pricing and location before planning a site visit.",
     tags: [
-      "DTCP Approved",
-      "RERA Registered",
+      "DTCP Layout Record", 
+      "TG RERA Record", 
       "Plots from 165 Sq. Yards",
       "Near NH-65",
     ],
     imageAlt:
-      "Supraja IRIS DTCP and RERA approved resort plots at Kamkole near Woxsen University",
+      "Supraja IRIS resort-inspired plotted development at Kamkole near Woxsen University",
   },
   "bridge-county": {
     badge: "BRIDGE COUNTY • KAMKOLE",
-    h1: "DTCP & RERA Approved Open Plots at Kamkole",
+    h1: "Bridge County Open Plots at Kamkole",
     subtitle:
       "15-acre plotted enclave within Supraja IRIS, adjacent to Woxsen University and connected to the NH-65 corridor.",
     firstParagraph:
@@ -79,8 +79,8 @@ const heroCopy: Record<
     description:
       "The layout includes 211 plots, 50 and 33 ft roads, underground utility planning and access toward Woxsen University and NH-65.",
     tags: [
-      "Flexible 0% Interest EMI",
-      "Starting from ₹25,000/month*",
+      "Request Current EMI Terms", 
+      "Payment Schedule on Request", 
       "Payment Schedule Available",
       "15 Acre Enclave",
       "211 Plots",
@@ -89,11 +89,11 @@ const heroCopy: Record<
       "Underground Infrastructure",
     ],
     imageAlt:
-      "Bridge County DTCP and RERA approved open plots within Supraja IRIS at Kamkole",
+      "Bridge County plotted development within Supraja IRIS at Kamkole",
   },
   "sindhu-sarovar": {
     badge: "SINDHU SAROVAR • MOMINPET",
-    h1: "DTCP & RERA Approved Open Plots at Mominpet",
+    h1: "Sindhu Sarovar Open Plots at Mominpet",
     subtitle:
       "Plots from 150 to 569 sq. yards with 100 ft road access, blacktop roads and gated community planning.",
     firstParagraph:

@@ -67,8 +67,9 @@ export default function ContactForm({
   const [form, setForm] = useState({
     name: "",
     phone: "",
+    projectInterest: "",
     email: "",
-    comments: "",
+    comments: ""
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -121,7 +122,7 @@ export default function ContactForm({
   }, [formId, source]);
 
   const updateField = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
   ) => {
     if (!startTracked.current) {
       startTracked.current = true;
@@ -162,7 +163,7 @@ export default function ContactForm({
           phone: form.phone,
           email: form.email,
           message: form.comments,
-          project: getProjectName(pathname || ""),
+          project: form.projectInterest || getProjectName(pathname || ""),
           source,
           website: "",
           formStartedAt,
@@ -183,6 +184,7 @@ export default function ContactForm({
       setForm({
         name: "",
         phone: "",
+        projectInterest: "",
         email: "",
         comments: "",
       });
@@ -265,6 +267,31 @@ export default function ContactForm({
           />
         </div>
 
+        {!compact && (
+          <div>
+            <label htmlFor={`${formId}-interest`} className="mb-2 block font-semibold text-[#111827]">
+              Project of interest <span className="text-xs font-normal text-slate-500">(optional)</span>
+            </label>
+            <select
+              id={`${formId}-interest`}
+              name="projectInterest"
+              value={form.projectInterest}
+              onChange={updateField}
+              className="w-full rounded-xl border border-[#D1D5DB] bg-white px-4 py-3 text-[#111827] outline-none transition focus:border-[#8A6A26] focus:ring-2 focus:ring-[#D6B15C]/25"
+            >
+              <option value="">Help me compare projects</option>
+              <option value="Supraja IRIS">Supraja IRIS</option>
+              <option value="Bridge County">Bridge County</option>
+              <option value="Sindhu Sarovar">Sindhu Sarovar</option>
+              <option value="Subhash Meadows">Subhash Meadows</option>
+            </select>
+          </div>
+        )}
+        <details className="rounded-xl border border-[#E5DDD0] bg-[#FBFAF6] p-4">
+          <summary className="cursor-pointer text-sm font-semibold text-[#243D42]">
+            Add an email address or project question (optional)
+          </summary>
+          <div className="mt-4 grid gap-4">
         <div>
           <label className="mb-2 block font-semibold text-[#111827]">
             Email
@@ -298,13 +325,19 @@ export default function ContactForm({
           />
         </div>
 
+          </div>
+        </details>
+        <p className="text-xs leading-5 text-slate-600">
+          Name and phone number are sufficient to request project information. Current pricing, payment plans and availability will be confirmed by the team.
+        </p>
+
         <button
           type="submit"
           disabled={loading}
           data-track-click="false"
           className="rounded-full bg-[#C9A227] px-7 py-4 font-bold text-[#07111F] transition hover:bg-[#07111F] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A227] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {loading ? "Submitting..." : "Submit Enquiry"}
+          {loading ? "Submitting..." : "Request Project Details"}
         </button>
 
         {submitted && (

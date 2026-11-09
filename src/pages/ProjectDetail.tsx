@@ -82,6 +82,13 @@ const ProjectDetail = ({ slug }: { slug: string }) => {
     project.slug === "supraja-iris-resort-plots" ||
     project.slug === "bridge-county";
 
+  const recordReview: Record<string, { phase: string; periodEnd: string }> = {
+    "supraja-iris-resort-plots": { phase: "Supraja IRIS Phase 3", periodEnd: "8 October 2026" },
+    "bridge-county": { phase: "Bridge County", periodEnd: "30 October 2026" },
+    "sindhu-sarovar": { phase: "Sindhu Sarovar Phase 2", periodEnd: "23 August 2025" }
+  };
+  const reviewedRecord = recordReview[project.slug];
+
   const suprajaIrisVideoSchema =
     project.slug === "supraja-iris-resort-plots"
       ? {
@@ -115,6 +122,24 @@ const ProjectDetail = ({ slug }: { slug: string }) => {
 
       <main>
         <ProjectHero project={project} />
+
+        {reviewedRecord && (
+          <aside className="border-b border-[#E6DECB] bg-[#FCFAF3] px-5 py-5" aria-label="Project approval record status">
+            <div className="mx-auto flex max-w-6xl flex-col gap-3 text-sm leading-6 text-[#46525B] md:flex-row md:items-center md:justify-between">
+              <p>
+                <strong className="text-[#1F2E3B]">Project record verification:</strong>{" "}
+                The reviewed {reviewedRecord.phase} TG RERA certificate lists an end date of {reviewedRecord.periodEnd}.
+                This does not establish any current extension. Confirm the live status and the applicable DTCP layout release before booking.
+              </p>
+              <Link
+                href="/project-verification"
+                className="shrink-0 font-bold text-[#6E520C] underline underline-offset-4 hover:text-[#0B1633]"
+              >
+                Review documented approvals
+              </Link>
+            </div>
+          </aside>
+        )}
 
         {project.slug === "supraja-iris-resort-plots" && (
           <SuprajaIrisLeadSection />

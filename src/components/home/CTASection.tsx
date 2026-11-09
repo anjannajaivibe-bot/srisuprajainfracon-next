@@ -24,7 +24,7 @@ const CTASection = () => {
             View Projects
           </Link>
 
-          <Link href="/contact-us/" className="text-amber-300 underline">
+          <Link href="/contact-us" className="text-amber-300 underline">
             Speak to Our Team
           </Link>
 

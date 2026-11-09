@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const trustBadges = [
-  "24+ Years in Real Estate",
+  "Real Estate Development Since 2003",
   "Projects Across Key Hyderabad Locations",
   "DTCP & RERA Details Available",
 ];
@@ -129,7 +129,7 @@ const HeroSection = () => {
 
         <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4 lg:mt-10">
           <Link
-            href="/contact-us/"
+            href="/contact-us"
             className="rounded-full border border-white/20 bg-white/10 px-7 py-3 text-sm font-bold text-white transition duration-200 hover:bg-white hover:text-[#0B1633] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1633] sm:px-8 sm:py-4 lg:backdrop-blur-sm"
           >
             Plan a Site Visit

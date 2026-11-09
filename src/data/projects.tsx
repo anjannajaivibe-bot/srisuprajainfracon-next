@@ -36,12 +36,12 @@ export const projects: Project[] = [
     title: "Supraja IRIS Resort Plots",
     location: "Kamkole",
     status: "Sales Open",
-    approvalType: "DTCP & RERA Approved Open Plots",
+    approvalType: "DTCP / TG RERA Records Available",
     dtcpNo: "TLP No. 155/2024/H",
     reraNo: "P02100009249",
 
     shortDescription:
-      "DTCP & RERA approved open plots at Kamkole near Woxsen University, with a 350-acre resort-style master plan, Lemon Tree Resort and water villas under construction, water and amusement park development, and planned go-karting.",
+      "Resort-inspired plotted development at Kamkole near Woxsen University, with phase-specific DTCP/TG RERA records, a 350-acre master plan, Lemon Tree Resort under construction and planned leisure facilities.",
 
     image: irisImage,
 
@@ -74,22 +74,22 @@ export const projects: Project[] = [
     title: "Bridge County",
     location: "Kamkole",
     status: "Sales Open",
-    approvalType: "DTCP & RERA Approved Open Plots",
+    approvalType: "DTCP / TG RERA Records Available",
     dtcpNo: "TLP No. 160/2024/H",
     reraNo: "P01100009141",
 
     shortDescription:
-      "DTCP & RERA approved open plots at Kamkole in a 15-acre layout within Supraja IRIS, with flexible 0% interest EMI starting from ₹25,000/month (terms apply), near Woxsen University and NH-65.",
+      "Plotted enclave at Kamkole within Supraja IRIS, near Woxsen University and NH-65. Ask for the current written EMI schedule and verify the latest project-phase approval status.",
 
     image: bridgeImage,
 
     imageAlt:
-      "Bridge County DTCP and RERA approved open plots at Kamkole near Woxsen University",
+      "Bridge County plotted layout at Kamkole near Woxsen University",
 
     highlights: [
-      "Flexible 0% Interest EMI",
-      "EMI starting from ₹25,000/month*",
-      "Ask for the complete EMI schedule",
+      "EMI Options: Confirm Current Terms",
+      "Request Current EMI Schedule",
+      "Payment Schedule Subject to Confirmation",
       "Sales Open",
       "15-acre plotted layout",
       "211 well-planned open plots",
@@ -111,7 +111,7 @@ export const projects: Project[] = [
     title: "Sindhu Sarovar",
     location: "Mominpet",
     status: "Sales Open",
-    approvalType: "DTCP & RERA Approved Open Plots",
+    approvalType: "DTCP / TG RERA Records Available",
     dtcpNo: "TLP No. 154/2021/H, 233/2021/H",
     reraNo: "P02100009951",
 
@@ -121,7 +121,7 @@ export const projects: Project[] = [
     image: sindhuImage,
 
     imageAlt:
-      "Sindhu Sarovar DTCP and RERA approved open plots at Mominpet",
+      "Sindhu Sarovar plotted development at Mominpet with documented project records",
 
     highlights: [
       "100% Vastu Plots",
