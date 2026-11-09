@@ -45,16 +45,16 @@ const VERIFICATION_URL = `${SITE_URL}/project-verification`;
 
 const projectSeo: Record<ProjectSlug, ProjectSeo> = {
   "supraja-iris-resort-plots": {
-    focusKeyword: "DTCP & RERA Approved Resort Plots Near Hyderabad",
-    title: "DTCP & RERA Approved Resort Plots Near Hyderabad | Supraja IRIS",
+    focusKeyword: "Supraja IRIS Resort Plots Near Hyderabad",
+    title: "Supraja IRIS Resort Plots Near Hyderabad | Kamkole",
     description:
-      "Explore DTCP & RERA Approved Resort Plots Near Hyderabad at Supraja IRIS Kamkole with Lemon Tree Resort under construction, planned water villas and NH-65 growth corridor access.",
+      "Explore Supraja IRIS resort plots near Kamkole and NH-65. Review the current development, planned amenities and phase-specific approval records.",
     ogImage: `${SITE_URL}/og/supraja-iris-og.webp`,
     location: "Marpalle, Vikarabad, Telangana",
     latitude: 17.631095215457595,
     longitude: 77.79124881460227,
     projectName: "Supraja IRIS",
-    approval: "DTCP & RERA Approved",
+    approval: "Documented DTCP and TG RERA references",
     approvalDetail: {
       phase: "Supraja IRIS Resort Phase 3",
       dtcpNumbers: ["TLP No. 155/2024/H"],
@@ -65,7 +65,7 @@ const projectSeo: Record<ProjectSlug, ProjectSeo> = {
       reraValidUntil: "2026-10-08",
       approvalAuthorities: ["Telangana RERA", "DTCP Telangana"],
       verificationNote:
-        "Phase-specific details are summarized from reviewed TG RERA and DTCP records. Buyers should independently verify the latest status before purchase.",
+        "The reviewed Phase 3 registration period ended on 8 October 2026, unless extended. Confirm any extension and final layout status against the official phase record before booking.",
     },
     keywords: [
       "premium resort plots near Hyderabad",
@@ -94,16 +94,16 @@ const projectSeo: Record<ProjectSlug, ProjectSeo> = {
     ],
   },
   "bridge-county": {
-    focusKeyword: "DTCP & RERA Approved Luxury Plots at Kamkole",
-    title: "DTCP & RERA Approved Luxury Plots at Kamkole | Bridge County",
+    focusKeyword: "Bridge County Open Plots at Kamkole",
+    title: "Bridge County Open Plots at Kamkole | Supraja IRIS",
     description:
-      "Explore Bridge County plots at Kamkole with flexible 0% interest EMI starting at ₹25,000/month. Review phase-specific DTCP/RERA references and plan a site visit.",
+      "Explore Bridge County plots at Kamkole near NH-65. Request a current payment schedule, review phase-specific approval records and plan a site visit.",
     ogImage: `${SITE_URL}/og/bridge-county-og.webp`,
     location: "Kamkole, Telangana",
     latitude: 17.6377793524897,
     longitude: 77.79436807688003,
     projectName: "Bridge County",
-    approval: "DTCP & RERA Approved",
+    approval: "Documented DTCP and TG RERA references",
     approvalDetail: {
       dtcpNumbers: ["TLP No. 160/2024/H"],
       reraNumbers: ["P01100009141"],
@@ -113,7 +113,7 @@ const projectSeo: Record<ProjectSlug, ProjectSeo> = {
       reraValidUntil: "2026-10-30",
       approvalAuthorities: ["Telangana RERA", "DTCP Telangana"],
       verificationNote:
-        "The reviewed Bridge County records reference the same Kamkole survey numbers in the RERA certificate and DTCP layout material.",
+        "The reviewed Bridge County certificate states a period ending 30 October 2026, unless extended. Confirm any current TG RERA extension and the applicable DTCP layout release before booking.",
     },
     keywords: [
       "luxury open plots near Woxsen University",
@@ -142,8 +142,8 @@ const projectSeo: Record<ProjectSlug, ProjectSeo> = {
     ],
   },
   "sindhu-sarovar": {
-    focusKeyword: "DTCP & RERA Approved Open Plots in Mominpet",
-    title: "DTCP & RERA Approved Open Plots in Mominpet | Sindhu Sarovar",
+    focusKeyword: "Sindhu Sarovar Open Plots in Mominpet",
+    title: "Sindhu Sarovar Open Plots in Mominpet | Supraja",
     description:
       "Explore Sindhu Sarovar open plots in Mominpet with documented project approval references, gated community infrastructure and plotted development planning by Sri Supraja Infracon.",
     ogImage: `${SITE_URL}/og/sindhu-sarovar-og.webp`,
@@ -246,7 +246,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   const canonical = `${SITE_URL}/projects/${slug}`;
 
   return {
-    title: project.title,
+    title: { absolute: project.title },
     description: project.description,
     keywords: [project.focusKeyword, ...project.keywords],
     alternates: { canonical },
