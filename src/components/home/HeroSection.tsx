@@ -1,221 +1,128 @@
+import Image from "next/image";
 import Link from "next/link";
 
-const trustBadges = [
-  "Real Estate Development Since 2003",
-  "Projects Across Key Hyderabad Locations",
-  "DTCP & RERA Details Available",
+const projects = [
+  { name: "Supraja IRIS", location: "Kamkole", href: "/projects/supraja-iris-resort-plots" },
+  { name: "Bridge County", location: "Kamkole", href: "/projects/bridge-county" },
+  { name: "Sindhu Sarovar", location: "Mominpet", href: "/projects/sindhu-sarovar" },
+  { name: "Subhash Meadows", location: "Indrakaran", href: "/projects/subhash-meadows" },
 ];
 
-const projectLinks = [
-  { name: "Supraja IRIS", href: "/projects/supraja-iris-resort-plots" },
-  { name: "Bridge County", href: "/projects/bridge-county" },
-  { name: "Sindhu Sarovar", href: "/projects/sindhu-sarovar" },
-  { name: "Subhash Meadows", href: "/projects/subhash-meadows" },
-];
-
-const legacyProjects = [
-  "Sai Sreenivasam Apartments, Nallagandla",
-  "Sreenivasa Anandam Apartments, Huda Trade Centre",
-  "Supraja Harmony Villas, Ameenpur",
-  "Supraja Harivillu Open Plots, Beeramguda",
-  "Supraja Marvel Open Plots, Isnapur",
-  "Supraja IIT Technopark Open Plots, IIT Kandi",
-  "Many more projects completed",
-];
-
-const HeroSection = () => {
+export default function HeroSection() {
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#0B1633] pt-24 sm:pt-28 lg:min-h-[88vh] lg:pt-0">
-      <div className="absolute inset-0" aria-hidden="true">
+    <section
+      aria-labelledby="homepage-hero-title"
+      className="relative isolate flex min-h-[740px] items-end overflow-hidden bg-[#09172A] sm:min-h-[740px] lg:min-h-[790px] lg:items-center"
+    >
+      {/* The poster is essential for mobile, slow networks and motion preferences. */}
+      <div className="absolute inset-0 -z-20">
+        <Image
+          src="/videos/supraja-iris-hero-poster.webp"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+          aria-hidden="true"
+        />
         <video
-          className="hidden h-full w-full object-cover opacity-35 lg:block"
+          aria-hidden="true"
           autoPlay
           muted
           loop
           playsInline
           preload="none"
+          poster="/videos/supraja-iris-hero-poster.webp"
+          className="hero-footage absolute inset-0 hidden h-full w-full object-cover lg:block"
           tabIndex={-1}
         >
-          <source src="/videos/heroBg.mp4" type="video/mp4" media="(min-width: 1024px)" />
+          <source src="/videos/supraja-iris-hero.webm" type="video/webm" />
+          <source src="/videos/heroBg.mp4" type="video/mp4" />
         </video>
-
-        <div className="absolute inset-0 bg-gradient-to-br from-[#081225]/95 via-[#0B1633]/88 to-[#1A2F5A]/82" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0B1633] to-transparent" />
       </div>
 
-      <div className="container-max relative z-10 w-full px-4 pb-8 pt-6 text-center sm:px-6 sm:pb-12 md:pb-14 lg:px-8 lg:pb-16">
-        <div className="mb-4 inline-flex max-w-full items-center gap-2 rounded-full border border-[#C9A227]/35 bg-[#C9A227]/10 px-3 py-2 sm:mb-6 sm:px-5">
-          <span className="h-2 w-2 shrink-0 rounded-full bg-[#C9A227]" aria-hidden="true" />
-          <span className="text-[11px] font-semibold text-[#E8D7A5] sm:text-sm">
-            Sri Supraja Infracon Builders &amp; Developers
-          </span>
-        </div>
+      {/* Gradient keeps the video visible on the right while protecting readability. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-t from-[#071525]/95 via-[#081729]/75 to-[#081729]/40 lg:bg-gradient-to-r lg:from-[#071525]/95 lg:via-[#0A1A30]/75 lg:to-[#0A1A30]/15"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#071525]/70 to-transparent"
+      />
 
-        <h1 className="mx-auto mb-4 max-w-6xl font-display text-[30px] font-bold leading-[1.12] tracking-tight text-white min-[390px]:text-[34px] sm:text-5xl md:text-[52px] lg:mb-6 lg:text-7xl lg:leading-[1.03]">
-          Explore{" "}
-          <span className="text-[#C9A227]">Open Plots</span>
-          <br className="hidden md:block" /> Near Hyderabad
-        </h1>
+      <div className="container-max relative w-full px-5 pb-12 pt-32 sm:px-8 sm:pb-16 lg:px-12 lg:pb-24 lg:pt-44">
+        <div className="max-w-[850px]">
+          <p className="mb-5 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.20em] text-[#ECD8A7] sm:text-xs">
+            <span aria-hidden="true" className="h-px w-9 shrink-0 bg-[#C8A763]" />
+            Sri Supraja Infracon · Hyderabad
+          </p>
 
-        <p className="mx-auto mb-6 max-w-4xl text-sm leading-6 text-slate-200 sm:mb-8 sm:text-base sm:leading-7 md:text-lg md:leading-relaxed">
-          Explore plotted developments across Kamkole, Sangareddy, Mominpet and
-          Indrakaran. Compare project-wise DTCP and RERA records, payment options and on-site development before planning a visit.
-        </p>
-
-        <div className="mb-6 flex flex-wrap justify-center gap-2 sm:mb-7 sm:gap-3">
-          {trustBadges.map((badge) => (
-            <span
-              key={badge}
-              className="rounded-full border border-white/10 bg-white/10 px-3 py-2 text-[10px] font-semibold text-slate-100 sm:px-4 sm:text-sm lg:backdrop-blur-sm"
-            >
-              {badge}
+          <h1
+            id="homepage-hero-title"
+            className="max-w-[820px] font-display text-[clamp(2.6rem,6vw,5.2rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-white"
+          >
+            Open Plots Near Hyderabad.
+            <span className="mt-2 block font-normal text-[#F0DBB2]">
+              See the Site Before You Decide.
             </span>
-          ))}
-        </div>
+          </h1>
 
-        <nav
-          aria-label="Featured projects"
-          className="mx-auto mb-6 grid max-w-[520px] grid-cols-2 gap-3 sm:mb-7 md:max-w-3xl md:grid-cols-4"
-        >
-          {projectLinks.map((project) => (
+          <p className="mt-6 max-w-[600px] text-[15px] leading-[1.8] text-slate-100 sm:text-lg">
+            Exploring land at Kamkole, Mominpet or Indrakaran? See the layout,
+            understand the approvals and find out what has been developed on
+            the ground. We will help you take a closer look.
+          </p>
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <Link
-              key={project.name}
-              href={project.href}
-              className="rounded-full bg-[#C9A227] px-3 py-3 text-center text-[11px] font-bold text-[#0B1633] shadow-md transition duration-200 hover:-translate-y-0.5 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1633] sm:text-sm"
+              href="/contact-us"
+              className="inline-flex min-h-12 items-center justify-center rounded-sm bg-[#C8A763] px-7 py-3 text-center text-sm font-bold text-[#0A1A30] transition hover:bg-[#E6CE96] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
             >
-              {project.name}
+              Arrange a Site Visit
             </Link>
-          ))}
-        </nav>
-
-        <div className="relative left-1/2 right-1/2 mt-5 w-screen -ml-[50vw] -mr-[50vw] overflow-hidden border-y border-white/10 bg-white/5 sm:mt-7 lg:backdrop-blur-sm">
-          <div className="mx-auto flex max-w-[1600px] flex-col items-center gap-0 px-4 sm:px-6 lg:flex-row lg:px-8">
-            <div className="w-full shrink-0 border-b border-white/10 px-4 py-2.5 lg:w-auto lg:border-b-0 lg:border-r">
-              <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#E8D7A5] sm:text-sm sm:tracking-[0.18em]">
-                Completed Projects
-              </span>
-            </div>
-
-            <div className="relative min-w-0 flex-1 overflow-hidden py-3 sm:py-4">
-              <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-8 bg-gradient-to-r from-[#0B1633] to-transparent sm:w-16" aria-hidden="true" />
-              <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-[#0B1633] to-transparent sm:w-16" aria-hidden="true" />
-
-              <div className="legacy-marquee-track">
-                <div className="legacy-marquee-group">
-                  {legacyProjects.map((project) => (
-                    <span key={`primary-${project}`} className="legacy-marquee-item">
-                      {project}
-                    </span>
-                  ))}
-                </div>
-
-                <div
-                  className="legacy-marquee-group legacy-marquee-duplicate"
-                  aria-hidden="true"
-                  role="presentation"
-                >
-                  {legacyProjects.map((project) => (
-                    <span
-                      key={`duplicate-${project}`}
-                      className="legacy-marquee-item"
-                      data-label={project}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
+            <Link
+              href="/projects"
+              className="inline-flex min-h-12 items-center justify-center rounded-sm border border-white/60 bg-[#0A1A30]/25 px-7 py-3 text-center text-sm font-semibold text-white transition hover:border-[#E6CE96] hover:bg-[#0A1A30]/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            >
+              Explore Our Projects
+            </Link>
           </div>
         </div>
 
-        <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4 lg:mt-10">
-          <Link
-            href="/contact-us"
-            className="rounded-full border border-white/20 bg-white/10 px-7 py-3 text-sm font-bold text-white transition duration-200 hover:bg-white hover:text-[#0B1633] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1633] sm:px-8 sm:py-4 lg:backdrop-blur-sm"
-          >
-            Plan a Site Visit
-          </Link>
-
-          <Link
-            href="/projects"
-            className="rounded-full bg-white px-7 py-3 text-sm font-bold text-[#0B1633] shadow-lg transition duration-200 hover:-translate-y-0.5 hover:bg-[#C9A227] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A227] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1633] sm:px-8 sm:py-4"
-          >
-            Explore Projects
-          </Link>
-        </div>
-
-        <div className="mt-5 flex flex-wrap justify-center gap-x-4 gap-y-2 text-[11px] sm:mt-7 sm:text-sm">
-          <Link href="/projects" className="font-bold text-[#E8D7A5] underline decoration-[#E8D7A5]/60 underline-offset-4 transition hover:text-white">
-            Project Brochures
-          </Link>
-          <Link href="/projects" className="font-bold text-[#E8D7A5] underline decoration-[#E8D7A5]/60 underline-offset-4 transition hover:text-white">
-            Location Advantages
-          </Link>
-          <a href="https://www.rera.telangana.gov.in/" target="_blank" rel="noopener noreferrer" className="font-bold text-[#E8D7A5] underline decoration-[#E8D7A5]/60 underline-offset-4 transition hover:text-white">
-            Telangana RERA
-          </a>
-          <a href="https://dtcp.telangana.gov.in/" target="_blank" rel="noopener noreferrer" className="font-bold text-[#E8D7A5] underline decoration-[#E8D7A5]/60 underline-offset-4 transition hover:text-white">
-            Telangana DTCP
-          </a>
-        </div>
+        <nav
+          aria-label="Explore Sri Supraja Infracon projects"
+          className="mt-12 border-t border-white/25 pt-5 lg:mt-16"
+        >
+          <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#E5D2A7]">
+            Explore by project
+          </p>
+          <div className="grid grid-cols-2 gap-x-5 gap-y-5 lg:grid-cols-4">
+            {projects.map((project) => (
+              <Link
+                href={project.href}
+                key={project.name}
+                className="group block w-fit max-w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+              >
+                <span className="block text-sm font-semibold text-white transition group-hover:text-[#E6CE96] sm:text-base">
+                  {project.name}
+                </span>
+                <span className="mt-1 block text-xs text-slate-300">
+                  {project.location}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </nav>
       </div>
 
       <style>{`
-        .legacy-marquee-track {
-          display: flex;
-          width: max-content;
-          min-width: 100%;
-          animation: legacy-marquee-scroll 38s linear infinite;
-          transform: translate3d(0, 0, 0);
-          will-change: transform;
-        }
-
-        .legacy-marquee-track:hover {
-          animation-play-state: paused;
-        }
-
-        .legacy-marquee-group {
-          display: flex;
-          flex-shrink: 0;
-          align-items: center;
-          width: max-content;
-        }
-
-        .legacy-marquee-item {
-          display: inline-block;
-          flex-shrink: 0;
-          margin-left: 1rem;
-          margin-right: 1rem;
-          white-space: nowrap;
-          font-size: 11px;
-          font-weight: 600;
-          color: rgb(226 232 240);
-        }
-
-        .legacy-marquee-duplicate .legacy-marquee-item::before {
-          content: attr(data-label);
-        }
-
-        @keyframes legacy-marquee-scroll {
-          from { transform: translate3d(0, 0, 0); }
-          to { transform: translate3d(-50%, 0, 0); }
-        }
-
-        @media (min-width: 640px) {
-          .legacy-marquee-item {
-            margin-left: 1.5rem;
-            margin-right: 1.5rem;
-            font-size: 14px;
-          }
-        }
-
         @media (prefers-reduced-motion: reduce) {
-          .legacy-marquee-track {
-            animation-duration: 70s;
+          .hero-footage {
+            display: none !important;
           }
         }
       `}</style>
     </section>
   );
-};
-
-export default HeroSection;
+}
