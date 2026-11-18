@@ -1,0 +1,460 @@
+/*
+  Homepage V4 concept: make the site photography legible and the value proposition
+  easy to scan. Overrides only HeroSection and the compact LemonTreeProgress section.
+  No text, metadata, project data or other page components are altered.
+*/
+
+/* HERO: a clean editorial text field and a large unobstructed site view. */
+.supraja-fluid-home .fi-hero {
+  min-height: 760px;
+  height: auto;
+  background: #081725;
+  color: #f7f4eb;
+}
+.supraja-fluid-home .fi-hero-media {
+  inset: 78px 0 130px 39%;
+  background-color: #263e42;
+  background-position: 50% 48%;
+  overflow: hidden;
+}
+.supraja-fluid-home .fi-hero-media video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  object-fit: cover;
+  object-position: 50% 49%;
+  filter: saturate(1.02) contrast(1.03);
+}
+.supraja-fluid-home .fi-hero-shade {
+  background:
+    linear-gradient(90deg,
+      #081725 0%,
+      #081725 25%,
+      rgb(8 23 37 / .97) 34%,
+      rgb(8 23 37 / .77) 45%,
+      rgb(8 23 37 / .12) 68%,
+      rgb(8 23 37 / .04) 100%),
+    linear-gradient(0deg,
+      #081725 0%,
+      rgb(8 23 37 / .52) 13%,
+      transparent 31%,
+      transparent 73%,
+      rgb(8 23 37 / .22) 100%);
+}
+.supraja-fluid-home .fi-hero-accent {
+  opacity: .3;
+}
+.supraja-fluid-home .fi-hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-end;
+  gap: 0;
+  width: min(100%, 1560px);
+  padding: 142px clamp(26px, 5vw, 88px) 0;
+}
+.supraja-fluid-home .fi-hero-copy {
+  width: min(100%, 610px);
+  max-width: 610px;
+  padding-bottom: clamp(35px, 5vh, 54px);
+}
+.supraja-fluid-home .fi-hero-kicker {
+  font-size: .68rem;
+  letter-spacing: .17em;
+  margin-bottom: 20px;
+}
+.supraja-fluid-home .fi-hero-title {
+  font-size: clamp(3.45rem, 5.1vw, 5.55rem);
+  font-weight: 500;
+  line-height: 1.045;
+  letter-spacing: -.052em;
+  color: #fcfaf5;
+}
+.supraja-fluid-home .fi-hero-title-line:last-child {
+  font-size: .80em;
+}
+.supraja-fluid-home .fi-hero-title-accent {
+  font-size: .93em;
+  font-weight: 400;
+  color: #d8b775;
+}
+.supraja-fluid-home .fi-hero-summary {
+  max-width: 570px;
+  margin: 26px 0 0;
+  font-size: clamp(.94rem, 1.1vw, 1.06rem);
+  line-height: 1.78;
+  color: #e1e6eb;
+}
+.supraja-fluid-home .fi-hero-actions {
+  margin-top: 27px;
+  gap: 13px;
+}
+.supraja-fluid-home .fi-btn {
+  min-height: 50px;
+  padding: 13px 21px;
+}
+.supraja-fluid-home .fi-hero-trust {
+  margin-top: 22px;
+  gap: 8px 18px;
+}
+.supraja-fluid-home .fi-hero-trust-badge {
+  font-size: .68rem;
+  color: #d5ddd9;
+}
+
+/* A compact numbered project index runs along the hero's lower edge, not over the photo. */
+.supraja-fluid-home .fi-featured-nav {
+  display: grid;
+  grid-template-columns: 165px repeat(4, minmax(0, 1fr));
+  align-self: stretch;
+  width: 100%;
+  gap: 0;
+  min-height: 82px;
+  padding: 0;
+  margin: 0;
+  background: rgb(8 23 37 / .96);
+  border: 1px solid rgb(215 179 106 / .28);
+  border-bottom: 0;
+  border-radius: 0;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.supraja-fluid-home .fi-featured-nav-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0;
+  padding: 15px 19px;
+  gap: 5px;
+  color: #d6b471;
+  border-right: 1px solid rgb(215 179 106 / .20);
+  font-size: .67rem;
+  line-height: 1.6;
+  letter-spacing: .12em;
+}
+.supraja-fluid-home .fi-featured-nav-heading svg {
+  width: 15px;
+  height: 15px;
+}
+.supraja-fluid-home .fi-featured-link {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 21px minmax(0, 1fr) 16px;
+  gap: 8px;
+  padding: 15px 15px;
+  min-width: 0;
+  border-bottom: 0;
+  border-right: 1px solid rgb(215 179 106 / .20);
+}
+.supraja-fluid-home .fi-featured-link:last-child {
+  border-right: 0;
+}
+.supraja-fluid-home .fi-featured-name {
+  font-size: clamp(.98rem, 1.35vw, 1.24rem);
+  line-height: 1.16;
+}
+.supraja-fluid-home .fi-featured-number {
+  font-size: .62rem;
+}
+.supraja-fluid-home .fi-featured-link:hover,
+.supraja-fluid-home .fi-featured-link:focus-visible {
+  color: #ebc77e;
+  background: rgb(255 255 255 / .055);
+  padding-left: 15px;
+}
+.supraja-fluid-home .fi-hero-bottom {
+  background: #0a192a;
+}
+
+/* LEMON TREE: real construction evidence, light background and restrained typography. */
+.supraja-fluid-home .fi-progress {
+  display: block;
+  min-height: 0;
+  padding: clamp(75px, 8vw, 135px) clamp(22px, 5vw, 88px);
+  background: #f7f5ef;
+  color: #10233a;
+}
+.supraja-fluid-home .fi-progress::before {
+  display: none;
+}
+.supraja-fluid-home .fi-progress-inner {
+  max-width: 1480px;
+  margin: 0 auto;
+  display: grid;
+  align-items: center;
+  grid-template-columns: minmax(330px, .8fr) minmax(0, 1.2fr);
+  grid-template-areas: "copy photo";
+  gap: clamp(36px, 5vw, 100px);
+}
+.supraja-fluid-home .fi-progress-copy {
+  grid-area: copy;
+  display: block;
+  padding: 0;
+  max-width: 510px;
+}
+.supraja-fluid-home .fi-progress-kicker {
+  margin: 0 0 20px;
+  font-size: .70rem;
+  font-weight: 800;
+  color: #8d692a;
+  letter-spacing: .15em;
+}
+.supraja-fluid-home .fi-progress-copy h2 {
+  max-width: 510px;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.9rem, 3.95vw, 4.65rem);
+  line-height: 1.1;
+  letter-spacing: -.048em;
+  font-weight: 500;
+  color: #10243a;
+}
+.supraja-fluid-home .fi-progress-copy > p:not(.fi-progress-kicker) {
+  max-width: 510px;
+  margin: 23px 0 0;
+  color: #536074;
+  font-size: 1rem;
+  line-height: 1.86;
+}
+.supraja-fluid-home .fi-progress-metric {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 28px;
+  padding-top: 19px;
+  border-top: 1px solid #c9c3b9;
+}
+.supraja-fluid-home .fi-progress-metric strong {
+  font-family: var(--font-display), Georgia, serif;
+  color: #8f6b2c;
+  font-size: clamp(2.7rem, 3.7vw, 4rem);
+  font-weight: 500;
+  line-height: 1;
+}
+.supraja-fluid-home .fi-progress-metric span {
+  max-width: 150px;
+  color: #556274;
+  font-size: .79rem;
+  line-height: 1.5;
+  font-weight: 700;
+}
+.supraja-fluid-home .fi-progress-link {
+  margin-top: 30px;
+  color: #76561f;
+  font-size: .86rem;
+  border-bottom-color: #af883f;
+}
+.supraja-fluid-home .fi-progress-link:hover {
+  color: #10243a;
+}
+.supraja-fluid-home .fi-progress-media {
+  grid-area: photo;
+  position: relative;
+  width: 100%;
+  min-height: 0;
+  aspect-ratio: 1.42;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #e8e7e0;
+  box-shadow: 0 23px 65px rgb(16 35 58 / .09);
+}
+.supraja-fluid-home .fi-progress-media img {
+  object-fit: cover;
+  object-position: 50% 50%;
+  filter: none;
+}
+.supraja-fluid-home .fi-progress-media::after {
+  display: none;
+}
+.supraja-fluid-home .fi-progress-media-line {
+  display: none;
+}
+.supraja-fluid-home .fi-progress-media figcaption {
+  position: absolute;
+  z-index: 2;
+  right: 18px;
+  bottom: 18px;
+  max-width: calc(100% - 36px);
+  padding: 11px 16px;
+  background: rgb(8 23 37 / .91);
+  color: #fff;
+  font-family: var(--font-body), sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: .035em;
+  border-left: 3px solid #d8b775;
+}
+
+/* Tablets: project index becomes 2 columns and the photo remains prominent. */
+@media (max-width: 1199px) {
+  .supraja-fluid-home .fi-hero-inner {
+    padding-top: 130px;
+  }
+  .supraja-fluid-home .fi-hero-media {
+    inset: 78px 0 170px 36%;
+  }
+  .supraja-fluid-home .fi-hero-copy {
+    max-width: 555px;
+  }
+  .supraja-fluid-home .fi-hero-title {
+    font-size: clamp(3.6rem, 6vw, 5rem);
+  }
+  .supraja-fluid-home .fi-featured-nav {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .supraja-fluid-home .fi-featured-nav-heading {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(215 179 106 / .20);
+    border-right: 0;
+    padding: 9px 17px;
+  }
+  .supraja-fluid-home .fi-progress-inner {
+    grid-template-columns: .9fr 1.1fr;
+    gap: 38px;
+  }
+}
+@media (max-width: 991px) {
+  .supraja-fluid-home .fi-hero {
+    min-height: 0;
+  }
+  .supraja-fluid-home .fi-hero-media {
+    inset: 80px 0 184px 23%;
+    opacity: .75;
+  }
+  .supraja-fluid-home .fi-hero-shade {
+    background:
+      linear-gradient(90deg, #081725 0%, rgb(8 23 37 / .93) 32%, rgb(8 23 37 / .35) 100%),
+      linear-gradient(0deg, #081725 0%, transparent 45%, rgb(8 23 37 / .30) 100%);
+  }
+  .supraja-fluid-home .fi-hero-inner {
+    padding: 142px 27px 0;
+  }
+  .supraja-fluid-home .fi-hero-copy {
+    width: min(100%, 620px);
+    max-width: 620px;
+    padding-bottom: 45px;
+  }
+  .supraja-fluid-home .fi-hero-title {
+    font-size: clamp(3.5rem, 8vw, 5rem);
+  }
+  .supraja-fluid-home .fi-featured-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .supraja-fluid-home .fi-featured-nav-heading {
+    grid-column: 1 / -1;
+  }
+  .supraja-fluid-home .fi-featured-link {
+    border-right: 0;
+    border-bottom: 1px solid rgb(215 179 106 / .20);
+  }
+  .supraja-fluid-home .fi-featured-link:nth-child(even) {
+    border-right: 1px solid rgb(215 179 106 / .20);
+  }
+  .supraja-fluid-home .fi-progress-inner {
+    grid-template-columns: 1fr;
+    grid-template-areas: "photo" "copy";
+    gap: 34px;
+  }
+  .supraja-fluid-home .fi-progress-copy {
+    max-width: 760px;
+  }
+  .supraja-fluid-home .fi-progress-copy h2 {
+    max-width: 730px;
+    font-size: clamp(2.75rem, 6vw, 4.3rem);
+  }
+  .supraja-fluid-home .fi-progress-media {
+    aspect-ratio: 1.52;
+  }
+}
+@media (max-width: 639px) {
+  .supraja-fluid-home .fi-hero-media {
+    inset: 70px 0 190px 0;
+    background-position: center 48%;
+    opacity: .55;
+  }
+  .supraja-fluid-home .fi-hero-media video {
+    display: none;
+  }
+  .supraja-fluid-home .fi-hero-shade {
+    background: linear-gradient(180deg, rgb(8 23 37 / .66), #081725 72%);
+  }
+  .supraja-fluid-home .fi-hero-inner {
+    padding: 132px 20px 0;
+  }
+  .supraja-fluid-home .fi-hero-kicker {
+    font-size: .58rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    letter-spacing: .11em;
+  }
+  .supraja-fluid-home .fi-hero-title {
+    font-size: clamp(3.15rem, 11.2vw, 4.25rem);
+    line-height: 1.02;
+  }
+  .supraja-fluid-home .fi-hero-title-line:last-child {
+    white-space: normal;
+  }
+  .supraja-fluid-home .fi-hero-summary {
+    font-size: .88rem;
+    line-height: 1.72;
+    margin-top: 22px;
+  }
+  .supraja-fluid-home .fi-hero-actions {
+    margin-top: 23px;
+    gap: 9px;
+  }
+  .supraja-fluid-home .fi-hero-actions .fi-btn {
+    min-height: 49px;
+    padding: 12px 10px;
+    font-size: .71rem;
+  }
+  .supraja-fluid-home .fi-hero-trust {
+    margin-top: 20px;
+    gap: 6px 13px;
+  }
+  .supraja-fluid-home .fi-hero-trust-badge {
+    font-size: .64rem;
+  }
+  .supraja-fluid-home .fi-hero-copy {
+    padding-bottom: 28px;
+  }
+  .supraja-fluid-home .fi-featured-nav-heading {
+    padding: 9px 12px;
+  }
+  .supraja-fluid-home .fi-featured-link {
+    padding: 14px 9px;
+    gap: 7px;
+    grid-template-columns: 18px minmax(0, 1fr) 15px;
+  }
+  .supraja-fluid-home .fi-featured-name {
+    font-size: 1.02rem;
+  }
+  .supraja-fluid-home .fi-progress {
+    padding: 75px 19px 88px;
+  }
+  .supraja-fluid-home .fi-progress-media {
+    aspect-ratio: 1.22;
+    border-radius: 3px;
+  }
+  .supraja-fluid-home .fi-progress-media figcaption {
+    bottom: 12px;
+    right: 12px;
+    padding: 9px 11px;
+    font-size: .66rem;
+  }
+  .supraja-fluid-home .fi-progress-copy h2 {
+    font-size: clamp(2.65rem, 9vw, 3.5rem);
+  }
+  .supraja-fluid-home .fi-progress-copy > p:not(.fi-progress-kicker) {
+    font-size: .92rem;
+    line-height: 1.8;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .supraja-fluid-home .fi-hero-media video { display: none; }
+}
