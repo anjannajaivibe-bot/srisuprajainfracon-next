@@ -43,8 +43,8 @@ export default function HeroSection() {
           </p>
 
           <h1 className="fi-hero-title">
-            <span className="fi-hero-title-line">Explore</span>
-            <span className="fi-hero-title-line fi-hero-title-accent">Open Plots</span>
+            <span className="fi-hero-title-line">Explore</span>{" "}
+            <span className="fi-hero-title-line fi-hero-title-accent">Open Plots</span>{" "}
             <span className="fi-hero-title-line">Near Hyderabad</span>
           </h1>
 
