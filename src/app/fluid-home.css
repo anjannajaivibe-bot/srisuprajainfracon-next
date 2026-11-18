@@ -521,3 +521,45 @@
   .fi-featured-link,
   .fi-project-primary { transition: none; }
 }
+
+
+/* Mobile-first enquiry dock: no floating circles covering plot details or buttons. */
+@media (max-width: 639px) {
+  .fi-home-mobile-contact {
+    position: fixed;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 9999;
+    width: 100%;
+    display: flex;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 10px !important;
+    padding: 9px 14px calc(9px + env(safe-area-inset-bottom, 0px));
+    border-top: 1px solid rgba(241,223,187,.24);
+    background: #09172b;
+    box-shadow: 0 -7px 27px rgba(6,17,32,.24);
+  }
+  .fi-home-mobile-contact a {
+    display: inline-flex;
+    flex: 1;
+    width: auto !important;
+    height: 46px !important;
+    min-width: 0;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    border-radius: 4px !important;
+    font-size: .78rem;
+    font-weight: 800;
+    box-shadow: none !important;
+  }
+  .fi-home-mobile-contact a svg { width: 19px; height: 19px; }
+  .fi-home-mobile-contact a:first-child { background: #167d4c; color: #fff; }
+  .fi-home-mobile-contact a:first-child::after { content: "WhatsApp"; }
+  .fi-home-mobile-contact a:last-child { background: #e2bd6b; color: #09172b; }
+  .fi-home-mobile-contact a:last-child::after { content: "Call Now"; }
+  .fi-home-mobile-contact a::after { display: inline-block; letter-spacing: .01em; }
+  .fi-cta { padding-bottom: 160px; }
+}
