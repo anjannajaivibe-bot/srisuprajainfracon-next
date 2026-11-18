@@ -7,25 +7,33 @@ export default function LemonTreeProgress({ compact = false }: { compact?: boole
   if (compact) {
     return (
       <section className="fi-progress">
-        <div className="fi-progress-media">
-          <Image
-            src={IMAGE}
-            alt="Lemon Tree Resort construction progress at Supraja IRIS in October 2026"
-            fill
-            sizes="(max-width: 768px) 100vw, 60vw"
-            className="object-cover"
-          />
-          <span className="fi-progress-media-line" aria-hidden="true" />
-        </div>
-        <div className="fi-progress-copy">
-          <p className="fi-progress-kicker">Latest Construction Update · October 2026</p>
-          <h2>Lemon Tree Resort Construction Progress</h2>
-          <p>
-            Approximately 60% construction completed at the Lemon Tree Resort component within Supraja IRIS, based on the latest project update.
-          </p>
-          <Link href="/projects/supraja-iris-resort-plots#construction-progress" className="fi-progress-link">
-            View Latest Project Progress <span aria-hidden="true">→</span>
-          </Link>
+        <div className="fi-progress-inner">
+          <figure className="fi-progress-media">
+            <Image
+              src={IMAGE}
+              alt="Lemon Tree Resort construction progress at Supraja IRIS in October 2026"
+              fill
+              sizes="(max-width: 991px) 100vw, 57vw"
+              className="object-cover"
+            />
+            <figcaption>Lemon Tree Resort · October 2026</figcaption>
+          </figure>
+          <div className="fi-progress-copy">
+            <p className="fi-progress-kicker">Latest Construction Update · October 2026</p>
+            <h2>Lemon Tree Resort Construction Progress</h2>
+            <p>
+              Approximately 60% construction completed at the Lemon Tree Resort component within Supraja IRIS, based on the latest project update.
+            </p>
+            <div className="fi-progress-metric" aria-label="Approximately 60 percent construction completed">
+              <strong>≈60%</strong>
+              <span>Construction completed</span>
+            </div>
+            <div>
+              <Link href="/projects/supraja-iris-resort-plots#construction-progress" className="fi-progress-link">
+                View Latest Project Progress <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     );
