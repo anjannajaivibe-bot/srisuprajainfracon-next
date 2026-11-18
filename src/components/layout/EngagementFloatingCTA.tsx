@@ -21,7 +21,7 @@ export default function EngagementFloatingCTA() {
   }, [pathname]);
 
   return (
-    <div className={"fixed bottom-5 left-4 z-[9998] flex flex-col gap-2 sm:left-5 transition-all duration-300 " + (pathname === "/" && !pastHero ? "translate-y-5 opacity-0 pointer-events-none" : "translate-y-0 opacity-100")}>
+    <div className={"fixed bottom-5 left-4 z-[9998] flex-col gap-2 sm:left-5 transition-all duration-300 " + (pathname === "/" ? "hidden sm:flex " : "flex ") + (pathname === "/" && !pastHero ? "translate-y-5 opacity-0 pointer-events-none" : "translate-y-0 opacity-100")}>
       <Link
         href="/blog#subscribe"
         className="group inline-flex h-11 items-center gap-2 rounded-full border border-slate-200 bg-white px-3 text-sm font-bold text-slate-800 shadow-lg transition hover:-translate-y-0.5 hover:border-amber-300 hover:text-amber-800 sm:h-12 sm:px-4"
