@@ -185,7 +185,7 @@ export default function Navbar() {
               href={headerWhatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full bg-green-700 px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-green-800"
+              className={pathname === "/" ? "flex items-center gap-2 rounded-sm border border-white/30 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:border-amber-300 hover:bg-white/20" : "flex items-center gap-2 rounded-full bg-green-700 px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-green-800"}
             >
               <MessageCircle size={14} />
               WhatsApp
@@ -193,7 +193,7 @@ export default function Navbar() {
 
             <a
               href={`tel:${phoneNumber}`}
-              className="flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-blue-700"
+              className={pathname === "/" ? "flex items-center gap-2 rounded-sm bg-[#E2BD6B] px-5 py-2.5 text-sm font-bold text-[#09172b] transition-all hover:bg-[#F0D89A]" : "flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-blue-700"}
             >
               <Phone size={12} />
               Call Now
