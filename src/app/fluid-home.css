@@ -1,0 +1,328 @@
+/*
+ * Sri Supraja Infracon | Fluid homepage concept preview
+ * Visual-only changes scoped to the homepage. No copy, links, images,
+ * headings, JSON-LD, SEO metadata or lead functionality are modified.
+ */
+.supraja-fluid-home {
+  --fluid-paper: #f8f6f0;
+  --fluid-ink: #0b1633;
+  --fluid-gold: #b68b32;
+  background: var(--fluid-paper);
+  overflow: clip;
+  isolation: isolate;
+}
+
+.supraja-fluid-home > section {
+  position: relative;
+  margin: 0;
+}
+
+/* Cinematic introduction flows into the projects instead of ending abruptly. */
+.supraja-fluid-home > section:first-child {
+  background-color: var(--fluid-ink) !important;
+  isolation: isolate;
+}
+
+.supraja-fluid-home > section:first-child::after {
+  position: absolute;
+  inset: auto 0 -2px;
+  z-index: 3;
+  height: clamp(112px, 14vw, 230px);
+  background: linear-gradient(
+    to bottom,
+    rgb(248 246 240 / 0) 0%,
+    rgb(248 246 240 / 0.17) 32%,
+    rgb(248 246 240 / 0.80) 77%,
+    var(--fluid-paper) 100%
+  );
+  content: "";
+  pointer-events: none;
+}
+
+.supraja-fluid-home > section:first-child h1 {
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.supraja-fluid-home > section:first-child nav[aria-label="Featured projects"] a {
+  border: 1px solid rgb(232 215 165 / 0.35);
+  box-shadow: 0 9px 26px rgb(1 8 23 / 0.15);
+}
+
+.supraja-fluid-home > section:first-child nav[aria-label="Featured projects"] a:hover {
+  box-shadow: 0 13px 36px rgb(1 8 23 / 0.27);
+}
+
+/* A consistent editorial canvas across all seven existing homepage sections. */
+.supraja-fluid-home > section:nth-of-type(2),
+.supraja-fluid-home > section:nth-of-type(3),
+.supraja-fluid-home > section:nth-of-type(5),
+.supraja-fluid-home > section:nth-of-type(6) {
+  background: var(--fluid-paper) !important;
+}
+
+.supraja-fluid-home > section:nth-of-type(2) {
+  padding-top: clamp(50px, 6vw, 94px);
+  padding-bottom: 0;
+}
+
+.supraja-fluid-home > section:nth-of-type(2) > div:first-child {
+  position: relative;
+  z-index: 4;
+}
+
+.supraja-fluid-home > section:nth-of-type(2) h2,
+.supraja-fluid-home > section:nth-of-type(4) h2,
+.supraja-fluid-home > section:nth-of-type(5) h2 {
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.supraja-fluid-home > section:nth-of-type(2) article {
+  border: 0 !important;
+  background: transparent !important;
+  isolation: isolate;
+}
+
+.supraja-fluid-home > section:nth-of-type(2) article::before,
+.supraja-fluid-home > section:nth-of-type(2) article::after {
+  position: absolute;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  height: clamp(48px, 6vw, 100px);
+  content: "";
+  pointer-events: none;
+}
+
+.supraja-fluid-home > section:nth-of-type(2) article::before {
+  top: -1px;
+  background: linear-gradient(to bottom, var(--fluid-paper), transparent);
+}
+
+.supraja-fluid-home > section:nth-of-type(2) article::after {
+  bottom: -1px;
+  background: linear-gradient(to top, var(--fluid-paper), transparent);
+}
+
+/* Preserve the exact project photos; dissolve their edges into the canvas. */
+.supraja-fluid-home > section:nth-of-type(2) article:nth-child(odd) > div.absolute.inset-0 {
+  background: linear-gradient(
+    to right,
+    var(--fluid-paper) 0%,
+    rgb(248 246 240 / 0.98) 31%,
+    rgb(248 246 240 / 0.87) 48%,
+    rgb(248 246 240 / 0.08) 84%
+  ) !important;
+}
+
+.supraja-fluid-home > section:nth-of-type(2) article:nth-child(even) > div.absolute.inset-0 {
+  background: linear-gradient(
+    to left,
+    var(--fluid-paper) 0%,
+    rgb(248 246 240 / 0.98) 31%,
+    rgb(248 246 240 / 0.87) 48%,
+    rgb(248 246 240 / 0.08) 84%
+  ) !important;
+}
+
+.supraja-fluid-home > section:nth-of-type(2) article > div.relative.mx-auto.grid {
+  min-height: 590px;
+  padding-top: clamp(62px, 6vw, 96px);
+  padding-bottom: clamp(62px, 6vw, 96px);
+}
+
+.supraja-fluid-home > section:nth-of-type(2) article h3 {
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.supraja-fluid-home > section:nth-of-type(2) article h3 a {
+  text-decoration-thickness: 2px;
+  text-underline-offset: 7px;
+}
+
+.supraja-fluid-home > section:nth-of-type(2) article > div.absolute.inset-y-0 img {
+  filter: saturate(0.92);
+}
+
+/* Real construction image remains prominent without an isolated box section. */
+.supraja-fluid-home > section:nth-of-type(3) {
+  padding-top: clamp(30px, 5vw, 82px);
+  padding-bottom: clamp(54px, 7vw, 112px);
+  background:
+    radial-gradient(ellipse at 5% 25%, rgb(194 153 68 / 0.095), transparent 48%),
+    var(--fluid-paper) !important;
+}
+
+.supraja-fluid-home > section:nth-of-type(3) .container-max {
+  border-color: rgb(176 146 88 / 0.22);
+  border-radius: clamp(20px, 2.4vw, 38px);
+  background: #f3efe6;
+  box-shadow: 0 30px 85px rgb(14 25 43 / 0.065);
+}
+
+.supraja-fluid-home > section:nth-of-type(3) img {
+  filter: saturate(0.96);
+}
+
+/* The proof, customer and buyer-help areas share one warm material palette. */
+.supraja-fluid-home > section:nth-of-type(4) {
+  background: linear-gradient(
+    to bottom,
+    var(--fluid-paper) 0%,
+    #f2efe7 58%,
+    var(--fluid-paper) 100%
+  ) !important;
+}
+
+.supraja-fluid-home > section:nth-of-type(4) .grid > .group,
+.supraja-fluid-home > section:nth-of-type(5) article {
+  border: 1px solid rgb(176 146 88 / 0.18) !important;
+  border-radius: 26px;
+  background: rgb(255 255 255 / 0.73) !important;
+  box-shadow: 0 14px 52px rgb(13 23 41 / 0.045);
+}
+
+.supraja-fluid-home > section:nth-of-type(4) .grid > .group:hover {
+  border-color: rgb(176 146 88 / 0.48) !important;
+  box-shadow: 0 24px 62px rgb(13 23 41 / 0.10);
+}
+
+.supraja-fluid-home > section:nth-of-type(5) {
+  padding-top: clamp(60px, 7vw, 108px);
+  padding-bottom: clamp(60px, 7vw, 108px);
+}
+
+.supraja-fluid-home > section:nth-of-type(6) {
+  padding-top: clamp(55px, 7vw, 110px);
+  padding-bottom: clamp(65px, 8vw, 128px);
+}
+
+.supraja-fluid-home > section:nth-of-type(6) details {
+  border: 1px solid rgb(176 146 88 / 0.19) !important;
+  background: rgb(255 255 255 / 0.72) !important;
+  box-shadow: 0 8px 34px rgb(13 23 41 / 0.035);
+}
+
+.supraja-fluid-home > section:nth-of-type(6) details[open] {
+  background: #fffdfa !important;
+  border-color: rgb(182 139 50 / 0.65) !important;
+}
+
+/* Seamless dusk finish: no visible hard-edged jump into the closing CTA. */
+.supraja-fluid-home > section:nth-of-type(7) {
+  background: linear-gradient(
+    to bottom,
+    var(--fluid-paper) 0%,
+    #e6e1d5 11%,
+    #28334a 47%,
+    var(--fluid-ink) 80%
+  ) !important;
+  padding-top: clamp(150px, 17vw, 275px);
+  padding-bottom: clamp(75px, 9vw, 145px);
+}
+
+.supraja-fluid-home > section:nth-of-type(7) > div {
+  position: relative;
+  z-index: 1;
+}
+
+.supraja-fluid-home > section:nth-of-type(7) a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 7px;
+}
+
+.supraja-fluid-home a:focus-visible,
+.supraja-fluid-home summary:focus-visible,
+.supraja-fluid-home button:focus-visible {
+  outline: 3px solid #b68b32;
+  outline-offset: 3px;
+}
+
+/* Motion is limited to optional lightweight content entrance, not parallax. */
+@keyframes supraja-fluid-enter {
+  from { opacity: 0.78; transform: translate3d(0, 18px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .supraja-fluid-home > section:not(:first-child) h2 {
+      animation: supraja-fluid-enter linear both;
+      animation-timeline: view(block);
+      animation-range: entry 0% cover 24%;
+    }
+  }
+}
+
+@media (max-width: 1023px) {
+  .supraja-fluid-home > section:nth-of-type(2) article > div.relative.mx-auto.grid {
+    min-height: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 0;
+    padding: 0 1.5rem 4.4rem;
+  }
+
+  .supraja-fluid-home > section:nth-of-type(2) article > div.relative.mx-auto.grid > div:first-child {
+    max-width: none;
+    padding-top: 2rem;
+  }
+
+  .supraja-fluid-home > section:nth-of-type(2) article > div.relative.mx-auto.grid > div:last-child {
+    width: 100%;
+    border-radius: 22px;
+    box-shadow: 0 15px 34px rgb(13 23 41 / 0.08);
+  }
+
+  .supraja-fluid-home > section:nth-of-type(2) article::before,
+  .supraja-fluid-home > section:nth-of-type(2) article::after {
+    height: 35px;
+  }
+}
+
+@media (max-width: 639px) {
+  .supraja-fluid-home > section:first-child {
+    min-height: 0;
+    padding-bottom: 100px;
+  }
+
+  .supraja-fluid-home > section:first-child::after {
+    height: 130px;
+  }
+
+  .supraja-fluid-home > section:nth-of-type(2) {
+    padding-top: 35px;
+  }
+
+  .supraja-fluid-home > section:nth-of-type(2) article > div.relative.mx-auto.grid {
+    padding: 0 1rem 3.2rem;
+  }
+
+  .supraja-fluid-home > section:nth-of-type(2) article > div.relative.mx-auto.grid > div:first-child {
+    padding-top: 1.7rem;
+  }
+
+  .supraja-fluid-home > section:nth-of-type(2) article h3 {
+    font-size: clamp(2rem, 9vw, 2.9rem);
+  }
+
+  .supraja-fluid-home > section:nth-of-type(2) article p {
+    overflow-wrap: anywhere;
+  }
+
+  .supraja-fluid-home > section:nth-of-type(7) {
+    padding-top: 165px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .supraja-fluid-home *,
+  .supraja-fluid-home *::before,
+  .supraja-fluid-home *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
