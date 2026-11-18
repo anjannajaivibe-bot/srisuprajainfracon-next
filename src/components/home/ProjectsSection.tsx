@@ -1,14 +1,9 @@
 import Link from "next/link";
+import { ArrowRight, ArrowUpRight, FileText, MapPin } from "lucide-react";
 import SmartImage from "@/components/shared/SmartImage";
 import { projects } from "@/data/projects";
 
-const projectCardCopy: Record<
-  string,
-  {
-    badge: string;
-    alt: string;
-  }
-> = {
+const projectCardCopy: Record<string, { badge: string; alt: string }> = {
   "supraja-iris-resort-plots": {
     badge: "Flagship Plotted Development",
     alt: "Supraja IRIS resort-inspired plots in Kamkole",
@@ -31,169 +26,102 @@ const projectCardCopy: Record<
   },
 };
 
-const ProjectsSection = () => {
+export default function ProjectsSection() {
   return (
-    <section className="relative overflow-hidden bg-white py-24">
-      <div className="relative mx-auto max-w-7xl px-6">
-        <div className="mb-16 text-center">
-          <p className="mb-4 text-sm font-bold uppercase tracking-[0.32em] text-[#725700]">
-            Our Ongoing Projects
-          </p>
-
-          <div className="mx-auto mb-6 flex max-w-xs items-center justify-center gap-4">
-            <span className="h-px flex-1 bg-[#C9A227]/40" />
-            <span className="h-2 w-2 rotate-45 border border-[#C9A227]" />
-            <span className="h-px flex-1 bg-[#C9A227]/40" />
-          </div>
-
-          <h2 className="mx-auto max-w-5xl font-display text-4xl font-bold leading-tight tracking-tight text-[#07111F] md:text-6xl">
-            Ongoing <span className="text-[#C48912]">Plotted Developments</span> Near Hyderabad
-          </h2>
-
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[#334155]">
-            Compare our current projects by location, approval status, plot size,
-            price, connectivity and on-site development. Each project page includes
-            the details you need before arranging a site visit.
-          </p>
-        </div>
+    <section className="fi-projects">
+      <div className="fi-project-intro">
+        <p className="fi-section-label"><span aria-hidden="true" />Our Ongoing Projects</p>
+        <h2>
+          Ongoing <span>Plotted Developments</span> Near Hyderabad
+        </h2>
+        <p className="fi-section-description">
+          Compare our current projects by location, approval status, plot size,
+          price, connectivity and on-site development. Each project page includes
+          the details you need before arranging a site visit.
+        </p>
       </div>
 
-      <div>
+      <div className="fi-project-list">
         {projects.map((project, index) => {
           const cardCopy = projectCardCopy[project.slug] ?? {
             badge: "Sri Supraja Project",
-            alt: `${project.title} by Sri Supraja Infracon`,
+            alt: project.title + " by Sri Supraja Infracon",
           };
-
-          const imageFirst = index % 2 === 1;
-
           return (
             <article
               key={project.id}
-              className="group relative overflow-hidden border-t border-[#EFE7D3] bg-white last:border-b"
+              className={"fi-project " + (index % 2 ? "fi-project-reverse" : "")}
             >
-              <div
-                className={`absolute inset-y-0 hidden w-[58%] lg:block ${
-                  imageFirst ? "left-0" : "right-0"
-                }`}
-              >
+              <div className="fi-project-image">
                 <Link
                   href={project.link}
-                  aria-label={`View ${project.title} project details`}
-                  className="block h-full w-full"
+                  className="fi-project-photo-link"
+                  aria-label={"View " + project.title + " project details"}
                 >
                   <SmartImage
                     src={project.image}
                     alt={project.imageAlt || cardCopy.alt}
-                    wrapperClassName="h-full w-full"
-                    imageClassName="object-cover transition-transform duration-700 group-hover:scale-105"
+                    wrapperClassName="fi-project-photo"
+                    imageClassName="object-cover"
+                    sizes="(max-width: 767px) 100vw, 62vw"
                   />
                 </Link>
+                <span className="fi-photo-count" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}<span> / 04</span>
+                </span>
               </div>
 
-              <div
-                className={`absolute inset-0 hidden lg:block ${
-                  imageFirst
-                    ? "bg-gradient-to-l from-white via-white/95 to-white/10"
-                    : "bg-gradient-to-r from-white via-white/95 to-white/10"
-                }`}
-              />
-
-              <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:min-h-[560px] lg:grid-cols-2 lg:items-center">
-                <div
-                  className={`relative z-10 max-w-xl ${
-                    imageFirst ? "lg:col-start-2 lg:ml-auto" : ""
-                  }`}
-                >
-                  <div className="mb-7 inline-flex w-fit rounded-lg bg-[#FFF4D8] px-4 py-2 text-xs font-extrabold uppercase tracking-wide text-[#725700]">
-                    {cardCopy.badge}
-                  </div>
-
-                  <p className="mb-3 text-sm font-extrabold uppercase tracking-wide text-[#725700]">
-                    {project.location}
-                  </p>
-
-                  <h3 className="mb-3 font-display text-4xl font-bold leading-tight text-[#07111F] md:text-5xl">
-                    <Link
-                      href={project.link}
-                      className="transition hover:text-[#725700]"
-                    >
-                      {project.title}
-                    </Link>
-                  </h3>
-
-                  {(project.dtcpNo || project.reraNo) && (
-                    <div className="mb-5 flex flex-wrap gap-2" aria-label="Project approval details">
-                      {project.dtcpNo && (
-                        <span className="rounded-md border border-[#E8D7A5] bg-[#FFF9E8] px-3 py-1.5 text-xs font-bold text-[#725700]">
-                          DTCP: {project.dtcpNo}
-                        </span>
-                      )}
-
-                      {project.reraNo && (
-                        <span className="rounded-md border border-[#D7DEE8] bg-[#F8FAFC] px-3 py-1.5 text-xs font-bold text-[#334155]">
-                          RERA: {project.reraNo}
-                        </span>
-                      )}
-                    </div>
-                  )}
-
-                  <div className="mb-6 h-px w-16 bg-[#C48912]" />
-
-                  <p className="mb-8 text-[18px] leading-9 text-[#334155]">
-                    {project.shortDescription}
-                  </p>
-
-                  <div className="mb-9 flex flex-wrap gap-3">
-                    {project.highlights.slice(0, 3).map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-lg border border-[#E8D7A5] bg-white px-4 py-2 text-xs font-bold text-[#374151] shadow-sm"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex flex-wrap gap-3">
-                    <Link
-                      href={project.link}
-                      className="inline-flex items-center justify-center rounded-lg bg-[#07111F] px-6 py-3 text-sm font-bold text-white shadow-md transition hover:-translate-y-1 hover:bg-[#C9A227] hover:text-[#07111F]"
-                    >
-                      View Project Details
-                    </Link>
-
-                    {project.availabilityMapUrl && (
-                      <a
-                        href={project.availabilityMapUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center rounded-lg border border-[#CBD5E1] bg-white px-6 py-3 text-sm font-bold text-[#07111F] shadow-sm transition hover:-translate-y-1 hover:border-[#C9A227] hover:bg-[#FFF9E8]"
-                      >
-                        Live Plot Availability
-                      </a>
-                    )}
-
-                    {project.brochure && (
-                      <a
-                        href={project.brochure}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center rounded-lg border border-[#A98219] bg-white px-6 py-3 text-sm font-bold text-[#725700] shadow-sm transition hover:-translate-y-1 hover:bg-[#C9A227] hover:text-[#07111F]"
-                      >
-                        View Brochure
-                      </a>
-                    )}
-                  </div>
+              <div className="fi-project-content">
+                <div className="fi-project-topline">
+                  <span className="fi-project-badge">{cardCopy.badge}</span>
+                  <span className="fi-project-location"><MapPin size={14} aria-hidden="true" />{project.location}</span>
                 </div>
 
-                <div className="relative overflow-hidden rounded-[28px] lg:hidden">
-                  <SmartImage
-                    src={project.image}
-                    alt={project.imageAlt || cardCopy.alt}
-                    wrapperClassName="h-[280px] w-full"
-                    imageClassName="object-cover"
-                  />
+                <h3><Link href={project.link}>{project.title}</Link></h3>
+
+                {(project.dtcpNo || project.reraNo) && (
+                  <div className="fi-project-approvals" aria-label="Project approval details">
+                    {project.dtcpNo && <span>DTCP: {project.dtcpNo}</span>}
+                    {project.reraNo && <span>RERA: {project.reraNo}</span>}
+                  </div>
+                )}
+
+                <div className="fi-project-rule" aria-hidden="true" />
+
+                <p className="fi-project-description">{project.shortDescription}</p>
+
+                <div className="fi-project-highlights">
+                  {project.highlights.slice(0, 3).map((item) => (
+                    <span key={item}>{item}</span>
+                  ))}
+                </div>
+
+                <div className="fi-project-actions">
+                  <Link href={project.link} className="fi-project-primary">
+                    View Project Details <ArrowUpRight size={18} aria-hidden="true" />
+                  </Link>
+
+                  {project.availabilityMapUrl && (
+                    <a
+                      href={project.availabilityMapUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="fi-project-secondary"
+                    >
+                      Live Plot Availability <ArrowRight size={15} aria-hidden="true" />
+                    </a>
+                  )}
+
+                  {project.brochure && (
+                    <a
+                      href={project.brochure}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="fi-project-secondary"
+                    >
+                      <FileText size={15} aria-hidden="true" /> View Brochure
+                    </a>
+                  )}
                 </div>
               </div>
             </article>
@@ -202,6 +130,4 @@ const ProjectsSection = () => {
       </div>
     </section>
   );
-};
-
-export default ProjectsSection;
+}
