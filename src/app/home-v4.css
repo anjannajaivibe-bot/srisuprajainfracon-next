@@ -458,3 +458,12 @@
 @media (prefers-reduced-motion: reduce) {
   .supraja-fluid-home .fi-hero-media video { display: none; }
 }
+
+/* Above the large-desktop breakpoint both buyer actions are already in
+   the fixed navigation. Avoid duplicate floating controls over project photos. */
+@media (min-width: 1280px) {
+  .fi-home-mobile-contact,
+  .fi-home-secondary {
+    display: none !important;
+  }
+}
