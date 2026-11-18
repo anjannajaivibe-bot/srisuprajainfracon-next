@@ -18,7 +18,7 @@ export default function FloatingCTA() {
   const whatsappUrl = isCareers ? careersWhatsappUrl : defaultWhatsappUrl;
 
   return (
-    <div className="fixed bottom-5 right-5 z-[9999] flex flex-col gap-4">
+    <div className={"fixed bottom-5 right-5 z-[9999] flex flex-col gap-4 " + (pathname === "/" ? "fi-home-mobile-contact" : "")}>
       <a
         href={whatsappUrl}
         target="_blank"
