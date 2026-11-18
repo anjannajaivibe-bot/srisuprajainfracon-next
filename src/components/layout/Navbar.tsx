@@ -49,6 +49,7 @@ export default function Navbar() {
   const pathname = usePathname() || "/";
   const headerWhatsappUrl = pathname.startsWith("/careers") ? careersWhatsappUrl : whatsappUrl;
   const isProjectsActive = pathname.startsWith("/projects");
+  const isHomeHero = pathname === "/" && !scrolled;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -61,12 +62,14 @@ export default function Navbar() {
 
   const navTextClass = scrolled
     ? "text-white/85 hover:text-amber-300"
-    : "text-slate-900/80 hover:text-amber-600";
+    : isHomeHero
+      ? "text-white/90 hover:text-amber-200"
+      : "text-slate-900/80 hover:text-amber-600";
 
-  const activeClass = scrolled ? "text-amber-300" : "text-amber-700";
-  const brandClass = scrolled ? "text-white" : "text-slate-950";
-  const brandSubClass = scrolled ? "text-amber-300" : "text-amber-700";
-  const menuIconClass = scrolled ? "text-white" : "text-slate-950";
+  const activeClass = scrolled || isHomeHero ? "text-amber-300" : "text-amber-700";
+  const brandClass = scrolled || isHomeHero ? "text-white" : "text-slate-950";
+  const brandSubClass = scrolled || isHomeHero ? "text-amber-300" : "text-amber-700";
+  const menuIconClass = scrolled || isHomeHero ? "text-white" : "text-slate-950";
 
   const getNavClass = (href: string) =>
     `text-sm font-semibold transition-colors ${
@@ -82,7 +85,9 @@ export default function Navbar() {
       className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-slate-950/95 shadow-xl backdrop-blur-md"
-          : "bg-white/90 shadow-sm backdrop-blur-md"
+          : isHomeHero
+            ? "bg-transparent"
+            : "bg-white/90 shadow-sm backdrop-blur-md"
       }`}
     >
       <div className="container-max flex items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
