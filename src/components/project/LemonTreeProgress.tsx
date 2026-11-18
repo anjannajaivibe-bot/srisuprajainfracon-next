@@ -6,27 +6,26 @@ const IMAGE = "/projects/supraja-iris/gallery/supraja-iris-gallery-1.webp";
 export default function LemonTreeProgress({ compact = false }: { compact?: boolean }) {
   if (compact) {
     return (
-      <section className="bg-white px-4 py-14 sm:px-6">
-        <div className="container-max grid overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-sm md:grid-cols-[1.05fr_0.95fr]">
-          <div className="relative min-h-[260px] md:min-h-[340px]">
-            <Image
-              src={IMAGE}
-              alt="Lemon Tree Resort construction progress at Supraja IRIS in October 2026"
-              fill
-              sizes="(max-width: 768px) 100vw, 55vw"
-              className="object-cover"
-            />
-          </div>
-          <div className="flex flex-col justify-center p-7 sm:p-9">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-700">Latest Construction Update · October 2026</p>
-            <h2 className="mt-3 font-display text-3xl font-bold leading-tight text-slate-950">Lemon Tree Resort Construction Progress</h2>
-            <p className="mt-4 text-base leading-7 text-slate-600">
-              Approximately 60% construction completed at the Lemon Tree Resort component within Supraja IRIS, based on the latest project update.
-            </p>
-            <Link href="/projects/supraja-iris-resort-plots#construction-progress" className="mt-6 inline-flex w-fit items-center gap-2 text-sm font-bold text-slate-900 transition hover:text-amber-700">
-              View Latest Project Progress <span aria-hidden="true">→</span>
-            </Link>
-          </div>
+      <section className="fi-progress">
+        <div className="fi-progress-media">
+          <Image
+            src={IMAGE}
+            alt="Lemon Tree Resort construction progress at Supraja IRIS in October 2026"
+            fill
+            sizes="(max-width: 768px) 100vw, 60vw"
+            className="object-cover"
+          />
+          <span className="fi-progress-media-line" aria-hidden="true" />
+        </div>
+        <div className="fi-progress-copy">
+          <p className="fi-progress-kicker">Latest Construction Update · October 2026</p>
+          <h2>Lemon Tree Resort Construction Progress</h2>
+          <p>
+            Approximately 60% construction completed at the Lemon Tree Resort component within Supraja IRIS, based on the latest project update.
+          </p>
+          <Link href="/projects/supraja-iris-resort-plots#construction-progress" className="fi-progress-link">
+            View Latest Project Progress <span aria-hidden="true">→</span>
+          </Link>
         </div>
       </section>
     );
