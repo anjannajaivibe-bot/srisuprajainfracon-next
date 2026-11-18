@@ -29,7 +29,7 @@ export default function SiteShell({
       <ClickTracker />
       <Navbar />
 
-      <div className="min-h-screen pt-[76px]">{children}</div>
+      <div className={pathname === "/" ? "min-h-screen" : "min-h-screen pt-[76px]"}>{children}</div>
 
       <Footer />
 
