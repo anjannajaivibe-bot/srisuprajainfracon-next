@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import "./fluid-home.css";
 import HeroSection from "@/components/home/HeroSection";
 import ProjectsSection from "@/components/home/ProjectsSection";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
@@ -9,7 +10,7 @@ const LemonTreeProgress = dynamic(() => import("@/components/project/LemonTreePr
 
 export default function HomeClient() {
   return (
-    <main>
+    <main className="supraja-fluid-home">
       <HeroSection />
       <ProjectsSection />
       <LemonTreeProgress compact />
