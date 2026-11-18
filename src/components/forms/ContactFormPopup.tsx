@@ -29,7 +29,8 @@ export default function ContactFormPopup() {
 
   useEffect(() => {
     // Recruitment pages use a different contact flow from plot-buyer enquiries.
-    if (pathname.startsWith("/careers") || pathname.startsWith("/admin")) {
+    // The redesigned homepage uses explicit site-visit links instead of interrupting scrolling.
+    if (pathname === "/" || pathname.startsWith("/careers") || pathname.startsWith("/admin")) {
       setOpen(false);
       return;
     }
