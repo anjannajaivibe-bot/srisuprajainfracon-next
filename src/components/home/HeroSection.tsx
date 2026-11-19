@@ -28,8 +28,8 @@ export default function HeroSection() {
   return (
     <section className="fi-hero">
       <div className="fi-hero-media" aria-hidden="true">
-        <video autoPlay muted loop playsInline preload="none" poster="/videos/supraja-iris-hero-poster.webp" tabIndex={-1}>
-          <source src="/videos/heroBg.mp4" type="video/mp4" media="(min-width: 1024px)" />
+        <video autoPlay muted loop playsInline preload="metadata" poster="/videos/supraja-iris-lemon-tree-hero-poster.webp" tabIndex={-1} aria-hidden="true">
+          <source src="/videos/supraja-iris-lemon-tree-hero.mp4" type="video/mp4" media="(min-width: 1024px)" />
         </video>
       </div>
       <div className="fi-hero-shade" aria-hidden="true" />
