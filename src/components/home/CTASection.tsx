@@ -5,21 +5,21 @@ const WHATSAPP_URL =
 
 const CTASection = () => {
   return (
-    <section className="bg-slate-950 px-6 py-20 text-white">
-      <div className="mx-auto max-w-5xl text-center">
-        <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-amber-400">
+    <section className="bg-gradient-to-r from-[#071525] to-[#132D49] px-6 py-24 text-white lg:py-32">
+      <div className="mx-auto grid max-w-7xl items-center gap-8 text-left lg:grid-cols-2 lg:gap-20">
+        <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-[#E5C078]">
           PLAN YOUR VISIT
         </p>
 
-        <h2 className="mb-5 text-3xl font-extrabold leading-tight md:text-5xl">
+        <h2 className="mb-5 font-display text-4xl font-semibold leading-[1.1] tracking-tight md:text-6xl">
           See the Project Before You Decide
         </h2>
 
-        <p className="mx-auto max-w-3xl text-lg leading-relaxed text-slate-300">
+        <p className="max-w-xl text-base leading-8 text-slate-300">
           Visit the site, review current development, compare available plots and ask our team about approvals, pricing and registration before making a decision.
         </p>
 
-        <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm font-bold">
+        <div className="mt-8 flex flex-wrap gap-5 text-sm font-semibold">
           <Link href="/projects" className="text-amber-300 underline">
             View Projects
           </Link>

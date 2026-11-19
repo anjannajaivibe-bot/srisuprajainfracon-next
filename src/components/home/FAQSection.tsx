@@ -54,7 +54,7 @@ const FAQSection = () => {
 
   return (
     <section
-      className="bg-white px-5 py-20 sm:px-6 lg:py-24"
+      className="bg-[#F7F6F2] px-5 py-20 sm:px-6 lg:py-28"
       style={{ contentVisibility: "auto", containIntrinsicSize: "900px" }}
     >
       <script
@@ -66,11 +66,11 @@ const FAQSection = () => {
 
       <div className="mx-auto max-w-5xl">
         <div className="mb-12 text-center">
-          <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#8A6500]">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#987737]">
             BUYER QUESTIONS
           </p>
 
-          <h2 className="text-3xl font-extrabold leading-tight text-slate-950 md:text-5xl">
+          <h2 className="font-display text-4xl font-semibold leading-tight tracking-tight text-[#071525] md:text-6xl">
             Open Plots Near Hyderabad: Frequently Asked Questions
           </h2>
 
@@ -85,10 +85,10 @@ const FAQSection = () => {
           {faqs.map((item) => (
             <details
               key={item.question}
-              className="group overflow-hidden rounded-[24px] border border-slate-200 bg-slate-50 shadow-[0_8px_28px_rgba(15,23,42,0.05)] transition-colors open:border-[#D6B84D] open:bg-white"
+              className="group overflow-hidden rounded-sm border border-[#E7E4DD] bg-white transition-colors open:border-[#D6B84D]"
             >
               <summary className="flex cursor-pointer list-none items-center justify-between gap-5 px-6 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#8A6500] sm:px-7 sm:py-6 [&::-webkit-details-marker]:hidden">
-                <h3 className="text-[17px] font-extrabold leading-snug text-slate-950 sm:text-lg">
+                <h3 className="font-display text-[17px] font-semibold leading-snug text-[#071525] sm:text-lg">
                   {item.question}
                 </h3>
 
