@@ -19,7 +19,7 @@ export default function Footer() {
   const contactPhoneDisplay = isCareers ? "+91 90529 96161" : "+91 90529 96161";
 
   return (
-    <footer className="border-t border-slate-200 bg-[#F8FAFC] text-slate-800">
+    <footer className={"border-t border-slate-200 bg-[#F8FAFC] text-slate-800" + (pathname === "/" ? " fi-home-footer" : "")}>
       <div className="container-max px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-4">
           <div>
