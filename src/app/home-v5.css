@@ -677,3 +677,38 @@ footer.fi-home-footer > div:last-child p {
     transition: none;
   }
 }
+
+
+/* Visual QA corrections: explicit FAQ sans-serif and accessible footer map CTA. */
+.supraja-fluid-home > section:nth-of-type(6) details summary h3 {
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -.012em;
+}
+footer.fi-home-footer .container-max > div:nth-child(2) p:first-child {
+  color: #e4c37f !important;
+}
+footer.fi-home-footer .container-max > div:nth-child(3) a {
+  color: #142b43 !important;
+  background: #fff !important;
+  border-color: #b9c6d1;
+  font-weight: 700;
+}
+footer.fi-home-footer .container-max > div:nth-child(3) a:hover {
+  color: #091b30 !important;
+  border-color: #9a763b;
+  background: #f6f1e5 !important;
+}
+@media (min-width: 768px) {
+  footer.fi-home-footer .container-max > div:nth-child(3) {
+    max-height: 310px;
+  }
+  footer.fi-home-footer .container-max > div:nth-child(3) > div {
+    min-height: 310px !important;
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+  footer.fi-home-footer .container-max > div:nth-child(3) iframe {
+    height: 310px;
+  }
+}
