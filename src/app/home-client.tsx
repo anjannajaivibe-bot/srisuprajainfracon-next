@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import "./fluid-home.css";
 import "./home-v4.css";
 import "./home-v5.css";
+import "./home-v6-hero.css";
 import HeroSection from "@/components/home/HeroSection";
 import ProjectsSection from "@/components/home/ProjectsSection";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
