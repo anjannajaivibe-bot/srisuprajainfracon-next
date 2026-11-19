@@ -165,7 +165,7 @@ function TestimonialCard({
   const hasCustomerPhoto = item.image !== "/testimonials/default-investor.webp";
 
   return (
-    <article className="flex h-full min-w-0 snap-start flex-col rounded-[28px] border border-[#E8E2D5] bg-white p-7 shadow-[0_16px_45px_rgba(15,23,42,0.07)] sm:p-8">
+    <article className="flex h-full min-w-0 snap-start flex-col rounded-md border border-[#E8E2D5] bg-white p-7 shadow-[0_8px_26px_rgba(15,23,42,0.035)] sm:p-8">
       <div className="flex items-start gap-4">
         {hasCustomerPhoto ? (
           <Image
@@ -280,7 +280,7 @@ export default function ProjectTestimonials({
 
   return (
     <section
-      className="relative overflow-hidden bg-white px-5 py-20 sm:px-6 lg:py-24"
+      className="relative overflow-hidden bg-[#F7F6F2] px-5 py-20 sm:px-6 lg:py-28"
       style={{ contentVisibility: "auto", containIntrinsicSize: "620px" }}
     >
       <div className="relative mx-auto max-w-7xl">
@@ -289,7 +289,7 @@ export default function ProjectTestimonials({
             CUSTOMER DETAILS
           </p>
 
-          <h2 className="mx-auto max-w-5xl font-display text-4xl font-bold leading-tight tracking-tight text-[#07111F] md:text-6xl">
+          <h2 className="mx-auto max-w-5xl font-display text-4xl font-semibold leading-tight tracking-tight text-[#071525] md:text-6xl">
             {copy.title}
           </h2>
 
