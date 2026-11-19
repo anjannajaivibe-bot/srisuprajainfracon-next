@@ -147,14 +147,28 @@ section[class*="bg-[#07111F]"] > .container-max.relative.z-10 {
   margin-bottom: 2.25rem;
 }
 
-.legacy-marquee-track { display: flex; width: max-content; }
+.legacy-marquee-track {
+  display: flex;
+  width: max-content;
+  min-width: 100%;
+  animation: legacy-marquee-scroll 42s linear infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+.legacy-marquee-track:hover,
+.legacy-marquee-track:focus-within { animation-play-state: paused; }
 .legacy-marquee-group { display: flex; align-items: center; flex-shrink: 0; white-space: nowrap; }
-.legacy-marquee-group span { margin: 0 2rem; font-size: 0.95rem; font-weight: 700; color: rgb(255 255 255 / 0.9); }
+.legacy-marquee-group span { display: inline-block; flex-shrink: 0; margin: 0 2rem; white-space: nowrap; font-size: 0.95rem; font-weight: 700; color: rgb(255 255 255 / 0.9); }
 .legacy-marquee-group .legacy-title { color: #e8d7a5; }
 
 @keyframes legacy-marquee-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
 }
 
 .legacy-marquee:hover .legacy-marquee-track { animation-play-state: paused; }
+
+/* Hero ticker runs without gaps; keep motion optional for accessibility. */
+@media (prefers-reduced-motion: reduce) {
+  .legacy-marquee-track { animation: none; }
+}
