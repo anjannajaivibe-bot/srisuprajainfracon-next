@@ -28,18 +28,22 @@ const HeroSection = () => {
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#0B1633] pt-24 sm:pt-28 lg:min-h-[88vh] lg:pt-0">
       <div className="absolute inset-0" aria-hidden="true">
         <video
-          className="hidden h-full w-full object-cover opacity-35 lg:block"
+          className="h-full w-full object-cover opacity-55"
           autoPlay
           muted
           loop
           playsInline
-          preload="none"
+          preload="auto"
+          poster="/videos/supraja-iris-hero-poster.webp"
+          disablePictureInPicture
           tabIndex={-1}
         >
-          <source src="/videos/heroBg.mp4" type="video/mp4" media="(min-width: 1024px)" />
+          <source src="/videos/Supraja_IRIS_Hero_With_Lemon_Tree_HD.mp4" type="video/mp4" />
+          <source src="/videos/supraja-iris-hero.webm" type="video/webm" />
+          <source src="/videos/heroBg.mp4" type="video/mp4" />
         </video>
 
-        <div className="absolute inset-0 bg-gradient-to-br from-[#081225]/95 via-[#0B1633]/88 to-[#1A2F5A]/82" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#081225]/90 via-[#0B1633]/65 to-[#1A2F5A]/35" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0B1633] to-transparent" />
       </div>
 
@@ -118,8 +122,9 @@ const HeroSection = () => {
                     <span
                       key={`duplicate-${project}`}
                       className="legacy-marquee-item"
-                      data-label={project}
-                    />
+                    >
+                      {project}
+                    </span>
                   ))}
                 </div>
               </div>
@@ -159,61 +164,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <style>{`
-        .legacy-marquee-track {
-          display: flex;
-          width: max-content;
-          min-width: 100%;
-          animation: legacy-marquee-scroll 38s linear infinite;
-          transform: translate3d(0, 0, 0);
-          will-change: transform;
-        }
 
-        .legacy-marquee-track:hover {
-          animation-play-state: paused;
-        }
-
-        .legacy-marquee-group {
-          display: flex;
-          flex-shrink: 0;
-          align-items: center;
-          width: max-content;
-        }
-
-        .legacy-marquee-item {
-          display: inline-block;
-          flex-shrink: 0;
-          margin-left: 1rem;
-          margin-right: 1rem;
-          white-space: nowrap;
-          font-size: 11px;
-          font-weight: 600;
-          color: rgb(226 232 240);
-        }
-
-        .legacy-marquee-duplicate .legacy-marquee-item::before {
-          content: attr(data-label);
-        }
-
-        @keyframes legacy-marquee-scroll {
-          from { transform: translate3d(0, 0, 0); }
-          to { transform: translate3d(-50%, 0, 0); }
-        }
-
-        @media (min-width: 640px) {
-          .legacy-marquee-item {
-            margin-left: 1.5rem;
-            margin-right: 1.5rem;
-            font-size: 14px;
-          }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .legacy-marquee-track {
-            animation-duration: 70s;
-          }
-        }
-      `}</style>
     </section>
   );
 };
