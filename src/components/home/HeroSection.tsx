@@ -24,72 +24,85 @@ const legacyProjects = [
 ];
 
 
+
 const HeroSection = () => {
   return (
-    <section aria-labelledby="homepage-hero-title" className="relative isolate overflow-hidden bg-[#071525] text-white">
-      <div className="absolute inset-0 -z-20" aria-hidden="true">
-        <video
-          className="h-full w-full object-cover opacity-80"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster="/videos/supraja-iris-hero-poster.webp"
-          disablePictureInPicture
-          tabIndex={-1}
-        >
-          <source src="/videos/Supraja_IRIS_Hero_With_Lemon_Tree_HD.mp4" type="video/mp4" />
-          <source src="/videos/supraja-iris-hero.webm" type="video/webm" />
-        </video>
-      </div>
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-[#06111F]/95 via-[#071525]/76 to-[#071525]/30 lg:to-[#071525]/25" aria-hidden="true" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#071525] to-transparent" aria-hidden="true" />
+    <section aria-labelledby="homepage-hero-title" className="relative overflow-hidden bg-[#071525]">
+      {/* Editorial split composition: authentic project film on the left, readable buyer content on the right. */}
+      <div className="grid min-h-[740px] grid-cols-1 lg:min-h-[720px] lg:grid-cols-[66%_34%] xl:min-h-[780px]">
+        <div className="relative isolate min-h-[310px] overflow-hidden bg-[#071525] sm:min-h-[430px] lg:min-h-full">
+          <div className="absolute inset-0 -z-20 bg-cover bg-center" style={{ backgroundImage: "url('/videos/supraja-iris-hero-poster.webp')" }} aria-hidden="true">
+            <video
+              className="absolute inset-0 h-full w-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster="/videos/supraja-iris-hero-poster.webp"
+              disablePictureInPicture
+              aria-hidden="true"
+              tabIndex={-1}
+            >
+              <source src="/videos/Supraja_IRIS_Hero_With_Lemon_Tree_HD.mp4" type="video/mp4" />
+              <source src="/videos/supraja-iris-hero.webm" type="video/webm" />
+            </video>
+          </div>
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#071525]/30 via-transparent to-[#071525]/10" aria-hidden="true" />
+        </div>
 
-      <div className="container-max relative grid min-h-[680px] items-center gap-10 px-5 pb-12 pt-36 sm:px-8 lg:min-h-[760px] lg:grid-cols-[minmax(0,1fr)_260px] lg:gap-20 lg:px-10 lg:pt-40">
-        <div className="max-w-3xl">
-          <div className="mb-8 flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#E8D7A5] sm:text-xs">
-            <span aria-hidden="true" className="h-px w-9 bg-[#DDBB73]" />
-            Sri Supraja Infracon Builders &amp; Developers
+        <div className="relative flex min-w-0 flex-col justify-center border-t-[5px] border-[#C5A15C] bg-[#FAF9F6] px-6 pb-11 pt-12 text-[#10233A] sm:px-10 sm:pb-14 lg:border-l-[8px] lg:border-t-0 lg:px-7 lg:pb-12 lg:pt-28 xl:px-12 2xl:px-16">
+          <div className="mx-auto w-full max-w-[560px] lg:mx-0">
+            <div className="mb-5 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.17em] text-[#8B692B] xl:mb-7">
+              <span className="h-px w-7 shrink-0 bg-[#AD8A49]" aria-hidden="true" />
+              Sri Supraja Infracon Builders &amp; Developers
+            </div>
+            <h1 id="homepage-hero-title" className="font-display text-[clamp(2.75rem,4.4vw,5.2rem)] font-semibold leading-[1.02] tracking-[-0.045em] text-[#10233A] lg:text-[clamp(2.65rem,3.3vw,4.9rem)]">
+              Explore <span className="block font-normal italic text-[#A98240]">Open Plots</span>
+              <span className="block">Near Hyderabad</span>
+            </h1>
+            <p className="mt-6 text-[14px] leading-[1.8] text-[#485461] xl:mt-8 xl:text-[15px]">
+              Explore plotted developments across Kamkole, Sangareddy, Mominpet and
+              Indrakaran. Compare project-wise DTCP and RERA records, payment options and on-site development before planning a visit.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3 xl:mt-9">
+              <Link href="/contact-us" className="inline-flex min-h-12 items-center justify-center gap-3 bg-[#10233A] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#A98240] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#10233A]">
+                Plan a Site Visit <span aria-hidden="true">↗</span>
+              </Link>
+              <Link href="/projects" className="inline-flex min-h-12 items-center justify-center gap-3 border border-[#A98240]/55 bg-transparent px-5 py-3 text-sm font-semibold text-[#10233A] transition hover:bg-[#EEE6D7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#10233A]">
+                Explore Projects <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+            <div className="mt-8 grid gap-3 border-t border-[#DDD5C9] pt-6 text-[11px] font-medium text-[#52606B]">
+              {trustBadges.map((badge) => (
+                <span key={badge} className="flex items-start gap-2">
+                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[#A98240]" aria-hidden="true" />
+                  {badge}
+                </span>
+              ))}
+            </div>
           </div>
-          <h1 id="homepage-hero-title" className="max-w-3xl font-display text-[clamp(3.1rem,6vw,6.6rem)] font-semibold leading-[0.99] tracking-[-0.045em] text-white">
-            Explore <span className="block font-normal italic text-[#E9BF72]">Open Plots</span>
-            <span className="block">Near Hyderabad</span>
-          </h1>
-          <p className="mt-8 max-w-[590px] text-sm leading-[1.9] text-slate-100 sm:text-base">
-            Explore plotted developments across Kamkole, Sangareddy, Mominpet and
-            Indrakaran. Compare project-wise DTCP and RERA records, payment options and on-site development before planning a visit.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/contact-us" className="inline-flex min-h-12 items-center justify-center gap-3 rounded-sm bg-[#E5C078] px-6 py-3 text-sm font-semibold text-[#071525] transition hover:bg-[#F3D69E] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
-              Plan a Site Visit <span aria-hidden="true">↗</span>
-            </Link>
-            <Link href="/projects" className="inline-flex min-h-12 items-center justify-center gap-3 rounded-sm border border-white/45 bg-[#071525]/30 px-6 py-3 text-sm font-semibold text-white transition hover:border-[#E5C078] hover:bg-[#071525]/75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
-              Explore Projects <span aria-hidden="true">→</span>
-            </Link>
+        </div>
+      </div>
+
+      <nav aria-label="Featured projects" className="relative border-y border-white/15 bg-[#0B1B2D] text-white">
+        <div className="mx-auto flex max-w-[1600px] flex-col lg:flex-row lg:items-stretch">
+          <div className="flex shrink-0 items-center border-b border-white/15 px-6 py-4 text-[10px] font-bold uppercase tracking-[0.16em] text-[#E8D7A5] lg:w-[175px] lg:border-b-0 lg:border-r">
+            Featured Projects
           </div>
-          <div className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-[11px] text-slate-200">
-            {trustBadges.map((badge) => (
-              <span className="before:mr-2 before:text-[#E5C078] before:content-['◦']" key={badge}>{badge}</span>
+          <div className="grid flex-1 grid-cols-2 md:grid-cols-4">
+            {projectLinks.map((project, index) => (
+              <Link href={project.href} key={project.name} className="group flex min-h-16 items-center gap-3 border-r border-b border-white/10 px-5 py-4 transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#E5C078] md:border-b-0">
+                <span className="text-[10px] text-[#C6AC78]">{String(index + 1).padStart(2, "0")}</span>
+                <span className="min-w-0 flex-1 font-display text-base font-semibold leading-tight text-white group-hover:text-[#E5C078]">{project.name}</span>
+                <span aria-hidden="true" className="text-[#C6AC78]">↗</span>
+              </Link>
             ))}
           </div>
         </div>
+      </nav>
 
-        <nav aria-label="Featured projects" className="w-full max-w-sm border border-white/15 bg-[#06111F]/65 p-5 backdrop-blur-md lg:justify-self-end">
-          <div className="mb-3 flex items-center justify-between border-b border-white/20 pb-4 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#E8D7A5]">
-            <span>Featured Projects</span><span aria-hidden="true">↗</span>
-          </div>
-          {projectLinks.map((project,index) => (
-            <Link key={project.name} href={project.href} className="group flex items-center gap-4 border-b border-white/15 px-1 py-4 last:border-b-0 hover:text-[#E5C078] focus-visible:outline focus-visible:outline-2 focus-visible:outline-white">
-              <span className="text-[10px] text-[#E8D7A5]">{String(index + 1).padStart(2, "0")}</span>
-              <span className="flex-1 font-display text-lg leading-tight">{project.name}</span>
-              <span aria-hidden="true" className="transition group-hover:translate-x-1">↗</span>
-            </Link>
-          ))}
-        </nav>
-      </div>
-
-      <div className="relative z-10 border-y border-white/15 bg-[#05101D]/90">
+      <div className="relative z-10 border-y border-white/15 bg-[#05101D] text-white">
         <div className="mx-auto flex max-w-[1600px] flex-col lg:flex-row lg:items-center">
           <div className="shrink-0 border-b border-white/15 px-6 py-4 text-[10px] font-bold uppercase tracking-[0.16em] text-[#E8D7A5] lg:border-b-0 lg:border-r">
             Completed Projects
@@ -106,6 +119,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+
       <div className="relative z-10 flex flex-wrap items-center justify-center gap-x-5 gap-y-3 bg-[#05101D] px-5 py-4 text-[11px] text-[#E8D7A5]">
         <Link href="/projects" className="underline underline-offset-4 hover:text-white">Project Brochures</Link>
         <Link href="/projects" className="underline underline-offset-4 hover:text-white">Location Advantages</Link>
