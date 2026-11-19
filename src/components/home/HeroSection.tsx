@@ -49,9 +49,6 @@ const HeroSection = () => {
             </video>
           </div>
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#071525]/30 via-transparent to-[#071525]/10" aria-hidden="true" />
-          <div className="absolute bottom-5 left-5 z-10 border-l-2 border-[#E5C078] bg-[#071525]/70 px-4 py-2 text-xs font-semibold tracking-wide text-white backdrop-blur-sm sm:bottom-8 sm:left-9">
-            Supraja IRIS | Actual Project Footage
-          </div>
         </div>
 
         <div className="relative flex min-w-0 flex-col justify-center border-t-[5px] border-[#C5A15C] bg-[#FAF9F6] px-6 pb-11 pt-12 text-[#10233A] sm:px-10 sm:pb-14 lg:border-l-[8px] lg:border-t-0 lg:px-7 lg:pb-12 lg:pt-28 xl:px-12 2xl:px-16">
