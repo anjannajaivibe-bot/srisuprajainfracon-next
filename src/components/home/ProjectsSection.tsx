@@ -33,24 +33,24 @@ const projectCardCopy: Record<
 
 const ProjectsSection = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-24">
-      <div className="relative mx-auto max-w-7xl px-6">
-        <div className="mb-16 text-center">
-          <p className="mb-4 text-sm font-bold uppercase tracking-[0.32em] text-[#725700]">
+    <section className="relative overflow-hidden bg-[#F7F6F2] py-24 lg:py-32">
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="mb-16 lg:mb-24">
+          <p className="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-[#987737]">
             Our Ongoing Projects
           </p>
 
-          <div className="mx-auto mb-6 flex max-w-xs items-center justify-center gap-4">
+          <div className="mb-6 flex max-w-[100px] items-center gap-4">
             <span className="h-px flex-1 bg-[#C9A227]/40" />
             <span className="h-2 w-2 rotate-45 border border-[#C9A227]" />
             <span className="h-px flex-1 bg-[#C9A227]/40" />
           </div>
 
-          <h2 className="mx-auto max-w-5xl font-display text-4xl font-bold leading-tight tracking-tight text-[#07111F] md:text-6xl">
+          <h2 className="max-w-[780px] font-display text-5xl font-semibold leading-[1.05] tracking-[-0.035em] text-[#071525] md:text-7xl">
             Ongoing <span className="text-[#C48912]">Plotted Developments</span> Near Hyderabad
           </h2>
 
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[#334155]">
+          <p className="mt-8 max-w-[680px] text-base leading-8 text-[#555D64] lg:ml-auto lg:max-w-[490px]">
             Compare our current projects by location, approval status, plot size,
             price, connectivity and on-site development. Each project page includes
             the details you need before arranging a site visit.
@@ -70,10 +70,10 @@ const ProjectsSection = () => {
           return (
             <article
               key={project.id}
-              className="group relative overflow-hidden border-t border-[#EFE7D3] bg-white last:border-b"
+              className="group relative overflow-hidden bg-[#F7F6F2] py-10 lg:py-16"
             >
               <div
-                className={`absolute inset-y-0 hidden w-[58%] lg:block ${
+                className={`absolute inset-y-6 hidden w-[49%] overflow-hidden rounded-[20px] lg:block ${
                   imageFirst ? "left-0" : "right-0"
                 }`}
               >
@@ -94,26 +94,26 @@ const ProjectsSection = () => {
               <div
                 className={`absolute inset-0 hidden lg:block ${
                   imageFirst
-                    ? "bg-gradient-to-l from-white via-white/95 to-white/10"
-                    : "bg-gradient-to-r from-white via-white/95 to-white/10"
+                    ? "bg-gradient-to-l from-[#F7F6F2]/15 to-transparent"
+                     : "bg-gradient-to-r from-[#F7F6F2]/15 to-transparent"
                 }`}
               />
 
-              <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:min-h-[560px] lg:grid-cols-2 lg:items-center">
+              <div className="relative mx-auto grid max-w-7xl gap-7 px-6 py-10 lg:min-h-[510px] lg:grid-cols-2 lg:items-center lg:px-10">
                 <div
-                  className={`relative z-10 max-w-xl ${
-                    imageFirst ? "lg:col-start-2 lg:ml-auto" : ""
+                  className={`relative z-10 max-w-xl rounded-[20px] bg-white p-7 shadow-[0_18px_65px_rgba(8,21,40,0.08)] sm:p-10 lg:w-[110%] lg:p-12 ${
+                    imageFirst ? "lg:col-start-2 lg:-ml-[10%]" : ""
                   }`}
                 >
-                  <div className="mb-7 inline-flex w-fit rounded-lg bg-[#FFF4D8] px-4 py-2 text-xs font-extrabold uppercase tracking-wide text-[#725700]">
+                  <div className="mb-5 inline-flex w-fit text-[10px] font-semibold uppercase tracking-[0.16em] text-[#987737]">
                     {cardCopy.badge}
                   </div>
 
-                  <p className="mb-3 text-sm font-extrabold uppercase tracking-wide text-[#725700]">
+                  <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#987737]">
                     {project.location}
                   </p>
 
-                  <h3 className="mb-3 font-display text-4xl font-bold leading-tight text-[#07111F] md:text-5xl">
+                  <h3 className="mb-4 font-display text-4xl font-semibold leading-tight tracking-tight text-[#071525] md:text-5xl">
                     <Link
                       href={project.link}
                       className="transition hover:text-[#725700]"
@@ -140,25 +140,25 @@ const ProjectsSection = () => {
 
                   <div className="mb-6 h-px w-16 bg-[#C48912]" />
 
-                  <p className="mb-8 text-[18px] leading-9 text-[#334155]">
+                  <p className="mb-7 text-[15px] leading-7 text-[#4D5966]">
                     {project.shortDescription}
                   </p>
 
-                  <div className="mb-9 flex flex-wrap gap-3">
+                  <div className="mb-7 flex flex-wrap gap-x-4 gap-y-2">
                     {project.highlights.slice(0, 3).map((item) => (
                       <span
                         key={item}
-                        className="rounded-lg border border-[#E8D7A5] bg-white px-4 py-2 text-xs font-bold text-[#374151] shadow-sm"
+                        className="text-[11px] font-medium text-[#515D66] before:mr-2 before:text-[#C9A227] before:content-['•']"
                       >
                         {item}
                       </span>
                     ))}
                   </div>
 
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
                     <Link
                       href={project.link}
-                      className="inline-flex items-center justify-center rounded-lg bg-[#07111F] px-6 py-3 text-sm font-bold text-white shadow-md transition hover:-translate-y-1 hover:bg-[#C9A227] hover:text-[#07111F]"
+                      className="inline-flex items-center justify-center rounded-sm bg-[#071525] px-5 py-3 text-xs font-semibold text-white transition hover:bg-[#A57B30]"
                     >
                       View Project Details
                     </Link>
@@ -168,7 +168,7 @@ const ProjectsSection = () => {
                         href={project.availabilityMapUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center rounded-lg border border-[#CBD5E1] bg-white px-6 py-3 text-sm font-bold text-[#07111F] shadow-sm transition hover:-translate-y-1 hover:border-[#C9A227] hover:bg-[#FFF9E8]"
+                        className="inline-flex items-center justify-center border-b border-[#C9A227] py-2 text-xs font-semibold text-[#071525] transition hover:text-[#987737]"
                       >
                         Live Plot Availability
                       </a>
@@ -179,7 +179,7 @@ const ProjectsSection = () => {
                         href={project.brochure}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center rounded-lg border border-[#A98219] bg-white px-6 py-3 text-sm font-bold text-[#725700] shadow-sm transition hover:-translate-y-1 hover:bg-[#C9A227] hover:text-[#07111F]"
+                        className="inline-flex items-center justify-center border-b border-[#C9A227] py-2 text-xs font-semibold text-[#725700] transition hover:text-[#071525]"
                       >
                         View Brochure
                       </a>
@@ -187,7 +187,7 @@ const ProjectsSection = () => {
                   </div>
                 </div>
 
-                <div className="relative overflow-hidden rounded-[28px] lg:hidden">
+                <div className="relative overflow-hidden rounded-[20px] lg:hidden">
                   <SmartImage
                     src={project.image}
                     alt={project.imageAlt || cardCopy.alt}
